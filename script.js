@@ -21,8 +21,10 @@ function renderizarProdutos(produtos) {
   produtos.forEach(produto => {
 
  html += `
-<div class="produto">
-
+<div
+    class="produto"
+    onclick="mostrarDetalhes('${produto.modelo}')"
+>
     <imgoduto.imagem}
 
     <h2>${produto.modelo}</h2>
@@ -58,6 +60,52 @@ function filtrarCategoria(categoria) {
   const filtrados = todosProdutos.filter(produto =>
     produto.categoria === categoria
   );
+
+  renderizarProdutos(filtrados);
+
+}
+function mostrarDetalhes(modelo) {
+
+    const produto = todosProdutos.find(p =>
+        p.modelo === modelo
+    );
+
+    document.getElementById("detalhes").innerHTML = `
+
+        <h1>${produto.modelo}</h1>
+
+        <p>
+            <strong>Marca:</strong>
+            ${produto.marca}
+        </p>
+
+        <p>
+            <strong>Categoria:</strong>
+            ${produto.categoria}
+        </p>
+
+        <p>
+            ${produto.descricao}
+        </p>
+
+    `;
+
+    function pesquisar() {
+
+  const texto = document
+    .getElementById("busca")
+    .value
+    .toLowerCase();
+
+  const filtrados = todosProdutos.filter(produto => {
+
+    return (
+      produto.modelo.toLowerCase().includes(texto) ||
+      produto.marca.toLowerCase().includes(texto) ||
+      produto.categoria.toLowerCase().includes(texto)
+    );
+
+  });
 
   renderizarProdutos(filtrados);
 
