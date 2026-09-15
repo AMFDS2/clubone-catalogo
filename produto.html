@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Produto</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="produto"></div>
+
+    <script>
+
+        const parametros = new URLSearchParams(window.location.search);
+
+        const modeloURL = parametros.get("modelo");
+
+        fetch("produtos.json")
+        .then(response => response.json())
+        .then(produtos => {
+
+            const produto = produtos.find(p =>
+                p.modelo === modeloURL
+            );
+
+            document.getElementById("produto").innerHTML = `
+            
+            <div class="produto">
+
+                <img src="${produto.imagem}" alt="${produto.modelo}">
+
+                <h1>${produto.modelo}</h1>
+
+                <p><strong>Marca:</strong> ${produto.marca}</p>
+
+                <p><strong>Categoria:</strong> ${produto.categoria}</p>
+
+                <p>${produto.descricao}</p>
+
+            </div>
+            
+            `;
+
+        });
+
+    </script>
+
+</body>
+
+</html>

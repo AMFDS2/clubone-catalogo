@@ -20,16 +20,16 @@ function renderizarProdutos(produtos) {
 
   produtos.forEach(produto => {
 
-   html += `
-  <div class="produto">
+ html += `
+<div class="produto">
 
-    <img src="${produto.imagem}" alt="${produto.descricao}">
+    <imgoduto.imagem}
 
     <h2>${produto.modelo}</h2>
 
-    produto.html?modelo=${produto.modelo}
-    Ver detalhes
-</a>
+    <a href="produto.html?modelo=${produto.modelo}">
+        Ver detalhes
+    </a>
 
     <p>${produto.marca}</p>
 
@@ -37,7 +37,7 @@ function renderizarProdutos(produtos) {
 
     <p>${produto.categoria}</p>
 
-  </div>
+</div>
 `;
 
   });
