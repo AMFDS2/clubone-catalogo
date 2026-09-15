@@ -1,0 +1,73 @@
+body {
+    background-color: #f6f4f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+    color: #222;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.logos img {
+    height: 60px;
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 400px;
+    max-width: 90%;
+    padding: 15px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+}
+
+.categorias {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.categorias button {
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.produto {
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.produto:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
