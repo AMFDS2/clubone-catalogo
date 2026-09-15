@@ -22,22 +22,16 @@ function renderizarProdutos(produtos) {
 
  html += `
 <div
-    class="produto"
-    onclick="mostrarDetalhes('${produto.modelo}')"
+class="produto"
+onclick="mostrarDetalhes('${produto.modelo}')"
 >
-    <imgoduto.imagem}
+<h2>${produto.modelo}</h2>
 
-    <h2>${produto.modelo}</h2>
+<p>${produto.descricao}</p>
 
-    <a href="produto.html?modelo=${produto.modelo}">
-        Ver detalhes
-    </a>
-
-    <p>${produto.marca}</p>
-
-    <p>${produto.descricao}</p>
-
-    <p>${produto.categoria}</p>
+<p>
+${produto.marca} • ${produto.categoria}
+</p>
 
 </div>
 `;
@@ -66,30 +60,64 @@ function filtrarCategoria(categoria) {
 }
 function mostrarDetalhes(modelo) {
 
-    const produto = todosProdutos.find(p =>
-        p.modelo === modelo
+    const produto = todosProdutos.find(
+        p => p.modelo === modelo
     );
 
     document.getElementById("detalhes").innerHTML = `
 
-        <h1>${produto.modelo}</h1>
+        <div class="painel-produto">
 
-        <p>
-            <strong>Marca:</strong>
-            ${produto.marca}
-        </p>
+            <h1>${produto.modelo}</h1>
 
-        <p>
-            <strong>Categoria:</strong>
-            ${produto.categoria}
-        </p>
+            <div class="cabecalho-produto">
 
-        <p>
-            ${produto.descricao}
-        </p>
+                <div class="imagem-produto">
+
+                    ${produto.imagem}
+
+                </div>
+
+                <div class="info-produto">
+
+                    <p>
+                        <strong>Marca</strong><br>
+                        ${produto.marca}
+                    </p>
+
+                    <p>
+                        <strong>Categoria</strong><br>
+                        ${produto.categoria}
+                    </p>
+
+                    <p>
+                        <strong>Descrição</strong><br>
+                        ${produto.descricao}
+                    </p>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h3>Dados para Especificação</h3>
+
+            <p>
+                Informações técnicas serão exibidas aqui.
+            </p>
+
+            <h3>Dimensões Técnicas</h3>
+
+            <p>
+                Dimensões serão exibidas aqui.
+            </p>
+
+        </div>
 
     `;
 
+}
     function pesquisar() {
 
   const texto = document
