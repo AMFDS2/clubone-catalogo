@@ -19,11 +19,22 @@ Arquitetos • Designers • Especificadores
 <input type="text" id="busca" placeholder="Buscar produto...">
 </header>
 <section class="categorias">
-<button>Vídeo</button>
-<button>Áudio</button>
-<button>Linha Branca</button>
-<button>Automação</button>
-</section>
+<button onclick="filtrarCategoria('Todos')">
+Todos
+</button>
+<button onclick="filtrarCategoria('Video')">
+Vídeo
+</button>
+<button onclick="filtrarCategoria('Audio')">
+Áudio
+</button>
+<button onclick="filtrarCategoria('Linha Branca')">
+Linha Branca
+</button>
+<button onclick="filtrarCategoria('Automacao')">
+Automação
+</button>
+</section>​‌
 <main id="produtos">
 </main>
     <script src="script.js"></script>

@@ -42,22 +42,18 @@ function renderizarProdutos(produtos) {
 
 }
 
-function pesquisar() {
+function filtrarCategoria(categoria) {
 
-  const texto = document
-    .getElementById("busca")
-    .value
-    .toLowerCase();
+  if (categoria === "Todos") {
 
-  const filtrados = todosProdutos.filter(produto => {
+    renderizarProdutos(todosProdutos);
+    return;
 
-    return (
-      produto.modelo.toLowerCase().includes(texto) ||
-      produto.marca.toLowerCase().includes(texto) ||
-      produto.categoria.toLowerCase().includes(texto)
-    );
+  }
 
-  });
+  const filtrados = todosProdutos.filter(produto =>
+    produto.categoria === categoria
+  );
 
   renderizarProdutos(filtrados);
 
