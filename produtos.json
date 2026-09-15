@@ -1,17 +1,17 @@
 [
-    {
-        "marca": "Samsung",
-        "modelo": "UN98DU9000",
-        "categoria": "Vídeo"
-    },
-    {
-        "marca": "Samsung",
-        "modelo": "QN65Q80D",
-        "categoria": "Vídeo"
-    },
-    {
-        "marca": "Samsung",
-        "modelo": "DW60C7050",
-        "categoria": "Linha Branca"
-    }
+  {
+    "marca": "Samsung",
+    "modelo": "UN98DU9000",
+    "categoria": "Video",
+    "descricao": "TV Crystal UHD 98 Polegadas",
+    "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/un98du9000gxzd/gallery/br-crystal-uhd-du9000-un98du9000gxzd-541600415"
+  },
+
+  {
+    "marca": "Samsung",
+    "modelo": "QN65Q80D",
+    "categoria": "Video",
+    "descricao": "TV QLED 65 Polegadas",
+    "imagem": "https://images.samsung.com"
+  }
 ]
