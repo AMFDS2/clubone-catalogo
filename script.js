@@ -27,6 +27,10 @@ function renderizarProdutos(produtos) {
 
     <h2>${produto.modelo}</h2>
 
+    produto.html?modelo=${produto.modelo}
+    Ver detalhes
+</a>
+
     <p>${produto.marca}</p>
 
     <p>${produto.descricao}</p>
