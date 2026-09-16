@@ -1,26 +1,235 @@
 [
   {
+    "id": "un98du9000gxzd",
+    "ordem": 5,
     "marca": "Samsung",
-    "modelo": "UN98DU9000",
-    "categoria": "Video",
+    "modelo": "UN98DU9000GXZD",
+    "nome": "TV Crystal UHD 98” 4K Smart",
     "descricao": "TV Crystal UHD 98 Polegadas",
+    "codigoInfo": "TVV0633",
+    "categoria": "Video",
     "segmento": "TV",
-    "site": "https://www.infostore.com/br/",
-    "dimensoes": "2181 x 1244 x 63 mm",
 
-    "especificacoes": [
-      "4K UHD",
-      "HDR",
-      "Gaming Hub",
-      "Tizen",
-      "120Hz"
+    "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/un98du9000gxzd/gallery/br-crystal-uhd-du9000-un98du9000gxzd-542553784?$1164_776_PNG$",
+
+    "siteFabricante": "https://www.samsung.com/br/tvs/uhd-4k-tv/du9000-98-inch-crystal-uhd-4k-tizen-os-smart-tv-un98du9000gxzd/",
+
+    "siteInfoStore": "https://www.infostore.com.br/",
+
+    "destaques": [
+      {
+        "titulo": "Crystal UHD",
+        "icone": "◉"
+      },
+      {
+        "titulo": "120Hz",
+        "icone": "↻"
+      },
+      {
+        "titulo": "Gaming Hub",
+        "icone": "⌘"
+      },
+      {
+        "titulo": "4K Upscaling",
+        "icone": "▧"
+      },
+      {
+        "titulo": "Tizen",
+        "icone": "◇"
+      }
     ],
+
+    "especificacoes": {
+      "Tecnologia do painel": "Crystal UHD",
+      "Tamanho da tela": "98 polegadas",
+      "Resolução": "4K (3840 × 2160)",
+      "Taxa de atualização": "120Hz",
+      "Processador": "Crystal Processor 4K",
+      "Sistema operacional": "Tizen",
+      "HDR": "HDR10+",
+      "Recursos gamer": "Gaming Hub e Motion Xcelerator",
+      "Conectividade": "Wi-Fi, Bluetooth e LAN",
+      "Entradas HDMI": "Consultar ficha oficial",
+      "Entradas USB": "Consultar ficha oficial"
+    },
+
+    "dimensoes": {
+      "semBase": {
+        "largura": "2181 mm",
+        "altura": "1244 mm",
+        "profundidade": "63 mm"
+      },
+      "comBase": {
+        "largura": "2181 mm",
+        "altura": "1301 mm",
+        "profundidade": "402 mm"
+      },
+      "embalagem": {
+        "largura": "2380 mm",
+        "altura": "1434 mm",
+        "profundidade": "350 mm"
+      }
+    },
+
+    "instalacao": "Devido ao tamanho e ao peso do produto, a instalação deve ser realizada por profissionais capacitados. Verifique previamente as dimensões do acesso, a resistência da parede, o padrão VESA e a disponibilidade de pontos elétricos.",
 
     "documentos": [
-      "Manual Técnico",
-      "Ficha Técnica"
+      {
+        "nome": "Página oficial do produto",
+        "url": "https://www.samsung.com/br/tvs/uhd-4k-tv/du9000-98-inch-crystal-uhd-4k-tizen-os-smart-tv-un98du9000gxzd/"
+      },
+      {
+        "nome": "Suporte Samsung",
+        "url": "https://www.samsung.com/br/support/"
+      }
     ],
 
-    "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/un98du9000gxzd/gallery/br-crystal-uhd-du9000-un98du9000gxzd-542553784?$1164_776_PNG$"
+    "sobreMarca": "A Samsung oferece soluções de tecnologia, entretenimento e conectividade para projetos residenciais e comerciais, incluindo televisores premium, eletrodomésticos e integração por meio do SmartThings."
+  },
+
+  {
+    "id": "qn65q80d",
+    "ordem": 4,
+    "marca": "Samsung",
+    "modelo": "QN65Q80D",
+    "nome": "TV QLED 65” 4K Smart",
+    "descricao": "TV QLED 65 Polegadas",
+    "codigoInfo": "TV0651",
+    "categoria": "Video",
+    "segmento": "TV",
+
+    "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/qn65q80dagxzd/gallery/br-qled-q80d-qn65q80dagxzd-539439251?$684_547_PNG$",
+
+    "siteFabricante": "https://www.samsung.com/br/tvs/qled-tv/",
+
+    "siteInfoStore": "https://www.infostore.com.br/",
+
+    "destaques": [
+      {
+        "titulo": "QLED",
+        "icone": "◉"
+      },
+      {
+        "titulo": "120Hz",
+        "icone": "↻"
+      },
+      {
+        "titulo": "Smart Hub",
+        "icone": "⌘"
+      },
+      {
+        "titulo": "4K",
+        "icone": "▧"
+      },
+      {
+        "titulo": "Tizen",
+        "icone": "◇"
+      }
+    ],
+
+    "especificacoes": {
+      "Tecnologia do painel": "QLED",
+      "Tamanho da tela": "65 polegadas",
+      "Resolução": "4K (3840 × 2160)",
+      "Taxa de atualização": "120Hz",
+      "Sistema operacional": "Tizen",
+      "HDR": "Quantum HDR+",
+      "Recursos gamer": "Gaming Hub",
+      "Conectividade": "Wi-Fi, Bluetooth e LAN"
+    },
+
+    "dimensoes": {
+      "semBase": {
+        "largura": "1446 mm",
+        "altura": "829 mm",
+        "profundidade": "47 mm"
+      },
+      "comBase": {
+        "largura": "1446 mm",
+        "altura": "891 mm",
+        "profundidade": "286 mm"
+      },
+      "embalagem": {
+        "largura": "1621 mm",
+        "altura": "965 mm",
+        "profundidade": "186 mm"
+      }
+    },
+
+    "instalacao": "Confirme as medidas oficiais, o padrão VESA, a resistência do suporte e as distâncias necessárias para ventilação antes da instalação.",
+
+    "documentos": [
+      {
+        "nome": "Linha Samsung QLED",
+        "url": "https://www.samsung.com/br/tvs/qled-tv/"
+      }
+    ],
+
+    "sobreMarca": "A Samsung desenvolve soluções integradas para entretenimento, automação e eletrodomésticos, permitindo a criação de ambientes conectados e personalizados."
+  },
+
+  {
+    "id": "hwq800d",
+    "ordem": 3,
+    "marca": "Samsung",
+    "modelo": "HW-Q800D",
+    "nome": "Soundbar 5.1.2 canais Dolby Atmos",
+    "descricao": "Soundbar Samsung Premium",
+    "codigoInfo": "AUD0800",
+    "categoria": "Audio",
+    "segmento": "Soundbar",
+
+    "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/hw-q800d-zd/gallery/br-q-series-soundbar-hw-q800d-hw-q800d-zd-541821542?$684_547_PNG$",
+
+    "siteFabricante": "https://www.samsung.com/br/audio-devices/soundbar/",
+
+    "siteInfoStore": "https://www.infostore.com.br/",
+
+    "destaques": [
+      {
+        "titulo": "Dolby Atmos",
+        "icone": "◖"
+      },
+      {
+        "titulo": "5.1.2 canais",
+        "icone": "◉"
+      },
+      {
+        "titulo": "Q-Symphony",
+        "icone": "⌘"
+      }
+    ],
+
+    "especificacoes": {
+      "Tipo": "Soundbar",
+      "Canais": "5.1.2",
+      "Tecnologia de áudio": "Dolby Atmos",
+      "Integração": "Q-Symphony",
+      "Conectividade": "Wi-Fi e Bluetooth"
+    },
+
+    "dimensoes": {
+      "soundbar": {
+        "largura": "1110 mm",
+        "altura": "61 mm",
+        "profundidade": "121 mm"
+      },
+      "subwoofer": {
+        "largura": "211 mm",
+        "altura": "404 mm",
+        "profundidade": "404 mm"
+      }
+    },
+
+    "instalacao": "Posicione a soundbar centralizada em relação à televisão e mantenha o subwoofer em local ventilado, observando as recomendações do fabricante.",
+
+    "documentos": [
+      {
+        "nome": "Linha de soundbars Samsung",
+        "url": "https://www.samsung.com/br/audio-devices/soundbar/"
+      }
+    ],
+
+    "sobreMarca": "As soluções de áudio Samsung foram desenvolvidas para integração com televisores e ambientes conectados."
   }
 ]
