@@ -89,7 +89,13 @@ function mostrarDetalhes(modelo) {
     <div class="acoes">
 
       ${produto.site}
-        SITE DO FABRICANTE
+      >
+      SITE
+      <a
+        href="https://www.infostore.com.br"
+        target="_blank"
+        class="botao-borda"
+      >
       </a>
 
       <a
