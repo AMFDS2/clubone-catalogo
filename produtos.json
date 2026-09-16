@@ -1,25 +1,12 @@
 [
   {
-    "marca": "Samsung",
-    "modelo": "UN98DU9000",
-    "categoria": "Video",
-    "descricao": "TV Crystal UHD 98 Polegadas",
-    "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/un98du9000gxzd/gallery/br-crystal-uhd-du9000-un98du9000gxzd-542553784?$1164_776_PNG$"
-  },
-
-  {
-    "marca": "Samsung",
-    "modelo": "QN65Q80D",
-    "categoria": "Video",
-    "descricao": "TV QLED 65 Polegadas",
-    "imagem": ""
-  },
-
-  {
-    "marca": "Samsung",
-    "modelo": "DW60CG550",
-    "categoria": "Linha Branca",
-    "descricao": "Lava-louças",
-    "imagem": ""
+  "marca": "Samsung",
+  "modelo": "UN98DU9000",
+  "categoria": "Video",
+  "descricao": "TV Crystal UHD 98 Polegadas",
+  "segmento": "TV",
+  "site": "infostore.com.br",
+  "dimensoes": ""
   }
+  
 ]

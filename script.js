@@ -74,9 +74,9 @@ function mostrarDetalhes(modelo) {
 
                 <div class="imagem-produto">
 
-                    ${produto.imagem}
+    ${produto.imagem}
 
-                </div>
+</div>
 
                 <div class="info-produto">
 
@@ -103,17 +103,54 @@ function mostrarDetalhes(modelo) {
 
             <h3>Dados para Especificação</h3>
 
-            <p>
-                Informações técnicas serão exibidas aqui.
-            </p>
+<div class="bloco-tecnico">
 
-            <h3>Dimensões Técnicas</h3>
+    <h3>Dados para Especificação</h3>
 
-            <p>
-                Dimensões serão exibidas aqui.
-            </p>
+<div class="bloco-tecnico">
 
-        </div>
+    <p>
+        <strong>Modelo:</strong>
+        ${produto.modelo}
+    </p>
+
+    <p>
+        <strong>Marca:</strong>
+        ${produto.marca}
+    </p>
+
+    <p>
+        <strong>Categoria:</strong>
+        ${produto.categoria}
+    </p>
+
+</div>
+
+<h3>Dimensões Técnicas</h3>
+
+<div class="bloco-tecnico">
+
+    Em atualização.
+
+</div>
+
+<h3>Dimensões Técnicas</h3>
+
+<div class="bloco-tecnico">
+
+    Em atualização.
+
+</div>
+
+</div>
+
+<h3>Dimensões Técnicas</h3>
+
+<div class="bloco-tecnico">
+
+    Em atualização.
+
+</div>
 
     `;
 
