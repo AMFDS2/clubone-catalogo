@@ -64,95 +64,56 @@ function mostrarDetalhes(modelo) {
         p => p.modelo === modelo
     );
 
-    document.getElementById("detalhes").innerHTML = `
+document.getElementById("detalhes").innerHTML = `
 
-        <div class="painel-produto">
+<div class="painel-produto">
 
-            <h1>${produto.modelo}</h1>
-
-            <div class="cabecalho-produto">
-
-                <div class="imagem-produto">
-
-    ${produto.imagem}
-
-</div>
-
-                <div class="info-produto">
-
-                    <p>
-                        <strong>Marca</strong><br>
-                        ${produto.marca}
-                    </p>
-
-                    <p>
-                        <strong>Categoria</strong><br>
-                        ${produto.categoria}
-                    </p>
-
-                    <p>
-                        <strong>Descrição</strong><br>
-                        ${produto.descricao}
-                    </p>
-
-                </div>
-
-            </div>
-
-            <hr>
-
-            <h3>Dados para Especificação</h3>
-
-<div class="bloco-tecnico">
-
-    <h3>Dados para Especificação</h3>
-
-<div class="bloco-tecnico">
-
-    <p>
-        <strong>Modelo:</strong>
-        ${produto.modelo}
-    </p>
-
-    <p>
-        <strong>Marca:</strong>
-        ${produto.marca}
-    </p>
-
-    <p>
-        <strong>Categoria:</strong>
+    <span class="badge">
         ${produto.categoria}
-    </p>
+    </span>
 
+    <h1>${produto.modelo}</h1>
+
+    <h2>${produto.descricao}</h2>
+
+    <hr>
+
+    <div class="acoes">
+
+        <button class="botao-preto">
+            SITE DO FABRICANTE
+        </button>
+
+        <button class="botao-borda">
+            CONSULTAR DISPONIBILIDADE
+        </button>
+
+    </div>
+
+    <hr>
+
+    <h3>ESPECIFICAÇÕES</h3>
+
+    <div class="bloco-tecnico">
+
+        <p><strong>Marca:</strong> ${produto.marca}</p>
+
+        <p><strong>Categoria:</strong> ${produto.categoria}</p>
+
+        <p><strong>Segmento:</strong> ${produto.segmento}</p>
+
+    </div>
+
+    <h3>DIMENSÕES</h3>
+
+    <div class="bloco-tecnico">
+
+        ${produto.dimensoes || "Em atualização"}
+
+    </div>
 </div>
 
-<h3>Dimensões Técnicas</h3>
-
-<div class="bloco-tecnico">
-
-    Em atualização.
-
-</div>
-
-<h3>Dimensões Técnicas</h3>
-
-<div class="bloco-tecnico">
-
-    Em atualização.
-
-</div>
-
-</div>
-
-<h3>Dimensões Técnicas</h3>
-
-<div class="bloco-tecnico">
-
-    Em atualização.
-
-</div>
-
-    `;
+`;
 
 }
     function pesquisar() {
