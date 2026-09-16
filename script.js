@@ -138,16 +138,17 @@ document.getElementById("detalhes").innerHTML = `
 
     <hr>
 
-    <div class="acoes">
+   <div class="acoes">
 
-        <button class="botao-preto">
-            SITE DO FABRICANTE
-        </button>
+    <a
+        href="${produto.site}"
+FABRICANTE
+    </a>
 
-        <button class="botao-borda">
-            CONSULTAR DISPONIBILIDADE
-        </button>
-
+    <a
+        href="https://www.infostore.com.br"
+        target="_blank"
+        class
     </div>
 
     <hr>
