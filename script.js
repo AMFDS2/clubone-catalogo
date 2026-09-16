@@ -63,7 +63,10 @@ function mostrarDetalhes(modelo) {
     const produto = todosProdutos.find(
         p => p.modelo === modelo
     );
-
+    const listaEspecificacoes =
+    produto.especificacoes
+        .map(item => `<li>${item}</li>`)
+        .join("");
 document.getElementById("detalhes").innerHTML = `
 
 <div class="painel-produto">
@@ -96,13 +99,15 @@ document.getElementById("detalhes").innerHTML = `
 
     <div class="bloco-tecnico">
 
-        <p><strong>Marca:</strong> ${produto.marca}</p>
+    <h4>Características</h4>
 
-        <p><strong>Categoria:</strong> ${produto.categoria}</p>
+    <ul>
 
-        <p><strong>Segmento:</strong> ${produto.segmento}</p>
+        ${listaEspecificacoes}
 
-    </div>
+    </ul>
+
+</div>
 
     <h3>DIMENSÕES</h3>
 

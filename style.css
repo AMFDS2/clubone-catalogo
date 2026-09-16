@@ -186,3 +186,30 @@ main {
     margin: 3px 0;
     font-size: 14px;
 }
+.badge {
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.botao-preto {
+    background: black;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+}
+
+.botao-borda {
+    background: white;
+    border: 1px solid #d6a25e;
+    padding: 14px 20px;
+    border-radius: 10px;
+}

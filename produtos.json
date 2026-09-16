@@ -1,12 +1,26 @@
 [
   {
-  "marca": "Samsung",
-  "modelo": "UN98DU9000",
-  "categoria": "Video",
-  "descricao": "TV Crystal UHD 98 Polegadas",
-  "segmento": "TV",
-  "site": "infostore.com.br",
-  "dimensoes": "",
-  "imagem": "https://images.samsung.com/is/image/samsung/br-un98du9000gxzd-frontblack-530479234?$650_519_PNG$"
+    "marca": "Samsung",
+    "modelo": "UN98DU9000",
+    "categoria": "Video",
+    "descricao": "TV Crystal UHD 98 Polegadas",
+    "segmento": "TV",
+    "site": "https://www.samsung.com/br/",
+    "dimensoes": "2181 x 1244 x 63 mm",
+
+    "especificacoes": [
+      "4K UHD",
+      "HDR",
+      "Gaming Hub",
+      "Tizen",
+      "120Hz"
+    ],
+
+    "documentos": [
+      "Manual Técnico",
+      "Ficha Técnica"
+    ],
+
+    "imagem": "https://images.samsung.com/is/image/samsung/br-un98du9000gxzd-frontblack-530479234?$650_519_PNG$"
   }
 ]
