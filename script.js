@@ -38,8 +38,65 @@ ${produto.marca} • ${produto.categoria}
 
   });
 
-  document.getElementById("produtos").innerHTML = html;
+  document.getElementById("detalhes").innerHTML = `
 
+<div class="painel-produto">
+
+    <span class="badge">
+        ${produto.categoria}
+    </span>
+
+    <h1>${produto.modelo}</h1>
+
+    <p class="subtitulo">
+        ${produto.descricao}
+    </p>
+
+    <div class="acoes">
+
+        <a
+            href="${produto.siteFabricante}"
+            SITE DO FABRICANTE
+        </a>
+
+        <a
+            href="#"
+            class="botao-borda"
+       >
+
+    <div class="tabs">
+
+        <span>ESPECIFICAÇÕES</span>
+
+        <span>DIMENSÕES</span>
+
+        <span>DOCUMENTOS</span>
+
+    </div>
+
+    <div class="bloco-tecnico">
+
+        <h3>Características</h3>
+
+        <ul>
+
+            ${listaEspecificacoes}
+
+        </ul>
+
+    </div>
+
+    <div class="bloco-tecnico">
+
+        <h3>Dimensões</h3>
+
+        ${produto.dimensoes}
+
+    </div>
+
+</div>
+
+`;
 }
 
 function filtrarCategoria(categoria) {
