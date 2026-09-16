@@ -1,11 +1,10 @@
+const ARQUIVO_CATALOGO = "produtos.preview.json";
+const IMAGEM_FALLBACK = "assets/produto-sem-imagem.png";
+
 let todosProdutos = [];
 let produtosFiltrados = [];
 let produtoSelecionado = null;
 let categoriaSelecionada = "Todos";
-
-/* =====================================
-   INICIALIZAÇÃO
-===================================== */
 
 document.addEventListener("DOMContentLoaded", inicializar);
 
@@ -13,93 +12,63 @@ async function inicializar() {
   configurarEventosFixos();
 
   try {
-    const resposta = await fetch("produtos.json");
+    const resposta = await fetch(ARQUIVO_CATALOGO, { cache: "no-store" });
+    if (!resposta.ok) throw new Error(`Falha ao carregar ${ARQUIVO_CATALOGO}: ${resposta.status}`);
 
-    if (!resposta.ok) {
-      throw new Error(
-        `Não foi possível carregar produtos.json. Status: ${resposta.status}`
-      );
-    }
-
-    todosProdutos = await resposta.json();
+    const dados = await resposta.json();
+    todosProdutos = Array.isArray(dados) ? dados.filter(produtoValido) : [];
     produtosFiltrados = [...todosProdutos];
-
+    ordenarProdutos();
     renderizarProdutos(produtosFiltrados);
 
-    if (todosProdutos.length > 0) {
-      mostrarDetalhes(todosProdutos[0].id);
-    }
+    if (produtosFiltrados.length) mostrarDetalhes(produtosFiltrados[0].id);
   } catch (erro) {
     console.error(erro);
-
-    document.getElementById("produtos").innerHTML = `
-      <div class="sem-resultados">
-        Não foi possível carregar os produtos.
-        <br><br>
-        Abra o projeto usando o Live Server.
-      </div>
-    `;
+    document.getElementById("produtos").innerHTML = estadoMensagem(
+      "Não foi possível carregar os produtos. Abra o projeto usando o Live Server."
+    );
   }
 }
 
-
-/* =====================================
-   EVENTOS FIXOS
-===================================== */
+function produtoValido(produto) {
+  return Boolean(produto && produto.id && produto.modelo && produto.nome);
+}
 
 function configurarEventosFixos() {
   const campoBusca = document.getElementById("busca");
   const categorias = document.getElementById("categorias");
   const ordenacao = document.getElementById("ordenacao");
   const menuMobile = document.getElementById("menuMobile");
-  const menuPrincipal = document.querySelector(".menu-principal");
+  const menuPrincipal = document.getElementById("menuPrincipal");
 
   campoBusca.addEventListener("input", aplicarFiltros);
-
   ordenacao.addEventListener("change", aplicarFiltros);
 
   categorias.addEventListener("click", evento => {
     const botao = evento.target.closest(".categoria");
-
-    if (!botao) {
-      return;
-    }
+    if (!botao) return;
 
     categoriaSelecionada = botao.dataset.categoria;
-
-    document
-      .querySelectorAll(".categoria")
-      .forEach(item => item.classList.remove("ativo"));
-
+    categorias.querySelectorAll(".categoria").forEach(item => item.classList.remove("ativo"));
     botao.classList.add("ativo");
-
     aplicarFiltros();
   });
 
   menuMobile.addEventListener("click", () => {
-    menuPrincipal.classList.toggle("aberto");
+    const aberto = menuPrincipal.classList.toggle("aberto");
+    menuMobile.setAttribute("aria-expanded", String(aberto));
   });
 }
 
-
-/* =====================================
-   FILTRAGEM
-===================================== */
-
 function aplicarFiltros() {
-  const busca = document
-    .getElementById("busca")
-    .value
-    .trim()
-    .toLowerCase();
+  const busca = normalizarTexto(document.getElementById("busca").value.trim());
 
   produtosFiltrados = todosProdutos.filter(produto => {
     const correspondeCategoria =
       categoriaSelecionada === "Todos" ||
-      normalizarTexto(produto.categoria) ===
-        normalizarTexto(categoriaSelecionada);
+      normalizarTexto(produto.categoria) === normalizarTexto(categoriaSelecionada);
 
-    const conteudoPesquisavel = [
+    const conteudo = normalizarTexto([
       produto.marca,
       produto.modelo,
       produto.nome,
@@ -107,525 +76,210 @@ function aplicarFiltros() {
       produto.codigoInfo,
       produto.categoria,
       produto.segmento
-    ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
+    ].filter(Boolean).join(" "));
 
-    const correspondeBusca =
-      !busca || conteudoPesquisavel.includes(busca);
-
-    return correspondeCategoria && correspondeBusca;
+    return correspondeCategoria && (!busca || conteudo.includes(busca));
   });
 
   ordenarProdutos();
   renderizarProdutos(produtosFiltrados);
 
-  const produtoAindaVisivel = produtosFiltrados.some(
-    produto => produto.id === produtoSelecionado
-  );
+  const aindaVisivel = produtosFiltrados.some(produto => produto.id === produtoSelecionado);
+  if (!aindaVisivel && produtosFiltrados.length) mostrarDetalhes(produtosFiltrados[0].id);
 
-  if (!produtoAindaVisivel && produtosFiltrados.length > 0) {
-    mostrarDetalhes(produtosFiltrados[0].id);
-  }
-
-  if (produtosFiltrados.length === 0) {
+  if (!produtosFiltrados.length) {
     produtoSelecionado = null;
-
     document.getElementById("detalhes").innerHTML = `
-      <div class="estado-vazio">
-        <h1>Nenhum produto encontrado</h1>
-        <p>Tente buscar outro modelo ou selecionar outra categoria.</p>
-      </div>
-    `;
+      <div class="estado-vazio"><h1>Nenhum produto encontrado</h1><p>Tente outro modelo ou categoria.</p></div>`;
   }
 }
 
 function ordenarProdutos() {
-  const ordenacao = document.getElementById("ordenacao").value;
-
-  if (ordenacao === "modelo") {
-    produtosFiltrados.sort((a, b) =>
-      a.modelo.localeCompare(b.modelo, "pt-BR")
-    );
-  }
-
-  if (ordenacao === "categoria") {
-    produtosFiltrados.sort((a, b) =>
-      a.categoria.localeCompare(b.categoria, "pt-BR")
-    );
-  }
-
-  if (ordenacao === "recentes") {
-    produtosFiltrados.sort(
-      (a, b) => (b.ordem || 0) - (a.ordem || 0)
-    );
-  }
+  const tipo = document.getElementById("ordenacao").value;
+  produtosFiltrados.sort((a, b) => {
+    if (tipo === "modelo") return String(a.modelo).localeCompare(String(b.modelo), "pt-BR");
+    if (tipo === "categoria") return String(a.categoria).localeCompare(String(b.categoria), "pt-BR");
+    return (b.ordem || 0) - (a.ordem || 0);
+  });
 }
-
-
-/* =====================================
-   LISTA DE PRODUTOS
-===================================== */
 
 function renderizarProdutos(produtos) {
   const container = document.getElementById("produtos");
   const quantidade = document.getElementById("quantidadeProdutos");
+  quantidade.textContent = `${produtos.length} ${produtos.length === 1 ? "produto encontrado" : "produtos encontrados"}`;
 
-  quantidade.textContent =
-    `${produtos.length} ${produtos.length === 1 ? "produto encontrado" : "produtos encontrados"}`;
-
-  if (produtos.length === 0) {
-    container.innerHTML = `
-      <div class="sem-resultados">
-        Nenhum produto encontrado.
-      </div>
-    `;
-
+  if (!produtos.length) {
+    container.innerHTML = estadoMensagem("Nenhum produto encontrado.");
     return;
   }
 
-  container.innerHTML = produtos
-    .map(produto => {
-      const estaAtivo = produto.id === produtoSelecionado;
+  container.innerHTML = produtos.map(produto => {
+    const ativo = produto.id === produtoSelecionado;
+    return `
+      <button type="button" class="produto ${ativo ? "ativo" : ""}" data-produto-id="${escaparHTML(produto.id)}">
+        <span class="produto-imagem">
+          <img src="${escaparHTML(produto.imagem || IMAGEM_FALLBACK)}" alt="${escaparHTML(produto.nome)}" loading="lazy">
+        </span>
+        <span class="produto-informacoes">
+          <h3>${escaparHTML(produto.marca)} ${escaparHTML(produto.modelo)}</h3>
+          <p>${escaparHTML(produto.nome)}</p>
+          <p>${escaparHTML(produto.categoria)}</p>
+        </span>
+        <span class="produto-favorito" aria-hidden="true">${ativo ? "★" : "☆"}</span>
+      </button>`;
+  }).join("");
 
-      return `
-        <button
-          type="button"
-          class="produto ${estaAtivo ? "ativo" : ""}"
-          data-produto-id="${escaparHTML(produto.id)}"
-        >
-          <span class="produto-imagem">
-            <img
-              src="${escaparHTML(produto.imagem)}"
-              alt="${escaparHTML(produto.nome)}"
-              loading="lazy"
-              onerror="this.src='assets/produto-sem-imagem.png'"
-            >
-          </span>
+  container.querySelectorAll(".produto").forEach(botao => {
+    botao.addEventListener("click", () => mostrarDetalhes(botao.dataset.produtoId));
+  });
 
-          <span class="produto-informacoes">
-            <h3>
-              ${escaparHTML(produto.marca)}
-              ${escaparHTML(produto.modelo)}
-            </h3>
-
-            <p>${escaparHTML(produto.nome)}</p>
-            <p>${escaparHTML(produto.categoria)}</p>
-          </span>
-
-          <span class="produto-favorito" aria-hidden="true">
-            ${estaAtivo ? "★" : "☆"}
-          </span>
-        </button>
-      `;
-    })
-    .join("");
-
-  container
-    .querySelectorAll(".produto")
-    .forEach(botao => {
-      botao.addEventListener("click", () => {
-        mostrarDetalhes(botao.dataset.produtoId);
-      });
-    });
+  configurarFallbackImagens(container);
 }
 
-
-/* =====================================
-   DETALHES DO PRODUTO
-===================================== */
-
 function mostrarDetalhes(idProduto) {
-  const produto = todosProdutos.find(
-    item => item.id === idProduto
-  );
-
-  if (!produto) {
-    return;
-  }
+  const produto = todosProdutos.find(item => item.id === idProduto);
+  if (!produto) return;
 
   produtoSelecionado = produto.id;
-
   renderizarProdutos(produtosFiltrados);
 
   const destaques = criarDestaques(produto.destaques);
-  const especificacoes = criarEspecificacoes(
-    produto.especificacoes
-  );
+  const especificacoes = criarEspecificacoes(produto.especificacoes);
   const dimensoes = criarDimensoes(produto.dimensoes);
   const documentos = criarDocumentos(produto.documentos);
+  const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
 
   document.getElementById("detalhes").innerHTML = `
     <div class="produto-hero">
-
       <div class="produto-resumo">
-
-        <span class="badge">
-          ${escaparHTML(produto.categoria)}
-        </span>
-
-        <h1>
-          ${escaparHTML(produto.marca)}
-          ${escaparHTML(produto.modelo)}
-        </h1>
-
-        <p class="subtitulo">
-          ${escaparHTML(produto.nome)}
-        </p>
-
-        <p class="codigo-produto">
-          Código Info Store:
-          <strong>
-            ${escaparHTML(produto.codigoInfo || "Consultar")}
-          </strong>
-        </p>
-
-        <div class="destaques">
-          ${destaques}
-        </div>
-
-        <div class="acoes">
-
-          <a
-            href="${escaparHTML(produto.siteFabricante)}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="botao-preto"
-          >
-            Site do fabricante ↗
-          </a>
-
-          <a
-            href="${escaparHTML(produto.siteInfoStore)}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="botao-borda"
-          >
-            Consultar disponibilidade
-          </a>
-
-        </div>
-
+        <span class="badge">${escaparHTML(produto.categoria)}</span>
+        <h1><span>${escaparHTML(produto.marca)}</span> ${escaparHTML(produto.modelo)}</h1>
+        <p class="subtitulo">${escaparHTML(produto.nome)}</p>
+        <p class="codigo-produto">Código Info Store: <strong>${escaparHTML(produto.codigoInfo || "Consultar")}</strong></p>
+        ${destaques ? `<div class="destaques">${destaques}</div>` : ""}
+        ${botaoInfoStore ? `<div class="acoes">${botaoInfoStore}</div>` : ""}
       </div>
 
       <div class="produto-imagem-principal">
-        <img
-          src="${escaparHTML(produto.imagem)}"
-          alt="${escaparHTML(produto.nome)}"
-          onerror="this.src='assets/produto-sem-imagem.png'"
-        >
+        <img src="${escaparHTML(produto.imagem || IMAGEM_FALLBACK)}" alt="${escaparHTML(produto.nome)}">
       </div>
-
     </div>
 
     <div class="area-tecnica">
-
       <nav class="tabs" aria-label="Informações do produto">
-
-        <button
-          type="button"
-          class="tab ativo"
-          data-tab="especificacoes"
-        >
-          Especificações
-        </button>
-
-        <button
-          type="button"
-          class="tab"
-          data-tab="dimensoes"
-        >
-          Dimensões
-        </button>
-
-        <button
-          type="button"
-          class="tab"
-          data-tab="instalacao"
-        >
-          Instalação
-        </button>
-
-        <button
-          type="button"
-          class="tab"
-          data-tab="documentos"
-        >
-          Documentos
-        </button>
-
-        <button
-          type="button"
-          class="tab"
-          data-tab="marca"
-        >
-          Sobre a marca
-        </button>
-
+        <button type="button" class="tab ativo" data-tab="especificacoes">Especificações</button>
+        <button type="button" class="tab" data-tab="dimensoes">Dimensões</button>
+        <button type="button" class="tab" data-tab="instalacao">Instalação</button>
+        <button type="button" class="tab" data-tab="documentos">Documentos</button>
+        <button type="button" class="tab" data-tab="marca">Sobre a marca</button>
       </nav>
 
-      <section
-        class="painel-tab ativo"
-        id="painel-especificacoes"
-      >
+      <section class="painel-tab ativo" id="painel-especificacoes">
         <div class="grade-tecnica">
-
-          <div class="tabela-especificacoes">
-            ${especificacoes}
-          </div>
-
-          <div>
-            <div class="card-dimensoes">
-              <h3>Dimensões (mm)</h3>
-              ${dimensoes}
-            </div>
-
-            ${criarAviso()}
-          </div>
-
+          <div class="tabela-especificacoes">${especificacoes}</div>
+          <div><div class="card-dimensoes"><h3>Dimensões</h3>${dimensoes}</div>${criarAviso()}</div>
         </div>
       </section>
 
-      <section
-        class="painel-tab"
-        id="painel-dimensoes"
-      >
-        <div class="card-dimensoes">
-          <h3>Dimensões do produto</h3>
-          ${dimensoes}
-        </div>
-
-        ${criarAviso()}
+      <section class="painel-tab" id="painel-dimensoes">
+        <div class="card-dimensoes"><h3>Dimensões do produto</h3>${dimensoes}</div>${criarAviso()}
       </section>
 
-      <section
-        class="painel-tab"
-        id="painel-instalacao"
-      >
-        <div class="card-instalacao">
-          <h3>Orientações para instalação</h3>
-
-          <p class="texto-tecnico">
-            ${escaparHTML(
-              produto.instalacao ||
-              "Consulte o manual técnico do fabricante antes da instalação. Verifique medidas, ventilação, pontos elétricos e requisitos estruturais."
-            )}
-          </p>
-        </div>
+      <section class="painel-tab" id="painel-instalacao">
+        <div class="card-instalacao"><h3>Orientações para instalação</h3><p class="texto-tecnico">${escaparHTML(produto.instalacao || "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.")}</p></div>
       </section>
 
-      <section
-        class="painel-tab"
-        id="painel-documentos"
-      >
-        <div class="card-documentos">
-          <h3>Documentos técnicos</h3>
-          <div class="lista-documentos">
-            ${documentos}
-          </div>
-        </div>
+      <section class="painel-tab" id="painel-documentos">
+        <div class="card-documentos"><h3>Documentos técnicos</h3><div class="lista-documentos">${documentos}</div></div>
       </section>
 
-      <section
-        class="painel-tab"
-        id="painel-marca"
-      >
-        <div class="card-marca">
-          <h3>Sobre ${escaparHTML(produto.marca)}</h3>
-
-          <p class="texto-tecnico">
-            ${escaparHTML(
-              produto.sobreMarca ||
-              "Conheça as soluções da marca para projetos residenciais e comerciais. Consulte disponibilidade, especificações e condições com a equipe Info Store."
-            )}
-          </p>
-        </div>
+      <section class="painel-tab" id="painel-marca">
+        <div class="card-marca"><h3>Sobre ${escaparHTML(produto.marca)}</h3><p class="texto-tecnico">${escaparHTML(produto.sobreMarca || "Soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.")}</p></div>
       </section>
-
-    </div>
-  `;
+    </div>`;
 
   configurarAbas();
+  configurarFallbackImagens(document.getElementById("detalhes"));
 }
 
-
-/* =====================================
-   CRIAÇÃO DOS COMPONENTES
-===================================== */
+function criarBotaoInfoStore(url) {
+  if (!url) return "";
+  return `<a href="${escaparHTML(url)}" target="_blank" rel="noopener noreferrer" class="botao-preto">Ver na Info Store ↗</a>`;
+}
 
 function criarDestaques(destaques = []) {
-  if (!destaques.length) {
-    return "";
-  }
-
   return destaques
-    .map(destaque => `
-      <div class="destaque">
-
-        <span class="destaque-icone">
-          ${escaparHTML(destaque.icone || "◇")}
-        </span>
-
-        <span class="destaque-texto">
-          ${escaparHTML(destaque.titulo)}
-        </span>
-
-      </div>
-    `)
-    .join("");
+    .filter(item => item && (item.titulo || item.valor))
+    .slice(0, 5)
+    .map(item => {
+      const valor = item.titulo || item.valor;
+      return `
+        <div class="destaque">
+          <span class="destaque-icone" aria-hidden="true">${escaparHTML(item.icone || "◇")}</span>
+          <span class="destaque-texto"><strong>${escaparHTML(valor)}</strong>${item.rotulo ? `<small>${escaparHTML(item.rotulo)}</small>` : ""}</span>
+        </div>`;
+    }).join("");
 }
 
 function criarEspecificacoes(especificacoes = {}) {
-  const itens = Object.entries(especificacoes);
-
-  if (!itens.length) {
-    return `
-      <div class="sem-resultados">
-        Especificações ainda não cadastradas.
-      </div>
-    `;
-  }
-
-  return itens
-    .map(([titulo, valor]) => `
-      <div class="linha-especificacao">
-        <span>${escaparHTML(titulo)}</span>
-        <span>${escaparHTML(valor)}</span>
-      </div>
-    `)
-    .join("");
+  const itens = Object.entries(especificacoes).filter(([, valor]) => valor !== "" && valor != null);
+  if (!itens.length) return estadoMensagem("Especificações ainda não cadastradas.");
+  return itens.map(([titulo, valor]) => `
+    <div class="linha-especificacao"><span>${escaparHTML(titulo)}</span><span>${escaparHTML(valor)}</span></div>`).join("");
 }
 
 function criarDimensoes(dimensoes = {}) {
-  const grupos = Object.entries(dimensoes);
+  const grupos = Object.entries(dimensoes).filter(([, medidas]) => medidas && Object.keys(medidas).length);
+  if (!grupos.length) return `<p class="texto-tecnico">Dimensões em revisão.</p>`;
 
-  if (!grupos.length) {
-    return `
-      <p class="texto-tecnico">
-        Dimensões ainda não cadastradas.
-      </p>
-    `;
-  }
-
-  return `
-    <div class="dimensoes-grade">
-      ${grupos
-        .map(([grupo, medidas]) => `
-          <div class="dimensao-coluna">
-
-            <h4>${formatarTitulo(grupo)}</h4>
-
-            ${Object.entries(medidas)
-              .map(([nome, valor]) => `
-                <div class="dimensao-item">
-                  <span>${formatarTitulo(nome)}</span>
-                  <strong>${escaparHTML(valor)}</strong>
-                </div>
-              `)
-              .join("")}
-
-          </div>
-        `)
-        .join("")}
-    </div>
-  `;
+  return `<div class="dimensoes-grade">${grupos.map(([grupo, medidas]) => `
+    <div class="dimensao-coluna"><h4>${escaparHTML(formatarTitulo(grupo))}</h4>${Object.entries(medidas).map(([nome, valor]) => `
+      <div class="dimensao-item"><span>${escaparHTML(formatarTitulo(nome))}</span><strong>${escaparHTML(valor)}</strong></div>`).join("")}</div>`).join("")}</div>`;
 }
 
 function criarDocumentos(documentos = []) {
-  if (!documentos.length) {
-    return `
-      <p class="texto-tecnico">
-        Nenhum documento disponível no momento.
-      </p>
-    `;
-  }
-
-  return documentos
-    .map(documento => `
-      <a
-        href="${escaparHTML(documento.url)}"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="documento-link"
-      >
-        <span>${escaparHTML(documento.nome)}</span>
-        <span>Baixar ↓</span>
-      </a>
-    `)
-    .join("");
+  const validos = documentos.filter(documento => documento && documento.nome && documento.url);
+  if (!validos.length) return `<p class="texto-tecnico">Nenhum documento disponível no momento.</p>`;
+  return validos.map(documento => `
+    <a href="${escaparHTML(documento.url)}" target="_blank" rel="noopener noreferrer" class="documento-link"><span>${escaparHTML(documento.nome)}</span><span>Baixar ↓</span></a>`).join("");
 }
 
 function criarAviso() {
-  return `
-    <div class="aviso">
-
-      <span class="aviso-icone">ⓘ</span>
-
-      <div>
-        <strong>Observações importantes</strong>
-
-        <p>
-          Consulte o manual técnico do fabricante para informações
-          completas de instalação, compatibilidade e recomendações.
-          Imagens meramente ilustrativas.
-        </p>
-      </div>
-
-    </div>
-  `;
+  return `<div class="aviso"><span class="aviso-icone">ⓘ</span><div><strong>Observações importantes</strong><p>Valide as medidas e as condições de instalação antes de fechar o projeto. Imagens meramente ilustrativas.</p></div></div>`;
 }
 
-
-/* =====================================
-   ABAS
-===================================== */
-
 function configurarAbas() {
-  const botoes = document.querySelectorAll(".tab");
-  const paineis = document.querySelectorAll(".painel-tab");
+  const detalhes = document.getElementById("detalhes");
+  const botoes = detalhes.querySelectorAll(".tab");
+  const paineis = detalhes.querySelectorAll(".painel-tab");
 
-  botoes.forEach(botao => {
-    botao.addEventListener("click", () => {
-      const tabSelecionada = botao.dataset.tab;
+  botoes.forEach(botao => botao.addEventListener("click", () => {
+    botoes.forEach(item => item.classList.remove("ativo"));
+    paineis.forEach(item => item.classList.remove("ativo"));
+    botao.classList.add("ativo");
+    detalhes.querySelector(`#painel-${botao.dataset.tab}`)?.classList.add("ativo");
+  }));
+}
 
-      botoes.forEach(item =>
-        item.classList.remove("ativo")
-      );
-
-      paineis.forEach(painel =>
-        painel.classList.remove("ativo")
-      );
-
-      botao.classList.add("ativo");
-
-      const painelSelecionado = document.getElementById(
-        `painel-${tabSelecionada}`
-      );
-
-      if (painelSelecionado) {
-        painelSelecionado.classList.add("ativo");
-      }
-    });
+function configurarFallbackImagens(raiz) {
+  raiz.querySelectorAll("img").forEach(imagem => {
+    imagem.addEventListener("error", () => {
+      if (!imagem.src.endsWith(IMAGEM_FALLBACK)) imagem.src = IMAGEM_FALLBACK;
+    }, { once: true });
   });
 }
 
+function estadoMensagem(mensagem) {
+  return `<div class="sem-resultados">${escaparHTML(mensagem)}</div>`;
+}
 
-/* =====================================
-   FUNÇÕES AUXILIARES
-===================================== */
-
-function formatarTitulo(texto) {
-  return String(texto)
-    .replace(/([A-Z])/g, " $1")
-    .replace(/^./, letra => letra.toUpperCase());
+function formatarTitulo(texto = "") {
+  const mapa = { semBase: "Sem base", comBase: "Com base", produto: "Produto", embalagem: "Embalagem" };
+  return mapa[texto] || String(texto).replace(/([A-Z])/g, " $1").replace(/^./, letra => letra.toUpperCase());
 }
 
 function normalizarTexto(texto = "") {
-  return String(texto)
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+  return String(texto).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
 function escaparHTML(valor = "") {

@@ -1,0 +1,3042 @@
+[
+  {
+    "id": "un98du9000gxzd",
+    "ordem": 61,
+    "marca": "Samsung",
+    "modelo": "UN98DU9000GXZD",
+    "nome": "TV Crystal UHD 98” 4K Smart",
+    "descricao": "TV Crystal UHD 98 Polegadas",
+    "codigoInfo": "TVV0633",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/un98du9000gxzd/gallery/br-crystal-uhd-du9000-un98du9000gxzd-542553784?$1164_776_PNG$",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "Crystal UHD",
+        "icone": "◉"
+      },
+      {
+        "titulo": "120Hz",
+        "icone": "↻"
+      },
+      {
+        "titulo": "Gaming Hub",
+        "icone": "⌘"
+      },
+      {
+        "titulo": "4K Upscaling",
+        "icone": "▧"
+      },
+      {
+        "titulo": "Tizen",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Tecnologia do painel": "Crystal UHD",
+      "Tamanho da tela": "98 polegadas",
+      "Resolução": "4K (3840 × 2160)",
+      "Taxa de atualização": "120Hz",
+      "Processador": "Crystal Processor 4K",
+      "Sistema operacional": "Tizen",
+      "HDR": "HDR10+",
+      "Recursos gamer": "Gaming Hub e Motion Xcelerator",
+      "Conectividade": "Wi-Fi, Bluetooth e LAN",
+      "Entradas HDMI": "Consultar ficha oficial",
+      "Entradas USB": "Consultar ficha oficial"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "2181 mm",
+        "altura": "1244 mm",
+        "profundidade": "63 mm"
+      },
+      "comBase": {
+        "largura": "2181 mm",
+        "altura": "1301 mm",
+        "profundidade": "402 mm"
+      },
+      "embalagem": {
+        "largura": "2380 mm",
+        "altura": "1434 mm",
+        "profundidade": "350 mm"
+      }
+    },
+    "instalacao": "Devido ao tamanho e ao peso do produto, a instalação deve ser realizada por profissionais capacitados. Verifique previamente as dimensões do acesso, a resistência da parede, o padrão VESA e a disponibilidade de pontos elétricos.",
+    "documentos": [
+      {
+        "nome": "Página oficial do produto",
+        "url": "https://www.samsung.com/br/tvs/uhd-4k-tv/du9000-98-inch-crystal-uhd-4k-tizen-os-smart-tv-un98du9000gxzd/"
+      },
+      {
+        "nome": "Suporte Samsung",
+        "url": "https://www.samsung.com/br/support/"
+      }
+    ],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia, entretenimento e conectividade para projetos residenciais e comerciais, incluindo televisores premium, eletrodomésticos e integração por meio do SmartThings."
+  },
+  {
+    "id": "un32h5000fgxzd",
+    "ordem": 60,
+    "marca": "Samsung",
+    "modelo": "UN32H5000FGXZD",
+    "nome": "Smart TV 32 polegadas HD H5000F 2025",
+    "descricao": "Tecnologia HDR",
+    "codigoInfo": "TVV0648",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un32h5000fgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "32\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "HD (1,366 x 768)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi4",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN32H5000FGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0648",
+      "Cor": "PRETO",
+      "Wi-Fi": "Wi-Fi4",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "32\"",
+      "Resolução": "HD (1,366 x 768)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Hyper Real",
+      "Potência de áudio": "10W",
+      "Canais de áudio": "2CH",
+      "HDMI": "2",
+      "USB": "1 x USB-A",
+      "Peso líquido": "3.8 kg",
+      "Peso bruto": "5.4 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "733.2 mm",
+        "altura": "438.9 mm",
+        "profundidade": "72.2 mm"
+      },
+      "comBase": {
+        "largura": "733.2 mm",
+        "altura": "451.8 mm",
+        "profundidade": "117.3 mm"
+      },
+      "embalagem": {
+        "largura": "800 mm",
+        "altura": "500 mm",
+        "profundidade": "114 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un43f6000fgxzd",
+    "ordem": 59,
+    "marca": "Samsung",
+    "modelo": "UN43F6000FGXZD",
+    "nome": "Smart TV 43 polegadas Full HD F6000F 2025",
+    "descricao": "Tecnologia HDR Resolução Full HD Tecnologia PurColor Realce de Contraste",
+    "codigoInfo": "TVV0649",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un43f6000fgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "43\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Imagens realistas para você assistir a seus filmes e séries preferidas.",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN43F6000FGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0649",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "43\"",
+      "Resolução": "Imagens realistas para você assistir a seus filmes e séries preferidas.",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Sua Smart TV com Xbox Cloud Gaming e centenas de canais gratuitos",
+      "Processador": "Hyper Real",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "2",
+      "USB": "1 x USB-A",
+      "Peso líquido": "6.5 kg",
+      "Peso bruto": "8.80 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "965.9 mm",
+        "altura": "563.3 mm",
+        "profundidade": "75.8 mm"
+      },
+      "comBase": {
+        "largura": "965.9 mm",
+        "altura": "590.0 mm",
+        "profundidade": "157.6 mm"
+      },
+      "embalagem": {
+        "largura": "1058 mm",
+        "altura": "630 mm",
+        "profundidade": "119 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un43u8600fgxzd",
+    "ordem": 58,
+    "marca": "Samsung",
+    "modelo": "UN43U8600FGXZD",
+    "nome": "Smart TV 43\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "codigoInfo": "TVV0650",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un43u8600fgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "43\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN43U8600FGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0650",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "43\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "6,8 kg",
+      "Peso bruto": "9,10 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "967.5 mm",
+        "altura": "561.4 mm",
+        "profundidade": "59.7 mm"
+      },
+      "comBase": {
+        "largura": "967.5 mm",
+        "altura": "609.7 mm",
+        "profundidade": "191 mm"
+      },
+      "embalagem": {
+        "largura": "1081 mm",
+        "altura": "665 mm",
+        "profundidade": "147 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un50u8600fgxzd",
+    "ordem": 57,
+    "marca": "Samsung",
+    "modelo": "UN50U8600FGXZD",
+    "nome": "Smart TV 50\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "codigoInfo": "TVV0651",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un50u8600fgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "50\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN50U8600FGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0651",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "50\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "9.1 kg",
+      "Peso bruto": "12.50 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1120.3 mm",
+        "altura": "647 mm",
+        "profundidade": "60 mm"
+      },
+      "comBase": {
+        "largura": "1120.3 mm",
+        "altura": "694 mm",
+        "profundidade": "237 mm"
+      },
+      "embalagem": {
+        "largura": "1248 mm",
+        "altura": "760 mm",
+        "profundidade": "154 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un55u8600fgxzd",
+    "ordem": 56,
+    "marca": "Samsung",
+    "modelo": "UN55U8600FGXZD",
+    "nome": "Smart TV 55\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "codigoInfo": "TVV0652",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un55u8600fgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "55\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN55U8600FGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0652",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "10.7 kg",
+      "Peso bruto": "14.90 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1234.1 mm",
+        "altura": "710.8 mm",
+        "profundidade": "60.3 mm"
+      },
+      "comBase": {
+        "largura": "1234.1 mm",
+        "altura": "758 mm",
+        "profundidade": "237 mm"
+      },
+      "embalagem": {
+        "largura": "1386 mm",
+        "altura": "828 mm",
+        "profundidade": "158 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un65u8600fgxzd",
+    "ordem": 55,
+    "marca": "Samsung",
+    "modelo": "UN65U8600FGXZD",
+    "nome": "Smart TV 65\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "codigoInfo": "TVV0653",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un65u8600fgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "65\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN65U8600FGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0653",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "65\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "15.9 kg",
+      "Peso bruto": "23 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1452.9 mm",
+        "altura": "834 mm",
+        "profundidade": "60.6 mm"
+      },
+      "comBase": {
+        "largura": "1452.9 mm",
+        "altura": "879.5 mm",
+        "profundidade": "267.4 mm"
+      },
+      "embalagem": {
+        "largura": "1606 mm",
+        "altura": "950 mm",
+        "profundidade": "155 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un75u8600fgxzd",
+    "ordem": 54,
+    "marca": "Samsung",
+    "modelo": "UN75U8600FGXZD",
+    "nome": "Smart TV 75\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "codigoInfo": "TVV0654",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un75u8600fgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "75\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN75U8600FGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0654",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "75\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "25.3 kg",
+      "Peso bruto": "34.5 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1677.5 mm",
+        "altura": "962.4 mm",
+        "profundidade": "61.1 mm"
+      },
+      "comBase": {
+        "largura": "1677.5 mm",
+        "altura": "1006.3 mm",
+        "profundidade": "325 mm"
+      },
+      "embalagem": {
+        "largura": "1832 mm",
+        "altura": "1110 mm",
+        "profundidade": "186 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un85u8600fgxzd",
+    "ordem": 53,
+    "marca": "Samsung",
+    "modelo": "UN85U8600FGXZD",
+    "nome": "Super Big Smart TV 85 polegadas Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "codigoInfo": "TVV0655",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un85u8600fgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "85\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN85U8600FGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0655",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "85\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "32.5 kg",
+      "Peso bruto": "45.5 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1901.2 mm",
+        "altura": "1088.4 mm",
+        "profundidade": "61.4 mm"
+      },
+      "comBase": {
+        "largura": "1901.2 mm",
+        "altura": "1132.3 mm",
+        "profundidade": "359 mm"
+      },
+      "embalagem": {
+        "largura": "2075 mm",
+        "altura": "1200 mm",
+        "profundidade": "171 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn55q7faagxzd",
+    "ordem": 52,
+    "marca": "Samsung",
+    "modelo": "QN55Q7FAAGXZD",
+    "nome": "Vision AI TV 55 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "codigoInfo": "TVV0656",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn55q7faagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "55\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3,840 x 2,160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN55Q7FAAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0656",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "10.8 kg",
+      "Peso bruto": "15.7 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1234.1 mm",
+        "altura": "710.8 mm",
+        "profundidade": "60.3 mm"
+      },
+      "comBase": {
+        "largura": "1234.1 mm",
+        "altura": "758 mm",
+        "profundidade": "237 mm"
+      },
+      "embalagem": {
+        "largura": "1369 mm",
+        "altura": "819 mm",
+        "profundidade": "127 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn65q7faagxzd",
+    "ordem": 51,
+    "marca": "Samsung",
+    "modelo": "QN65Q7FAAGXZD",
+    "nome": "Vision AI TV 65 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "codigoInfo": "TVV0657",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn65q7faagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "65\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3,840 x 2,160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN65Q7FAAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0657",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "65\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "16.7 kg",
+      "Peso bruto": "23.3 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1452.9 mm",
+        "altura": "834 mm",
+        "profundidade": "60.6 mm"
+      },
+      "comBase": {
+        "largura": "1452.9 mm",
+        "altura": "879.5 mm",
+        "profundidade": "267.4 mm"
+      },
+      "embalagem": {
+        "largura": "1590 mm",
+        "altura": "932 mm",
+        "profundidade": "148 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn75q7faagxzd",
+    "ordem": 50,
+    "marca": "Samsung",
+    "modelo": "QN75Q7FAAGXZD",
+    "nome": "Vision AI TV 75 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "codigoInfo": "TVV0658",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn75q7faagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "75\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3,840 x 2,160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN75Q7FAAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0658",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "75\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "25.3 kg",
+      "Peso bruto": "32 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1677.5 mm",
+        "altura": "962.4 mm",
+        "profundidade": "61.1 mm"
+      },
+      "comBase": {
+        "largura": "1677.5 mm",
+        "altura": "1006.3 mm",
+        "profundidade": "325 mm"
+      },
+      "embalagem": {
+        "largura": "1822 mm",
+        "altura": "1100 mm",
+        "profundidade": "160 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn55qn85fagxzd",
+    "ordem": 47,
+    "marca": "Samsung",
+    "modelo": "QN55QN85FAGXZD",
+    "nome": "Vision AI TV 55 polegadas Neo QLED 4K QN85F",
+    "descricao": "Processador NQ4 AI Gen2 Quantum Mini LED Pro Dolby Atmos®",
+    "codigoInfo": "TVV0674",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn55qn85fagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "55\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3,840 x 2,160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "120 Hz (até 144 Hz)",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "TITÂNIO PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN55QN85FAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0674",
+      "Cor": "TITÂNIO PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "120 Hz (até 144 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "NQ4 AI Gen2 Processor",
+      "Potência de áudio": "40W",
+      "Canais de áudio": "2.2CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "17.0 kg",
+      "Peso bruto": "22.1 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1227.6 mm",
+        "altura": "706.4 mm",
+        "profundidade": "46.1 mm"
+      },
+      "comBase": {
+        "largura": "1227.6 mm",
+        "altura": "761.2 mm",
+        "profundidade": "247.4 mm"
+      },
+      "embalagem": {
+        "largura": "1352.0 mm",
+        "altura": "813.0 mm",
+        "profundidade": "148.0 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn65qn85fagxzd",
+    "ordem": 46,
+    "marca": "Samsung",
+    "modelo": "QN65QN85FAGXZD",
+    "nome": "Vision AI TV 65 polegadas Neo QLED 4K QN85F",
+    "descricao": "Processador NQ4 AI Gen2 Quantum Mini LED Pro Dolby Atmos®",
+    "codigoInfo": "TVV0675",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn65qn85fagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "65\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3,840 x 2,160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "120 Hz (até 144 Hz)",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "TITÂNIO PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN65QN85FAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0675",
+      "Cor": "TITÂNIO PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "65\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "120 Hz (até 144 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen2",
+      "Potência de áudio": "40W",
+      "Canais de áudio": "2.2CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "22.7 kg",
+      "Peso bruto": "30.0 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1446.5 mm",
+        "altura": "829.5 mm",
+        "profundidade": "46.3 mm"
+      },
+      "comBase": {
+        "largura": "3 mm",
+        "altura": "930 mm",
+        "profundidade": "158 mm"
+      },
+      "embalagem": {
+        "largura": "1593 mm",
+        "altura": "930 mm",
+        "profundidade": "158 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn55s90fagxzd",
+    "ordem": 45,
+    "marca": "Samsung",
+    "modelo": "QN55S90FAGXZD",
+    "nome": "Vision AI TV 55 polegadas OLED 4K S90F",
+    "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro OLED HDR+",
+    "codigoInfo": "TVV0676",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn55s90fagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "55\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3.840 x 2.160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "120 Hz (até 144 Hz)",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO GRAFITE",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN55S90FAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0676",
+      "Cor": "PRETO GRAFITE",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "4K (3.840 x 2.160)",
+      "Frequência do painel": "120 Hz (até 144 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen3",
+      "Potência de áudio": "40 W",
+      "Canais de áudio": "2.1CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "16 kg",
+      "Peso bruto": "22,9 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "225.4 mm",
+        "altura": "708.6 mm",
+        "profundidade": "39.9 mm"
+      },
+      "comBase": {
+        "largura": "225.4 mm",
+        "altura": "773.6 mm",
+        "profundidade": "265.2 mm"
+      },
+      "embalagem": {
+        "largura": "1.385 mm",
+        "altura": "832 mm",
+        "profundidade": "153 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn43qn90fagxzd",
+    "ordem": 44,
+    "marca": "Samsung",
+    "modelo": "QN43QN90FAGXZD",
+    "nome": "Vision AI TV 43 polegadas Neo QLED 4K QN90F",
+    "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro Quantum Mini LED Pro",
+    "codigoInfo": "TVV0677",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn43qn90fagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "43\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3.840 x 2.160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "120 Hz (até 165 Hz)",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "TITÂNIO PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN43QN90FAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0677",
+      "Cor": "TITÂNIO PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "43\"",
+      "Resolução": "4K (3.840 x 2.160)",
+      "Frequência do painel": "120 Hz (até 165 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "9.4 kg",
+      "Peso bruto": "16.9 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "960.8 mm",
+        "altura": "558.9 mm",
+        "profundidade": "26.9 mm"
+      },
+      "comBase": {
+        "largura": "1164 mm",
+        "altura": "667 mm",
+        "profundidade": "140 mm"
+      },
+      "embalagem": {
+        "largura": "1164 mm",
+        "altura": "667 mm",
+        "profundidade": "140 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn43q5faagxzd",
+    "ordem": 43,
+    "marca": "Samsung",
+    "modelo": "QN43Q5FAAGXZD",
+    "nome": "Smart TV 43\" QLED Full HD Q5F",
+    "descricao": "\"QLED de verdade Som em Movimento Virtual Central de Segurança Knox Sistema Operacional Tizen\"",
+    "codigoInfo": "TVV0692",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn43q5faagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "43\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "3",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN43Q5FAAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0692",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "43\"",
+      "Resolução": "3",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "6",
+      "Processador": "Hyper Real",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "2",
+      "USB": "1 x USB-A",
+      "Peso líquido": "6.8 kg",
+      "Peso bruto": "8.6 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "965.9 mm",
+        "altura": "563.3 mm",
+        "profundidade": "75.8 mm"
+      },
+      "comBase": {
+        "largura": "965.9 mm",
+        "altura": "590.0 mm",
+        "profundidade": "157.6 mm"
+      },
+      "embalagem": {
+        "largura": "1058 mm",
+        "altura": "630 mm",
+        "profundidade": "119 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn50q7faagxzd",
+    "ordem": 42,
+    "marca": "Samsung",
+    "modelo": "QN50Q7FAAGXZD",
+    "nome": "Vision AI TV 50 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "codigoInfo": "TVV0693",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn50q7faagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "50\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3,840 x 2,160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN50Q7FAAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0693",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "50\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "9.2 kg",
+      "Peso bruto": "14.3 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1120.3 mm",
+        "altura": "647 mm",
+        "profundidade": "60 mm"
+      },
+      "comBase": {
+        "largura": "1120.3 mm",
+        "altura": "694 mm",
+        "profundidade": "237 mm"
+      },
+      "embalagem": {
+        "largura": "1255 mm",
+        "altura": "765 mm",
+        "profundidade": "127 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn85q7faagxzd",
+    "ordem": 41,
+    "marca": "Samsung",
+    "modelo": "QN85Q7FAAGXZD",
+    "nome": "Super Big Vision AI TV 85 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "codigoInfo": "TVV0694",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn85q7faagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "85\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3,840 x 2,160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN85Q7FAAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0694",
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "85\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "32.5 kg",
+      "Peso bruto": "45.1 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1901.2 mm",
+        "altura": "1088.4 mm",
+        "profundidade": "61.4 mm"
+      },
+      "comBase": {
+        "largura": "1901.2 mm",
+        "altura": "1132.3 mm",
+        "profundidade": "359 mm"
+      },
+      "embalagem": {
+        "largura": "2075 mm",
+        "altura": "1200 mm",
+        "profundidade": "171 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn77s90fagxzd",
+    "ordem": 40,
+    "marca": "Samsung",
+    "modelo": "QN77S90FAGXZD",
+    "nome": "Super Big Vision AI TV 77 polegadas OLED 4K S90F",
+    "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro OLED HDR+",
+    "codigoInfo": "TVV0698",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn77s90fagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "77\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3.840 x 2.160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "120 Hz (até 144 Hz)",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "PRETO GRAFITE",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN77S90FAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0698",
+      "Cor": "PRETO GRAFITE",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "77\"",
+      "Resolução": "4K (3.840 x 2.160)",
+      "Frequência do painel": "120 Hz (até 144 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen3",
+      "Potência de áudio": "40 W",
+      "Canais de áudio": "2.1CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "34,8 kg",
+      "Peso bruto": "45,9 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "718.5 mm",
+        "altura": "987.6 mm",
+        "profundidade": "44.9 mm"
+      },
+      "comBase": {
+        "largura": "718.5 mm",
+        "altura": "987.6 mm",
+        "profundidade": "44.9 mm"
+      },
+      "embalagem": {
+        "largura": "1.885 mm",
+        "altura": "1.154 mm",
+        "profundidade": "180 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un70u8000hgxzd",
+    "ordem": 39,
+    "marca": "Samsung",
+    "modelo": "UN70U8000HGXZD",
+    "nome": "Smart TV Samsung Vision AI 70\" Crystal UHD 4K U8000H",
+    "descricao": "Samsung Vision AI Companion Crystal Processor 4K Dynamic Sound Pack",
+    "codigoInfo": "TVV0705",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un70u8000hgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "70\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "5",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60 Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN70U8000HGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0705",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "70\"",
+      "Resolução": "5",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Visão aprimorada do jogo",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "1 x USB-A"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1567.2 mm",
+        "altura": "875.5 mm",
+        "profundidade": "77.2 mm"
+      },
+      "comBase": {
+        "largura": "1567.2 mm",
+        "altura": "926.6 mm",
+        "profundidade": "280 mm"
+      },
+      "embalagem": {
+        "largura": "1755 mm",
+        "altura": "1056 mm",
+        "profundidade": "164 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un98u9500hgxzd",
+    "ordem": 38,
+    "marca": "Samsung",
+    "modelo": "UN98U9500HGXZD",
+    "nome": "Smart TV Samsung Vision AI 98\" Crystal UHD 4K U9500H",
+    "descricao": "Samsung Vision AI Companion Supersize Picture Enhancer Motion Xcelerator 144Hz",
+    "codigoInfo": "TVV0706",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un98u9500hgxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "98\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "3840 x 2160",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "8",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN98U9500HGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0706",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "98\"",
+      "Resolução": "3840 x 2160",
+      "Frequência do painel": "8",
+      "Sistema operacional": "Tizen™ Smart TV",
+      "Processador": "5",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "2 x USB-A"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "2181.1 mm",
+        "altura": "1244.1 mm",
+        "profundidade": "63.5 mm"
+      },
+      "comBase": {
+        "largura": "2181.1 mm",
+        "altura": "1298.2 mm",
+        "profundidade": "402.3 mm"
+      },
+      "embalagem": {
+        "largura": "2370.0 mm",
+        "altura": "1404.0 mm",
+        "profundidade": "275.0 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un55m75hagxzd",
+    "ordem": 36,
+    "marca": "Samsung",
+    "modelo": "UN55M75HAGXZD",
+    "nome": "Smart TV Samsung Vision AI 55” Mini LED 4K M75H",
+    "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
+    "codigoInfo": "TVV0708",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un55m75hagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "55\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Otimização de resolução para até 4K",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60 Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN55M75HAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0708",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "Otimização de resolução para até 4K",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Tizen™ Smart TV",
+      "Processador": "5",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "10.0 kg",
+      "Peso bruto": "14.5 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1224.6 mm",
+        "altura": "707.8 mm",
+        "profundidade": "76.6 mm"
+      },
+      "comBase": {
+        "largura": "1224.6 mm",
+        "altura": "760 mm",
+        "profundidade": "199 mm"
+      },
+      "embalagem": {
+        "largura": "1354 mm",
+        "altura": "810 mm",
+        "profundidade": "127 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un65m75hagxzd",
+    "ordem": 35,
+    "marca": "Samsung",
+    "modelo": "UN65M75HAGXZD",
+    "nome": "Smart TV Samsung Vision AI 65” Mini LED 4K M75H",
+    "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
+    "codigoInfo": "TVV0709",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un65m75hagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "65\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Otimização de resolução para até 4K",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60 Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN65M75HAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0709",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "65\"",
+      "Resolução": "Otimização de resolução para até 4K",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Tizen™ Smart TV",
+      "Processador": "5",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "14.2 kg",
+      "Peso bruto": "20.90 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1444.1 mm",
+        "altura": "831.2 mm",
+        "profundidade": "76.8 mm"
+      },
+      "comBase": {
+        "largura": "1444.1 mm",
+        "altura": "882.2 mm",
+        "profundidade": "222 mm"
+      },
+      "embalagem": {
+        "largura": "1578 mm",
+        "altura": "930 mm",
+        "profundidade": "142 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un75m75hagxzd",
+    "ordem": 34,
+    "marca": "Samsung",
+    "modelo": "UN75M75HAGXZD",
+    "nome": "Smart TV Samsung Vision AI 75” Mini LED 4K M75H",
+    "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
+    "codigoInfo": "TVV0710",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un75m75hagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "75\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Otimização de resolução para até 4K",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60 Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN75M75HAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0710",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "75\"",
+      "Resolução": "Otimização de resolução para até 4K",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Tizen™ Smart TV",
+      "Processador": "5",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "21.6 kg",
+      "Peso bruto": "30.0 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1668.1 mm",
+        "altura": "957.8 mm",
+        "profundidade": "77 mm"
+      },
+      "comBase": {
+        "largura": "1668.1 mm",
+        "altura": "1007.9 mm",
+        "profundidade": "280 mm"
+      },
+      "embalagem": {
+        "largura": "1825 mm",
+        "altura": "1100 mm",
+        "profundidade": "170 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn55qn70hagxzd",
+    "ordem": 33,
+    "marca": "Samsung",
+    "modelo": "QN55QN70HAGXZD",
+    "nome": "Smart TV Samsung Vision AI 55\" Neo QLED 4K QN70H",
+    "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
+    "codigoInfo": "TVV0713",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn55qn70hagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "55\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "3840 x 2160",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60 Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN55QN70HAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0713",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "3840 x 2160",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "2",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "2 x USB-A",
+      "Peso líquido": "13.8 kg",
+      "Peso bruto": "19.0 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1232.1 mm",
+        "altura": "708.8 mm",
+        "profundidade": "25.7 mm"
+      },
+      "comBase": {
+        "largura": "1232.1 mm",
+        "altura": "768.1 mm",
+        "profundidade": "238.6 mm"
+      },
+      "embalagem": {
+        "largura": "1369 mm",
+        "altura": "819 mm",
+        "profundidade": "142.0 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn75qn70hagxzd",
+    "ordem": 32,
+    "marca": "Samsung",
+    "modelo": "QN75QN70HAGXZD",
+    "nome": "Smart TV Samsung Vision AI 75\" Neo QLED 4K QN70H",
+    "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
+    "codigoInfo": "TVV0715",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn75qn70hagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "75\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "3840 x 2160",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60 Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN75QN70HAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0715",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "75\"",
+      "Resolução": "3840 x 2160",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "2",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "2 x USB-A",
+      "Peso líquido": "29.2 kg",
+      "Peso bruto": "38.2 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1676.7 mm",
+        "altura": "960.3 mm",
+        "profundidade": "26.6 mm"
+      },
+      "comBase": {
+        "largura": "1676.7 mm",
+        "altura": "1017.5 mm",
+        "profundidade": "327.7 mm"
+      },
+      "embalagem": {
+        "largura": "1815 mm",
+        "altura": "1080 mm",
+        "profundidade": "164 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn85qn70hagxzd",
+    "ordem": 31,
+    "marca": "Samsung",
+    "modelo": "QN85QN70HAGXZD",
+    "nome": "Smart TV Samsung Vision AI 85\" Neo QLED 4K QN70H",
+    "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
+    "codigoInfo": "TVV0716",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn85qn70hagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "85\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "3840 x 2160",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60 Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN85QN70HAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0716",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "85\"",
+      "Resolução": "3840 x 2160",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "2",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "2 x USB-A",
+      "Peso líquido": "40.5 kg",
+      "Peso bruto": "53 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1900.9 mm",
+        "altura": "1086.1 mm",
+        "profundidade": "26.9 mm"
+      },
+      "comBase": {
+        "largura": "1900.9 mm",
+        "altura": "1141.9 mm",
+        "profundidade": "365.6 mm"
+      },
+      "embalagem": {
+        "largura": "2059 mm",
+        "altura": "1200 mm",
+        "profundidade": "171 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "rs60t5200s9az",
+    "ordem": 25,
+    "marca": "Samsung",
+    "modelo": "RS60T5200S9/AZ",
+    "nome": "Geladeira Side by Side RS60 com Dispenser de Água e Gelo Inox 127V 628L",
+    "descricao": "Espaço interno maior com tecnologia SpaceMax™ Design flat: visual elegante e moderno Alimentos frescos com tecnologia All Around Cooling™",
+    "codigoInfo": "GEL0038",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/rs60t5200s9az/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "628 L",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Black Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      },
+      {
+        "titulo": "A",
+        "rotulo": "Classificação energética",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "RS60T5200S9/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "GEL0038",
+      "Capacidade total": "628 L",
+      "Voltagem": "127 V",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All-around Cooling",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "108,0",
+      "Peso bruto": "117"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1780 mm",
+        "profundidade": "726 mm"
+      },
+      "embalagem": {
+        "largura": "958 mm",
+        "altura": "1915 mm",
+        "profundidade": "764 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "rt38dg6120s9fz",
+    "ordem": 24,
+    "marca": "Samsung",
+    "modelo": "RT38DG6120S9FZ",
+    "nome": "Geladeira Duplex RT38 Evolution com SmartThings AI Bivolt 393L",
+    "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
+    "codigoInfo": "GEL0048",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/rt38dg6120s9fz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "393 L",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Bivolt",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Black Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Frost Free",
+        "rotulo": "Frost Free",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "RT38DG6120S9FZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "GEL0048",
+      "Capacidade total": "393 L",
+      "Voltagem": "Bivolt",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All Around Cooling™",
+      "Frost Free": "Sim",
+      "SmartThings": "Mobile",
+      "Classificação energética": "B",
+      "Peso líquido": "60 kg",
+      "Peso bruto": "62 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "700 mm",
+        "altura": "1715 mm",
+        "profundidade": "672 mm"
+      },
+      "embalagem": {
+        "largura": "737 mm",
+        "altura": "1810 mm",
+        "profundidade": "705 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "rt42dg6630s9fz",
+    "ordem": 23,
+    "marca": "Samsung",
+    "modelo": "RT42DG6630S9FZ",
+    "nome": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L",
+    "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
+    "codigoInfo": "GEL0050",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/rt42dg6630s9fz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "415 L",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Bivolt",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Black Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Frost Free",
+        "rotulo": "Frost Free",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "RT42DG6630S9FZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "GEL0050",
+      "Capacidade total": "415 L",
+      "Voltagem": "Bivolt",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All Around Cooling™",
+      "Frost Free": "Sim",
+      "SmartThings": "Mobile",
+      "Classificação energética": "B",
+      "Peso líquido": "63 Kg",
+      "Peso bruto": "65 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "700 mm",
+        "altura": "1785 mm",
+        "profundidade": "672 mm"
+      },
+      "embalagem": {
+        "largura": "737 mm",
+        "altura": "1885 mm",
+        "profundidade": "705 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "rt42dg6630b1fz",
+    "ordem": 22,
+    "marca": "Samsung",
+    "modelo": "RT42DG6630B1FZ",
+    "nome": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L",
+    "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
+    "codigoInfo": "GEL0051",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/rt42dg6630b1fz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "415 L",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Bivolt",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Black Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Frost Free",
+        "rotulo": "Frost Free",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "RT42DG6630B1FZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "GEL0051",
+      "Capacidade total": "415 L",
+      "Voltagem": "Bivolt",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All Around Cooling™",
+      "Frost Free": "Sim",
+      "SmartThings": "Mobile",
+      "Classificação energética": "B",
+      "Peso líquido": "63 kg",
+      "Peso bruto": "65 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "700 mm",
+        "altura": "1785 mm",
+        "profundidade": "672 mm"
+      },
+      "embalagem": {
+        "largura": "737 mm",
+        "altura": "1885 mm",
+        "profundidade": "705 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "rf27cg5910b1az",
+    "ordem": 21,
+    "marca": "Samsung",
+    "modelo": "RF27CG5910B1AZ",
+    "nome": "Geladeira French Door RF27 Family Hub Black Inox 127V 707L",
+    "descricao": "App SmartThings - Aproveite uma vida mais inteligente e conectada SpaceMax™ - Espaço interno maior",
+    "codigoInfo": "GEL0054",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/rf27cg5910b1az/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "707 L",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Black Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      },
+      {
+        "titulo": "A",
+        "rotulo": "Classificação energética",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "RF27CG5910B1AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "GEL0054",
+      "Capacidade total": "707 L",
+      "Voltagem": "127 V",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "Largura (mm)",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "138 kg",
+      "Peso bruto": "142 kg"
+    },
+    "dimensoes": {},
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": true
+  },
+  {
+    "id": "rf29db9950qdaz",
+    "ordem": 20,
+    "marca": "Samsung",
+    "modelo": "RF29DB9950QDAZ",
+    "nome": "Geladeira Bespoke AI 4-Door French Door RF29D Family Hub 127V 809L",
+    "descricao": "Maior capacidade do mercado: Capacidade de 699L para você viver sem limites Controle total dos seu alimentos: AI Vision Inside Gerenciamento do consumo de enegia: Economize com SmartThings Energy Experiência ainda mais imersiva: Tela interativa de 32\"",
+    "codigoInfo": "GEL0064",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/rf29db9950qdaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "809 L",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Frost Free",
+        "rotulo": "Frost Free",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "RF29DB9950QDAZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "GEL0064",
+      "Capacidade total": "809 L",
+      "Voltagem": "127 V",
+      "Cor": "Inox",
+      "Tecnologia de refrigeração": "Triple Cooling",
+      "Frost Free": "Sim",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "165 kg",
+      "Peso bruto": "175 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1853 mm",
+        "profundidade": "869 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "rs58t5561b1az",
+    "ordem": 19,
+    "marca": "Samsung",
+    "modelo": "RS58T5561B1/AZ",
+    "nome": "Geladeira Side by Side RS58 Family Hub Black Inox 127V 608L",
+    "descricao": "Aproveite uma vida mais inteligente e conectada Entretenimento contínuo com músicas, rádio, TV e chamadas Gestão fácil, rápida e intuitiva dos alimentos",
+    "codigoInfo": "GEL0092",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/rs58t5561b1az/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "608L",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Black Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      },
+      {
+        "titulo": "A",
+        "rotulo": "Classificação energética",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "RS58T5561B1/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "GEL0092",
+      "Capacidade total": "608L",
+      "Voltagem": "127 V",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All-Around Cooling",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "116,0",
+      "Peso bruto": "125"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1780 mm",
+        "profundidade": "726 mm"
+      },
+      "embalagem": {
+        "largura": "970 mm",
+        "altura": "1930 mm",
+        "profundidade": "776 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "rm90f66c1caz",
+    "ordem": 18,
+    "marca": "Samsung",
+    "modelo": "RM90F66C1CAZ",
+    "nome": "Geladeira Bespoke AI 4-Door French Door RM90F Family Hub Black Charcoal 127V 658L",
+    "descricao": "Conheça o Geladeira Bespoke AI RM90F Black Charcoal com a qualidade e inovação da Samsung. Confira especificações completas, compare modelos e compre",
+    "codigoInfo": "GEL0109",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/rm90f66c1caz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "658 L",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Black Charcoal",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      },
+      {
+        "titulo": "A",
+        "rotulo": "Classificação energética",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "RM90F66C1CAZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "GEL0109",
+      "Capacidade total": "658 L",
+      "Voltagem": "127 V",
+      "Cor": "Black Charcoal",
+      "Tecnologia de refrigeração": "Mono Cooling",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "150 kg",
+      "Peso bruto": "159 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1853 mm",
+        "profundidade": "731 mm"
+      },
+      "embalagem": {
+        "largura": "972 mm",
+        "altura": "1995 mm",
+        "profundidade": "776 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "rf70h25hetaz",
+    "ordem": 17,
+    "marca": "Samsung",
+    "modelo": "RF70H25HETAZ",
+    "nome": "Geladeira French Door RF70H com Dispenser de Água e Gelo Inox 127V 664L",
+    "descricao": "Conheça o Geladeira French Door RF70H com Dispenser com a qualidade e inovação da Samsung. Confira especificações completas, compare modelos e compre",
+    "codigoInfo": "GEL0116",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/rf70h25hetaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "664 L",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "RF70H25HETAZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "GEL0116",
+      "Capacidade total": "664 L",
+      "Voltagem": "127 V",
+      "Cor": "Inox",
+      "Tecnologia de refrigeração": "All Around Cooling",
+      "SmartThings": "Mobile",
+      "Peso líquido": "132 kg",
+      "Peso bruto": "136 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1783 mm",
+        "profundidade": "750 mm"
+      },
+      "embalagem": {
+        "largura": "958 mm",
+        "altura": "1920 mm",
+        "profundidade": "751 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "ww11t4040beaz",
+    "ordem": 7,
+    "marca": "Samsung",
+    "modelo": "WW11T4040BE/AZ",
+    "nome": "Lavadora Porta Black WW11T Digital Inverter Branca 127V 11kg",
+    "descricao": "Mais performance de lavagem, menos água e energia. Lavagem rápida de 15 minutos para pequenas cargas Limpeza profunda com vapor eliminando 99,9% de bactérias Diamond Drum: delicadeza e preservação dos tecidos",
+    "codigoInfo": "LAV0028",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/ww11t4040beaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "11 kg",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Branco",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Não",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WW11T4040BE/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0028",
+      "Capacidade de lavagem": "11 kg",
+      "Voltagem": "127 V",
+      "Cor": "Branco",
+      "Wi-Fi": "Não",
+      "SmartThings": "Mobile",
+      "Peso líquido": "65 kg",
+      "Peso bruto": "67 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "550 mm"
+      },
+      "embalagem": {
+        "largura": "670 mm",
+        "altura": "890 mm",
+        "profundidade": "660 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "ww11t4040bxaz",
+    "ordem": 6,
+    "marca": "Samsung",
+    "modelo": "WW11T4040BX/AZ",
+    "nome": "Lavadora Porta Black WW11T Digital Inverter Inox 127V 11kg",
+    "descricao": "Mais performance de lavagem, menos água e energia. Lavagem rápida de 15 minutos para pequenas cargas Limpeza profunda com vapor eliminando 99,9% de bactérias Diamond Drum: delicadeza e preservação dos tecidos",
+    "codigoInfo": "LAV0029",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/ww11t4040bxaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "11 kg",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Branco",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Não",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WW11T4040BX/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0029",
+      "Capacidade de lavagem": "11 kg",
+      "Voltagem": "127 V",
+      "Cor": "Branco",
+      "Wi-Fi": "Não",
+      "SmartThings": "Mobile",
+      "Peso líquido": "65 kg",
+      "Peso bruto": "67 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "550 mm"
+      },
+      "embalagem": {
+        "largura": "670 mm",
+        "altura": "890 mm",
+        "profundidade": "660 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "wf90f20adsbz",
+    "ordem": 3,
+    "marca": "Samsung",
+    "modelo": "WF90F20ADSBZ",
+    "nome": "Bespoke AI Laundry Lavadora WF90F AI Home | Inox | 220V | 20kg",
+    "descricao": "AI Home | Inox | 220V | 20kg",
+    "codigoInfo": "LAV0058",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/wf90f20adsbz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/",
+    "destaques": [
+      {
+        "titulo": "20.0 kg",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "220 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WF90F20ADSBZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0058",
+      "Capacidade de lavagem": "20.0 kg",
+      "Voltagem": "220 V",
+      "Cor": "Inox",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile",
+      "Peso líquido": "102 kg",
+      "Peso bruto": "105 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "686 mm",
+        "altura": "984 mm",
+        "profundidade": "875 mm"
+      },
+      "embalagem": {
+        "largura": "746 mm",
+        "altura": "1090 mm",
+        "profundidade": "915 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "revisaoPendente": false
+  }
+]

@@ -1,0 +1,2461 @@
+[
+  {
+    "modelo": "UN32H5000FGXZD",
+    "codigo": "TVV0648",
+    "produtoPlanilha": "TV LED 32 H500F HD SMART (WIF/TIZEN)",
+    "tituloOficial": "Smart TV 32 polegadas HD H5000F 2025",
+    "descricao": "Tecnologia HDR",
+    "imagem": "assets/produtos/un32h5000fgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "733.2 mm",
+        "altura": "438.9 mm",
+        "profundidade": "72.2 mm"
+      },
+      "comBase": {
+        "largura": "733.2 mm",
+        "altura": "451.8 mm",
+        "profundidade": "117.3 mm"
+      },
+      "embalagem": {
+        "largura": "800 mm",
+        "altura": "500 mm",
+        "profundidade": "114 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Wi-Fi4",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "32\"",
+      "Resolução": "HD (1,366 x 768)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Hyper Real",
+      "Potência de áudio": "10W",
+      "Canais de áudio": "2CH",
+      "HDMI": "2",
+      "USB": "1 x USB-A",
+      "Peso líquido": "3.8 kg",
+      "Peso bruto": "5.4 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "32\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "HD (1,366 x 768)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Wi-Fi4"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/hd-tv/h5000-32-inch-un32h5000fgxzd/",
+    "dataConsulta": "2026-09-16T19:27:37.618Z"
+  },
+  {
+    "modelo": "UN43F6000FGXZD",
+    "codigo": "TVV0649",
+    "produtoPlanilha": "TV LED 43 F6000F FHD SMART (WIF/TIZEN)",
+    "tituloOficial": "Smart TV 43 polegadas Full HD F6000F 2025",
+    "descricao": "Tecnologia HDR Resolução Full HD Tecnologia PurColor Realce de Contraste",
+    "imagem": "assets/produtos/un43f6000fgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "965.9 mm",
+        "altura": "563.3 mm",
+        "profundidade": "75.8 mm"
+      },
+      "comBase": {
+        "largura": "965.9 mm",
+        "altura": "590.0 mm",
+        "profundidade": "157.6 mm"
+      },
+      "embalagem": {
+        "largura": "1058 mm",
+        "altura": "630 mm",
+        "profundidade": "119 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "43\"",
+      "Resolução": "Imagens realistas para você assistir a seus filmes e séries preferidas.",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Sua Smart TV com Xbox Cloud Gaming e centenas de canais gratuitos",
+      "Processador": "Hyper Real",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "2",
+      "USB": "1 x USB-A",
+      "Peso líquido": "6.5 kg",
+      "Peso bruto": "8.80 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "43\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "Imagens realistas para você assistir a seus filmes e séries preferidas."
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/full-hd-tv/f6000-43-inch-un43f6000fgxzd/",
+    "dataConsulta": "2026-09-16T19:27:41.809Z"
+  },
+  {
+    "modelo": "UN43U8600FGXZD",
+    "codigo": "TVV0650",
+    "produtoPlanilha": "TV LED 43 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "tituloOficial": "Smart TV 43\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "imagem": "assets/produtos/un43u8600fgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "967.5 mm",
+        "altura": "561.4 mm",
+        "profundidade": "59.7 mm"
+      },
+      "comBase": {
+        "largura": "967.5 mm",
+        "altura": "609.7 mm",
+        "profundidade": "191 mm"
+      },
+      "embalagem": {
+        "largura": "1081 mm",
+        "altura": "665 mm",
+        "profundidade": "147 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "43\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "6,8 kg",
+      "Peso bruto": "9,10 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "43\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-43-inch-crystal-uhd-4k-smart-tv-un43u8600fgxzd/",
+    "dataConsulta": "2026-09-16T19:27:44.911Z"
+  },
+  {
+    "modelo": "UN50U8600FGXZD",
+    "codigo": "TVV0651",
+    "produtoPlanilha": "TV LED 50 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "tituloOficial": "Smart TV 50\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "imagem": "assets/produtos/un50u8600fgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1120.3 mm",
+        "altura": "647 mm",
+        "profundidade": "60 mm"
+      },
+      "comBase": {
+        "largura": "1120.3 mm",
+        "altura": "694 mm",
+        "profundidade": "237 mm"
+      },
+      "embalagem": {
+        "largura": "1248 mm",
+        "altura": "760 mm",
+        "profundidade": "154 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "50\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "9.1 kg",
+      "Peso bruto": "12.50 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "50\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-50-inch-crystal-uhd-4k-smart-tv-un50u8600fgxzd/",
+    "dataConsulta": "2026-09-16T19:27:47.281Z"
+  },
+  {
+    "modelo": "UN55U8600FGXZD",
+    "codigo": "TVV0652",
+    "produtoPlanilha": "TV LED 55 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "tituloOficial": "Smart TV 55\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "imagem": "assets/produtos/un55u8600fgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1234.1 mm",
+        "altura": "710.8 mm",
+        "profundidade": "60.3 mm"
+      },
+      "comBase": {
+        "largura": "1234.1 mm",
+        "altura": "758 mm",
+        "profundidade": "237 mm"
+      },
+      "embalagem": {
+        "largura": "1386 mm",
+        "altura": "828 mm",
+        "profundidade": "158 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "10.7 kg",
+      "Peso bruto": "14.90 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "55\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-55-inch-crystal-uhd-4k-smart-tv-un55u8600fgxzd/",
+    "dataConsulta": "2026-09-16T19:27:49.557Z"
+  },
+  {
+    "modelo": "UN65U8600FGXZD",
+    "codigo": "TVV0653",
+    "produtoPlanilha": "TV LED 65 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "tituloOficial": "Smart TV 65\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "imagem": "assets/produtos/un65u8600fgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1452.9 mm",
+        "altura": "834 mm",
+        "profundidade": "60.6 mm"
+      },
+      "comBase": {
+        "largura": "1452.9 mm",
+        "altura": "879.5 mm",
+        "profundidade": "267.4 mm"
+      },
+      "embalagem": {
+        "largura": "1606 mm",
+        "altura": "950 mm",
+        "profundidade": "155 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "65\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "15.9 kg",
+      "Peso bruto": "23 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "65\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-65-inch-crystal-uhd-4k-smart-tv-un65u8600fgxzd/",
+    "dataConsulta": "2026-09-16T19:27:52.534Z"
+  },
+  {
+    "modelo": "UN75U8600FGXZD",
+    "codigo": "TVV0654",
+    "produtoPlanilha": "TV LED 75 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "tituloOficial": "Smart TV 75\" Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "imagem": "assets/produtos/un75u8600fgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1677.5 mm",
+        "altura": "962.4 mm",
+        "profundidade": "61.1 mm"
+      },
+      "comBase": {
+        "largura": "1677.5 mm",
+        "altura": "1006.3 mm",
+        "profundidade": "325 mm"
+      },
+      "embalagem": {
+        "largura": "1832 mm",
+        "altura": "1110 mm",
+        "profundidade": "186 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "75\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "25.3 kg",
+      "Peso bruto": "34.5 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "75\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-75-inch-crystal-uhd-4k-smart-tv-un75u8600fgxzd/",
+    "dataConsulta": "2026-09-16T19:27:55.473Z"
+  },
+  {
+    "modelo": "UN85U8600FGXZD",
+    "codigo": "TVV0655",
+    "produtoPlanilha": "TV LED 85 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "tituloOficial": "Super Big Smart TV 85 polegadas Crystal UHD 4K U8600F",
+    "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
+    "imagem": "assets/produtos/un85u8600fgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1901.2 mm",
+        "altura": "1088.4 mm",
+        "profundidade": "61.4 mm"
+      },
+      "comBase": {
+        "largura": "1901.2 mm",
+        "altura": "1132.3 mm",
+        "profundidade": "359 mm"
+      },
+      "embalagem": {
+        "largura": "2075 mm",
+        "altura": "1200 mm",
+        "profundidade": "171 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "85\"",
+      "Resolução": "4",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "7",
+      "Processador": "3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "32.5 kg",
+      "Peso bruto": "45.5 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "85\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8500f-85-inch-crystal-uhd-4k-smart-tv-un85u8600fgxzd/",
+    "dataConsulta": "2026-09-16T19:27:58.066Z"
+  },
+  {
+    "modelo": "QN55Q7FAAGXZD",
+    "codigo": "TVV0656",
+    "produtoPlanilha": "TV QLED 55 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
+    "tituloOficial": "Vision AI TV 55 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "imagem": "assets/produtos/qn55q7faagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1234.1 mm",
+        "altura": "710.8 mm",
+        "profundidade": "60.3 mm"
+      },
+      "comBase": {
+        "largura": "1234.1 mm",
+        "altura": "758 mm",
+        "profundidade": "237 mm"
+      },
+      "embalagem": {
+        "largura": "1369 mm",
+        "altura": "819 mm",
+        "profundidade": "127 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "10.8 kg",
+      "Peso bruto": "15.7 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "55\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3,840 x 2,160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-55-inch-qled-4k-smart-tv-qn55q7faagxzd/",
+    "dataConsulta": "2026-09-16T19:28:00.075Z"
+  },
+  {
+    "modelo": "QN65Q7FAAGXZD",
+    "codigo": "TVV0657",
+    "produtoPlanilha": "TV QLED 65 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
+    "tituloOficial": "Vision AI TV 65 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "imagem": "assets/produtos/qn65q7faagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1452.9 mm",
+        "altura": "834 mm",
+        "profundidade": "60.6 mm"
+      },
+      "comBase": {
+        "largura": "1452.9 mm",
+        "altura": "879.5 mm",
+        "profundidade": "267.4 mm"
+      },
+      "embalagem": {
+        "largura": "1590 mm",
+        "altura": "932 mm",
+        "profundidade": "148 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "65\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "16.7 kg",
+      "Peso bruto": "23.3 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "65\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3,840 x 2,160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-65-inch-qled-4k-smart-tv-qn65q7faagxzd/",
+    "dataConsulta": "2026-09-16T19:28:02.479Z"
+  },
+  {
+    "modelo": "QN75Q7FAAGXZD",
+    "codigo": "TVV0658",
+    "produtoPlanilha": "TV QLED 75 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZE",
+    "tituloOficial": "Vision AI TV 75 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "imagem": "assets/produtos/qn75q7faagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1677.5 mm",
+        "altura": "962.4 mm",
+        "profundidade": "61.1 mm"
+      },
+      "comBase": {
+        "largura": "1677.5 mm",
+        "altura": "1006.3 mm",
+        "profundidade": "325 mm"
+      },
+      "embalagem": {
+        "largura": "1822 mm",
+        "altura": "1100 mm",
+        "profundidade": "160 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "75\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "25.3 kg",
+      "Peso bruto": "32 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "75\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3,840 x 2,160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-75-inch-qled-4k-smart-tv-qn75q7faagxzd/",
+    "dataConsulta": "2026-09-16T19:28:04.568Z"
+  },
+  {
+    "modelo": "QN55QN85FAGXZD",
+    "codigo": "TVV0674",
+    "produtoPlanilha": "TV NEO QLED 55 QN85F 4K SMART (120HZ/QHDR/TIZEN)",
+    "tituloOficial": "Vision AI TV 55 polegadas Neo QLED 4K QN85F",
+    "descricao": "Processador NQ4 AI Gen2 Quantum Mini LED Pro Dolby Atmos®",
+    "imagem": "assets/produtos/qn55qn85fagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1227.6 mm",
+        "altura": "706.4 mm",
+        "profundidade": "46.1 mm"
+      },
+      "comBase": {
+        "largura": "1227.6 mm",
+        "altura": "761.2 mm",
+        "profundidade": "247.4 mm"
+      },
+      "embalagem": {
+        "largura": "1352.0 mm",
+        "altura": "813.0 mm",
+        "profundidade": "148.0 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "TITÂNIO PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "120 Hz (até 144 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "NQ4 AI Gen2 Processor",
+      "Potência de áudio": "40W",
+      "Canais de áudio": "2.2CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "17.0 kg",
+      "Peso bruto": "22.1 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "55\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3,840 x 2,160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "120 Hz (até 144 Hz)"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "TITÂNIO PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q85f-55-inch-neo-qled-4k-mini-led-smart-tv-qn55qn85fagxzd/",
+    "dataConsulta": "2026-09-16T19:28:06.627Z"
+  },
+  {
+    "modelo": "QN65QN85FAGXZD",
+    "codigo": "TVV0675",
+    "produtoPlanilha": "TV NEO QLED 65 QN85F 4K SMART (120HZ/QHDR/TIZEN)",
+    "tituloOficial": "Vision AI TV 65 polegadas Neo QLED 4K QN85F",
+    "descricao": "Processador NQ4 AI Gen2 Quantum Mini LED Pro Dolby Atmos®",
+    "imagem": "assets/produtos/qn65qn85fagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1446.5 mm",
+        "altura": "829.5 mm",
+        "profundidade": "46.3 mm"
+      },
+      "comBase": {
+        "largura": "3 mm",
+        "altura": "930 mm",
+        "profundidade": "158 mm"
+      },
+      "embalagem": {
+        "largura": "1593 mm",
+        "altura": "930 mm",
+        "profundidade": "158 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "TITÂNIO PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "65\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "120 Hz (até 144 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen2",
+      "Potência de áudio": "40W",
+      "Canais de áudio": "2.2CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "22.7 kg",
+      "Peso bruto": "30.0 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "65\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3,840 x 2,160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "120 Hz (até 144 Hz)"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "TITÂNIO PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q85f-65-inch-neo-qled-4k-mini-led-smart-tv-qn65qn85fagxzd/",
+    "dataConsulta": "2026-09-16T19:28:08.927Z"
+  },
+  {
+    "modelo": "QN55S90FAGXZD",
+    "codigo": "TVV0676",
+    "produtoPlanilha": "TV OLED 55 S90F 4K SMART (120HZ/QHDR/TIZEN)",
+    "tituloOficial": "Vision AI TV 55 polegadas OLED 4K S90F",
+    "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro OLED HDR+",
+    "imagem": "assets/produtos/qn55s90fagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "225.4 mm",
+        "altura": "708.6 mm",
+        "profundidade": "39.9 mm"
+      },
+      "comBase": {
+        "largura": "225.4 mm",
+        "altura": "773.6 mm",
+        "profundidade": "265.2 mm"
+      },
+      "embalagem": {
+        "largura": "1.385 mm",
+        "altura": "832 mm",
+        "profundidade": "153 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO GRAFITE",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "4K (3.840 x 2.160)",
+      "Frequência do painel": "120 Hz (até 144 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen3",
+      "Potência de áudio": "40 W",
+      "Canais de áudio": "2.1CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "16 kg",
+      "Peso bruto": "22,9 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "55\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3.840 x 2.160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "120 Hz (até 144 Hz)"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO GRAFITE"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/oled-tv/s90f-55-inch-oled-4k-smart-tv-qn55s90fagxzd/",
+    "dataConsulta": "2026-09-16T19:28:11.618Z"
+  },
+  {
+    "modelo": "QN43QN90FAGXZD",
+    "codigo": "TVV0677",
+    "produtoPlanilha": "TV NEO QLED GAMING 43 QN90F 4K SMART (144HZ/QHDR/T",
+    "tituloOficial": "Vision AI TV 43 polegadas Neo QLED 4K QN90F",
+    "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro Quantum Mini LED Pro",
+    "imagem": "assets/produtos/qn43qn90fagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "960.8 mm",
+        "altura": "558.9 mm",
+        "profundidade": "26.9 mm"
+      },
+      "comBase": {
+        "largura": "1164 mm",
+        "altura": "667 mm",
+        "profundidade": "140 mm"
+      },
+      "embalagem": {
+        "largura": "1164 mm",
+        "altura": "667 mm",
+        "profundidade": "140 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "TITÂNIO PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "43\"",
+      "Resolução": "4K (3.840 x 2.160)",
+      "Frequência do painel": "120 Hz (até 165 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen3",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "9.4 kg",
+      "Peso bruto": "16.9 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "43\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3.840 x 2.160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "120 Hz (até 165 Hz)"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "TITÂNIO PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/qn90f-43-inch-neo-qled-4k-mini-led-smart-tv-qn43qn90fagxzd/",
+    "dataConsulta": "2026-09-16T19:28:13.555Z"
+  },
+  {
+    "modelo": "QN43Q5FAAGXZD",
+    "codigo": "TVV0692",
+    "produtoPlanilha": "TV QLED 43 Q5F FHD SMART (GAMEHUB/60HZ/QHDR/TIZEN",
+    "tituloOficial": "Smart TV 43\" QLED Full HD Q5F",
+    "descricao": "\"QLED de verdade Som em Movimento Virtual Central de Segurança Knox Sistema Operacional Tizen\"",
+    "imagem": "assets/produtos/qn43q5faagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "965.9 mm",
+        "altura": "563.3 mm",
+        "profundidade": "75.8 mm"
+      },
+      "comBase": {
+        "largura": "965.9 mm",
+        "altura": "590.0 mm",
+        "profundidade": "157.6 mm"
+      },
+      "embalagem": {
+        "largura": "1058 mm",
+        "altura": "630 mm",
+        "profundidade": "119 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "43\"",
+      "Resolução": "3",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "6",
+      "Processador": "Hyper Real",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "2",
+      "USB": "1 x USB-A",
+      "Peso líquido": "6.8 kg",
+      "Peso bruto": "8.6 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "43\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "3"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q5f-43-inch-qled-full-hd-smart-tv-qn43q5faagxzd/",
+    "dataConsulta": "2026-09-16T19:28:15.639Z"
+  },
+  {
+    "modelo": "QN50Q7FAAGXZD",
+    "codigo": "TVV0693",
+    "produtoPlanilha": "TV QLED 50 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
+    "tituloOficial": "Vision AI TV 50 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "imagem": "assets/produtos/qn50q7faagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1120.3 mm",
+        "altura": "647 mm",
+        "profundidade": "60 mm"
+      },
+      "comBase": {
+        "largura": "1120.3 mm",
+        "altura": "694 mm",
+        "profundidade": "237 mm"
+      },
+      "embalagem": {
+        "largura": "1255 mm",
+        "altura": "765 mm",
+        "profundidade": "127 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "50\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "9.2 kg",
+      "Peso bruto": "14.3 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "50\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3,840 x 2,160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-50-inch-qled-4k-smart-tv-qn50q7faagxzd/",
+    "dataConsulta": "2026-09-16T19:28:17.861Z"
+  },
+  {
+    "modelo": "QN85Q7FAAGXZD",
+    "codigo": "TVV0694",
+    "produtoPlanilha": "TV QLED 85 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
+    "tituloOficial": "Super Big Vision AI TV 85 polegadas QLED 4K Q7F",
+    "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
+    "imagem": "assets/produtos/qn85q7faagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1901.2 mm",
+        "altura": "1088.4 mm",
+        "profundidade": "61.4 mm"
+      },
+      "comBase": {
+        "largura": "1901.2 mm",
+        "altura": "1132.3 mm",
+        "profundidade": "359 mm"
+      },
+      "embalagem": {
+        "largura": "2075 mm",
+        "altura": "1200 mm",
+        "profundidade": "171 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "85\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador IA Q4",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "32.5 kg",
+      "Peso bruto": "45.1 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "85\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3,840 x 2,160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-85-inch-qled-4k-smart-tv-qn85q7faagxzd/",
+    "dataConsulta": "2026-09-16T19:28:20.058Z"
+  },
+  {
+    "modelo": "QN77S90FAGXZD",
+    "codigo": "TVV0698",
+    "produtoPlanilha": "TV OLED 77 S90F 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "tituloOficial": "Super Big Vision AI TV 77 polegadas OLED 4K S90F",
+    "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro OLED HDR+",
+    "imagem": "assets/produtos/qn77s90fagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "718.5 mm",
+        "altura": "987.6 mm",
+        "profundidade": "44.9 mm"
+      },
+      "comBase": {
+        "largura": "718.5 mm",
+        "altura": "987.6 mm",
+        "profundidade": "44.9 mm"
+      },
+      "embalagem": {
+        "largura": "1.885 mm",
+        "altura": "1.154 mm",
+        "profundidade": "180 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "PRETO GRAFITE",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "77\"",
+      "Resolução": "4K (3.840 x 2.160)",
+      "Frequência do painel": "120 Hz (até 144 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen3",
+      "Potência de áudio": "40 W",
+      "Canais de áudio": "2.1CH",
+      "HDMI": "4",
+      "USB": "2 x USB-A",
+      "Peso líquido": "34,8 kg",
+      "Peso bruto": "45,9 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "77\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "4K (3.840 x 2.160)"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "120 Hz (até 144 Hz)"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "PRETO GRAFITE"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/oled-tv/s90f-77-inch-oled-4k-smart-tv-qn77s90fagxzd/",
+    "dataConsulta": "2026-09-16T19:28:22.265Z"
+  },
+  {
+    "modelo": "UN70U8000HGXZD",
+    "codigo": "TVV0705",
+    "produtoPlanilha": "TV LED 70 U8000H 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "tituloOficial": "Smart TV Samsung Vision AI 70\" Crystal UHD 4K U8000H",
+    "descricao": "Samsung Vision AI Companion Crystal Processor 4K Dynamic Sound Pack",
+    "imagem": "assets/produtos/un70u8000hgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1567.2 mm",
+        "altura": "875.5 mm",
+        "profundidade": "77.2 mm"
+      },
+      "comBase": {
+        "largura": "1567.2 mm",
+        "altura": "926.6 mm",
+        "profundidade": "280 mm"
+      },
+      "embalagem": {
+        "largura": "1755 mm",
+        "altura": "1056 mm",
+        "profundidade": "164 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "70\"",
+      "Resolução": "5",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Visão aprimorada do jogo",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "1 x USB-A"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "70\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "5"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60 Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8000h-70-inch-crystal-uhd-4k-smart-tv-un70u8000hgxzd/",
+    "dataConsulta": "2026-09-16T19:28:23.704Z"
+  },
+  {
+    "modelo": "UN98U9500HGXZD",
+    "codigo": "TVV0706",
+    "produtoPlanilha": "TV LED 98 U9500H 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "tituloOficial": "Smart TV Samsung Vision AI 98\" Crystal UHD 4K U9500H",
+    "descricao": "Samsung Vision AI Companion Supersize Picture Enhancer Motion Xcelerator 144Hz",
+    "imagem": "assets/produtos/un98u9500hgxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "2181.1 mm",
+        "altura": "1244.1 mm",
+        "profundidade": "63.5 mm"
+      },
+      "comBase": {
+        "largura": "2181.1 mm",
+        "altura": "1298.2 mm",
+        "profundidade": "402.3 mm"
+      },
+      "embalagem": {
+        "largura": "2370.0 mm",
+        "altura": "1404.0 mm",
+        "profundidade": "275.0 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "98\"",
+      "Resolução": "3840 x 2160",
+      "Frequência do painel": "8",
+      "Sistema operacional": "Tizen™ Smart TV",
+      "Processador": "5",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "2 x USB-A"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "98\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "3840 x 2160"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "8"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u9000h-98-inch-crystal-uhd-4k-smart-tv-un98u9500hgxzd/",
+    "dataConsulta": "2026-09-16T19:28:25.198Z"
+  },
+  {
+    "modelo": "UN55M75HAGXZD",
+    "codigo": "TVV0708",
+    "produtoPlanilha": "TV MINI LED 55 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
+    "tituloOficial": "Smart TV Samsung Vision AI 55” Mini LED 4K M75H",
+    "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
+    "imagem": "assets/produtos/un55m75hagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1224.6 mm",
+        "altura": "707.8 mm",
+        "profundidade": "76.6 mm"
+      },
+      "comBase": {
+        "largura": "1224.6 mm",
+        "altura": "760 mm",
+        "profundidade": "199 mm"
+      },
+      "embalagem": {
+        "largura": "1354 mm",
+        "altura": "810 mm",
+        "profundidade": "127 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "Otimização de resolução para até 4K",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Tizen™ Smart TV",
+      "Processador": "5",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "10.0 kg",
+      "Peso bruto": "14.5 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "55\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "Otimização de resolução para até 4K"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60 Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/mini-led-tv/m75h-55-inch-4k-smart-tv-un55m75hagxzd/",
+    "dataConsulta": "2026-09-16T19:28:27.611Z"
+  },
+  {
+    "modelo": "UN65M75HAGXZD",
+    "codigo": "TVV0709",
+    "produtoPlanilha": "TV MINI LED 65 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
+    "tituloOficial": "Smart TV Samsung Vision AI 65” Mini LED 4K M75H",
+    "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
+    "imagem": "assets/produtos/un65m75hagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1444.1 mm",
+        "altura": "831.2 mm",
+        "profundidade": "76.8 mm"
+      },
+      "comBase": {
+        "largura": "1444.1 mm",
+        "altura": "882.2 mm",
+        "profundidade": "222 mm"
+      },
+      "embalagem": {
+        "largura": "1578 mm",
+        "altura": "930 mm",
+        "profundidade": "142 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "65\"",
+      "Resolução": "Otimização de resolução para até 4K",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Tizen™ Smart TV",
+      "Processador": "5",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "14.2 kg",
+      "Peso bruto": "20.90 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "65\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "Otimização de resolução para até 4K"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60 Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/mini-led-tv/m75h-65-inch-4k-smart-tv-un65m75hagxzd/",
+    "dataConsulta": "2026-09-16T19:28:29.955Z"
+  },
+  {
+    "modelo": "UN75M75HAGXZD",
+    "codigo": "TVV0710",
+    "produtoPlanilha": "TV MINI LED 75 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
+    "tituloOficial": "Smart TV Samsung Vision AI 75” Mini LED 4K M75H",
+    "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
+    "imagem": "assets/produtos/un75m75hagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1668.1 mm",
+        "altura": "957.8 mm",
+        "profundidade": "77 mm"
+      },
+      "comBase": {
+        "largura": "1668.1 mm",
+        "altura": "1007.9 mm",
+        "profundidade": "280 mm"
+      },
+      "embalagem": {
+        "largura": "1825 mm",
+        "altura": "1100 mm",
+        "profundidade": "170 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "75\"",
+      "Resolução": "Otimização de resolução para até 4K",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Tizen™ Smart TV",
+      "Processador": "5",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "21.6 kg",
+      "Peso bruto": "30.0 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "75\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "Otimização de resolução para até 4K"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60 Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/mini-led-tv/m75h-75-inch-4k-smart-tv-un75m75hagxzd/",
+    "dataConsulta": "2026-09-16T19:28:32.435Z"
+  },
+  {
+    "modelo": "QN55QN70HAGXZD",
+    "codigo": "TVV0713",
+    "produtoPlanilha": "TV NEO QLED 55 QN70H 4K SMART (120HZ/GAMEHUB/NQHDR/WIFI/TIZEN)",
+    "tituloOficial": "Smart TV Samsung Vision AI 55\" Neo QLED 4K QN70H",
+    "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
+    "imagem": "assets/produtos/qn55qn70hagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1232.1 mm",
+        "altura": "708.8 mm",
+        "profundidade": "25.7 mm"
+      },
+      "comBase": {
+        "largura": "1232.1 mm",
+        "altura": "768.1 mm",
+        "profundidade": "238.6 mm"
+      },
+      "embalagem": {
+        "largura": "1369 mm",
+        "altura": "819 mm",
+        "profundidade": "142.0 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "3840 x 2160",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "2",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "2 x USB-A",
+      "Peso líquido": "13.8 kg",
+      "Peso bruto": "19.0 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "55\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "3840 x 2160"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60 Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/qn70h-55-inch-neo-qled-4k-mini-led-smart-tv-qn55qn70hagxzd/",
+    "dataConsulta": "2026-09-16T19:28:54.215Z"
+  },
+  {
+    "modelo": "QN75QN70HAGXZD",
+    "codigo": "TVV0715",
+    "produtoPlanilha": "TV NEO QLED 75 QN70H 4K SMART (120HZ/GAMEHUB/NQHDR/WIFI/TIZEN)",
+    "tituloOficial": "Smart TV Samsung Vision AI 75\" Neo QLED 4K QN70H",
+    "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
+    "imagem": "assets/produtos/qn75qn70hagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1676.7 mm",
+        "altura": "960.3 mm",
+        "profundidade": "26.6 mm"
+      },
+      "comBase": {
+        "largura": "1676.7 mm",
+        "altura": "1017.5 mm",
+        "profundidade": "327.7 mm"
+      },
+      "embalagem": {
+        "largura": "1815 mm",
+        "altura": "1080 mm",
+        "profundidade": "164 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "75\"",
+      "Resolução": "3840 x 2160",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "2",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "2 x USB-A",
+      "Peso líquido": "29.2 kg",
+      "Peso bruto": "38.2 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "75\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "3840 x 2160"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60 Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/qn70h-75-inch-neo-qled-4k-mini-led-smart-tv-qn75qn70hagxzd/",
+    "dataConsulta": "2026-09-16T19:28:56.299Z"
+  },
+  {
+    "modelo": "QN85QN70HAGXZD",
+    "codigo": "TVV0716",
+    "produtoPlanilha": "TV NEO QLED 85 QN70H 4K SMART (120HZ/GAMEHUB/NQHDR/WIFI/TIZEN)",
+    "tituloOficial": "Smart TV Samsung Vision AI 85\" Neo QLED 4K QN70H",
+    "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
+    "imagem": "assets/produtos/qn85qn70hagxzd/principal.png",
+    "dimensoes": {
+      "semBase": {
+        "largura": "1900.9 mm",
+        "altura": "1086.1 mm",
+        "profundidade": "26.9 mm"
+      },
+      "comBase": {
+        "largura": "1900.9 mm",
+        "altura": "1141.9 mm",
+        "profundidade": "365.6 mm"
+      },
+      "embalagem": {
+        "largura": "2059 mm",
+        "altura": "1200 mm",
+        "profundidade": "171 mm"
+      }
+    },
+    "especificacoes": {
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "85\"",
+      "Resolução": "3840 x 2160",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "2",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "2 x USB-A",
+      "Peso líquido": "40.5 kg",
+      "Peso bruto": "53 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Tamanho da tela",
+        "valor": "85\""
+      },
+      {
+        "rotulo": "Resolução",
+        "valor": "3840 x 2160"
+      },
+      {
+        "rotulo": "Frequência do painel",
+        "valor": "60 Hz"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Preto"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Sim (Wi-Fi 5)"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/qn70h-85-inch-neo-qled-4k-mini-led-smart-tv-qn85qn70hagxzd/",
+    "dataConsulta": "2026-09-16T19:28:58.124Z"
+  },
+  {
+    "modelo": "RS60T5200S9/AZ",
+    "codigo": "GEL0038",
+    "produtoPlanilha": "GELADEIRA FF INV SIDEBYSIDE 602L RS60 CIN 127V",
+    "tituloOficial": "Geladeira Side by Side RS60 com Dispenser de Água e Gelo Inox 127V 628L",
+    "descricao": "Espaço interno maior com tecnologia SpaceMax™ Design flat: visual elegante e moderno Alimentos frescos com tecnologia All Around Cooling™",
+    "imagem": "assets/produtos/rs60t5200s9az/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1780 mm",
+        "profundidade": "726 mm"
+      },
+      "embalagem": {
+        "largura": "958 mm",
+        "altura": "1915 mm",
+        "profundidade": "764 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade total": "628 L",
+      "Voltagem": "127 V",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All-around Cooling",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "108,0",
+      "Peso bruto": "117"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade total",
+        "valor": "628 L"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "127 V"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Black Inox"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      },
+      {
+        "rotulo": "Classificação energética",
+        "valor": "A"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/side-by-side/rs5300t-large-capacity-602l-natural-gray-rs60t5200s9-az/",
+    "dataConsulta": "2026-09-16T19:28:59.976Z"
+  },
+  {
+    "modelo": "RT38DG6120S9FZ",
+    "codigo": "GEL0048",
+    "produtoPlanilha": "GELADEIRA FF INV 391L DUPLEX RT38 CIN BIV",
+    "tituloOficial": "Geladeira Duplex RT38 Evolution com SmartThings AI Bivolt 393L",
+    "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
+    "imagem": "assets/produtos/rt38dg6120s9fz/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "700 mm",
+        "altura": "1715 mm",
+        "profundidade": "672 mm"
+      },
+      "embalagem": {
+        "largura": "737 mm",
+        "altura": "1810 mm",
+        "profundidade": "705 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade total": "393 L",
+      "Voltagem": "Bivolt",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All Around Cooling™",
+      "Frost Free": "Sim",
+      "SmartThings": "Mobile",
+      "Classificação energética": "B",
+      "Peso líquido": "60 kg",
+      "Peso bruto": "62 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade total",
+        "valor": "393 L"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "Bivolt"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Black Inox"
+      },
+      {
+        "rotulo": "Frost Free",
+        "valor": "Frost Free"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/top-mount-freezer/rt6300d-top-mount-freezer-ai-energy-mode-391l-silver-rt38dg6120s9fz/",
+    "dataConsulta": "2026-09-16T19:29:01.719Z"
+  },
+  {
+    "modelo": "RT42DG6630S9FZ",
+    "codigo": "GEL0050",
+    "produtoPlanilha": "GELADEIRA FF INV 411L DUPLEX RT42 CIN BIV",
+    "tituloOficial": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L",
+    "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
+    "imagem": "assets/produtos/rt42dg6630s9fz/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "700 mm",
+        "altura": "1785 mm",
+        "profundidade": "672 mm"
+      },
+      "embalagem": {
+        "largura": "737 mm",
+        "altura": "1885 mm",
+        "profundidade": "705 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade total": "415 L",
+      "Voltagem": "Bivolt",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All Around Cooling™",
+      "Frost Free": "Sim",
+      "SmartThings": "Mobile",
+      "Classificação energética": "B",
+      "Peso líquido": "63 Kg",
+      "Peso bruto": "65 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade total",
+        "valor": "415 L"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "Bivolt"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Black Inox"
+      },
+      {
+        "rotulo": "Frost Free",
+        "valor": "Frost Free"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/top-mount-freezer/rt6300d-top-mount-freezer-ai-energy-mode-411l-silver-rt42dg6630s9fz/",
+    "dataConsulta": "2026-09-16T19:29:03.761Z"
+  },
+  {
+    "modelo": "RT42DG6630B1FZ",
+    "codigo": "GEL0051",
+    "produtoPlanilha": "GELADEIRA FF INV 411L DUPLEX RT42 PRE BIV",
+    "tituloOficial": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L",
+    "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
+    "imagem": "assets/produtos/rt42dg6630b1fz/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "700 mm",
+        "altura": "1785 mm",
+        "profundidade": "672 mm"
+      },
+      "embalagem": {
+        "largura": "737 mm",
+        "altura": "1885 mm",
+        "profundidade": "705 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade total": "415 L",
+      "Voltagem": "Bivolt",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All Around Cooling™",
+      "Frost Free": "Sim",
+      "SmartThings": "Mobile",
+      "Classificação energética": "B",
+      "Peso líquido": "63 kg",
+      "Peso bruto": "65 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade total",
+        "valor": "415 L"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "Bivolt"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Black Inox"
+      },
+      {
+        "rotulo": "Frost Free",
+        "valor": "Frost Free"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/top-mount-freezer/rt6300d-top-mount-freezer-ai-energy-mode-411l-black-rt42dg6630b1fz/",
+    "dataConsulta": "2026-09-16T19:29:05.777Z"
+  },
+  {
+    "modelo": "RF27CG5910B1AZ",
+    "codigo": "GEL0054",
+    "produtoPlanilha": "GELADEIRA FF INV SMART FRNDOOR FHUB 707L RF27 127",
+    "tituloOficial": "Geladeira French Door RF27 Family Hub Black Inox 127V 707L",
+    "descricao": "App SmartThings - Aproveite uma vida mais inteligente e conectada SpaceMax™ - Espaço interno maior",
+    "imagem": "assets/produtos/rf27cg5910b1az/principal.png",
+    "dimensoes": {},
+    "especificacoes": {
+      "Capacidade total": "707 L",
+      "Voltagem": "127 V",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "Largura (mm)",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "138 kg",
+      "Peso bruto": "142 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade total",
+        "valor": "707 L"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "127 V"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Black Inox"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      },
+      {
+        "rotulo": "Classificação energética",
+        "valor": "A"
+      }
+    ],
+    "statusExtracao": "REVISAR",
+    "pendencias": [
+      "Dimensões não extraídas"
+    ],
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rf6500cc-3door-french-door-large-capacity-with-spacemax-technology-564l-black-rf27cg5910b1az/",
+    "dataConsulta": "2026-09-16T19:29:08.253Z"
+  },
+  {
+    "modelo": "RF29DB9950QDAZ",
+    "codigo": "GEL0064",
+    "produtoPlanilha": "GELADEIRA FF INV SMART FRNDOOR BESPOKE 809L RF29 B",
+    "tituloOficial": "Geladeira Bespoke AI 4-Door French Door RF29D Family Hub 127V 809L",
+    "descricao": "Maior capacidade do mercado: Capacidade de 699L para você viver sem limites Controle total dos seu alimentos: AI Vision Inside Gerenciamento do consumo de enegia: Economize com SmartThings Energy Experiência ainda mais imersiva: Tela interativa de 32\"",
+    "imagem": "assets/produtos/rf29db9950qdaz/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1853 mm",
+        "profundidade": "869 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade total": "809 L",
+      "Voltagem": "127 V",
+      "Cor": "Inox",
+      "Tecnologia de refrigeração": "Triple Cooling",
+      "Frost Free": "Sim",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "165 kg",
+      "Peso bruto": "175 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade total",
+        "valor": "809 L"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "127 V"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Inox"
+      },
+      {
+        "rotulo": "Frost Free",
+        "valor": "Frost Free"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rf9000-t-style-french-door-32inch-family-hub-699l-stainless-steel-rf29db9950qdaz/",
+    "dataConsulta": "2026-09-16T19:29:10.789Z"
+  },
+  {
+    "modelo": "RS58T5561B1/AZ",
+    "codigo": "GEL0092",
+    "produtoPlanilha": "GELADEIRA FF INV SMART SIDEBYSIDE FHUB 585L RS58 PRE 127V",
+    "tituloOficial": "Geladeira Side by Side RS58 Family Hub Black Inox 127V 608L",
+    "descricao": "Aproveite uma vida mais inteligente e conectada Entretenimento contínuo com músicas, rádio, TV e chamadas Gestão fácil, rápida e intuitiva dos alimentos",
+    "imagem": "assets/produtos/rs58t5561b1az/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1780 mm",
+        "profundidade": "726 mm"
+      },
+      "embalagem": {
+        "largura": "970 mm",
+        "altura": "1930 mm",
+        "profundidade": "776 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade total": "608L",
+      "Voltagem": "127 V",
+      "Cor": "Black Inox",
+      "Tecnologia de refrigeração": "All-Around Cooling",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "116,0",
+      "Peso bruto": "125"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade total",
+        "valor": "608L"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "127 V"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Black Inox"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      },
+      {
+        "rotulo": "Classificação energética",
+        "valor": "A"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/side-by-side/rs5300tc-family-hub-634l-black-rs58t5561b1-az/",
+    "dataConsulta": "2026-09-16T19:29:12.576Z"
+  },
+  {
+    "modelo": "RM90F66C1CAZ",
+    "codigo": "GEL0109",
+    "produtoPlanilha": "GELADEIRA FF INV SMART FRNDOOR FHUB 658L RM90F PRE 127V",
+    "tituloOficial": "Geladeira Bespoke AI 4-Door French Door RM90F Family Hub Black Charcoal 127V 658L",
+    "descricao": "Conheça o Geladeira Bespoke AI RM90F Black Charcoal com a qualidade e inovação da Samsung. Confira especificações completas, compare modelos e compre",
+    "imagem": "assets/produtos/rm90f66c1caz/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1853 mm",
+        "profundidade": "731 mm"
+      },
+      "embalagem": {
+        "largura": "972 mm",
+        "altura": "1995 mm",
+        "profundidade": "776 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade total": "658 L",
+      "Voltagem": "127 V",
+      "Cor": "Black Charcoal",
+      "Tecnologia de refrigeração": "Mono Cooling",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "150 kg",
+      "Peso bruto": "159 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade total",
+        "valor": "658 L"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "127 V"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Black Charcoal"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      },
+      {
+        "rotulo": "Classificação energética",
+        "valor": "A"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rm90f-36-4-door-french-door-refrigerators-with-ai-home-and-ai-hybrid-cooling-543l-glam-deep-charcoal-rm90f66c1caz/",
+    "dataConsulta": "2026-09-16T19:29:14.709Z"
+  },
+  {
+    "modelo": "RF70H25HETAZ",
+    "codigo": "GEL0116",
+    "produtoPlanilha": "GELADEIRA FF INV SMART FRNDOOR RF70H 664L 127V",
+    "tituloOficial": "Geladeira French Door RF70H com Dispenser de Água e Gelo Inox 127V 664L",
+    "descricao": "Conheça o Geladeira French Door RF70H com Dispenser com a qualidade e inovação da Samsung. Confira especificações completas, compare modelos e compre",
+    "imagem": "assets/produtos/rf70h25hetaz/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "912 mm",
+        "altura": "1783 mm",
+        "profundidade": "750 mm"
+      },
+      "embalagem": {
+        "largura": "958 mm",
+        "altura": "1920 mm",
+        "profundidade": "751 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade total": "664 L",
+      "Voltagem": "127 V",
+      "Cor": "Inox",
+      "Tecnologia de refrigeração": "All Around Cooling",
+      "SmartThings": "Mobile",
+      "Peso líquido": "132 kg",
+      "Peso bruto": "136 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade total",
+        "valor": "664 L"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "127 V"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Inox"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rf80h-36-3dr-french-door-zero-clearance-fit-with-space-max-664l-silver-rf70h25hetaz/",
+    "dataConsulta": "2026-09-16T19:29:16.860Z"
+  },
+  {
+    "modelo": "WW11T4040BE/AZ",
+    "codigo": "LAV0028",
+    "produtoPlanilha": "MAQ LAV FL 11KG DIGITAL INV WW11T BRA 127V",
+    "tituloOficial": "Lavadora Porta Black WW11T Digital Inverter Branca 127V 11kg",
+    "descricao": "Mais performance de lavagem, menos água e energia. Lavagem rápida de 15 minutos para pequenas cargas Limpeza profunda com vapor eliminando 99,9% de bactérias Diamond Drum: delicadeza e preservação dos tecidos",
+    "imagem": "assets/produtos/ww11t4040beaz/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "550 mm"
+      },
+      "embalagem": {
+        "largura": "670 mm",
+        "altura": "890 mm",
+        "profundidade": "660 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade de lavagem": "11 kg",
+      "Voltagem": "127 V",
+      "Cor": "Branco",
+      "Wi-Fi": "Não",
+      "SmartThings": "Mobile",
+      "Peso líquido": "65 kg",
+      "Peso bruto": "67 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade de lavagem",
+        "valor": "11 kg"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "127 V"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Branco"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Não"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washing-machines/ww4000t-front-loading-hygiene-steam-digital-inverter-technology-drum-clean-11kg-white-ww11t4040be-az/",
+    "dataConsulta": "2026-09-16T19:29:18.322Z"
+  },
+  {
+    "modelo": "WW11T4040BX/AZ",
+    "codigo": "LAV0029",
+    "produtoPlanilha": "MAQ LAV FL 11KG DIGITAL INV WW11T PRE 127V",
+    "tituloOficial": "Lavadora Porta Black WW11T Digital Inverter Inox 127V 11kg",
+    "descricao": "Mais performance de lavagem, menos água e energia. Lavagem rápida de 15 minutos para pequenas cargas Limpeza profunda com vapor eliminando 99,9% de bactérias Diamond Drum: delicadeza e preservação dos tecidos",
+    "imagem": "assets/produtos/ww11t4040bxaz/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "550 mm"
+      },
+      "embalagem": {
+        "largura": "670 mm",
+        "altura": "890 mm",
+        "profundidade": "660 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade de lavagem": "11 kg",
+      "Voltagem": "127 V",
+      "Cor": "Branco",
+      "Wi-Fi": "Não",
+      "SmartThings": "Mobile",
+      "Peso líquido": "65 kg",
+      "Peso bruto": "67 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade de lavagem",
+        "valor": "11 kg"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "127 V"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Branco"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Não"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washing-machines/ww4000t-front-loading-hygiene-steam-digital-inverter-technology-drum-clean-11kg-gray-ww11t4040bx-az/",
+    "dataConsulta": "2026-09-16T19:29:20.017Z"
+  },
+  {
+    "modelo": "WF90F20ADSBZ",
+    "codigo": "LAV0058",
+    "produtoPlanilha": "MAQ LAV FL 20KG SMART TELA 7'' BESPOKE AI WF90F PRE 220V",
+    "tituloOficial": "Bespoke AI Laundry Lavadora WF90F AI Home | Inox | 220V | 20kg",
+    "descricao": "AI Home | Inox | 220V | 20kg",
+    "imagem": "assets/produtos/wf90f20adsbz/principal.png",
+    "dimensoes": {
+      "produto": {
+        "largura": "686 mm",
+        "altura": "984 mm",
+        "profundidade": "875 mm"
+      },
+      "embalagem": {
+        "largura": "746 mm",
+        "altura": "1090 mm",
+        "profundidade": "915 mm"
+      }
+    },
+    "especificacoes": {
+      "Capacidade de lavagem": "20.0 kg",
+      "Voltagem": "220 V",
+      "Cor": "Inox",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile",
+      "Peso líquido": "102 kg",
+      "Peso bruto": "105 kg"
+    },
+    "destaques": [
+      {
+        "rotulo": "Capacidade de lavagem",
+        "valor": "20.0 kg"
+      },
+      {
+        "rotulo": "Voltagem",
+        "valor": "220 V"
+      },
+      {
+        "rotulo": "Cor",
+        "valor": "Inox"
+      },
+      {
+        "rotulo": "Wi-Fi",
+        "valor": "Wi-Fi"
+      },
+      {
+        "rotulo": "SmartThings",
+        "valor": "Mobile"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [],
+    "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washing-machines/wf90f27-front-loading-ai-home-ai-optiwash-plus-ultra-capacity-20kg-gray-wf90f20adsbz/",
+    "dataConsulta": "2026-09-16T19:29:21.613Z"
+  }
+]

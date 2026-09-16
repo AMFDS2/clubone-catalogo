@@ -1,0 +1,25 @@
+{
+  "name": "clubone-catalogo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Catálogo técnico Club One e Info Store",
+  "type": "module",
+  "scripts": {
+    "ler": "node scripts/ler-planilha.mjs",
+    "verificar": "node scripts/verificar-catalogo.mjs",
+    "localizar": "node scripts/localizar-fontes.mjs",
+    "enriquecer": "node scripts/enriquecer-produtos.mjs",
+    "gerar": "node scripts/gerar-catalogo-preview.mjs",
+    "atualizar": "npm run ler && npm run verificar && npm run localizar && npm run enriquecer && npm run gerar",
+    "check": "node --check script.js && node --check scripts/enriquecer-produtos.mjs && node --check scripts/gerar-catalogo-preview.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMFDS2/clubone-catalogo.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "exceljs": "^4.4.0"
+  }
+}

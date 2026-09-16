@@ -2,231 +2,80 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="description"
-    content="Catálogo técnico premium Club One e Info Store"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo técnico premium Club One e Info Store">
   <title>Club One | Catálogo Técnico</title>
-
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <!-- MENU SUPERIOR -->
   <header class="topbar">
-
     <div class="topbar-logos">
-      <img
-        src="assets/logoclub.png"
-        alt="Club One"
-        class="logo-club"
-      >
-
-      <span class="separador-logo"></span>
-
-      <img
-        src="assets/logoin.png"
-        alt="Info Store"
-        class="logo-info"
-      >
+      <img src="assets/logoclub.png" alt="Club One" class="logo-club">
+      <span class="separador-logo" aria-hidden="true"></span>
+      <img src="assets/logoin.png" alt="Info Store" class="logo-info">
     </div>
 
-    <nav class="menu-principal">
+    <nav class="menu-principal" id="menuPrincipal" aria-label="Menu principal">
       <a href="#">Início</a>
-      <a href="#">Marcas</a>
-      <a href="#">Ambientes</a>
-      <a href="#">Categorias</a>
-      <a href="#">Área do arquiteto</a>
-      <a href="#">Contato</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#rodape">Área do arquiteto</a>
+      <a href="#rodape">Contato</a>
     </nav>
 
-    <button
-      type="button"
-      class="menu-mobile"
-      id="menuMobile"
-      aria-label="Abrir menu"
-    >
-      ☰
-    </button>
-
+    <button type="button" class="menu-mobile" id="menuMobile" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
   <main class="catalogo">
-
-    <!-- COLUNA ESQUERDA -->
     <aside class="sidebar">
-
       <div class="bloco-busca">
-
-        <div class="campo-busca">
-          <input
-            type="search"
-            id="busca"
-            placeholder="Buscar produto, modelo ou categoria..."
-            autocomplete="off"
-          >
-
-          <span class="icone-busca">⌕</span>
-        </div>
-
-        <button
-          type="button"
-          class="botao-filtro"
-          aria-label="Filtros"
-        >
-          ☷
-        </button>
-
+        <label class="campo-busca" for="busca">
+          <input type="search" id="busca" placeholder="Buscar produto, modelo ou categoria..." autocomplete="off">
+          <span class="icone-busca" aria-hidden="true">⌕</span>
+        </label>
+        <button type="button" class="botao-filtro" aria-label="Filtros">☷</button>
       </div>
 
-      <section class="secao-categorias">
-
+      <section class="secao-categorias" id="categorias">
         <h2 class="titulo-secao">Categorias</h2>
-
-        <div class="categorias" id="categorias">
-
-          <button
-            type="button"
-            class="categoria ativo"
-            data-categoria="Todos"
-          >
-            <span class="categoria-icone">▦</span>
-            <span>Todos</span>
-          </button>
-
-          <button
-            type="button"
-            class="categoria"
-            data-categoria="Video"
-          >
-            <span class="categoria-icone">▭</span>
-            <span>Vídeo</span>
-          </button>
-
-          <button
-            type="button"
-            class="categoria"
-            data-categoria="Audio"
-          >
-            <span class="categoria-icone">◖</span>
-            <span>Áudio</span>
-          </button>
-
-          <button
-            type="button"
-            class="categoria"
-            data-categoria="Linha Branca"
-          >
-            <span class="categoria-icone">▣</span>
-            <span>Linha Branca</span>
-          </button>
-
-          <button
-            type="button"
-            class="categoria"
-            data-categoria="Automacao"
-          >
-            <span class="categoria-icone">⌂</span>
-            <span>Automação</span>
-          </button>
-
+        <div class="categorias">
+          <button type="button" class="categoria ativo" data-categoria="Todos"><span class="categoria-icone">▦</span><span>Todos</span></button>
+          <button type="button" class="categoria" data-categoria="Video"><span class="categoria-icone">▭</span><span>Vídeo</span></button>
+          <button type="button" class="categoria" data-categoria="Audio"><span class="categoria-icone">◖</span><span>Áudio</span></button>
+          <button type="button" class="categoria" data-categoria="Linha Branca"><span class="categoria-icone">▣</span><span>Linha Branca</span></button>
+          <button type="button" class="categoria" data-categoria="Automacao"><span class="categoria-icone">⌂</span><span>Automação</span></button>
         </div>
-
       </section>
 
       <div class="resultado-cabecalho">
-
-        <strong id="quantidadeProdutos">
-          0 produtos encontrados
-        </strong>
-
-        <label class="ordenacao">
-          Ordenar:
-
+        <strong id="quantidadeProdutos">0 produtos encontrados</strong>
+        <label class="ordenacao">Ordenar:
           <select id="ordenacao">
             <option value="recentes">Mais recentes</option>
             <option value="modelo">Modelo A–Z</option>
             <option value="categoria">Categoria</option>
           </select>
         </label>
-
       </div>
 
-      <section
-        id="produtos"
-        class="lista-produtos"
-        aria-live="polite"
-      >
-        <div class="carregando">
-          Carregando produtos...
-        </div>
+      <section id="produtos" class="lista-produtos" aria-live="polite">
+        <div class="carregando">Carregando produtos...</div>
       </section>
-
     </aside>
 
-    <!-- PAINEL DIREITO -->
     <section id="detalhes" class="detalhes">
-
       <div class="estado-vazio">
         <h1>Selecione um produto</h1>
-
-        <p>
-          Clique em um produto para visualizar suas informações técnicas.
-        </p>
+        <p>Clique em um produto para visualizar suas informações técnicas.</p>
       </div>
-
     </section>
-
   </main>
 
-  <!-- RODAPÉ -->
-  <footer class="rodape">
-
-    <div class="beneficio">
-      <span class="beneficio-icone">ⓘ</span>
-
-      <div>
-        <strong>Acesso rápido</strong>
-        <p>Informações técnicas com facilidade e agilidade.</p>
-      </div>
-    </div>
-
-    <div class="beneficio">
-      <span class="beneficio-icone">◇</span>
-
-      <div>
-        <strong>Especificação confiável</strong>
-        <p>Dados oficiais para seus projetos.</p>
-      </div>
-    </div>
-
-    <div class="beneficio">
-      <span class="beneficio-icone">♙</span>
-
-      <div>
-        <strong>Apoio ao arquiteto</strong>
-        <p>Conteúdo pensado para projetos residenciais e comerciais.</p>
-      </div>
-    </div>
-
-    <div class="beneficio">
-      <span class="beneficio-icone">♡</span>
-
-      <div>
-        <strong>Atualização contínua</strong>
-        <p>Novos produtos e informações sempre disponíveis.</p>
-      </div>
-    </div>
-
+  <footer class="rodape" id="rodape">
+    <div class="beneficio"><span class="beneficio-icone">ⓘ</span><div><strong>Acesso rápido</strong><p>Informações técnicas para especificação de projetos.</p></div></div>
+    <div class="beneficio"><span class="beneficio-icone">◇</span><div><strong>Dados organizados</strong><p>Medidas, recursos e características em um só lugar.</p></div></div>
+    <div class="beneficio"><span class="beneficio-icone">♙</span><div><strong>Apoio ao arquiteto</strong><p>Conteúdo para projetos residenciais e comerciais.</p></div></div>
+    <div class="beneficio"><span class="beneficio-icone">♡</span><div><strong>Atualização contínua</strong><p>Novos produtos adicionados a partir da base Info Store.</p></div></div>
   </footer>
 
   <script src="script.js"></script>
