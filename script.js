@@ -4,7 +4,10 @@ const IMAGEM_FALLBACK = "assets/produto-sem-imagem.png";
 let todosProdutos = [];
 let produtosFiltrados = [];
 let produtoSelecionado = null;
-let categoriaSelecionada = "Todos";
+const filtrosSelecionados = {
+  fabricantes: new Set(),
+  segmentos: new Set()
+};
 
 document.addEventListener("DOMContentLoaded", inicializar);
 
@@ -18,6 +21,7 @@ async function inicializar() {
     const dados = await resposta.json();
     todosProdutos = Array.isArray(dados) ? dados.filter(produtoValido) : [];
     produtosFiltrados = [...todosProdutos];
+    renderizarFiltros();
     ordenarProdutos();
     renderizarProdutos(produtosFiltrados);
 
@@ -36,22 +40,37 @@ function produtoValido(produto) {
 
 function configurarEventosFixos() {
   const campoBusca = document.getElementById("busca");
-  const categorias = document.getElementById("categorias");
   const ordenacao = document.getElementById("ordenacao");
   const menuMobile = document.getElementById("menuMobile");
   const menuPrincipal = document.getElementById("menuPrincipal");
+  const botaoFiltros = document.getElementById("botaoFiltros");
+  const painelFiltros = document.getElementById("painelFiltros");
+  const limparFiltros = document.getElementById("limparFiltros");
 
   campoBusca.addEventListener("input", aplicarFiltros);
   ordenacao.addEventListener("change", aplicarFiltros);
 
-  categorias.addEventListener("click", evento => {
-    const botao = evento.target.closest(".categoria");
-    if (!botao) return;
+  document.getElementById("filtrosFabricantes").addEventListener("change", atualizarSelecaoFiltro);
+  document.getElementById("filtrosSegmentos").addEventListener("change", atualizarSelecaoFiltro);
 
-    categoriaSelecionada = botao.dataset.categoria;
-    categorias.querySelectorAll(".categoria").forEach(item => item.classList.remove("ativo"));
-    botao.classList.add("ativo");
+  botaoFiltros.addEventListener("click", () => {
+    const aberto = !painelFiltros.classList.toggle("fechado");
+    botaoFiltros.setAttribute("aria-expanded", String(aberto));
+  });
+
+  limparFiltros.addEventListener("click", () => {
+    filtrosSelecionados.fabricantes.clear();
+    filtrosSelecionados.segmentos.clear();
+    renderizarFiltros();
     aplicarFiltros();
+  });
+
+  document.querySelectorAll("[data-abrir-filtro]").forEach(botao => {
+    botao.addEventListener("click", () => {
+      painelFiltros.classList.remove("fechado");
+      botaoFiltros.setAttribute("aria-expanded", "true");
+      document.getElementById(botao.dataset.abrirFiltro === "fabricantes" ? "grupoFabricantes" : "grupoSegmentos").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
   });
 
   menuMobile.addEventListener("click", () => {
@@ -64,9 +83,10 @@ function aplicarFiltros() {
   const busca = normalizarTexto(document.getElementById("busca").value.trim());
 
   produtosFiltrados = todosProdutos.filter(produto => {
-    const correspondeCategoria =
-      categoriaSelecionada === "Todos" ||
-      normalizarTexto(produto.categoria) === normalizarTexto(categoriaSelecionada);
+    const fabricante = normalizarTexto(produto.marca || produto.fabricante);
+    const segmento = normalizarTexto(produto.segmento || produto.categoria);
+    const correspondeFabricante = !filtrosSelecionados.fabricantes.size || filtrosSelecionados.fabricantes.has(fabricante);
+    const correspondeSegmento = !filtrosSelecionados.segmentos.size || filtrosSelecionados.segmentos.has(segmento);
 
     const conteudo = normalizarTexto([
       produto.marca,
@@ -78,7 +98,7 @@ function aplicarFiltros() {
       produto.segmento
     ].filter(Boolean).join(" "));
 
-    return correspondeCategoria && (!busca || conteudo.includes(busca));
+    return correspondeFabricante && correspondeSegmento && (!busca || conteudo.includes(busca));
   });
 
   ordenarProdutos();
@@ -92,6 +112,38 @@ function aplicarFiltros() {
     document.getElementById("detalhes").innerHTML = `
       <div class="estado-vazio"><h1>Nenhum produto encontrado</h1><p>Tente outro modelo ou categoria.</p></div>`;
   }
+}
+
+function atualizarSelecaoFiltro(evento) {
+  const input = evento.target.closest("input[data-tipo-filtro]");
+  if (!input) return;
+  const conjunto = filtrosSelecionados[input.dataset.tipoFiltro];
+  if (input.checked) conjunto.add(input.value);
+  else conjunto.delete(input.value);
+  aplicarFiltros();
+}
+
+function renderizarFiltros() {
+  preencherGrupoFiltro("filtrosFabricantes", "fabricantes", todosProdutos.map(item => item.marca || item.fabricante));
+  preencherGrupoFiltro("filtrosSegmentos", "segmentos", todosProdutos.map(item => item.segmento || item.categoria));
+}
+
+function preencherGrupoFiltro(containerId, tipo, valores) {
+  const contagens = new Map();
+  valores.filter(Boolean).forEach(valor => {
+    const chave = normalizarTexto(valor);
+    const atual = contagens.get(chave) || { nome: valor, quantidade: 0 };
+    atual.quantidade += 1;
+    contagens.set(chave, atual);
+  });
+
+  document.getElementById(containerId).innerHTML = [...contagens.entries()]
+    .sort((a, b) => String(a[1].nome).localeCompare(String(b[1].nome), "pt-BR"))
+    .map(([chave, item]) => `
+      <label class="opcao-filtro">
+        <input type="checkbox" data-tipo-filtro="${tipo}" value="${escaparHTML(chave)}" ${filtrosSelecionados[tipo].has(chave) ? "checked" : ""}>
+        <span>${escaparHTML(item.nome)}</span><small>${item.quantidade}</small>
+      </label>`).join("");
 }
 
 function ordenarProdutos() {
@@ -121,9 +173,14 @@ function renderizarProdutos(produtos) {
           <img src="${escaparHTML(produto.imagem || IMAGEM_FALLBACK)}" alt="${escaparHTML(produto.nome)}" loading="lazy">
         </span>
         <span class="produto-informacoes">
-          <h3>${escaparHTML(produto.marca)} ${escaparHTML(produto.modelo)}</h3>
-          <p>${escaparHTML(produto.nome)}</p>
-          <p>${escaparHTML(produto.categoria)}</p>
+          <h3>${escaparHTML(produto.nome)}</h3>
+
+<p>
+  ${escaparHTML(produto.marca)}
+  • ${escaparHTML(produto.modelo)}
+</p>
+
+<p>${escaparHTML(produto.categoria)}</p>
         </span>
         <span class="produto-favorito" aria-hidden="true">${ativo ? "★" : "☆"}</span>
       </button>`;
@@ -147,14 +204,21 @@ function mostrarDetalhes(idProduto) {
   const especificacoes = criarEspecificacoes(produto.especificacoes);
   const dimensoes = criarDimensoes(produto.dimensoes);
   const documentos = criarDocumentos(produto.documentos);
-  const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
+  const botaoInfoStore = criarBotaoInfoStore(criarLinkSeguroInfoStore(produto));
 
   document.getElementById("detalhes").innerHTML = `
     <div class="produto-hero">
       <div class="produto-resumo">
         <span class="badge">${escaparHTML(produto.categoria)}</span>
-        <h1><span>${escaparHTML(produto.marca)}</span> ${escaparHTML(produto.modelo)}</h1>
-        <p class="subtitulo">${escaparHTML(produto.nome)}</p>
+        <h1 class="nome-produto">
+  ${escaparHTML(produto.nome)}
+</h1>
+
+<p class="subtitulo produto-identificacao">
+  ${escaparHTML(produto.marca)}
+  <span aria-hidden="true">•</span>
+  Modelo ${escaparHTML(produto.modelo)}
+</p>
         <p class="codigo-produto">Código Info Store: <strong>${escaparHTML(produto.codigoInfo || "Consultar")}</strong></p>
         ${destaques ? `<div class="destaques">${destaques}</div>` : ""}
         ${botaoInfoStore ? `<div class="acoes">${botaoInfoStore}</div>` : ""}
@@ -289,4 +353,30 @@ function escaparHTML(valor = "") {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+function criarLinkSeguroInfoStore(produto = {}) {
+  const modelo = String(
+    produto.modelo || ""
+  ).trim();
+
+  const codigo = String(
+    produto.codigoInfo || ""
+  ).trim();
+
+  const termo = modelo || codigo;
+
+  if (!termo) {
+    return "https://www.infostore.com.br/";
+  }
+
+  const termoCaminho = termo
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  return (
+    `https://www.infostore.com.br/${termoCaminho}` +
+    `?_q=${encodeURIComponent(termo)}` +
+    "&map=ft"
+  );
 }

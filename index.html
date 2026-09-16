@@ -17,10 +17,10 @@
 
     <nav class="menu-principal" id="menuPrincipal" aria-label="Menu principal">
       <a href="#">Início</a>
-      <a href="#categorias">Categorias</a>
-      <a href="#produtos">Produtos</a>
-      <a href="#rodape">Área do arquiteto</a>
+      <button type="button" class="menu-link" data-abrir-filtro="fabricantes">Fabricantes</button>
+      <button type="button" class="menu-link" data-abrir-filtro="segmentos">Segmentos</button>
       <a href="#rodape">Contato</a>
+      <a href="assets/catalogos/catalogo-completo.pdf" download>Downloads</a>
     </nav>
 
     <button type="button" class="menu-mobile" id="menuMobile" aria-label="Abrir menu" aria-expanded="false">☰</button>
@@ -33,18 +33,19 @@
           <input type="search" id="busca" placeholder="Buscar produto, modelo ou categoria..." autocomplete="off">
           <span class="icone-busca" aria-hidden="true">⌕</span>
         </label>
-        <button type="button" class="botao-filtro" aria-label="Filtros">☷</button>
+        <button type="button" class="botao-filtro" id="botaoFiltros" aria-label="Abrir filtros" aria-expanded="true">☷</button>
       </div>
 
-      <section class="secao-categorias" id="categorias">
-        <h2 class="titulo-secao">Categorias</h2>
-        <div class="categorias">
-          <button type="button" class="categoria ativo" data-categoria="Todos"><span class="categoria-icone">▦</span><span>Todos</span></button>
-          <button type="button" class="categoria" data-categoria="Video"><span class="categoria-icone">▭</span><span>Vídeo</span></button>
-          <button type="button" class="categoria" data-categoria="Audio"><span class="categoria-icone">◖</span><span>Áudio</span></button>
-          <button type="button" class="categoria" data-categoria="Linha Branca"><span class="categoria-icone">▣</span><span>Linha Branca</span></button>
-          <button type="button" class="categoria" data-categoria="Automacao"><span class="categoria-icone">⌂</span><span>Automação</span></button>
+      <section class="painel-filtros" id="painelFiltros">
+        <div class="grupo-filtro" id="grupoFabricantes">
+          <h2>Fabricante</h2>
+          <div id="filtrosFabricantes" class="opcoes-filtro"></div>
         </div>
+        <div class="grupo-filtro" id="grupoSegmentos">
+          <h2>Segmento</h2>
+          <div id="filtrosSegmentos" class="opcoes-filtro"></div>
+        </div>
+        <button type="button" class="limpar-filtros" id="limparFiltros">↻ Limpar todos os filtros</button>
       </section>
 
       <div class="resultado-cabecalho">
@@ -76,6 +77,7 @@
     <div class="beneficio"><span class="beneficio-icone">◇</span><div><strong>Dados organizados</strong><p>Medidas, recursos e características em um só lugar.</p></div></div>
     <div class="beneficio"><span class="beneficio-icone">♙</span><div><strong>Apoio ao arquiteto</strong><p>Conteúdo para projetos residenciais e comerciais.</p></div></div>
     <div class="beneficio"><span class="beneficio-icone">♡</span><div><strong>Atualização contínua</strong><p>Novos produtos adicionados a partir da base Info Store.</p></div></div>
+    <a class="download-catalogo" href="assets/catalogos/catalogo-completo.pdf" download>↓ Baixar catálogo completo</a>
   </footer>
 
   <script src="script.js"></script>

@@ -4,13 +4,13 @@
     "ordem": 61,
     "marca": "Samsung",
     "modelo": "UN98DU9000GXZD",
-    "nome": "TV Crystal UHD 98” 4K Smart",
+    "nome": "TV LED 98 DU9000 4K SMART (120HZ/GAMEHUB/WIF/TIZE",
     "descricao": "TV Crystal UHD 98 Polegadas",
     "codigoInfo": "TVV0633",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "https://images.samsung.com/is/image/samsung/p6pim/br/un98du9000gxzd/gallery/br-crystal-uhd-du9000-un98du9000gxzd-542553784?$1164_776_PNG$",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0633?_q=TVV0633&map=ft",
     "destaques": [
       {
         "titulo": "Crystal UHD",
@@ -81,13 +81,13 @@
     "ordem": 60,
     "marca": "Samsung",
     "modelo": "UN32H5000FGXZD",
-    "nome": "Smart TV 32 polegadas HD H5000F 2025",
+    "nome": "TV LED 32 H500F HD SMART (WIF/TIZEN)",
     "descricao": "Tecnologia HDR",
     "codigoInfo": "TVV0648",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un32h5000fgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-32--tizen-hd-h5000f-2025-hdr-un32h5000fgxzd/p",
     "destaques": [
       {
         "titulo": "32\"",
@@ -153,7 +153,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -161,13 +161,13 @@
     "ordem": 59,
     "marca": "Samsung",
     "modelo": "UN43F6000FGXZD",
-    "nome": "Smart TV 43 polegadas Full HD F6000F 2025",
+    "nome": "TV LED 43 F6000F FHD SMART (WIF/TIZEN)",
     "descricao": "Tecnologia HDR Resolução Full HD Tecnologia PurColor Realce de Contraste",
     "codigoInfo": "TVV0649",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un43f6000fgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-43--fhd-f6000f-2025-hdr-un43f6000fgxzd/p",
     "destaques": [
       {
         "titulo": "43\"",
@@ -233,7 +233,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -241,13 +241,13 @@
     "ordem": 58,
     "marca": "Samsung",
     "modelo": "UN43U8600FGXZD",
-    "nome": "Smart TV 43\" Crystal UHD 4K U8600F",
+    "nome": "TV LED 43 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "codigoInfo": "TVV0650",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un43u8600fgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0650?_q=TVV0650&map=ft",
     "destaques": [
       {
         "titulo": "43\"",
@@ -313,7 +313,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -321,13 +321,13 @@
     "ordem": 57,
     "marca": "Samsung",
     "modelo": "UN50U8600FGXZD",
-    "nome": "Smart TV 50\" Crystal UHD 4K U8600F",
+    "nome": "TV LED 50 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "codigoInfo": "TVV0651",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un50u8600fgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0651?_q=TVV0651&map=ft",
     "destaques": [
       {
         "titulo": "50\"",
@@ -393,7 +393,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -401,13 +401,13 @@
     "ordem": 56,
     "marca": "Samsung",
     "modelo": "UN55U8600FGXZD",
-    "nome": "Smart TV 55\" Crystal UHD 4K U8600F",
+    "nome": "TV LED 55 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "codigoInfo": "TVV0652",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un55u8600fgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0652?_q=TVV0652&map=ft",
     "destaques": [
       {
         "titulo": "55\"",
@@ -473,7 +473,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -481,13 +481,13 @@
     "ordem": 55,
     "marca": "Samsung",
     "modelo": "UN65U8600FGXZD",
-    "nome": "Smart TV 65\" Crystal UHD 4K U8600F",
+    "nome": "TV LED 65 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "codigoInfo": "TVV0653",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un65u8600fgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0653?_q=TVV0653&map=ft",
     "destaques": [
       {
         "titulo": "65\"",
@@ -553,7 +553,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -561,13 +561,13 @@
     "ordem": 54,
     "marca": "Samsung",
     "modelo": "UN75U8600FGXZD",
-    "nome": "Smart TV 75\" Crystal UHD 4K U8600F",
+    "nome": "TV LED 75 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "codigoInfo": "TVV0654",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un75u8600fgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0654?_q=TVV0654&map=ft",
     "destaques": [
       {
         "titulo": "75\"",
@@ -633,7 +633,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -641,13 +641,13 @@
     "ordem": 53,
     "marca": "Samsung",
     "modelo": "UN85U8600FGXZD",
-    "nome": "Super Big Smart TV 85 polegadas Crystal UHD 4K U8600F",
+    "nome": "TV LED 85 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "codigoInfo": "TVV0655",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un85u8600fgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0655?_q=TVV0655&map=ft",
     "destaques": [
       {
         "titulo": "85\"",
@@ -713,7 +713,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -721,13 +721,13 @@
     "ordem": 52,
     "marca": "Samsung",
     "modelo": "QN55Q7FAAGXZD",
-    "nome": "Vision AI TV 55 polegadas QLED 4K Q7F",
+    "nome": "TV QLED 55 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "codigoInfo": "TVV0656",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn55q7faagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-55--vision-ai-qled-ultra-4k-q7f-2025-hdr-qn55q7faagxzd/p",
     "destaques": [
       {
         "titulo": "55\"",
@@ -793,7 +793,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -801,13 +801,13 @@
     "ordem": 51,
     "marca": "Samsung",
     "modelo": "QN65Q7FAAGXZD",
-    "nome": "Vision AI TV 65 polegadas QLED 4K Q7F",
+    "nome": "TV QLED 65 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "codigoInfo": "TVV0657",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn65q7faagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0657?_q=TVV0657&map=ft",
     "destaques": [
       {
         "titulo": "65\"",
@@ -873,7 +873,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -881,13 +881,13 @@
     "ordem": 50,
     "marca": "Samsung",
     "modelo": "QN75Q7FAAGXZD",
-    "nome": "Vision AI TV 75 polegadas QLED 4K Q7F",
+    "nome": "TV QLED 75 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZE",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "codigoInfo": "TVV0658",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn75q7faagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0658?_q=TVV0658&map=ft",
     "destaques": [
       {
         "titulo": "75\"",
@@ -953,7 +953,167 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn55ls03fagxzd",
+    "ordem": 49,
+    "marca": "Samsung",
+    "modelo": "QN55LS03FAGXZD",
+    "nome": "TV QLED 55 THE FRAME LS03F 4K SMART (MODOARTE/TIZE",
+    "descricao": "Modern Frame Design Art Mode Artful Picture Quality with QLED",
+    "codigoInfo": "TVV0665",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn55ls03fagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0665?_q=TVV0665&map=ft",
+    "destaques": [
+      {
+        "titulo": "55\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3,840 x 2,160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "120 Hz (até 144 Hz)",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Black",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN55LS03FAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0665",
+      "Cor": "Black",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "55\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "120 Hz (até 144 Hz)",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen2",
+      "Potência de áudio": "40W",
+      "Canais de áudio": "2.0.2CH",
+      "HDMI": "4",
+      "USB": "3 x USB-A, 1 x USB-C",
+      "Peso líquido": "16.9 kg",
+      "Peso bruto": "27.2 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1237.9 mm",
+        "altura": "708.8 mm",
+        "profundidade": "24.9 mm"
+      },
+      "comBase": {
+        "largura": "05 mm",
+        "altura": "846 mm",
+        "profundidade": "185 mm"
+      },
+      "embalagem": {
+        "largura": "1405 mm",
+        "altura": "846 mm",
+        "profundidade": "185 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "qn50ls03fagxzd",
+    "ordem": 48,
+    "marca": "Samsung",
+    "modelo": "QN50LS03FAGXZD",
+    "nome": "TV QLED 50 THE FRAME LS03F 4K SMART (MODOARTE/TIZE",
+    "descricao": "Modern Frame Design Art Mode Artful Picture Quality with QLED",
+    "codigoInfo": "TVV0670",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/qn50ls03fagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0670?_q=TVV0670&map=ft",
+    "destaques": [
+      {
+        "titulo": "50\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "4K (3,840 x 2,160)",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Black",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "QN50LS03FAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0670",
+      "Cor": "Black",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "50\"",
+      "Resolução": "4K (3,840 x 2,160)",
+      "Frequência do painel": "60Hz",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Processador": "Processador NQ4 AI Gen2",
+      "Potência de áudio": "20W",
+      "Canais de áudio": "2CH",
+      "HDMI": "4",
+      "USB": "3 x USB-A, 1 x USB-C",
+      "Peso líquido": "11.8 kg",
+      "Peso bruto": "20.9 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1124.1 mm",
+        "altura": "644.9 mm",
+        "profundidade": "24.9 mm"
+      },
+      "comBase": {
+        "largura": "51 mm",
+        "altura": "775 mm",
+        "profundidade": "174 mm"
+      },
+      "embalagem": {
+        "largura": "1251 mm",
+        "altura": "775 mm",
+        "profundidade": "174 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -961,13 +1121,13 @@
     "ordem": 47,
     "marca": "Samsung",
     "modelo": "QN55QN85FAGXZD",
-    "nome": "Vision AI TV 55 polegadas Neo QLED 4K QN85F",
+    "nome": "TV NEO QLED 55 QN85F 4K SMART (120HZ/QHDR/TIZEN)",
     "descricao": "Processador NQ4 AI Gen2 Quantum Mini LED Pro Dolby Atmos®",
     "codigoInfo": "TVV0674",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn55qn85fagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0674?_q=TVV0674&map=ft",
     "destaques": [
       {
         "titulo": "55\"",
@@ -1033,7 +1193,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1041,13 +1201,13 @@
     "ordem": 46,
     "marca": "Samsung",
     "modelo": "QN65QN85FAGXZD",
-    "nome": "Vision AI TV 65 polegadas Neo QLED 4K QN85F",
+    "nome": "TV NEO QLED 65 QN85F 4K SMART (120HZ/QHDR/TIZEN)",
     "descricao": "Processador NQ4 AI Gen2 Quantum Mini LED Pro Dolby Atmos®",
     "codigoInfo": "TVV0675",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn65qn85fagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0675?_q=TVV0675&map=ft",
     "destaques": [
       {
         "titulo": "65\"",
@@ -1113,7 +1273,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1121,13 +1281,13 @@
     "ordem": 45,
     "marca": "Samsung",
     "modelo": "QN55S90FAGXZD",
-    "nome": "Vision AI TV 55 polegadas OLED 4K S90F",
+    "nome": "TV OLED 55 S90F 4K SMART (120HZ/QHDR/TIZEN)",
     "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro OLED HDR+",
     "codigoInfo": "TVV0676",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn55s90fagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0676?_q=TVV0676&map=ft",
     "destaques": [
       {
         "titulo": "55\"",
@@ -1193,7 +1353,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1201,13 +1361,13 @@
     "ordem": 44,
     "marca": "Samsung",
     "modelo": "QN43QN90FAGXZD",
-    "nome": "Vision AI TV 43 polegadas Neo QLED 4K QN90F",
+    "nome": "TV NEO QLED GAMING 43 QN90F 4K SMART (144HZ/QHDR/T",
     "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro Quantum Mini LED Pro",
     "codigoInfo": "TVV0677",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn43qn90fagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0677?_q=TVV0677&map=ft",
     "destaques": [
       {
         "titulo": "43\"",
@@ -1273,7 +1433,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1281,13 +1441,13 @@
     "ordem": 43,
     "marca": "Samsung",
     "modelo": "QN43Q5FAAGXZD",
-    "nome": "Smart TV 43\" QLED Full HD Q5F",
+    "nome": "TV QLED 43 Q5F FHD SMART (GAMEHUB/60HZ/QHDR/TIZEN",
     "descricao": "\"QLED de verdade Som em Movimento Virtual Central de Segurança Knox Sistema Operacional Tizen\"",
     "codigoInfo": "TVV0692",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn43q5faagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-43--vision-ai-qled-full-hd-q5f-2025-hdr-qn43q5faagxzd/p",
     "destaques": [
       {
         "titulo": "43\"",
@@ -1353,7 +1513,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1361,13 +1521,13 @@
     "ordem": 42,
     "marca": "Samsung",
     "modelo": "QN50Q7FAAGXZD",
-    "nome": "Vision AI TV 50 polegadas QLED 4K Q7F",
+    "nome": "TV QLED 50 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "codigoInfo": "TVV0693",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn50q7faagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0693?_q=TVV0693&map=ft",
     "destaques": [
       {
         "titulo": "50\"",
@@ -1433,7 +1593,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1441,13 +1601,13 @@
     "ordem": 41,
     "marca": "Samsung",
     "modelo": "QN85Q7FAAGXZD",
-    "nome": "Super Big Vision AI TV 85 polegadas QLED 4K Q7F",
+    "nome": "TV QLED 85 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "codigoInfo": "TVV0694",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn85q7faagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0694?_q=TVV0694&map=ft",
     "destaques": [
       {
         "titulo": "85\"",
@@ -1513,7 +1673,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1521,13 +1681,13 @@
     "ordem": 40,
     "marca": "Samsung",
     "modelo": "QN77S90FAGXZD",
-    "nome": "Super Big Vision AI TV 77 polegadas OLED 4K S90F",
+    "nome": "TV OLED 77 S90F 4K SMART (GAMEHUB/WIF/TIZEN)",
     "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro OLED HDR+",
     "codigoInfo": "TVV0698",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn77s90fagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0698?_q=TVV0698&map=ft",
     "destaques": [
       {
         "titulo": "77\"",
@@ -1593,7 +1753,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1601,13 +1761,13 @@
     "ordem": 39,
     "marca": "Samsung",
     "modelo": "UN70U8000HGXZD",
-    "nome": "Smart TV Samsung Vision AI 70\" Crystal UHD 4K U8000H",
+    "nome": "TV LED 70 U8000H 4K SMART (GAMEHUB/WIF/TIZEN)",
     "descricao": "Samsung Vision AI Companion Crystal Processor 4K Dynamic Sound Pack",
     "codigoInfo": "TVV0705",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un70u8000hgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-70--crystal-uhd-4k-u8000h-2027/p",
     "destaques": [
       {
         "titulo": "70\"",
@@ -1671,7 +1831,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1679,13 +1839,13 @@
     "ordem": 38,
     "marca": "Samsung",
     "modelo": "UN98U9500HGXZD",
-    "nome": "Smart TV Samsung Vision AI 98\" Crystal UHD 4K U9500H",
+    "nome": "TV LED 98 U9500H 4K SMART (GAMEHUB/WIF/TIZEN)",
     "descricao": "Samsung Vision AI Companion Supersize Picture Enhancer Motion Xcelerator 144Hz",
     "codigoInfo": "TVV0706",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un98u9500hgxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-vision-ai-98--crystal-uhd-4k-u9500h/p",
     "destaques": [
       {
         "titulo": "98\"",
@@ -1749,7 +1909,87 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "un50m75hagxzd",
+    "ordem": 37,
+    "marca": "Samsung",
+    "modelo": "UN50M75HAGXZD",
+    "nome": "TV MINI LED 50 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
+    "descricao": "Descubra o Combo Smart TV 50\" Mini LED 4K M75H + Soundbar HW-B400F. Tenha Modo futebol e som surround envolvente. Saiba mais.",
+    "codigoInfo": "TVV0707",
+    "categoria": "Video",
+    "segmento": "VIDEO",
+    "imagem": "assets/produtos/un50m75hagxzd/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-vision-ai-50”-mini-led-4k-m75h-2027-hdr-60hz/p",
+    "destaques": [
+      {
+        "titulo": "50\"",
+        "rotulo": "Tamanho da tela",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Otimização de resolução para até 4K",
+        "rotulo": "Resolução",
+        "icone": "◇"
+      },
+      {
+        "titulo": "60 Hz",
+        "rotulo": "Frequência do painel",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Sim (Wi-Fi 5)",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "UN50M75HAGXZD",
+      "Categoria": "Video",
+      "Código Info Store": "TVV0707",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim (Wi-Fi 5)",
+      "SmartThings": "Mobile",
+      "Tamanho da tela": "50\"",
+      "Resolução": "Otimização de resolução para até 4K",
+      "Frequência do painel": "60 Hz",
+      "Sistema operacional": "Tizen™ Smart TV",
+      "Processador": "5",
+      "Potência de áudio": "20 W",
+      "Canais de áudio": "2ch",
+      "HDMI": "3",
+      "USB": "1 x USB-A",
+      "Peso líquido": "8.5 kg",
+      "Peso bruto": "12.5 kg"
+    },
+    "dimensoes": {
+      "semBase": {
+        "largura": "1110.8 mm",
+        "altura": "643.8 mm",
+        "profundidade": "76.4 mm"
+      },
+      "comBase": {
+        "largura": "1110.8 mm",
+        "altura": "696 mm",
+        "profundidade": "199 mm"
+      },
+      "embalagem": {
+        "largura": "1228 mm",
+        "altura": "743 mm",
+        "profundidade": "127 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1757,13 +1997,13 @@
     "ordem": 36,
     "marca": "Samsung",
     "modelo": "UN55M75HAGXZD",
-    "nome": "Smart TV Samsung Vision AI 55” Mini LED 4K M75H",
+    "nome": "TV MINI LED 55 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
     "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
     "codigoInfo": "TVV0708",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un55m75hagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-vision-ai-55”-mini-led-4k-m75h-2027/p",
     "destaques": [
       {
         "titulo": "55\"",
@@ -1829,7 +2069,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1837,13 +2077,13 @@
     "ordem": 35,
     "marca": "Samsung",
     "modelo": "UN65M75HAGXZD",
-    "nome": "Smart TV Samsung Vision AI 65” Mini LED 4K M75H",
+    "nome": "TV MINI LED 65 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
     "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
     "codigoInfo": "TVV0709",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un65m75hagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0709?_q=TVV0709&map=ft",
     "destaques": [
       {
         "titulo": "65\"",
@@ -1909,7 +2149,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1917,13 +2157,13 @@
     "ordem": 34,
     "marca": "Samsung",
     "modelo": "UN75M75HAGXZD",
-    "nome": "Smart TV Samsung Vision AI 75” Mini LED 4K M75H",
+    "nome": "TV MINI LED 75 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
     "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
     "codigoInfo": "TVV0710",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un75m75hagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0710?_q=TVV0710&map=ft",
     "destaques": [
       {
         "titulo": "75\"",
@@ -1989,7 +2229,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -1997,13 +2237,13 @@
     "ordem": 33,
     "marca": "Samsung",
     "modelo": "QN55QN70HAGXZD",
-    "nome": "Smart TV Samsung Vision AI 55\" Neo QLED 4K QN70H",
+    "nome": "TV NEO QLED 55 QN70H 4K SMART (120HZ/GAMEHUB/NQHDR/WIFI/TIZEN)",
     "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
     "codigoInfo": "TVV0713",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn55qn70hagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0713?_q=TVV0713&map=ft",
     "destaques": [
       {
         "titulo": "55\"",
@@ -2069,7 +2309,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2077,13 +2317,13 @@
     "ordem": 32,
     "marca": "Samsung",
     "modelo": "QN75QN70HAGXZD",
-    "nome": "Smart TV Samsung Vision AI 75\" Neo QLED 4K QN70H",
+    "nome": "TV NEO QLED 75 QN70H 4K SMART (120HZ/GAMEHUB/NQHDR/WIFI/TIZEN)",
     "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
     "codigoInfo": "TVV0715",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn75qn70hagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0715?_q=TVV0715&map=ft",
     "destaques": [
       {
         "titulo": "75\"",
@@ -2149,7 +2389,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2157,13 +2397,13 @@
     "ordem": 31,
     "marca": "Samsung",
     "modelo": "QN85QN70HAGXZD",
-    "nome": "Smart TV Samsung Vision AI 85\" Neo QLED 4K QN70H",
+    "nome": "TV NEO QLED 85 QN70H 4K SMART (120HZ/GAMEHUB/NQHDR/WIFI/TIZEN)",
     "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
     "codigoInfo": "TVV0716",
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn85qn70hagxzd/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/tvv0716?_q=TVV0716&map=ft",
     "destaques": [
       {
         "titulo": "85\"",
@@ -2229,7 +2469,294 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "na30n6555tgaz",
+    "ordem": 30,
+    "marca": "Samsung",
+    "modelo": "NA30N6555TG/AZ",
+    "nome": "COOKTOP 5 BOCAS C/ WI-FI PRE 127V (DUPLA/CHAMA)",
+    "descricao": "Chama potente e precisa Queimador de chama dupla SmartThings na sua cozinha Conectividade via Wi-Fi Design elegante e seguro Acendedores precisos e iluminados Funciona com SmartThings, sua casa inteligente",
+    "codigoInfo": "FOG0060",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/na30n6555tgaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-3-com-air-fry-e-wi-fi-127v-preto/p",
+    "destaques": [
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "NA30N6555TG/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "FOG0060",
+      "Voltagem": "127 V",
+      "Cor": "Inox",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "762 mm",
+        "altura": "139.7 mm",
+        "profundidade": "568 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "nv7b4420xakbz",
+    "ordem": 29,
+    "marca": "Samsung",
+    "modelo": "NV7B4420XAK/BZ",
+    "nome": "FORNO EMBUT 76L ELE AIR FRY C/ WI-FI PRE 220V",
+    "descricao": "Um forno, diversas possibilidades Função Dual Cook Pratos mais crocantes e saudáveis Air Fry Cozimento uniforme Função Air Sous Vide Funciona com SmartThings, sua casa inteligente",
+    "codigoInfo": "FOG0061",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/nv7b4420xakbz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-3-com-air-fry-e-wi-fi-127v-preto/p",
+    "destaques": [
+      {
+        "titulo": "220 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Abertura horizontal",
+        "rotulo": "Tipo de porta",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "NV7B4420XAK/BZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "FOG0061",
+      "Voltagem": "220 V",
+      "Cor": "Preto",
+      "Tipo de porta": "Abertura horizontal",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile"
+    },
+    "dimensoes": {},
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": true
+  },
+  {
+    "id": "nv7b4545sakbz",
+    "ordem": 28,
+    "marca": "Samsung",
+    "modelo": "NV7B4545SAK/BZ",
+    "nome": "FORNO EMBUT 76L ELE AIR FRY C/ WI-FI PRE 220V (D.FOR)",
+    "descricao": "Um forno, diversas possibilidades Função Dual Cook Pratos mais crocantes e saudáveis Air Fry Porta com fechamento suave Soft Close Funciona com SmartThings, sua casa inteligente",
+    "codigoInfo": "FOG0062",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/nv7b4545sakbz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-3-com-air-fry-e-wi-fi-127v-preto/p",
+    "destaques": [
+      {
+        "titulo": "220 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Abertura horizontal (porta flexível)",
+        "rotulo": "Tipo de porta",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "NV7B4545SAK/BZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "FOG0062",
+      "Voltagem": "220 V",
+      "Cor": "Preto",
+      "Tipo de porta": "Abertura horizontal (porta flexível)",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile"
+    },
+    "dimensoes": {},
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": true
+  },
+  {
+    "id": "nsg6dg8300sraz",
+    "ordem": 27,
+    "marca": "Samsung",
+    "modelo": "NSG6DG8300SRAZ",
+    "nome": "FOG 5 BOCAS SERIE 3 AIR FRY C/ WI-FI PRE 127V",
+    "descricao": "Wi-Fi integrado Queimador duplo de alta performance com 4100W Botões de precisão Air Fry",
+    "codigoInfo": "FOG0063",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/nsg6dg8300sraz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-3-com-air-fry-e-wi-fi-127v-preto/p",
+    "destaques": [
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Porta única (1 camada de aço inoxidavel)",
+        "rotulo": "Tipo de porta",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Controle inteligente ao seu alcance.",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "NSG6DG8300SRAZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "FOG0063",
+      "Voltagem": "127 V",
+      "Cor": "Inox",
+      "Tipo de porta": "Porta única (1 camada de aço inoxidavel)",
+      "Wi-Fi": "Controle inteligente ao seu alcance.",
+      "SmartThings": "Mobile"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "839 mm",
+        "altura": "1045 mm",
+        "profundidade": "769 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "nsg6dg8700sraz",
+    "ordem": 26,
+    "marca": "Samsung",
+    "modelo": "NSG6DG8700SRAZ",
+    "nome": "FOG 5 BOCAS SERIE 7 AIR FRY C/ WI-FI PRE 127V",
+    "descricao": "Câmera interna do forno Wi-Fi integrado Queimador duplo de alta performance com 4100W Botões iluminados de precisão",
+    "codigoInfo": "FOG0064",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/nsg6dg8700sraz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-7-com-camera--air-fry-e-wi-fi-127v-preto/p",
+    "destaques": [
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Porta única (2 camadas de aço inoxidavel)",
+        "rotulo": "Tipo de porta",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Controle inteligente ao seu alcance",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "NSG6DG8700SRAZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "FOG0064",
+      "Voltagem": "127 V",
+      "Cor": "Inox",
+      "Tipo de porta": "Porta única (2 camadas de aço inoxidavel)",
+      "Wi-Fi": "Controle inteligente ao seu alcance",
+      "SmartThings": "Mobile"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "839 mm",
+        "altura": "1045 mm",
+        "profundidade": "769 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2237,13 +2764,13 @@
     "ordem": 25,
     "marca": "Samsung",
     "modelo": "RS60T5200S9/AZ",
-    "nome": "Geladeira Side by Side RS60 com Dispenser de Água e Gelo Inox 127V 628L",
+    "nome": "GELADEIRA FF INV SIDEBYSIDE 602L RS60 CIN 127V",
     "descricao": "Espaço interno maior com tecnologia SpaceMax™ Design flat: visual elegante e moderno Alimentos frescos com tecnologia All Around Cooling™",
     "codigoInfo": "GEL0038",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rs60t5200s9az/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-side-by-side-628l-rs60-com-dispenser-de-agua-e-gelo-cinza-127v/p",
     "destaques": [
       {
         "titulo": "628 L",
@@ -2298,7 +2825,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2306,13 +2833,13 @@
     "ordem": 24,
     "marca": "Samsung",
     "modelo": "RT38DG6120S9FZ",
-    "nome": "Geladeira Duplex RT38 Evolution com SmartThings AI Bivolt 393L",
+    "nome": "GELADEIRA FF INV 391L DUPLEX RT38 CIN BIV",
     "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
     "codigoInfo": "GEL0048",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rt38dg6120s9fz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-side-by-side-628l-rs60-com-dispenser-de-agua-e-gelo-cinza-127v/p",
     "destaques": [
       {
         "titulo": "393 L",
@@ -2368,7 +2895,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2376,13 +2903,13 @@
     "ordem": 23,
     "marca": "Samsung",
     "modelo": "RT42DG6630S9FZ",
-    "nome": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L",
+    "nome": "GELADEIRA FF INV 411L DUPLEX RT42 CIN BIV",
     "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
     "codigoInfo": "GEL0050",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rt42dg6630s9fz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-duplex-frost-free-inverter-415l-evolution-rt42-smartthings-bivolt-cinza/p",
     "destaques": [
       {
         "titulo": "415 L",
@@ -2438,7 +2965,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2446,13 +2973,13 @@
     "ordem": 22,
     "marca": "Samsung",
     "modelo": "RT42DG6630B1FZ",
-    "nome": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L",
+    "nome": "GELADEIRA FF INV 411L DUPLEX RT42 PRE BIV",
     "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
     "codigoInfo": "GEL0051",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rt42dg6630b1fz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-smart-french-door-664l-inverter-com-dispenser-de-agua-e-gelo-rf70h-127v-inox/p",
     "destaques": [
       {
         "titulo": "415 L",
@@ -2508,7 +3035,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2516,13 +3043,13 @@
     "ordem": 21,
     "marca": "Samsung",
     "modelo": "RF27CG5910B1AZ",
-    "nome": "Geladeira French Door RF27 Family Hub Black Inox 127V 707L",
+    "nome": "GELADEIRA FF INV SMART FRNDOOR FHUB 707L RF27 127",
     "descricao": "App SmartThings - Aproveite uma vida mais inteligente e conectada SpaceMax™ - Espaço interno maior",
     "codigoInfo": "GEL0054",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rf27cg5910b1az/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-smart-french-door-707l-metal-cooling-family-hub-rf27-127v-preta/p",
     "destaques": [
       {
         "titulo": "707 L",
@@ -2566,7 +3093,7 @@
     "dimensoes": {},
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": true
   },
   {
@@ -2574,13 +3101,13 @@
     "ordem": 20,
     "marca": "Samsung",
     "modelo": "RF29DB9950QDAZ",
-    "nome": "Geladeira Bespoke AI 4-Door French Door RF29D Family Hub 127V 809L",
+    "nome": "GELADEIRA FF INV SMART FRNDOOR BESPOKE 809L RF29 B",
     "descricao": "Maior capacidade do mercado: Capacidade de 699L para você viver sem limites Controle total dos seu alimentos: AI Vision Inside Gerenciamento do consumo de enegia: Economize com SmartThings Energy Experiência ainda mais imersiva: Tela interativa de 32\"",
     "codigoInfo": "GEL0064",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rf29db9950qdaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-frost-free-french-door-699l-bespoke-family-hub-com-tela-de-32”-rf29-127v-cinza/p",
     "destaques": [
       {
         "titulo": "809 L",
@@ -2631,7 +3158,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2639,13 +3166,13 @@
     "ordem": 19,
     "marca": "Samsung",
     "modelo": "RS58T5561B1/AZ",
-    "nome": "Geladeira Side by Side RS58 Family Hub Black Inox 127V 608L",
+    "nome": "GELADEIRA FF INV SMART SIDEBYSIDE FHUB 585L RS58 PRE 127V",
     "descricao": "Aproveite uma vida mais inteligente e conectada Entretenimento contínuo com músicas, rádio, TV e chamadas Gestão fácil, rápida e intuitiva dos alimentos",
     "codigoInfo": "GEL0092",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rs58t5561b1az/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-frost-free-inverter-side-by-side-608l-rs58-family-hub-com-soundbar-127v-preta/p",
     "destaques": [
       {
         "titulo": "608L",
@@ -2700,7 +3227,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2708,13 +3235,13 @@
     "ordem": 18,
     "marca": "Samsung",
     "modelo": "RM90F66C1CAZ",
-    "nome": "Geladeira Bespoke AI 4-Door French Door RM90F Family Hub Black Charcoal 127V 658L",
+    "nome": "GELADEIRA FF INV SMART FRNDOOR FHUB 658L RM90F PRE 127V",
     "descricao": "Conheça o Geladeira Bespoke AI RM90F Black Charcoal com a qualidade e inovação da Samsung. Confira especificações completas, compare modelos e compre",
     "codigoInfo": "GEL0109",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rm90f66c1caz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-smart-french-door-664l-inverter-com-dispenser-de-agua-e-gelo-rf70h-127v-inox/p",
     "destaques": [
       {
         "titulo": "658 L",
@@ -2769,7 +3296,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2777,13 +3304,13 @@
     "ordem": 17,
     "marca": "Samsung",
     "modelo": "RF70H25HETAZ",
-    "nome": "Geladeira French Door RF70H com Dispenser de Água e Gelo Inox 127V 664L",
+    "nome": "GELADEIRA FF INV SMART FRNDOOR RF70H 664L 127V",
     "descricao": "Conheça o Geladeira French Door RF70H com Dispenser com a qualidade e inovação da Samsung. Confira especificações completas, compare modelos e compre",
     "codigoInfo": "GEL0116",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rf70h25hetaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-smart-french-door-664l-inverter-com-dispenser-de-agua-e-gelo-rf70h-127v-inox/p",
     "destaques": [
       {
         "titulo": "664 L",
@@ -2832,7 +3359,549 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "dw60c7050fsaz",
+    "ordem": 16,
+    "marca": "Samsung",
+    "modelo": "DW60C7050FS/AZ",
+    "nome": "LAVA LOUCAS 14 SERVICOS DW60 CIN 127V",
+    "descricao": "Limpeza profunda e silenciosa Função Higiene com enxágue em alta temperatura Função Ciclo Auto que detecta o nível de sujeira nas louças",
+    "codigoInfo": "LAL0002",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/dw60c7050fsaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-loucas-samsung-14-servicos-com-display-de-led-dw60-cinza-127v/p",
+    "destaques": [
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Azul",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "DW60C7050FS/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAL0002",
+      "Voltagem": "127 V",
+      "Cor": "Azul",
+      "SmartThings": "Mobile",
+      "Peso líquido": "45 kg",
+      "Peso bruto": "51 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "598 mm",
+        "altura": "845 mm",
+        "profundidade": "600 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "dw50c6070fsaz",
+    "ordem": 15,
+    "marca": "Samsung",
+    "modelo": "DW50C6070FS/AZ",
+    "nome": "LAVA LOUCAS 10 SERVICOS DW50 CIN 127V",
+    "descricao": "Limpeza profunda e silenciosa Secagem rápida com abertura automática da porta Auto ajuste de altura para maior capacidade",
+    "codigoInfo": "LAL0005",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/dw50c6070fsaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-loucas-samsung-10-servicos-com-display-externo-dw50-cinza-127v/p",
+    "destaques": [
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Externo",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "DW50C6070FS/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAL0005",
+      "Voltagem": "127 V",
+      "Cor": "Externo",
+      "SmartThings": "Mobile",
+      "Peso líquido": "39 kg",
+      "Peso bruto": "44.5 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "449 mm",
+        "altura": "845 mm",
+        "profundidade": "600 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "dw60c7050fgaz",
+    "ordem": 14,
+    "marca": "Samsung",
+    "modelo": "DW60C7050FG/AZ",
+    "nome": "LAVA LOUCAS 14 SERVICOS DW60 PRE 127V",
+    "descricao": "Limpeza profunda e silenciosa Função Higiene com enxágue em alta temperatura Função Ciclo Auto que detecta o nível de sujeira nas louças",
+    "codigoInfo": "LAL0006",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/dw60c7050fgaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-loucas-samsung-14-servicos-com-display-de-led-dw60-preta-127v/p",
+    "destaques": [
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "DW60C7050FG/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAL0006",
+      "Voltagem": "127 V",
+      "SmartThings": "Mobile",
+      "Peso líquido": "45 kg",
+      "Peso bruto": "51 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "598 mm",
+        "altura": "845 mm",
+        "profundidade": "600 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "dw50c6070fgaz",
+    "ordem": 13,
+    "marca": "Samsung",
+    "modelo": "DW50C6070FG/AZ",
+    "nome": "LAVA LOUCAS 10 SERVICOS DW50 PRE 127V",
+    "descricao": "Limpeza profunda e silenciosa Secagem rápida com abertura automática da porta Auto ajuste de altura para maior capacidade",
+    "codigoInfo": "LAL0007",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/dw50c6070fgaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-loucas-samsung-10-servicos-com-display-externo-dw50-preta-127v/p",
+    "destaques": [
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Externo",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "DW50C6070FG/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAL0007",
+      "Voltagem": "127 V",
+      "Cor": "Externo",
+      "SmartThings": "Mobile",
+      "Peso líquido": "39 kg",
+      "Peso bruto": "44.5 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "449 mm",
+        "altura": "845 mm",
+        "profundidade": "600 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "dv12b6800ewaz",
+    "ordem": 12,
+    "marca": "Samsung",
+    "modelo": "DV12B6800EW/AZ",
+    "nome": "SECADORA 12KG DV12B BRA 220V",
+    "descricao": "Seque suas roupas de maneira fácil e simples Roupas secas no tempo certo, sem danos aos tecidos Secagem com ar frio 20 anos de garantia no Motor",
+    "codigoInfo": "LAV0009",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/dv12b6800ewaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "destaques": [
+      {
+        "titulo": "12.0 kg",
+        "rotulo": "Capacidade de secagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "220 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Branco",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Não",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "DV12B6800EW/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0009",
+      "Capacidade de secagem": "12.0 kg",
+      "Voltagem": "220 V",
+      "Cor": "Branco",
+      "Wi-Fi": "Não",
+      "SmartThings": "Mobile",
+      "Peso líquido": "39 kg",
+      "Peso bruto": "41 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "655 mm"
+      },
+      "embalagem": {
+        "largura": "666 mm",
+        "altura": "888 mm",
+        "profundidade": "698 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "wd11a4453bwaz",
+    "ordem": 11,
+    "marca": "Samsung",
+    "modelo": "WD11A4453BW/AZ",
+    "nome": "LAVA E SECA INV 11KG ECOBUB WD11A BRA 127V",
+    "descricao": "3 em 1: lava, seca e esteriliza a seco Ecobubble™: eficiência de lavagem e cuidado com as roupas 20 anos de garantia no motor Lavagem rápida em 15min e Lava e Seca em 59min: praticidade e rapidez",
+    "codigoInfo": "LAV0015",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/wd11a4453bwaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-branca/p",
+    "destaques": [
+      {
+        "titulo": "11",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "7",
+        "rotulo": "Capacidade de secagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Branca",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WD11A4453BW/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0015",
+      "Capacidade de lavagem": "11",
+      "Capacidade de secagem": "7",
+      "Voltagem": "127 V",
+      "Cor": "Branca",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "68 kg",
+      "Peso bruto": "70 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "650 mm"
+      },
+      "embalagem": {
+        "largura": "666 mm",
+        "altura": "890 mm",
+        "profundidade": "747 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "wd11a4453bxaz",
+    "ordem": 10,
+    "marca": "Samsung",
+    "modelo": "WD11A4453BX/AZ",
+    "nome": "LAVA E SECA INV 11KG ECOBUB WD11A CIN 127V",
+    "descricao": "3 em 1: lava, seca e esteriliza a seco Ecobubble™: eficiência de lavagem e cuidado com as roupas 20 anos de garantia no motor Lavagem rápida em 15min e Lava e Seca em 59min: praticidade e rapidez",
+    "codigoInfo": "LAV0016",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/wd11a4453bxaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "destaques": [
+      {
+        "titulo": "11",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "7",
+        "rotulo": "Capacidade de secagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Branca",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WD11A4453BX/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0016",
+      "Capacidade de lavagem": "11",
+      "Capacidade de secagem": "7",
+      "Voltagem": "127 V",
+      "Cor": "Branca",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "68 kg",
+      "Peso bruto": "70 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "650 mm"
+      },
+      "embalagem": {
+        "largura": "666 mm",
+        "altura": "890 mm",
+        "profundidade": "747 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "wd18t6500gvaz",
+    "ordem": 9,
+    "marca": "Samsung",
+    "modelo": "WD18T6500GV/AZ",
+    "nome": "LAVA E SECA INV SMART 18KG WD18T PRE 127V",
+    "descricao": "Lava 18kg e seca 10kg: Alta Capacidade Lavagem inteligente: AI Control e conectividade via SmartThings Quatro sensores inteligentes e dosador de sabão automático",
+    "codigoInfo": "LAV0019",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/wd18t6500gvaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-18kg-smart-wd18t-127v-preta/p",
+    "destaques": [
+      {
+        "titulo": "18.0 kg",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "10.0 kg",
+        "rotulo": "Capacidade de secagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WD18T6500GV/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0019",
+      "Capacidade de lavagem": "18.0 kg",
+      "Capacidade de secagem": "10.0 kg",
+      "Voltagem": "127 V",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile",
+      "Peso líquido": "98 kg",
+      "Peso bruto": "101 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "686 mm",
+        "altura": "984 mm",
+        "profundidade": "796 mm"
+      },
+      "embalagem": {
+        "largura": "746 mm",
+        "altura": "1126 mm",
+        "profundidade": "866 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "wh17dbh570gvaz",
+    "ordem": 8,
+    "marca": "Samsung",
+    "modelo": "WH17DBH570GVAZ",
+    "nome": "LAVA E SECA INV SMART 17/20KG A GAS BESPOKE AI WH17D PRE 127V (TORRE)",
+    "descricao": "Bespoke Flat Design: 2 produtos em 1 com design compacto, minimalista e elegante Alta capacidade: Lave e seque muito mais de uma única vez e economize tempo AI Wash: Lavadora com 5 sensores com inteligência artificial Funciona com SmartThings, sua casa inteligente",
+    "codigoInfo": "LAV0026",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/wh17dbh570gvaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "destaques": [
+      {
+        "titulo": "17 kg",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "20 kg",
+        "rotulo": "Capacidade de secagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WH17DBH570GVAZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0026",
+      "Capacidade de lavagem": "17 kg",
+      "Capacidade de secagem": "20 kg",
+      "Voltagem": "127 V",
+      "Cor": "Preto",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile",
+      "Peso líquido": "145 kg",
+      "Peso bruto": "150 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "686 mm",
+        "altura": "1890 mm",
+        "profundidade": "796 mm"
+      },
+      "embalagem": {
+        "largura": "746 mm",
+        "altura": "2080 mm",
+        "profundidade": "866 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2840,13 +3909,13 @@
     "ordem": 7,
     "marca": "Samsung",
     "modelo": "WW11T4040BE/AZ",
-    "nome": "Lavadora Porta Black WW11T Digital Inverter Branca 127V 11kg",
+    "nome": "MAQ LAV FL 11KG DIGITAL INV WW11T BRA 127V",
     "descricao": "Mais performance de lavagem, menos água e energia. Lavagem rápida de 15 minutos para pequenas cargas Limpeza profunda com vapor eliminando 99,9% de bactérias Diamond Drum: delicadeza e preservação dos tecidos",
     "codigoInfo": "LAV0028",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/ww11t4040beaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/maquina-de-lavar-samsung-11kg-digital-inverter-ww11t-127v-branca/p",
     "destaques": [
       {
         "titulo": "11 kg",
@@ -2900,7 +3969,7 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2908,13 +3977,13 @@
     "ordem": 6,
     "marca": "Samsung",
     "modelo": "WW11T4040BX/AZ",
-    "nome": "Lavadora Porta Black WW11T Digital Inverter Inox 127V 11kg",
+    "nome": "MAQ LAV FL 11KG DIGITAL INV WW11T PRE 127V",
     "descricao": "Mais performance de lavagem, menos água e energia. Lavagem rápida de 15 minutos para pequenas cargas Limpeza profunda com vapor eliminando 99,9% de bactérias Diamond Drum: delicadeza e preservação dos tecidos",
     "codigoInfo": "LAV0029",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/ww11t4040bxaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/maquina-de-lavar-samsung-11kg-digital-inverter-ww11t-127v-preta/p",
     "destaques": [
       {
         "titulo": "11 kg",
@@ -2968,7 +4037,146 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "wd20db8995bzaz",
+    "ordem": 5,
+    "marca": "Samsung",
+    "modelo": "WD20DB8995BZAZ",
+    "nome": "LAVA E SECA INV SMART TELA 7'' BESPOKE 20KG WD20D",
+    "descricao": "Maior capacidade do mercado: Lava 20kg e Seca 15kg AI Wash & AI Dry: Sensores com inteligência artificial que cuidam de suas roupas Tecnologia Heat Pump: Secagem rápida e econômica AI Hub: Tela interativa de 7\" que entende seus hábitos",
+    "codigoInfo": "LAV0043",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/wd20db8995bzaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "destaques": [
+      {
+        "titulo": "20.0 kg",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "15.0 kg",
+        "rotulo": "Capacidade de secagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WD20DB8995BZAZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0043",
+      "Capacidade de lavagem": "20.0 kg",
+      "Capacidade de secagem": "15.0 kg",
+      "Voltagem": "127 V",
+      "Cor": "Inox",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile",
+      "Classificação energética": "A",
+      "Peso líquido": "144 kg",
+      "Peso bruto": "149 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "686 mm",
+        "altura": "1110 mm",
+        "profundidade": "875 mm"
+      },
+      "embalagem": {
+        "largura": "746 mm",
+        "altura": "1250 mm",
+        "profundidade": "915 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "wd13fg6b34bxaz",
+    "ordem": 4,
+    "marca": "Samsung",
+    "modelo": "WD13FG6B34BX/AZ",
+    "nome": "LAVA E SECA INV SMART 13KG WD13FG CIN 127V",
+    "descricao": "Conheça a Lava e Seca Smart WD13FG com AI Control Inox 127V 13kg Descubra a Lava e Seca com Tecnologia Space MaxTM, economia de cerca de 20% de água por ciclo e mais.",
+    "codigoInfo": "LAV0057",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/wd13fg6b34bxaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "destaques": [
+      {
+        "titulo": "13.0 kg",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "8.0 kg",
+        "rotulo": "Capacidade de secagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Branca",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WD13FG6B34BX/AZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0057",
+      "Capacidade de lavagem": "13.0 kg",
+      "Capacidade de secagem": "8.0 kg",
+      "Voltagem": "127 V",
+      "Cor": "Branca",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile",
+      "Peso líquido": "74 kg",
+      "Peso bruto": "76 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "600 mm"
+      },
+      "embalagem": {
+        "largura": "670 mm",
+        "altura": "880 mm",
+        "profundidade": "688 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   },
   {
@@ -2976,13 +4184,13 @@
     "ordem": 3,
     "marca": "Samsung",
     "modelo": "WF90F20ADSBZ",
-    "nome": "Bespoke AI Laundry Lavadora WF90F AI Home | Inox | 220V | 20kg",
+    "nome": "MAQ LAV FL 20KG SMART TELA 7'' BESPOKE AI WF90F PRE 220V",
     "descricao": "AI Home | Inox | 220V | 20kg",
     "codigoInfo": "LAV0058",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/wf90f20adsbz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/",
+    "siteInfoStore": "https://www.infostore.com.br/maquina-de-lavar-samsung-20kg-digital-bespoke-ai-laundry-wf90f-com-ai-home-220v-preta/p",
     "destaques": [
       {
         "titulo": "20.0 kg",
@@ -3036,7 +4244,144 @@
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.",
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "dv90f20cdsbz",
+    "ordem": 2,
+    "marca": "Samsung",
+    "modelo": "DV90F20CDSBZ",
+    "nome": "SECADORA 20KG SMART TELA 7'' DV90F BESPOKE AI CIN 220V",
+    "descricao": "Conheça a Secadora DV90F Heat Pump Bespoke AI Laundry 20kg da Samsung com AI Home + AI Control, secagem rápida e econômica e muito mais. Saiba mais.",
+    "codigoInfo": "LAV0059",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/dv90f20cdsbz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "destaques": [
+      {
+        "titulo": "20.0 kg",
+        "rotulo": "Capacidade de secagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "220 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Mobile",
+        "rotulo": "SmartThings",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "DV90F20CDSBZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0059",
+      "Capacidade de secagem": "20.0 kg",
+      "Voltagem": "220 V",
+      "Cor": "Inox",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile",
+      "Peso líquido": "77 kg",
+      "Peso bruto": "86 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "686 mm",
+        "altura": "984 mm",
+        "profundidade": "840 mm"
+      },
+      "embalagem": {
+        "largura": "760 mm",
+        "altura": "1117 mm",
+        "profundidade": "926 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
+  },
+  {
+    "id": "wd13fg6b34beaz",
+    "ordem": 1,
+    "marca": "Samsung",
+    "modelo": "WD13FG6B34BEAZ",
+    "nome": "LAVA E SECA INV SMART 13KG WD13FG BRA 127V",
+    "descricao": "Conheça a Lava e Seca Smart WD13FG com AI Control Branca 127V 13kg Descubra a Lava e Seca com Tecnologia Space MaxTM, economia de cerca de 20% de água por ciclo e mais.",
+    "codigoInfo": "LAV0060",
+    "categoria": "Linha Branca",
+    "segmento": "LINHA BRANCA",
+    "imagem": "assets/produtos/wd13fg6b34beaz/principal.png",
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "destaques": [
+      {
+        "titulo": "13.0 kg",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "8.0 kg",
+        "rotulo": "Capacidade de secagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127 V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Branca",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Wi-Fi",
+        "rotulo": "Wi-Fi",
+        "icone": "◇"
+      }
+    ],
+    "especificacoes": {
+      "Modelo": "WD13FG6B34BEAZ",
+      "Categoria": "Linha Branca",
+      "Código Info Store": "LAV0060",
+      "Capacidade de lavagem": "13.0 kg",
+      "Capacidade de secagem": "8.0 kg",
+      "Voltagem": "127 V",
+      "Cor": "Branca",
+      "Wi-Fi": "Sim",
+      "SmartThings": "Mobile",
+      "Peso líquido": "74 kg",
+      "Peso bruto": "76 kg"
+    },
+    "dimensoes": {
+      "produto": {
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "600 mm"
+      },
+      "embalagem": {
+        "largura": "670 mm",
+        "altura": "880 mm",
+        "profundidade": "688 mm"
+      }
+    },
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+    "documentos": [],
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false
   }
 ]
