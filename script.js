@@ -1,5 +1,7 @@
 let todosProdutos = [];
+let produtoSelecionado = "";
 
+// Carrega produtos
 fetch("produtos.json")
   .then(response => response.json())
   .then(produtos => {
@@ -8,178 +10,159 @@ fetch("produtos.json")
 
     renderizarProdutos(produtos);
 
+    // Abre automaticamente o primeiro produto
+    if (produtos.length > 0) {
+      mostrarDetalhes(produtos[0].modelo);
+    }
+
     document
       .getElementById("busca")
       .addEventListener("input", pesquisar);
 
   });
 
+// Renderiza lista da esquerda
 function renderizarProdutos(produtos) {
 
   let html = "";
 
   produtos.forEach(produto => {
 
- html += `
-<div
-class="produto"
-onclick="mostrarDetalhes('${produto.modelo}')"
->
-<h2>${produto.modelo}</h2>
+    html += `
+      <div
+        class="produto ${produtoSelecionado === produto.modelo ? "ativo" : ""}"
+        onclick="mostrarDetalhes('${produto.modelo}')"
+      >
 
-<p>${produto.descricao}</p>
+        <h2>${produto.modelo}</h2>
 
-<p>
-${produto.marca} • ${produto.categoria}
-</p>
+        <p>${produto.descricao}</p>
 
-</div>
-`;
+        <p>
+          ${produto.marca} • ${produto.categoria}
+        </p>
+
+      </div>
+    `;
 
   });
 
+  document.getElementById("produtos").innerHTML = html;
+
+}
+
+// Mostra detalhes do produto
+function mostrarDetalhes(modelo) {
+
+  produtoSelecionado = modelo;
+
+  renderizarProdutos(todosProdutos);
+
+  const produto = todosProdutos.find(
+    p => p.modelo === modelo
+  );
+
+  if (!produto) return;
+
+  const listaEspecificacoes =
+    produto.especificacoes
+      .map(item => `<li>${item}</li>`)
+      .join("");
+
+  const listaDocumentos =
+    produto.documentos
+      .map(item => `<li>${item}</li>`)
+      .join("");
+
   document.getElementById("detalhes").innerHTML = `
 
-<div class="painel-produto">
-
     <span class="badge">
-        ${produto.categoria}
+      ${produto.categoria}
     </span>
 
     <h1>${produto.modelo}</h1>
 
     <p class="subtitulo">
-        ${produto.descricao}
+      ${produto.descricao}
     </p>
 
     <div class="acoes">
 
-        <a
-            href="${produto.siteFabricante}"
-            SITE DO FABRICANTE
-        </a>
+      ${produto.site}
+        SITE DO FABRICANTE
+      </a>
 
-        <a
-            href="#"
-            class="botao-borda"
-       >
+      <a
+        href="https://www.infostore.com.br"
+        target="_blank"
+        class="botao-borda"
+      >
+        CONSULTAR DISPONIBILIDADE
+      </a>
+
+    </div>
 
     <div class="tabs">
 
-        <span>ESPECIFICAÇÕES</span>
-
-        <span>DIMENSÕES</span>
-
-        <span>DOCUMENTOS</span>
+      <span>ESPECIFICAÇÕES</span>
+      <span>DIMENSÕES</span>
+      <span>DOCUMENTOS</span>
 
     </div>
 
     <div class="bloco-tecnico">
 
-        <h3>Características</h3>
+      <h3>Características</h3>
 
-        <ul>
-
-            ${listaEspecificacoes}
-
-        </ul>
+      <ul>
+        ${listaEspecificacoes}
+      </ul>
 
     </div>
 
     <div class="bloco-tecnico">
 
-        <h3>Dimensões</h3>
+      <h3>Dimensões</h3>
 
-        ${produto.dimensoes}
+      <p>${produto.dimensoes}</p>
 
     </div>
 
-</div>
+    <div class="bloco-tecnico">
 
-`;
+      <h3>Documentos</h3>
+
+      <ul>
+        ${listaDocumentos}
+      </ul>
+
+    </div>
+
+  `;
+
 }
 
+// Filtro por categoria
 function filtrarCategoria(categoria) {
 
   if (categoria === "Todos") {
 
     renderizarProdutos(todosProdutos);
+
     return;
 
   }
 
-  const filtrados = todosProdutos.filter(produto =>
-    produto.categoria === categoria
+  const filtrados = todosProdutos.filter(
+    produto => produto.categoria === categoria
   );
 
   renderizarProdutos(filtrados);
 
 }
-function mostrarDetalhes(modelo) {
 
-    const produto = todosProdutos.find(
-        p => p.modelo === modelo
-    );
-    const listaEspecificacoes =
-    produto.especificacoes
-        .map(item => `<li>${item}</li>`)
-        .join("");
-document.getElementById("detalhes").innerHTML = `
-
-<div class="painel-produto">
-
-    <span class="badge">
-        ${produto.categoria}
-    </span>
-
-    <h1>${produto.modelo}</h1>
-
-    <h2>${produto.descricao}</h2>
-
-    <hr>
-
-   <div class="acoes">
-
-    <a
-        href="${produto.site}"
-FABRICANTE
-    </a>
-
-    <a
-        href="https://www.infostore.com.br"
-        target="_blank"
-        class
-    </div>
-
-    <hr>
-
-    <h3>ESPECIFICAÇÕES</h3>
-
-    <div class="bloco-tecnico">
-
-    <h4>Características</h4>
-
-    <ul>
-
-        ${listaEspecificacoes}
-
-    </ul>
-
-</div>
-
-    <h3>DIMENSÕES</h3>
-
-    <div class="bloco-tecnico">
-
-        ${produto.dimensoes || "Em atualização"}
-
-    </div>
-</div>
-
-`;
-
-}
-    function pesquisar() {
+// Busca
+function pesquisar() {
 
   const texto = document
     .getElementById("busca")
@@ -197,5 +180,9 @@ FABRICANTE
   });
 
   renderizarProdutos(filtrados);
+
+  if (filtrados.length > 0) {
+    mostrarDetalhes(filtrados[0].modelo);
+  }
 
 }
