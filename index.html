@@ -6,6 +6,7 @@
   <meta name="description" content="Catálogo técnico premium Club One e Info Store">
   <title>Club One | Catálogo Técnico</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blocagem.css">
 </head>
 <body>
   <header class="topbar">
@@ -19,7 +20,7 @@
       <a href="#">Início</a>
       <button type="button" class="menu-link" data-abrir-filtro="fabricantes">Fabricantes</button>
       <button type="button" class="menu-link" data-abrir-filtro="segmentos">Segmentos</button>
-      <a href="#rodape">Contato</a>
+      <a href="#contato">Contato</a>
       <a href="assets/catalogos/catalogo-completo.pdf" download>Downloads</a>
     </nav>
 
@@ -72,6 +73,79 @@
     </section>
   </main>
 
+  <section class="secao-contato" id="contato">
+  <div class="contato-cabecalho">
+    <span class="contato-etiqueta">Atendimento</span>
+    <h2>Fale com nossa equipe</h2>
+    <p>Escolha o canal mais adequado para receber atendimento.</p>
+  </div>
+
+  <div class="contato-grade">
+    <article class="contato-card">
+      <span class="contato-icone" aria-hidden="true">☎</span>
+
+      <div class="contato-conteudo">
+        <span class="contato-tipo">Televendas</span>
+        <h3>Adaires Souza</h3>
+        <p>Atendimento comercial por telefone para orçamentos.</p>
+
+        <a
+          class="contato-botao"
+          href="tel:+5592XXXXXXXXX"
+          aria-label="Ligar para Adaires Souza"
+        >
+          (92) XXXXX-XXXX
+        </a>
+      </div>
+    </article>
+
+    <article class="contato-card">
+      <span class="contato-icone contato-foto">
+  <img
+    src="assets/contatos/fotomarcelo.png"
+    alt="Foto de Marlo Filho"
+  >
+</span>
+
+      <div class="contato-conteudo">
+        <span class="contato-tipo">Atendimento presencial</span>
+        <h3>Marcelo Filho</h3>
+        <p>Atendimento comercial presencial para orçamentos.</p>
+
+        <a
+          class="contato-botao"
+          href="https://wa.me/5592982506370"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Conversar com Marlo Filho pelo WhatsApp"
+        >
+          WhatsApp: (92) 98250-6370
+        </a>
+      </div>
+    </article>
+
+    <article class="contato-card">
+      <span class="contato-icone" aria-hidden="true">◇</span>
+
+      <div class="contato-conteudo">
+        <span class="contato-tipo">Suporte Geral Club One</span>
+        <h3>Ana Santos</h3>
+        <p>Suporte ao catálogo, produtos e atendimento exclusivo aos profissionais.</p>
+
+        <a
+          class="contato-botao"
+          href="https://wa.me/5592992411779"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Conversar com Ana Santos pelo WhatsApp"
+        >
+          WhatsApp: (92) 99241-1779
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
   <footer class="rodape" id="rodape">
     <div class="beneficio"><span class="beneficio-icone">ⓘ</span><div><strong>Acesso rápido</strong><p>Informações técnicas para especificação de projetos.</p></div></div>
     <div class="beneficio"><span class="beneficio-icone">◇</span><div><strong>Dados organizados</strong><p>Medidas, recursos e características em um só lugar.</p></div></div>
@@ -80,6 +154,7 @@
     <a class="download-catalogo" href="assets/catalogos/catalogo-completo.pdf" download>↓ Baixar catálogo completo</a>
   </footer>
 
+  <script src="blocagem.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -19,6 +19,13 @@ function chave(valor = "") {
   return String(valor).trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
 }
 
+function normalizar(valor = "") {
+  return String(valor)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
 function marca(fabricante = "") {
   const valor = String(fabricante).trim();
   return valor.toLowerCase().includes("samsung") ? "Samsung" : valor;
@@ -48,10 +55,56 @@ async function ler(caminho) {
   }
 }
 
+function limparTituloOficial(titulo = "") {
+  const limpo = String(titulo)
+    .replace(/\s+/g, " ")
+    .replace(/\s*[|–—-]\s*Samsung(?: Brasil)?\s*$/i, "")
+    .replace(/\s*[|–—-]\s*Samsung\.com.*$/i, "")
+    .trim();
+
+  const invalido =
+    !limpo ||
+    limpo.length < 8 ||
+    limpo.length > 180 ||
+    /pagina nao encontrada|page not found|erro 404|samsung brasil$/i.test(limpo);
+
+  return invalido ? "" : limpo;
+}
+
+function nomeProduto(base, enriquecido = {}, anterior = {}) {
+  return (
+    limparTituloOficial(enriquecido.tituloOficial) ||
+    limparTituloOficial(anterior.nomeOficial) ||
+    String(base.produto || anterior.nome || base.modelo || "Produto").trim()
+  );
+}
+
+function identificarTipoBloco(base = {}, enriquecido = {}) {
+  const modelo = chave(base.modelo).toLowerCase();
+  const conteudo = normalizar([
+    base.produto,
+    base.segmento,
+    base.modelo,
+    enriquecido.tituloOficial,
+    enriquecido.descricao
+  ].filter(Boolean).join(" "));
+
+  if (normalizar(base.segmento) === "video" || modelo.startsWith("un") || /\btv\b/.test(conteudo)) return "tv";
+  if (conteudo.includes("cooktop") || modelo.startsWith("na")) return "cooktop";
+  if (conteudo.includes("fogao") || modelo.startsWith("nsg")) return "fogao";
+  if (conteudo.includes("secadora") || modelo.startsWith("dv")) return "secadora";
+  if (conteudo.includes("lava louca") || modelo.startsWith("dw")) return "lava-loucas";
+  if (conteudo.includes("lava e seca") || conteudo.includes("lavadora") || conteudo.includes("maq lav") || modelo.startsWith("ww") || modelo.startsWith("wd")) return "lavadora";
+  if (conteudo.includes("micro-ondas") || conteudo.includes("microondas") || modelo.startsWith("mg") || modelo.startsWith("ms") || modelo.startsWith("mc")) return "microondas";
+  if (conteudo.includes("forno") || modelo.startsWith("nv")) return "forno";
+  if (conteudo.includes("soundbar")) return "soundbar";
+  if (conteudo.includes("geladeira") || conteudo.includes("refrigerador") || /^(rf|rs|rt)/.test(modelo)) return "geladeira";
+  return "generico";
+}
+
 function criarUrlBuscaInfoStore(termo = "") {
   const valor = String(termo).trim().toUpperCase();
   if (!valor) return URL_INFO_STORE;
-
   return `${URL_INFO_STORE}/${encodeURIComponent(valor.toLowerCase())}?_q=${encodeURIComponent(valor)}&map=ft`;
 }
 
@@ -60,14 +113,8 @@ function urlParecePaginaDeProduto(url = "") {
 }
 
 function normalizarLinkProduto(produto = {}) {
-  if (produto.link && urlParecePaginaDeProduto(produto.link)) {
-    return produto.link;
-  }
-
-  if (produto.linkText) {
-    return `${URL_INFO_STORE}/${String(produto.linkText).replace(/^\/+/, "")}/p`;
-  }
-
+  if (produto.link && urlParecePaginaDeProduto(produto.link)) return produto.link;
+  if (produto.linkText) return `${URL_INFO_STORE}/${String(produto.linkText).replace(/^\/+/, "")}/p`;
   return "";
 }
 
@@ -85,11 +132,8 @@ function produtoCorresponde(produto, codigo, modelo) {
   if (Array.isArray(produto.items)) {
     produto.items.forEach(item => {
       referencias.push(item.itemId, item.name, item.nameComplete, item.referenceId);
-
       if (Array.isArray(item.referenceId)) {
-        item.referenceId.forEach(referencia => {
-          referencias.push(referencia?.Value, referencia?.Key);
-        });
+        item.referenceId.forEach(referencia => referencias.push(referencia?.Value, referencia?.Key));
       }
     });
   }
@@ -119,35 +163,24 @@ async function consultarInfoStore(termo = "") {
     }
   });
 
-  if (!resposta.ok) {
-    throw new Error(`Info Store retornou HTTP ${resposta.status}`);
-  }
-
+  if (!resposta.ok) throw new Error(`Info Store retornou HTTP ${resposta.status}`);
   const dados = await resposta.json();
   return Array.isArray(dados) ? dados : [];
 }
 
-async function localizarUrlInfoStore(codigo, modelo, urlAnterior = "") {
+async function localizarUrlInfoStore(codigo, modelo) {
   const codigoLimpo = String(codigo).trim().toUpperCase();
   const modeloLimpo = String(modelo).trim().toUpperCase();
   const chaveCache = `${codigoLimpo}|${modeloLimpo}`;
 
-  if (cacheLinksInfoStore.has(chaveCache)) {
-    return cacheLinksInfoStore.get(chaveCache);
-  }
+  if (cacheLinksInfoStore.has(chaveCache)) return cacheLinksInfoStore.get(chaveCache);
 
   for (const termo of [codigoLimpo, modeloLimpo].filter(Boolean)) {
     try {
       const resultados = await consultarInfoStore(termo);
-      if (!resultados.length) continue;
-
-      const produtoEncontrado = resultados.find(produto =>
-        produtoCorresponde(produto, codigoLimpo, modeloLimpo)
-      );
-
-      if (!produtoEncontrado) continue;
-
+      const produtoEncontrado = resultados.find(produto => produtoCorresponde(produto, codigoLimpo, modeloLimpo));
       const link = normalizarLinkProduto(produtoEncontrado);
+
       if (link) {
         cacheLinksInfoStore.set(chaveCache, link);
         return link;
@@ -170,28 +203,38 @@ function destaques(lista = []) {
 }
 
 function limparEspecificacoes(especificacoes = {}) {
-  return Object.fromEntries(
-    Object.entries(especificacoes).filter(([, valor]) => valor !== "" && valor != null)
+  return Object.fromEntries(Object.entries(especificacoes).filter(([, valor]) => valor !== "" && valor != null));
+}
+
+function documentosOficiais(documentos = []) {
+  if (!Array.isArray(documentos)) return [];
+  return documentos.filter(documento =>
+    documento &&
+    documento.nome &&
+    documento.url &&
+    /^https:\/\/(?:org\.)?downloadcenter\.samsung\.com\//i.test(documento.url)
   );
 }
 
 function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore) {
   const cat = categoria(base.segmento);
+  const nomeOficial = nomeProduto(base, enriquecido);
 
   return {
     id: chave(base.modelo).toLowerCase() || chave(base.codigo).toLowerCase(),
     ordem,
     marca: marca(base.fabricante),
     modelo: base.modelo || "Não informado",
-    nome: base.produto,
+    nome: nomeOficial,
+    nomeOficial,
+    nomePlanilha: base.produto,
     descricao: enriquecido.descricao || base.produto,
     codigoInfo: base.codigo,
     categoria: cat,
     segmento: base.segmento,
+    tipoBloco: identificarTipoBloco(base, enriquecido),
     imagem: enriquecido.imagem,
-    imagens: Array.isArray(enriquecido.imagens) && enriquecido.imagens.length
-      ? enriquecido.imagens
-      : [enriquecido.imagem].filter(Boolean),
+    imagens: Array.isArray(enriquecido.imagens) && enriquecido.imagens.length ? enriquecido.imagens : [enriquecido.imagem].filter(Boolean),
     siteInfoStore,
     destaques: destaques(enriquecido.destaques),
     especificacoes: {
@@ -202,25 +245,29 @@ function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore) {
     },
     dimensoes: enriquecido.dimensoes || {},
     instalacao: "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
-    documentos: [],
+    documentos: documentosOficiais(enriquecido.documentos),
     sobreMarca: "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     revisaoPendente: enriquecido.statusExtracao !== "EXTRAIDO"
   };
 }
 
-function criarProdutoPendente(base, ordem, siteInfoStore, motivoPendencia) {
+function criarProdutoPendente(base, enriquecido, ordem, siteInfoStore, motivoPendencia) {
   const cat = categoria(base.segmento);
+  const nomeOficial = nomeProduto(base, enriquecido);
 
   return {
     id: chave(base.modelo).toLowerCase() || chave(base.codigo).toLowerCase(),
     ordem,
     marca: marca(base.fabricante),
     modelo: base.modelo || "Não informado",
-    nome: base.produto,
-    descricao: base.produto,
+    nome: nomeOficial,
+    nomeOficial,
+    nomePlanilha: base.produto,
+    descricao: enriquecido?.descricao || base.produto,
     codigoInfo: base.codigo,
     categoria: cat,
     segmento: base.segmento,
+    tipoBloco: identificarTipoBloco(base, enriquecido),
     imagem: "assets/produto-sem-imagem.png",
     imagens: ["assets/produto-sem-imagem.png"],
     siteInfoStore,
@@ -230,9 +277,9 @@ function criarProdutoPendente(base, ordem, siteInfoStore, motivoPendencia) {
       Categoria: cat,
       "Código Info Store": base.codigo
     },
-    dimensoes: {},
+    dimensoes: enriquecido?.dimensoes || {},
     instalacao: "Informações técnicas de instalação em atualização.",
-    documentos: [],
+    documentos: documentosOficiais(enriquecido?.documentos),
     sobreMarca: "Consulte disponibilidade e condições comerciais com a equipe Info Store.",
     revisaoPendente: true,
     motivoPendencia
@@ -255,48 +302,44 @@ async function executar() {
     const produtoBase = base[indice];
     const modelo = chave(produtoBase.modelo);
     const anterior = atualPorModelo.get(modelo);
-    const enriquecido = enriquecidoPorModelo.get(modelo);
+    const enriquecido = enriquecidoPorModelo.get(modelo) || {};
     const ordem = base.length - indice;
 
-    console.log(
-      `[${indice + 1}/${base.length}] Localizando Info Store: ${produtoBase.codigo} / ${produtoBase.modelo}`
-    );
+    console.log(`[${indice + 1}/${base.length}] Localizando Info Store: ${produtoBase.codigo} / ${produtoBase.modelo}`);
 
-    const siteInfoStore = await localizarUrlInfoStore(
-      produtoBase.codigo,
-      produtoBase.modelo,
-      anterior?.siteInfoStore
-    );
+    const siteInfoStore = await localizarUrlInfoStore(produtoBase.codigo, produtoBase.modelo);
 
-    if (enriquecido?.imagem) {
+    if (enriquecido.imagem) {
       catalogo.push(criarProdutoNovo(produtoBase, enriquecido, ordem, siteInfoStore));
       continue;
     }
 
     if (anterior?.imagem) {
+      const nomeOficial = nomeProduto(produtoBase, enriquecido, anterior);
       catalogo.push({
         ...anterior,
         ordem,
         marca: marca(produtoBase.fabricante),
         modelo: produtoBase.modelo || "Não informado",
-        nome: produtoBase.produto,
+        nome: nomeOficial,
+        nomeOficial,
+        nomePlanilha: produtoBase.produto,
         codigoInfo: produtoBase.codigo,
         categoria: categoria(produtoBase.segmento),
         segmento: produtoBase.segmento,
+        tipoBloco: identificarTipoBloco(produtoBase, enriquecido),
         siteFabricante: undefined,
-        imagens: Array.isArray(anterior.imagens) && anterior.imagens.length
-          ? anterior.imagens
-          : [anterior.imagem].filter(Boolean),
+        imagens: Array.isArray(anterior.imagens) && anterior.imagens.length ? anterior.imagens : [anterior.imagem].filter(Boolean),
+        documentos: documentosOficiais(enriquecido.documentos).length
+          ? documentosOficiais(enriquecido.documentos)
+          : documentosOficiais(anterior.documentos),
         siteInfoStore
       });
       continue;
     }
 
-    const motivoPendencia = enriquecido
-      ? "Imagem não disponível"
-      : "Fonte ainda precisa de revisão";
-
-    catalogo.push(criarProdutoPendente(produtoBase, ordem, siteInfoStore, motivoPendencia));
+    const motivoPendencia = Object.keys(enriquecido).length ? "Imagem não disponível" : "Fonte ainda precisa de revisão";
+    catalogo.push(criarProdutoPendente(produtoBase, enriquecido, ordem, siteInfoStore, motivoPendencia));
     pendencias.push({
       codigo: produtoBase.codigo,
       modelo: produtoBase.modelo,
@@ -308,8 +351,7 @@ async function executar() {
   await fs.writeFile(caminhos.saida, JSON.stringify(catalogo, null, 2), "utf8");
   await fs.writeFile(caminhos.pendencias, JSON.stringify(pendencias, null, 2), "utf8");
 
-  console.log("");
-  console.log("Prévia gerada.");
+  console.log("\nPrévia gerada.");
   console.log(`Produtos incluídos: ${catalogo.length}`);
   console.log(`Completos: ${catalogo.filter(item => !item.revisaoPendente).length}`);
   console.log(`Em revisão: ${catalogo.filter(item => item.revisaoPendente).length}`);

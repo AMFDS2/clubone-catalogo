@@ -530,3 +530,505 @@
   flex: 0 0 auto;
   white-space: nowrap;
 }
+/* FILTROS COMPACTOS + MAIS ESPAÇO PARA PRODUTOS */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--topbar));
+  padding: 14px 18px;
+}
+
+.bloco-busca {
+  flex: 0 0 auto;
+}
+
+.painel-filtros {
+  flex: 0 0 auto;
+  margin-top: 10px;
+  max-height: 230px;
+}
+
+.grupo-filtro {
+  padding: 10px 14px;
+}
+
+.grupo-filtro h2 {
+  margin-bottom: 7px;
+}
+
+.opcoes-filtro {
+  gap: 5px;
+}
+
+.opcao-filtro {
+  min-height: 20px;
+}
+
+.limpar-filtros {
+  margin: 8px 12px;
+  padding: 7px 10px;
+}
+
+.resultado-cabecalho {
+  flex: 0 0 auto;
+  margin: 12px 0 8px;
+}
+
+.lista-produtos {
+  flex: 1 1 auto;
+  min-height: 220px;
+  max-height: none;
+  overflow-y: auto;
+}
+/* SEÇÃO DE CONTATO */
+
+.secao-contato {
+  padding: 52px 4%;
+  scroll-margin-top: calc(var(--topbar) + 20px);
+  border-top: 1px solid var(--borda);
+  background: #f1eee8;
+}
+
+.contato-cabecalho {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.contato-etiqueta {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 12px;
+  border: 1px solid var(--preto);
+  border-radius: 999px;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contato-cabecalho h2 {
+  margin: 13px 0 7px;
+  font-size: clamp(25px, 3vw, 36px);
+  letter-spacing: -0.035em;
+}
+
+.contato-cabecalho p {
+  margin: 0;
+  color: var(--suave);
+  font-size: 12px;
+}
+
+.contato-grade {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contato-card {
+  min-width: 0;
+  min-height: 210px;
+  padding: 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: var(--claro);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contato-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--dourado);
+  box-shadow: 0 12px 28px #0000000d;
+}
+
+.contato-icone {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--borda);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--dourado);
+  font-size: 19px;
+}
+
+.contato-conteudo {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 164px;
+}
+
+.contato-tipo {
+  color: var(--dourado);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contato-card h3 {
+  margin: 6px 0 7px;
+  font-size: 18px;
+}
+
+.contato-card p {
+  margin: 0 0 18px;
+  color: var(--suave);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.contato-botao {
+  width: 100%;
+  min-height: 38px;
+  margin-top: auto;
+  padding: 10px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--preto);
+  border-radius: 7px;
+  background: var(--preto);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contato-botao:hover {
+  border-color: var(--dourado);
+  background: var(--dourado);
+}
+
+@media (max-width: 900px) {
+  .contato-grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contato-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 650px) {
+  .secao-contato {
+    padding: 38px 20px;
+  }
+
+  .contato-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .contato-card:last-child {
+    grid-column: auto;
+  }
+
+  .contato-card {
+    min-height: 190px;
+    padding: 18px;
+  }
+}
+/* FOTOS DOS CONTATOS */
+
+.contato-icone.contato-foto {
+  width: 58px;
+  height: 58px;
+  flex-basis: 58px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--dourado);
+  background: #ece8e1;
+}
+
+.contato-foto img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+/* DIMENSÕES SOMENTE DO PRODUTO */
+
+.dimensoes-subtitulo {
+  margin: 0 0 10px;
+  padding: 0 8px 10px;
+  border-bottom: 1px solid var(--borda);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.linha-dimensao-tecnica {
+  grid-template-columns: minmax(110px, 1fr) minmax(90px, 1fr);
+}
+
+.linha-dimensao-tecnica span {
+  text-align: right;
+  font-weight: 600;
+}
+
+@media (max-width: 650px) {
+  .linha-dimensao-tecnica {
+    grid-template-columns: minmax(110px, 1fr) minmax(80px, 1fr);
+  }
+}
+/* APARÊNCIA DOS DIAGRAMAS TÉCNICOS */
+
+.diagrama-produto .forma-produto {
+  fill: #faf9f6;
+  stroke: #2c2b28;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.diagrama-produto .forma-produto rect,
+.diagrama-produto .forma-produto path,
+.diagrama-produto .forma-produto circle,
+.diagrama-produto .forma-produto ellipse,
+.diagrama-produto .forma-produto line {
+  vector-effect: non-scaling-stroke;
+}
+
+.diagrama-produto .forma-tv rect:nth-child(2) {
+  fill: #f1efeb;
+}
+
+.diagrama-produto .linhas-medidas {
+  fill: var(--dourado);
+  stroke: var(--dourado);
+}
+/* CORREÇÃO FINAL DO DIAGRAMA DIMENSIONAL */
+
+.desenho-dimensoes {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diagrama-produto {
+  width: 210px !important;
+  max-width: 100% !important;
+  height: 210px !important;
+  display: block;
+  overflow: visible;
+}
+
+.diagrama-produto .forma-produto {
+  fill: #faf9f6 !important;
+  stroke: #292824 !important;
+  stroke-width: 1.8 !important;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.diagrama-produto .forma-tv .tela-tv {
+  fill: #eeece7 !important;
+}
+
+.diagrama-produto .linhas-medidas {
+  fill: var(--dourado) !important;
+  stroke: var(--dourado) !important;
+  stroke-width: 1.7 !important;
+}
+
+.diagrama-produto .linhas-medidas text {
+  stroke: none !important;
+  fill: var(--dourado) !important;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 650px) {
+  .diagrama-produto {
+    width: 180px !important;
+    height: 180px !important;
+  }
+}
+/* TABELA DE DIMENSÕES NO PADRÃO DO CATÁLOGO */
+
+.card-dimensoes .dimensoes-tecnicas {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+}
+
+.card-dimensoes .desenho-dimensoes {
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-dimensoes .diagrama-produto {
+  width: 185px !important;
+  height: 185px !important;
+  max-width: 185px !important;
+}
+
+.card-dimensoes .tabela-dimensoes-tecnicas {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+  background: #ffffff80;
+}
+
+.card-dimensoes .dimensoes-subtitulo {
+  min-height: 34px;
+  margin: 0;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--borda);
+  color: var(--texto);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.card-dimensoes .linha-dimensao-tecnica {
+  min-height: 35px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(115px, 48%) minmax(0, 52%);
+  gap: 0;
+  align-items: stretch;
+  border-bottom: 1px solid var(--borda);
+}
+
+.card-dimensoes .linha-dimensao-tecnica:last-of-type {
+  border-bottom: 0;
+}
+
+.card-dimensoes .linha-dimensao-tecnica strong,
+.card-dimensoes .linha-dimensao-tecnica span {
+  margin: 0;
+  padding: 9px 11px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.card-dimensoes .linha-dimensao-tecnica strong {
+  color: var(--texto);
+  font-weight: 700;
+}
+
+.card-dimensoes .linha-dimensao-tecnica span {
+  justify-content: flex-start;
+  border-left: 1px solid var(--borda);
+  background: #ffffff61;
+  color: var(--texto);
+  font-weight: 400;
+  text-align: left;
+}
+
+.card-dimensoes .peso-produto {
+  min-height: 35px;
+  margin: 0;
+  padding: 9px 11px;
+  border-top: 1px solid var(--borda);
+  color: var(--texto);
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+@media (max-width: 1100px) {
+  .card-dimensoes .dimensoes-tecnicas {
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+
+  .card-dimensoes .desenho-dimensoes {
+    width: 160px;
+    height: 160px;
+  }
+
+  .card-dimensoes .diagrama-produto {
+    width: 155px !important;
+    height: 155px !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .card-dimensoes .dimensoes-tecnicas {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card-dimensoes .desenho-dimensoes {
+    width: 100%;
+    height: 160px;
+  }
+
+  .card-dimensoes .diagrama-produto {
+    width: 170px !important;
+    height: 160px !important;
+    max-width: 170px !important;
+  }
+
+  .card-dimensoes .linha-dimensao-tecnica {
+    grid-template-columns: minmax(115px, 48%) minmax(0, 52%);
+  }
+}
+/* DOCUMENTOS OFICIAIS */
+
+.documento-link {
+  align-items: center;
+  gap: 18px;
+}
+
+.documento-informacoes {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.documento-informacoes strong {
+  color: var(--texto);
+  font-size: 10px;
+}
+
+.documento-informacoes small {
+  color: var(--suave);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.documento-acao {
+  flex-shrink: 0;
+  color: var(--dourado);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 650px) {
+  .documento-link {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
