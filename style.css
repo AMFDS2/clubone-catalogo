@@ -427,3 +427,106 @@
     padding: 15px;
   }
 }
+/* ==================================================
+   PADRONIZAÇÃO DO RESUMO E DOS BOTÕES
+================================================== */
+
+.produto-resumo {
+  min-width: 0;
+  min-height: 250px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.produto-resumo .nome-produto {
+  width: 100%;
+  max-width: 100%;
+  min-height: 3.24em;
+  max-height: 3.24em;
+
+  display: -webkit-box;
+  overflow: hidden;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.produto-identificacao {
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.acoes {
+  width: 100%;
+  max-width: 100%;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.botao-preto {
+  width: min(100%, 220px);
+  max-width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+
+/* TABLET */
+
+@media (min-width: 651px) and (max-width: 900px) {
+  .produto-resumo {
+    min-height: 270px;
+  }
+
+  .produto-resumo .nome-produto {
+    font-size: clamp(20px, 3vw, 26px);
+  }
+}
+
+
+/* CELULAR */
+
+@media (max-width: 650px) {
+  .produto-resumo {
+    min-height: 390px;
+  }
+
+  .produto-resumo .nome-produto {
+    min-height: 3.3em;
+    max-height: 3.3em;
+
+    font-size: clamp(20px, 6.4vw, 25px);
+    line-height: 1.1;
+  }
+
+  .destaques {
+    min-height: 74px;
+  }
+
+  .acoes {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 14px;
+  }
+
+  .botao-preto {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+.produto-resumo .badge {
+  width: fit-content;
+  max-width: 100%;
+  align-self: flex-start;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
