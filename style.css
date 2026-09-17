@@ -45,6 +45,7 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   font-size: clamp(21px, 1.8vw, 28px);
   line-height: 1.04;
   letter-spacing: -.025em;
@@ -185,5 +186,244 @@
 
   .produto-imagem-principal img {
     max-height: 240px;
+  }
+}
+
+/* ==================================================
+   EXPERIÊNCIA PARA TABLET E CELULAR
+================================================== */
+
+@media (min-width: 651px) and (max-width: 900px) {
+  .topbar {
+    min-height: 62px;
+    padding: 8px 22px;
+  }
+
+  .sidebar {
+    padding: 18px 22px;
+  }
+
+  .painel-filtros:not(.fechado) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: none;
+  }
+
+  .limpar-filtros {
+    grid-column: 1 / -1;
+  }
+
+  .lista-produtos {
+    max-height: 340px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .produto {
+    min-height: 86px;
+    border-right: 1px solid var(--borda);
+  }
+
+  .produto-hero {
+    grid-template-columns: minmax(270px, 42%) minmax(0, 58%);
+    padding: 20px 24px 15px;
+  }
+
+  .produto-resumo .nome-produto {
+    font-size: clamp(22px, 3vw, 28px);
+  }
+
+  .produto-imagem-principal {
+    height: 270px;
+    min-height: 270px;
+    max-height: 270px;
+  }
+
+  .produto-imagem-principal img {
+    max-height: 270px;
+  }
+
+  .area-tecnica {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+@media (max-width: 650px) {
+  :root {
+    --topbar: 64px;
+  }
+
+  .topbar {
+    min-height: var(--topbar);
+    padding: 8px 18px;
+  }
+
+  .topbar-logos {
+    gap: 14px;
+  }
+
+  .logo-club {
+    max-width: 126px;
+    max-height: 38px;
+  }
+
+  .logo-info {
+    max-width: 72px;
+    max-height: 36px;
+  }
+
+  .menu-mobile {
+    font-size: 30px;
+  }
+
+  .sidebar {
+    padding: 16px 12px;
+  }
+
+  .bloco-busca {
+    grid-template-columns: minmax(0, 1fr) 46px;
+  }
+
+  .campo-busca input,
+  .botao-filtro {
+    height: 46px;
+  }
+
+  .painel-filtros {
+    margin-top: 12px;
+  }
+
+  .grupo-filtro {
+    padding: 13px 14px;
+  }
+
+  .resultado-cabecalho {
+    margin: 16px 0 10px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .resultado-cabecalho strong,
+  .ordenacao,
+  .ordenacao select {
+    font-size: 9px;
+  }
+
+  .lista-produtos {
+    max-height: 315px;
+    border-radius: 9px;
+  }
+
+  .produto {
+    min-height: 82px;
+    padding: 9px;
+    grid-template-columns: 78px minmax(0, 1fr) 18px;
+    gap: 10px;
+  }
+
+  .produto-imagem {
+    width: 78px;
+    height: 60px;
+  }
+
+  .produto-informacoes h3 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    white-space: normal;
+    line-height: 1.25;
+  }
+
+  .detalhes {
+    scroll-margin-top: var(--topbar);
+  }
+
+  .produto-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px 14px 14px;
+  }
+
+  .produto-resumo .nome-produto {
+    margin-top: 10px;
+    font-size: clamp(22px, 7vw, 27px);
+    line-height: 1.08;
+  }
+
+  .produto-identificacao {
+    font-size: 13px;
+  }
+
+  .destaques {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    scrollbar-width: thin;
+  }
+
+  .destaque {
+    width: 88px;
+    min-width: 88px;
+    min-height: 72px;
+  }
+
+  .destaque-texto strong {
+    font-size: 9px;
+  }
+
+  .acoes {
+    margin-top: 14px;
+  }
+
+  .produto-imagem-principal {
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
+    border-radius: 10px;
+  }
+
+  .produto-imagem-principal img {
+    max-height: 220px;
+  }
+
+  .galeria-miniaturas {
+    gap: 7px;
+  }
+
+  .miniatura {
+    width: 56px;
+    height: 45px;
+    flex-basis: 56px;
+  }
+
+  .area-tecnica {
+    padding: 0 12px 22px;
+  }
+
+  .tabs {
+    position: sticky;
+    top: var(--topbar);
+    z-index: 20;
+    gap: 24px;
+    background: var(--fundo);
+  }
+
+  .tab {
+    min-height: 46px;
+  }
+
+  .grade-tecnica {
+    gap: 14px;
+  }
+
+  .card-dimensoes,
+  .card-documentos,
+  .card-instalacao,
+  .card-marca {
+    padding: 15px;
   }
 }

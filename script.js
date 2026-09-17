@@ -47,6 +47,11 @@ function configurarEventosFixos() {
   const painelFiltros = document.getElementById("painelFiltros");
   const limparFiltros = document.getElementById("limparFiltros");
 
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    painelFiltros.classList.add("fechado");
+    botaoFiltros.setAttribute("aria-expanded", "false");
+  }
+
   campoBusca.addEventListener("input", aplicarFiltros);
   ordenacao.addEventListener("change", aplicarFiltros);
 
@@ -182,13 +187,13 @@ function renderizarProdutos(produtos) {
   }).join("");
 
   container.querySelectorAll(".produto").forEach(botao => {
-    botao.addEventListener("click", () => mostrarDetalhes(botao.dataset.produtoId));
+    botao.addEventListener("click", () => mostrarDetalhes(botao.dataset.produtoId, true));
   });
 
   configurarFallbackImagens(container);
 }
 
-function mostrarDetalhes(idProduto) {
+function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   const produto = todosProdutos.find(item => item.id === idProduto);
   if (!produto) return;
 
@@ -266,6 +271,15 @@ function mostrarDetalhes(idProduto) {
   configurarAbas();
   configurarGaleria();
   configurarFallbackImagens(document.getElementById("detalhes"));
+
+  if (interacaoDoUsuario && window.matchMedia("(max-width: 900px)").matches) {
+    requestAnimationFrame(() => {
+      document.getElementById("detalhes").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+  }
 }
 
 function obterImagensProduto(produto = {}) {
