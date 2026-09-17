@@ -6,6 +6,13 @@
     "tituloOficial": "Smart TV 32 polegadas HD H5000F 2025",
     "descricao": "Tecnologia HDR",
     "imagem": "assets/produtos/un32h5000fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un32h5000fgxzd/principal.png",
+      "assets/produtos/un32h5000fgxzd/galeria-02.png",
+      "assets/produtos/un32h5000fgxzd/galeria-03.png",
+      "assets/produtos/un32h5000fgxzd/galeria-04.png",
+      "assets/produtos/un32h5000fgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "733.2 mm",
@@ -64,7 +71,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/hd-tv/h5000-32-inch-un32h5000fgxzd/",
-    "dataConsulta": "2026-09-16T21:25:12.403Z"
+    "dataConsulta": "2026-09-17T12:33:44.652Z"
   },
   {
     "modelo": "UN43F6000FGXZD",
@@ -73,6 +80,13 @@
     "tituloOficial": "Smart TV 43 polegadas Full HD F6000F 2025",
     "descricao": "Tecnologia HDR Resolução Full HD Tecnologia PurColor Realce de Contraste",
     "imagem": "assets/produtos/un43f6000fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un43f6000fgxzd/principal.png",
+      "assets/produtos/un43f6000fgxzd/galeria-02.png",
+      "assets/produtos/un43f6000fgxzd/galeria-03.png",
+      "assets/produtos/un43f6000fgxzd/galeria-04.png",
+      "assets/produtos/un43f6000fgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "965.9 mm",
@@ -131,7 +145,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/full-hd-tv/f6000-43-inch-un43f6000fgxzd/",
-    "dataConsulta": "2026-09-16T21:25:16.417Z"
+    "dataConsulta": "2026-09-17T12:34:05.842Z"
   },
   {
     "modelo": "UN43U8600FGXZD",
@@ -140,6 +154,13 @@
     "tituloOficial": "Smart TV 43\" Crystal UHD 4K U8600F",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "imagem": "assets/produtos/un43u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un43u8600fgxzd/principal.png",
+      "assets/produtos/un43u8600fgxzd/galeria-02.png",
+      "assets/produtos/un43u8600fgxzd/galeria-03.png",
+      "assets/produtos/un43u8600fgxzd/galeria-04.png",
+      "assets/produtos/un43u8600fgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "967.5 mm",
@@ -198,7 +219,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-43-inch-crystal-uhd-4k-smart-tv-un43u8600fgxzd/",
-    "dataConsulta": "2026-09-16T21:25:19.326Z"
+    "dataConsulta": "2026-09-17T12:34:24.204Z"
   },
   {
     "modelo": "UN50U8600FGXZD",
@@ -207,6 +228,13 @@
     "tituloOficial": "Smart TV 50\" Crystal UHD 4K U8600F",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "imagem": "assets/produtos/un50u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un50u8600fgxzd/principal.png",
+      "assets/produtos/un50u8600fgxzd/galeria-02.png",
+      "assets/produtos/un50u8600fgxzd/galeria-03.png",
+      "assets/produtos/un50u8600fgxzd/galeria-04.png",
+      "assets/produtos/un50u8600fgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1120.3 mm",
@@ -265,7 +293,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-50-inch-crystal-uhd-4k-smart-tv-un50u8600fgxzd/",
-    "dataConsulta": "2026-09-16T21:25:22.152Z"
+    "dataConsulta": "2026-09-17T12:34:43.392Z"
   },
   {
     "modelo": "UN55U8600FGXZD",
@@ -274,6 +302,13 @@
     "tituloOficial": "Smart TV 55\" Crystal UHD 4K U8600F",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "imagem": "assets/produtos/un55u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un55u8600fgxzd/principal.png",
+      "assets/produtos/un55u8600fgxzd/galeria-02.png",
+      "assets/produtos/un55u8600fgxzd/galeria-03.png",
+      "assets/produtos/un55u8600fgxzd/galeria-04.png",
+      "assets/produtos/un55u8600fgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1234.1 mm",
@@ -332,7 +367,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-55-inch-crystal-uhd-4k-smart-tv-un55u8600fgxzd/",
-    "dataConsulta": "2026-09-16T21:25:24.907Z"
+    "dataConsulta": "2026-09-17T12:35:02.465Z"
   },
   {
     "modelo": "UN65U8600FGXZD",
@@ -341,6 +376,13 @@
     "tituloOficial": "Smart TV 65\" Crystal UHD 4K U8600F",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "imagem": "assets/produtos/un65u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un65u8600fgxzd/principal.png",
+      "assets/produtos/un65u8600fgxzd/galeria-02.png",
+      "assets/produtos/un65u8600fgxzd/galeria-03.png",
+      "assets/produtos/un65u8600fgxzd/galeria-04.png",
+      "assets/produtos/un65u8600fgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1452.9 mm",
@@ -399,7 +441,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-65-inch-crystal-uhd-4k-smart-tv-un65u8600fgxzd/",
-    "dataConsulta": "2026-09-16T21:25:27.590Z"
+    "dataConsulta": "2026-09-17T12:35:19.447Z"
   },
   {
     "modelo": "UN75U8600FGXZD",
@@ -408,6 +450,13 @@
     "tituloOficial": "Smart TV 75\" Crystal UHD 4K U8600F",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "imagem": "assets/produtos/un75u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un75u8600fgxzd/principal.png",
+      "assets/produtos/un75u8600fgxzd/galeria-02.png",
+      "assets/produtos/un75u8600fgxzd/galeria-03.png",
+      "assets/produtos/un75u8600fgxzd/galeria-04.png",
+      "assets/produtos/un75u8600fgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1677.5 mm",
@@ -466,7 +515,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8600f-75-inch-crystal-uhd-4k-smart-tv-un75u8600fgxzd/",
-    "dataConsulta": "2026-09-16T21:25:30.363Z"
+    "dataConsulta": "2026-09-17T12:35:40.009Z"
   },
   {
     "modelo": "UN85U8600FGXZD",
@@ -475,6 +524,13 @@
     "tituloOficial": "Super Big Smart TV 85 polegadas Crystal UHD 4K U8600F",
     "descricao": "Crystal Processor 4K MetalStream Design Endless Free Content",
     "imagem": "assets/produtos/un85u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un85u8600fgxzd/principal.png",
+      "assets/produtos/un85u8600fgxzd/galeria-02.png",
+      "assets/produtos/un85u8600fgxzd/galeria-03.png",
+      "assets/produtos/un85u8600fgxzd/galeria-04.png",
+      "assets/produtos/un85u8600fgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1901.2 mm",
@@ -533,7 +589,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8500f-85-inch-crystal-uhd-4k-smart-tv-un85u8600fgxzd/",
-    "dataConsulta": "2026-09-16T21:25:33.519Z"
+    "dataConsulta": "2026-09-17T12:36:00.820Z"
   },
   {
     "modelo": "QN55Q7FAAGXZD",
@@ -542,6 +598,13 @@
     "tituloOficial": "Vision AI TV 55 polegadas QLED 4K Q7F",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "imagem": "assets/produtos/qn55q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55q7faagxzd/principal.png",
+      "assets/produtos/qn55q7faagxzd/galeria-02.png",
+      "assets/produtos/qn55q7faagxzd/galeria-03.png",
+      "assets/produtos/qn55q7faagxzd/galeria-04.png",
+      "assets/produtos/qn55q7faagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1234.1 mm",
@@ -600,7 +663,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-55-inch-qled-4k-smart-tv-qn55q7faagxzd/",
-    "dataConsulta": "2026-09-16T21:25:35.752Z"
+    "dataConsulta": "2026-09-17T12:36:21.570Z"
   },
   {
     "modelo": "QN65Q7FAAGXZD",
@@ -609,6 +672,13 @@
     "tituloOficial": "Vision AI TV 65 polegadas QLED 4K Q7F",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "imagem": "assets/produtos/qn65q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn65q7faagxzd/principal.png",
+      "assets/produtos/qn65q7faagxzd/galeria-02.png",
+      "assets/produtos/qn65q7faagxzd/galeria-03.png",
+      "assets/produtos/qn65q7faagxzd/galeria-04.png",
+      "assets/produtos/qn65q7faagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1452.9 mm",
@@ -667,7 +737,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-65-inch-qled-4k-smart-tv-qn65q7faagxzd/",
-    "dataConsulta": "2026-09-16T21:25:38.360Z"
+    "dataConsulta": "2026-09-17T12:36:41.872Z"
   },
   {
     "modelo": "QN75Q7FAAGXZD",
@@ -676,6 +746,13 @@
     "tituloOficial": "Vision AI TV 75 polegadas QLED 4K Q7F",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "imagem": "assets/produtos/qn75q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn75q7faagxzd/principal.png",
+      "assets/produtos/qn75q7faagxzd/galeria-02.png",
+      "assets/produtos/qn75q7faagxzd/galeria-03.png",
+      "assets/produtos/qn75q7faagxzd/galeria-04.png",
+      "assets/produtos/qn75q7faagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1677.5 mm",
@@ -734,7 +811,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-75-inch-qled-4k-smart-tv-qn75q7faagxzd/",
-    "dataConsulta": "2026-09-16T21:25:40.700Z"
+    "dataConsulta": "2026-09-17T12:37:00.121Z"
   },
   {
     "modelo": "QN55LS03FAGXZD",
@@ -743,6 +820,13 @@
     "tituloOficial": "Vision AI TV 55 polegadas The Frame 4K LS03F",
     "descricao": "Modern Frame Design Art Mode Artful Picture Quality with QLED",
     "imagem": "assets/produtos/qn55ls03fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55ls03fagxzd/principal.png",
+      "assets/produtos/qn55ls03fagxzd/galeria-02.png",
+      "assets/produtos/qn55ls03fagxzd/galeria-03.png",
+      "assets/produtos/qn55ls03fagxzd/galeria-04.png",
+      "assets/produtos/qn55ls03fagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1237.9 mm",
@@ -801,7 +885,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/lifestyle-tvs/the-frame/ls03f-55-inch-art-store-black-qn55ls03fagxzd/",
-    "dataConsulta": "2026-09-16T21:25:45.693Z"
+    "dataConsulta": "2026-09-17T12:37:23.564Z"
   },
   {
     "modelo": "QN50LS03FAGXZD",
@@ -810,6 +894,13 @@
     "tituloOficial": "Vision AI TV 50 polegadas The Frame 4K LS03F",
     "descricao": "Modern Frame Design Art Mode Artful Picture Quality with QLED",
     "imagem": "assets/produtos/qn50ls03fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn50ls03fagxzd/principal.png",
+      "assets/produtos/qn50ls03fagxzd/galeria-02.png",
+      "assets/produtos/qn50ls03fagxzd/galeria-03.png",
+      "assets/produtos/qn50ls03fagxzd/galeria-04.png",
+      "assets/produtos/qn50ls03fagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1124.1 mm",
@@ -868,7 +959,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/lifestyle-tvs/the-frame/ls03f-50-inch-art-store-black-qn50ls03fagxzd/",
-    "dataConsulta": "2026-09-16T21:25:53.144Z"
+    "dataConsulta": "2026-09-17T12:37:47.787Z"
   },
   {
     "modelo": "QN55QN85FAGXZD",
@@ -877,6 +968,13 @@
     "tituloOficial": "Vision AI TV 55 polegadas Neo QLED 4K QN85F",
     "descricao": "Processador NQ4 AI Gen2 Quantum Mini LED Pro Dolby Atmos®",
     "imagem": "assets/produtos/qn55qn85fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55qn85fagxzd/principal.png",
+      "assets/produtos/qn55qn85fagxzd/galeria-02.png",
+      "assets/produtos/qn55qn85fagxzd/galeria-03.png",
+      "assets/produtos/qn55qn85fagxzd/galeria-04.png",
+      "assets/produtos/qn55qn85fagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1227.6 mm",
@@ -935,7 +1033,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q85f-55-inch-neo-qled-4k-mini-led-smart-tv-qn55qn85fagxzd/",
-    "dataConsulta": "2026-09-16T21:25:57.182Z"
+    "dataConsulta": "2026-09-17T12:38:08.454Z"
   },
   {
     "modelo": "QN65QN85FAGXZD",
@@ -944,6 +1042,13 @@
     "tituloOficial": "Vision AI TV 65 polegadas Neo QLED 4K QN85F",
     "descricao": "Processador NQ4 AI Gen2 Quantum Mini LED Pro Dolby Atmos®",
     "imagem": "assets/produtos/qn65qn85fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn65qn85fagxzd/principal.png",
+      "assets/produtos/qn65qn85fagxzd/galeria-02.png",
+      "assets/produtos/qn65qn85fagxzd/galeria-03.png",
+      "assets/produtos/qn65qn85fagxzd/galeria-04.png",
+      "assets/produtos/qn65qn85fagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1446.5 mm",
@@ -1002,7 +1107,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q85f-65-inch-neo-qled-4k-mini-led-smart-tv-qn65qn85fagxzd/",
-    "dataConsulta": "2026-09-16T21:25:59.463Z"
+    "dataConsulta": "2026-09-17T12:38:30.182Z"
   },
   {
     "modelo": "QN55S90FAGXZD",
@@ -1011,6 +1116,13 @@
     "tituloOficial": "Vision AI TV 55 polegadas OLED 4K S90F",
     "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro OLED HDR+",
     "imagem": "assets/produtos/qn55s90fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55s90fagxzd/principal.png",
+      "assets/produtos/qn55s90fagxzd/galeria-02.png",
+      "assets/produtos/qn55s90fagxzd/galeria-03.png",
+      "assets/produtos/qn55s90fagxzd/galeria-04.png",
+      "assets/produtos/qn55s90fagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "225.4 mm",
@@ -1069,7 +1181,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/oled-tv/s90f-55-inch-oled-4k-smart-tv-qn55s90fagxzd/",
-    "dataConsulta": "2026-09-16T21:26:01.902Z"
+    "dataConsulta": "2026-09-17T12:38:46.957Z"
   },
   {
     "modelo": "QN43QN90FAGXZD",
@@ -1078,6 +1190,13 @@
     "tituloOficial": "Vision AI TV 43 polegadas Neo QLED 4K QN90F",
     "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro Quantum Mini LED Pro",
     "imagem": "assets/produtos/qn43qn90fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn43qn90fagxzd/principal.png",
+      "assets/produtos/qn43qn90fagxzd/galeria-02.png",
+      "assets/produtos/qn43qn90fagxzd/galeria-03.png",
+      "assets/produtos/qn43qn90fagxzd/galeria-04.png",
+      "assets/produtos/qn43qn90fagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "960.8 mm",
@@ -1136,7 +1255,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/qn90f-43-inch-neo-qled-4k-mini-led-smart-tv-qn43qn90fagxzd/",
-    "dataConsulta": "2026-09-16T21:26:04.006Z"
+    "dataConsulta": "2026-09-17T12:39:02.782Z"
   },
   {
     "modelo": "QN43Q5FAAGXZD",
@@ -1145,6 +1264,13 @@
     "tituloOficial": "Smart TV 43\" QLED Full HD Q5F",
     "descricao": "\"QLED de verdade Som em Movimento Virtual Central de Segurança Knox Sistema Operacional Tizen\"",
     "imagem": "assets/produtos/qn43q5faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn43q5faagxzd/principal.png",
+      "assets/produtos/qn43q5faagxzd/galeria-02.png",
+      "assets/produtos/qn43q5faagxzd/galeria-03.png",
+      "assets/produtos/qn43q5faagxzd/galeria-04.png",
+      "assets/produtos/qn43q5faagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "965.9 mm",
@@ -1203,7 +1329,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q5f-43-inch-qled-full-hd-smart-tv-qn43q5faagxzd/",
-    "dataConsulta": "2026-09-16T21:26:06.557Z"
+    "dataConsulta": "2026-09-17T12:39:19.189Z"
   },
   {
     "modelo": "QN50Q7FAAGXZD",
@@ -1212,6 +1338,13 @@
     "tituloOficial": "Vision AI TV 50 polegadas QLED 4K Q7F",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "imagem": "assets/produtos/qn50q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn50q7faagxzd/principal.png",
+      "assets/produtos/qn50q7faagxzd/galeria-02.png",
+      "assets/produtos/qn50q7faagxzd/galeria-03.png",
+      "assets/produtos/qn50q7faagxzd/galeria-04.png",
+      "assets/produtos/qn50q7faagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1120.3 mm",
@@ -1270,7 +1403,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-50-inch-qled-4k-smart-tv-qn50q7faagxzd/",
-    "dataConsulta": "2026-09-16T21:26:08.792Z"
+    "dataConsulta": "2026-09-17T12:39:34.313Z"
   },
   {
     "modelo": "QN85Q7FAAGXZD",
@@ -1279,6 +1412,13 @@
     "tituloOficial": "Super Big Vision AI TV 85 polegadas QLED 4K Q7F",
     "descricao": "Q4 AI Processor 100% Color Volume with Quantum Dot Samsung Knox Security",
     "imagem": "assets/produtos/qn85q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn85q7faagxzd/principal.png",
+      "assets/produtos/qn85q7faagxzd/galeria-02.png",
+      "assets/produtos/qn85q7faagxzd/galeria-03.png",
+      "assets/produtos/qn85q7faagxzd/galeria-04.png",
+      "assets/produtos/qn85q7faagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1901.2 mm",
@@ -1337,7 +1477,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/q7f-85-inch-qled-4k-smart-tv-qn85q7faagxzd/",
-    "dataConsulta": "2026-09-16T21:26:11.350Z"
+    "dataConsulta": "2026-09-17T12:39:54.745Z"
   },
   {
     "modelo": "QN77S90FAGXZD",
@@ -1346,6 +1486,13 @@
     "tituloOficial": "Super Big Vision AI TV 77 polegadas OLED 4K S90F",
     "descricao": "NQ4 AI Gen3 Processor 4K AI Upscaling Pro OLED HDR+",
     "imagem": "assets/produtos/qn77s90fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn77s90fagxzd/principal.png",
+      "assets/produtos/qn77s90fagxzd/galeria-02.png",
+      "assets/produtos/qn77s90fagxzd/galeria-03.png",
+      "assets/produtos/qn77s90fagxzd/galeria-04.png",
+      "assets/produtos/qn77s90fagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "718.5 mm",
@@ -1404,7 +1551,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/oled-tv/s90f-77-inch-oled-4k-smart-tv-qn77s90fagxzd/",
-    "dataConsulta": "2026-09-16T21:26:21.038Z"
+    "dataConsulta": "2026-09-17T12:40:16.581Z"
   },
   {
     "modelo": "UN70U8000HGXZD",
@@ -1413,6 +1560,13 @@
     "tituloOficial": "Smart TV Samsung Vision AI 70\" Crystal UHD 4K U8000H",
     "descricao": "Samsung Vision AI Companion Crystal Processor 4K Dynamic Sound Pack",
     "imagem": "assets/produtos/un70u8000hgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un70u8000hgxzd/principal.png",
+      "assets/produtos/un70u8000hgxzd/galeria-02.png",
+      "assets/produtos/un70u8000hgxzd/galeria-03.png",
+      "assets/produtos/un70u8000hgxzd/galeria-04.png",
+      "assets/produtos/un70u8000hgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1567.2 mm",
@@ -1469,7 +1623,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u8000h-70-inch-crystal-uhd-4k-smart-tv-un70u8000hgxzd/",
-    "dataConsulta": "2026-09-16T21:26:22.644Z"
+    "dataConsulta": "2026-09-17T12:40:30.044Z"
   },
   {
     "modelo": "UN98U9500HGXZD",
@@ -1478,6 +1632,13 @@
     "tituloOficial": "Smart TV Samsung Vision AI 98\" Crystal UHD 4K U9500H",
     "descricao": "Samsung Vision AI Companion Supersize Picture Enhancer Motion Xcelerator 144Hz",
     "imagem": "assets/produtos/un98u9500hgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un98u9500hgxzd/principal.png",
+      "assets/produtos/un98u9500hgxzd/galeria-02.png",
+      "assets/produtos/un98u9500hgxzd/galeria-03.png",
+      "assets/produtos/un98u9500hgxzd/galeria-04.png",
+      "assets/produtos/un98u9500hgxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "2181.1 mm",
@@ -1534,7 +1695,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/u9000h-98-inch-crystal-uhd-4k-smart-tv-un98u9500hgxzd/",
-    "dataConsulta": "2026-09-16T21:26:24.138Z"
+    "dataConsulta": "2026-09-17T12:40:46.671Z"
   },
   {
     "modelo": "UN50M75HAGXZD",
@@ -1543,6 +1704,13 @@
     "tituloOficial": "Combo Smart TV 50\" Mini LED 4K M75H + Soundbar HW-B400F",
     "descricao": "Descubra o Combo Smart TV 50\" Mini LED 4K M75H + Soundbar HW-B400F. Tenha Modo futebol e som surround envolvente. Saiba mais.",
     "imagem": "assets/produtos/un50m75hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un50m75hagxzd/principal.png",
+      "assets/produtos/un50m75hagxzd/galeria-02.png",
+      "assets/produtos/un50m75hagxzd/galeria-03.png",
+      "assets/produtos/un50m75hagxzd/galeria-04.png",
+      "assets/produtos/un50m75hagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1110.8 mm",
@@ -1601,7 +1769,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/mini-led-tv/kit-smart-tv-50-inch-miniled-4k-un50m75hagxzd-with-soundbar-hw-b400f-zd-f-un50m75b400f/",
-    "dataConsulta": "2026-09-16T21:26:27.591Z"
+    "dataConsulta": "2026-09-17T12:41:00.448Z"
   },
   {
     "modelo": "UN55M75HAGXZD",
@@ -1610,6 +1778,13 @@
     "tituloOficial": "Smart TV Samsung Vision AI 55” Mini LED 4K M75H",
     "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
     "imagem": "assets/produtos/un55m75hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un55m75hagxzd/principal.png",
+      "assets/produtos/un55m75hagxzd/galeria-02.png",
+      "assets/produtos/un55m75hagxzd/galeria-03.png",
+      "assets/produtos/un55m75hagxzd/galeria-04.png",
+      "assets/produtos/un55m75hagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1224.6 mm",
@@ -1668,7 +1843,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/mini-led-tv/m75h-55-inch-4k-smart-tv-un55m75hagxzd/",
-    "dataConsulta": "2026-09-16T21:26:30.344Z"
+    "dataConsulta": "2026-09-17T12:41:21.325Z"
   },
   {
     "modelo": "UN65M75HAGXZD",
@@ -1677,6 +1852,13 @@
     "tituloOficial": "Smart TV Samsung Vision AI 65” Mini LED 4K M75H",
     "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
     "imagem": "assets/produtos/un65m75hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un65m75hagxzd/principal.png",
+      "assets/produtos/un65m75hagxzd/galeria-02.png",
+      "assets/produtos/un65m75hagxzd/galeria-03.png",
+      "assets/produtos/un65m75hagxzd/galeria-04.png",
+      "assets/produtos/un65m75hagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1444.1 mm",
@@ -1735,7 +1917,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/mini-led-tv/m75h-65-inch-4k-smart-tv-un65m75hagxzd/",
-    "dataConsulta": "2026-09-16T21:26:32.685Z"
+    "dataConsulta": "2026-09-17T12:41:39.418Z"
   },
   {
     "modelo": "UN75M75HAGXZD",
@@ -1744,6 +1926,13 @@
     "tituloOficial": "Smart TV Samsung Vision AI 75” Mini LED 4K M75H",
     "descricao": "Samsung Vision AI Companion Mini LED Pure Spectrum Color",
     "imagem": "assets/produtos/un75m75hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un75m75hagxzd/principal.png",
+      "assets/produtos/un75m75hagxzd/galeria-02.png",
+      "assets/produtos/un75m75hagxzd/galeria-03.png",
+      "assets/produtos/un75m75hagxzd/galeria-04.png",
+      "assets/produtos/un75m75hagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1668.1 mm",
@@ -1802,7 +1991,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/mini-led-tv/m75h-75-inch-4k-smart-tv-un75m75hagxzd/",
-    "dataConsulta": "2026-09-16T21:26:35.133Z"
+    "dataConsulta": "2026-09-17T12:41:55.995Z"
   },
   {
     "modelo": "QN55QN70HAGXZD",
@@ -1811,6 +2000,13 @@
     "tituloOficial": "Smart TV Samsung Vision AI 55\" Neo QLED 4K QN70H",
     "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
     "imagem": "assets/produtos/qn55qn70hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55qn70hagxzd/principal.png",
+      "assets/produtos/qn55qn70hagxzd/galeria-02.png",
+      "assets/produtos/qn55qn70hagxzd/galeria-03.png",
+      "assets/produtos/qn55qn70hagxzd/galeria-04.png",
+      "assets/produtos/qn55qn70hagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1232.1 mm",
@@ -1869,7 +2065,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/qn70h-55-inch-neo-qled-4k-mini-led-smart-tv-qn55qn70hagxzd/",
-    "dataConsulta": "2026-09-16T21:26:36.768Z"
+    "dataConsulta": "2026-09-17T12:42:08.798Z"
   },
   {
     "modelo": "QN75QN70HAGXZD",
@@ -1878,6 +2074,13 @@
     "tituloOficial": "Smart TV Samsung Vision AI 75\" Neo QLED 4K QN70H",
     "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
     "imagem": "assets/produtos/qn75qn70hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn75qn70hagxzd/principal.png",
+      "assets/produtos/qn75qn70hagxzd/galeria-02.png",
+      "assets/produtos/qn75qn70hagxzd/galeria-03.png",
+      "assets/produtos/qn75qn70hagxzd/galeria-04.png",
+      "assets/produtos/qn75qn70hagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1676.7 mm",
@@ -1936,7 +2139,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/qn70h-75-inch-neo-qled-4k-mini-led-smart-tv-qn75qn70hagxzd/",
-    "dataConsulta": "2026-09-16T21:26:38.534Z"
+    "dataConsulta": "2026-09-17T12:42:21.975Z"
   },
   {
     "modelo": "QN85QN70HAGXZD",
@@ -1945,6 +2148,13 @@
     "tituloOficial": "Smart TV Samsung Vision AI 85\" Neo QLED 4K QN70H",
     "descricao": "Samsung Vision AI Companion Quantum Mini LED Real QLED with 100% Color Volume",
     "imagem": "assets/produtos/qn85qn70hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn85qn70hagxzd/principal.png",
+      "assets/produtos/qn85qn70hagxzd/galeria-02.png",
+      "assets/produtos/qn85qn70hagxzd/galeria-03.png",
+      "assets/produtos/qn85qn70hagxzd/galeria-04.png",
+      "assets/produtos/qn85qn70hagxzd/galeria-05.png"
+    ],
     "dimensoes": {
       "semBase": {
         "largura": "1900.9 mm",
@@ -2003,7 +2213,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/tvs/qled-tv/qn70h-85-inch-neo-qled-4k-mini-led-smart-tv-qn85qn70hagxzd/",
-    "dataConsulta": "2026-09-16T21:26:40.067Z"
+    "dataConsulta": "2026-09-17T12:42:38.945Z"
   },
   {
     "modelo": "NA30N6555TG/AZ",
@@ -2012,6 +2222,13 @@
     "tituloOficial": "Cooktop à Gás 5 Queimadores Black Inox Wi-Fi e Dupla Chama",
     "descricao": "Chama potente e precisa Queimador de chama dupla SmartThings na sua cozinha Conectividade via Wi-Fi Design elegante e seguro Acendedores precisos e iluminados Funciona com SmartThings, sua casa inteligente",
     "imagem": "assets/produtos/na30n6555tgaz/principal.png",
+    "imagens": [
+      "assets/produtos/na30n6555tgaz/principal.png",
+      "assets/produtos/na30n6555tgaz/galeria-02.png",
+      "assets/produtos/na30n6555tgaz/galeria-03.png",
+      "assets/produtos/na30n6555tgaz/galeria-04.png",
+      "assets/produtos/na30n6555tgaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "762 mm",
@@ -2046,7 +2263,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/cooking-appliances/ovens/na9300k-gas-cooktop-with-19k-btu-dual-burner-na30n6555tg-az/",
-    "dataConsulta": "2026-09-16T21:26:44.349Z"
+    "dataConsulta": "2026-09-17T12:43:00.461Z"
   },
   {
     "modelo": "NV7B4420XAK/BZ",
@@ -2055,6 +2272,13 @@
     "tituloOficial": "Forno Elétrico Função Air Fry e Wi-Fi 76L",
     "descricao": "Um forno, diversas possibilidades Função Dual Cook Pratos mais crocantes e saudáveis Air Fry Cozimento uniforme Função Air Sous Vide Funciona com SmartThings, sua casa inteligente",
     "imagem": "assets/produtos/nv7b4420xakbz/principal.png",
+    "imagens": [
+      "assets/produtos/nv7b4420xakbz/principal.png",
+      "assets/produtos/nv7b4420xakbz/galeria-02.png",
+      "assets/produtos/nv7b4420xakbz/galeria-03.png",
+      "assets/produtos/nv7b4420xakbz/galeria-04.jpg",
+      "assets/produtos/nv7b4420xakbz/galeria-05.jpg"
+    ],
     "dimensoes": {},
     "especificacoes": {
       "Voltagem": "220 V",
@@ -2090,7 +2314,7 @@
       "Dimensões não extraídas"
     ],
     "fonteInterna": "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-simple-steam-4series-dual-cook-simple-steam-nv7b4420xak-bz/",
-    "dataConsulta": "2026-09-16T21:26:48.265Z"
+    "dataConsulta": "2026-09-17T12:43:14.691Z"
   },
   {
     "modelo": "NV7B4545SAK/BZ",
@@ -2099,6 +2323,13 @@
     "tituloOficial": "Forno Elétrico Porta Dupla Função Air Fry e Wi-Fi 76L",
     "descricao": "Um forno, diversas possibilidades Função Dual Cook Pratos mais crocantes e saudáveis Air Fry Porta com fechamento suave Soft Close Funciona com SmartThings, sua casa inteligente",
     "imagem": "assets/produtos/nv7b4545sakbz/principal.png",
+    "imagens": [
+      "assets/produtos/nv7b4545sakbz/principal.png",
+      "assets/produtos/nv7b4545sakbz/galeria-02.jpg",
+      "assets/produtos/nv7b4545sakbz/galeria-03.jpg",
+      "assets/produtos/nv7b4545sakbz/galeria-04.jpg",
+      "assets/produtos/nv7b4545sakbz/galeria-05.jpg"
+    ],
     "dimensoes": {},
     "especificacoes": {
       "Voltagem": "220 V",
@@ -2134,7 +2365,7 @@
       "Dimensões não extraídas"
     ],
     "fonteInterna": "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-flex-simple-steam-4series-dual-cook-flex-simple-steam-nv7b4545sak-bz/",
-    "dataConsulta": "2026-09-16T21:26:51.785Z"
+    "dataConsulta": "2026-09-17T12:43:29.098Z"
   },
   {
     "modelo": "NSG6DG8300SRAZ",
@@ -2143,6 +2374,13 @@
     "tituloOficial": "Fogão Série 3 5 Bocas Inox Wi-Fi e Air Fry",
     "descricao": "Wi-Fi integrado Queimador duplo de alta performance com 4100W Botões de precisão Air Fry",
     "imagem": "assets/produtos/nsg6dg8300sraz/principal.png",
+    "imagens": [
+      "assets/produtos/nsg6dg8300sraz/principal.png",
+      "assets/produtos/nsg6dg8300sraz/galeria-02.png",
+      "assets/produtos/nsg6dg8300sraz/galeria-03.png",
+      "assets/produtos/nsg6dg8300sraz/galeria-04.png",
+      "assets/produtos/nsg6dg8300sraz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "839 mm",
@@ -2182,7 +2420,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/cooking-appliances/ovens/nx9100d--range-nsg6dg8300sraz/",
-    "dataConsulta": "2026-09-16T21:26:56.057Z"
+    "dataConsulta": "2026-09-17T12:43:45.022Z"
   },
   {
     "modelo": "NSG6DG8700SRAZ",
@@ -2191,6 +2429,13 @@
     "tituloOficial": "Fogão Série 7 5 Bocas Inox Câmera e Air Fry",
     "descricao": "Câmera interna do forno Wi-Fi integrado Queimador duplo de alta performance com 4100W Botões iluminados de precisão",
     "imagem": "assets/produtos/nsg6dg8700sraz/principal.png",
+    "imagens": [
+      "assets/produtos/nsg6dg8700sraz/principal.png",
+      "assets/produtos/nsg6dg8700sraz/galeria-02.png",
+      "assets/produtos/nsg6dg8700sraz/galeria-03.png",
+      "assets/produtos/nsg6dg8700sraz/galeria-04.png",
+      "assets/produtos/nsg6dg8700sraz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "839 mm",
@@ -2230,7 +2475,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/cooking-appliances/ovens/nx9100d--range-nsg6dg8700sraz/",
-    "dataConsulta": "2026-09-16T21:27:00.413Z"
+    "dataConsulta": "2026-09-17T12:44:00.505Z"
   },
   {
     "modelo": "RS60T5200S9/AZ",
@@ -2239,6 +2484,13 @@
     "tituloOficial": "Geladeira Side by Side RS60 com Dispenser de Água e Gelo Inox 127V 628L",
     "descricao": "Espaço interno maior com tecnologia SpaceMax™ Design flat: visual elegante e moderno Alimentos frescos com tecnologia All Around Cooling™",
     "imagem": "assets/produtos/rs60t5200s9az/principal.png",
+    "imagens": [
+      "assets/produtos/rs60t5200s9az/principal.png",
+      "assets/produtos/rs60t5200s9az/galeria-02.png",
+      "assets/produtos/rs60t5200s9az/galeria-03.png",
+      "assets/produtos/rs60t5200s9az/galeria-04.png",
+      "assets/produtos/rs60t5200s9az/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "912 mm",
@@ -2286,7 +2538,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/refrigerators/side-by-side/rs5300t-large-capacity-602l-natural-gray-rs60t5200s9-az/",
-    "dataConsulta": "2026-09-16T21:27:02.298Z"
+    "dataConsulta": "2026-09-17T12:44:12.574Z"
   },
   {
     "modelo": "RT38DG6120S9FZ",
@@ -2295,6 +2547,13 @@
     "tituloOficial": "Geladeira Duplex RT38 Evolution com SmartThings AI Bivolt 393L",
     "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
     "imagem": "assets/produtos/rt38dg6120s9fz/principal.png",
+    "imagens": [
+      "assets/produtos/rt38dg6120s9fz/principal.png",
+      "assets/produtos/rt38dg6120s9fz/galeria-02.png",
+      "assets/produtos/rt38dg6120s9fz/galeria-03.png",
+      "assets/produtos/rt38dg6120s9fz/galeria-04.png",
+      "assets/produtos/rt38dg6120s9fz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "700 mm",
@@ -2343,7 +2602,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/refrigerators/top-mount-freezer/rt6300d-top-mount-freezer-ai-energy-mode-391l-silver-rt38dg6120s9fz/",
-    "dataConsulta": "2026-09-16T21:27:04.144Z"
+    "dataConsulta": "2026-09-17T12:44:24.455Z"
   },
   {
     "modelo": "RT42DG6630S9FZ",
@@ -2352,6 +2611,13 @@
     "tituloOficial": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L",
     "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
     "imagem": "assets/produtos/rt42dg6630s9fz/principal.png",
+    "imagens": [
+      "assets/produtos/rt42dg6630s9fz/principal.png",
+      "assets/produtos/rt42dg6630s9fz/galeria-02.png",
+      "assets/produtos/rt42dg6630s9fz/galeria-03.png",
+      "assets/produtos/rt42dg6630s9fz/galeria-04.png",
+      "assets/produtos/rt42dg6630s9fz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "700 mm",
@@ -2400,7 +2666,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/refrigerators/top-mount-freezer/rt6300d-top-mount-freezer-ai-energy-mode-411l-silver-rt42dg6630s9fz/",
-    "dataConsulta": "2026-09-16T21:27:06.045Z"
+    "dataConsulta": "2026-09-17T12:44:39.164Z"
   },
   {
     "modelo": "RT42DG6630B1FZ",
@@ -2409,6 +2675,13 @@
     "tituloOficial": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L",
     "descricao": "Primeira geladeira duplex conectada com SmartThings Economize com SmartThings Energy 20 anos de garantia no compressor Digital Inverter",
     "imagem": "assets/produtos/rt42dg6630b1fz/principal.png",
+    "imagens": [
+      "assets/produtos/rt42dg6630b1fz/principal.png",
+      "assets/produtos/rt42dg6630b1fz/galeria-02.png",
+      "assets/produtos/rt42dg6630b1fz/galeria-03.png",
+      "assets/produtos/rt42dg6630b1fz/galeria-04.png",
+      "assets/produtos/rt42dg6630b1fz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "700 mm",
@@ -2457,7 +2730,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/refrigerators/top-mount-freezer/rt6300d-top-mount-freezer-ai-energy-mode-411l-black-rt42dg6630b1fz/",
-    "dataConsulta": "2026-09-16T21:27:07.848Z"
+    "dataConsulta": "2026-09-17T12:44:53.414Z"
   },
   {
     "modelo": "RF27CG5910B1AZ",
@@ -2466,6 +2739,13 @@
     "tituloOficial": "Geladeira French Door RF27 Family Hub Black Inox 127V 707L",
     "descricao": "App SmartThings - Aproveite uma vida mais inteligente e conectada SpaceMax™ - Espaço interno maior",
     "imagem": "assets/produtos/rf27cg5910b1az/principal.png",
+    "imagens": [
+      "assets/produtos/rf27cg5910b1az/principal.png",
+      "assets/produtos/rf27cg5910b1az/galeria-02.png",
+      "assets/produtos/rf27cg5910b1az/galeria-03.png",
+      "assets/produtos/rf27cg5910b1az/galeria-04.png",
+      "assets/produtos/rf27cg5910b1az/galeria-05.png"
+    ],
     "dimensoes": {},
     "especificacoes": {
       "Capacidade total": "707 L",
@@ -2504,7 +2784,7 @@
       "Dimensões não extraídas"
     ],
     "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rf6500cc-3door-french-door-large-capacity-with-spacemax-technology-564l-black-rf27cg5910b1az/",
-    "dataConsulta": "2026-09-16T21:27:10.290Z"
+    "dataConsulta": "2026-09-17T12:45:08.245Z"
   },
   {
     "modelo": "RF29DB9950QDAZ",
@@ -2513,6 +2793,13 @@
     "tituloOficial": "Geladeira Bespoke AI 4-Door French Door RF29D Family Hub 127V 809L",
     "descricao": "Maior capacidade do mercado: Capacidade de 699L para você viver sem limites Controle total dos seu alimentos: AI Vision Inside Gerenciamento do consumo de enegia: Economize com SmartThings Energy Experiência ainda mais imersiva: Tela interativa de 32\"",
     "imagem": "assets/produtos/rf29db9950qdaz/principal.png",
+    "imagens": [
+      "assets/produtos/rf29db9950qdaz/principal.png",
+      "assets/produtos/rf29db9950qdaz/galeria-02.png",
+      "assets/produtos/rf29db9950qdaz/galeria-03.png",
+      "assets/produtos/rf29db9950qdaz/galeria-04.png",
+      "assets/produtos/rf29db9950qdaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "912 mm",
@@ -2556,7 +2843,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rf9000-t-style-french-door-32inch-family-hub-699l-stainless-steel-rf29db9950qdaz/",
-    "dataConsulta": "2026-09-16T21:27:12.752Z"
+    "dataConsulta": "2026-09-17T12:45:23.874Z"
   },
   {
     "modelo": "RS58T5561B1/AZ",
@@ -2565,6 +2852,13 @@
     "tituloOficial": "Geladeira Side by Side RS58 Family Hub Black Inox 127V 608L",
     "descricao": "Aproveite uma vida mais inteligente e conectada Entretenimento contínuo com músicas, rádio, TV e chamadas Gestão fácil, rápida e intuitiva dos alimentos",
     "imagem": "assets/produtos/rs58t5561b1az/principal.png",
+    "imagens": [
+      "assets/produtos/rs58t5561b1az/principal.png",
+      "assets/produtos/rs58t5561b1az/galeria-02.png",
+      "assets/produtos/rs58t5561b1az/galeria-03.png",
+      "assets/produtos/rs58t5561b1az/galeria-04.png",
+      "assets/produtos/rs58t5561b1az/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "912 mm",
@@ -2612,7 +2906,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/refrigerators/side-by-side/rs5300tc-family-hub-634l-black-rs58t5561b1-az/",
-    "dataConsulta": "2026-09-16T21:27:14.693Z"
+    "dataConsulta": "2026-09-17T12:45:35.860Z"
   },
   {
     "modelo": "RM90F66C1CAZ",
@@ -2621,6 +2915,13 @@
     "tituloOficial": "Geladeira Bespoke AI 4-Door French Door RM90F Family Hub Black Charcoal 127V 658L",
     "descricao": "Conheça o Geladeira Bespoke AI RM90F Black Charcoal com a qualidade e inovação da Samsung. Confira especificações completas, compare modelos e compre",
     "imagem": "assets/produtos/rm90f66c1caz/principal.png",
+    "imagens": [
+      "assets/produtos/rm90f66c1caz/principal.png",
+      "assets/produtos/rm90f66c1caz/galeria-02.png",
+      "assets/produtos/rm90f66c1caz/galeria-03.png",
+      "assets/produtos/rm90f66c1caz/galeria-04.png",
+      "assets/produtos/rm90f66c1caz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "912 mm",
@@ -2668,7 +2969,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rm90f-36-4-door-french-door-refrigerators-with-ai-home-and-ai-hybrid-cooling-543l-glam-deep-charcoal-rm90f66c1caz/",
-    "dataConsulta": "2026-09-16T21:27:16.632Z"
+    "dataConsulta": "2026-09-17T12:45:51.069Z"
   },
   {
     "modelo": "RF70H25HETAZ",
@@ -2677,6 +2978,13 @@
     "tituloOficial": "Geladeira French Door RF70H com Dispenser de Água e Gelo Inox 127V 664L",
     "descricao": "Conheça o Geladeira French Door RF70H com Dispenser com a qualidade e inovação da Samsung. Confira especificações completas, compare modelos e compre",
     "imagem": "assets/produtos/rf70h25hetaz/principal.png",
+    "imagens": [
+      "assets/produtos/rf70h25hetaz/principal.png",
+      "assets/produtos/rf70h25hetaz/galeria-02.png",
+      "assets/produtos/rf70h25hetaz/galeria-03.png",
+      "assets/produtos/rf70h25hetaz/galeria-04.png",
+      "assets/produtos/rf70h25hetaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "912 mm",
@@ -2719,7 +3027,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rf80h-36-3dr-french-door-zero-clearance-fit-with-space-max-664l-silver-rf70h25hetaz/",
-    "dataConsulta": "2026-09-16T21:27:18.775Z"
+    "dataConsulta": "2026-09-17T12:46:04.072Z"
   },
   {
     "modelo": "DW60C7050FS/AZ",
@@ -2728,6 +3036,13 @@
     "tituloOficial": "Lava-louças 14 Serviços com limpeza silenciosa 127V",
     "descricao": "Limpeza profunda e silenciosa Função Higiene com enxágue em alta temperatura Função Ciclo Auto que detecta o nível de sujeira nas louças",
     "imagem": "assets/produtos/dw60c7050fsaz/principal.png",
+    "imagens": [
+      "assets/produtos/dw60c7050fsaz/principal.png",
+      "assets/produtos/dw60c7050fsaz/galeria-02.png",
+      "assets/produtos/dw60c7050fsaz/galeria-03.png",
+      "assets/produtos/dw60c7050fsaz/galeria-04.png",
+      "assets/produtos/dw60c7050fsaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "598 mm",
@@ -2759,7 +3074,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/dishwashers/freestanding/dw2900rm-dw60c7050fg-az-14-place-settings-silver-dw60c7050fs-az/",
-    "dataConsulta": "2026-09-16T21:27:23.278Z"
+    "dataConsulta": "2026-09-17T12:46:19.173Z"
   },
   {
     "modelo": "DW50C6070FS/AZ",
@@ -2768,6 +3083,13 @@
     "tituloOficial": "Lava-louças 10 Serviços com abertura automática da porta 127V",
     "descricao": "Limpeza profunda e silenciosa Secagem rápida com abertura automática da porta Auto ajuste de altura para maior capacidade",
     "imagem": "assets/produtos/dw50c6070fsaz/principal.png",
+    "imagens": [
+      "assets/produtos/dw50c6070fsaz/principal.png",
+      "assets/produtos/dw50c6070fsaz/galeria-02.png",
+      "assets/produtos/dw50c6070fsaz/galeria-03.png",
+      "assets/produtos/dw50c6070fsaz/galeria-04.png",
+      "assets/produtos/dw50c6070fsaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "449 mm",
@@ -2799,7 +3121,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/dishwashers/freestanding/dw4000rm--dw50c6070fg-10-place-settings-silver-dw50c6070fs-az/",
-    "dataConsulta": "2026-09-16T21:27:26.850Z"
+    "dataConsulta": "2026-09-17T12:46:35.596Z"
   },
   {
     "modelo": "DW60C7050FG/AZ",
@@ -2808,6 +3130,13 @@
     "tituloOficial": "Lava-louças 14 Serviços com limpeza silenciosa 127V",
     "descricao": "Limpeza profunda e silenciosa Função Higiene com enxágue em alta temperatura Função Ciclo Auto que detecta o nível de sujeira nas louças",
     "imagem": "assets/produtos/dw60c7050fgaz/principal.png",
+    "imagens": [
+      "assets/produtos/dw60c7050fgaz/principal.png",
+      "assets/produtos/dw60c7050fgaz/galeria-02.png",
+      "assets/produtos/dw60c7050fgaz/galeria-03.png",
+      "assets/produtos/dw60c7050fgaz/galeria-04.png",
+      "assets/produtos/dw60c7050fgaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "598 mm",
@@ -2834,7 +3163,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/dishwashers/freestanding/dw2900rm-dw60c7050fg-az-14-place-settings-black-dw60c7050fg-az/",
-    "dataConsulta": "2026-09-16T21:27:30.651Z"
+    "dataConsulta": "2026-09-17T12:46:50.178Z"
   },
   {
     "modelo": "DW50C6070FG/AZ",
@@ -2843,6 +3172,13 @@
     "tituloOficial": "Lava-louças 10 Serviços com abertura automática da porta 127V",
     "descricao": "Limpeza profunda e silenciosa Secagem rápida com abertura automática da porta Auto ajuste de altura para maior capacidade",
     "imagem": "assets/produtos/dw50c6070fgaz/principal.png",
+    "imagens": [
+      "assets/produtos/dw50c6070fgaz/principal.png",
+      "assets/produtos/dw50c6070fgaz/galeria-02.png",
+      "assets/produtos/dw50c6070fgaz/galeria-03.png",
+      "assets/produtos/dw50c6070fgaz/galeria-04.png",
+      "assets/produtos/dw50c6070fgaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "449 mm",
@@ -2874,7 +3210,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/dishwashers/freestanding/dw4000rm--dw50c6070fg-10-place-settings-black-dw50c6070fg-az/",
-    "dataConsulta": "2026-09-16T21:27:34.027Z"
+    "dataConsulta": "2026-09-17T12:47:08.396Z"
   },
   {
     "modelo": "DV12B6800EW/AZ",
@@ -2883,6 +3219,13 @@
     "tituloOficial": "Secadora Elétrica DV12B com Sensor Dry Branca 220V 12kg",
     "descricao": "Seque suas roupas de maneira fácil e simples Roupas secas no tempo certo, sem danos aos tecidos Secagem com ar frio 20 anos de garantia no Motor",
     "imagem": "assets/produtos/dv12b6800ewaz/principal.png",
+    "imagens": [
+      "assets/produtos/dv12b6800ewaz/principal.png",
+      "assets/produtos/dv12b6800ewaz/galeria-02.jpg",
+      "assets/produtos/dv12b6800ewaz/galeria-03.jpg",
+      "assets/produtos/dv12b6800ewaz/galeria-04.jpg",
+      "assets/produtos/dv12b6800ewaz/galeria-05.jpg"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "600 mm",
@@ -2929,7 +3272,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/dryers/dv6800b-dryer-sensor-dry-smart-care-reversible-door-12kg-white-dv12b6800ew-az/",
-    "dataConsulta": "2026-09-16T21:27:37.349Z"
+    "dataConsulta": "2026-09-17T12:47:17.797Z"
   },
   {
     "modelo": "WD11A4453BW/AZ",
@@ -2938,6 +3281,13 @@
     "tituloOficial": "Lava e Seca WD11A com Ecobubble™ Branca 127V 11kg + 7kg",
     "descricao": "3 em 1: lava, seca e esteriliza a seco Ecobubble™: eficiência de lavagem e cuidado com as roupas 20 anos de garantia no motor Lavagem rápida em 15min e Lava e Seca em 59min: praticidade e rapidez",
     "imagem": "assets/produtos/wd11a4453bwaz/principal.png",
+    "imagens": [
+      "assets/produtos/wd11a4453bwaz/principal.png",
+      "assets/produtos/wd11a4453bwaz/galeria-02.png",
+      "assets/produtos/wd11a4453bwaz/galeria-03.png",
+      "assets/produtos/wd11a4453bwaz/galeria-04.png",
+      "assets/produtos/wd11a4453bwaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "600 mm",
@@ -2985,7 +3335,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wd4000t-front-loading-air-wash-drum-clean-bubble-soak-11kg-white-wd11a4453bw-az/",
-    "dataConsulta": "2026-09-16T21:27:41.100Z"
+    "dataConsulta": "2026-09-17T12:47:33.378Z"
   },
   {
     "modelo": "WD11A4453BX/AZ",
@@ -2994,6 +3344,13 @@
     "tituloOficial": "Lava e Seca WD11A com Ecobubble™ Inox 127V 11kg + 7kg",
     "descricao": "3 em 1: lava, seca e esteriliza a seco Ecobubble™: eficiência de lavagem e cuidado com as roupas 20 anos de garantia no motor Lavagem rápida em 15min e Lava e Seca em 59min: praticidade e rapidez",
     "imagem": "assets/produtos/wd11a4453bxaz/principal.png",
+    "imagens": [
+      "assets/produtos/wd11a4453bxaz/principal.png",
+      "assets/produtos/wd11a4453bxaz/galeria-02.png",
+      "assets/produtos/wd11a4453bxaz/galeria-03.png",
+      "assets/produtos/wd11a4453bxaz/galeria-04.png",
+      "assets/produtos/wd11a4453bxaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "600 mm",
@@ -3041,7 +3398,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wd4000t-front-loading-air-wash-drum-clean-bubble-soak-11kg-gray-wd11a4453bx-az/",
-    "dataConsulta": "2026-09-16T21:27:44.597Z"
+    "dataConsulta": "2026-09-17T12:47:51.279Z"
   },
   {
     "modelo": "WD18T6500GV/AZ",
@@ -3050,6 +3407,13 @@
     "tituloOficial": "Lava e Seca Smart WD18T com AI Wash Black 127V 18kg + 10kg",
     "descricao": "Lava 18kg e seca 10kg: Alta Capacidade Lavagem inteligente: AI Control e conectividade via SmartThings Quatro sensores inteligentes e dosador de sabão automático",
     "imagem": "assets/produtos/wd18t6500gvaz/principal.png",
+    "imagens": [
+      "assets/produtos/wd18t6500gvaz/principal.png",
+      "assets/produtos/wd18t6500gvaz/galeria-02.png",
+      "assets/produtos/wd18t6500gvaz/galeria-03.png",
+      "assets/produtos/wd18t6500gvaz/galeria-04.png",
+      "assets/produtos/wd18t6500gvaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "686 mm",
@@ -3097,7 +3461,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wd6000t-18kg-black-wd18t6500gv-az/",
-    "dataConsulta": "2026-09-16T21:27:48.435Z"
+    "dataConsulta": "2026-09-17T12:48:04.410Z"
   },
   {
     "modelo": "WH17DBH570GVAZ",
@@ -3106,6 +3470,13 @@
     "tituloOficial": "Lavadora e Secadora Bespoke AI Laundry Hub WH17D a Gás Black 127V 17kg + 20kg",
     "descricao": "Bespoke Flat Design: 2 produtos em 1 com design compacto, minimalista e elegante Alta capacidade: Lave e seque muito mais de uma única vez e economize tempo AI Wash: Lavadora com 5 sensores com inteligência artificial Funciona com SmartThings, sua casa inteligente",
     "imagem": "assets/produtos/wh17dbh570gvaz/principal.png",
+    "imagens": [
+      "assets/produtos/wh17dbh570gvaz/principal.png",
+      "assets/produtos/wh17dbh570gvaz/galeria-02.jpg",
+      "assets/produtos/wh17dbh570gvaz/galeria-03.jpg",
+      "assets/produtos/wh17dbh570gvaz/galeria-04.jpg",
+      "assets/produtos/wh17dbh570gvaz/galeria-05.jpg"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "686 mm",
@@ -3153,7 +3524,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wh9000d-washer-dryer-combo-laundry-hub-bespoke-design-ultra-capacity-ai-optiwash-ai-optimal-dry-17kg-black-wh17dbh570gvaz/",
-    "dataConsulta": "2026-09-16T21:27:51.942Z"
+    "dataConsulta": "2026-09-17T12:48:17.446Z"
   },
   {
     "modelo": "WW11T4040BE/AZ",
@@ -3162,6 +3533,13 @@
     "tituloOficial": "Lavadora Porta Black WW11T Digital Inverter Branca 127V 11kg",
     "descricao": "Mais performance de lavagem, menos água e energia. Lavagem rápida de 15 minutos para pequenas cargas Limpeza profunda com vapor eliminando 99,9% de bactérias Diamond Drum: delicadeza e preservação dos tecidos",
     "imagem": "assets/produtos/ww11t4040beaz/principal.png",
+    "imagens": [
+      "assets/produtos/ww11t4040beaz/principal.png",
+      "assets/produtos/ww11t4040beaz/galeria-02.png",
+      "assets/produtos/ww11t4040beaz/galeria-03.png",
+      "assets/produtos/ww11t4040beaz/galeria-04.png",
+      "assets/produtos/ww11t4040beaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "600 mm",
@@ -3208,7 +3586,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washing-machines/ww4000t-front-loading-hygiene-steam-digital-inverter-technology-drum-clean-11kg-white-ww11t4040be-az/",
-    "dataConsulta": "2026-09-16T21:27:53.485Z"
+    "dataConsulta": "2026-09-17T12:48:36.748Z"
   },
   {
     "modelo": "WW11T4040BX/AZ",
@@ -3217,6 +3595,13 @@
     "tituloOficial": "Lavadora Porta Black WW11T Digital Inverter Inox 127V 11kg",
     "descricao": "Mais performance de lavagem, menos água e energia. Lavagem rápida de 15 minutos para pequenas cargas Limpeza profunda com vapor eliminando 99,9% de bactérias Diamond Drum: delicadeza e preservação dos tecidos",
     "imagem": "assets/produtos/ww11t4040bxaz/principal.png",
+    "imagens": [
+      "assets/produtos/ww11t4040bxaz/principal.png",
+      "assets/produtos/ww11t4040bxaz/galeria-02.png",
+      "assets/produtos/ww11t4040bxaz/galeria-03.png",
+      "assets/produtos/ww11t4040bxaz/galeria-04.png",
+      "assets/produtos/ww11t4040bxaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "600 mm",
@@ -3263,7 +3648,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washing-machines/ww4000t-front-loading-hygiene-steam-digital-inverter-technology-drum-clean-11kg-gray-ww11t4040bx-az/",
-    "dataConsulta": "2026-09-16T21:27:55.005Z"
+    "dataConsulta": "2026-09-17T12:48:50.994Z"
   },
   {
     "modelo": "WD20DB8995BZAZ",
@@ -3272,6 +3657,13 @@
     "tituloOficial": "Lava e Seca Bespoke AI Laundry WD20D Heat Pump Inox 127V 20kg + 15kg",
     "descricao": "Maior capacidade do mercado: Lava 20kg e Seca 15kg AI Wash & AI Dry: Sensores com inteligência artificial que cuidam de suas roupas Tecnologia Heat Pump: Secagem rápida e econômica AI Hub: Tela interativa de 7\" que entende seus hábitos",
     "imagem": "assets/produtos/wd20db8995bzaz/principal.png",
+    "imagens": [
+      "assets/produtos/wd20db8995bzaz/principal.png",
+      "assets/produtos/wd20db8995bzaz/galeria-02.png",
+      "assets/produtos/wd20db8995bzaz/galeria-03.png",
+      "assets/produtos/wd20db8995bzaz/galeria-04.png",
+      "assets/produtos/wd20db8995bzaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "686 mm",
@@ -3320,7 +3712,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wd8000dk-combo-all-in-one-combo-super-speed-20kg-gray-wd20db8995bzaz/",
-    "dataConsulta": "2026-09-16T21:27:59.707Z"
+    "dataConsulta": "2026-09-17T12:49:03.991Z"
   },
   {
     "modelo": "WD13FG6B34BX/AZ",
@@ -3329,6 +3721,13 @@
     "tituloOficial": "Lava e Seca Smart WD13FG com AI Control Inox 127V 13kg + 8kg",
     "descricao": "Conheça a Lava e Seca Smart WD13FG com AI Control Inox 127V 13kg Descubra a Lava e Seca com Tecnologia Space MaxTM, economia de cerca de 20% de água por ciclo e mais.",
     "imagem": "assets/produtos/wd13fg6b34bxaz/principal.png",
+    "imagens": [
+      "assets/produtos/wd13fg6b34bxaz/principal.png",
+      "assets/produtos/wd13fg6b34bxaz/galeria-02.png",
+      "assets/produtos/wd13fg6b34bxaz/galeria-03.png",
+      "assets/produtos/wd13fg6b34bxaz/galeria-04.png",
+      "assets/produtos/wd13fg6b34bxaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "600 mm",
@@ -3376,7 +3775,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wd6000f-front-loading-ai-ecobubble-ai-control-ai-energy-mode-13kg-refined-inox-wd13fg6b34bxaz/",
-    "dataConsulta": "2026-09-16T21:28:03.308Z"
+    "dataConsulta": "2026-09-17T12:49:18.690Z"
   },
   {
     "modelo": "WF90F20ADSBZ",
@@ -3385,6 +3784,13 @@
     "tituloOficial": "Bespoke AI Laundry Lavadora WF90F AI Home | Inox | 220V | 20kg",
     "descricao": "AI Home | Inox | 220V | 20kg",
     "imagem": "assets/produtos/wf90f20adsbz/principal.png",
+    "imagens": [
+      "assets/produtos/wf90f20adsbz/principal.png",
+      "assets/produtos/wf90f20adsbz/galeria-02.png",
+      "assets/produtos/wf90f20adsbz/galeria-03.png",
+      "assets/produtos/wf90f20adsbz/galeria-04.png",
+      "assets/produtos/wf90f20adsbz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "686 mm",
@@ -3431,7 +3837,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washing-machines/wf90f27-front-loading-ai-home-ai-optiwash-plus-ultra-capacity-20kg-gray-wf90f20adsbz/",
-    "dataConsulta": "2026-09-16T21:28:04.852Z"
+    "dataConsulta": "2026-09-17T12:49:33.502Z"
   },
   {
     "modelo": "DV90F20CDSBZ",
@@ -3440,6 +3846,13 @@
     "tituloOficial": "Secadora Bespoke AI Laundry DV90F Heat Pump Inox 220V 20kg",
     "descricao": "Conheça a Secadora DV90F Heat Pump Bespoke AI Laundry 20kg da Samsung com AI Home + AI Control, secagem rápida e econômica e muito mais. Saiba mais.",
     "imagem": "assets/produtos/dv90f20cdsbz/principal.png",
+    "imagens": [
+      "assets/produtos/dv90f20cdsbz/principal.png",
+      "assets/produtos/dv90f20cdsbz/galeria-02.png",
+      "assets/produtos/dv90f20cdsbz/galeria-03.png",
+      "assets/produtos/dv90f20cdsbz/galeria-04.png",
+      "assets/produtos/dv90f20cdsbz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "686 mm",
@@ -3486,7 +3899,7 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/dryers/dv90f27h-dryer-hybrid-heat-pump-ai-home-ai-dry-20kg-gray-dv90f20cdsbz/",
-    "dataConsulta": "2026-09-16T21:28:08.329Z"
+    "dataConsulta": "2026-09-17T12:49:48.110Z"
   },
   {
     "modelo": "WD13FG6B34BEAZ",
@@ -3495,6 +3908,13 @@
     "tituloOficial": "Lava e Seca Smart WD13FG com AI Control Branca 127V 13kg + 8kg",
     "descricao": "Conheça a Lava e Seca Smart WD13FG com AI Control Branca 127V 13kg Descubra a Lava e Seca com Tecnologia Space MaxTM, economia de cerca de 20% de água por ciclo e mais.",
     "imagem": "assets/produtos/wd13fg6b34beaz/principal.png",
+    "imagens": [
+      "assets/produtos/wd13fg6b34beaz/principal.png",
+      "assets/produtos/wd13fg6b34beaz/galeria-02.png",
+      "assets/produtos/wd13fg6b34beaz/galeria-03.png",
+      "assets/produtos/wd13fg6b34beaz/galeria-04.png",
+      "assets/produtos/wd13fg6b34beaz/galeria-05.png"
+    ],
     "dimensoes": {
       "produto": {
         "largura": "600 mm",
@@ -3542,6 +3962,6 @@
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
     "fonteInterna": "https://www.samsung.com/br/washers-and-dryers/washer-dryer-combo/wd6000f-front-loading-ai-ecobubble-ai-control-ai-energy-mode-13kg-white-wd13fg6b34beaz/",
-    "dataConsulta": "2026-09-16T21:30:12.585Z"
+    "dataConsulta": "2026-09-17T12:50:08.177Z"
   }
 ]

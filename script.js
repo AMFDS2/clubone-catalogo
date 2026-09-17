@@ -174,13 +174,8 @@ function renderizarProdutos(produtos) {
         </span>
         <span class="produto-informacoes">
           <h3>${escaparHTML(produto.nome)}</h3>
-
-<p>
-  ${escaparHTML(produto.marca)}
-  • ${escaparHTML(produto.modelo)}
-</p>
-
-<p>${escaparHTML(produto.categoria)}</p>
+          <p>${escaparHTML(produto.marca)} • ${escaparHTML(produto.modelo)}</p>
+          <p>${escaparHTML(produto.categoria)}</p>
         </span>
         <span class="produto-favorito" aria-hidden="true">${ativo ? "★" : "☆"}</span>
       </button>`;
@@ -204,28 +199,34 @@ function mostrarDetalhes(idProduto) {
   const especificacoes = criarEspecificacoes(produto.especificacoes);
   const dimensoes = criarDimensoes(produto.dimensoes);
   const documentos = criarDocumentos(produto.documentos);
-  const botaoInfoStore = criarBotaoInfoStore(criarLinkSeguroInfoStore(produto));
+  const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
+  const imagens = obterImagensProduto(produto);
+  const imagemPrincipal = imagens[0] || IMAGEM_FALLBACK;
+  const miniaturas = imagens.length > 1
+    ? `<div class="galeria-miniaturas" aria-label="Galeria de imagens">
+        ${imagens.map((imagem, indice) => `
+          <button type="button" class="miniatura ${indice === 0 ? "ativo" : ""}" data-imagem="${escaparHTML(imagem)}" aria-label="Ver imagem ${indice + 1}">
+            <img src="${escaparHTML(imagem)}" alt="" loading="lazy">
+          </button>`).join("")}
+       </div>`
+    : "";
 
   document.getElementById("detalhes").innerHTML = `
     <div class="produto-hero">
       <div class="produto-resumo">
         <span class="badge">${escaparHTML(produto.categoria)}</span>
-        <h1 class="nome-produto">
-  ${escaparHTML(produto.nome)}
-</h1>
-
-<p class="subtitulo produto-identificacao">
-  ${escaparHTML(produto.marca)}
-  <span aria-hidden="true">•</span>
-  Modelo ${escaparHTML(produto.modelo)}
-</p>
+        <h1 class="nome-produto">${escaparHTML(produto.nome)}</h1>
+        <p class="subtitulo produto-identificacao">${escaparHTML(produto.marca)} <span aria-hidden="true">•</span> Modelo ${escaparHTML(produto.modelo)}</p>
         <p class="codigo-produto">Código Info Store: <strong>${escaparHTML(produto.codigoInfo || "Consultar")}</strong></p>
         ${destaques ? `<div class="destaques">${destaques}</div>` : ""}
         ${botaoInfoStore ? `<div class="acoes">${botaoInfoStore}</div>` : ""}
       </div>
 
-      <div class="produto-imagem-principal">
-        <img src="${escaparHTML(produto.imagem || IMAGEM_FALLBACK)}" alt="${escaparHTML(produto.nome)}">
+      <div class="produto-media">
+        <div class="produto-imagem-principal">
+          <img id="imagemPrincipalProduto" src="${escaparHTML(imagemPrincipal)}" alt="${escaparHTML(produto.nome)}">
+        </div>
+        ${miniaturas}
       </div>
     </div>
 
@@ -263,7 +264,30 @@ function mostrarDetalhes(idProduto) {
     </div>`;
 
   configurarAbas();
+  configurarGaleria();
   configurarFallbackImagens(document.getElementById("detalhes"));
+}
+
+function obterImagensProduto(produto = {}) {
+  const lista = [
+    ...(Array.isArray(produto.imagens) ? produto.imagens : []),
+    produto.imagem
+  ];
+
+  return [...new Set(lista.filter(Boolean))].slice(0, 5);
+}
+
+function configurarGaleria() {
+  const principal = document.getElementById("imagemPrincipalProduto");
+  if (!principal) return;
+
+  document.querySelectorAll(".miniatura").forEach(botao => {
+    botao.addEventListener("click", () => {
+      principal.src = botao.dataset.imagem;
+      document.querySelectorAll(".miniatura").forEach(item => item.classList.remove("ativo"));
+      botao.classList.add("ativo");
+    });
+  });
 }
 
 function criarBotaoInfoStore(url) {
@@ -353,30 +377,4 @@ function escaparHTML(valor = "") {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
-}
-function criarLinkSeguroInfoStore(produto = {}) {
-  const modelo = String(
-    produto.modelo || ""
-  ).trim();
-
-  const codigo = String(
-    produto.codigoInfo || ""
-  ).trim();
-
-  const termo = modelo || codigo;
-
-  if (!termo) {
-    return "https://www.infostore.com.br/";
-  }
-
-  const termoCaminho = termo
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-
-  return (
-    `https://www.infostore.com.br/${termoCaminho}` +
-    `?_q=${encodeURIComponent(termo)}` +
-    "&map=ft"
-  );
 }

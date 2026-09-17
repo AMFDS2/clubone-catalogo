@@ -74,7 +74,10 @@
         "url": "https://www.samsung.com/br/support/"
       }
     ],
-    "sobreMarca": "A Samsung oferece soluções de tecnologia, entretenimento e conectividade para projetos residenciais e comerciais, incluindo televisores premium, eletrodomésticos e integração por meio do SmartThings."
+    "sobreMarca": "A Samsung oferece soluções de tecnologia, entretenimento e conectividade para projetos residenciais e comerciais, incluindo televisores premium, eletrodomésticos e integração por meio do SmartThings.",
+    "imagens": [
+      "https://images.samsung.com/is/image/samsung/p6pim/br/un98du9000gxzd/gallery/br-crystal-uhd-du9000-un98du9000gxzd-542553784?$1164_776_PNG$"
+    ]
   },
   {
     "id": "un32h5000fgxzd",
@@ -87,6 +90,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un32h5000fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un32h5000fgxzd/principal.png",
+      "assets/produtos/un32h5000fgxzd/galeria-02.png",
+      "assets/produtos/un32h5000fgxzd/galeria-03.png",
+      "assets/produtos/un32h5000fgxzd/galeria-04.png",
+      "assets/produtos/un32h5000fgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-32--tizen-hd-h5000f-2025-hdr-un32h5000fgxzd/p",
     "destaques": [
       {
@@ -167,6 +177,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un43f6000fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un43f6000fgxzd/principal.png",
+      "assets/produtos/un43f6000fgxzd/galeria-02.png",
+      "assets/produtos/un43f6000fgxzd/galeria-03.png",
+      "assets/produtos/un43f6000fgxzd/galeria-04.png",
+      "assets/produtos/un43f6000fgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-43--fhd-f6000f-2025-hdr-un43f6000fgxzd/p",
     "destaques": [
       {
@@ -247,6 +264,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un43u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un43u8600fgxzd/principal.png",
+      "assets/produtos/un43u8600fgxzd/galeria-02.png",
+      "assets/produtos/un43u8600fgxzd/galeria-03.png",
+      "assets/produtos/un43u8600fgxzd/galeria-04.png",
+      "assets/produtos/un43u8600fgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0650?_q=TVV0650&map=ft",
     "destaques": [
       {
@@ -327,6 +351,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un50u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un50u8600fgxzd/principal.png",
+      "assets/produtos/un50u8600fgxzd/galeria-02.png",
+      "assets/produtos/un50u8600fgxzd/galeria-03.png",
+      "assets/produtos/un50u8600fgxzd/galeria-04.png",
+      "assets/produtos/un50u8600fgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0651?_q=TVV0651&map=ft",
     "destaques": [
       {
@@ -407,6 +438,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un55u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un55u8600fgxzd/principal.png",
+      "assets/produtos/un55u8600fgxzd/galeria-02.png",
+      "assets/produtos/un55u8600fgxzd/galeria-03.png",
+      "assets/produtos/un55u8600fgxzd/galeria-04.png",
+      "assets/produtos/un55u8600fgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0652?_q=TVV0652&map=ft",
     "destaques": [
       {
@@ -487,6 +525,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un65u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un65u8600fgxzd/principal.png",
+      "assets/produtos/un65u8600fgxzd/galeria-02.png",
+      "assets/produtos/un65u8600fgxzd/galeria-03.png",
+      "assets/produtos/un65u8600fgxzd/galeria-04.png",
+      "assets/produtos/un65u8600fgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0653?_q=TVV0653&map=ft",
     "destaques": [
       {
@@ -567,6 +612,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un75u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un75u8600fgxzd/principal.png",
+      "assets/produtos/un75u8600fgxzd/galeria-02.png",
+      "assets/produtos/un75u8600fgxzd/galeria-03.png",
+      "assets/produtos/un75u8600fgxzd/galeria-04.png",
+      "assets/produtos/un75u8600fgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0654?_q=TVV0654&map=ft",
     "destaques": [
       {
@@ -647,6 +699,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un85u8600fgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un85u8600fgxzd/principal.png",
+      "assets/produtos/un85u8600fgxzd/galeria-02.png",
+      "assets/produtos/un85u8600fgxzd/galeria-03.png",
+      "assets/produtos/un85u8600fgxzd/galeria-04.png",
+      "assets/produtos/un85u8600fgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0655?_q=TVV0655&map=ft",
     "destaques": [
       {
@@ -727,6 +786,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn55q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55q7faagxzd/principal.png",
+      "assets/produtos/qn55q7faagxzd/galeria-02.png",
+      "assets/produtos/qn55q7faagxzd/galeria-03.png",
+      "assets/produtos/qn55q7faagxzd/galeria-04.png",
+      "assets/produtos/qn55q7faagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-55--vision-ai-qled-ultra-4k-q7f-2025-hdr-qn55q7faagxzd/p",
     "destaques": [
       {
@@ -807,6 +873,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn65q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn65q7faagxzd/principal.png",
+      "assets/produtos/qn65q7faagxzd/galeria-02.png",
+      "assets/produtos/qn65q7faagxzd/galeria-03.png",
+      "assets/produtos/qn65q7faagxzd/galeria-04.png",
+      "assets/produtos/qn65q7faagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0657?_q=TVV0657&map=ft",
     "destaques": [
       {
@@ -887,6 +960,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn75q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn75q7faagxzd/principal.png",
+      "assets/produtos/qn75q7faagxzd/galeria-02.png",
+      "assets/produtos/qn75q7faagxzd/galeria-03.png",
+      "assets/produtos/qn75q7faagxzd/galeria-04.png",
+      "assets/produtos/qn75q7faagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0658?_q=TVV0658&map=ft",
     "destaques": [
       {
@@ -967,6 +1047,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn55ls03fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55ls03fagxzd/principal.png",
+      "assets/produtos/qn55ls03fagxzd/galeria-02.png",
+      "assets/produtos/qn55ls03fagxzd/galeria-03.png",
+      "assets/produtos/qn55ls03fagxzd/galeria-04.png",
+      "assets/produtos/qn55ls03fagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0665?_q=TVV0665&map=ft",
     "destaques": [
       {
@@ -1047,6 +1134,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn50ls03fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn50ls03fagxzd/principal.png",
+      "assets/produtos/qn50ls03fagxzd/galeria-02.png",
+      "assets/produtos/qn50ls03fagxzd/galeria-03.png",
+      "assets/produtos/qn50ls03fagxzd/galeria-04.png",
+      "assets/produtos/qn50ls03fagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0670?_q=TVV0670&map=ft",
     "destaques": [
       {
@@ -1127,6 +1221,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn55qn85fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55qn85fagxzd/principal.png",
+      "assets/produtos/qn55qn85fagxzd/galeria-02.png",
+      "assets/produtos/qn55qn85fagxzd/galeria-03.png",
+      "assets/produtos/qn55qn85fagxzd/galeria-04.png",
+      "assets/produtos/qn55qn85fagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0674?_q=TVV0674&map=ft",
     "destaques": [
       {
@@ -1207,6 +1308,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn65qn85fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn65qn85fagxzd/principal.png",
+      "assets/produtos/qn65qn85fagxzd/galeria-02.png",
+      "assets/produtos/qn65qn85fagxzd/galeria-03.png",
+      "assets/produtos/qn65qn85fagxzd/galeria-04.png",
+      "assets/produtos/qn65qn85fagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0675?_q=TVV0675&map=ft",
     "destaques": [
       {
@@ -1287,6 +1395,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn55s90fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55s90fagxzd/principal.png",
+      "assets/produtos/qn55s90fagxzd/galeria-02.png",
+      "assets/produtos/qn55s90fagxzd/galeria-03.png",
+      "assets/produtos/qn55s90fagxzd/galeria-04.png",
+      "assets/produtos/qn55s90fagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0676?_q=TVV0676&map=ft",
     "destaques": [
       {
@@ -1367,6 +1482,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn43qn90fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn43qn90fagxzd/principal.png",
+      "assets/produtos/qn43qn90fagxzd/galeria-02.png",
+      "assets/produtos/qn43qn90fagxzd/galeria-03.png",
+      "assets/produtos/qn43qn90fagxzd/galeria-04.png",
+      "assets/produtos/qn43qn90fagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0677?_q=TVV0677&map=ft",
     "destaques": [
       {
@@ -1447,6 +1569,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn43q5faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn43q5faagxzd/principal.png",
+      "assets/produtos/qn43q5faagxzd/galeria-02.png",
+      "assets/produtos/qn43q5faagxzd/galeria-03.png",
+      "assets/produtos/qn43q5faagxzd/galeria-04.png",
+      "assets/produtos/qn43q5faagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-43--vision-ai-qled-full-hd-q5f-2025-hdr-qn43q5faagxzd/p",
     "destaques": [
       {
@@ -1527,6 +1656,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn50q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn50q7faagxzd/principal.png",
+      "assets/produtos/qn50q7faagxzd/galeria-02.png",
+      "assets/produtos/qn50q7faagxzd/galeria-03.png",
+      "assets/produtos/qn50q7faagxzd/galeria-04.png",
+      "assets/produtos/qn50q7faagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0693?_q=TVV0693&map=ft",
     "destaques": [
       {
@@ -1607,6 +1743,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn85q7faagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn85q7faagxzd/principal.png",
+      "assets/produtos/qn85q7faagxzd/galeria-02.png",
+      "assets/produtos/qn85q7faagxzd/galeria-03.png",
+      "assets/produtos/qn85q7faagxzd/galeria-04.png",
+      "assets/produtos/qn85q7faagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0694?_q=TVV0694&map=ft",
     "destaques": [
       {
@@ -1687,6 +1830,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn77s90fagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn77s90fagxzd/principal.png",
+      "assets/produtos/qn77s90fagxzd/galeria-02.png",
+      "assets/produtos/qn77s90fagxzd/galeria-03.png",
+      "assets/produtos/qn77s90fagxzd/galeria-04.png",
+      "assets/produtos/qn77s90fagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0698?_q=TVV0698&map=ft",
     "destaques": [
       {
@@ -1767,6 +1917,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un70u8000hgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un70u8000hgxzd/principal.png",
+      "assets/produtos/un70u8000hgxzd/galeria-02.png",
+      "assets/produtos/un70u8000hgxzd/galeria-03.png",
+      "assets/produtos/un70u8000hgxzd/galeria-04.png",
+      "assets/produtos/un70u8000hgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-70--crystal-uhd-4k-u8000h-2027/p",
     "destaques": [
       {
@@ -1845,6 +2002,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un98u9500hgxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un98u9500hgxzd/principal.png",
+      "assets/produtos/un98u9500hgxzd/galeria-02.png",
+      "assets/produtos/un98u9500hgxzd/galeria-03.png",
+      "assets/produtos/un98u9500hgxzd/galeria-04.png",
+      "assets/produtos/un98u9500hgxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-vision-ai-98--crystal-uhd-4k-u9500h/p",
     "destaques": [
       {
@@ -1923,6 +2087,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un50m75hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un50m75hagxzd/principal.png",
+      "assets/produtos/un50m75hagxzd/galeria-02.png",
+      "assets/produtos/un50m75hagxzd/galeria-03.png",
+      "assets/produtos/un50m75hagxzd/galeria-04.png",
+      "assets/produtos/un50m75hagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-vision-ai-50”-mini-led-4k-m75h-2027-hdr-60hz/p",
     "destaques": [
       {
@@ -2003,6 +2174,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un55m75hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un55m75hagxzd/principal.png",
+      "assets/produtos/un55m75hagxzd/galeria-02.png",
+      "assets/produtos/un55m75hagxzd/galeria-03.png",
+      "assets/produtos/un55m75hagxzd/galeria-04.png",
+      "assets/produtos/un55m75hagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-vision-ai-55”-mini-led-4k-m75h-2027/p",
     "destaques": [
       {
@@ -2083,6 +2261,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un65m75hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un65m75hagxzd/principal.png",
+      "assets/produtos/un65m75hagxzd/galeria-02.png",
+      "assets/produtos/un65m75hagxzd/galeria-03.png",
+      "assets/produtos/un65m75hagxzd/galeria-04.png",
+      "assets/produtos/un65m75hagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0709?_q=TVV0709&map=ft",
     "destaques": [
       {
@@ -2163,6 +2348,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/un75m75hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/un75m75hagxzd/principal.png",
+      "assets/produtos/un75m75hagxzd/galeria-02.png",
+      "assets/produtos/un75m75hagxzd/galeria-03.png",
+      "assets/produtos/un75m75hagxzd/galeria-04.png",
+      "assets/produtos/un75m75hagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0710?_q=TVV0710&map=ft",
     "destaques": [
       {
@@ -2243,6 +2435,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn55qn70hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn55qn70hagxzd/principal.png",
+      "assets/produtos/qn55qn70hagxzd/galeria-02.png",
+      "assets/produtos/qn55qn70hagxzd/galeria-03.png",
+      "assets/produtos/qn55qn70hagxzd/galeria-04.png",
+      "assets/produtos/qn55qn70hagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0713?_q=TVV0713&map=ft",
     "destaques": [
       {
@@ -2323,6 +2522,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn75qn70hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn75qn70hagxzd/principal.png",
+      "assets/produtos/qn75qn70hagxzd/galeria-02.png",
+      "assets/produtos/qn75qn70hagxzd/galeria-03.png",
+      "assets/produtos/qn75qn70hagxzd/galeria-04.png",
+      "assets/produtos/qn75qn70hagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0715?_q=TVV0715&map=ft",
     "destaques": [
       {
@@ -2403,6 +2609,13 @@
     "categoria": "Video",
     "segmento": "VIDEO",
     "imagem": "assets/produtos/qn85qn70hagxzd/principal.png",
+    "imagens": [
+      "assets/produtos/qn85qn70hagxzd/principal.png",
+      "assets/produtos/qn85qn70hagxzd/galeria-02.png",
+      "assets/produtos/qn85qn70hagxzd/galeria-03.png",
+      "assets/produtos/qn85qn70hagxzd/galeria-04.png",
+      "assets/produtos/qn85qn70hagxzd/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/tvv0716?_q=TVV0716&map=ft",
     "destaques": [
       {
@@ -2483,7 +2696,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/na30n6555tgaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-3-com-air-fry-e-wi-fi-127v-preto/p",
+    "imagens": [
+      "assets/produtos/na30n6555tgaz/principal.png",
+      "assets/produtos/na30n6555tgaz/galeria-02.png",
+      "assets/produtos/na30n6555tgaz/galeria-03.png",
+      "assets/produtos/na30n6555tgaz/galeria-04.png",
+      "assets/produtos/na30n6555tgaz/galeria-05.png"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/cooktop-samsung-5-queimadores-com-wi-fi-e-dupla-chama-black-inox-127v/p",
     "destaques": [
       {
         "titulo": "127 V",
@@ -2538,7 +2758,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/nv7b4420xakbz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-3-com-air-fry-e-wi-fi-127v-preto/p",
+    "imagens": [
+      "assets/produtos/nv7b4420xakbz/principal.png",
+      "assets/produtos/nv7b4420xakbz/galeria-02.png",
+      "assets/produtos/nv7b4420xakbz/galeria-03.png",
+      "assets/produtos/nv7b4420xakbz/galeria-04.jpg",
+      "assets/produtos/nv7b4420xakbz/galeria-05.jpg"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/forno-de-embutir-samsung-eletrico-76l-com-funcao-air-fry-e-wi-fi-220v-preto/p",
     "destaques": [
       {
         "titulo": "220 V",
@@ -2593,7 +2820,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/nv7b4545sakbz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-3-com-air-fry-e-wi-fi-127v-preto/p",
+    "imagens": [
+      "assets/produtos/nv7b4545sakbz/principal.png",
+      "assets/produtos/nv7b4545sakbz/galeria-02.jpg",
+      "assets/produtos/nv7b4545sakbz/galeria-03.jpg",
+      "assets/produtos/nv7b4545sakbz/galeria-04.jpg",
+      "assets/produtos/nv7b4545sakbz/galeria-05.jpg"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/forno-de-embutir-samsung-eletrico-76l-de-porta-dupla-com-funcao-air-fry-e-wi-fi-preto/p",
     "destaques": [
       {
         "titulo": "220 V",
@@ -2648,6 +2882,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/nsg6dg8300sraz/principal.png",
+    "imagens": [
+      "assets/produtos/nsg6dg8300sraz/principal.png",
+      "assets/produtos/nsg6dg8300sraz/galeria-02.png",
+      "assets/produtos/nsg6dg8300sraz/galeria-03.png",
+      "assets/produtos/nsg6dg8300sraz/galeria-04.png",
+      "assets/produtos/nsg6dg8300sraz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-3-com-air-fry-e-wi-fi-127v-preto/p",
     "destaques": [
       {
@@ -2709,6 +2950,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/nsg6dg8700sraz/principal.png",
+    "imagens": [
+      "assets/produtos/nsg6dg8700sraz/principal.png",
+      "assets/produtos/nsg6dg8700sraz/galeria-02.png",
+      "assets/produtos/nsg6dg8700sraz/galeria-03.png",
+      "assets/produtos/nsg6dg8700sraz/galeria-04.png",
+      "assets/produtos/nsg6dg8700sraz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/fogao-samsung-5-bocas-serie-7-com-camera--air-fry-e-wi-fi-127v-preto/p",
     "destaques": [
       {
@@ -2770,6 +3018,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rs60t5200s9az/principal.png",
+    "imagens": [
+      "assets/produtos/rs60t5200s9az/principal.png",
+      "assets/produtos/rs60t5200s9az/galeria-02.png",
+      "assets/produtos/rs60t5200s9az/galeria-03.png",
+      "assets/produtos/rs60t5200s9az/galeria-04.png",
+      "assets/produtos/rs60t5200s9az/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-side-by-side-628l-rs60-com-dispenser-de-agua-e-gelo-cinza-127v/p",
     "destaques": [
       {
@@ -2839,7 +3094,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rt38dg6120s9fz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-side-by-side-628l-rs60-com-dispenser-de-agua-e-gelo-cinza-127v/p",
+    "imagens": [
+      "assets/produtos/rt38dg6120s9fz/principal.png",
+      "assets/produtos/rt38dg6120s9fz/galeria-02.png",
+      "assets/produtos/rt38dg6120s9fz/galeria-03.png",
+      "assets/produtos/rt38dg6120s9fz/galeria-04.png",
+      "assets/produtos/rt38dg6120s9fz/galeria-05.png"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/gel0048?_q=GEL0048&map=ft",
     "destaques": [
       {
         "titulo": "393 L",
@@ -2909,6 +3171,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rt42dg6630s9fz/principal.png",
+    "imagens": [
+      "assets/produtos/rt42dg6630s9fz/principal.png",
+      "assets/produtos/rt42dg6630s9fz/galeria-02.png",
+      "assets/produtos/rt42dg6630s9fz/galeria-03.png",
+      "assets/produtos/rt42dg6630s9fz/galeria-04.png",
+      "assets/produtos/rt42dg6630s9fz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-duplex-frost-free-inverter-415l-evolution-rt42-smartthings-bivolt-cinza/p",
     "destaques": [
       {
@@ -2979,7 +3248,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rt42dg6630b1fz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-smart-french-door-664l-inverter-com-dispenser-de-agua-e-gelo-rf70h-127v-inox/p",
+    "imagens": [
+      "assets/produtos/rt42dg6630b1fz/principal.png",
+      "assets/produtos/rt42dg6630b1fz/galeria-02.png",
+      "assets/produtos/rt42dg6630b1fz/galeria-03.png",
+      "assets/produtos/rt42dg6630b1fz/galeria-04.png",
+      "assets/produtos/rt42dg6630b1fz/galeria-05.png"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/gel0051?_q=GEL0051&map=ft",
     "destaques": [
       {
         "titulo": "415 L",
@@ -3049,6 +3325,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rf27cg5910b1az/principal.png",
+    "imagens": [
+      "assets/produtos/rf27cg5910b1az/principal.png",
+      "assets/produtos/rf27cg5910b1az/galeria-02.png",
+      "assets/produtos/rf27cg5910b1az/galeria-03.png",
+      "assets/produtos/rf27cg5910b1az/galeria-04.png",
+      "assets/produtos/rf27cg5910b1az/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-smart-french-door-707l-metal-cooling-family-hub-rf27-127v-preta/p",
     "destaques": [
       {
@@ -3107,6 +3390,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rf29db9950qdaz/principal.png",
+    "imagens": [
+      "assets/produtos/rf29db9950qdaz/principal.png",
+      "assets/produtos/rf29db9950qdaz/galeria-02.png",
+      "assets/produtos/rf29db9950qdaz/galeria-03.png",
+      "assets/produtos/rf29db9950qdaz/galeria-04.png",
+      "assets/produtos/rf29db9950qdaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-frost-free-french-door-699l-bespoke-family-hub-com-tela-de-32”-rf29-127v-cinza/p",
     "destaques": [
       {
@@ -3172,6 +3462,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rs58t5561b1az/principal.png",
+    "imagens": [
+      "assets/produtos/rs58t5561b1az/principal.png",
+      "assets/produtos/rs58t5561b1az/galeria-02.png",
+      "assets/produtos/rs58t5561b1az/galeria-03.png",
+      "assets/produtos/rs58t5561b1az/galeria-04.png",
+      "assets/produtos/rs58t5561b1az/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-frost-free-inverter-side-by-side-608l-rs58-family-hub-com-soundbar-127v-preta/p",
     "destaques": [
       {
@@ -3241,7 +3538,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rm90f66c1caz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-smart-french-door-664l-inverter-com-dispenser-de-agua-e-gelo-rf70h-127v-inox/p",
+    "imagens": [
+      "assets/produtos/rm90f66c1caz/principal.png",
+      "assets/produtos/rm90f66c1caz/galeria-02.png",
+      "assets/produtos/rm90f66c1caz/galeria-03.png",
+      "assets/produtos/rm90f66c1caz/galeria-04.png",
+      "assets/produtos/rm90f66c1caz/galeria-05.png"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-smart-french-door-658l-bespoke-ai-rm90f-com-tela-ai-home-black-charcoal-127v-preta/p",
     "destaques": [
       {
         "titulo": "658 L",
@@ -3310,6 +3614,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/rf70h25hetaz/principal.png",
+    "imagens": [
+      "assets/produtos/rf70h25hetaz/principal.png",
+      "assets/produtos/rf70h25hetaz/galeria-02.png",
+      "assets/produtos/rf70h25hetaz/galeria-03.png",
+      "assets/produtos/rf70h25hetaz/galeria-04.png",
+      "assets/produtos/rf70h25hetaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/geladeira-samsung-smart-french-door-664l-inverter-com-dispenser-de-agua-e-gelo-rf70h-127v-inox/p",
     "destaques": [
       {
@@ -3373,6 +3684,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/dw60c7050fsaz/principal.png",
+    "imagens": [
+      "assets/produtos/dw60c7050fsaz/principal.png",
+      "assets/produtos/dw60c7050fsaz/galeria-02.png",
+      "assets/produtos/dw60c7050fsaz/galeria-03.png",
+      "assets/produtos/dw60c7050fsaz/galeria-04.png",
+      "assets/produtos/dw60c7050fsaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/lava-loucas-samsung-14-servicos-com-display-de-led-dw60-cinza-127v/p",
     "destaques": [
       {
@@ -3424,6 +3742,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/dw50c6070fsaz/principal.png",
+    "imagens": [
+      "assets/produtos/dw50c6070fsaz/principal.png",
+      "assets/produtos/dw50c6070fsaz/galeria-02.png",
+      "assets/produtos/dw50c6070fsaz/galeria-03.png",
+      "assets/produtos/dw50c6070fsaz/galeria-04.png",
+      "assets/produtos/dw50c6070fsaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/lava-loucas-samsung-10-servicos-com-display-externo-dw50-cinza-127v/p",
     "destaques": [
       {
@@ -3475,6 +3800,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/dw60c7050fgaz/principal.png",
+    "imagens": [
+      "assets/produtos/dw60c7050fgaz/principal.png",
+      "assets/produtos/dw60c7050fgaz/galeria-02.png",
+      "assets/produtos/dw60c7050fgaz/galeria-03.png",
+      "assets/produtos/dw60c7050fgaz/galeria-04.png",
+      "assets/produtos/dw60c7050fgaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/lava-loucas-samsung-14-servicos-com-display-de-led-dw60-preta-127v/p",
     "destaques": [
       {
@@ -3520,6 +3852,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/dw50c6070fgaz/principal.png",
+    "imagens": [
+      "assets/produtos/dw50c6070fgaz/principal.png",
+      "assets/produtos/dw50c6070fgaz/galeria-02.png",
+      "assets/produtos/dw50c6070fgaz/galeria-03.png",
+      "assets/produtos/dw50c6070fgaz/galeria-04.png",
+      "assets/produtos/dw50c6070fgaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/lava-loucas-samsung-10-servicos-com-display-externo-dw50-preta-127v/p",
     "destaques": [
       {
@@ -3571,7 +3910,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/dv12b6800ewaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "imagens": [
+      "assets/produtos/dv12b6800ewaz/principal.png",
+      "assets/produtos/dv12b6800ewaz/galeria-02.jpg",
+      "assets/produtos/dv12b6800ewaz/galeria-03.jpg",
+      "assets/produtos/dv12b6800ewaz/galeria-04.jpg",
+      "assets/produtos/dv12b6800ewaz/galeria-05.jpg"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/secadora-de-roupas-samsung-12kg-dv12b-220v-branca/p",
     "destaques": [
       {
         "titulo": "12.0 kg",
@@ -3639,6 +3985,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/wd11a4453bwaz/principal.png",
+    "imagens": [
+      "assets/produtos/wd11a4453bwaz/principal.png",
+      "assets/produtos/wd11a4453bwaz/galeria-02.png",
+      "assets/produtos/wd11a4453bwaz/galeria-03.png",
+      "assets/produtos/wd11a4453bwaz/galeria-04.png",
+      "assets/produtos/wd11a4453bwaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-branca/p",
     "destaques": [
       {
@@ -3708,6 +4061,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/wd11a4453bxaz/principal.png",
+    "imagens": [
+      "assets/produtos/wd11a4453bxaz/principal.png",
+      "assets/produtos/wd11a4453bxaz/galeria-02.png",
+      "assets/produtos/wd11a4453bxaz/galeria-03.png",
+      "assets/produtos/wd11a4453bxaz/galeria-04.png",
+      "assets/produtos/wd11a4453bxaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
     "destaques": [
       {
@@ -3777,6 +4137,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/wd18t6500gvaz/principal.png",
+    "imagens": [
+      "assets/produtos/wd18t6500gvaz/principal.png",
+      "assets/produtos/wd18t6500gvaz/galeria-02.png",
+      "assets/produtos/wd18t6500gvaz/galeria-03.png",
+      "assets/produtos/wd18t6500gvaz/galeria-04.png",
+      "assets/produtos/wd18t6500gvaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-18kg-smart-wd18t-127v-preta/p",
     "destaques": [
       {
@@ -3846,7 +4213,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/wh17dbh570gvaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "imagens": [
+      "assets/produtos/wh17dbh570gvaz/principal.png",
+      "assets/produtos/wh17dbh570gvaz/galeria-02.jpg",
+      "assets/produtos/wh17dbh570gvaz/galeria-03.jpg",
+      "assets/produtos/wh17dbh570gvaz/galeria-04.jpg",
+      "assets/produtos/wh17dbh570gvaz/galeria-05.jpg"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/lav0026?_q=LAV0026&map=ft",
     "destaques": [
       {
         "titulo": "17 kg",
@@ -3915,6 +4289,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/ww11t4040beaz/principal.png",
+    "imagens": [
+      "assets/produtos/ww11t4040beaz/principal.png",
+      "assets/produtos/ww11t4040beaz/galeria-02.png",
+      "assets/produtos/ww11t4040beaz/galeria-03.png",
+      "assets/produtos/ww11t4040beaz/galeria-04.png",
+      "assets/produtos/ww11t4040beaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/maquina-de-lavar-samsung-11kg-digital-inverter-ww11t-127v-branca/p",
     "destaques": [
       {
@@ -3983,6 +4364,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/ww11t4040bxaz/principal.png",
+    "imagens": [
+      "assets/produtos/ww11t4040bxaz/principal.png",
+      "assets/produtos/ww11t4040bxaz/galeria-02.png",
+      "assets/produtos/ww11t4040bxaz/galeria-03.png",
+      "assets/produtos/ww11t4040bxaz/galeria-04.png",
+      "assets/produtos/ww11t4040bxaz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/maquina-de-lavar-samsung-11kg-digital-inverter-ww11t-127v-preta/p",
     "destaques": [
       {
@@ -4051,7 +4439,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/wd20db8995bzaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "imagens": [
+      "assets/produtos/wd20db8995bzaz/principal.png",
+      "assets/produtos/wd20db8995bzaz/galeria-02.png",
+      "assets/produtos/wd20db8995bzaz/galeria-03.png",
+      "assets/produtos/wd20db8995bzaz/galeria-04.png",
+      "assets/produtos/wd20db8995bzaz/galeria-05.png"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/lav0043?_q=LAV0043&map=ft",
     "destaques": [
       {
         "titulo": "20.0 kg",
@@ -4121,7 +4516,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/wd13fg6b34bxaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "imagens": [
+      "assets/produtos/wd13fg6b34bxaz/principal.png",
+      "assets/produtos/wd13fg6b34bxaz/galeria-02.png",
+      "assets/produtos/wd13fg6b34bxaz/galeria-03.png",
+      "assets/produtos/wd13fg6b34bxaz/galeria-04.png",
+      "assets/produtos/wd13fg6b34bxaz/galeria-05.png"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-13kg-smart-inverter-ai-control-wd13fg-127v-cinza/p",
     "destaques": [
       {
         "titulo": "13.0 kg",
@@ -4190,6 +4592,13 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/wf90f20adsbz/principal.png",
+    "imagens": [
+      "assets/produtos/wf90f20adsbz/principal.png",
+      "assets/produtos/wf90f20adsbz/galeria-02.png",
+      "assets/produtos/wf90f20adsbz/galeria-03.png",
+      "assets/produtos/wf90f20adsbz/galeria-04.png",
+      "assets/produtos/wf90f20adsbz/galeria-05.png"
+    ],
     "siteInfoStore": "https://www.infostore.com.br/maquina-de-lavar-samsung-20kg-digital-bespoke-ai-laundry-wf90f-com-ai-home-220v-preta/p",
     "destaques": [
       {
@@ -4258,7 +4667,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/dv90f20cdsbz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "imagens": [
+      "assets/produtos/dv90f20cdsbz/principal.png",
+      "assets/produtos/dv90f20cdsbz/galeria-02.png",
+      "assets/produtos/dv90f20cdsbz/galeria-03.png",
+      "assets/produtos/dv90f20cdsbz/galeria-04.png",
+      "assets/produtos/dv90f20cdsbz/galeria-05.png"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/secadora-de-roupas-samsung-20kg-bespoke-ai-laundry-dv90f-smart-tela-7--heat-pump-cinza-220v/p",
     "destaques": [
       {
         "titulo": "20.0 kg",
@@ -4326,7 +4742,14 @@
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
     "imagem": "assets/produtos/wd13fg6b34beaz/principal.png",
-    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-11kg-ecobubble-wd11a-127v-cinza/p",
+    "imagens": [
+      "assets/produtos/wd13fg6b34beaz/principal.png",
+      "assets/produtos/wd13fg6b34beaz/galeria-02.png",
+      "assets/produtos/wd13fg6b34beaz/galeria-03.png",
+      "assets/produtos/wd13fg6b34beaz/galeria-04.png",
+      "assets/produtos/wd13fg6b34beaz/galeria-05.png"
+    ],
+    "siteInfoStore": "https://www.infostore.com.br/lava-e-seca-samsung-13kg-inverter-ai-control-ecobubble-wd13fg-branca-127v/p",
     "destaques": [
       {
         "titulo": "13.0 kg",

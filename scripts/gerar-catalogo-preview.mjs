@@ -128,8 +128,6 @@ async function consultarInfoStore(termo = "") {
 }
 
 async function localizarUrlInfoStore(codigo, modelo, urlAnterior = "") {
-  if (urlParecePaginaDeProduto(urlAnterior)) return urlAnterior;
-
   const codigoLimpo = String(codigo).trim().toUpperCase();
   const modeloLimpo = String(modelo).trim().toUpperCase();
   const chaveCache = `${codigoLimpo}|${modeloLimpo}`;
@@ -143,9 +141,11 @@ async function localizarUrlInfoStore(codigo, modelo, urlAnterior = "") {
       const resultados = await consultarInfoStore(termo);
       if (!resultados.length) continue;
 
-      const produtoEncontrado =
-        resultados.find(produto => produtoCorresponde(produto, codigoLimpo, modeloLimpo)) ||
-        resultados[0];
+      const produtoEncontrado = resultados.find(produto =>
+        produtoCorresponde(produto, codigoLimpo, modeloLimpo)
+      );
+
+      if (!produtoEncontrado) continue;
 
       const link = normalizarLinkProduto(produtoEncontrado);
       if (link) {
@@ -189,6 +189,9 @@ function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore) {
     categoria: cat,
     segmento: base.segmento,
     imagem: enriquecido.imagem,
+    imagens: Array.isArray(enriquecido.imagens) && enriquecido.imagens.length
+      ? enriquecido.imagens
+      : [enriquecido.imagem].filter(Boolean),
     siteInfoStore,
     destaques: destaques(enriquecido.destaques),
     especificacoes: {
@@ -219,6 +222,7 @@ function criarProdutoPendente(base, ordem, siteInfoStore, motivoPendencia) {
     categoria: cat,
     segmento: base.segmento,
     imagem: "assets/produto-sem-imagem.png",
+    imagens: ["assets/produto-sem-imagem.png"],
     siteInfoStore,
     destaques: [],
     especificacoes: {
@@ -280,6 +284,9 @@ async function executar() {
         categoria: categoria(produtoBase.segmento),
         segmento: produtoBase.segmento,
         siteFabricante: undefined,
+        imagens: Array.isArray(anterior.imagens) && anterior.imagens.length
+          ? anterior.imagens
+          : [anterior.imagem].filter(Boolean),
         siteInfoStore
       });
       continue;

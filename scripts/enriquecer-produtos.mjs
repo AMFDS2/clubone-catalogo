@@ -41,7 +41,7 @@ function nomeSeguro(valor = "") { return String(valor).toLowerCase().replace(/[^
 function numero(valor = "") { return String(valor).replace(",", ".").replace(/[^\d.]/g, ""); }
 
 async function baixarPagina(url) {
-  const resposta = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36", "Accept-Language": "pt-BR,pt;q=0.9" } });
+  const resposta = await fetch(url, { signal: AbortSignal.timeout(45000), headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36", "Accept-Language": "pt-BR,pt;q=0.9" } });
   if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
   return resposta.text();
 }
@@ -68,26 +68,60 @@ function normalizarURL(url = "") {
 
 function imagemInvalida(url = "") { return /logo|favicon|icon-|social-share/i.test(url); }
 
-function extrairImagem($, estruturado, modelo) {
+function extrairImagens($, estruturado, modelo) {
   const candidatas = [];
+
+  function adicionar(url) {
+    const normalizada = normalizarURL(url);
+    if (!normalizada || imagemInvalida(normalizada)) return;
+    if (!/^https?:\/\//i.test(normalizada)) return;
+    if (!candidatas.includes(normalizada)) candidatas.push(normalizada);
+  }
+
   $("img, source").each((_, elemento) => {
     ["src", "data-src", "data-lazy-src", "data-desktop-src", "data-mobile-src", "srcset", "data-srcset"].forEach(atributo => {
       const bruto = $(elemento).attr(atributo);
       if (!bruto) return;
-      const url = normalizarURL(bruto.split(",")[0].trim().split(" ")[0]);
-      if (url && !imagemInvalida(url) && !candidatas.includes(url)) candidatas.push(url);
+      bruto.split(",").forEach(parte => adicionar(parte.trim().split(/\s+/)[0]));
     });
   });
 
-  const chave = nomeSeguro(modelo);
-  const exata = candidatas.find(url => nomeSeguro(url).includes(chave) && /images\.samsung\.com|gallery/i.test(url));
-  if (exata) return exata;
-  const galeria = candidatas.find(url => /images\.samsung\.com.*gallery/i.test(url));
-  if (galeria) return galeria;
+  const imagensEstruturadas = Array.isArray(estruturado?.image)
+    ? estruturado.image
+    : estruturado?.image
+      ? [estruturado.image]
+      : [];
 
-  const imagem = Array.isArray(estruturado?.image) ? estruturado.image[0] : estruturado?.image?.url || estruturado?.image;
-  const alternativa = normalizarURL(imagem || $('meta[property="og:image"]').attr("content") || "");
-  return imagemInvalida(alternativa) ? "" : alternativa;
+  imagensEstruturadas.forEach(imagem => adicionar(imagem?.url || imagem));
+  adicionar($('meta[property="og:image"]').attr("content") || "");
+
+  const chave = nomeSeguro(modelo);
+  const pontuadas = candidatas
+    .map((url, indice) => {
+      const texto = nomeSeguro(url);
+      let pontos = 0;
+      if (chave && texto.includes(chave)) pontos += 100;
+      if (/images\.samsung\.com/i.test(url)) pontos += 50;
+      if (/gallery|product-images|feature-benefit/i.test(url)) pontos += 25;
+      if (/\.png(?:\?|$)|\.webp(?:\?|$)|\.jpe?g(?:\?|$)/i.test(url)) pontos += 10;
+      if (/banner|kv-|thumbnail|mosaic|award|logo/i.test(url)) pontos -= 40;
+      return { url, pontos, indice };
+    })
+    .filter(item => item.pontos >= 50)
+    .sort((a, b) => b.pontos - a.pontos || a.indice - b.indice);
+
+  const unicas = [];
+  const chaves = new Set();
+
+  pontuadas.forEach(item => {
+    const chaveImagem = item.url.split("?")[0].replace(/\/(?:[0-9]{2,4}x[0-9]{2,4})\//i, "/");
+    if (!chaves.has(chaveImagem) && unicas.length < 5) {
+      chaves.add(chaveImagem);
+      unicas.push(item.url);
+    }
+  });
+
+  return unicas;
 }
 
 function textosFolha($) {
@@ -165,17 +199,18 @@ function criarDestaques(especificacoes) {
   });
 }
 
-async function baixarImagem(url, modelo) {
+async function baixarImagem(url, modelo, indice = 0) {
   if (!url) return "";
-  const resposta = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" } });
+  const resposta = await fetch(url, { signal: AbortSignal.timeout(45000), headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" } });
   if (!resposta.ok) throw new Error(`Imagem HTTP ${resposta.status}`);
   const tipo = resposta.headers.get("content-type") || "";
   const extensao = tipo.includes("png") ? ".png" : tipo.includes("webp") ? ".webp" : ".jpg";
   const pasta = path.join(pastaImagens, nomeSeguro(modelo));
   await fs.mkdir(pasta, { recursive: true });
-  const arquivo = path.join(pasta, `principal${extensao}`);
+  const nomeArquivo = indice === 0 ? "principal" : `galeria-${String(indice + 1).padStart(2, "0")}`;
+  const arquivo = path.join(pasta, `${nomeArquivo}${extensao}`);
   await fs.writeFile(arquivo, Buffer.from(await resposta.arrayBuffer()));
-  return `assets/produtos/${nomeSeguro(modelo)}/principal${extensao}`;
+  return `assets/produtos/${nomeSeguro(modelo)}/${nomeArquivo}${extensao}`;
 }
 
 async function processar(item, indice, total) {
@@ -188,17 +223,27 @@ async function processar(item, indice, total) {
     const descricao = limparTexto(estruturado?.description || $('meta[name="description"]').attr("content") || "");
     const especificacoes = extrairEspecificacoes($);
     const dimensoes = extrairDimensoes($);
-    const urlImagem = extrairImagem($, estruturado, item.modelo);
+    const urlsImagens = extrairImagens($, estruturado, item.modelo);
 
-    let imagem = "";
-    let erroImagem = "";
-    try { imagem = await baixarImagem(urlImagem, item.modelo); } catch (erro) { erroImagem = erro.message; }
+    const imagens = [];
+    const errosImagens = [];
+
+    for (let i = 0; i < urlsImagens.length; i++) {
+      try {
+        const imagemLocal = await baixarImagem(urlsImagens[i], item.modelo, imagens.length);
+        if (imagemLocal) imagens.push(imagemLocal);
+      } catch (erro) {
+        errosImagens.push(erro.message);
+      }
+    }
+
+    const imagem = imagens[0] || "";
 
     const pendencias = [
       ...(!imagem ? ["Imagem não extraída"] : []),
       ...(!Object.keys(dimensoes).length ? ["Dimensões não extraídas"] : []),
       ...(!Object.keys(especificacoes).length ? ["Especificações não extraídas"] : []),
-      ...(erroImagem ? [`Erro da imagem: ${erroImagem}`] : [])
+      ...(errosImagens.length ? [`Erros de imagens: ${errosImagens.join("; ")}`] : [])
     ];
 
     return {
@@ -208,6 +253,7 @@ async function processar(item, indice, total) {
       tituloOficial: titulo,
       descricao,
       imagem,
+      imagens,
       dimensoes,
       especificacoes,
       destaques: criarDestaques(especificacoes),
