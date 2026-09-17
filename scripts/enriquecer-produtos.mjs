@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import * as cheerio from "cheerio";
+import { extrairDocumentosOficiais } from "./extrair-documentos-oficiais.mjs";
 
 const pastaScripts = path.dirname(fileURLToPath(import.meta.url));
 const raiz = path.resolve(pastaScripts, "..");
@@ -223,6 +224,13 @@ async function processar(item, indice, total) {
     const descricao = limparTexto(estruturado?.description || $('meta[name="description"]').attr("content") || "");
     const especificacoes = extrairEspecificacoes($);
     const dimensoes = extrairDimensoes($);
+    const documentos = await extrairDocumentosOficiais(
+      $,
+      html,
+      item.fonteInterna,
+      item.modelo
+    );
+
     const urlsImagens = extrairImagens($, estruturado, item.modelo);
 
     const imagens = [];
@@ -255,6 +263,7 @@ async function processar(item, indice, total) {
       imagem,
       imagens,
       dimensoes,
+      documentos,
       especificacoes,
       destaques: criarDestaques(especificacoes),
       statusExtracao: imagem && Object.keys(especificacoes).length ? (Object.keys(dimensoes).length ? "EXTRAIDO" : "REVISAR") : "REVISAR",

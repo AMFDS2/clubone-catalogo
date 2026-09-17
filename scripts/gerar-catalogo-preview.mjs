@@ -8,6 +8,7 @@ const caminhos = {
   base: path.join(raiz, "dados", "produtos-base.json"),
   atual: path.join(raiz, "produtos.json"),
   enriquecimento: path.join(raiz, "dados", "enriquecimento-automatico.json"),
+  documentosManuais: path.join(raiz, "dados", "documentos-manuais.json"),
   saida: path.join(raiz, "produtos.preview.json"),
   pendencias: path.join(raiz, "dados", "produtos-nao-incluidos.json")
 };
@@ -75,8 +76,16 @@ function nomeProduto(base, enriquecido = {}, anterior = {}) {
   return (
     limparTituloOficial(enriquecido.tituloOficial) ||
     limparTituloOficial(anterior.nomeOficial) ||
-    String(base.produto || anterior.nome || base.modelo || "Produto").trim()
+    limparTituloOficial(anterior.nome) ||
+    String(base.produto || base.modelo || "Produto").trim()
   );
+}
+
+function imagensEnriquecidas(enriquecido = {}) {
+  return [...new Set([
+    ...(Array.isArray(enriquecido.imagens) ? enriquecido.imagens : []),
+    enriquecido.imagem
+  ].filter(Boolean))];
 }
 
 function identificarTipoBloco(base = {}, enriquecido = {}) {
@@ -168,12 +177,16 @@ async function consultarInfoStore(termo = "") {
   return Array.isArray(dados) ? dados : [];
 }
 
-async function localizarUrlInfoStore(codigo, modelo) {
+async function localizarUrlInfoStore(codigo, modelo, urlAnterior = "") {
   const codigoLimpo = String(codigo).trim().toUpperCase();
   const modeloLimpo = String(modelo).trim().toUpperCase();
   const chaveCache = `${codigoLimpo}|${modeloLimpo}`;
 
   if (cacheLinksInfoStore.has(chaveCache)) return cacheLinksInfoStore.get(chaveCache);
+  if (urlAnterior) {
+    cacheLinksInfoStore.set(chaveCache, urlAnterior);
+    return urlAnterior;
+  }
 
   for (const termo of [codigoLimpo, modeloLimpo].filter(Boolean)) {
     try {
@@ -202,8 +215,21 @@ function destaques(lista = []) {
     .map(item => ({ titulo: item.valor, rotulo: item.rotulo, icone: "◇" }));
 }
 
+function especificacaoValida(nome = "", valor = "") {
+  const texto = String(valor).trim();
+  if (!texto || texto.length > 100) return false;
+
+  const campo = normalizar(nome);
+  if (campo === "resolucao") return /(?:\d{3,4}\s*[x×]\s*\d{3,4}|\b(?:hd|full hd|4k|8k|uhd)\b)/i.test(texto);
+  if (campo === "sistema operacional") return /(?:tizen|webos|android|google tv|roku|vidaa|fire tv)/i.test(texto);
+  if (campo === "processador") return texto.length >= 4 && !/^\d+$/.test(texto);
+  return true;
+}
+
 function limparEspecificacoes(especificacoes = {}) {
-  return Object.fromEntries(Object.entries(especificacoes).filter(([, valor]) => valor !== "" && valor != null));
+  return Object.fromEntries(
+    Object.entries(especificacoes).filter(([nome, valor]) => especificacaoValida(nome, valor))
+  );
 }
 
 function documentosOficiais(documentos = []) {
@@ -212,13 +238,15 @@ function documentosOficiais(documentos = []) {
     documento &&
     documento.nome &&
     documento.url &&
-    /^https:\/\/(?:org\.)?downloadcenter\.samsung\.com\//i.test(documento.url)
+    /^https:\/\/(?:org\.)?downloadcenter\.samsung\.com\//i.test(documento.url) &&
+    /\.pdf(?:$|[?#])/i.test(documento.url)
   );
 }
 
 function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore) {
   const cat = categoria(base.segmento);
   const nomeOficial = nomeProduto(base, enriquecido);
+  const imagens = imagensEnriquecidas(enriquecido);
 
   return {
     id: chave(base.modelo).toLowerCase() || chave(base.codigo).toLowerCase(),
@@ -233,8 +261,8 @@ function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore) {
     categoria: cat,
     segmento: base.segmento,
     tipoBloco: identificarTipoBloco(base, enriquecido),
-    imagem: enriquecido.imagem,
-    imagens: Array.isArray(enriquecido.imagens) && enriquecido.imagens.length ? enriquecido.imagens : [enriquecido.imagem].filter(Boolean),
+    imagem: imagens[0] || "assets/produto-sem-imagem.svg",
+    imagens: imagens.length ? imagens : ["assets/produto-sem-imagem.svg"],
     siteInfoStore,
     destaques: destaques(enriquecido.destaques),
     especificacoes: {
@@ -247,7 +275,7 @@ function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore) {
     instalacao: "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     documentos: documentosOficiais(enriquecido.documentos),
     sobreMarca: "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    revisaoPendente: enriquecido.statusExtracao !== "EXTRAIDO"
+    revisaoPendente: enriquecido.statusExtracao !== "EXTRAIDO" || !imagens.length
   };
 }
 
@@ -268,8 +296,8 @@ function criarProdutoPendente(base, enriquecido, ordem, siteInfoStore, motivoPen
     categoria: cat,
     segmento: base.segmento,
     tipoBloco: identificarTipoBloco(base, enriquecido),
-    imagem: "assets/produto-sem-imagem.png",
-    imagens: ["assets/produto-sem-imagem.png"],
+    imagem: "assets/produto-sem-imagem.svg",
+    imagens: ["assets/produto-sem-imagem.svg"],
     siteInfoStore,
     destaques: [],
     especificacoes: {
@@ -287,10 +315,11 @@ function criarProdutoPendente(base, enriquecido, ordem, siteInfoStore, motivoPen
 }
 
 async function executar() {
-  const [base, atual, enriquecimentos] = await Promise.all([
+  const [base, atual, enriquecimentos, documentosManuais] = await Promise.all([
     ler(caminhos.base),
     ler(caminhos.atual),
-    ler(caminhos.enriquecimento)
+    ler(caminhos.enriquecimento),
+    ler(caminhos.documentosManuais)
   ]);
 
   const atualPorModelo = new Map(atual.map(item => [chave(item.modelo), item]));
@@ -302,14 +331,25 @@ async function executar() {
     const produtoBase = base[indice];
     const modelo = chave(produtoBase.modelo);
     const anterior = atualPorModelo.get(modelo);
-    const enriquecido = enriquecidoPorModelo.get(modelo) || {};
+    const enriquecidoOriginal = enriquecidoPorModelo.get(modelo) || {};
+    const documentoManual = documentosManuais.find(item =>
+      modelo === chave(item.modelo) || modelo.startsWith(chave(item.modelo))
+    );
+    const documentosConfirmados = documentosOficiais(documentoManual?.documentos);
+    const enriquecido = documentosConfirmados.length
+      ? { ...enriquecidoOriginal, documentos: documentosConfirmados }
+      : enriquecidoOriginal;
     const ordem = base.length - indice;
 
     console.log(`[${indice + 1}/${base.length}] Localizando Info Store: ${produtoBase.codigo} / ${produtoBase.modelo}`);
 
-    const siteInfoStore = await localizarUrlInfoStore(produtoBase.codigo, produtoBase.modelo);
+    const siteInfoStore = await localizarUrlInfoStore(
+      produtoBase.codigo,
+      produtoBase.modelo,
+      anterior?.siteInfoStore
+    );
 
-    if (enriquecido.imagem) {
+    if (imagensEnriquecidas(enriquecido).length) {
       catalogo.push(criarProdutoNovo(produtoBase, enriquecido, ordem, siteInfoStore));
       continue;
     }

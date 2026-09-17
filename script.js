@@ -1,5 +1,5 @@
 const ARQUIVO_CATALOGO = "produtos.preview.json";
-const IMAGEM_FALLBACK = "assets/produto-sem-imagem.png";
+const IMAGEM_FALLBACK = "assets/produto-sem-imagem.svg";
 
 let todosProdutos = [];
 let produtosFiltrados = [];
@@ -29,7 +29,7 @@ async function inicializar() {
   } catch (erro) {
     console.error(erro);
     document.getElementById("produtos").innerHTML = estadoMensagem(
-      "Não foi possível carregar os produtos. Abra o projeto usando o Live Server."
+      "N\u00E3o foi poss\u00EDvel carregar os produtos. Abra o projeto usando o Live Server."
     );
   }
 }
@@ -180,10 +180,10 @@ function renderizarProdutos(produtos) {
         </span>
         <span class="produto-informacoes">
           <h3>${escaparHTML(produto.nome)}</h3>
-          <p>${escaparHTML(produto.marca)} • ${escaparHTML(produto.modelo)}</p>
+          <p>${escaparHTML(produto.marca)} \u2022 ${escaparHTML(produto.modelo)}</p>
           <p>${escaparHTML(produto.categoria)}</p>
         </span>
-        <span class="produto-favorito" aria-hidden="true">${ativo ? "★" : "☆"}</span>
+        <span class="produto-favorito" aria-hidden="true">${ativo ? "\u2605" : "\u2606"}</span>
       </button>`;
   }).join("");
 
@@ -203,7 +203,9 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   const destaques = criarDestaques(produto.destaques);
   const especificacoes = criarEspecificacoes(produto.especificacoes);
-  const dimensoes = criarBlocagemDimensional(produto.dimensoes, produto);
+  const dimensoes = typeof criarBlocagemDimensional === "function"
+    ? criarBlocagemDimensional(produto.dimensoes || {}, produto)
+    : criarDimensoes(produto.dimensoes || {}, produto);
   const documentos = criarDocumentos(produto.documentos);
   const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
   const imagens = obterImagensProduto(produto);
@@ -222,8 +224,8 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       <div class="produto-resumo">
         <span class="badge">${escaparHTML(produto.categoria)}</span>
         <h1 class="nome-produto">${escaparHTML(produto.nome)}</h1>
-        <p class="subtitulo produto-identificacao">${escaparHTML(produto.marca)} <span aria-hidden="true">•</span> Modelo ${escaparHTML(produto.modelo)}</p>
-        <p class="codigo-produto">Código Info Store: <strong>${escaparHTML(produto.codigoInfo || "Consultar")}</strong></p>
+        <p class="subtitulo produto-identificacao">${escaparHTML(produto.marca)} <span aria-hidden="true">\u2022</span> Modelo ${escaparHTML(produto.modelo)}</p>
+        <p class="codigo-produto">C\u00F3digo Info Store: <strong>${escaparHTML(produto.codigoInfo || "Consultar")}</strong></p>
         ${destaques ? `<div class="destaques">${destaques}</div>` : ""}
         ${botaoInfoStore ? `<div class="acoes">${botaoInfoStore}</div>` : ""}
       </div>
@@ -236,101 +238,56 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       </div>
     </div>
 
-    <div class="area-tecnica">
-      <nav class="tabs" aria-label="Informações do produto">
-  <button
-    type="button"
-    class="tab ativo"
-    data-tab="especificacoes"
-  >
-    Especificações
-  </button>
+   <div class="area-tecnica">
+  <nav class="tabs" aria-label="Informações do produto">
+    <button type="button" class="tab ativo" data-tab="especificacoes">Especificações
+    </button>
 
-  <button
-    type="button"
-    class="tab"
-    data-tab="dimensoes"
-  >
-    Dimensões
-  </button>
+    <button type="button" class="tab" data-tab="dimensoes">
+      Dimens\u00F5es
+    </button>
 
-  <button
-    type="button"
-    class="tab"
-    data-tab="documentos"
-  >
-    Documentos
-  </button>
-</nav>
+    <button type="button" class="tab" data-tab="documentos">
+      Documentos
+    </button>
+  </nav>
 
-<section
-  class="painel-tab ativo"
-  id="painel-especificacoes"
->
-  <div class="grade-tecnica">
-    <div class="tabela-especificacoes">
-      ${especificacoes}
-    </div>
-
-    <div>
-      <div class="card-dimensoes">
-        <h3>Dimensões</h3>
-        ${dimensoes}
+  <section class="painel-tab ativo" id="painel-especificacoes">
+    <div class="grade-tecnica">
+      <div class="tabela-especificacoes">
+        ${especificacoes}
       </div>
 
-      ${criarAviso()}
-    </div>
-  </div>
-</section>
-
-<section
-  class="painel-tab"
-  id="painel-dimensoes"
->
-  <div class="card-dimensoes">
-    <h3>Dimensões do produto</h3>
-    ${dimensoes}
-  </div>
-
-  ${criarAviso()}
-</section>
-
-<section
-  class="painel-tab"
-  id="painel-documentos"
->
-  <div class="card-documentos">
-    <h3>Documentos oficiais</h3>
-
-    <div class="lista-documentos">
-      ${documentos}
-    </div>
-  </div>
-</section>
-
-      <section class="painel-tab ativo" id="painel-especificacoes">
-        <div class="grade-tecnica">
-          <div class="tabela-especificacoes">${especificacoes}</div>
-          <div><div class="card-dimensoes"><h3>Dimensões</h3>${dimensoes}</div>${criarAviso()}</div>
+      <div>
+        <div class="card-dimensoes">
+          <h3>Dimens\u00F5es</h3>
+          ${dimensoes}
         </div>
-      </section>
 
-      <section class="painel-tab" id="painel-dimensoes">
-        <div class="card-dimensoes"><h3>Dimensões do produto</h3>${dimensoes}</div>${criarAviso()}
-      </section>
+        ${criarAviso()}
+      </div>
+    </div>
+  </section>
 
-      <section class="painel-tab" id="painel-instalacao">
-        <div class="card-instalacao"><h3>Orientações para instalação</h3><p class="texto-tecnico">${escaparHTML(produto.instalacao || "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.")}</p></div>
-      </section>
+  <section class="painel-tab" id="painel-dimensoes">
+    <div class="card-dimensoes">
+      <h3>Dimens\u00F5es do produto</h3>
+      ${dimensoes}
+    </div>
 
-      <section class="painel-tab" id="painel-documentos">
-        <div class="card-documentos"><h3>Documentos técnicos</h3><div class="lista-documentos">${documentos}</div></div>
-      </section>
+    ${criarAviso()}
+  </section>
 
-      <section class="painel-tab" id="painel-marca">
-        <div class="card-marca"><h3>Sobre ${escaparHTML(produto.marca)}</h3><p class="texto-tecnico">${escaparHTML(produto.sobreMarca || "Soluções de tecnologia e eletrodomésticos para projetos residenciais e comerciais.")}</p></div>
-      </section>
-    </div>`;
+  <section class="painel-tab" id="painel-documentos">
+    <div class="card-documentos">
+      <h3>Documentos oficiais</h3>
+
+      <div class="lista-documentos">
+        ${documentos}
+      </div>
+    </div>
+  </section>
+</div>`;
 
   configurarAbas();
   configurarGaleria();
@@ -370,26 +327,198 @@ function configurarGaleria() {
 
 function criarBotaoInfoStore(url) {
   if (!url) return "";
-  return `<a href="${escaparHTML(url)}" target="_blank" rel="noopener noreferrer" class="botao-preto">Ver na Info Store ↗</a>`;
+  return `<a href="${escaparHTML(url)}" target="_blank" rel="noopener noreferrer" class="botao-preto">Ver na Info Store \u2197</a>`;
 }
 
 function criarDestaques(destaques = []) {
-  return destaques
-    .filter(item => item && (item.titulo || item.valor))
+  const lista = Array.isArray(destaques) ? destaques : [];
+
+  return lista
+    .filter(item => {
+      if (!item || (!item.titulo && !item.valor)) return false;
+
+      const valor = String(item.titulo || item.valor).trim();
+
+      // Descrições extensas não devem aparecer como destaque.
+      return valor.length <= 48;
+    })
     .slice(0, 5)
     .map(item => {
-      const valor = item.titulo || item.valor;
+      const valor = String(item.titulo || item.valor).trim();
+      const rotulo = item.rotulo || "";
+      const icone = criarIconeDestaque(rotulo, valor);
+
+      const classeTexto =
+        valor.length > 32
+          ? "destaque-valor muito-longo"
+          : valor.length > 20
+            ? "destaque-valor longo"
+            : "destaque-valor";
+
       return `
-        <div class="destaque">
-          <span class="destaque-icone" aria-hidden="true">${escaparHTML(item.icone || "◇")}</span>
-          <span class="destaque-texto"><strong>${escaparHTML(valor)}</strong>${item.rotulo ? `<small>${escaparHTML(item.rotulo)}</small>` : ""}</span>
+        <div class="destaque" title="${escaparHTML(valor)}">
+          <span class="destaque-icone" aria-hidden="true">
+            ${icone}
+          </span>
+
+          <span class="destaque-texto">
+            <strong class="${classeTexto}">
+              ${escaparHTML(valor)}
+            </strong>
+
+            ${rotulo
+              ? `<small>${escaparHTML(rotulo)}</small>`
+              : ""}
+          </span>
         </div>`;
     }).join("");
 }
 
+function criarIconeDestaque(rotulo = "", valor = "") {
+  const texto = normalizarTexto(`${rotulo} ${valor}`);
+
+  if (
+    texto.includes("capacidade") ||
+    texto.includes("litro") ||
+    texto.includes(" kg")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <path d="M5 7h14v13H5z"></path>
+        <path d="M8 7V4h8v3"></path>
+      </svg>`;
+  }
+
+  if (
+    texto.includes("voltagem") ||
+    texto.includes("127") ||
+    texto.includes("220") ||
+    texto.includes("bivolt")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <path d="M13 2 6 13h6l-1 9 7-12h-6z"></path>
+      </svg>`;
+  }
+
+  if (
+    texto.includes("cor") ||
+    texto.includes("inox") ||
+    texto.includes("preto") ||
+    texto.includes("branco")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11z"></path>
+      </svg>`;
+  }
+
+  if (
+    texto.includes("frost") ||
+    texto.includes("refrigeração") ||
+    texto.includes("refrigeracao")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2v20M4.2 6.5l15.6 11M19.8 6.5l-15.6 11"></path>
+        <path d="m9 4 3 3 3-3M9 20l3-3 3 3"></path>
+      </svg>`;
+  }
+
+  if (
+    texto.includes("smartthings") ||
+    texto.includes("wi-fi") ||
+    texto.includes("wifi") ||
+    texto.includes("mobile")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <path d="M5 9a10 10 0 0 1 14 0"></path>
+        <path d="M8 12a6 6 0 0 1 8 0"></path>
+        <path d="M10.8 15a2 2 0 0 1 2.4 0"></path>
+        <circle cx="12" cy="18" r="1"></circle>
+      </svg>`;
+  }
+  if (
+    texto.includes("crystal") ||
+    texto.includes("uhd") ||
+    texto.includes("qled") ||
+    texto.includes("neo qled") ||
+    texto.includes("oled")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="12" rx="2"></rect>
+        <path d="M8 21h8M12 17v4"></path>
+      </svg>`;
+  }
+
+  if (
+    texto.includes("120hz") ||
+    texto.includes("144hz") ||
+    texto.includes("frequência") ||
+    texto.includes("frequencia")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <path d="M20 7v5h-5"></path>
+        <path d="M4 17v-5h5"></path>
+        <path d="M18.5 9A7 7 0 0 0 6 6.5L4 9"></path>
+        <path d="M5.5 15A7 7 0 0 0 18 17.5l2-2.5"></path>
+      </svg>`;
+  }
+
+  if (
+    texto.includes("gaming") ||
+    texto.includes("game") ||
+    texto.includes("motion xcelerator")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <path d="M8 8h8a5 5 0 0 1 4.7 6.7l-1 3a2 2 0 0 1-3.3.8L14 16h-4l-2.4 2.5a2 2 0 0 1-3.3-.8l-1-3A5 5 0 0 1 8 8z"></path>
+        <path d="M7 12v4M5 14h4"></path>
+        <circle cx="16" cy="13" r=".7"></circle>
+        <circle cx="18" cy="15" r=".7"></circle>
+      </svg>`;
+  }
+
+  if (
+    texto.includes("upscaling") ||
+    texto.includes("4k") ||
+    texto.includes("8k")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"></path>
+        <path d="M3 8l5-5M21 8l-5-5M3 16l5 5M21 16l-5 5"></path>
+      </svg>`;
+  }
+
+  if (
+    texto.includes("tizen") ||
+    texto.includes("sistema operacional")
+  ) {
+    return `
+      <svg viewBox="0 0 24 24">
+        <rect x="4" y="4" width="6" height="6" rx="1"></rect>
+        <rect x="14" y="4" width="6" height="6" rx="1"></rect>
+        <rect x="4" y="14" width="6" height="6" rx="1"></rect>
+        <rect x="14" y="14" width="6" height="6" rx="1"></rect>
+      </svg>`;
+  }
+    return `
+    <svg viewBox="0 0 24 24">
+      <path d="M12 3l1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3z"></path>
+      <path d="M18.5 16l.7 2.3 2.3.7-2.3.7-.7 2.3-.7-2.3-2.3-.7 2.3-.7.7-2.3z"></path>
+    </svg>`;
+}
+
 function criarEspecificacoes(especificacoes = {}) {
-  const itens = Object.entries(especificacoes).filter(([, valor]) => valor !== "" && valor != null);
-  if (!itens.length) return estadoMensagem("Especificações ainda não cadastradas.");
+  const dados = especificacoes && typeof especificacoes === "object" && !Array.isArray(especificacoes)
+    ? especificacoes
+    : {};
+  const itens = Object.entries(dados).filter(([, valor]) => valor !== "" && valor != null);
+  if (!itens.length) return estadoMensagem("Especifica\u00E7\u00F5es ainda n\u00E3o cadastradas.");
   return itens.map(([titulo, valor]) => `
     <div class="linha-especificacao"><span>${escaparHTML(titulo)}</span><span>${escaparHTML(valor)}</span></div>`).join("");
 }
@@ -465,7 +594,7 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
     return `
       <div class="linha-dimensao-tecnica">
         <strong>${escaparHTML(titulo)}</strong>
-        <span>${escaparHTML(valor || "—")}</span>
+        <span>${escaparHTML(valor || "\u2014")}</span>
       </div>
     `;
   }
@@ -480,14 +609,14 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   const peso =
     medidas.peso ||
     dimensoes.peso ||
-    produto.especificacoes?.["Peso líquido"] ||
+    produto.especificacoes?.["Peso l\u00EDquido"] ||
     produto.especificacoes?.["Peso"] ||
     "";
 
   if (!largura && !altura && !profundidade) {
     return `
       <p class="texto-tecnico">
-        Dimensões em revisão.
+        Dimens\u00F5es em revis\u00E3o.
       </p>
     `;
   }
@@ -594,7 +723,7 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
         d="M165 70 L174 62 L174 169 L165 184"
       ></path>
 
-      <!-- Pés -->
+      <!-- P\u00E9s -->
       <line x1="68" y1="184" x2="68" y2="190"></line>
       <line x1="151" y1="184" x2="151" y2="190"></line>
     </g>
@@ -651,7 +780,7 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
           class="diagrama-produto"
           viewBox="0 0 230 225"
           role="img"
-          aria-label="Representação dimensional de ${escaparHTML(produto.nome)}"
+          aria-label="Representa\u00E7\u00E3o dimensional de ${escaparHTML(produto.nome)}"
         >
           ${formaProduto}
 
@@ -675,7 +804,7 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
 
       <div class="tabela-dimensoes-tecnicas">
         <h4 class="dimensoes-subtitulo">
-          Dimensões do produto
+          Dimens\u00F5es do produto
         </h4>
 
         ${criarLinha("A - Largura", largura)}
@@ -698,50 +827,31 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
 }
 
 function criarDocumentos(documentos = []) {
-  const validos = documentos.filter(
-    documento =>
-      documento &&
-      documento.nome &&
-      documento.url
+  const lista = Array.isArray(documentos) ? documentos : [];
+  const validos = lista.filter(documento =>
+    documento && documento.nome && documento.url
   );
 
   if (!validos.length) {
-    return `
-      <p class="texto-tecnico">
-        Nenhum documento oficial disponível no momento.
-      </p>
-    `;
+    return `<p class="texto-tecnico">Nenhum documento oficial dispon\u00EDvel no momento.</p>`;
   }
 
   return validos.map(documento => `
-    <a
-      href="${escaparHTML(documento.url)}"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="documento-link"
-    >
+    <a href="${escaparHTML(documento.url)}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="documento-link">
       <span class="documento-informacoes">
-        <strong>
-          ${escaparHTML(documento.nome)}
-        </strong>
-
-        <small>
-          ${escaparHTML(
-            documento.descricao ||
-            "Documento oficial do fabricante"
-          )}
-        </small>
+        <strong>${escaparHTML(documento.nome)}</strong>
+        <small>${escaparHTML(documento.descricao || "Documento oficial do fabricante")}</small>
       </span>
-
-      <span class="documento-acao">
-        Abrir PDF ↗
-      </span>
-    </a>
-  `).join("");
+      <span class="documento-acao">Abrir PDF \u2197</span>
+    </a>`).join("");
 }
 
+
 function criarAviso() {
-  return `<div class="aviso"><span class="aviso-icone">ⓘ</span><div><strong>Observações importantes</strong><p>Valide as medidas e as condições de instalação antes de fechar o projeto. Imagens meramente ilustrativas.</p></div></div>`;
+  return `<div class="aviso"><span class="aviso-icone">\u24D8</span><div><strong>Observa\u00E7\u00F5es importantes</strong><p>Valide as medidas e as condi\u00E7\u00F5es de instala\u00E7\u00E3o antes de fechar o projeto. Imagens meramente ilustrativas.</p></div></div>`;
 }
 
 function configurarAbas() {
@@ -760,7 +870,10 @@ function configurarAbas() {
 function configurarFallbackImagens(raiz) {
   raiz.querySelectorAll("img").forEach(imagem => {
     imagem.addEventListener("error", () => {
-      if (!imagem.src.endsWith(IMAGEM_FALLBACK)) imagem.src = IMAGEM_FALLBACK;
+      if (!imagem.src.endsWith(IMAGEM_FALLBACK)) {
+        imagem.src = IMAGEM_FALLBACK;
+        imagem.alt = "Imagem do produto indisponível";
+      }
     }, { once: true });
   });
 }

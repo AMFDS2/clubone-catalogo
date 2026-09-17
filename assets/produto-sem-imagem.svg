@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">Imagem do produto indisponível</title>
+  <desc id="descricao">Representação técnica neutra de um produto.</desc>
+  <rect width="640" height="420" rx="28" fill="#f2eee8"/>
+  <g fill="none" stroke="#a99f92" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M245 92h134l43 35v210H245z" fill="#faf8f4"/>
+    <path d="M379 92v245l43-32V127z" fill="#e8e1d8"/>
+    <path d="M245 92l43 35h134"/>
+    <path d="M270 170h84M270 194h62"/>
+  </g>
+  <text x="320" y="378" text-anchor="middle" fill="#746b61" font-family="Arial, sans-serif" font-size="22">IMAGEM EM ATUALIZAÇÃO</text>
+</svg>

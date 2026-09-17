@@ -132,3 +132,51 @@
   .blocagem-visual { min-height: 190px; }
   .blocagem-svg { width: 240px; height: 200px; }
 }
+/* DIMENSÕES COMPACTAS — ENQUADRADAS NO CARD */
+
+.card-dimensoes {
+  padding: 14px;
+}
+
+.card-dimensoes > h3 {
+  margin-bottom: 10px;
+}
+
+.card-dimensoes .blocagem-dimensoes {
+  grid-template-columns: minmax(150px, 42%) minmax(185px, 58%);
+  gap: 14px;
+  align-items: center;
+}
+
+.card-dimensoes .blocagem-visual {
+  min-height: 155px;
+  height: 155px;
+  overflow: hidden;
+}
+
+.card-dimensoes .blocagem-svg {
+  width: 175px;
+  max-width: 100%;
+  height: 155px;
+}
+
+.card-dimensoes .bloco-tabela h4 {
+  min-height: 30px;
+  padding: 7px 10px;
+}
+
+.card-dimensoes .bloco-linha {
+  min-height: 30px;
+  grid-template-columns: minmax(105px, 52%) minmax(0, 48%);
+}
+
+.card-dimensoes .bloco-linha strong,
+.card-dimensoes .bloco-linha span {
+  padding: 7px 9px;
+  font-size: 9px;
+}
+
+.card-dimensoes .blocagem-nota {
+  padding: 7px 9px;
+  font-size: 7px;
+}

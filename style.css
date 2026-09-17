@@ -1032,3 +1032,79 @@
     gap: 10px;
   }
 }
+/* ÍCONES PADRONIZADOS DOS DESTAQUES */
+
+.destaque-icone {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ded9d1;
+  border-radius: 50%;
+  background: #fff;
+  color: #242320;
+}
+
+.destaque-icone svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.destaque:hover .destaque-icone {
+  border-color: var(--dourado);
+  color: var(--dourado);
+}
+/* PADRONIZAÇÃO DOS TEXTOS NOS DESTAQUES */
+
+.destaque {
+  height: 70px;
+  min-height: 70px;
+  overflow: hidden;
+}
+
+.destaque-icone {
+  flex: 0 0 25px;
+}
+
+.destaque-texto {
+  width: 100%;
+  min-width: 0;
+}
+
+.destaque-valor {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  font-size: 9px;
+  line-height: 1.15;
+}
+
+.destaque-valor.longo {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  font-size: 8px;
+  line-height: 1.1;
+}
+
+.destaque-valor.muito-longo {
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  font-size: 7px;
+  line-height: 1.05;
+}
+
+.destaque-texto small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
