@@ -7,8 +7,29 @@ function codigoComercial(item = {}) {
   const ignorar = new Set(["ELECTROLUX", "NAC", "LINHA", "BRANCA", "PRE", "BRA", "CIN", "BIVOLT", "EMBUT"]);
   const candidatos = String(item.produto || "").toUpperCase()
     .match(/[A-Z0-9]*[A-Z][A-Z0-9-]*\d[A-Z0-9-]*|\d+[A-Z][A-Z0-9-]*/g) || [];
-  return candidatos.map(chave)
-    .find(valor => valor.length >= 3 && !ignorar.has(valor) && valor !== chave(item.codigo)) || "";
+  const unidades = /^\d+(?:L|V|W|KW|KG|G|CM|MM|HZ|BTU|POLEGADAS?)$/;
+
+  return candidatos
+    .map(chave)
+    .filter(valor =>
+      valor.length >= 3 &&
+      valor.length <= 14 &&
+      !ignorar.has(valor) &&
+      valor !== chave(item.codigo) &&
+      valor !== chave(item.modelo) &&
+      !unidades.test(valor)
+    )
+    .sort((a, b) => {
+      const pontuar = valor => {
+        let pontos = 0;
+        if (/^[A-Z]{1,6}\d[A-Z0-9]*$/.test(valor)) pontos += 100;
+        if (/^\d+[A-Z]{2,}[A-Z0-9]*$/.test(valor)) pontos += 80;
+        if (/[A-Z]/.test(valor) && /\d/.test(valor)) pontos += 30;
+        if (valor.length >= 4 && valor.length <= 8) pontos += 15;
+        return pontos;
+      };
+      return pontuar(b) - pontuar(a);
+    })[0] || "";
 }
 
 function referencias(produto = {}) {
@@ -106,12 +127,18 @@ function especificacoes(produto = {}) {
 export async function extrairProdutoElectrolux($, html = "", item = {}) {
   const comercial = codigoComercial(item);
   const resultados = comercial ? await consultar(comercial) : [];
-  const produto = resultados.find(p => !/garantia-estendida/i.test(link(p)) && referencias(p).includes(chave(comercial))) || {};
+  const produtoEncontrado = resultados.find(p =>
+    !/garantia-estendida/i.test(link(p)) &&
+    referencias(p).includes(chave(comercial))
+  );
+  const produto = produtoEncontrado || {};
   const largura = mm(primeiro(produto, ["Largura do produto", "Largura"]));
   const altura = mm(primeiro(produto, ["Altura do produto", "Altura"]));
   const profundidade = mm(primeiro(produto, ["Profundidade do produto", "Profundidade"]));
   const docs = documento(produto);
   return {
+    validadoFabricante: Boolean(produtoEncontrado && comercial),
+    codigoComercial: comercial,
     titulo: limpar(produto.productName || $('meta[property="og:title"]').attr("content") || $("title").text()),
     descricao: limpar(produto.description || $('meta[name="description"]').attr("content") || ""),
     urlsImagens: imagens(produto),

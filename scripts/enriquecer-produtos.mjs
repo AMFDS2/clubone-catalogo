@@ -227,19 +227,25 @@ async function processar(item, indice, total) {
       ? await extrairProdutoElectrolux($, html, item)
       : null;
     const apoio = ehElectrolux ? await extrairProdutoInfoStore(item) : null;
-    const apoioPorCodigo = apoio?.codigoInfoValidado === true;
+    const oficialValidado = oficial?.validadoFabricante === true;
     const extraido = ehElectrolux ? {
-      // Quando o código interno foi confirmado, a própria página comercial da
-      // Info Store define identidade, título e fotos. Isso impede que uma busca
-      // aproximada no fabricante troque 90CIV por CE9IX, por exemplo.
-      titulo: apoioPorCodigo ? (apoio?.titulo || oficial?.titulo || "") : (oficial?.titulo || apoio?.titulo || ""),
-      descricao: apoioPorCodigo ? (apoio?.descricao || oficial?.descricao || "") : (oficial?.descricao || apoio?.descricao || ""),
-      urlsImagens: apoioPorCodigo && apoio?.urlsImagens?.length
-        ? apoio.urlsImagens
-        : (oficial?.urlsImagens?.length ? oficial.urlsImagens : (apoio?.urlsImagens || [])),
-      especificacoes: { ...(apoio?.especificacoes || {}), ...(oficial?.especificacoes || {}) },
-      dimensoes: Object.keys(oficial?.dimensoes || {}).length ? oficial.dimensoes : (apoio?.dimensoes || {}),
-      documentos: oficial?.documentos?.length ? oficial.documentos : (apoio?.documentos || []),
+      // O fabricante prevalece somente após confirmação exata do código
+      // comercial (IM8S, 90CIV, CE9HP etc.). Sem confirmação, a Info Store é
+      // usada como apoio, nunca uma correspondência aproximada do fabricante.
+      titulo: oficialValidado ? (oficial?.titulo || apoio?.titulo || "") : (apoio?.titulo || oficial?.titulo || ""),
+      descricao: oficialValidado ? (oficial?.descricao || apoio?.descricao || "") : (apoio?.descricao || oficial?.descricao || ""),
+      urlsImagens: oficialValidado && oficial?.urlsImagens?.length
+        ? oficial.urlsImagens
+        : (apoio?.urlsImagens?.length ? apoio.urlsImagens : (oficial?.urlsImagens || [])),
+      especificacoes: oficialValidado
+        ? { ...(apoio?.especificacoes || {}), ...(oficial?.especificacoes || {}) }
+        : { ...(oficial?.especificacoes || {}), ...(apoio?.especificacoes || {}) },
+      dimensoes: oficialValidado && Object.keys(oficial?.dimensoes || {}).length
+        ? oficial.dimensoes
+        : (apoio?.dimensoes || {}),
+      documentos: oficialValidado && oficial?.documentos?.length
+        ? oficial.documentos
+        : (apoio?.documentos || []),
       fonteApoio: apoio?.fonteApoio || ""
     } : null;
     const titulo = extraido?.titulo || limparTexto(estruturado?.name || $('meta[property="og:title"]').attr("content") || $("title").text());
