@@ -1,5 +1,437 @@
 [
   {
+    "id": "01121wba089",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "ADE0002",
+    "produto": "ADEGA 12 GARRAFAS ACB12 PRE 127V",
+    "modelo": "01121WBA089",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01362wba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "ADE0004",
+    "produto": "ADEGA 34 GARRAFAS WSF34 PRE 127V",
+    "modelo": "01362WBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01107fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "ADE0011",
+    "produto": "CERVEJEIRA 100L PAINEL DIGITAL EB100 PRE 127V",
+    "modelo": "01107FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02107fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "ADE0012",
+    "produto": "CERVEJEIRA 100L PAINEL DIGITAL C/ TORRE EB10C PRE 127V",
+    "modelo": "02107FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "29909pbi135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "COI0003",
+    "produto": "COIFA DE ILHA TOUCH PRO SERIES 90CM 90CIV PRE 127V",
+    "modelo": "29909PBI135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "29909hbb189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "COI0014",
+    "produto": "COIFA DE PAREDE TOUCH HOME PRO 90CM CE9HP CIN 127V",
+    "modelo": "29909HBB189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "29709dba189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "COI0018",
+    "produto": "COIFA DE PAREDE TOUCH 70CM 70CS CIN 127V",
+    "modelo": "29709DBA189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "50807sba235",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0012",
+    "produto": "FORNO EMBUT 80L GAS EXPE OE8GH PRE 220V (CONVEC)",
+    "modelo": "50807SBA235",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "53801wba235",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0018",
+    "produto": "FORNO EMBUT 80L ELET PRO SERIES OE9XB PRE 220V (CO",
+    "modelo": "53801WBA235",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "66052kba285",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0025",
+    "produto": "FOG 5 BOCAS EXPE FE5AD CIN 220V (D.FOR/M.VID)",
+    "modelo": "66052KBA285",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "53807uba235",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0031",
+    "produto": "FORNO EMBUT 80L ELET EXPE OE8EF PRE 220V",
+    "modelo": "53807UBA235",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "23051gba035",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0052",
+    "produto": "FOG 5 BOCAS EFFIC FE5GB PRE BIVOLT (M.VID)",
+    "modelo": "23051GBA035",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "33059cbb035",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0054",
+    "produto": "COOKTOP 5 BOCAS GAS KE5GT PRE BIVOLT (TRIPLACHAMA)",
+    "modelo": "33059CBB035",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "53807dbb235",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0057",
+    "produto": "FORNO EMBUT 80L ELET EXPE OE8EA PRE 220V",
+    "modelo": "53807DBB235",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "23052gba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0069",
+    "produto": "FOG 5 BOCAS EXPE FE5DB PRE 127V (D.FOR/M.VID)",
+    "modelo": "23052GBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "04182fba006",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FRE0010",
+    "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19T BRA BIVOLT",
+    "modelo": "04182FBA006",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "06503fba006",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FRE0011",
+    "produto": "FREEZER HORIZONT INV 1 POR 513L HI550T BRA BIVOLT",
+    "modelo": "06503FBA006",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "03121fba006",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FRE0012",
+    "produto": "FREEZER HORIZONT CYCLE 1 PORTA 197L HB200 BRA BIVOLT",
+    "modelo": "03121FBA006",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01051rba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0011",
+    "produto": "FRIGOBAR 47L EM50 BRA 127V",
+    "modelo": "01051RBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01091rba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0013",
+    "produto": "FRIGOBAR 90L EM90 BRA 127V",
+    "modelo": "01091RBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01092rba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0018",
+    "produto": "FRIGOBAR 90L EM90B PRE 127V",
+    "modelo": "01092RBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01121rba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0022",
+    "produto": "FRIGOBAR 122L EM120 BRA 127V",
+    "modelo": "01121RBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02623fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0029",
+    "produto": "GELADEIRA FF INV MLTDOOR 590L IM8S CIN 127V",
+    "modelo": "02623FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02543fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0032",
+    "produto": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
+    "modelo": "02543FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02544fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0033",
+    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
+    "modelo": "02544FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02547fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0034",
+    "produto": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
+    "modelo": "02547FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02500fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0066",
+    "produto": "GELADEIRA FF INV MLTDOOR 480L IM7S CIN 127V",
+    "modelo": "02500FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02501fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0067",
+    "produto": "GELADEIRA FF INV MLTDOOR 480L IM7B PRE 127V",
+    "modelo": "02501FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "04180fba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0069",
+    "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19 BRA 127V",
+    "modelo": "04180FBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02481fba030",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0073",
+    "produto": "GELADEIRA FF INV 480L DUPLEX IT70S CIN BIVOLT",
+    "modelo": "02481FBA030",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02327fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0079",
+    "produto": "GELADEIRA FF INV 322L INVERSE IB42G PRE 127V",
+    "modelo": "02327FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02503fba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0081",
+    "produto": "GELADEIRA FF 480L DUPLEX TF71 BRA 127V",
+    "modelo": "02503FBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01572rb1135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0087",
+    "produto": "GELADEIRA FF INV SIDEBYSIDE 526L ES5GB PRE 127V",
+    "modelo": "01572RB1135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02545fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0096",
+    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8WS CIN 127V",
+    "modelo": "02545FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01432rba088",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0114",
+    "produto": "GELADEIRA FF INV SIDEBYSIDE 431L ES40S CIN BIVOLT",
+    "modelo": "01432RBA088",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "24607lba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAL0004",
+    "produto": "LAVA LOUCAS 14 SERVICOS PRO SERIES LP14V PRE 127V",
+    "modelo": "24607LBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "24601lbb189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAL0009",
+    "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LP14X CIN 127V",
+    "modelo": "24601LBB189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "240601lbc189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAL0010",
+    "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LS14X CIN 127V",
+    "modelo": "240601LBC189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "24601tbc135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAL0016",
+    "produto": "LAVA LOUCAS 14 SERVICOS LL14P PRE 127V",
+    "modelo": "24601TBC135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "2115cdbb106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAV0063",
+    "produto": "MAQ LAV TL 14,5KG LEE15 BRA 127V (CESTINOX) (B)",
+    "modelo": "2115CDBB106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10347pba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0001",
+    "produto": "MICRO-ONDAS 36L EFFICIENT ME36B BRA 127V",
+    "modelo": "10347PBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10347dba185",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0003",
+    "produto": "MICRO-ONDAS EMBUTIR 34L EXPERIENCE ME3BC CIN 220V",
+    "modelo": "10347DBA185",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10347pba186",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0004",
+    "produto": "MICRO-ONDAS 36L EFFICIENT ME36S PRA 127V",
+    "modelo": "10347PBA186",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10237pba186",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0005",
+    "produto": "MICRO-ONDAS 23L EFFICIENT ME23S PRA 127V",
+    "modelo": "10237PBA186",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "54341pba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0007",
+    "produto": "MICRO-ONDAS EMBUTIR 34L PRO SERIES MV43T PRE 127V",
+    "modelo": "54341PBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10237pba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0008",
+    "produto": "MICRO-ONDAS 23L EFFICIENT ME23B BRA 127V",
+    "modelo": "10237PBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "54341hbb189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0016",
+    "produto": "MICRO-ONDAS EMBUTIR 34L HOME PRO ME3HP CIN 127V",
+    "modelo": "54341HBB189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10237pba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0025",
+    "produto": "MICRO-ONDAS 23L EFFICIENT ME23P PRE 127V",
+    "modelo": "10237PBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
     "id": "un98du9000gxzd",
     "fabricante": "SAMSUNG (NAC)",
     "segmento": "VIDEO",

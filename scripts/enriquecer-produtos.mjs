@@ -2,7 +2,9 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import * as cheerio from "cheerio";
-import { extrairDocumentosOficiais } from "./extrair-documentos-oficiais.mjs";
+import { extrairDocumentosOficiais } from "./extrair-documentos-oficiais.mjs"
+import { extrairProdutoElectrolux } from "./fabricantes/electrolux.mjs";
+import { extrairProdutoInfoStore } from "./fabricantes/info-store.mjs";
 
 const pastaScripts = path.dirname(fileURLToPath(import.meta.url));
 const raiz = path.resolve(pastaScripts, "..");
@@ -220,18 +222,34 @@ async function processar(item, indice, total) {
     const html = await baixarPagina(item.fonteInterna);
     const $ = cheerio.load(html);
     const estruturado = jsonLd($);
-    const titulo = limparTexto(estruturado?.name || $('meta[property="og:title"]').attr("content") || $("title").text());
-    const descricao = limparTexto(estruturado?.description || $('meta[name="description"]').attr("content") || "");
-    const especificacoes = extrairEspecificacoes($);
-    const dimensoes = extrairDimensoes($);
-    const documentos = await extrairDocumentosOficiais(
-      $,
-      html,
-      item.fonteInterna,
-      item.modelo
-    );
-
-    const urlsImagens = extrairImagens($, estruturado, item.modelo);
+    const ehElectrolux = /electrolux/i.test(item.fabricante || "");
+    const oficial = ehElectrolux && item.origemFonte !== "INFO_STORE"
+      ? await extrairProdutoElectrolux($, html, item)
+      : null;
+    const apoio = ehElectrolux ? await extrairProdutoInfoStore(item) : null;
+    const apoioPorCodigo = apoio?.codigoInfoValidado === true;
+    const extraido = ehElectrolux ? {
+      // Quando o código interno foi confirmado, a própria página comercial da
+      // Info Store define identidade, título e fotos. Isso impede que uma busca
+      // aproximada no fabricante troque 90CIV por CE9IX, por exemplo.
+      titulo: apoioPorCodigo ? (apoio?.titulo || oficial?.titulo || "") : (oficial?.titulo || apoio?.titulo || ""),
+      descricao: apoioPorCodigo ? (apoio?.descricao || oficial?.descricao || "") : (oficial?.descricao || apoio?.descricao || ""),
+      urlsImagens: apoioPorCodigo && apoio?.urlsImagens?.length
+        ? apoio.urlsImagens
+        : (oficial?.urlsImagens?.length ? oficial.urlsImagens : (apoio?.urlsImagens || [])),
+      especificacoes: { ...(apoio?.especificacoes || {}), ...(oficial?.especificacoes || {}) },
+      dimensoes: Object.keys(oficial?.dimensoes || {}).length ? oficial.dimensoes : (apoio?.dimensoes || {}),
+      documentos: oficial?.documentos?.length ? oficial.documentos : (apoio?.documentos || []),
+      fonteApoio: apoio?.fonteApoio || ""
+    } : null;
+    const titulo = extraido?.titulo || limparTexto(estruturado?.name || $('meta[property="og:title"]').attr("content") || $("title").text());
+    const descricao = extraido?.descricao || limparTexto(estruturado?.description || $('meta[name="description"]').attr("content") || "");
+    const especificacoes = extraido?.especificacoes || extrairEspecificacoes($);
+    const dimensoes = extraido?.dimensoes || extrairDimensoes($);
+    const documentos = extraido?.documentos?.length
+      ? extraido.documentos
+      : await extrairDocumentosOficiais($, html, item.fonteInterna, item.modelo);
+    const urlsImagens = extraido?.urlsImagens || extrairImagens($, estruturado, item.modelo);
 
     const imagens = [];
     const errosImagens = [];
@@ -260,7 +278,6 @@ async function processar(item, indice, total) {
       produtoPlanilha: item.produto,
       tituloOficial: titulo,
       descricao,
-      imagem,
       imagens,
       dimensoes,
       documentos,
@@ -269,6 +286,7 @@ async function processar(item, indice, total) {
       statusExtracao: imagem && Object.keys(especificacoes).length ? (Object.keys(dimensoes).length ? "EXTRAIDO" : "REVISAR") : "REVISAR",
       pendencias,
       fonteInterna: item.fonteInterna,
+      fonteApoio: extraido?.fonteApoio || "",
       dataConsulta: new Date().toISOString()
     };
   } catch (erro) {
@@ -279,14 +297,21 @@ async function processar(item, indice, total) {
 async function executar() {
   await fs.mkdir(pastaImagens, { recursive: true });
   const fontes = JSON.parse(await fs.readFile(caminhoFontes, "utf8"));
-  const confirmados = fontes.filter(item => item.statusFonte === "LOCALIZADO");
-  console.log(`Modelos confirmados: ${confirmados.length}`);
+  let anteriores = [];
+  try { anteriores = JSON.parse(await fs.readFile(caminhoSaida, "utf8")); } catch {}
+  const existentes = new Set(anteriores.map(item => nomeSeguro(item.modelo)));
+  const forcar = process.env.FORCAR_ATUALIZACAO === "1";
+  const confirmados = fontes.filter(item => item.statusFonte === "LOCALIZADO" && (forcar || !existentes.has(nomeSeguro(item.modelo))));
+  console.log(`Modelos para enriquecer: ${confirmados.length}`);
 
-  const resultados = [];
+  const resultadosNovos = [];
   for (let i = 0; i < confirmados.length; i++) {
-    resultados.push(await processar(confirmados[i], i, confirmados.length));
+    resultadosNovos.push(await processar(confirmados[i], i, confirmados.length));
     await new Promise(resolve => setTimeout(resolve, 500));
   }
+
+  const chavesNovas = new Set(resultadosNovos.map(item => nomeSeguro(item.modelo)));
+  const resultados = [...anteriores.filter(item => !chavesNovas.has(nomeSeguro(item.modelo))), ...resultadosNovos];
 
   await fs.writeFile(caminhoSaida, JSON.stringify(resultados, null, 2), "utf8");
   console.log("\nExtração concluída.");

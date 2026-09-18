@@ -201,6 +201,17 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   produtoSelecionado = produto.id;
   renderizarProdutos(produtosFiltrados);
 
+  requestAnimationFrame(() => {
+  const selecionado = document.querySelector(
+    `.produto[data-produto-id="${CSS.escape(String(produto.id))}"]`
+  );
+
+  selecionado?.scrollIntoView({
+    behavior: "auto",
+    block: "nearest"
+  });
+});
+
   const destaques = criarDestaques(produto.destaques);
   const especificacoes = criarEspecificacoes(produto.especificacoes);
   const dimensoes = typeof criarBlocagemDimensional === "function"

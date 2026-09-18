@@ -260,7 +260,7 @@
   }
 
   .topbar-logos {
-    gap: 14px;
+    gap: 10px;
   }
 
   .logo-club {
@@ -269,8 +269,8 @@
   }
 
   .logo-info {
-    max-width: 72px;
-    max-height: 36px;
+    max-width: 126px;
+    max-height: 38px;
   }
 
   .menu-mobile {
@@ -584,9 +584,9 @@
 /* SEÇÃO DE CONTATO */
 
 .secao-contato {
-  padding: 52px 4%;
+  padding: 60px 4%;
   scroll-margin-top: calc(var(--topbar) + 20px);
-  border-top: 1px solid var(--borda);
+  border-top: 0px solid var(--borda);
   background: #f1eee8;
 }
 
@@ -630,13 +630,13 @@
 
 .contato-card {
   min-width: 0;
-  min-height: 210px;
+  min-height: 200px;
   padding: 22px;
   display: flex;
   align-items: flex-start;
-  gap: 15px;
+  gap: 10px;
   border: 1px solid var(--borda);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--claro);
   transition:
     transform 0.2s ease,
@@ -1032,254 +1032,795 @@
     gap: 10px;
   }
 }
-/* ÍCONES PADRONIZADOS DOS DESTAQUES */
+/* =========================================================
+   DESTAQUES DOS PRODUTOS — PADRÃO DEFINITIVO
+   ========================================================= */
 
-.destaque-icone {
-  width: 25px;
-  height: 25px;
+.produto-resumo .destaques {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 14px;
+
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 6px;
+
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.produto-resumo .destaque,
+.produto-resumo .destaque:has(.destaque-valor.longo),
+.produto-resumo .destaque:has(.destaque-valor.muito-longo) {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+
+  height: 68px !important;
+  min-height: 68px !important;
+  padding: 6px 3px !important;
+
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  border: 1px solid #e1ddd6;
+  border-radius: 8px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.produto-resumo .destaque-icone {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  flex: 0 0 22px !important;
+  margin: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ded9d1;
+
+  border: 1px solid #d8d4cd;
   border-radius: 50%;
-  background: #fff;
+  background: #ffffff;
   color: #242320;
 }
 
-.destaque-icone svg {
-  width: 14px;
-  height: 14px;
+.produto-resumo .destaque-icone svg {
+  width: 11px;
+  height: 11px;
   display: block;
-  fill: none;
-  stroke: currentColor;
+
+  fill: none !important;
+  stroke: currentColor !important;
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.destaque:hover .destaque-icone {
-  border-color: var(--dourado);
-  color: var(--dourado);
+.produto-resumo .destaque-icone svg path,
+.produto-resumo .destaque-icone svg rect,
+.produto-resumo .destaque-icone svg circle,
+.produto-resumo .destaque-icone svg line,
+.produto-resumo .destaque-icone svg polyline,
+.produto-resumo .destaque-icone svg ellipse {
+  fill: none !important;
+  stroke: currentColor !important;
+  vector-effect: non-scaling-stroke;
 }
-/* PADRONIZAÇÃO DOS TEXTOS NOS DESTAQUES */
 
-.destaque {
-  height: 70px;
-  min-height: 70px;
+.produto-resumo .destaque-texto {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+
   overflow: hidden;
 }
 
-.destaque-icone {
-  flex: 0 0 25px;
-}
-
-.destaque-texto {
+.produto-resumo .destaque-texto strong,
+.produto-resumo .destaque-valor,
+.produto-resumo .destaque-valor.longo,
+.produto-resumo .destaque-valor.muito-longo {
   width: 100%;
-  min-width: 0;
-}
+  min-height: 15px;
+  margin: 0;
 
-.destaque-valor {
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  line-clamp: 2;
-  font-size: 9px;
-  line-height: 1.15;
+
+  color: #282724;
+  font-size: 6.8px !important;
+  font-weight: 700;
+  line-height: 1.05 !important;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
-.destaque-valor.longo {
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  font-size: 8px;
-  line-height: 1.1;
-}
-
-.destaque-valor.muito-longo {
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  font-size: 7px;
-  line-height: 1.05;
-}
-
-.destaque-texto small {
-  display: block;
+.produto-resumo .destaque-texto small {
+  width: 100%;
+  margin: 0;
   overflow: hidden;
+
+  color: #8a867f;
+  font-size: 5.4px;
+  line-height: 1;
+  text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* ==================================================
-   PADRONIZAÇÃO FINAL — MOBILE
-================================================== */
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+  .produto-resumo .destaques {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 5px;
+  }
+
+  .produto-resumo .destaque,
+  .produto-resumo .destaque:has(.destaque-valor.longo),
+  .produto-resumo .destaque:has(.destaque-valor.muito-longo) {
+    height: 66px !important;
+    min-height: 66px !important;
+    padding: 5px 2px !important;
+  }
+}
+
+/* Celular */
 
 @media (max-width: 650px) {
-
-  /* Área principal */
-
-  .produto-hero {
-    width: 100%;
-    padding: 18px 16px 20px;
-    gap: 18px;
-    overflow: hidden;
+  .produto-resumo .destaques {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px;
+    overflow: visible;
   }
 
-  .produto-resumo {
-    width: 100%;
-    min-height: 0;
+  .produto-resumo .destaque,
+  .produto-resumo .destaque:has(.destaque-valor.longo),
+  .produto-resumo .destaque:has(.destaque-valor.muito-longo) {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    height: 66px !important;
+    min-height: 66px !important;
+    padding: 5px 3px !important;
+  }
+
+  .produto-resumo .destaque-icone {
+    width: 21px !important;
+    height: 21px !important;
+    min-width: 21px !important;
+    flex-basis: 21px !important;
+  }
+
+  .produto-resumo .destaque-icone svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .produto-resumo .destaque-texto strong,
+  .produto-resumo .destaque-valor,
+  .produto-resumo .destaque-valor.longo,
+  .produto-resumo .destaque-valor.muito-longo {
+    font-size: 7px !important;
+  }
+
+}
+/* ==================================================
+   LISTA LATERAL DE PRODUTOS — AJUSTE DEFINITIVO
+================================================== */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--topbar));
+  min-height: 0;
+  overflow: hidden;
+}
+
+.resultado-cabecalho {
+  flex: 0 0 auto;
+}
+
+.lista-produtos {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-padding-block: 8px;
+  scrollbar-gutter: stable;
+}
+
+.produto {
+  width: 100%;
+  min-height: 88px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 11px;
+  overflow: hidden;
+}
+
+.produto-imagem {
+  width: 88px;
+  height: 64px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.produto-imagem img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.produto-informacoes {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.produto-informacoes h3 {
+  width: 100%;
+  margin: 0 0 4px;
+  overflow: hidden;
+  color: var(--preto);
+  font-size: 12px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.produto-informacoes p {
+  width: 100%;
+  margin: 2px 0;
+  overflow: hidden;
+  color: var(--suave);
+  font-size: 9px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.produto-favorito {
+  width: 20px;
+  align-self: center;
+  justify-self: center;
+  font-size: 16px;
+}
+
+/* Celular */
+
+@media (max-width: 650px) {
+  .sidebar {
     height: auto;
-    display: block;
-  }
-
-  /* Categoria */
-
-  .produto-resumo .badge {
-    max-width: 100%;
-    padding: 5px 12px;
-    font-size: 8px;
-  }
-
-  /* Nome completo, sem corte */
-
-  .produto-resumo .nome-produto {
-    width: 100%;
     min-height: 0;
-    max-height: none;
-    margin: 14px 0 12px;
-
-    display: block;
-    overflow: visible;
-
-    font-size: clamp(23px, 7vw, 29px);
-    line-height: 1.08;
-    letter-spacing: -0.025em;
-
-    white-space: normal;
-    overflow-wrap: anywhere;
-    word-break: normal;
-
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
   }
 
-  /* Marca, modelo e código */
-
-  .produto-identificacao {
-    margin-top: 0;
-    font-size: 13px;
-    line-height: 1.45;
-  }
-
-  .codigo-produto {
-    margin: 12px 0 0;
-    font-size: 9px;
-  }
-
-  /* Destaques em grade, sem cortar o último */
-
-  .destaques {
+  .lista-produtos {
+    flex: none;
     width: 100%;
-    min-height: 0;
-    margin-top: 20px;
-    padding: 0;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-
-    overflow: visible;
+    max-height: 340px;
   }
 
-  .destaque {
-    width: 100%;
-    min-width: 0;
-    height: 82px;
+  .produto {
     min-height: 82px;
-    padding: 8px 5px;
-  }
-
-  .destaque-icone {
-    width: 25px;
-    height: 25px;
-    flex-basis: 25px;
-  }
-
-  .destaque-icone svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .destaque-texto strong,
-  .destaque-valor {
-    font-size: 8px;
-    line-height: 1.12;
-  }
-
-  .destaque-texto small {
-    max-width: 100%;
-    font-size: 7px;
-  }
-
-  /* Botão próximo dos destaques */
-
-  .acoes {
-    width: 100%;
-    margin-top: 18px;
-    padding-top: 0;
-  }
-
-  .botao-preto {
-    width: 100%;
-    min-height: 46px;
-  }
-
-  /* Galeria */
-
-  .produto-media {
-    width: 100%;
+    grid-template-columns: 78px minmax(0, 1fr) 18px;
+    padding: 9px;
     gap: 10px;
   }
 
-  .produto-imagem-principal {
-    width: 100%;
-    height: 260px;
-    min-height: 260px;
-    max-height: 260px;
+  .produto-imagem {
+    width: 78px;
+    height: 60px;
   }
 
-  .produto-imagem-principal img {
-    width: 100%;
-    height: 100%;
-    max-height: 260px;
-    object-fit: contain;
+  .produto-informacoes h3 {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 1.25;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
+}
+/* ==================================================
+   BARRA LATERAL FIXA — APROVEITAMENTO DA TELA
+================================================== */
 
-  .galeria-miniaturas {
-    width: 100%;
-    padding: 2px 0 6px;
-    gap: 7px;
-    overflow-x: auto;
-  }
-
-  .miniatura {
-    width: 58px;
-    height: 48px;
-    flex: 0 0 58px;
-  }
-
-  /* Abas */
-
-  .tabs {
-    width: 100%;
+@media (min-width: 901px) {
+  .sidebar {
+    position: sticky;
     top: var(--topbar);
-    gap: 0;
-    justify-content: space-between;
+    align-self: start;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: calc(100vh - var(--topbar));
+    min-height: 0;
+    padding: 14px 18px;
+
+    overflow: hidden;
+    background: var(--claro);
+    border-right: 1px solid var(--borda);
   }
 
-  .tab {
-    flex: 1;
-    min-width: max-content;
-    padding: 0 12px;
-    font-size: 8px;
-    text-align: center;
+  .bloco-busca,
+  .painel-filtros,
+  .resultado-cabecalho {
+    flex: 0 0 auto;
+  }
+
+  .lista-produtos {
+    flex: 1 1 0;
+    width: 100%;
+    min-height: 220px;
+    max-height: none;
+    margin-bottom: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: #fff;
+
+    scrollbar-gutter: stable;
+    overscroll-behavior: contain;
+  }
+}
+
+/* No celular, a barra volta ao fluxo normal */
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  .lista-produtos {
+    flex: none;
+    max-height: 340px;
+  }
+}
+/* REMOVE A BARRA DE ROLAGEM DAS ABAS */
+
+.tabs {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* ==================================================
+   ENQUADRAMENTO DEFINITIVO DO CARD DE DIMENSÕES
+================================================== */
+
+.card-dimensoes {
+  width: 100%;
+  min-width: 0;
+  padding: 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.card-dimensoes .dimensoes-tecnicas {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  /* Frações descontam o gap da largura útil; percentuais somavam 100% + gap. */
+  grid-template-columns: minmax(145px, 42fr) minmax(0, 58fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.card-dimensoes .desenho-dimensoes {
+  width: 100%;
+  min-width: 0;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.card-dimensoes .diagrama-produto {
+  width: 180px !important;
+  max-width: 100% !important;
+  height: 180px !important;
+}
+
+.card-dimensoes .tabela-dimensoes-tecnicas {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+}
+
+.card-dimensoes .linha-dimensao-tecnica {
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(105px, 52%) minmax(0, 48%);
+}
+
+.card-dimensoes .linha-dimensao-tecnica strong,
+.card-dimensoes .linha-dimensao-tecnica span {
+  min-width: 0;
+  padding: 9px 10px;
+  overflow-wrap: anywhere;
+}
+
+.card-dimensoes .peso-produto {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 650px) {
+  .card-dimensoes {
+    padding: 14px;
+  }
+
+  .card-dimensoes .dimensoes-tecnicas {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card-dimensoes .desenho-dimensoes {
+    height: 165px;
+  }
+
+  .card-dimensoes .diagrama-produto {
+    width: 165px !important;
+    height: 165px !important;
+  }
+
+  .card-dimensoes .linha-dimensao-tecnica {
+    grid-template-columns: minmax(110px, 52%) minmax(0, 48%);
+  }
+}
+
+/* ==================================================
+   CONTATO — LAYOUT COMPACTO E PADRONIZADO
+================================================== */
+
+.secao-contato {
+  padding: 36px 4% 40px;
+}
+
+.contato-cabecalho {
+  margin-bottom: 22px;
+}
+
+.contato-cabecalho h2 {
+  margin: 10px 0 5px;
+}
+
+.contato-grade {
+  max-width: 1120px;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.contato-card {
+  min-width: 0;
+  min-height: 0;
+  padding: 18px;
+
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: start;
+  gap: 13px;
+}
+
+.contato-icone,
+.contato-icone.contato-foto {
+  width: 46px;
+  height: 46px;
+  flex-basis: 46px;
+}
+
+.contato-conteudo {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+  grid-template-rows: auto auto minmax(34px, auto) 38px;
+  align-content: start;
+}
+
+.contato-tipo {
+  min-height: 12px;
+  font-size: 8px;
+  line-height: 1.3;
+}
+
+.contato-card h3 {
+  margin: 4px 0 5px;
+  font-size: 17px;
+  line-height: 1.15;
+}
+
+.contato-card p {
+  min-height: 34px;
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.contato-botao {
+  width: 100%;
+  min-height: 38px;
+  margin-top: 10px;
+  padding: 9px 10px;
+  align-self: end;
+  font-size: 8px;
+}
+
+@media (max-width: 900px) {
+  .secao-contato {
+    padding: 34px 22px;
+  }
+
+  .contato-grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contato-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 650px) {
+  .secao-contato {
+    padding: 30px 15px;
+  }
+
+  .contato-grade {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .contato-card,
+  .contato-card:last-child {
+    grid-column: auto;
+    padding: 15px;
+  }
+
+  .contato-conteudo {
+    grid-template-rows: auto auto auto 40px;
+  }
+
+  .contato-card p {
+    min-height: 0;
+    margin-bottom: 4px;
+  }
+}
+/* ==================================================
+   TOP BAR — VERSÃO FINAL
+================================================== */
+
+:root {
+  --topbar: 68px;
+}
+
+header.topbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+
+  width: 100% !important;
+  height: var(--topbar) !important;
+  min-height: var(--topbar) !important;
+  padding: 0 clamp(18px, 2vw, 32px) !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 36px !important;
+
+  background: #181816 !important;
+  border-bottom: 2px solid #c9892b !important;
+  box-shadow: 0 6px 18px #00000030 !important;
+}
+
+header.topbar .topbar-logos {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+  flex-shrink: 0 !important;
+}
+
+header.topbar .logo-club {
+  width: 165px !important;
+  max-width: 165px !important;
+  height: 50px !important;
+  max-height: 50px !important;
+  object-fit: contain !important;
+}
+
+header.topbar .logo-info {
+  width: 82px !important;
+  max-width: 82px !important;
+  height: 42px !important;
+  max-height: 42px !important;
+  object-fit: contain !important;
+}
+
+header.topbar .separador-logo {
+  width: 1px !important;
+  height: 38px !important;
+  background: #ffffff4d !important;
+}
+
+header.topbar .menu-principal {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: clamp(26px, 3vw, 52px) !important;
+}
+
+header.topbar .menu-principal a,
+header.topbar .menu-principal .menu-link {
+  position: relative !important;
+  min-height: var(--topbar) !important;
+  padding: 0 2px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+
+  border: 0 !important;
+  background: transparent !important;
+  color: #fff !important;
+
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.04em !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+
+  cursor: pointer !important;
+}
+
+header.topbar .menu-principal a::after,
+header.topbar .menu-principal .menu-link::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 50% !important;
+  bottom: 13px !important;
+  left: 50% !important;
+
+  height: 2px !important;
+  border-radius: 10px !important;
+  background: #c9892b !important;
+
+  transition:
+    right 0.2s ease,
+    left 0.2s ease !important;
+}
+
+header.topbar .menu-principal a:hover,
+header.topbar .menu-principal .menu-link:hover {
+  color: #e7b76c !important;
+}
+
+header.topbar .menu-principal a:hover::after,
+header.topbar .menu-principal .menu-link:hover::after {
+  right: 0 !important;
+  left: 0 !important;
+}
+
+header.topbar .menu-mobile {
+  width: 42px !important;
+  height: 42px !important;
+  border: 1px solid #ffffff38 !important;
+  border-radius: 8px !important;
+  background: #ffffff0d !important;
+  color: #fff !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  :root {
+    --topbar: 66px;
+  }
+
+  header.topbar {
+    padding: 0 16px !important;
+    border-bottom-width: 1px !important;
+  }
+
+  header.topbar .topbar-logos {
+    gap: 14px !important;
+  }
+
+  header.topbar .logo-club {
+    width: 126px !important;
+    max-width: 126px !important;
+    height: 42px !important;
+  }
+
+  header.topbar .logo-info {
+    width: 68px !important;
+    max-width: 68px !important;
+    height: 34px !important;
+  }
+
+  header.topbar .separador-logo {
+    height: 32px !important;
+  }
+
+  header.topbar .menu-mobile {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  header.topbar .menu-principal {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: 0 !important;
+
+    display: none !important;
+    padding: 10px 18px 16px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+
+    background: #181816 !important;
+    border-top: 1px solid #ffffff1f !important;
+    box-shadow: 0 12px 22px #0005 !important;
+  }
+
+  header.topbar .menu-principal.aberto {
+    display: flex !important;
+  }
+
+  header.topbar .menu-principal a,
+  header.topbar .menu-principal .menu-link {
+    width: 100% !important;
+    min-height: 44px !important;
+    padding: 12px 2px !important;
+    border-bottom: 1px solid #ffffff14 !important;
+  }
+
+  header.topbar .menu-principal a::after,
+  header.topbar .menu-principal .menu-link::after {
+    display: none !important;
   }
 }

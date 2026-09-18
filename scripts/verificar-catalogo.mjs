@@ -14,7 +14,7 @@ const caminhoProdutosBase = path.join(
 
 const caminhoCatalogoAtual = path.join(
   pastaProjeto,
-  "produtos.json"
+  "produtos.preview.json"
 );
 
 const caminhoPendencias = path.join(

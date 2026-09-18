@@ -200,7 +200,14 @@ export async function extrairDocumentosOficiais($, html = "", fonteInterna = "",
 
       adicionar(
         urlDireta,
-        [manual?.description, manual?.englishDescription, manual?.fileName]
+        [
+          manual?.description,
+          manual?.englishDescription,
+          manual?.fileName,
+          ...(Array.isArray(manual?.languageList)
+            ? manual.languageList.map(idioma => idioma?.name || idioma?.code)
+            : [])
+        ]
           .filter(Boolean)
           .join(" ")
       );
@@ -232,7 +239,7 @@ export async function extrairDocumentosOficiais($, html = "", fonteInterna = "",
       ...classificarDocumento(candidato.rotulo, candidato.url),
       url: candidato.url.split("#")[0],
       fonte: "Samsung",
-      prioridadeIdioma: /bpt|portugues|portuguese/i.test(
+      prioridadeIdioma: /bpt|portugu[eê]s|portuguese|brazil|[_-]por(?:[_-]|\.)/i.test(
         `${candidato.rotulo} ${decodeURIComponent(candidato.url)}`
       ) ? 0 : 1
     }))

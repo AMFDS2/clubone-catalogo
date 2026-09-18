@@ -1,13 +1,391 @@
 {
-  "dataVerificacao": "2026-09-16T20:32:16.562Z",
+  "dataVerificacao": "2026-09-18T14:24:47.622Z",
   "resumo": {
-    "produtosNaPlanilha": 61,
-    "produtosCadastrados": 1,
-    "produtosIncompletos": 0,
-    "produtosNovos": 60,
-    "totalPendencias": 60
+    "produtosNaPlanilha": 109,
+    "produtosCadastrados": 100,
+    "produtosIncompletos": 9,
+    "produtosNovos": 0,
+    "totalPendencias": 9
   },
   "cadastrados": [
+    {
+      "id": "01121wba089",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "ADE0002",
+      "produto": "ADEGA 12 GARRAFAS ACB12 PRE 127V",
+      "modelo": "01121WBA089",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "01362wba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "ADE0004",
+      "produto": "ADEGA 34 GARRAFAS WSF34 PRE 127V",
+      "modelo": "01362WBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "01107fba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "ADE0011",
+      "produto": "CERVEJEIRA 100L PAINEL DIGITAL EB100 PRE 127V",
+      "modelo": "01107FBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02107fba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "ADE0012",
+      "produto": "CERVEJEIRA 100L PAINEL DIGITAL C/ TORRE EB10C PRE 127V",
+      "modelo": "02107FBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "29909hbb189",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "COI0014",
+      "produto": "COIFA DE PAREDE TOUCH HOME PRO 90CM CE9HP CIN 127V",
+      "modelo": "29909HBB189",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "50807sba235",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0012",
+      "produto": "FORNO EMBUT 80L GAS EXPE OE8GH PRE 220V (CONVEC)",
+      "modelo": "50807SBA235",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "53801wba235",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0018",
+      "produto": "FORNO EMBUT 80L ELET PRO SERIES OE9XB PRE 220V (CO",
+      "modelo": "53801WBA235",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "66052kba285",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0025",
+      "produto": "FOG 5 BOCAS EXPE FE5AD CIN 220V (D.FOR/M.VID)",
+      "modelo": "66052KBA285",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "53807uba235",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0031",
+      "produto": "FORNO EMBUT 80L ELET EXPE OE8EF PRE 220V",
+      "modelo": "53807UBA235",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "23051gba035",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0052",
+      "produto": "FOG 5 BOCAS EFFIC FE5GB PRE BIVOLT (M.VID)",
+      "modelo": "23051GBA035",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "33059cbb035",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0054",
+      "produto": "COOKTOP 5 BOCAS GAS KE5GT PRE BIVOLT (TRIPLACHAMA)",
+      "modelo": "33059CBB035",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "53807dbb235",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0057",
+      "produto": "FORNO EMBUT 80L ELET EXPE OE8EA PRE 220V",
+      "modelo": "53807DBB235",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "23052gba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0069",
+      "produto": "FOG 5 BOCAS EXPE FE5DB PRE 127V (D.FOR/M.VID)",
+      "modelo": "23052GBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "04182fba006",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FRE0010",
+      "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19T BRA BIVOLT",
+      "modelo": "04182FBA006",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "06503fba006",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FRE0011",
+      "produto": "FREEZER HORIZONT INV 1 POR 513L HI550T BRA BIVOLT",
+      "modelo": "06503FBA006",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "03121fba006",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FRE0012",
+      "produto": "FREEZER HORIZONT CYCLE 1 PORTA 197L HB200 BRA BIVOLT",
+      "modelo": "03121FBA006",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "01051rba106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0011",
+      "produto": "FRIGOBAR 47L EM50 BRA 127V",
+      "modelo": "01051RBA106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "01091rba106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0013",
+      "produto": "FRIGOBAR 90L EM90 BRA 127V",
+      "modelo": "01091RBA106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "01092rba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0018",
+      "produto": "FRIGOBAR 90L EM90B PRE 127V",
+      "modelo": "01092RBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "01121rba106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0022",
+      "produto": "FRIGOBAR 122L EM120 BRA 127V",
+      "modelo": "01121RBA106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02623fba130",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0029",
+      "produto": "GELADEIRA FF INV MLTDOOR 590L IM8S CIN 127V",
+      "modelo": "02623FBA130",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02500fba130",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0066",
+      "produto": "GELADEIRA FF INV MLTDOOR 480L IM7S CIN 127V",
+      "modelo": "02500FBA130",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02501fba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0067",
+      "produto": "GELADEIRA FF INV MLTDOOR 480L IM7B PRE 127V",
+      "modelo": "02501FBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "04180fba106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0069",
+      "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19 BRA 127V",
+      "modelo": "04180FBA106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02481fba030",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0073",
+      "produto": "GELADEIRA FF INV 480L DUPLEX IT70S CIN BIVOLT",
+      "modelo": "02481FBA030",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02327fba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0079",
+      "produto": "GELADEIRA FF INV 322L INVERSE IB42G PRE 127V",
+      "modelo": "02327FBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02503fba106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0081",
+      "produto": "GELADEIRA FF 480L DUPLEX TF71 BRA 127V",
+      "modelo": "02503FBA106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "01572rb1135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0087",
+      "produto": "GELADEIRA FF INV SIDEBYSIDE 526L ES5GB PRE 127V",
+      "modelo": "01572RB1135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02545fba130",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0096",
+      "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8WS CIN 127V",
+      "modelo": "02545FBA130",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "01432rba088",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0114",
+      "produto": "GELADEIRA FF INV SIDEBYSIDE 431L ES40S CIN BIVOLT",
+      "modelo": "01432RBA088",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "24607lba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAL0004",
+      "produto": "LAVA LOUCAS 14 SERVICOS PRO SERIES LP14V PRE 127V",
+      "modelo": "24607LBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "24601lbb189",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAL0009",
+      "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LP14X CIN 127V",
+      "modelo": "24601LBB189",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "240601lbc189",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAL0010",
+      "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LS14X CIN 127V",
+      "modelo": "240601LBC189",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "24601tbc135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAL0016",
+      "produto": "LAVA LOUCAS 14 SERVICOS LL14P PRE 127V",
+      "modelo": "24601TBC135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "2115cdbb106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0063",
+      "produto": "MAQ LAV TL 14,5KG LEE15 BRA 127V (CESTINOX) (B)",
+      "modelo": "2115CDBB106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "10347pba106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "MIC0001",
+      "produto": "MICRO-ONDAS 36L EFFICIENT ME36B BRA 127V",
+      "modelo": "10347PBA106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "10347pba186",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "MIC0004",
+      "produto": "MICRO-ONDAS 36L EFFICIENT ME36S PRA 127V",
+      "modelo": "10347PBA186",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "10237pba186",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "MIC0005",
+      "produto": "MICRO-ONDAS 23L EFFICIENT ME23S PRA 127V",
+      "modelo": "10237PBA186",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "54341pba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "MIC0007",
+      "produto": "MICRO-ONDAS EMBUTIR 34L PRO SERIES MV43T PRE 127V",
+      "modelo": "54341PBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "10237pba106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "MIC0008",
+      "produto": "MICRO-ONDAS 23L EFFICIENT ME23B BRA 127V",
+      "modelo": "10237PBA106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "54341hbb189",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "MIC0016",
+      "produto": "MICRO-ONDAS EMBUTIR 34L HOME PRO ME3HP CIN 127V",
+      "modelo": "54341HBB189",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "10237pba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "MIC0025",
+      "produto": "MICRO-ONDAS 23L EFFICIENT ME23P PRE 127V",
+      "modelo": "10237PBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
     {
       "id": "un98du9000gxzd",
       "fabricante": "SAMSUNG (NAC)",
@@ -16,10 +394,7 @@
       "produto": "TV LED 98 DU9000 4K SMART (120HZ/GAMEHUB/WIF/TIZE",
       "modelo": "UN98DU9000GXZD",
       "statusPesquisa": "CADASTRADO"
-    }
-  ],
-  "incompletos": [],
-  "novos": [
+    },
     {
       "id": "un32h5000fgxzd",
       "fabricante": "SAMSUNG (NAC)",
@@ -27,10 +402,7 @@
       "codigo": "TVV0648",
       "produto": "TV LED 32 H500F HD SMART (WIF/TIZEN)",
       "modelo": "UN32H5000FGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un43f6000fgxzd",
@@ -39,10 +411,7 @@
       "codigo": "TVV0649",
       "produto": "TV LED 43 F6000F FHD SMART (WIF/TIZEN)",
       "modelo": "UN43F6000FGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un43u8600fgxzd",
@@ -51,10 +420,7 @@
       "codigo": "TVV0650",
       "produto": "TV LED 43 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
       "modelo": "UN43U8600FGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un50u8600fgxzd",
@@ -63,10 +429,7 @@
       "codigo": "TVV0651",
       "produto": "TV LED 50 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
       "modelo": "UN50U8600FGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un55u8600fgxzd",
@@ -75,10 +438,7 @@
       "codigo": "TVV0652",
       "produto": "TV LED 55 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
       "modelo": "UN55U8600FGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un65u8600fgxzd",
@@ -87,10 +447,7 @@
       "codigo": "TVV0653",
       "produto": "TV LED 65 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
       "modelo": "UN65U8600FGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un75u8600fgxzd",
@@ -99,10 +456,7 @@
       "codigo": "TVV0654",
       "produto": "TV LED 75 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
       "modelo": "UN75U8600FGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un85u8600fgxzd",
@@ -111,10 +465,7 @@
       "codigo": "TVV0655",
       "produto": "TV LED 85 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
       "modelo": "UN85U8600FGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn55q7faagxzd",
@@ -123,10 +474,7 @@
       "codigo": "TVV0656",
       "produto": "TV QLED 55 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
       "modelo": "QN55Q7FAAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn65q7faagxzd",
@@ -135,10 +483,7 @@
       "codigo": "TVV0657",
       "produto": "TV QLED 65 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
       "modelo": "QN65Q7FAAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn75q7faagxzd",
@@ -147,10 +492,7 @@
       "codigo": "TVV0658",
       "produto": "TV QLED 75 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZE",
       "modelo": "QN75Q7FAAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn55ls03fagxzd",
@@ -159,10 +501,7 @@
       "codigo": "TVV0665",
       "produto": "TV QLED 55 THE FRAME LS03F 4K SMART (MODOARTE/TIZE",
       "modelo": "QN55LS03FAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn50ls03fagxzd",
@@ -171,10 +510,7 @@
       "codigo": "TVV0670",
       "produto": "TV QLED 50 THE FRAME LS03F 4K SMART (MODOARTE/TIZE",
       "modelo": "QN50LS03FAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn55qn85fagxzd",
@@ -183,10 +519,7 @@
       "codigo": "TVV0674",
       "produto": "TV NEO QLED 55 QN85F 4K SMART (120HZ/QHDR/TIZEN)",
       "modelo": "QN55QN85FAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn65qn85fagxzd",
@@ -195,10 +528,7 @@
       "codigo": "TVV0675",
       "produto": "TV NEO QLED 65 QN85F 4K SMART (120HZ/QHDR/TIZEN)",
       "modelo": "QN65QN85FAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn55s90fagxzd",
@@ -207,10 +537,7 @@
       "codigo": "TVV0676",
       "produto": "TV OLED 55 S90F 4K SMART (120HZ/QHDR/TIZEN)",
       "modelo": "QN55S90FAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn43qn90fagxzd",
@@ -219,10 +546,7 @@
       "codigo": "TVV0677",
       "produto": "TV NEO QLED GAMING 43 QN90F 4K SMART (144HZ/QHDR/T",
       "modelo": "QN43QN90FAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn43q5faagxzd",
@@ -231,10 +555,7 @@
       "codigo": "TVV0692",
       "produto": "TV QLED 43 Q5F FHD SMART (GAMEHUB/60HZ/QHDR/TIZEN",
       "modelo": "QN43Q5FAAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn50q7faagxzd",
@@ -243,10 +564,7 @@
       "codigo": "TVV0693",
       "produto": "TV QLED 50 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
       "modelo": "QN50Q7FAAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn85q7faagxzd",
@@ -255,10 +573,7 @@
       "codigo": "TVV0694",
       "produto": "TV QLED 85 Q7F 4K SMART (GAMEHUB/60HZ/QHDR/TIZEN",
       "modelo": "QN85Q7FAAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn77s90fagxzd",
@@ -267,10 +582,7 @@
       "codigo": "TVV0698",
       "produto": "TV OLED 77 S90F 4K SMART (GAMEHUB/WIF/TIZEN)",
       "modelo": "QN77S90FAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un70u8000hgxzd",
@@ -279,10 +591,7 @@
       "codigo": "TVV0705",
       "produto": "TV LED 70 U8000H 4K SMART (GAMEHUB/WIF/TIZEN)",
       "modelo": "UN70U8000HGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un98u9500hgxzd",
@@ -291,10 +600,7 @@
       "codigo": "TVV0706",
       "produto": "TV LED 98 U9500H 4K SMART (GAMEHUB/WIF/TIZEN)",
       "modelo": "UN98U9500HGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un50m75hagxzd",
@@ -303,10 +609,7 @@
       "codigo": "TVV0707",
       "produto": "TV MINI LED 50 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
       "modelo": "UN50M75HAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un55m75hagxzd",
@@ -315,10 +618,7 @@
       "codigo": "TVV0708",
       "produto": "TV MINI LED 55 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
       "modelo": "UN55M75HAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un65m75hagxzd",
@@ -327,10 +627,7 @@
       "codigo": "TVV0709",
       "produto": "TV MINI LED 65 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
       "modelo": "UN65M75HAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "un75m75hagxzd",
@@ -339,10 +636,7 @@
       "codigo": "TVV0710",
       "produto": "TV MINI LED 75 M75H 4K SMART (60HZ/GAMEHUB/HDR/WIF/TIZEN)",
       "modelo": "UN75M75HAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn55qn70hagxzd",
@@ -351,10 +645,7 @@
       "codigo": "TVV0713",
       "produto": "TV NEO QLED 55 QN70H 4K SMART (120HZ/GAMEHUB/NQHDR/WIFI/TIZEN)",
       "modelo": "QN55QN70HAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn75qn70hagxzd",
@@ -363,10 +654,7 @@
       "codigo": "TVV0715",
       "produto": "TV NEO QLED 75 QN70H 4K SMART (120HZ/GAMEHUB/NQHDR/WIFI/TIZEN)",
       "modelo": "QN75QN70HAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "qn85qn70hagxzd",
@@ -375,10 +663,7 @@
       "codigo": "TVV0716",
       "produto": "TV NEO QLED 85 QN70H 4K SMART (120HZ/GAMEHUB/NQHDR/WIFI/TIZEN)",
       "modelo": "QN85QN70HAGXZD",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
+      "statusPesquisa": "CADASTRADO"
     },
     {
       "id": "na30n6555tg/az",
@@ -387,9 +672,316 @@
       "codigo": "FOG0060",
       "produto": "COOKTOP 5 BOCAS C/ WI-FI PRE 127V (DUPLA/CHAMA)",
       "modelo": "NA30N6555TG/AZ",
-      "statusPesquisa": "NOVO",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "nsg6dg8300sraz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0063",
+      "produto": "FOG 5 BOCAS SERIE 3 AIR FRY C/ WI-FI PRE 127V",
+      "modelo": "NSG6DG8300SRAZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "nsg6dg8700sraz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0064",
+      "produto": "FOG 5 BOCAS SERIE 7 AIR FRY C/ WI-FI PRE 127V",
+      "modelo": "NSG6DG8700SRAZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "rs60t5200s9/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0038",
+      "produto": "GELADEIRA FF INV SIDEBYSIDE 602L RS60 CIN 127V",
+      "modelo": "RS60T5200S9/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "rt38dg6120s9fz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0048",
+      "produto": "GELADEIRA FF INV 391L DUPLEX RT38 CIN BIV",
+      "modelo": "RT38DG6120S9FZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "rt42dg6630s9fz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0050",
+      "produto": "GELADEIRA FF INV 411L DUPLEX RT42 CIN BIV",
+      "modelo": "RT42DG6630S9FZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "rt42dg6630b1fz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0051",
+      "produto": "GELADEIRA FF INV 411L DUPLEX RT42 PRE BIV",
+      "modelo": "RT42DG6630B1FZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "rf29db9950qdaz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0064",
+      "produto": "GELADEIRA FF INV SMART FRNDOOR BESPOKE 809L RF29 B",
+      "modelo": "RF29DB9950QDAZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "rs58t5561b1/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0092",
+      "produto": "GELADEIRA FF INV SMART SIDEBYSIDE FHUB 585L RS58 PRE 127V",
+      "modelo": "RS58T5561B1/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "rm90f66c1caz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0109",
+      "produto": "GELADEIRA FF INV SMART FRNDOOR FHUB 658L RM90F PRE 127V",
+      "modelo": "RM90F66C1CAZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "rf70h25hetaz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0116",
+      "produto": "GELADEIRA FF INV SMART FRNDOOR RF70H 664L 127V",
+      "modelo": "RF70H25HETAZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "dw60c7050fs/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAL0002",
+      "produto": "LAVA LOUCAS 14 SERVICOS DW60 CIN 127V",
+      "modelo": "DW60C7050FS/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "dw50c6070fs/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAL0005",
+      "produto": "LAVA LOUCAS 10 SERVICOS DW50 CIN 127V",
+      "modelo": "DW50C6070FS/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "dw60c7050fg/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAL0006",
+      "produto": "LAVA LOUCAS 14 SERVICOS DW60 PRE 127V",
+      "modelo": "DW60C7050FG/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "dw50c6070fg/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAL0007",
+      "produto": "LAVA LOUCAS 10 SERVICOS DW50 PRE 127V",
+      "modelo": "DW50C6070FG/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "dv12b6800ew/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0009",
+      "produto": "SECADORA 12KG DV12B BRA 220V",
+      "modelo": "DV12B6800EW/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "wd11a4453bw/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0015",
+      "produto": "LAVA E SECA INV 11KG ECOBUB WD11A BRA 127V",
+      "modelo": "WD11A4453BW/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "wd11a4453bx/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0016",
+      "produto": "LAVA E SECA INV 11KG ECOBUB WD11A CIN 127V",
+      "modelo": "WD11A4453BX/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "wd18t6500gv/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0019",
+      "produto": "LAVA E SECA INV SMART 18KG WD18T PRE 127V",
+      "modelo": "WD18T6500GV/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "wh17dbh570gvaz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0026",
+      "produto": "LAVA E SECA INV SMART 17/20KG A GAS BESPOKE AI WH17D PRE 127V (TORRE)",
+      "modelo": "WH17DBH570GVAZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "ww11t4040be/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0028",
+      "produto": "MAQ LAV FL 11KG DIGITAL INV WW11T BRA 127V",
+      "modelo": "WW11T4040BE/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "ww11t4040bx/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0029",
+      "produto": "MAQ LAV FL 11KG DIGITAL INV WW11T PRE 127V",
+      "modelo": "WW11T4040BX/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "wd20db8995bzaz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0043",
+      "produto": "LAVA E SECA INV SMART TELA 7'' BESPOKE 20KG WD20D",
+      "modelo": "WD20DB8995BZAZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "wd13fg6b34bx/az",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0057",
+      "produto": "LAVA E SECA INV SMART 13KG WD13FG CIN 127V",
+      "modelo": "WD13FG6B34BX/AZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "wf90f20adsbz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0058",
+      "produto": "MAQ LAV FL 20KG SMART TELA 7'' BESPOKE AI WF90F PRE 220V",
+      "modelo": "WF90F20ADSBZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "dv90f20cdsbz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0059",
+      "produto": "SECADORA 20KG SMART TELA 7'' DV90F BESPOKE AI CIN 220V",
+      "modelo": "DV90F20CDSBZ",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "wd13fg6b34beaz",
+      "fabricante": "SAMSUNG (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0060",
+      "produto": "LAVA E SECA INV SMART 13KG WD13FG BRA 127V",
+      "modelo": "WD13FG6B34BEAZ",
+      "statusPesquisa": "CADASTRADO"
+    }
+  ],
+  "incompletos": [
+    {
+      "id": "29909pbi135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "COI0003",
+      "produto": "COIFA DE ILHA TOUCH PRO SERIES 90CM 90CIV PRE 127V",
+      "modelo": "29909PBI135",
+      "statusPesquisa": "REVISAR",
       "motivos": [
-        "Modelo ainda não existe no produtos.json"
+        "Imagem principal ausente",
+        "Dimensões ausentes"
+      ]
+    },
+    {
+      "id": "29709dba189",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "COI0018",
+      "produto": "COIFA DE PAREDE TOUCH 70CM 70CS CIN 127V",
+      "modelo": "29709DBA189",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Imagem principal ausente",
+        "Dimensões ausentes"
+      ]
+    },
+    {
+      "id": "02543fba130",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0032",
+      "produto": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
+      "modelo": "02543FBA130",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Dimensões ausentes"
+      ]
+    },
+    {
+      "id": "02544fba130",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0033",
+      "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
+      "modelo": "02544FBA130",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Dimensões ausentes"
+      ]
+    },
+    {
+      "id": "02547fba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0034",
+      "produto": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
+      "modelo": "02547FBA135",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Dimensões ausentes"
+      ]
+    },
+    {
+      "id": "10347dba185",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "MIC0003",
+      "produto": "MICRO-ONDAS EMBUTIR 34L EXPERIENCE ME3BC CIN 220V",
+      "modelo": "10347DBA185",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Dimensões ausentes"
       ]
     },
     {
@@ -399,9 +991,9 @@
       "codigo": "FOG0061",
       "produto": "FORNO EMBUT 76L ELE AIR FRY C/ WI-FI PRE 220V",
       "modelo": "NV7B4420XAK/BZ",
-      "statusPesquisa": "NOVO",
+      "statusPesquisa": "REVISAR",
       "motivos": [
-        "Modelo ainda não existe no produtos.json"
+        "Dimensões ausentes"
       ]
     },
     {
@@ -411,81 +1003,9 @@
       "codigo": "FOG0062",
       "produto": "FORNO EMBUT 76L ELE AIR FRY C/ WI-FI PRE 220V (D.FOR)",
       "modelo": "NV7B4545SAK/BZ",
-      "statusPesquisa": "NOVO",
+      "statusPesquisa": "REVISAR",
       "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "nsg6dg8300sraz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "FOG0063",
-      "produto": "FOG 5 BOCAS SERIE 3 AIR FRY C/ WI-FI PRE 127V",
-      "modelo": "NSG6DG8300SRAZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "nsg6dg8700sraz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "FOG0064",
-      "produto": "FOG 5 BOCAS SERIE 7 AIR FRY C/ WI-FI PRE 127V",
-      "modelo": "NSG6DG8700SRAZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "rs60t5200s9/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "GEL0038",
-      "produto": "GELADEIRA FF INV SIDEBYSIDE 602L RS60 CIN 127V",
-      "modelo": "RS60T5200S9/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "rt38dg6120s9fz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "GEL0048",
-      "produto": "GELADEIRA FF INV 391L DUPLEX RT38 CIN BIV",
-      "modelo": "RT38DG6120S9FZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "rt42dg6630s9fz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "GEL0050",
-      "produto": "GELADEIRA FF INV 411L DUPLEX RT42 CIN BIV",
-      "modelo": "RT42DG6630S9FZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "rt42dg6630b1fz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "GEL0051",
-      "produto": "GELADEIRA FF INV 411L DUPLEX RT42 PRE BIV",
-      "modelo": "RT42DG6630B1FZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
+        "Dimensões ausentes"
       ]
     },
     {
@@ -495,250 +1015,11 @@
       "codigo": "GEL0054",
       "produto": "GELADEIRA FF INV SMART FRNDOOR FHUB 707L RF27 127",
       "modelo": "RF27CG5910B1AZ",
-      "statusPesquisa": "NOVO",
+      "statusPesquisa": "REVISAR",
       "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "rf29db9950qdaz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "GEL0064",
-      "produto": "GELADEIRA FF INV SMART FRNDOOR BESPOKE 809L RF29 B",
-      "modelo": "RF29DB9950QDAZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "rs58t5561b1/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "GEL0092",
-      "produto": "GELADEIRA FF INV SMART SIDEBYSIDE FHUB 585L RS58 PRE 127V",
-      "modelo": "RS58T5561B1/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "rm90f66c1caz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "GEL0109",
-      "produto": "GELADEIRA FF INV SMART FRNDOOR FHUB 658L RM90F PRE 127V",
-      "modelo": "RM90F66C1CAZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "rf70h25hetaz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "GEL0116",
-      "produto": "GELADEIRA FF INV SMART FRNDOOR RF70H 664L 127V",
-      "modelo": "RF70H25HETAZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "dw60c7050fs/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAL0002",
-      "produto": "LAVA LOUCAS 14 SERVICOS DW60 CIN 127V",
-      "modelo": "DW60C7050FS/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "dw50c6070fs/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAL0005",
-      "produto": "LAVA LOUCAS 10 SERVICOS DW50 CIN 127V",
-      "modelo": "DW50C6070FS/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "dw60c7050fg/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAL0006",
-      "produto": "LAVA LOUCAS 14 SERVICOS DW60 PRE 127V",
-      "modelo": "DW60C7050FG/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "dw50c6070fg/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAL0007",
-      "produto": "LAVA LOUCAS 10 SERVICOS DW50 PRE 127V",
-      "modelo": "DW50C6070FG/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "dv12b6800ew/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0009",
-      "produto": "SECADORA 12KG DV12B BRA 220V",
-      "modelo": "DV12B6800EW/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "wd11a4453bw/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0015",
-      "produto": "LAVA E SECA INV 11KG ECOBUB WD11A BRA 127V",
-      "modelo": "WD11A4453BW/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "wd11a4453bx/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0016",
-      "produto": "LAVA E SECA INV 11KG ECOBUB WD11A CIN 127V",
-      "modelo": "WD11A4453BX/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "wd18t6500gv/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0019",
-      "produto": "LAVA E SECA INV SMART 18KG WD18T PRE 127V",
-      "modelo": "WD18T6500GV/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "wh17dbh570gvaz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0026",
-      "produto": "LAVA E SECA INV SMART 17/20KG A GAS BESPOKE AI WH17D PRE 127V (TORRE)",
-      "modelo": "WH17DBH570GVAZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "ww11t4040be/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0028",
-      "produto": "MAQ LAV FL 11KG DIGITAL INV WW11T BRA 127V",
-      "modelo": "WW11T4040BE/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "ww11t4040bx/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0029",
-      "produto": "MAQ LAV FL 11KG DIGITAL INV WW11T PRE 127V",
-      "modelo": "WW11T4040BX/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "wd20db8995bzaz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0043",
-      "produto": "LAVA E SECA INV SMART TELA 7'' BESPOKE 20KG WD20D",
-      "modelo": "WD20DB8995BZAZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "wd13fg6b34bx/az",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0057",
-      "produto": "LAVA E SECA INV SMART 13KG WD13FG CIN 127V",
-      "modelo": "WD13FG6B34BX/AZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "wf90f20adsbz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0058",
-      "produto": "MAQ LAV FL 20KG SMART TELA 7'' BESPOKE AI WF90F PRE 220V",
-      "modelo": "WF90F20ADSBZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "dv90f20cdsbz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0059",
-      "produto": "SECADORA 20KG SMART TELA 7'' DV90F BESPOKE AI CIN 220V",
-      "modelo": "DV90F20CDSBZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
-      ]
-    },
-    {
-      "id": "wd13fg6b34beaz",
-      "fabricante": "SAMSUNG (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "LAV0060",
-      "produto": "LAVA E SECA INV SMART 13KG WD13FG BRA 127V",
-      "modelo": "WD13FG6B34BEAZ",
-      "statusPesquisa": "NOVO",
-      "motivos": [
-        "Modelo ainda não existe no produtos.json"
+        "Dimensões ausentes"
       ]
     }
-  ]
+  ],
+  "novos": []
 }

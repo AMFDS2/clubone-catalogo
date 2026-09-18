@@ -406,32 +406,6 @@
     "dataConsulta": "2026-09-16T21:25:05.476Z"
   },
   {
-    "modelo": "NV7B4420XAK/BZ",
-    "codigo": "FOG0061",
-    "produto": "FORNO EMBUT 76L ELE AIR FRY C/ WI-FI PRE 220V",
-    "fabricante": "SAMSUNG (NAC)",
-    "statusFonte": "LOCALIZADO",
-    "fonteInterna": "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-simple-steam-4series-dual-cook-simple-steam-nv7b4420xak-bz/",
-    "alternativas": [
-      "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-simple-steam-4series-dual-cook-simple-steam-nv7b4420xak-bz/",
-      "https://www.samsung.com/br/support/model/NV7B4420XAK/BZ/"
-    ],
-    "dataConsulta": "2026-09-16T21:25:05.502Z"
-  },
-  {
-    "modelo": "NV7B4545SAK/BZ",
-    "codigo": "FOG0062",
-    "produto": "FORNO EMBUT 76L ELE AIR FRY C/ WI-FI PRE 220V (D.FOR)",
-    "fabricante": "SAMSUNG (NAC)",
-    "statusFonte": "LOCALIZADO",
-    "fonteInterna": "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-flex-simple-steam-4series-dual-cook-flex-simple-steam-nv7b4545sak-bz/",
-    "alternativas": [
-      "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-flex-simple-steam-4series-dual-cook-flex-simple-steam-nv7b4545sak-bz/",
-      "https://www.samsung.com/br/support/model/NV7B4545SAK/BZ/"
-    ],
-    "dataConsulta": "2026-09-16T21:25:05.531Z"
-  },
-  {
     "modelo": "NSG6DG8300SRAZ",
     "codigo": "FOG0063",
     "produto": "FOG 5 BOCAS SERIE 3 AIR FRY C/ WI-FI PRE 127V",
@@ -508,19 +482,6 @@
       "https://www.samsung.com/br/support/model/RT42DG6630B1FZ/"
     ],
     "dataConsulta": "2026-09-16T21:25:05.701Z"
-  },
-  {
-    "modelo": "RF27CG5910B1AZ",
-    "codigo": "GEL0054",
-    "produto": "GELADEIRA FF INV SMART FRNDOOR FHUB 707L RF27 127",
-    "fabricante": "SAMSUNG (NAC)",
-    "statusFonte": "LOCALIZADO",
-    "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rf6500cc-3door-french-door-large-capacity-with-spacemax-technology-564l-black-rf27cg5910b1az/",
-    "alternativas": [
-      "https://www.samsung.com/br/refrigerators/french-door/rf6500cc-3door-french-door-large-capacity-with-spacemax-technology-564l-black-rf27cg5910b1az/",
-      "https://www.samsung.com/br/support/model/RF27CG5910B1AZ/"
-    ],
-    "dataConsulta": "2026-09-16T21:25:05.726Z"
   },
   {
     "modelo": "RF29DB9950QDAZ",
@@ -782,5 +743,721 @@
       "https://www.samsung.com/br/support/model/WD13FG6B34BEAZ/"
     ],
     "dataConsulta": "2026-09-16T21:25:06.292Z"
+  },
+  {
+    "modelo": "01121WBA089",
+    "codigo": "ADE0002",
+    "produto": "ADEGA 12 GARRAFAS ACB12 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-12-garrafas-uma-porta-acabamento-em-aluminio--acb12-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-8-garrafas-uma-porta-acabamento-em-aluminio--acb08-/p",
+      "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-12-garrafas-uma-porta-acabamento-em-aluminio--acb12-/p"
+    ],
+    "dataConsulta": "2026-09-18T12:06:32.647Z"
+  },
+  {
+    "modelo": "33059CBB035",
+    "codigo": "FOG0054",
+    "produto": "COOKTOP 5 BOCAS GAS KE5GT PRE BIVOLT (TRIPLACHAMA)",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cooktop-5-bocas-electrolux-gas-efficient-mesa-de-vidro--tripla-chama-e-grade-de-aco-fosco--ke5gt-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cooktop-5-bocas-electrolux-gas-efficient-mesa-de-vidro--tripla-chama-e-grade-de-aco-fosco--ke5gt-/p"
+    ],
+    "dataConsulta": "2026-09-18T12:06:33.417Z"
+  },
+  {
+    "modelo": "53807DBB235",
+    "codigo": "FOG0057",
+    "produto": "FORNO EMBUT 80L ELET EXPE OE8EA PRE 220V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/forno-de-embutir-eletrico-80l-electrolux-experience--oe8ea-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-80l-electrolux-experience--oe8ea-/p"
+    ],
+    "dataConsulta": "2026-09-18T12:06:33.835Z"
+  },
+  {
+    "modelo": "01432RBA088",
+    "codigo": "GEL0114",
+    "produto": "GELADEIRA FF INV SIDEBYSIDE 431L ES40S CIN BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-431l-autosense-bivolt-side-by-side-cor-inox-look--es40s-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-electrolux-80l-expert-com-vaporbake-e-conectividade--oe8ew-/p",
+      "https://loja.electrolux.com.br/fe5ig-fe5ifogao-5-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe5ig-g-fogao-elx-5q-1c-cinza-bv/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-efficient-branco-com-mesa-inox--perfectcook-e-vaporbake---fe4iw-/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-branco-efficient-mesa-inox--perfectcook-e-vaporbake---fe5iw-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe4ig-/p",
+      "https://loja.electrolux.com.br/fogao-de-embutir-4-bocas-electrolux-preto-experience-mesa-vidro-grill-e-vaporbake--fe4ep-/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-cinza-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe5ib-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-prata-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe4is-/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-80l-electrolux-expert-funcao-pizza-vaporbake-e-wi-fi-cinza-oe8ep/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-electrolux-80l-home-pro--oe9xs-/p",
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-431l-autosense-bivolt-side-by-side-cor-inox-look--es40s-/p"
+    ],
+    "dataConsulta": "2026-09-18T12:06:34.489Z"
+  },
+  {
+    "modelo": "24601TBC135",
+    "codigo": "LAL0016",
+    "produto": "LAVA LOUCAS 14 SERVICOS LL14P PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/lava-loucas-electrolux-14-servicos-preta-experience-com-funcao-higienizar-compras--ll14p-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/lava-loucas-electrolux-14-servicos-preta-experience-com-funcao-higienizar-compras--ll14p-/p"
+    ],
+    "dataConsulta": "2026-09-18T12:06:34.837Z"
+  },
+  {
+    "modelo": "2115CDBB106",
+    "codigo": "LAV0063",
+    "produto": "MAQ LAV TL 14,5KG LEE15 BRA 127V (CESTINOX) (B)",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/maquina-de-lavar-electrolux-14-5-kg-branca-efficient-cesto-inox-e-jet---clean-lee15/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/maquina-de-lavar-electrolux-14-5-kg-branca-efficient-cesto-inox-e-jet---clean-lee15/p",
+      "https://loja.electrolux.com.br/maquina-de-lavar-electrolux-18-kg-branca-efficient-cesto-inox-e-jet---clean-lee18/p"
+    ],
+    "dataConsulta": "2026-09-18T12:06:35.377Z"
+  },
+  {
+    "modelo": "01362WBA135",
+    "codigo": "ADE0004",
+    "produto": "ADEGA 34 GARRAFAS WSF34 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-34-garrafas-uma-porta-com-painel-digital--wsf34-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-34-garrafas-uma-porta-com-painel-digital--wsf34-/p",
+      "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-24-garrafas-uma-porta-com-painel-digital--wsf24-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:35.495Z"
+  },
+  {
+    "modelo": "01107FBA135",
+    "codigo": "ADE0011",
+    "produto": "CERVEJEIRA 100L PAINEL DIGITAL EB100 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cervejeira-home-bar-electrolux-frost-free-100l-porta-de-vidro-preta--eb100/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cervejeira-home-bar-electrolux-frost-free-100l-porta-de-vidro-preta--eb100/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:36.341Z"
+  },
+  {
+    "modelo": "02107FBA135",
+    "codigo": "ADE0012",
+    "produto": "CERVEJEIRA 100L PAINEL DIGITAL C/ TORRE EB10C PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cervejeira-home-bar-electrolux-frost-free-100l-com-torre-de-chopp-e-porta-de-vidro-preta--eb10c-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cervejeira-home-bar-electrolux-frost-free-100l-com-torre-de-chopp-e-porta-de-vidro-preta--eb10c-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:37.050Z"
+  },
+  {
+    "modelo": "29909HBB189",
+    "codigo": "COI0014",
+    "produto": "COIFA DE PAREDE TOUCH HOME PRO 90CM CE9HP CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/coifa-de-parede-electrolux-90cm-inox-home-pro-com-painel-frontal-de-vidro-espelhado-ce9hp/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/coifa-de-parede-electrolux-90cm-inox-home-pro-com-painel-frontal-de-vidro-espelhado-ce9hp/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:38.438Z"
+  },
+  {
+    "modelo": "50807SBA235",
+    "codigo": "FOG0012",
+    "produto": "FORNO EMBUT 80L GAS EXPE OE8GH PRE 220V (CONVEC)",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/forno-de-embutir-a-gas-80l-preto-com-perfectcook360-electrolux-oe8gh-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/forno-de-embutir-a-gas-80l-preto-com-perfectcook360-electrolux-oe8gh-/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-a-gas-80l-efficient-com-perfectcook360---micro-ondas-de-embutir-34l-experience-electrolux--oe8gh-me3bp-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:40.013Z"
+  },
+  {
+    "modelo": "53801WBA235",
+    "codigo": "FOG0018",
+    "produto": "FORNO EMBUT 80L ELET PRO SERIES OE9XB PRE 220V (CO",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/forno-de-embutir-eletrico-electrolux-80l-expert-pro-series-com-vaporcrisp-e-conectividade--oe9xb-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-electrolux-80l-expert-pro-series-com-vaporcrisp-e-conectividade--oe9xb-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:41.089Z"
+  },
+  {
+    "modelo": "66052KBA285",
+    "codigo": "FOG0025",
+    "produto": "FOG 5 BOCAS EXPE FE5AD CIN 220V (D.FOR/M.VID)",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-cinza-expert-funcao-air-fryer-2-fornos-grill-e-timer--fe5ad-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-cinza-expert-funcao-air-fryer-2-fornos-grill-e-timer--fe5ad-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:42.011Z"
+  },
+  {
+    "modelo": "53807UBA235",
+    "codigo": "FOG0031",
+    "produto": "FORNO EMBUT 80L ELET EXPE OE8EF PRE 220V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/forno-eletrico-de-embutir-80l-preto-com-foodsensor-electrolux--oe8ef-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/forno-eletrico-de-embutir-80l-preto-com-foodsensor-electrolux--oe8ef-/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-80l-experience-com-foodsensor---micro-ondas-de-embutir-34l-experience-electrolux--oe8ef-me3bp-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:42.767Z"
+  },
+  {
+    "modelo": "23051GBA035",
+    "codigo": "FOG0052",
+    "produto": "FOG 5 BOCAS EFFIC FE5GB PRE BIVOLT (M.VID)",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-preto-efficient-mesa-de-vidro--perfectcook-e-grades-de-ferro--fe5gb-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-preto-efficient-mesa-de-vidro--perfectcook-e-grades-de-ferro--fe5gb-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:43.517Z"
+  },
+  {
+    "modelo": "23052GBA135",
+    "codigo": "FOG0069",
+    "produto": "FOG 5 BOCAS EXPE FE5DB PRE 127V (D.FOR/M.VID)",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-preto-experience-mesa-vidro--2-fornos-e-perfectcook360--fe5db-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-preto-experience-mesa-vidro--2-fornos-e-perfectcook360--fe5db-/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-preto-experience-2-fornos-mesa-de-vidro-e-perfectcook360--fe5dp-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:44.823Z"
+  },
+  {
+    "modelo": "04182FBA006",
+    "codigo": "FRE0010",
+    "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19T BRA BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/freezer-vertical-electrolux-efficient-175l-smartbivolt-inverter-fei19t/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/freezer-vertical-electrolux-efficient-175l-smartbivolt-inverter-fei19t/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:45.787Z"
+  },
+  {
+    "modelo": "06503FBA006",
+    "codigo": "FRE0011",
+    "produto": "FREEZER HORIZONT INV 1 POR 513L HI550T BRA BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/freezer-horizontal-electrolux-513l-smartbivolt-hi550t/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/freezer-horizontal-electrolux-513l-smartbivolt-hi550t/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:46.771Z"
+  },
+  {
+    "modelo": "03121FBA006",
+    "codigo": "FRE0012",
+    "produto": "FREEZER HORIZONT CYCLE 1 PORTA 197L HB200 BRA BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/freezer-horizontal-electrolux-197l-inverter-bivolt-uma-porta-branco--hb200-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/freezer-horizontal-electrolux-197l-inverter-bivolt-uma-porta-branco--hb200-/p",
+      "https://loja.electrolux.com.br/cesto-organizador-para-freezer-horizontal-electrolux-hb150-hb200-e-hb250/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:47.525Z"
+  },
+  {
+    "modelo": "01051RBA106",
+    "codigo": "GEL0011",
+    "produto": "FRIGOBAR 47L EM50 BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/frigobar-electrolux-47l-efficient-com-controle-de-temperatura-cor-branca--em50-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/fogao-de-embutir-4-bocas-electrolux-preto-experience-mesa-vidro-e-vaporbake--fe4bb-/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-electrolux-80l-expert-com-vaporbake-e-conectividade--oe8ew-/p",
+      "https://loja.electrolux.com.br/fe5ig-fe5ifogao-5-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe5ig-g-fogao-elx-5q-1c-cinza-bv/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-efficient-branco-com-mesa-inox--perfectcook-e-vaporbake---fe4iw-/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-branco-efficient-mesa-inox--perfectcook-e-vaporbake---fe5iw-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe4ig-/p",
+      "https://loja.electrolux.com.br/fogao-de-embutir-4-bocas-electrolux-preto-experience-mesa-vidro-grill-e-vaporbake--fe4ep-/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-cinza-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe5ib-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-prata-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe4is-/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-80l-electrolux-expert-funcao-pizza-vaporbake-e-wi-fi-cinza-oe8ep/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-47l-efficient-com-controle-de-temperatura-cor-branca--em50-/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-46l-efficient-bivolt-branco-em50t/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:49.013Z"
+  },
+  {
+    "modelo": "01091RBA106",
+    "codigo": "GEL0013",
+    "produto": "FRIGOBAR 90L EM90 BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/frigobar-electrolux-90l-efficient-com-controle-de-temperatura-cor-black--em90b-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-electrolux-80l-expert-com-vaporbake-e-conectividade--oe8ew-/p",
+      "https://loja.electrolux.com.br/fogao-de-embutir-4-bocas-electrolux-preto-experience-mesa-vidro-e-vaporbake--fe4bb-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-efficient-branco-com-mesa-inox--perfectcook-e-vaporbake---fe4iw-/p",
+      "https://loja.electrolux.com.br/fe5ig-fe5ifogao-5-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe5ig-g-fogao-elx-5q-1c-cinza-bv/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-branco-efficient-mesa-inox--perfectcook-e-vaporbake---fe5iw-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe4ig-/p",
+      "https://loja.electrolux.com.br/fogao-de-embutir-4-bocas-electrolux-preto-experience-mesa-vidro-grill-e-vaporbake--fe4ep-/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-cinza-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe5ib-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-prata-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe4is-/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-80l-electrolux-expert-funcao-pizza-vaporbake-e-wi-fi-cinza-oe8ep/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-90l-efficient-com-controle-de-temperatura-cor-black--em90b-/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-90l-efficient-com-controle-de-temperatura-cor-branca--em90-/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-95l-efficient-bivolt-preto-em90bt/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-95l-efficient-bivolt-branco-em90t/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:50.749Z"
+  },
+  {
+    "modelo": "01092RBA135",
+    "codigo": "GEL0018",
+    "produto": "FRIGOBAR 90L EM90B PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/frigobar-electrolux-90l-efficient-com-controle-de-temperatura-cor-black--em90b-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-electrolux-80l-expert-com-vaporbake-e-conectividade--oe8ew-/p",
+      "https://loja.electrolux.com.br/fogao-de-embutir-4-bocas-electrolux-preto-experience-mesa-vidro-e-vaporbake--fe4bb-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-efficient-branco-com-mesa-inox--perfectcook-e-vaporbake---fe4iw-/p",
+      "https://loja.electrolux.com.br/fe5ig-fe5ifogao-5-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe5ig-g-fogao-elx-5q-1c-cinza-bv/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-branco-efficient-mesa-inox--perfectcook-e-vaporbake---fe5iw-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe4ig-/p",
+      "https://loja.electrolux.com.br/fogao-de-embutir-4-bocas-electrolux-preto-experience-mesa-vidro-grill-e-vaporbake--fe4ep-/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-cinza-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe5ib-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-prata-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe4is-/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-80l-electrolux-expert-funcao-pizza-vaporbake-e-wi-fi-cinza-oe8ep/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-90l-efficient-com-controle-de-temperatura-cor-black--em90b-/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-47l-efficient-com-controle-de-temperatura-cor-branca--em50-/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-95l-efficient-bivolt-preto-em90bt/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:52.169Z"
+  },
+  {
+    "modelo": "01121RBA106",
+    "codigo": "GEL0022",
+    "produto": "FRIGOBAR 122L EM120 BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/frigobar-electrolux-124l-efficient-bivolt-branco-em120t/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/fogao-de-embutir-4-bocas-electrolux-preto-experience-mesa-vidro-e-vaporbake--fe4bb-/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-electrolux-80l-expert-com-vaporbake-e-conectividade--oe8ew-/p",
+      "https://loja.electrolux.com.br/fe5ig-fe5ifogao-5-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe5ig-g-fogao-elx-5q-1c-cinza-bv/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-efficient-branco-com-mesa-inox--perfectcook-e-vaporbake---fe4iw-/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-branco-efficient-mesa-inox--perfectcook-e-vaporbake---fe5iw-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe4ig-/p",
+      "https://loja.electrolux.com.br/fogao-de-embutir-4-bocas-electrolux-preto-experience-mesa-vidro-grill-e-vaporbake--fe4ep-/p",
+      "https://loja.electrolux.com.br/fogao-5-bocas-electrolux-cinza-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe5ib-/p",
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-prata-efficient-com-mesa-inox-perfectcook-e-vaporbake--fe4is-/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-eletrico-80l-electrolux-expert-funcao-pizza-vaporbake-e-wi-fi-cinza-oe8ep/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-124l-efficient-bivolt-branco-em120t/p",
+      "https://loja.electrolux.com.br/frigobar-electrolux-121l-efficient-com-controle-de-temperatura-cor-branca--em120-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:53.633Z"
+  },
+  {
+    "modelo": "02623FBA130",
+    "codigo": "GEL0029",
+    "produto": "GELADEIRA FF INV MLTDOOR 590L IM8S CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-596l-efficient-com-autosense-3-portas-cor-inox-look--im8s-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-596l-efficient-com-autosense-3-portas-cor-inox-look--im8s-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:54.854Z"
+  },
+  {
+    "modelo": "02500FBA130",
+    "codigo": "GEL0066",
+    "produto": "GELADEIRA FF INV MLTDOOR 480L IM7S CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-484l-efficient-autosense-3-portas-inox-look--im7s-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-484l-efficient-autosense-3-portas-inox-look--im7s-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:58.332Z"
+  },
+  {
+    "modelo": "02501FBA135",
+    "codigo": "GEL0067",
+    "produto": "GELADEIRA FF INV MLTDOOR 480L IM7B PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-484l-efficient-autosense-3-portas-black-inox-look--im7b-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-484l-efficient-autosense-3-portas-black-inox-look--im7b-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:00:59.155Z"
+  },
+  {
+    "modelo": "04180FBA106",
+    "codigo": "GEL0069",
+    "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19 BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/freezer-vertical-electrolux-efficient-175l-smartbivolt-inverter-fei19t/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/freezer-vertical-electrolux-efficient-175l-smartbivolt-inverter-fei19t/p",
+      "https://loja.electrolux.com.br/freezer-vertical-electrolux-efficient--249l-smartbivolt-inverter-fei27t/p",
+      "https://loja.electrolux.com.br/freezer-vertical-electrolux-efficient-212l-smartbivolt-inverter-fei23t/p",
+      "https://loja.electrolux.com.br/cesto-aramado-c--tampa-plastica-frontal-para-freezer-vertical-fei19-fei23-fei27-electrolux/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:00.107Z"
+  },
+  {
+    "modelo": "02481FBA030",
+    "codigo": "GEL0073",
+    "produto": "GELADEIRA FF INV 480L DUPLEX IT70S CIN BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-481l-efficient-com-autosense-smartbivolt-duplex-cor-inox-look--it70s-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-481l-efficient-com-autosense-smartbivolt-duplex-cor-inox-look--it70s-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:01.070Z"
+  },
+  {
+    "modelo": "02327FBA135",
+    "codigo": "GEL0079",
+    "produto": "GELADEIRA FF INV 322L INVERSE IB42G PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-323l-efficient-com-autosense-inverse-black-glass--ib42g-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-323l-efficient-com-autosense-inverse-black-glass--ib42g-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:01.777Z"
+  },
+  {
+    "modelo": "02503FBA106",
+    "codigo": "GEL0081",
+    "produto": "GELADEIRA FF 480L DUPLEX TF71 BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-481l-efficient-autosense-duplex-branca--tf71-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-481l-efficient-autosense-duplex-branca--tf71-/p",
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-481l-efficient-autosense-duplex-inox-look--tf71s-/p",
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-481l-efficient-autosense-duplex-black-inox-look--tf71b-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:03.280Z"
+  },
+  {
+    "modelo": "01572RB1135",
+    "codigo": "GEL0087",
+    "produto": "GELADEIRA FF INV SIDEBYSIDE 526L ES5GB PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-526l-efficient-com-autosense-side-by-side-vidro-preto-es5gb/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-526l-efficient-com-autosense-side-by-side-vidro-preto-es5gb/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:04.030Z"
+  },
+  {
+    "modelo": "02545FBA130",
+    "codigo": "GEL0096",
+    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8WS CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-583l-autosense-e-flexispace-4-portas-inox-espelhado-home-pro--iq8ws--1/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-inverter-583l-autosense-e-flexispace-4-portas-inox-espelhado-home-pro--iq8ws--1/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:04.788Z"
+  },
+  {
+    "modelo": "24607LBA135",
+    "codigo": "LAL0004",
+    "produto": "LAVA LOUCAS 14 SERVICOS PRO SERIES LP14V PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/lava-loucas-14-servicos-pro-series-electrolux-lp14v--_/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/lava-loucas-14-servicos-pro-series-electrolux-lp14v--_/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:05.603Z"
+  },
+  {
+    "modelo": "24601LBB189",
+    "codigo": "LAL0009",
+    "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LP14X CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/lava-loucas-14-servicos-home-pro-electrolux--lp14x--/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/lava-loucas-14-servicos-home-pro-electrolux--lp14x--/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:06.195Z"
+  },
+  {
+    "modelo": "240601LBC189",
+    "codigo": "LAL0010",
+    "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LS14X CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/lava-loucas-electrolux-14-servicos-inox-home-pro-com-funcao-higienizar--ls14x-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/lava-loucas-electrolux-14-servicos-inox-home-pro-com-funcao-higienizar--ls14x-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:07.025Z"
+  },
+  {
+    "modelo": "10347PBA106",
+    "codigo": "MIC0001",
+    "produto": "MICRO-ONDAS 36L EFFICIENT ME36B BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/me36b-me36b-forno-microondas-bra/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/me36b-me36b-forno-microondas-bra/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:07.972Z"
+  },
+  {
+    "modelo": "10347PBA186",
+    "codigo": "MIC0004",
+    "produto": "MICRO-ONDAS 36L EFFICIENT ME36S PRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/micro-ondas-electrolux-prata-36l-efficient-me36s/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/micro-ondas-electrolux-prata-36l-efficient-me36s/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:10.622Z"
+  },
+  {
+    "modelo": "10237PBA186",
+    "codigo": "MIC0005",
+    "produto": "MICRO-ONDAS 23L EFFICIENT ME23S PRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/micro-ondas-electrolux-prata-23l-efficient-me23s/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/micro-ondas-electrolux-prata-23l-efficient-me23s/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:11.812Z"
+  },
+  {
+    "modelo": "54341PBA135",
+    "codigo": "MIC0007",
+    "produto": "MICRO-ONDAS EMBUTIR 34L PRO SERIES MV43T PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/micro-ondas-34l-preto-pro-series-electrolux--mv43t---_/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/micro-ondas-34l-preto-pro-series-electrolux--mv43t---_/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:12.809Z"
+  },
+  {
+    "modelo": "10237PBA106",
+    "codigo": "MIC0008",
+    "produto": "MICRO-ONDAS 23L EFFICIENT ME23B BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/me23b-me23b-forno-micr-bra-127-60/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/me23b-me23b-forno-micr-bra-127-60/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:13.591Z"
+  },
+  {
+    "modelo": "54341HBB189",
+    "codigo": "MIC0016",
+    "produto": "MICRO-ONDAS EMBUTIR 34L HOME PRO ME3HP CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/micro-ondas-electrolux-34l-inox-home-pro-com-grill-e-funcao-tira-odor--me3hp-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/micro-ondas-electrolux-34l-inox-home-pro-com-grill-e-funcao-tira-odor--me3hp-/p",
+      "https://loja.electrolux.com.br/copia-de-micro-ondas-electrolux-34l-inox-home-pro-com-grill-e-funcao-tira-odor--me3hp-/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:14.820Z"
+  },
+  {
+    "modelo": "10237PBA135",
+    "codigo": "MIC0025",
+    "produto": "MICRO-ONDAS 23L EFFICIENT ME23P PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/micro-ondas-electrolux-preto-23l-efficient-me23p/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/micro-ondas-electrolux-preto-23l-efficient-me23p/p"
+    ],
+    "dataConsulta": "2026-09-18T14:01:16.183Z"
+  },
+  {
+    "modelo": "29909PBI135",
+    "codigo": "COI0003",
+    "produto": "COIFA DE ILHA TOUCH PRO SERIES 90CM 90CIV PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/coifa-de-ilha-electrolux-90cm-vidro-com-luz-de-led-efficient--ce9ix-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/coifa-de-ilha-electrolux-90cm-vidro-com-luz-de-led-efficient--ce9ix-/p",
+      "https://loja.electrolux.com.br/depurador-de-ar-electrolux-90cm-retratil-preto-efficient-com-luz-de-led-de9rb/p",
+      "https://loja.electrolux.com.br/depurador-de-ar-electrolux-90cm-retratil-inox-efficient-com-luz-de-led-de9rs/p",
+      "https://loja.electrolux.com.br/coifa-de-parede-90cm-inox-com-painel-frontal-de-vidro-espelhado-electrolux--90ctu--_/p",
+      "https://loja.electrolux.com.br/coifa-de-ilha-electrolux-90cm-preta-pro-series-com-painel-touch-e-filtro-baffle--90civ-/p",
+      "https://loja.electrolux.com.br/coifa-de-parede-electrolux-90cm-preta-pro-series-com-painel-touch-e-filtro-baffle--90ctv-/p",
+      "https://loja.electrolux.com.br/coifa-de-ilha-electrolux-90cm-inox-experience-com-inteligencia-artificial-e-alto-poder-succao--ce9if-/p",
+      "https://loja.electrolux.com.br/coifa-de-parede-electrolux-90cm-inox-home-pro-com-painel-frontal-de-vidro-espelhado-ce9hp/p",
+      "https://loja.electrolux.com.br/coifa-de-parede-electrolux-90cm-inox-experience-com-inteligencia-artificial-e-alto-poder-succao--ce9tf-/p",
+      "https://loja.electrolux.com.br/air-fryer-electrolux-por-rita-lobo-3l-efficient-eaf05/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "dataConsulta": "2026-09-18T14:25:07.704Z"
+  },
+  {
+    "modelo": "29709DBA189",
+    "codigo": "COI0018",
+    "produto": "COIFA DE PAREDE TOUCH 70CM 70CS CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/coifa-de-parede-70cs-silver-electrolux/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/fogao-de-piso-5-bocas-duplo-forno-e-tripla-chama-electrolux-76dba/p",
+      "https://loja.electrolux.com.br/fogao-de-piso-4-bocas-duplo-forno-electrolux-56dba/p",
+      "https://loja.electrolux.com.br/coifa-de-parede-70cs-silver-electrolux/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "dataConsulta": "2026-09-18T14:25:08.745Z"
+  },
+  {
+    "modelo": "02543FBA130",
+    "codigo": "GEL0032",
+    "produto": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-refrigerador-french-door-dm91x-conectado-540l/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-refrigerador-french-door-dm91x-conectado-540l/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "dataConsulta": "2026-09-18T14:25:09.554Z"
+  },
+  {
+    "modelo": "02544FBA130",
+    "codigo": "GEL0033",
+    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-home-pro-541l--iq8is--1/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-home-pro-541l--iq8is--1/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "dataConsulta": "2026-09-18T14:25:10.347Z"
+  },
+  {
+    "modelo": "02547FBA135",
+    "codigo": "GEL0034",
+    "produto": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-home-pro-541l--iq8is--1/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-home-pro-541l--iq8is--1/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "dataConsulta": "2026-09-18T14:25:10.889Z"
+  },
+  {
+    "modelo": "10347DBA185",
+    "codigo": "MIC0003",
+    "produto": "MICRO-ONDAS EMBUTIR 34L EXPERIENCE ME3BC CIN 220V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/micro-ondas-de-bancada-34l-meo44-branco-funcao-tira-odor-e-manter-aquecido-electrolux/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/fogao-de-piso-5-bocas-duplo-forno-e-tripla-chama-electrolux-76dba/p",
+      "https://loja.electrolux.com.br/fogao-de-piso-4-bocas-duplo-forno-electrolux-56dba/p",
+      "https://loja.electrolux.com.br/micro-ondas-de-bancada-34l-meo44-branco-funcao-tira-odor-e-manter-aquecido-electrolux/p",
+      "https://loja.electrolux.com.br/micro-ondas-de-embutir-electrolux-34l-experience-me3bp/p",
+      "https://loja.electrolux.com.br/micro-ondas-34l-preto-pro-series-electrolux--mv43t---_/p",
+      "https://loja.electrolux.com.br/micro-ondas-de-embutir-electrolux-34l-experience-me3bc/p",
+      "https://loja.electrolux.com.br/micro-ondas-de-embutir-34-litros-electrolux-me3ep/p",
+      "https://loja.electrolux.com.br/micro-ondas-electrolux-efficient-34l-branco-funcao-descongelar-e-receitas-pre-programadas-me34b/p",
+      "https://loja.electrolux.com.br/micro-ondas-electrolux-34l-inox-home-pro-com-grill-e-funcao-tira-odor--me3hp-/p",
+      "https://loja.electrolux.com.br/torre-de-coccao-com-micro-ondas-de-embutir-34l-preto--me3bp----forno-de-embutir-eletrico-50l--oe5ea--electrolux/p",
+      "https://loja.electrolux.com.br/forno-de-embutir-a-gas-80l-experience-com-foodsensor---micro-ondas-de-embutir-34l-experience-electrolux--oe8gf-me3bc-/p",
+      "https://loja.electrolux.com.br/copia-de-micro-ondas-electrolux-34l-inox-home-pro-com-grill-e-funcao-tira-odor--me3hp-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "dataConsulta": "2026-09-18T14:25:12.045Z"
+  },
+  {
+    "modelo": "NV7B4420XAK/BZ",
+    "codigo": "FOG0061",
+    "produto": "FORNO EMBUT 76L ELE AIR FRY C/ WI-FI PRE 220V",
+    "fabricante": "SAMSUNG (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-simple-steam-4series-dual-cook-simple-steam-nv7b4420xak-bz/",
+    "alternativas": [
+      "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-simple-steam-4series-dual-cook-simple-steam-nv7b4420xak-bz/",
+      "https://www.samsung.com/br/support/model/NV7B4420XAK/BZ/"
+    ],
+    "origemFonte": "FABRICANTE",
+    "dataConsulta": "2026-09-18T14:25:12.092Z"
+  },
+  {
+    "modelo": "NV7B4545SAK/BZ",
+    "codigo": "FOG0062",
+    "produto": "FORNO EMBUT 76L ELE AIR FRY C/ WI-FI PRE 220V (D.FOR)",
+    "fabricante": "SAMSUNG (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-flex-simple-steam-4series-dual-cook-flex-simple-steam-nv7b4545sak-bz/",
+    "alternativas": [
+      "https://www.samsung.com/br/cooking-appliances/ovens/nv7000b-4series-dual-cook-flex-simple-steam-4series-dual-cook-flex-simple-steam-nv7b4545sak-bz/",
+      "https://www.samsung.com/br/support/model/NV7B4545SAK/BZ/"
+    ],
+    "origemFonte": "FABRICANTE",
+    "dataConsulta": "2026-09-18T14:25:12.133Z"
+  },
+  {
+    "modelo": "RF27CG5910B1AZ",
+    "codigo": "GEL0054",
+    "produto": "GELADEIRA FF INV SMART FRNDOOR FHUB 707L RF27 127",
+    "fabricante": "SAMSUNG (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.samsung.com/br/refrigerators/french-door/rf6500cc-3door-french-door-large-capacity-with-spacemax-technology-564l-black-rf27cg5910b1az/",
+    "alternativas": [
+      "https://www.samsung.com/br/refrigerators/french-door/rf6500cc-3door-french-door-large-capacity-with-spacemax-technology-564l-black-rf27cg5910b1az/",
+      "https://www.samsung.com/br/support/model/RF27CG5910B1AZ/"
+    ],
+    "origemFonte": "FABRICANTE",
+    "dataConsulta": "2026-09-18T14:25:12.180Z"
   }
 ]

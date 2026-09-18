@@ -2,6 +2,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { gunzipSync } from "node:zlib";
+import { localizarFonteElectrolux } from "./fabricantes/electrolux.mjs";
+import { localizarFonteInfoStore } from "./fabricantes/info-store.mjs";
 
 const caminhoAtual = fileURLToPath(import.meta.url);
 const pastaScripts = path.dirname(caminhoAtual);
@@ -208,19 +210,32 @@ function localizarPaginaDoModelo(modelo, paginas) {
 async function executar() {
   const textoPendencias = await fs.readFile(caminhoPendencias, "utf8");
   const pendencias = JSON.parse(textoPendencias);
-  const paginas = await mapearSitemaps();
+  const paginas = pendencias.some(item => !/electrolux/i.test(item.fabricante || ""))
+    ? await mapearSitemaps()
+    : [];
 
   console.log("");
   console.log("Procurando modelos...");
 
-  const resultados = pendencias.map((produto, indice) => {
-    const resultado = localizarPaginaDoModelo(produto.modelo, paginas);
+  const resultadosNovos = [];
+  for (let indice = 0; indice < pendencias.length; indice++) {
+    const produto = pendencias[indice];
+    let resultado;
+    if (/electrolux/i.test(produto.fabricante || "")) {
+      resultado = await localizarFonteElectrolux(produto);
+      if (resultado.status !== "LOCALIZADO") {
+        const apoio = await localizarFonteInfoStore(produto);
+        if (apoio.status === "LOCALIZADO") resultado = apoio;
+      }
+    } else {
+      resultado = localizarPaginaDoModelo(produto.modelo, paginas);
+    }
 
     console.log(
       `[${indice + 1}/${pendencias.length}] ${produto.modelo}: ${resultado.status}`
     );
 
-    return {
+    resultadosNovos.push({
       modelo: produto.modelo,
       codigo: produto.codigo,
       produto: produto.produto,
@@ -228,9 +243,15 @@ async function executar() {
       statusFonte: resultado.status,
       fonteInterna: resultado.url,
       alternativas: resultado.alternativas,
+      origemFonte: resultado.origemFonte || "FABRICANTE",
       dataConsulta: new Date().toISOString()
-    };
-  });
+    });
+  }
+
+  let anteriores = [];
+  try { anteriores = JSON.parse(await fs.readFile(caminhoSaida, "utf8")); } catch {}
+  const novas = new Set(resultadosNovos.map(item => normalizarModelo(item.modelo)));
+  const resultados = [...anteriores.filter(item => !novas.has(normalizarModelo(item.modelo))), ...resultadosNovos];
 
   await fs.writeFile(
     caminhoSaida,

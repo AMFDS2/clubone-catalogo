@@ -45,6 +45,7 @@
 
     if (produto.categoria === "Video" || /^un/.test(modelo) || conjunto.includes(" tv ")) return "tv";
     if (conjunto.includes("cooktop") || /^na/.test(modelo)) return "cooktop";
+    if (conjunto.includes("coifa") || conjunto.includes("depurador")) return "coifa";
     if (conjunto.includes("fogao") || /^nsg/.test(modelo)) return "fogao";
     if (conjunto.includes("secadora") || /^dv/.test(modelo)) return "secadora";
     if (conjunto.includes("lava louca") || /^dw/.test(modelo)) return "lava-loucas";
@@ -197,6 +198,34 @@
       })}`;
   }
 
+  function blocoCoifa(g) {
+    const x = 48;
+    const y = 54;
+    const w = limitar(g.frente, 105, 138);
+    const chamineW = w * 0.34;
+    const chamineH = limitar(g.corpo * 0.58, 62, 92);
+    const dx = limitar(g.recuo, 20, 38);
+    const baseH = 24;
+    const baseY = y + chamineH;
+    const chamineX = x + (w - chamineW) / 2;
+    return `
+      <g class="bloco-forma bloco-coifa">
+        <polygon class="bloco-face-topo" points="${x},${baseY} ${x + w},${baseY} ${x + w + dx},${baseY - dx * 0.45} ${x + dx},${baseY - dx * 0.45}" />
+        <polygon class="bloco-face-lateral" points="${x + w},${baseY} ${x + w + dx},${baseY - dx * 0.45} ${x + w + dx},${baseY + baseH - dx * 0.45} ${x + w},${baseY + baseH}" />
+        <rect class="bloco-face-frente" x="${x}" y="${baseY}" width="${w}" height="${baseH}" rx="2" />
+        <rect class="bloco-face-frente" x="${chamineX}" y="${y}" width="${chamineW}" height="${chamineH}" rx="1" />
+        <polygon class="bloco-face-lateral" points="${chamineX + chamineW},${y} ${chamineX + chamineW + 12},${y - 7} ${chamineX + chamineW + 12},${baseY - 7} ${chamineX + chamineW},${baseY}" />
+        <line class="bloco-detalhe" x1="${x + 14}" y1="${baseY + 9}" x2="${x + w - 14}" y2="${baseY + 9}" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.82}" cy="${baseY + 16}" r="2" />
+      </g>
+      ${linhasCota({
+        ax1: x, ay1: baseY + baseH + 20, ax2: x + w, ay2: baseY + baseH + 20,
+        bx: x + w + dx + 13, by1: y - 7, by2: baseY + baseH - dx * 0.45,
+        cx1: x + w + 5, cy1: baseY + baseH + 14,
+        cx2: x + w + dx + 5, cy2: baseY + baseH - dx * 0.45 + 14
+      })}`;
+  }
+
   window.criarBlocagemDimensional = function criarBlocagemDimensional(dimensoes = {}, produto = {}) {
     const grupo = grupoMedidas(dimensoes);
     const largura = medida(grupo, ["largura", "width"]);
@@ -210,7 +239,7 @@
 
     const tipo = detectarTipo(produto);
     const g = geometria(largura, altura, profundidade, tipo);
-    const desenho = tipo === "cooktop" ? blocoCooktop(g) : blocoFrontal(g, tipo);
+    const desenho = tipo === "cooktop" ? blocoCooktop(g) : tipo === "coifa" ? blocoCoifa(g) : blocoFrontal(g, tipo);
     const nota = dimensoes.semBase && !dimensoes.produto ? "Medidas consideradas sem base/suporte." : "Blocagem dimensional ilustrativa.";
 
     const linha = (rotulo, valor) => `
