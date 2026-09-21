@@ -9,8 +9,10 @@ module.exports = async function handler(req, res) {
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
   try {
+    // 1. Limpeza do URL (resolve o padrão da Electrolux)
     const urlLimpa = url.replace(/\\/g, '/');
 
+    // 2. Download mascarado como navegador real
     const respostaPdf = await fetch(urlLimpa, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -23,13 +25,27 @@ module.exports = async function handler(req, res) {
     }
 
     const arrayBuffer = await respostaPdf.arrayBuffer();
+    
+    // 3. Verificação de segurança: Se o site retornou um erro disfarçado de PDF (HTML), bloqueia antes da IA
+    const conteudoInicial = Buffer.from(arrayBuffer.slice(0, 500)).toString('utf-8').toLowerCase();
+    if (conteudoInicial.includes('<!doctype html') || conteudoInicial.includes('<html')) {
+        return res.status(400).json({ 
+          erro: 'Bloqueio do Fabricante', 
+          detalhe: 'O link do manual não permitiu o download automático (retornou uma página web bloqueada).' 
+        });
+    }
+
     const base64Data = Buffer.from(arrayBuffer).toString('base64');
 
-    const prompt = `Analise este manual de instalação. Extraia as medidas exigidas e retorne APENAS um JSON estrito neste formato, sem textos adicionais:
+    // 4. Prompt blindado para forçar apenas formato JSON
+    const prompt = `Atue como um extrator de dados estruturados.
+    Analise este manual de instalação. Extraia as medidas exigidas e retorne APENAS um objeto JSON válido, sem nenhum texto de introdução ou formatação extra.
+    Se a cota não estiver no manual, preencha o valor com "Verificar manual".
+    Formato exato exigido:
     {
-      "respiro_lateral": "valor com unidade",
-      "respiro_superior": "valor com unidade",
-      "respiro_traseiro": "valor com unidade",
+      "respiro_lateral": "valor",
+      "respiro_superior": "valor",
+      "respiro_traseiro": "valor",
       "nicho_largura": "valor",
       "nicho_altura": "valor"
     }`;
@@ -42,8 +58,23 @@ module.exports = async function handler(req, res) {
       ]
     });
 
-    const textoLimpo = response.text.replace(/```json|```/g, '').trim();
-    res.status(200).json(JSON.parse(textoLimpo));
+    // 5. Extração segura: isola apenas as chavetas de JSON, ignorando conversas que a IA possa ter acrescentado
+    let textoLimpo = response.text || "";
+    const jsonMatch = textoLimpo.match(/\{[\s\S]*\}/);
+    
+    if (!jsonMatch) {
+        throw new Error("A IA não conseguiu formatar os dados. Resposta bruta: " + textoLimpo.substring(0, 50));
+    }
+
+    // 6. Conversão validada
+    let dadosJson;
+    try {
+        dadosJson = JSON.parse(jsonMatch[0]);
+    } catch (err) {
+        throw new Error("O formato lido continha erros estruturais. Tente novamente.");
+    }
+
+    res.status(200).json(dadosJson);
 
   } catch (erro) {
     console.error("Erro capturado na API:", erro);
