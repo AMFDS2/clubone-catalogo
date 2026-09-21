@@ -283,15 +283,6 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       </section>
 
       <section class="painel-tab" id="painel-dimensoes">
-        <!-- ÁREA DA IA TOTALMENTE AUTOMÁTICA -->
-        <div id="container-ia-dimensoes" style="margin-bottom: 30px;">
-           <div style="padding: 30px; text-align: center; background: #f9f9f9; border-radius: 8px; border: 1px dashed #ccc;">
-             <span style="display: block; font-size: 24px; margin-bottom: 10px;">⚙️</span>
-             <h4 style="margin: 0 0 5px 0; color: #111;">A processar dados executivos</h4>
-             <p style="margin: 0; font-size: 13px; color: #666;">A nossa IA está a extrair os gabaritos e respiros oficiais do manual de instalação...</p>
-           </div>
-        </div>
-
         <div class="card-dimensoes">${dimensoes}</div>
         ${criarAviso()}
       </section>
@@ -308,60 +299,10 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   configurarGaleria();
   configurarFallbackImagens(document.getElementById("detalhes"));
 
-  // Dispara a extração silenciosa assim que o produto carrega na interface
-  extrairDadosAutomaticamente(produto);
-
   if (interacaoDoUsuario && window.matchMedia("(max-width: 900px)").matches) {
     requestAnimationFrame(() => {
       document.getElementById("detalhes").scrollIntoView({ behavior: "smooth", block: "start" });
     });
-  }
-}
-
-// ==================================================
-// FUNÇÃO DE INTEGRAÇÃO COM A API DA IA (AUTOMÁTICA)
-// ==================================================
-async function extrairDadosAutomaticamente(produto) {
-  const divResultado = document.getElementById('container-ia-dimensoes');
-  if (!divResultado) return;
-  
-  // 1. Procura o link do PDF no ficheiro JSON do produto
-  const manuais = produto.documentos || [];
-  const manualPdf = manuais.find(doc => doc.tipo === 'manual' && (doc.urlOriginal || doc.url));
-
-  if (!manualPdf) {
-    divResultado.innerHTML = `
-      <div style="padding: 15px; background: #fff5f5; border: 1px solid #ffcccc; border-radius: 6px;">
-        <p style="margin: 0; font-size: 13px; color: #cc0000;">Nenhum manual de instalação associado a este produto para extração de medidas.</p>
-      </div>`;
-    return;
-  }
-
-  // 2. Define a URL correta (privilegia urlOriginal se existir)
-  const linkParaExtrair = manualPdf.urlOriginal || manualPdf.url;
-
-  try {
-    const resposta = await fetch('/api/extrair', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url: linkParaExtrair })
-    });
-
-    if (!resposta.ok) {
-      const erroServidor = await resposta.json();
-      throw new Error(erroServidor.detalhe || "Falha ao comunicar com a IA.");
-    }
-
-    const dados = await resposta.json();
-    
-    // ... (Mantenha o divResultado.innerHTML das tabelas que já tem aqui) ...
-
-  } catch (erro) {
-    console.error(erro);
-    divResultado.innerHTML = `
-      <div style="padding: 15px; background: #fff5f5; border: 1px solid #ffcccc; border-radius: 6px;">
-        <p style="margin: 0; font-size: 13px; color: #cc0000;"><strong>Diagnóstico:</strong> ${escaparHTML(erro.message)}</p>
-      </div>`;
   }
 }
 
@@ -520,6 +461,35 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
     formaProduto = `<g class="forma-produto forma-geladeira"><rect x="68" y="22" width="79" height="166" rx="3"></rect><path d="M147 22 L164 35 L164 176 L147 188"></path><line x1="68" y1="106" x2="147" y2="106"></line><line x1="136" y1="48" x2="136" y2="91"></line><line x1="136" y1="119" x2="136" y2="156"></line></g>`;
   }
 
+  // Verifica se o JSON já possui as medidas executivas extraídas previamente pela IA
+  const ia = produto.medidasIA;
+  const tabelaIA = ia ? `
+    <div style="margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
+      <h4 class="dimensoes-subtitulo" style="margin-top: 0; margin-bottom: 15px; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Manuais Oficiais)</h4>
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+        <tr style="border-bottom: 1px solid #e4e0d9;">
+          <td style="padding: 10px 0; font-weight: 600; color: #444;">Medidas do Nicho (L x A)</td>
+          <td style="padding: 10px 0; text-align: right;">${escaparHTML(ia.nicho_largura || '-')} x ${escaparHTML(ia.nicho_altura || '-')}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #e4e0d9;">
+          <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Lateral (Mínimo)</td>
+          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_lateral || '-')}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #e4e0d9;">
+          <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Superior (Mínimo)</td>
+          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_superior || '-')}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Traseiro</td>
+          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_traseiro || '-')}</td>
+        </tr>
+      </table>
+      <div style="margin-top: 10px; font-size: 11px; color: #999; text-align: right;">
+        Informações técnicas extraídas por IA a partir do manual oficial.
+      </div>
+    </div>
+  ` : '';
+
   return `
     <div class="dimensoes-tecnicas">
       <div class="desenho-dimensoes">
@@ -548,6 +518,7 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
         ${peso ? `<div class="peso-produto"><strong>Peso:</strong> ${escaparHTML(peso)}</div>` : ""}
       </div>
     </div>
+    ${tabelaIA}
   `;
 }
 

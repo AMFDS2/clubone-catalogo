@@ -199,7 +199,14 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasIA": {
+      "respiro_lateral": "10 cm",
+      "respiro_superior": "3 cm",
+      "respiro_traseiro": "10 cm",
+      "nicho_largura": "-",
+      "nicho_altura": "-"
+    }
   },
   {
     "id": "02107fba135",
@@ -263,7 +270,14 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasIA": {
+      "respiro_lateral": "10 cm",
+      "respiro_superior": "3 cm",
+      "respiro_traseiro": "10 cm",
+      "nicho_largura": "-",
+      "nicho_altura": "-"
+    }
   },
   {
     "id": "29909pbi135",
@@ -658,7 +672,14 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasIA": {
+      "respiro_lateral": "-",
+      "respiro_superior": "-",
+      "respiro_traseiro": "-",
+      "nicho_largura": "-",
+      "nicho_altura": "-"
+    }
   },
   {
     "id": "23051gba035",

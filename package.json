@@ -5,6 +5,7 @@
   "description": "Catálogo técnico Club One e Info Store",
   "type": "module",
   "scripts": {
+    "extrair": "node scripts/extrair-ia-manuais.mjs",
     "ler": "node scripts/ler-planilha.mjs",
     "verificar": "node scripts/verificar-catalogo.mjs",
     "localizar": "node scripts/localizar-fontes.mjs",
