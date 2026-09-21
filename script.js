@@ -216,9 +216,12 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   const destaques = criarDestaques(produto.destaques);
   const especificacoes = criarEspecificacoes(produto.especificacoes);
+  
+  // O seu blocagem.js atua aqui.
   const dimensoes = typeof criarBlocagemDimensional === "function"
     ? criarBlocagemDimensional(produto.dimensoes || {}, produto)
     : criarDimensoes(produto.dimensoes || {}, produto);
+    
   const documentos = criarDocumentos(produto.documentos);
   const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
   
@@ -235,6 +238,35 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   const favs = getFavoritos();
   const estaFavoritado = favs.some(item => String(item.id) === String(produto.id));
+
+  // NOVA LÓGICA: Montar a Tabela da IA de forma independente
+  const ia = produto.medidasIA;
+  const tabelaIA = ia ? `
+    <div style="margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
+      <h4 style="margin-top: 0; margin-bottom: 15px; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Manuais Oficiais)</h4>
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+        <tr style="border-bottom: 1px solid #e4e0d9;">
+          <td style="padding: 10px 0; font-weight: 600; color: #444;">Medidas do Nicho (L x A)</td>
+          <td style="padding: 10px 0; text-align: right;">${escaparHTML(ia.nicho_largura || '-')} x ${escaparHTML(ia.nicho_altura || '-')}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #e4e0d9;">
+          <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Lateral (Mínimo)</td>
+          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_lateral || '-')}</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #e4e0d9;">
+          <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Superior (Mínimo)</td>
+          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_superior || '-')}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Traseiro</td>
+          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_traseiro || '-')}</td>
+        </tr>
+      </table>
+      <div style="margin-top: 10px; font-size: 11px; color: #999; text-align: right;">
+        Informações técnicas extraídas por IA a partir do manual oficial.
+      </div>
+    </div>
+  ` : '';
 
   document.getElementById("detalhes").innerHTML = `
     <div class="produto-hero">
@@ -277,6 +309,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
               <h3 class="dimensoes-subtitulo">Dimensões</h3>
               ${dimensoes}
             </div>
+            ${tabelaIA}
             ${criarAviso()}
           </div>
         </div>
@@ -284,6 +317,8 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
       <section class="painel-tab" id="painel-dimensoes">
         <div class="card-dimensoes">${dimensoes}</div>
+        <!-- TABELA DA IA INJETADA AQUI, LOGO ABAIXO DO DESENHO -->
+        ${tabelaIA}
         ${criarAviso()}
       </section>
 
