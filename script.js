@@ -341,65 +341,26 @@ async function extrairDadosAutomaticamente(produto) {
   const linkParaExtrair = manualPdf.urlOriginal || manualPdf.url;
 
   try {
-    // 3. Faz o pedido silencioso ao seu back-end (Vercel)
     const resposta = await fetch('/api/extrair', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ url: linkParaExtrair })
     });
 
-    if (!resposta.ok) throw new Error("Falha ao comunicar com a IA.");
+    if (!resposta.ok) {
+      const erroServidor = await resposta.json();
+      throw new Error(erroServidor.detalhe || "Falha ao comunicar com a IA.");
+    }
 
     const dados = await resposta.json();
     
-    // 4. Constrói a interface com os dados extraídos
-    divResultado.innerHTML = `
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: #fff; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
-        
-        <!-- Coluna Esquerda: Tabela de Nicho -->
-        <div>
-          <h4 style="margin: 0 0 15px 0; font-size: 14px; text-transform: uppercase; color: #111;">Dimensões do Nicho Recomendadas</h4>
-          <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 10px 0; font-weight: 600; color: #444;">Largura Total (Nicho)</td>
-              <td style="padding: 10px 0; text-align: right;">${dados.nicho_largura || 'Sob consulta'}</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 10px 0; font-weight: 600; color: #444;">Altura Total (Nicho)</td>
-              <td style="padding: 10px 0; text-align: right;">${dados.nicho_altura || 'Sob consulta'}</td>
-            </tr>
-          </table>
-        </div>
+    // ... (Mantenha o divResultado.innerHTML das tabelas que já tem aqui) ...
 
-        <!-- Coluna Direita: Tabela de Respiros (IA) -->
-        <div>
-          <h4 style="margin: 0 0 15px 0; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Respiros)</h4>
-          <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Lateral Mínimo</td>
-              <td style="padding: 10px 0; text-align: right; color: #c9892b;">${dados.respiro_lateral || '0 mm'}</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Superior Mínimo</td>
-              <td style="padding: 10px 0; text-align: right; color: #c9892b;">${dados.respiro_superior || '0 mm'}</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Traseiro Recomendado</td>
-              <td style="padding: 10px 0; text-align: right; color: #c9892b;">${dados.respiro_traseiro || 'Ver manual'}</td>
-            </tr>
-          </table>
-        </div>
-        
-        <div style="grid-column: 1 / -1; margin-top: 10px; font-size: 11px; color: #999; text-align: right;">
-          Informações técnicas extraídas por IA a partir do manual oficial. Verifique sempre o manual físico antes da execução.
-        </div>
-      </div>
-    `;
   } catch (erro) {
     console.error(erro);
     divResultado.innerHTML = `
-      <div style="padding: 15px; background: #fff; border: 1px solid #eee; border-radius: 6px;">
-        <p style="margin: 0; font-size: 13px; color: #666;">Não foi possível processar automaticamente o diagrama para este produto.</p>
+      <div style="padding: 15px; background: #fff5f5; border: 1px solid #ffcccc; border-radius: 6px;">
+        <p style="margin: 0; font-size: 13px; color: #cc0000;"><strong>Diagnóstico:</strong> ${escaparHTML(erro.message)}</p>
       </div>`;
   }
 }
