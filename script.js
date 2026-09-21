@@ -283,6 +283,15 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       </section>
 
       <section class="painel-tab" id="painel-dimensoes">
+        <!-- ÁREA DA IA TOTALMENTE AUTOMÁTICA -->
+        <div id="container-ia-dimensoes" style="margin-bottom: 30px;">
+           <div style="padding: 30px; text-align: center; background: #f9f9f9; border-radius: 8px; border: 1px dashed #ccc;">
+             <span style="display: block; font-size: 24px; margin-bottom: 10px;">⚙️</span>
+             <h4 style="margin: 0 0 5px 0; color: #111;">A processar dados executivos</h4>
+             <p style="margin: 0; font-size: 13px; color: #666;">A nossa IA está a extrair os gabaritos e respiros oficiais do manual de instalação...</p>
+           </div>
+        </div>
+
         <div class="card-dimensoes">${dimensoes}</div>
         ${criarAviso()}
       </section>
@@ -299,10 +308,99 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   configurarGaleria();
   configurarFallbackImagens(document.getElementById("detalhes"));
 
+  // Dispara a extração silenciosa assim que o produto carrega na interface
+  extrairDadosAutomaticamente(produto);
+
   if (interacaoDoUsuario && window.matchMedia("(max-width: 900px)").matches) {
     requestAnimationFrame(() => {
       document.getElementById("detalhes").scrollIntoView({ behavior: "smooth", block: "start" });
     });
+  }
+}
+
+// ==================================================
+// FUNÇÃO DE INTEGRAÇÃO COM A API DA IA (AUTOMÁTICA)
+// ==================================================
+async function extrairDadosAutomaticamente(produto) {
+  const divResultado = document.getElementById('container-ia-dimensoes');
+  if (!divResultado) return;
+  
+  // 1. Procura o link do PDF no ficheiro JSON do produto
+  const manuais = produto.documentos || [];
+  const manualPdf = manuais.find(doc => doc.tipo === 'manual' && (doc.urlOriginal || doc.url));
+
+  if (!manualPdf) {
+    divResultado.innerHTML = `
+      <div style="padding: 15px; background: #fff5f5; border: 1px solid #ffcccc; border-radius: 6px;">
+        <p style="margin: 0; font-size: 13px; color: #cc0000;">Nenhum manual de instalação associado a este produto para extração de medidas.</p>
+      </div>`;
+    return;
+  }
+
+  // 2. Define a URL correta (privilegia urlOriginal se existir)
+  const linkParaExtrair = manualPdf.urlOriginal || manualPdf.url;
+
+  try {
+    // 3. Faz o pedido silencioso ao seu back-end (Vercel)
+    const resposta = await fetch('/api/extrair', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: linkParaExtrair })
+    });
+
+    if (!resposta.ok) throw new Error("Falha ao comunicar com a IA.");
+
+    const dados = await resposta.json();
+    
+    // 4. Constrói a interface com os dados extraídos
+    divResultado.innerHTML = `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: #fff; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+        
+        <!-- Coluna Esquerda: Tabela de Nicho -->
+        <div>
+          <h4 style="margin: 0 0 15px 0; font-size: 14px; text-transform: uppercase; color: #111;">Dimensões do Nicho Recomendadas</h4>
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 10px 0; font-weight: 600; color: #444;">Largura Total (Nicho)</td>
+              <td style="padding: 10px 0; text-align: right;">${dados.nicho_largura || 'Sob consulta'}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 10px 0; font-weight: 600; color: #444;">Altura Total (Nicho)</td>
+              <td style="padding: 10px 0; text-align: right;">${dados.nicho_altura || 'Sob consulta'}</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Coluna Direita: Tabela de Respiros (IA) -->
+        <div>
+          <h4 style="margin: 0 0 15px 0; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Respiros)</h4>
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Lateral Mínimo</td>
+              <td style="padding: 10px 0; text-align: right; color: #c9892b;">${dados.respiro_lateral || '0 mm'}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Superior Mínimo</td>
+              <td style="padding: 10px 0; text-align: right; color: #c9892b;">${dados.respiro_superior || '0 mm'}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+              <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Traseiro Recomendado</td>
+              <td style="padding: 10px 0; text-align: right; color: #c9892b;">${dados.respiro_traseiro || 'Ver manual'}</td>
+            </tr>
+          </table>
+        </div>
+        
+        <div style="grid-column: 1 / -1; margin-top: 10px; font-size: 11px; color: #999; text-align: right;">
+          Informações técnicas extraídas por IA a partir do manual oficial. Verifique sempre o manual físico antes da execução.
+        </div>
+      </div>
+    `;
+  } catch (erro) {
+    console.error(erro);
+    divResultado.innerHTML = `
+      <div style="padding: 15px; background: #fff; border: 1px solid #eee; border-radius: 6px;">
+        <p style="margin: 0; font-size: 13px; color: #666;">Não foi possível processar automaticamente o diagrama para este produto.</p>
+      </div>`;
   }
 }
 
@@ -555,10 +653,6 @@ function escaparHTML(valor = "") {
     .replaceAll("'", "&#039;");
 }
 
-// ==================================================
-// SISTEMA DE FAVORITOS & EXPORTAÇÃO PDF
-// ==================================================
-
 function getFavoritos() {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
@@ -688,176 +782,33 @@ function baixarMemorialPDF() {
       <title>Lista de Interesse - Club One & Info Store</title>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
       <style>
-        @page { 
-          size: A4 portrait; 
-          margin: 0; 
-        }
+        @page { size: A4 portrait; margin: 0; }
         * { box-sizing: border-box; }
-        body {
-          font-family: 'Manrope', Arial, Helvetica, sans-serif;
-          margin: 0;
-          padding: 0;
-          color: #20201e;
-          background: #ffffff;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          -webkit-font-smoothing: antialiased;
-        }
-
-        /* Topbar com proporções equilibradas */
-        .topbar-documento {
-          background: #181816 !important;
-          border-bottom: 2px solid #c9892b !important;
-          padding: 20px 40px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
+        body { font-family: 'Manrope', Arial, sans-serif; margin: 0; padding: 0; color: #20201e; background: #ffffff; -webkit-print-color-adjust: exact !important; }
+        .topbar-documento { background: #181816 !important; border-bottom: 2px solid #c9892b !important; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
         .logos { display: flex; align-items: center; gap: 20px; }
         .logo-club { height: 36px; object-fit: contain; }
         .logo-info { height: 28px; object-fit: contain; }
         .separador { width: 1px; height: 28px; background: rgba(255,255,255,0.22); }
-        
         .meta-documento { text-align: right; }
-        .meta-documento strong {
-          display: block;
-          font-family: 'Montserrat', sans-serif;
-          font-size: 10px;
-          font-weight: 600;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: #c9892b;
-          margin-bottom: 4px;
-        }
-        .meta-documento span { 
-          font-size: 11px; 
-          font-weight: 400;
-          color: #9e9b95; 
-        }
-
-        /* Conteúdo e cabeçalho editorial */
+        .meta-documento strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #c9892b; margin-bottom: 4px; }
+        .meta-documento span { font-size: 11px; font-weight: 400; color: #9e9b95; }
         .conteudo-pagina { padding: 40px; }
-        
         .titulo-bloco { margin-bottom: 30px; }
-        .titulo-bloco h1 {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 20px;
-          font-weight: 600; /* Reduzido de 800 para 600 */
-          text-transform: uppercase;
-          letter-spacing: 0.04em;
-          margin: 0 0 6px;
-          color: #11110f;
-        }
-        .titulo-bloco p { 
-          margin: 0; 
-          font-size: 12px; 
-          font-weight: 400;
-          color: #6d6b67; 
-          letter-spacing: 0.01em;
-        }
-
-        /* Tabela técnica clean */
-        table { 
-          width: 100%; 
-          border-collapse: collapse; 
-          margin-top: 10px; 
-        }
-        
-        th {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 9px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          background: #f7f5f1 !important;
-          color: #484745;
-          padding: 10px 14px;
-          text-align: left;
-          border-top: 1px solid #e4e0d9;
-          border-bottom: 1px solid #e4e0d9;
-          white-space: nowrap;
-        }
-        
-        td {
-          padding: 14px;
-          border-bottom: 1px solid #ece8e1;
-          font-size: 12px;
-          vertical-align: middle;
-          line-height: 1.4;
-        }
-
+        .titulo-bloco h1 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 600; text-transform: uppercase; margin: 0 0 6px; color: #11110f; }
+        .titulo-bloco p { margin: 0; font-size: 12px; color: #6d6b67; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; text-transform: uppercase; background: #f7f5f1 !important; color: #484745; padding: 10px 14px; text-align: left; border-top: 1px solid #e4e0d9; border-bottom: 1px solid #e4e0d9; }
+        td { padding: 14px; border-bottom: 1px solid #ece8e1; font-size: 12px; vertical-align: middle; }
         .col-item { width: 55px; text-align: center; }
-        .col-item img { 
-          width: 44px; 
-          height: 44px; 
-          object-fit: contain; 
-          display: block; 
-          margin: 0 auto; 
-        }
-
-        /* Tipografia dos dados */
-        .produto-nome { 
-          font-family: 'Manrope', sans-serif;
-          font-weight: 500; /* Menos carregado que o anterior */
-          font-size: 12px; 
-          color: #1a1a18; 
-          display: block;
-          max-width: 320px;
-        }
-
-        .tag-fab { 
-          font-family: 'Montserrat', sans-serif;
-          font-size: 10px; 
-          font-weight: 600; 
-          color: #c9892b; 
-          text-transform: uppercase;
-          letter-spacing: 0.04em;
-        }
-
-        .col-mod { 
-          font-family: 'Manrope', sans-serif;
-          font-size: 11px; 
-          font-weight: 400;
-          color: #55534e; 
-          white-space: nowrap;
-        }
-
-        .col-cod { 
-          font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
-          font-size: 11px; 
-          font-weight: 500; 
-          color: #33312e; 
-          white-space: nowrap;
-        }
-
-        .col-qtd { 
-          text-align: center; 
-          width: 50px;
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 600; 
-          font-size: 12px;
-          color: #11110f;
-        }
-
-        /* Rodapé com assinatura */
-        .footer-documento {
-          margin-top: 50px;
-          padding-top: 18px;
-          border-top: 1px solid #e4e0d9;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-family: 'Montserrat', sans-serif;
-          font-size: 9px;
-          font-weight: 500;
-          color: #8c8881;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-        .footer-total {
-          color: #11110f;
-          font-weight: 600;
-        }
+        .col-item img { width: 44px; height: 44px; object-fit: contain; display: block; margin: 0 auto; }
+        .produto-nome { font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 12px; color: #1a1a18; display: block; max-width: 320px; }
+        .tag-fab { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; color: #c9892b; text-transform: uppercase; }
+        .col-mod { font-family: 'Manrope', sans-serif; font-size: 11px; color: #55534e; white-space: nowrap; }
+        .col-cod { font-family: 'SF Mono', monospace; font-size: 11px; font-weight: 500; color: #33312e; white-space: nowrap; }
+        .col-qtd { text-align: center; width: 50px; font-weight: 600; }
+        .footer-documento { margin-top: 50px; padding-top: 18px; border-top: 1px solid #e4e0d9; display: flex; justify-content: space-between; align-items: center; font-size: 9px; font-weight: 500; color: #8c8881; text-transform: uppercase; }
+        .footer-total { color: #11110f; font-weight: 600; }
       </style>
     </head>
     <body>
@@ -872,13 +823,11 @@ function baixarMemorialPDF() {
           <span>Emitido em: ${dataAtual}</span>
         </div>
       </div>
-
       <div class="conteudo-pagina">
         <div class="titulo-bloco">
           <h1>Lista de Interesse</h1>
           <p>Relação de itens selecionados para levantamento comercial e orçamentário.</p>
         </div>
-
         <table>
           <thead>
             <tr>
@@ -903,17 +852,13 @@ function baixarMemorialPDF() {
             `).join("")}
           </tbody>
         </table>
-
         <div class="footer-documento">
           <span>Club One Arquitetura & Design • Info Store</span>
           <span class="footer-total">Total: ${favs.length} ${favs.length === 1 ? 'item' : 'itens'} (${totalPecas} ${totalPecas === 1 ? 'peça' : 'peças'})</span>
         </div>
       </div>
-
       <script>
-        window.onload = function() {
-          window.print();
-        };
+        window.onload = function() { window.print(); };
       <\/script>
     </body>
     </html>
@@ -936,9 +881,7 @@ function configurarEventosFavoritos() {
 
   document.getElementById("btn-gerar-memorial")?.addEventListener("click", baixarMemorialPDF);
 
-  // Tratamento completo de cliques dinâmicos
   document.addEventListener("click", (e) => {
-    // 1. Alteração de quantidade (+ / -)
     const btnQtd = e.target.closest(".btn-qtd");
     if (btnQtd) {
       const id = btnQtd.getAttribute("data-id");
@@ -955,7 +898,6 @@ function configurarEventosFavoritos() {
       return;
     }
 
-    // 2. Clique em "Adicionar/Remover dos favoritos" na área de detalhes
     const btnDetalhe = e.target.closest("#btn-favoritar-detalhe");
     if (btnDetalhe) {
       const pId = btnDetalhe.getAttribute("data-id");
@@ -966,7 +908,6 @@ function configurarEventosFavoritos() {
       return;
     }
 
-    // 3. Remover item individual pela gaveta lateral ('X')
     const btnRemover = e.target.closest(".btn-remove-item");
     if (btnRemover) {
       const idRemover = btnRemover.getAttribute("data-remove-id");

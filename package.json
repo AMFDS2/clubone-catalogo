@@ -19,7 +19,15 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@google/genai": "^2.23.0",
     "cheerio": "^1.2.0",
     "exceljs": "^4.4.0"
-  }
+  },
+  "main": "blocagem.js",
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/AMFDS2/clubone-catalogo/issues"
+  },
+  "homepage": "https://github.com/AMFDS2/clubone-catalogo#readme"
 }
