@@ -1,5 +1,6 @@
 const ARQUIVO_CATALOGO = "produtos.preview.json";
 const IMAGEM_FALLBACK = "assets/produto-sem-imagem.svg";
+const STORAGE_KEY = "clubone_favoritos_v1";
 
 let todosProdutos = [];
 let produtosFiltrados = [];
@@ -13,6 +14,8 @@ document.addEventListener("DOMContentLoaded", inicializar);
 
 async function inicializar() {
   configurarEventosFixos();
+  configurarEventosFavoritos();
+  atualizarInterfaceFavoritos();
 
   try {
     const resposta = await fetch(ARQUIVO_CATALOGO, { cache: "no-store" });
@@ -29,7 +32,7 @@ async function inicializar() {
   } catch (erro) {
     console.error(erro);
     document.getElementById("produtos").innerHTML = estadoMensagem(
-      "N\u00E3o foi poss\u00EDvel carregar os produtos. Abra o projeto usando o Live Server."
+      "Não foi possível carregar os produtos. Abra o projeto usando o Live Server."
     );
   }
 }
@@ -41,46 +44,31 @@ function produtoValido(produto) {
 function configurarEventosFixos() {
   const campoBusca = document.getElementById("busca");
   const ordenacao = document.getElementById("ordenacao");
-  const menuMobile = document.getElementById("menuMobile");
-  const menuPrincipal = document.getElementById("menuPrincipal");
   const botaoFiltros = document.getElementById("botaoFiltros");
   const painelFiltros = document.getElementById("painelFiltros");
   const limparFiltros = document.getElementById("limparFiltros");
 
   if (window.matchMedia("(max-width: 900px)").matches) {
-    painelFiltros.classList.add("fechado");
-    botaoFiltros.setAttribute("aria-expanded", "false");
+    painelFiltros?.classList.add("fechado");
+    botaoFiltros?.setAttribute("aria-expanded", "false");
   }
 
-  campoBusca.addEventListener("input", aplicarFiltros);
-  ordenacao.addEventListener("change", aplicarFiltros);
+  campoBusca?.addEventListener("input", aplicarFiltros);
+  ordenacao?.addEventListener("change", aplicarFiltros);
 
-  document.getElementById("filtrosFabricantes").addEventListener("change", atualizarSelecaoFiltro);
-  document.getElementById("filtrosSegmentos").addEventListener("change", atualizarSelecaoFiltro);
+  document.getElementById("filtrosFabricantes")?.addEventListener("change", atualizarSelecaoFiltro);
+  document.getElementById("filtrosSegmentos")?.addEventListener("change", atualizarSelecaoFiltro);
 
-  botaoFiltros.addEventListener("click", () => {
+  botaoFiltros?.addEventListener("click", () => {
     const aberto = !painelFiltros.classList.toggle("fechado");
     botaoFiltros.setAttribute("aria-expanded", String(aberto));
   });
 
-  limparFiltros.addEventListener("click", () => {
+  limparFiltros?.addEventListener("click", () => {
     filtrosSelecionados.fabricantes.clear();
     filtrosSelecionados.segmentos.clear();
     renderizarFiltros();
     aplicarFiltros();
-  });
-
-  document.querySelectorAll("[data-abrir-filtro]").forEach(botao => {
-    botao.addEventListener("click", () => {
-      painelFiltros.classList.remove("fechado");
-      botaoFiltros.setAttribute("aria-expanded", "true");
-      document.getElementById(botao.dataset.abrirFiltro === "fabricantes" ? "grupoFabricantes" : "grupoSegmentos").scrollIntoView({ behavior: "smooth", block: "nearest" });
-    });
-  });
-
-  menuMobile.addEventListener("click", () => {
-    const aberto = menuPrincipal.classList.toggle("aberto");
-    menuMobile.setAttribute("aria-expanded", String(aberto));
   });
 }
 
@@ -143,7 +131,10 @@ function preencherGrupoFiltro(containerId, tipo, valores) {
     contagens.set(chave, atual);
   });
 
-  document.getElementById(containerId).innerHTML = [...contagens.entries()]
+  const el = document.getElementById(containerId);
+  if (!el) return;
+
+  el.innerHTML = [...contagens.entries()]
     .sort((a, b) => String(a[1].nome).localeCompare(String(b[1].nome), "pt-BR"))
     .map(([chave, item]) => `
       <label class="opcao-filtro">
@@ -164,7 +155,11 @@ function ordenarProdutos() {
 function renderizarProdutos(produtos) {
   const container = document.getElementById("produtos");
   const quantidade = document.getElementById("quantidadeProdutos");
-  quantidade.textContent = `${produtos.length} ${produtos.length === 1 ? "produto encontrado" : "produtos encontrados"}`;
+  const favs = getFavoritos();
+
+  if (quantidade) {
+    quantidade.textContent = `${produtos.length} ${produtos.length === 1 ? "produto encontrado" : "produtos encontrados"}`;
+  }
 
   if (!produtos.length) {
     container.innerHTML = estadoMensagem("Nenhum produto encontrado.");
@@ -173,6 +168,8 @@ function renderizarProdutos(produtos) {
 
   container.innerHTML = produtos.map(produto => {
     const ativo = produto.id === produtoSelecionado;
+    const estaSalvo = favs.some(f => String(f.id) === String(produto.id));
+
     return `
       <button type="button" class="produto ${ativo ? "ativo" : ""}" data-produto-id="${escaparHTML(produto.id)}">
         <span class="produto-imagem">
@@ -180,22 +177,31 @@ function renderizarProdutos(produtos) {
         </span>
         <span class="produto-informacoes">
           <h3>${escaparHTML(produto.nome)}</h3>
-          <p>${escaparHTML(produto.marca)} \u2022 ${escaparHTML(produto.modelo)}</p>
-          <p>${escaparHTML(produto.categoria)}</p>
+          <p>${escaparHTML(produto.marca || produto.fabricante || "")} • ${escaparHTML(produto.modelo)}</p>
+          <p>${escaparHTML(produto.categoria || produto.segmento || "")}</p>
         </span>
-        <span class="produto-favorito" aria-hidden="true">${ativo ? "\u2605" : "\u2606"}</span>
+        <span class="produto-favorito" data-favorito-id="${escaparHTML(produto.id)}" aria-hidden="true">${estaSalvo ? "★" : "☆"}</span>
       </button>`;
   }).join("");
 
   container.querySelectorAll(".produto").forEach(botao => {
-    botao.addEventListener("click", () => mostrarDetalhes(botao.dataset.produtoId, true));
+    botao.addEventListener("click", (e) => {
+      if (e.target.closest(".produto-favorito")) {
+        e.stopPropagation();
+        const pId = botao.dataset.produtoId;
+        const prod = todosProdutos.find(item => String(item.id) === String(pId));
+        if (prod) toggleFavorito(normalizarProdutoParaFavorito(prod));
+        return;
+      }
+      mostrarDetalhes(botao.dataset.produtoId, true);
+    });
   });
 
   configurarFallbackImagens(container);
 }
 
 function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
-  const produto = todosProdutos.find(item => item.id === idProduto);
+  const produto = todosProdutos.find(item => String(item.id) === String(idProduto));
   if (!produto) return;
 
   produtoSelecionado = produto.id;
@@ -205,11 +211,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
     const selecionado = document.querySelector(
       `.produto[data-produto-id="${CSS.escape(String(produto.id))}"]`
     );
-
-    selecionado?.scrollIntoView({
-      behavior: "auto",
-      block: "nearest"
-    });
+    selecionado?.scrollIntoView({ behavior: "auto", block: "nearest" });
   });
 
   const destaques = criarDestaques(produto.destaques);
@@ -231,20 +233,23 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
        </div>`
     : "";
 
+  const favs = getFavoritos();
+  const estaFavoritado = favs.some(item => String(item.id) === String(produto.id));
+
   document.getElementById("detalhes").innerHTML = `
     <div class="produto-hero">
       <div class="produto-resumo">
-        <span class="badge">${escaparHTML(produto.categoria)}</span>
+        <span class="badge">${escaparHTML(produto.categoria || produto.segmento || "")}</span>
         <h1 class="nome-produto">${escaparHTML(produto.nome)}</h1>
-        <p class="subtitulo produto-identificacao">${escaparHTML(produto.marca)} <span aria-hidden="true">\u2022</span> Modelo ${escaparHTML(produto.modelo)}</p>
-        <p class="codigo-produto">C\u00F3digo Info Store: <strong>${escaparHTML(produto.codigoInfo || "Consultar")}</strong></p>
+        <p class="subtitulo produto-identificacao">${escaparHTML(produto.marca || produto.fabricante || "")} <span aria-hidden="true">•</span> Modelo ${escaparHTML(produto.modelo)}</p>
+        <p class="codigo-produto">Código Info Store: <strong>${escaparHTML(produto.codigoInfo || "Consultar")}</strong></p>
         
         ${destaques ? `<div class="destaques">${destaques}</div>` : ""}
         
         <div class="acoes">
           ${botaoInfoStore}
-          <button type="button" class="botao-secundario">
-            \u2661 Adicionar aos favoritos
+          <button type="button" id="btn-favoritar-detalhe" class="botao-secundario ${estaFavoritado ? "ativo" : ""}" data-id="${escaparHTML(produto.id)}">
+            ${estaFavoritado ? "★ Remover dos favoritos" : "♡ Adicionar aos favoritos"}
           </button>
         </div>
       </div>
@@ -257,30 +262,19 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       </div>
     </div>
 
-   <div class="area-tecnica">
+    <div class="area-tecnica">
       <nav class="tabs" aria-label="Informações do produto">
-        <button type="button" class="tab ativo" data-tab="especificacoes">
-          Especificações
-        </button>
-
-        <button type="button" class="tab" data-tab="dimensoes">
-          Medidas para projeto
-        </button>
-
-        <button type="button" class="tab" data-tab="documentos">
-          Downloads
-        </button>
+        <button type="button" class="tab ativo" data-tab="especificacoes">Especificações</button>
+        <button type="button" class="tab" data-tab="dimensoes">Medidas para projeto</button>
+        <button type="button" class="tab" data-tab="documentos">Downloads</button>
       </nav>
 
       <section class="painel-tab ativo" id="painel-especificacoes">
         <div class="grade-tecnica">
-          <div class="tabela-especificacoes">
-            ${especificacoes}
-          </div>
-
+          <div class="tabela-especificacoes">${especificacoes}</div>
           <div>
             <div class="card-dimensoes">
-              <h3 class="dimensoes-subtitulo">Dimens\u00F5es</h3>
+              <h3 class="dimensoes-subtitulo">Dimensões</h3>
               ${dimensoes}
             </div>
             ${criarAviso()}
@@ -289,18 +283,14 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       </section>
 
       <section class="painel-tab" id="painel-dimensoes">
-        <div class="card-dimensoes">
-          ${dimensoes}
-        </div>
+        <div class="card-dimensoes">${dimensoes}</div>
         ${criarAviso()}
       </section>
 
       <section class="painel-tab" id="painel-documentos">
         <div class="card-documentos">
           <h3 class="dimensoes-subtitulo">Documentos e Manuais</h3>
-          <div class="lista-documentos">
-            ${documentos}
-          </div>
+          <div class="lista-documentos">${documentos}</div>
         </div>
       </section>
     </div>`;
@@ -311,10 +301,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   if (interacaoDoUsuario && window.matchMedia("(max-width: 900px)").matches) {
     requestAnimationFrame(() => {
-      document.getElementById("detalhes").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      document.getElementById("detalhes").scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
 }
@@ -342,7 +329,7 @@ function configurarGaleria() {
 
 function criarBotaoInfoStore(url) {
   if (!url) return "";
-  return `<a href="${escaparHTML(url)}" target="_blank" rel="noopener noreferrer" class="botao-preto">Ver na Info Store \u2197</a>`;
+  return `<a href="${escaparHTML(url)}" target="_blank" rel="noopener noreferrer" class="botao-preto">Ver na Info Store ↗</a>`;
 }
 
 function criarDestaques(destaques = []) {
@@ -360,26 +347,13 @@ function criarDestaques(destaques = []) {
       const rotulo = item.rotulo || "";
       const icone = criarIconeDestaque(rotulo, valor);
 
-      const classeTexto =
-        valor.length > 32
-          ? "destaque-valor muito-longo"
-          : valor.length > 20
-            ? "destaque-valor longo"
-            : "destaque-valor";
-
       return `
         <div class="destaque" title="${escaparHTML(valor)}">
-          <span class="destaque-icone" aria-hidden="true">
-            ${icone}
-          </span>
-          <span class="destaque-texto">
-            <strong class="${classeTexto}">
-              ${escaparHTML(valor)}
-            </strong>
-            ${rotulo
-              ? `<small>${escaparHTML(rotulo)}</small>`
-              : ""}
-          </span>
+          <span class="destaque-icone" aria-hidden="true">${icone}</span>
+          <div class="destaque-texto">
+            ${rotulo ? `<strong class="destaque-rotulo">${escaparHTML(rotulo)}</strong>` : ""}
+            <span class="destaque-valor">${escaparHTML(valor)}</span>
+          </div>
         </div>`;
     }).join("");
 }
@@ -425,28 +399,17 @@ function criarEspecificacoes(especificacoes = {}) {
     ? especificacoes
     : {};
   const itens = Object.entries(dados).filter(([, valor]) => valor !== "" && valor != null);
-  if (!itens.length) return estadoMensagem("Especifica\u00E7\u00F5es ainda n\u00E3o cadastradas.");
+  if (!itens.length) return estadoMensagem("Especificações ainda não cadastradas.");
   return itens.map(([titulo, valor]) => `
     <div class="linha-especificacao"><span>${escaparHTML(titulo)}</span><span>${escaparHTML(valor)}</span></div>`).join("");
 }
 
 function criarDimensoes(dimensoes = {}, produto = {}) {
   const textoProduto = normalizarTexto(
-    [
-      produto.nome,
-      produto.modelo,
-      produto.categoria,
-      produto.segmento
-    ].filter(Boolean).join(" ")
+    [produto.nome, produto.modelo, produto.categoria, produto.segmento].filter(Boolean).join(" ")
   );
-
-  const categoriaProduto = normalizarTexto(
-    produto.categoria || produto.segmento || ""
-  );
-
-  const modeloProduto = normalizarTexto(
-    produto.modelo || ""
-  );
+  const categoriaProduto = normalizarTexto(produto.categoria || produto.segmento || "");
+  const modeloProduto = normalizarTexto(produto.modelo || "");
   
   const ehTV = categoriaProduto === "video" || textoProduto.startsWith("tv ") || textoProduto.includes(" tv ") || textoProduto.includes("televisor");
   const ehCooktop = textoProduto.includes("cooktop");
@@ -455,17 +418,10 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   const ehLavadora = textoProduto.includes("lava e seca") || textoProduto.includes("lavadora") || textoProduto.includes("maquina de lavar") || textoProduto.includes("maq lav") || textoProduto.includes("lav roupa") || modeloProduto.startsWith("ww") || modeloProduto.startsWith("wd");
   const ehLavaLoucas = textoProduto.includes("lava loucas") || textoProduto.includes("lava-loucas") || textoProduto.includes("lava louca") || modeloProduto.startsWith("dw");
 
-  const medidas =
-    dimensoes.produto ||
-    dimensoes.semBase ||
-    dimensoes.semEmbalagem ||
-    dimensoes.comBase ||
-    {};
+  const medidas = dimensoes.produto || dimensoes.semBase || dimensoes.semEmbalagem || dimensoes.comBase || {};
 
   function buscarMedida(nomes = []) {
-    const entrada = Object.entries(medidas).find(([nome]) =>
-      nomes.includes(normalizarTexto(nome))
-    );
+    const entrada = Object.entries(medidas).find(([nome]) => nomes.includes(normalizarTexto(nome)));
     return entrada?.[1] || "";
   }
 
@@ -473,7 +429,7 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
     return `
       <div class="linha-dimensao-tecnica">
         <strong>${escaparHTML(titulo)}</strong>
-        <span>${escaparHTML(valor || "\u2014")}</span>
+        <span>${escaparHTML(valor || "—")}</span>
       </div>
     `;
   }
@@ -481,20 +437,10 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   const largura = buscarMedida(["largura", "width"]);
   const altura = buscarMedida(["altura", "height"]);
   const profundidade = buscarMedida(["profundidade", "depth"]);
-
-  const peso =
-    medidas.peso ||
-    dimensoes.peso ||
-    produto.especificacoes?.["Peso l\u00EDquido"] ||
-    produto.especificacoes?.["Peso"] ||
-    "";
+  const peso = medidas.peso || dimensoes.peso || produto.especificacoes?.["Peso líquido"] || produto.especificacoes?.["Peso"] || "";
 
   if (!largura && !altura && !profundidade) {
-    return `
-      <p class="texto-tecnico">
-        Dimens\u00F5es em revis\u00E3o.
-      </p>
-    `;
+    return `<p class="texto-tecnico">Dimensões em revisão.</p>`;
   }
 
   let formaProduto = "";
@@ -518,7 +464,7 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   return `
     <div class="dimensoes-tecnicas">
       <div class="desenho-dimensoes">
-        <svg class="diagrama-produto" viewBox="0 0 230 225" role="img" aria-label="Representa\u00E7\u00E3o dimensional de ${escaparHTML(produto.nome)}">
+        <svg class="diagrama-produto" viewBox="0 0 230 225" role="img" aria-label="Representação dimensional de ${escaparHTML(produto.nome)}">
           ${formaProduto}
           <g class="linhas-medidas">
             <line x1="36" y1="204" x2="170" y2="204"></line>
@@ -536,11 +482,10 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
       </div>
 
       <div class="tabela-dimensoes-tecnicas">
-        <h4 class="dimensoes-subtitulo">Dimens\u00F5es do projeto</h4>
+        <h4 class="dimensoes-subtitulo">Dimensões do projeto</h4>
         ${criarLinha("Largura (A)", largura)}
         ${criarLinha("Altura (B)", altura)}
         ${criarLinha("Profundidade (C)", profundidade)}
-
         ${peso ? `<div class="peso-produto"><strong>Peso:</strong> ${escaparHTML(peso)}</div>` : ""}
       </div>
     </div>
@@ -549,29 +494,24 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
 
 function criarDocumentos(documentos = []) {
   const lista = Array.isArray(documentos) ? documentos : [];
-  const validos = lista.filter(documento =>
-    documento && documento.nome && documento.url
-  );
+  const validos = lista.filter(documento => documento && documento.nome && documento.url);
 
   if (!validos.length) {
-    return `<p class="texto-tecnico">Nenhum documento oficial dispon\u00EDvel no momento.</p>`;
+    return `<p class="texto-tecnico">Nenhum documento oficial disponível no momento.</p>`;
   }
 
   return validos.map(documento => `
-    <a href="${escaparHTML(documento.url)}"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="documento-link">
+    <a href="${escaparHTML(documento.url)}" target="_blank" rel="noopener noreferrer" class="documento-link">
       <span class="documento-informacoes">
         <strong>${escaparHTML(documento.nome)}</strong>
         <small>${escaparHTML(documento.descricao || "Documento oficial do fabricante")}</small>
       </span>
-      <span class="documento-acao">Abrir PDF \u2197</span>
+      <span class="documento-acao">Abrir PDF ↗</span>
     </a>`).join("");
 }
 
 function criarAviso() {
-  return `<div class="aviso"><span class="aviso-icone">\u24D8</span><div><strong>Observa\u00E7\u00F5es importantes</strong><p>Valide as medidas e as condi\u00E7\u00F5es de instala\u00E7\u00E3o antes de fechar o projeto. Imagens meramente ilustrativas.</p></div></div>`;
+  return `<div class="aviso"><span class="aviso-icone">ⓘ</span><div><strong>Observações importantes</strong><p>Valide as medidas e as condições de instalação antes de fechar o projeto. Imagens meramente ilustrativas.</p></div></div>`;
 }
 
 function configurarAbas() {
@@ -602,11 +542,6 @@ function estadoMensagem(mensagem) {
   return `<div class="sem-resultados">${escaparHTML(mensagem)}</div>`;
 }
 
-function formatarTitulo(texto = "") {
-  const mapa = { semBase: "Sem base", comBase: "Com base", produto: "Produto", embalagem: "Embalagem" };
-  return mapa[texto] || String(texto).replace(/([A-Z])/g, " $1").replace(/^./, letra => letra.toUpperCase());
-}
-
 function normalizarTexto(texto = "") {
   return String(texto).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
@@ -618,4 +553,339 @@ function escaparHTML(valor = "") {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+// ==================================================
+// SISTEMA DE FAVORITOS & EXPORTAÇÃO PDF
+// ==================================================
+
+function getFavoritos() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveFavoritos(favs) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
+  atualizarInterfaceFavoritos();
+}
+
+function toggleFavorito(produto) {
+  let favs = getFavoritos();
+  const index = favs.findIndex(item => String(item.id) === String(produto.id));
+
+  if (index >= 0) {
+    favs.splice(index, 1);
+  } else {
+    favs.push(produto);
+  }
+
+  saveFavoritos(favs);
+}
+
+function normalizarProdutoParaFavorito(produto) {
+  return {
+    id: String(produto.id),
+    nome: produto.nome,
+    fabricante: produto.marca || produto.fabricante || "Info Store",
+    modelo: produto.modelo || "-",
+    codigo: produto.codigoInfo || "-",
+    imagem: produto.imagem || IMAGEM_FALLBACK,
+    quantidade: 1
+  };
+}
+
+function atualizarInterfaceFavoritos() {
+  const favs = getFavoritos();
+  
+  const badge = document.getElementById("fav-contador");
+  if (badge) badge.innerText = favs.length;
+
+  const btnAdd = document.getElementById("btn-favoritar-detalhe");
+  if (btnAdd) {
+    const atualId = String(btnAdd.getAttribute("data-id"));
+    const estaSalvo = favs.some(item => String(item.id) === atualId);
+    btnAdd.classList.toggle("ativo", estaSalvo);
+    btnAdd.innerHTML = estaSalvo ? "★ Remover dos favoritos" : "♡ Adicionar aos favoritos";
+  }
+
+  document.querySelectorAll(".produto-favorito").forEach(el => {
+    const pId = String(el.getAttribute("data-favorito-id"));
+    const estaSalvo = favs.some(item => String(item.id) === pId);
+    el.textContent = estaSalvo ? "★" : "☆";
+  });
+
+  renderDrawerFavoritos(favs);
+}
+
+function renderDrawerFavoritos(favs) {
+  const container = document.getElementById("lista-favoritos");
+  const footer = document.getElementById("drawer-footer");
+  if (!container) return;
+
+  if (favs.length === 0) {
+    if (footer) footer.style.display = "none";
+    container.innerHTML = `
+      <div style="padding: 40px 15px; text-align: center; color: var(--suave); font-size: 12px; line-height: 1.6;">
+        Nenhum produto selecionado para o projeto ainda.
+      </div>`;
+    return;
+  }
+
+  if (footer) footer.style.display = "block";
+
+  container.innerHTML = favs.map(item => `
+    <div class="item-fav" data-id="${escaparHTML(item.id)}">
+      <img src="${escaparHTML(item.imagem)}" alt="${escaparHTML(item.nome)}" />
+      <div class="item-info">
+        <h4>${escaparHTML(item.nome)}</h4>
+        <span style="display: block; font-size: 11px; color: var(--dourado); font-weight: 600; margin: 2px 0;">
+          ${escaparHTML(item.fabricante)} • Mod: ${escaparHTML(item.modelo || "-")}
+        </span>
+        <span style="font-size: 11px; color: var(--suave);">Cód: ${escaparHTML(item.codigo)}</span>
+        
+        <div class="seletor-qtd" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; background: #f3f1ed; border-radius: 4px; padding: 2px 6px;">
+          <button type="button" class="btn-qtd" data-acao="diminuir" data-id="${escaparHTML(item.id)}" style="background:none;border:none;cursor:pointer;font-weight:700;font-size:12px;padding:0 4px;">−</button>
+          <span style="font-size: 11px; font-weight: 700; min-width: 14px; text-align: center;">${item.quantidade || 1}</span>
+          <button type="button" class="btn-qtd" data-acao="aumentar" data-id="${escaparHTML(item.id)}" style="background:none;border:none;cursor:pointer;font-weight:700;font-size:12px;padding:0 4px;">+</button>
+        </div>
+      </div>
+      <button class="btn-remove-item" type="button" data-remove-id="${escaparHTML(item.id)}" title="Remover item">&times;</button>
+    </div>
+  `).join("");
+}
+
+function baixarMemorialPDF() {
+  let favs = getFavoritos();
+  if (favs.length === 0) return;
+
+  favs = favs.map(item => {
+    const original = todosProdutos.find(p => String(p.id) === String(item.id));
+    if (original) {
+      const normalizado = normalizarProdutoParaFavorito(original);
+      normalizado.quantidade = item.quantidade || 1;
+      return normalizado;
+    }
+    return item;
+  });
+
+  const totalPecas = favs.reduce((soma, item) => soma + (item.quantidade || 1), 0);
+  const dataAtual = new Date().toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric"
+  });
+
+  const janelaImpressao = window.open("", "_blank", "width=960,height=800");
+
+  const conteudoHtml = `
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+      <meta charset="UTF-8">
+      <title>Lista de Interesse - Club One & Info Store</title>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+      <style>
+        @page { size: A4; margin: 0; }
+        * { box-sizing: border-box; }
+        body {
+          font-family: 'Manrope', Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          color: #1a1a18;
+          background: #fff;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .topbar-documento {
+          background: #181816 !important;
+          border-bottom: 3px solid #c9892b !important;
+          padding: 22px 35px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .logos { display: flex; align-items: center; gap: 22px; }
+        .logo-club { height: 40px; object-fit: contain; }
+        .logo-info { height: 32px; object-fit: contain; }
+        .separador { width: 1px; height: 32px; background: rgba(255,255,255,0.25); }
+        .meta-documento { text-align: right; color: #e2e0dc; }
+        .meta-documento strong {
+          display: block;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 11px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #c9892b;
+          margin-bottom: 3px;
+        }
+        .meta-documento span { font-size: 11px; color: #a3a099; }
+        .conteudo-pagina { padding: 35px; }
+        .titulo-bloco { margin-bottom: 24px; }
+        .titulo-bloco h1 {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 22px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: -0.02em;
+          margin: 0 0 6px;
+          color: #111;
+        }
+        .titulo-bloco p { margin: 0; font-size: 12px; color: #6d6b67; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 10px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          background: #f7f5f1 !important;
+          padding: 12px 14px;
+          text-align: left;
+          border-bottom: 1px solid #e4e0d9;
+          white-space: nowrap;
+        }
+        td {
+          padding: 14px;
+          border-bottom: 1px solid #eee;
+          font-size: 11px;
+          vertical-align: middle;
+        }
+        .col-foto { width: 65px; text-align: center; }
+        .col-foto img { width: 50px; height: 50px; object-fit: contain; }
+        .produto-nome { font-weight: 600; font-size: 12px; color: #111; display: block; line-height: 1.35; }
+        .tag-fab { font-size: 11px; font-weight: 700; color: #c9892b; text-transform: uppercase; }
+        .col-mod { font-size: 11px; color: #444; white-space: nowrap; }
+        .col-cod { font-family: monospace; font-size: 12px; font-weight: 600; color: #222; white-space: nowrap; }
+        .footer-documento {
+          margin-top: 45px;
+          padding-top: 15px;
+          border-top: 1px solid #e4e0d9;
+          display: flex;
+          justify-content: space-between;
+          font-size: 10px;
+          color: #777;
+          font-family: 'Montserrat', sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="topbar-documento">
+        <div class="logos">
+          <img class="logo-club" src="${window.location.origin}/assets/logoclub.png" alt="Club One">
+          <span class="separador"></span>
+          <img class="logo-info" src="${window.location.origin}/assets/logoin.png" alt="Info Store">
+        </div>
+        <div class="meta-documento">
+          <strong>Solicitação de Especificação</strong>
+          <span>Emitido em: ${dataAtual}</span>
+        </div>
+      </div>
+
+      <div class="conteudo-pagina">
+        <div class="titulo-bloco">
+          <h1>Lista de Interesse</h1>
+          <p>Relação de itens selecionados para levantamento comercial e orçamentário.</p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th class="col-foto">Item</th>
+              <th>Descrição do Produto</th>
+              <th>Fabricante</th>
+              <th>Modelo</th>
+              <th>Código</th>
+              <th style="text-align: center; width: 45px;">Qtd</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${favs.map(item => `
+              <tr>
+                <td class="col-foto"><img src="${item.imagem}" alt=""></td>
+                <td><span class="produto-nome">${escaparHTML(item.nome)}</span></td>
+                <td><span class="tag-fab">${escaparHTML(item.fabricante || "Info Store")}</span></td>
+                <td class="col-mod">${escaparHTML(item.modelo)}</td>
+                <td class="col-cod">${escaparHTML(item.codigo)}</td>
+                <td style="text-align: center; font-weight: 700; font-size: 12px;">${item.quantidade || 1}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+
+        <div class="footer-documento">
+          <span>Club One Arquitetura & Design • Info Store</span>
+          <span>Total: ${favs.length} ${favs.length === 1 ? 'item' : 'itens'} (${totalPecas} peças)</span>
+        </div>
+      </div>
+
+      <script>
+        window.onload = function() {
+          window.print();
+        };
+      <\/script>
+    </body>
+    </html>
+  `;
+
+  janelaImpressao.document.write(conteudoHtml);
+  janelaImpressao.document.close();
+}
+
+function configurarEventosFavoritos() {
+  const drawer = document.getElementById("drawer-favoritos");
+  
+  document.getElementById("btn-abrir-favoritos")?.addEventListener("click", () => {
+    drawer?.classList.remove("hidden");
+  });
+
+  document.getElementById("btn-fechar-favoritos")?.addEventListener("click", () => {
+    drawer?.classList.add("hidden");
+  });
+
+  document.getElementById("btn-gerar-memorial")?.addEventListener("click", baixarMemorialPDF);
+
+  // Tratamento completo de cliques dinâmicos
+  document.addEventListener("click", (e) => {
+    // 1. Alteração de quantidade (+ / -)
+    const btnQtd = e.target.closest(".btn-qtd");
+    if (btnQtd) {
+      const id = btnQtd.getAttribute("data-id");
+      const acao = btnQtd.getAttribute("data-acao");
+      let favs = getFavoritos();
+      const item = favs.find(p => String(p.id) === String(id));
+
+      if (item) {
+        if (!item.quantidade) item.quantidade = 1;
+        if (acao === "aumentar") item.quantidade += 1;
+        if (acao === "diminuir" && item.quantidade > 1) item.quantidade -= 1;
+        saveFavoritos(favs);
+      }
+      return;
+    }
+
+    // 2. Clique em "Adicionar/Remover dos favoritos" na área de detalhes
+    const btnDetalhe = e.target.closest("#btn-favoritar-detalhe");
+    if (btnDetalhe) {
+      const pId = btnDetalhe.getAttribute("data-id");
+      const produto = todosProdutos.find(item => String(item.id) === String(pId));
+      if (produto) {
+        toggleFavorito(normalizarProdutoParaFavorito(produto));
+      }
+      return;
+    }
+
+    // 3. Remover item individual pela gaveta lateral ('X')
+    const btnRemover = e.target.closest(".btn-remove-item");
+    if (btnRemover) {
+      const idRemover = btnRemover.getAttribute("data-remove-id");
+      let favs = getFavoritos().filter(item => String(item.id) !== String(idRemover));
+      saveFavoritos(favs);
+      return;
+    }
+  });
 }

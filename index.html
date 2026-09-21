@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="documentos-oficiais.css">
 </head>
 <body>
+  <!-- Topbar Unificada -->
   <header class="topbar">
     <div class="topbar-logos">
       <img src="assets/logoclub.png" alt="Club One" class="logo-club">
@@ -17,13 +18,15 @@
       <img src="assets/logoin.png" alt="Info Store" class="logo-info">
     </div>
 
-    <nav class="menu-principal" id="menuPrincipal" aria-label="Menu principal">
-      <a href="#">Início</a>
-      <button type="button" class="menu-link" data-abrir-filtro="fabricantes">Fabricantes</button>
-      <button type="button" class="menu-link" data-abrir-filtro="segmentos">Segmentos</button>
-      <a href="#contato">Contato</a>
-      <a href="assets/catalogos/catalogo-completo.pdf" download>Downloads</a>
-    </nav>
+    <div class="top-actions">
+      <button id="btn-abrir-favoritos" class="btn-favoritos-nav" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <span>Itens Selecionados</span>
+        <span id="fav-contador" class="badge">0</span>
+      </button>
+    </div>
 
     <button type="button" class="menu-mobile" id="menuMobile" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </header>
@@ -78,68 +81,50 @@
   <div class="contato-cabecalho">
     <span class="contato-etiqueta">Atendimento</span>
     <h2>Fale com nossa equipe</h2>
-    <p>Escolha o canal mais adequado para receber atendimento.</p>
+    <p>Escolha o canal mais adequado para receber atendimento exclusivo.</p>
   </div>
 
   <div class="contato-grade">
+    <!-- Card 1: Adaires Souza -->
     <article class="contato-card">
-      <span class="contato-icone" aria-hidden="true">☎</span>
-
+      <span class="contato-icone contato-foto">
+        <img src="assets/contatos/fotoadaires.jpg" alt="Foto de Adaires Souza">
+      </span>
       <div class="contato-conteudo">
         <span class="contato-tipo">Televendas</span>
         <h3>Adaires Souza</h3>
         <p>Atendimento comercial por telefone para orçamentos.</p>
-
-        <a
-          class="contato-botao"
-          href="tel:+5592XXXXXXXXX"
-          aria-label="Ligar para Adaires Souza"
-        >
-          (92) XXXXX-XXXX
+        <a class="contato-botao" href="https://wa.me/5592982893772" target="_blank" rel="noopener noreferrer" aria-label="Conversar com Adaires Souza pelo WhatsApp">
+         WhatsApp: (92) 98289-3772
         </a>
       </div>
     </article>
 
+    <!-- Card 2: Marcelo Filho -->
     <article class="contato-card">
       <span class="contato-icone contato-foto">
-  <img
-    src="assets/contatos/fotomarcelo.png"
-    alt="Foto de Marlo Filho"
-  >
-</span>
-
+        <img src="assets/contatos/fotomarcelo.png" alt="Foto de Marcelo Filho">
+      </span>
       <div class="contato-conteudo">
         <span class="contato-tipo">Atendimento presencial</span>
         <h3>Marcelo Filho</h3>
         <p>Atendimento comercial presencial para orçamentos.</p>
-
-        <a
-          class="contato-botao"
-          href="https://wa.me/5592982506370"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Conversar com Marlo Filho pelo WhatsApp"
-        >
+        <a class="contato-botao" href="https://wa.me/5592982506370" target="_blank" rel="noopener noreferrer" aria-label="Conversar com Marcelo Filho pelo WhatsApp">
           WhatsApp: (92) 98250-6370
         </a>
       </div>
     </article>
 
+    <!-- Card 3: Ana Santos -->
     <article class="contato-card">
-      <span class="contato-icone" aria-hidden="true">◇</span>
-
+      <span class="contato-icone contato-foto">
+        <img src="assets/contatos/fotoana.png" alt="Foto de Ana Santos">
+      </span>
       <div class="contato-conteudo">
         <span class="contato-tipo">Suporte Geral Info Store</span>
         <h3>Ana Santos</h3>
         <p>Suporte ao catálogo, produtos e atendimento exclusivo aos profissionais.</p>
-
-        <a
-          class="contato-botao"
-          href="https://wa.me/5592992411779"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Conversar com Ana Santos pelo WhatsApp"
-        >
+        <a class="contato-botao" href="https://wa.me/5592992411779" target="_blank" rel="noopener noreferrer" aria-label="Conversar com Ana Santos pelo WhatsApp">
           WhatsApp: (92) 99241-1779
         </a>
       </div>
@@ -152,12 +137,25 @@
     <div class="beneficio"><span class="beneficio-icone">◇</span><div><strong>Dados organizados</strong><p>Medidas, recursos e características em um só lugar.</p></div></div>
     <div class="beneficio"><span class="beneficio-icone">♙</span><div><strong>Apoio ao arquiteto</strong><p>Conteúdo para projetos residenciais e comerciais.</p></div></div>
     <div class="beneficio"><span class="beneficio-icone">♡</span><div><strong>Atualização contínua</strong><p>Novos produtos adicionados a partir da base Info Store.</p></div></div>
-    <a class="download-catalogo" href="assets/catalogos/catalogo-completo.pdf" download>↓ Baixar catálogo completo</a>
+    </a>
   </footer>
 
+  <!-- Drawer Lateral de Favoritos -->
+  <aside id="drawer-favoritos" class="drawer-favoritos hidden">
+    <div class="drawer-header">
+      <h3>Seleção para Projeto</h3>
+      <button id="btn-fechar-favoritos" type="button">&times;</button>
+    </div>
+    <div id="lista-favoritos" class="drawer-content"></div>
+    <div class="drawer-footer" id="drawer-footer" style="display: none;">
+      <button id="btn-gerar-memorial" class="btn-gerar-pdf" type="button">
+        ↓ Baixar Lista de Interesse (PDF)
+      </button>
+    </div>
+  </aside>
+
+  <!-- Carregamento dos Scripts -->
   <script src="blocagem.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
-// Atualização final do layout editorial.
