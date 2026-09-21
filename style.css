@@ -690,6 +690,19 @@ header.topbar {
   .rodape { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ==================================================
+   RESPONSIVIDADE (MOBILE & TABLET CORRIGIDOS)
+================================================== */
+@media (max-width: 1250px) {
+  .catalogo { grid-template-columns: 340px minmax(0, 1fr); }
+}
+
+@media (max-width: 1100px) {
+  .produto-hero { grid-template-columns: minmax(280px, 45%) minmax(0, 55%); padding: 24px; }
+  .grade-tecnica { grid-template-columns: 1fr; }
+  .rodape { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 900px) {
   :root { --topbar: 64px; }
 
@@ -722,7 +735,7 @@ header.topbar {
     height: 24px !important;
   }
 
-  /* Botão de favoritos compacto e refinado */
+  /* Botão de favoritos compacto */
   .btn-favoritos-nav {
     padding: 6px 10px !important;
     font-size: 9px !important;
@@ -749,18 +762,20 @@ header.topbar {
     display: none !important;
   }
 
-  /* Estrutura da Página */
+  /* Estrutura geral em coluna */
   .catalogo {
     display: flex !important;
     flex-direction: column !important;
   }
 
-  /* Sidebar compacta no mobile */
+  /* Sidebar destravada */
   .sidebar {
     position: static !important;
     width: 100% !important;
     height: auto !important;
-    padding: 16px 14px 12px !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    padding: 16px 14px 14px !important;
     border-right: none !important;
     border-bottom: 1px solid var(--borda) !important;
     background: #fbfaf8 !important;
@@ -770,56 +785,64 @@ header.topbar {
     grid-template-columns: minmax(0, 1fr) 42px;
   }
 
-  /* Lista de produtos em carrossel horizontal */
+  /* CORREÇÃO DO CATÁLOGO: altura definida e rolagem suave vertical */
   .lista-produtos {
     display: flex !important;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    max-height: none !important;
-    min-height: auto !important;
-    padding: 8px 4px !important;
-    gap: 10px !important;
-    border: none !important;
-    background: transparent !important;
-    scrollbar-width: none;
+    flex-direction: column !important;
+    flex: none !important;
+    width: 100% !important;
+    height: 280px !important; /* Garante que os cards apareçam com espaço para rolar */
+    max-height: 280px !important;
+    min-height: 280px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    border: 1px solid var(--borda) !important;
+    border-radius: 10px !important;
+    background: #fff !important;
+    margin-top: 10px !important;
+    scrollbar-width: thin;
     -webkit-overflow-scrolling: touch;
   }
 
-  .lista-produtos::-webkit-scrollbar {
-    display: none;
+  /* Cards de produto dentro da lista */
+  .produto {
+    width: 100% !important;
+    min-height: 78px !important;
+    padding: 8px 10px !important;
+    display: grid !important;
+    grid-template-columns: 70px minmax(0, 1fr) 22px !important;
+    gap: 10px !important;
+    align-items: center !important;
+    border: none !important;
+    border-bottom: 1px solid var(--borda) !important;
+    background: #fff !important;
+    text-align: left !important;
   }
 
-  .produto {
-    flex: 0 0 240px !important;
-    width: 240px !important;
-    min-height: 82px !important;
-    padding: 8px 10px !important;
-    border: 1px solid var(--borda) !important;
-    border-radius: 9px !important;
-    background: #fff !important;
-    grid-template-columns: 60px minmax(0, 1fr) 20px !important;
+  .produto:last-child {
+    border-bottom: none !important;
   }
 
   .produto-imagem {
-    width: 60px !important;
-    height: 52px !important;
+    width: 70px !important;
+    height: 54px !important;
   }
 
   .produto-informacoes h3 {
     font-size: 11px !important;
+    line-height: 1.3 !important;
   }
 
   .produto-informacoes p {
     font-size: 9px !important;
   }
 
-  /* Área de Detalhes do Produto */
+  /* Área do Produto Selecionado */
   .produto-hero {
     display: flex !important;
-    flex-direction: column-reverse !important;
+    flex-direction: column-reverse !important; /* Foto em cima, título/dados embaixo */
     padding: 20px 16px 0 !important;
-    gap: 20px !important;
+    gap: 18px !important;
   }
 
   .produto-media {
@@ -861,7 +884,7 @@ header.topbar {
     gap: 16px 12px !important;
   }
 
-  /* Botões no Mobile */
+  /* Botões de Ação no Mobile */
   .acoes {
     flex-direction: column !important;
     gap: 10px !important;
@@ -905,7 +928,7 @@ header.topbar {
     margin: 0 auto !important;
   }
 
-  /* Contatos */
+  /* Seção de Contato */
   .secao-contato {
     padding: 40px 16px !important;
   }
@@ -927,7 +950,7 @@ header.topbar {
     gap: 20px !important;
   }
 
-  /* Gaveta Lateral no Mobile */
+  /* Gaveta Lateral de Favoritos em tela cheia no celular */
   .drawer-favoritos {
     width: 100% !important;
   }
