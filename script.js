@@ -678,7 +678,7 @@ function baixarMemorialPDF() {
     year: "numeric"
   });
 
-  const janelaImpressao = window.open("", "_blank", "width=960,height=800");
+  const janelaImpressao = window.open("", "_blank", "width=980,height=820");
 
   const conteudoHtml = `
     <!DOCTYPE html>
@@ -686,90 +686,177 @@ function baixarMemorialPDF() {
     <head>
       <meta charset="UTF-8">
       <title>Lista de Interesse - Club One & Info Store</title>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
       <style>
-        @page { size: A4; margin: 0; }
+        @page { 
+          size: A4 portrait; 
+          margin: 0; 
+        }
         * { box-sizing: border-box; }
         body {
-          font-family: 'Manrope', Arial, sans-serif;
+          font-family: 'Manrope', Arial, Helvetica, sans-serif;
           margin: 0;
           padding: 0;
-          color: #1a1a18;
-          background: #fff;
+          color: #20201e;
+          background: #ffffff;
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;
+          -webkit-font-smoothing: antialiased;
         }
+
+        /* Topbar com proporções equilibradas */
         .topbar-documento {
           background: #181816 !important;
-          border-bottom: 3px solid #c9892b !important;
-          padding: 22px 35px;
+          border-bottom: 2px solid #c9892b !important;
+          padding: 20px 40px;
           display: flex;
           justify-content: space-between;
           align-items: center;
         }
-        .logos { display: flex; align-items: center; gap: 22px; }
-        .logo-club { height: 40px; object-fit: contain; }
-        .logo-info { height: 32px; object-fit: contain; }
-        .separador { width: 1px; height: 32px; background: rgba(255,255,255,0.25); }
-        .meta-documento { text-align: right; color: #e2e0dc; }
+        .logos { display: flex; align-items: center; gap: 20px; }
+        .logo-club { height: 36px; object-fit: contain; }
+        .logo-info { height: 28px; object-fit: contain; }
+        .separador { width: 1px; height: 28px; background: rgba(255,255,255,0.22); }
+        
+        .meta-documento { text-align: right; }
         .meta-documento strong {
           display: block;
           font-family: 'Montserrat', sans-serif;
-          font-size: 11px;
-          letter-spacing: 0.08em;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           color: #c9892b;
-          margin-bottom: 3px;
+          margin-bottom: 4px;
         }
-        .meta-documento span { font-size: 11px; color: #a3a099; }
-        .conteudo-pagina { padding: 35px; }
-        .titulo-bloco { margin-bottom: 24px; }
+        .meta-documento span { 
+          font-size: 11px; 
+          font-weight: 400;
+          color: #9e9b95; 
+        }
+
+        /* Conteúdo e cabeçalho editorial */
+        .conteudo-pagina { padding: 40px; }
+        
+        .titulo-bloco { margin-bottom: 30px; }
         .titulo-bloco h1 {
           font-family: 'Montserrat', sans-serif;
-          font-size: 22px;
-          font-weight: 800;
+          font-size: 20px;
+          font-weight: 600; /* Reduzido de 800 para 600 */
           text-transform: uppercase;
-          letter-spacing: -0.02em;
+          letter-spacing: 0.04em;
           margin: 0 0 6px;
-          color: #111;
+          color: #11110f;
         }
-        .titulo-bloco p { margin: 0; font-size: 12px; color: #6d6b67; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .titulo-bloco p { 
+          margin: 0; 
+          font-size: 12px; 
+          font-weight: 400;
+          color: #6d6b67; 
+          letter-spacing: 0.01em;
+        }
+
+        /* Tabela técnica clean */
+        table { 
+          width: 100%; 
+          border-collapse: collapse; 
+          margin-top: 10px; 
+        }
+        
         th {
           font-family: 'Montserrat', sans-serif;
-          font-size: 10px;
-          font-weight: 700;
+          font-size: 9px;
+          font-weight: 600;
           text-transform: uppercase;
-          letter-spacing: 0.06em;
+          letter-spacing: 0.08em;
           background: #f7f5f1 !important;
-          padding: 12px 14px;
+          color: #484745;
+          padding: 10px 14px;
           text-align: left;
+          border-top: 1px solid #e4e0d9;
           border-bottom: 1px solid #e4e0d9;
           white-space: nowrap;
         }
+        
         td {
           padding: 14px;
-          border-bottom: 1px solid #eee;
-          font-size: 11px;
+          border-bottom: 1px solid #ece8e1;
+          font-size: 12px;
           vertical-align: middle;
+          line-height: 1.4;
         }
-        .col-foto { width: 65px; text-align: center; }
-        .col-foto img { width: 50px; height: 50px; object-fit: contain; }
-        .produto-nome { font-weight: 600; font-size: 12px; color: #111; display: block; line-height: 1.35; }
-        .tag-fab { font-size: 11px; font-weight: 700; color: #c9892b; text-transform: uppercase; }
-        .col-mod { font-size: 11px; color: #444; white-space: nowrap; }
-        .col-cod { font-family: monospace; font-size: 12px; font-weight: 600; color: #222; white-space: nowrap; }
+
+        .col-item { width: 55px; text-align: center; }
+        .col-item img { 
+          width: 44px; 
+          height: 44px; 
+          object-fit: contain; 
+          display: block; 
+          margin: 0 auto; 
+        }
+
+        /* Tipografia dos dados */
+        .produto-nome { 
+          font-family: 'Manrope', sans-serif;
+          font-weight: 500; /* Menos carregado que o anterior */
+          font-size: 12px; 
+          color: #1a1a18; 
+          display: block;
+          max-width: 320px;
+        }
+
+        .tag-fab { 
+          font-family: 'Montserrat', sans-serif;
+          font-size: 10px; 
+          font-weight: 600; 
+          color: #c9892b; 
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+
+        .col-mod { 
+          font-family: 'Manrope', sans-serif;
+          font-size: 11px; 
+          font-weight: 400;
+          color: #55534e; 
+          white-space: nowrap;
+        }
+
+        .col-cod { 
+          font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
+          font-size: 11px; 
+          font-weight: 500; 
+          color: #33312e; 
+          white-space: nowrap;
+        }
+
+        .col-qtd { 
+          text-align: center; 
+          width: 50px;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600; 
+          font-size: 12px;
+          color: #11110f;
+        }
+
+        /* Rodapé com assinatura */
         .footer-documento {
-          margin-top: 45px;
-          padding-top: 15px;
+          margin-top: 50px;
+          padding-top: 18px;
           border-top: 1px solid #e4e0d9;
           display: flex;
           justify-content: space-between;
-          font-size: 10px;
-          color: #777;
+          align-items: center;
           font-family: 'Montserrat', sans-serif;
+          font-size: 9px;
+          font-weight: 500;
+          color: #8c8881;
           text-transform: uppercase;
-          letter-spacing: 0.04em;
+          letter-spacing: 0.05em;
+        }
+        .footer-total {
+          color: #11110f;
+          font-weight: 600;
         }
       </style>
     </head>
@@ -795,23 +882,23 @@ function baixarMemorialPDF() {
         <table>
           <thead>
             <tr>
-              <th class="col-foto">Item</th>
+              <th class="col-item">Item</th>
               <th>Descrição do Produto</th>
               <th>Fabricante</th>
               <th>Modelo</th>
               <th>Código</th>
-              <th style="text-align: center; width: 45px;">Qtd</th>
+              <th class="col-qtd">Qtd</th>
             </tr>
           </thead>
           <tbody>
             ${favs.map(item => `
               <tr>
-                <td class="col-foto"><img src="${item.imagem}" alt=""></td>
+                <td class="col-item"><img src="${item.imagem}" alt=""></td>
                 <td><span class="produto-nome">${escaparHTML(item.nome)}</span></td>
                 <td><span class="tag-fab">${escaparHTML(item.fabricante || "Info Store")}</span></td>
                 <td class="col-mod">${escaparHTML(item.modelo)}</td>
                 <td class="col-cod">${escaparHTML(item.codigo)}</td>
-                <td style="text-align: center; font-weight: 700; font-size: 12px;">${item.quantidade || 1}</td>
+                <td class="col-qtd">${item.quantidade || 1}</td>
               </tr>
             `).join("")}
           </tbody>
@@ -819,7 +906,7 @@ function baixarMemorialPDF() {
 
         <div class="footer-documento">
           <span>Club One Arquitetura & Design • Info Store</span>
-          <span>Total: ${favs.length} ${favs.length === 1 ? 'item' : 'itens'} (${totalPecas} peças)</span>
+          <span class="footer-total">Total: ${favs.length} ${favs.length === 1 ? 'item' : 'itens'} (${totalPecas} ${totalPecas === 1 ? 'peça' : 'peças'})</span>
         </div>
       </div>
 
