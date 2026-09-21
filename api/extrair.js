@@ -1,6 +1,6 @@
-import { GoogleGenAI } from '@google/genai';
+const { GoogleGenAI } = require('@google/genai');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ erro: 'Método não permitido' });
 
   const { url } = req.body;
@@ -9,18 +9,17 @@ export default async function handler(req, res) {
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
   try {
-    // Corrige barras invertidas presentes nos links da Electrolux
     const urlLimpa = url.replace(/\\/g, '/');
 
     const respostaPdf = await fetch(urlLimpa, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept': 'application/pdf,*/*'
       }
     });
 
     if (!respostaPdf.ok) {
-       return res.status(respostaPdf.status).json({ erro: 'Falha no download', detalhe: `O site do fabricante recusou o acesso (Status ${respostaPdf.status}).` });
+       return res.status(respostaPdf.status).json({ erro: 'Falha no download', detalhe: `O fabricante recusou o acesso (Status ${respostaPdf.status}).` });
     }
 
     const arrayBuffer = await respostaPdf.arrayBuffer();
@@ -36,7 +35,7 @@ export default async function handler(req, res) {
     }`;
     
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.6-flash',
       contents: [
         { inlineData: { data: base64Data, mimeType: 'application/pdf' } },
         prompt
@@ -48,7 +47,6 @@ export default async function handler(req, res) {
 
   } catch (erro) {
     console.error("Erro capturado na API:", erro);
-    // Devolve a mensagem exata de erro para o front-end
     res.status(500).json({ erro: 'Erro interno', detalhe: erro.message });
   }
-}
+};
