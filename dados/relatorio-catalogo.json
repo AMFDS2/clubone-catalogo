@@ -1,11 +1,11 @@
 {
-  "dataVerificacao": "2026-09-18T14:24:47.622Z",
+  "dataVerificacao": "2026-09-21T19:48:39.706Z",
   "resumo": {
     "produtosNaPlanilha": 109,
-    "produtosCadastrados": 100,
-    "produtosIncompletos": 9,
+    "produtosCadastrados": 102,
+    "produtosIncompletos": 7,
     "produtosNovos": 0,
-    "totalPendencias": 9
+    "totalPendencias": 7
   },
   "cadastrados": [
     {
@@ -45,12 +45,30 @@
       "statusPesquisa": "CADASTRADO"
     },
     {
+      "id": "29909pbi135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "COI0003",
+      "produto": "COIFA DE ILHA TOUCH PRO SERIES 90CM 90CIV PRE 127V",
+      "modelo": "29909PBI135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
       "id": "29909hbb189",
       "fabricante": "ELECTROLUX (NAC)",
       "segmento": "LINHA BRANCA",
       "codigo": "COI0014",
       "produto": "COIFA DE PAREDE TOUCH HOME PRO 90CM CE9HP CIN 127V",
       "modelo": "29909HBB189",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "29709dba189",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "COI0018",
+      "produto": "COIFA DE PAREDE TOUCH 70CM 70CS CIN 127V",
+      "modelo": "29709DBA189",
       "statusPesquisa": "CADASTRADO"
     },
     {
@@ -910,32 +928,6 @@
     }
   ],
   "incompletos": [
-    {
-      "id": "29909pbi135",
-      "fabricante": "ELECTROLUX (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "COI0003",
-      "produto": "COIFA DE ILHA TOUCH PRO SERIES 90CM 90CIV PRE 127V",
-      "modelo": "29909PBI135",
-      "statusPesquisa": "REVISAR",
-      "motivos": [
-        "Imagem principal ausente",
-        "Dimensões ausentes"
-      ]
-    },
-    {
-      "id": "29709dba189",
-      "fabricante": "ELECTROLUX (NAC)",
-      "segmento": "LINHA BRANCA",
-      "codigo": "COI0018",
-      "produto": "COIFA DE PAREDE TOUCH 70CM 70CS CIN 127V",
-      "modelo": "29709DBA189",
-      "statusPesquisa": "REVISAR",
-      "motivos": [
-        "Imagem principal ausente",
-        "Dimensões ausentes"
-      ]
-    },
     {
       "id": "02543fba130",
       "fabricante": "ELECTROLUX (NAC)",

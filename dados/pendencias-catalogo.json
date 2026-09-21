@@ -1,31 +1,5 @@
 [
   {
-    "id": "29909pbi135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "COI0003",
-    "produto": "COIFA DE ILHA TOUCH PRO SERIES 90CM 90CIV PRE 127V",
-    "modelo": "29909PBI135",
-    "statusPesquisa": "REVISAR",
-    "motivos": [
-      "Imagem principal ausente",
-      "Dimensões ausentes"
-    ]
-  },
-  {
-    "id": "29709dba189",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "COI0018",
-    "produto": "COIFA DE PAREDE TOUCH 70CM 70CS CIN 127V",
-    "modelo": "29709DBA189",
-    "statusPesquisa": "REVISAR",
-    "motivos": [
-      "Imagem principal ausente",
-      "Dimensões ausentes"
-    ]
-  },
-  {
     "id": "02543fba130",
     "fabricante": "ELECTROLUX (NAC)",
     "segmento": "LINHA BRANCA",

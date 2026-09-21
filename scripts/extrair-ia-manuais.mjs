@@ -2,20 +2,24 @@ import fs from 'fs/promises';
 import path from 'path';
 import { GoogleGenAI } from '@google/genai';
 
-// Coloque a sua chave gerada no Google AI Studio aqui para uso local
-const API_KEY = process.env.GEMINI_API_KEY; 
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+const API_KEY = process.env.GEMINI_API_KEY;
+if (!API_KEY) {
+    console.warn("⚠️ Chave GEMINI_API_KEY não encontrada. Pulando extração por IA.");
+    process.exit(0);
+}
 
-const ARQUIVO_JSON = path.resolve('produtos.preview.json');
+const ai = new GoogleGenAI({ apiKey: API_KEY });
+// Gravamos no arquivo base para que a automação seguinte (gerar-preview) não apague os dados
+const ARQUIVO_JSON = path.resolve('produtos.json'); 
 
 async function extrairDadosIA() {
-  console.log('Iniciando extração de dados com IA...\n');
+  console.log('🤖 Iniciando extração automatizada de manuais oficiais via IA...\n');
   
   let conteudo;
   try {
     conteudo = await fs.readFile(ARQUIVO_JSON, 'utf-8');
   } catch (err) {
-    console.error("❌ Arquivo produtos.preview.json não encontrado na raiz.");
+    console.error(`❌ Arquivo ${ARQUIVO_JSON} não encontrado. Execute o npm run enriquecer primeiro.`);
     return;
   }
 
@@ -23,78 +27,67 @@ async function extrairDadosIA() {
   let atualizados = 0;
 
   for (const produto of produtos) {
-    // Ignora se o produto já tem os dados da IA ou se não possui manual em PDF
     if (produto.medidasIA || !produto.documentos || produto.documentos.length === 0) continue;
 
     const manualPdf = produto.documentos.find(doc => doc.tipo === 'manual' && (doc.urlOriginal || doc.url));
     if (!manualPdf) continue;
 
-    const url = manualPdf.urlOriginal || manualPdf.url;
     console.log(`Processando: ${produto.modelo} - ${produto.nome.substring(0, 35)}...`);
 
-    try {
-      const urlLimpa = url.replace(/\\/g, '/');
-      const respostaPdf = await fetch(urlLimpa, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
-          'Accept': 'application/pdf,*/*'
+    let sucesso = false;
+    let tentativas = 0;
+
+    while (!sucesso && tentativas < 3) {
+      try {
+        const urlLimpa = (manualPdf.urlOriginal || manualPdf.url).replace(/\\/g, '/');
+        const respostaPdf = await fetch(urlLimpa, {
+          headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36' }
+        });
+
+        if (!respostaPdf.ok) break; 
+
+        const arrayBuffer = await respostaPdf.arrayBuffer();
+        if (Buffer.from(arrayBuffer.slice(0, 500)).toString('utf-8').toLowerCase().includes('<html')) {
+          console.log(`  -> ⚠️ PDF protegido pelo fabricante. Tentaremos noutra atualização.`);
+          break;
         }
-      });
 
-      if (!respostaPdf.ok) {
-        console.log(`  -> ❌ Falha ao baixar PDF (Status: ${respostaPdf.status})`);
-        continue;
-      }
+        const prompt = `Analise este manual de instalação. Extraia as medidas exigidas e retorne APENAS um objeto JSON válido.
+        Se a cota não estiver no manual, preencha com "-".
+        Formato exato: {"respiro_lateral": "valor", "respiro_superior": "valor", "respiro_traseiro": "valor", "nicho_largura": "valor", "nicho_altura": "valor"}`;
 
-      const arrayBuffer = await respostaPdf.arrayBuffer();
-      const conteudoInicial = Buffer.from(arrayBuffer.slice(0, 500)).toString('utf-8').toLowerCase();
-      
-      if (conteudoInicial.includes('<!doctype html') || conteudoInicial.includes('<html')) {
-        console.log(`  -> ❌ Bloqueado pelo fabricante (Site retornou HTML)`);
-        continue;
-      }
+        // Utilização do modelo correto e mais estável da Google para evitar Erro 503
+        const response = await ai.models.generateContent({
+          model: 'gemini-1.5-flash',
+          contents: [{ inlineData: { data: Buffer.from(arrayBuffer).toString('base64'), mimeType: 'application/pdf' } }, prompt]
+        });
 
-      const base64Data = Buffer.from(arrayBuffer).toString('base64');
-      const prompt = `Analise este manual de instalação. Extraia as medidas exigidas e retorne APENAS um objeto JSON válido.
-      Se a cota não estiver no manual, preencha com "-".
-      Formato exato exigido:
-      {
-        "respiro_lateral": "valor",
-        "respiro_superior": "valor",
-        "respiro_traseiro": "valor",
-        "nicho_largura": "valor",
-        "nicho_altura": "valor"
-      }`;
-
-      const response = await ai.models.generateContent({
-        model: 'gemini-3.6-flash',
-        contents: [{ inlineData: { data: base64Data, mimeType: 'application/pdf' } }, prompt]
-      });
-
-      let textoLimpo = response.text || "";
-      const jsonMatch = textoLimpo.match(/\{[\s\S]*\}/);
-      
-      if (jsonMatch) {
-        const dadosJson = JSON.parse(jsonMatch[0]);
-        produto.medidasIA = dadosJson; // Adiciona os dados ao produto
-        atualizados++;
-        console.log(`  -> ✅ Sucesso! Nicho: ${dadosJson.nicho_largura} x ${dadosJson.nicho_altura}`);
+        const jsonMatch = (response.text || "").match(/\{[\s\S]*\}/);
         
-        // Salva o JSON imediatamente para não perder dados
-        await fs.writeFile(ARQUIVO_JSON, JSON.stringify(produtos, null, 2));
-      } else {
-        console.log(`  -> ❌ Resposta da IA fora do formato esperado.`);
+        if (jsonMatch) {
+          produto.medidasIA = JSON.parse(jsonMatch[0]);
+          atualizados++;
+          sucesso = true;
+          console.log(`  -> ✅ Sucesso! Nicho: ${produto.medidasIA.nicho_largura} x ${produto.medidasIA.nicho_altura}`);
+          
+          await fs.writeFile(ARQUIVO_JSON, JSON.stringify(produtos, null, 2));
+        }
+
+      } catch (erro) {
+        if (erro.message.includes("503") || erro.message.includes("429")) {
+          tentativas++;
+          console.log(`  -> ⏳ Tráfego alto na Google. Repetindo em 10s...`);
+          await new Promise(res => setTimeout(res, 10000));
+        } else {
+          break;
+        }
       }
-
-      // Pausa de 5 segundos entre cada manual para respeitar o limite gratuito do Google (evitar erro 503)
-      await new Promise(res => setTimeout(res, 5000));
-
-    } catch (erro) {
-      console.log(`  -> ❌ Erro: ${erro.message}`);
     }
+    
+    if (sucesso) await new Promise(res => setTimeout(res, 3000)); // Pausa breve para não sobrecarregar
   }
 
-  console.log(`\n🎉 Processo concluído! ${atualizados} manuais lidos e guardados com sucesso no JSON.`);
+  console.log(`\n🎉 Extração concluída! ${atualizados} novos produtos automatizados.`);
 }
 
 extrairDadosIA();

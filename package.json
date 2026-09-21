@@ -11,7 +11,7 @@
     "localizar": "node scripts/localizar-fontes.mjs",
     "enriquecer": "node scripts/enriquecer-produtos.mjs",
     "gerar": "node scripts/gerar-catalogo-preview.mjs",
-    "atualizar": "npm run ler && npm run verificar && npm run localizar && npm run enriquecer && npm run gerar",
+    "atualizar": "npm run ler && npm run verificar && npm run localizar && npm run enriquecer && npm run extrair && npm run gerar",
     "check": "node --check script.js && node --check blocagem.js && node --check scripts/ler-planilha.mjs && node --check scripts/verificar-catalogo.mjs && node --check scripts/localizar-fontes.mjs && node --check scripts/enriquecer-produtos.mjs && node --check scripts/fabricantes/electrolux.mjs && node --check scripts/fabricantes/info-store.mjs && node --check scripts/gerar-catalogo-preview.mjs"
   },
   "repository": {
