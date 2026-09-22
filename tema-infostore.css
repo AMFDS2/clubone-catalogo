@@ -72,6 +72,81 @@ header.topbar {
   color: var(--info-azul-700);
 }
 
+/* Controle discreto para recolher/mostrar o painel lateral */
+.alternar-filtros {
+  width: 100%;
+  min-height: 36px;
+  margin: 0 0 8px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid rgba(28, 59, 122, .18);
+  border-radius: 9px;
+  background: linear-gradient(180deg, #fff, #f8faff);
+  color: var(--info-azul-900);
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+/* O controle antigo acompanhava a busca lateral e não deve reaparecer. */
+.botao-filtro-legado {
+  display: none !important;
+}
+
+.alternar-filtros:hover,
+.alternar-filtros:focus-visible {
+  border-color: rgba(36, 82, 173, .52);
+  background: #f5f8ff;
+  box-shadow: 0 4px 14px rgba(20, 43, 99, .08);
+  outline: none;
+}
+
+.alternar-filtros-icone {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--info-azul-100);
+  color: var(--info-azul-700);
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Miniaturas mais leves: sem placas bege ou brancas atrás dos produtos */
+.produto-imagem,
+.miniatura {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.produto-imagem {
+  border-radius: 0 !important;
+}
+
+.produto-imagem img,
+.miniatura img {
+  mix-blend-mode: normal !important;
+}
+
+.miniatura {
+  border-color: transparent !important;
+}
+
+.miniatura:hover,
+.miniatura.ativo {
+  border-color: rgba(36, 82, 173, .72) !important;
+  background: rgba(255, 255, 255, .32) !important;
+  box-shadow: 0 0 0 1px rgba(36, 82, 173, .08) !important;
+}
+
 .produto {
   position: relative;
   overflow: hidden;
@@ -247,6 +322,19 @@ header.topbar {
   border-top: 1px solid rgba(229,38,51,.72);
 }
 
+/* Recolhimento funcional, mesmo se regras antigas do tema tiverem prioridade. */
+body.campanha-fechada .barra-campanha {
+  display: none !important;
+}
+
+body.campanha-fechada .campanha-reabrir {
+  display: grid !important;
+}
+
+body:not(.campanha-fechada) .campanha-reabrir {
+  display: none !important;
+}
+
 /* ==============================================================
    CONTATO E RODAPÉ
 ============================================================== */
@@ -335,6 +423,160 @@ header.topbar {
 
 .beneficio:first-child .beneficio-icone {
   color: var(--info-vermelho) !important;
+}
+
+/* ==============================================================
+   GAVETA DE FAVORITOS
+   Z-index superior à campanha para impedir sobreposição.
+============================================================== */
+.drawer-favoritos {
+  z-index: 1700 !important;
+  width: min(420px, 100vw) !important;
+  background: #fbfcff !important;
+  border-left: 1px solid rgba(36,82,173,.16);
+  box-shadow: -14px 0 44px rgba(7,24,65,.18) !important;
+}
+
+.drawer-header {
+  min-height: 82px;
+  padding: 20px 22px !important;
+  border-bottom: 1px solid rgba(36,82,173,.13) !important;
+  background: linear-gradient(105deg, var(--info-azul-950), var(--info-azul-800));
+  color: #fff;
+}
+
+.drawer-header h3 {
+  margin: 0;
+  font-family: var(--fonte-titulos);
+  font-size: 18px;
+  letter-spacing: -.02em;
+}
+
+#btn-fechar-favoritos {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#btn-fechar-favoritos:hover {
+  border-color: var(--info-vermelho);
+  background: rgba(229,38,51,.14);
+}
+
+.drawer-content {
+  padding: 8px 20px 22px !important;
+  gap: 0 !important;
+  background: #fbfcff;
+}
+
+.item-fav {
+  position: relative;
+  gap: 13px !important;
+  padding: 16px 4px !important;
+  border-bottom: 1px solid rgba(36,82,173,.1) !important;
+}
+
+.item-fav::before {
+  content: "";
+  position: absolute;
+  top: 19px;
+  bottom: 19px;
+  left: -20px;
+  width: 2px;
+  border-radius: 0 2px 2px 0;
+  background: var(--info-vermelho);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.item-fav:hover::before { opacity: 1; }
+
+.item-fav img {
+  width: 56px !important;
+  height: 56px !important;
+  padding: 4px;
+  border: 1px solid rgba(36,82,173,.11);
+  border-radius: 7px;
+  background: #fff;
+}
+
+.item-fav .item-info h4 {
+  color: var(--info-texto);
+  font-family: var(--fonte-titulos);
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+.item-fav .item-info > span:nth-of-type(1) {
+  color: var(--info-azul-700) !important;
+}
+
+.item-fav .seletor-qtd {
+  min-height: 27px;
+  margin-left: 6px;
+  border: 1px solid rgba(36,82,173,.15);
+  border-radius: 999px !important;
+  background: #edf2fc !important;
+}
+
+.item-fav .btn-qtd {
+  width: 24px;
+  height: 22px;
+  padding: 0 !important;
+  color: var(--info-azul-800);
+  border-radius: 50%;
+}
+
+.item-fav .btn-qtd:hover { background: rgba(36,82,173,.1) !important; }
+
+.btn-remove-item {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #8993a9 !important;
+}
+
+.btn-remove-item:hover {
+  background: rgba(229,38,51,.08) !important;
+  color: var(--info-vermelho) !important;
+}
+
+.drawer-footer {
+  position: relative;
+  z-index: 2;
+  padding: 16px 20px 22px !important;
+  border-top: 1px solid rgba(36,82,173,.13) !important;
+  background: rgba(251,252,255,.98) !important;
+  box-shadow: 0 -9px 24px rgba(7,24,65,.06);
+}
+
+.btn-gerar-pdf {
+  min-height: 46px;
+  border-color: var(--info-azul-900) !important;
+  border-radius: 8px !important;
+  background: linear-gradient(105deg, var(--info-azul-950), var(--info-azul-800)) !important;
+  box-shadow: 0 7px 18px rgba(20,43,99,.18);
+}
+
+.btn-gerar-pdf:hover {
+  border-color: var(--info-vermelho) !important;
+  background: linear-gradient(105deg, var(--info-azul-900), var(--info-azul-700)) !important;
+}
+
+/* A campanha continua atrás da gaveta e não bloqueia os botões. */
+.drawer-favoritos:not(.hidden) ~ .barra-campanha,
+body:has(.drawer-favoritos:not(.hidden)) .barra-campanha,
+body:has(.drawer-favoritos:not(.hidden)) .campanha-reabrir {
+  pointer-events: none;
 }
 
 @media (max-width: 900px) {

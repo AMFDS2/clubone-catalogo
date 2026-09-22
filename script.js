@@ -1,6 +1,8 @@
 const ARQUIVO_CATALOGO = "produtos.preview.json";
 const IMAGEM_FALLBACK = "assets/produto-sem-imagem.svg";
 const STORAGE_KEY = "clubone_favoritos_v1";
+const STORAGE_FILTROS = "clubone_filtros_recolhidos_v1";
+const STORAGE_CAMPANHA = "clubone_campanha_recolhida_v1";
 
 let todosProdutos = [];
 let produtosFiltrados = [];
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", inicializar);
 
 async function inicializar() {
   configurarEventosFixos();
+  configurarCampanha();
   configurarEventosFavoritos();
   atualizarInterfaceFavoritos();
 
@@ -44,20 +47,43 @@ function produtoValido(produto) {
 function configurarEventosFixos() {
   const campoBusca = document.getElementById("busca");
   const ordenacao = document.getElementById("ordenacao");
-  const botaoFiltros = document.getElementById("botaoFiltros");
   const painelFiltros = document.getElementById("painelFiltros");
   const limparFiltros = document.getElementById("limparFiltros");
-  const fecharCampanha = document.getElementById("btnFecharCampanha");
-  const abrirCampanha = document.getElementById("btnAbrirCampanha");
 
-  if (localStorage.getItem("clubone_campanha_recolhida") === "1") {
-    document.body.classList.add("campanha-fechada");
+  // Controle lateral exclusivo. O botão antigo pode continuar oculto no HTML
+  // sem impedir que este apareça acima do painel de filtros.
+  document.getElementById("botaoFiltros")?.classList.add("botao-filtro-legado");
+  let botaoFiltros = document.getElementById("alternarFiltrosLateral");
+  if (!botaoFiltros && painelFiltros) {
+    botaoFiltros = document.createElement("button");
+    botaoFiltros.id = "alternarFiltrosLateral";
+    botaoFiltros.type = "button";
+    botaoFiltros.className = "alternar-filtros";
+    botaoFiltros.setAttribute("aria-controls", "painelFiltros");
+    botaoFiltros.setAttribute("aria-expanded", "true");
+    botaoFiltros.innerHTML = `
+      <span class="alternar-filtros-rotulo">Filtros</span>
+      <span class="alternar-filtros-icone" aria-hidden="true">⌃</span>`;
+    painelFiltros.parentNode.insertBefore(botaoFiltros, painelFiltros);
   }
 
-  if (window.matchMedia("(max-width: 900px)").matches) {
+  const atualizarBotaoFiltros = () => {
+    if (!botaoFiltros || !painelFiltros) return;
+    const aberto = !painelFiltros.classList.contains("fechado");
+    botaoFiltros.setAttribute("aria-expanded", String(aberto));
+    botaoFiltros.setAttribute("aria-label", aberto ? "Recolher filtros" : "Mostrar filtros");
+    const rotulo = botaoFiltros.querySelector(".alternar-filtros-rotulo");
+    const icone = botaoFiltros.querySelector(".alternar-filtros-icone");
+    if (rotulo) rotulo.textContent = aberto ? "Recolher filtros" : "Mostrar filtros";
+    if (icone) icone.textContent = aberto ? "−" : "+";
+  };
+
+  const filtrosRecolhidos = localStorage.getItem(STORAGE_FILTROS);
+  if (filtrosRecolhidos === "1" || (filtrosRecolhidos === null && window.matchMedia("(max-width: 900px)").matches)) {
     painelFiltros?.classList.add("fechado");
-    botaoFiltros?.setAttribute("aria-expanded", "false");
   }
+
+  atualizarBotaoFiltros();
 
   campoBusca?.addEventListener("input", aplicarFiltros);
   ordenacao?.addEventListener("change", aplicarFiltros);
@@ -66,8 +92,9 @@ function configurarEventosFixos() {
   document.getElementById("filtrosSegmentos")?.addEventListener("change", atualizarSelecaoFiltro);
 
   botaoFiltros?.addEventListener("click", () => {
-    const aberto = !painelFiltros.classList.toggle("fechado");
-    botaoFiltros.setAttribute("aria-expanded", String(aberto));
+    painelFiltros?.classList.toggle("fechado");
+    localStorage.setItem(STORAGE_FILTROS, painelFiltros?.classList.contains("fechado") ? "1" : "0");
+    atualizarBotaoFiltros();
   });
 
   limparFiltros?.addEventListener("click", () => {
@@ -76,16 +103,24 @@ function configurarEventosFixos() {
     renderizarFiltros();
     aplicarFiltros();
   });
+}
 
-  fecharCampanha?.addEventListener("click", () => {
-    document.body.classList.add("campanha-fechada");
-    localStorage.setItem("clubone_campanha_recolhida", "1");
-  });
+function configurarCampanha() {
+  const fechar = document.getElementById("btnFecharCampanha");
+  const abrir = document.getElementById("btnAbrirCampanha");
+  const barra = document.getElementById("barraCampanha");
+  if (!barra || !fechar || !abrir) return;
 
-  abrirCampanha?.addEventListener("click", () => {
-    document.body.classList.remove("campanha-fechada");
-    localStorage.removeItem("clubone_campanha_recolhida");
-  });
+  const definirEstado = (recolhida) => {
+    document.body.classList.toggle("campanha-fechada", recolhida);
+    barra.setAttribute("aria-hidden", String(recolhida));
+    abrir.setAttribute("aria-expanded", String(!recolhida));
+    localStorage.setItem(STORAGE_CAMPANHA, recolhida ? "1" : "0");
+  };
+
+  definirEstado(localStorage.getItem(STORAGE_CAMPANHA) === "1");
+  fechar.addEventListener("click", () => definirEstado(true));
+  abrir.addEventListener("click", () => definirEstado(false));
 }
 
 function aplicarFiltros() {
@@ -346,16 +381,22 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const profundidadeGabinete = valor(geometria.profundidadeGabinete,"Não localizado");
   const superior = valor(folgas.superior);
   const lateral = valor(geometria.folgaLateral,"Não localizado");
+  const lateralEsquerda = valor(geometria.folgaLateralEsquerda, "");
+  const lateralDireita = valor(geometria.folgaLateralDireita, "");
   const traseira = valor(geometria.afastamentoTraseiro,"Não localizado");
   const angulo = valor(geometria.anguloAbertura, valor(abertura.anguloPorta, ""));
+  const anguloEsquerda = valor(geometria.anguloAberturaEsquerda, "");
+  const anguloDireita = valor(geometria.anguloAberturaDireita, "");
   const larguraPortasAbertas = valor(geometria.larguraComPortasAbertas, "");
   const profundidadePortasAbertas = valor(geometria.profundidadeComPortasAbertas, "");
   const gavetas = valor(geometria.profundidadeComGavetasEstendidas, valor(abertura.distanciaGavetasEstendidas, ""));
   const paginaFrontal = pagina(dimensoes.largura, dimensoes.altura, dimensoes.profundidade, folgas.superior);
-  const paginaSuperior = pagina(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAbertura, abertura.anguloPorta);
+  const paginaSuperior = pagina(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta);
   const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
   const frenchDoor = /french|rf70|rf80|multidoor|multi door/.test(textoProduto);
-  const aberturaConfirmada = Boolean(angulo || larguraPortasAbertas || profundidadePortasAbertas || gavetas);
+  const sideBySide = produto.moldeTecnico === "geladeira-side-by-side" || produto.familiaTecnica === "side-by-side" || /side by side|rs60|rs58/.test(textoProduto);
+  const duasPortasVerticais = frenchDoor || sideBySide;
+  const aberturaConfirmada = Boolean(angulo || anguloEsquerda || anguloDireita || larguraPortasAbertas || profundidadePortasAbertas || gavetas);
 
   const cabecalho = (titulo, subtitulo, paginaManual) => `
     <div class="vista-projeto-titulo">
@@ -377,7 +418,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
         <line x1="138" y1="220" x2="382" y2="220"></line>
         <circle cx="138" cy="220" r="5"></circle><circle cx="382" cy="220" r="5"></circle>
       </g>
-      ${frenchDoor ? `
+      ${duasPortasVerticais ? `
         <g class="portas-planta">
           <path d="M138 214 L77 314 L92 323 L153 223 Z"></path>
           <path d="M382 214 L443 314 L428 323 L367 223 Z"></path>
@@ -403,7 +444,10 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
         <line x1="474" y1="50" x2="474" y2="323" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
         <text class="cota-valor cota-profundidade" x="496" y="186">${escaparHTML(profundidadePortasAbertas || "—")}</text>
       </g>
-      ${angulo ? `<text class="angulo-porta" x="260" y="302">ABERTURA ${escaparHTML(angulo)}</text>` : ""}
+      ${sideBySide && (anguloEsquerda || anguloDireita) ? `
+        <text class="angulo-porta" x="174" y="294">ESQ. ${escaparHTML(anguloEsquerda || "—")}</text>
+        <text class="angulo-porta" x="346" y="294">DIR. ${escaparHTML(anguloDireita || "—")}</text>`
+        : angulo ? `<text class="angulo-porta" x="260" y="302">ABERTURA ${escaparHTML(angulo)}</text>` : ""}
       <g class="legenda-pivos"><path d="M138 220l-26 15"></path><text x="108" y="245">dobradiça</text><path d="M382 220l26 15"></path><text x="412" y="245">dobradiça</text></g>
     </svg>` : `
     <div class="vista-indisponivel"><span>—</span><strong>Abertura não localizada no manual</strong><p>O sistema não desenha o giro da porta sem ângulo ou distância confirmada.</p></div>`;
@@ -418,7 +462,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
           <text class="nota-nicho" x="270" y="27">NICHO / MARCENARIA</text>
           <g class="produto-frontal">
             <rect x="176" y="70" width="172" height="246" rx="2"></rect>
-            ${frenchDoor ? `<line x1="262" y1="70" x2="262" y2="210"></line><line x1="176" y1="210" x2="348" y2="210"></line><line x1="246" y1="105" x2="246" y2="184"></line><line x1="278" y1="105" x2="278" y2="184"></line>` : `<line x1="176" y1="118" x2="348" y2="118"></line><line x1="326" y1="142" x2="326" y2="250"></line>`}
+            ${frenchDoor ? `<line x1="262" y1="70" x2="262" y2="210"></line><line x1="176" y1="210" x2="348" y2="210"></line><line x1="246" y1="105" x2="246" y2="184"></line><line x1="278" y1="105" x2="278" y2="184"></line>` : sideBySide ? `<line x1="262" y1="70" x2="262" y2="316"></line><line x1="248" y1="112" x2="248" y2="246"></line><line x1="276" y1="112" x2="276" y2="246"></line>` : `<line x1="176" y1="118" x2="348" y2="118"></line><line x1="326" y1="142" x2="326" y2="250"></line>`}
           </g>
           <g class="linhas-extensao"><path d="M176 316V358M348 316V358M166 70H118M166 316H118"></path></g>
           <line class="cota-tecnica" x1="176" y1="350" x2="348" y2="350" marker-start="url(#seta-frente)" marker-end="url(#seta-frente)"></line>
@@ -427,14 +471,15 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
           <text class="cota-valor cota-altura" x="96" y="193">${escaparHTML(altura)}</text>
           <g class="chamadas-tecnicas">
             <path d="M348 70H400"></path><text x="406" y="66">Folga superior</text><text class="destaque" x="406" y="82">${escaparHTML(superior)}</text>
-            <path d="M348 174H400"></path><text x="406" y="170">Folga lateral</text><text class="destaque" x="406" y="186">${escaparHTML(lateral)}</text>
+            <path d="M348 174H400"></path><text x="406" y="170">${sideBySide ? "Folga dir." : "Folga lateral"}</text><text class="destaque" x="406" y="186">${escaparHTML(sideBySide ? (lateralDireita || "Não localizado") : lateral)}</text>
+            ${sideBySide ? `<path d="M176 174H132"></path><text x="42" y="170">Folga esq.</text><text class="destaque" x="42" y="186">${escaparHTML(lateralEsquerda || "Não localizado")}</text>` : ""}
             <path d="M348 290l50 25"></path><text x="404" y="312">Profundidade</text><text class="destaque" x="404" y="328">${escaparHTML(profundidade)}</text>
             <path d="M176 300l-38 24"></path><text x="44" y="335">Folga traseira: ${escaparHTML(traseira)}</text>
           </g>
         </svg>
       </section>
       <section class="vista-projeto-card">
-        ${cabecalho("Vista superior", `Abertura — gavetas: ${escaparHTML(gavetas || "não localizado")}`, paginaSuperior)}
+        ${cabecalho("Vista superior", sideBySide ? "Abertura independente das portas" : `Abertura — gavetas: ${escaparHTML(gavetas || "não localizado")}`, paginaSuperior)}
         ${vistaSuperior}
       </section>
       <section class="vista-projeto-card vista-produto-real">
