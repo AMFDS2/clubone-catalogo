@@ -47,6 +47,12 @@ function configurarEventosFixos() {
   const botaoFiltros = document.getElementById("botaoFiltros");
   const painelFiltros = document.getElementById("painelFiltros");
   const limparFiltros = document.getElementById("limparFiltros");
+  const fecharCampanha = document.getElementById("btnFecharCampanha");
+  const abrirCampanha = document.getElementById("btnAbrirCampanha");
+
+  if (localStorage.getItem("clubone_campanha_recolhida") === "1") {
+    document.body.classList.add("campanha-fechada");
+  }
 
   if (window.matchMedia("(max-width: 900px)").matches) {
     painelFiltros?.classList.add("fechado");
@@ -69,6 +75,16 @@ function configurarEventosFixos() {
     filtrosSelecionados.segmentos.clear();
     renderizarFiltros();
     aplicarFiltros();
+  });
+
+  fecharCampanha?.addEventListener("click", () => {
+    document.body.classList.add("campanha-fechada");
+    localStorage.setItem("clubone_campanha_recolhida", "1");
+  });
+
+  abrirCampanha?.addEventListener("click", () => {
+    document.body.classList.remove("campanha-fechada");
+    localStorage.removeItem("clubone_campanha_recolhida");
   });
 }
 
@@ -200,6 +216,234 @@ function renderizarProdutos(produtos) {
   configurarFallbackImagens(container);
 }
 
+function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
+  const dados = produto.medidasProjeto;
+
+  if (!dados) {
+    const possuiManual = Array.isArray(produto.documentos) && produto.documentos.some(documento => documento?.url);
+    return `
+      <div class="medidas-projeto-vazio">
+        <strong>Medidas de instalação ainda não processadas</strong>
+        <p>${possuiManual
+          ? "Existe um manual oficial cadastrado. Execute a automação de IA para preencher esta área."
+          : "Adicione um manual oficial em PDF para habilitar a extração automática."}</p>
+      </div>
+      <div class="card-dimensoes">${dimensoesHtml}</div>
+      ${criarAviso()}`;
+  }
+
+  const statusConfig = {
+    CONFIRMADO: { classe: "confirmado", icone: "✓", texto: "Confirmado no manual" },
+    REVISAR: { classe: "revisar", icone: "●", texto: "Revisão recomendada" },
+    NAO_LOCALIZADO: { classe: "nao-localizado", icone: "—", texto: "Não localizado" }
+  };
+
+  function linha(rotulo, campo = {}) {
+    const config = statusConfig[campo.status] || statusConfig.NAO_LOCALIZADO;
+    const valor = campo.valor || "Não informado";
+    const pagina = campo.pagina ? `<small>pág. ${escaparHTML(campo.pagina)}</small>` : "";
+    const observacao = campo.observacao ? ` title="${escaparHTML(campo.observacao)}"` : "";
+    return `
+      <div class="medida-ia-linha"${observacao}>
+        <span class="medida-ia-item">${escaparHTML(rotulo)} ${pagina}</span>
+        <strong>${escaparHTML(valor)}</strong>
+        <span class="medida-status ${config.classe}"><i>${config.icone}</i>${config.texto}</span>
+      </div>`;
+  }
+
+  function grupo(titulo, campos = []) {
+    return `
+      <section class="medidas-ia-card">
+        <h4>${escaparHTML(titulo)}</h4>
+        ${campos.map(([rotulo, campo]) => linha(rotulo, campo)).join("")}
+      </section>`;
+  }
+
+  const dimensoesProduto = dados.dimensoesProduto || {};
+  const dimensoesNicho = dados.dimensoesNicho || {};
+  const folgas = dados.folgas || {};
+  const abertura = dados.abertura || {};
+  const instalacao = dados.instalacao || {};
+  const fonte = dados.fonte || {};
+  const observacoes = Array.isArray(dados.observacoes) ? dados.observacoes.filter(Boolean) : [];
+  const vistasTecnicas = criarVistasTecnicasProjeto(produto, dados);
+
+  return `
+    <div class="medidas-projeto-cabecalho">
+      <div>
+        <span class="selo-ia">Dados extraídos do manual</span>
+        <h3>Medidas para projeto</h3>
+      </div>
+      <div class="fonte-medidas">
+        <strong>${escaparHTML(fonte.nome || "Manual oficial")}</strong>
+        <span>${dados.revisado ? "Revisado" : "Revisão técnica recomendada"}</span>
+      </div>
+    </div>
+
+    ${vistasTecnicas}
+
+    <div class="medidas-projeto-destaque">
+      <div class="medidas-projeto-desenho card-dimensoes">${dimensoesHtml}</div>
+      ${grupo("Dimensões do produto", [
+        ["Largura", dimensoesProduto.largura],
+        ["Altura", dimensoesProduto.altura],
+        ["Profundidade", dimensoesProduto.profundidade]
+      ])}
+    </div>
+
+    <div class="medidas-ia-grade">
+      ${grupo("Dimensões recomendadas do nicho", [
+        ["Largura", dimensoesNicho.largura],
+        ["Altura", dimensoesNicho.altura],
+        ["Profundidade", dimensoesNicho.profundidade]
+      ])}
+      ${grupo("Folgas e ventilação", [
+        ["Respiro superior", folgas.superior],
+        ["Respiro lateral", folgas.lateral],
+        ["Respiro traseiro", folgas.traseira],
+        ["Espaço frontal", folgas.frontal]
+      ])}
+      ${grupo("Abertura", [
+        ["Ângulo da porta", abertura.anguloPorta],
+        ["Portas abertas", abertura.distanciaPortasAbertas],
+        ["Gavetas estendidas", abertura.distanciaGavetasEstendidas]
+      ])}
+      ${grupo("Pontos de instalação", [
+        ["Ponto elétrico", instalacao.pontoEletrico],
+        ["Ponto de água", instalacao.pontoAgua],
+        ["Ponto de gás", instalacao.pontoGas],
+        ["Dreno", instalacao.dreno]
+      ])}
+    </div>
+
+    ${observacoes.length ? `
+      <section class="observacoes-manual">
+        <strong>Observações do manual</strong>
+        <ul>${observacoes.map(item => `<li>${escaparHTML(item)}</li>`).join("")}</ul>
+      </section>` : ""}
+
+    <div class="legenda-medidas">
+      <span><i class="confirmado">✓</i> Confirmado no manual</span>
+      <span><i class="revisar">●</i> Revisão recomendada</span>
+      <span><i class="nao-localizado">—</i> Não localizado</span>
+    </div>
+    <p class="aviso-ia">Informações extraídas por IA a partir do manual oficial. Confirme as cotas antes da execução do projeto.</p>`;
+}
+
+function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
+  const textoProduto = normalizarTexto(`${produto.tipoBloco || ""} ${produto.nome || ""} ${produto.modelo || ""}`);
+  if (!/geladeira|refrigerador|adega|freezer/.test(textoProduto)) return "";
+
+  const dimensoes = dados.dimensoesProduto || {};
+  const folgas = dados.folgas || {};
+  const abertura = dados.abertura || {};
+  const geometria = dados.geometriaInstalacao || {};
+  const valor = (campo, vazio = "Não localizado") => campo?.valor || vazio;
+  const pagina = (...campos) => campos.find(campo => campo?.pagina)?.pagina || "—";
+  const largura = valor(geometria.larguraProduto, valor(dimensoes.largura));
+  const altura = valor(geometria.alturaProduto, valor(dimensoes.altura));
+  const profundidade = valor(geometria.profundidadeTotalProduto, valor(dimensoes.profundidade));
+  const profundidadeGabinete = valor(geometria.profundidadeGabinete,"Não localizado");
+  const superior = valor(folgas.superior);
+  const lateral = valor(geometria.folgaLateral,"Não localizado");
+  const traseira = valor(geometria.afastamentoTraseiro,"Não localizado");
+  const angulo = valor(geometria.anguloAbertura, valor(abertura.anguloPorta, ""));
+  const larguraPortasAbertas = valor(geometria.larguraComPortasAbertas, "");
+  const profundidadePortasAbertas = valor(geometria.profundidadeComPortasAbertas, "");
+  const gavetas = valor(geometria.profundidadeComGavetasEstendidas, valor(abertura.distanciaGavetasEstendidas, ""));
+  const paginaFrontal = pagina(dimensoes.largura, dimensoes.altura, dimensoes.profundidade, folgas.superior);
+  const paginaSuperior = pagina(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAbertura, abertura.anguloPorta);
+  const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
+  const frenchDoor = /french|rf70|rf80|multidoor|multi door/.test(textoProduto);
+  const aberturaConfirmada = Boolean(angulo || larguraPortasAbertas || profundidadePortasAbertas || gavetas);
+
+  const cabecalho = (titulo, subtitulo, paginaManual) => `
+    <div class="vista-projeto-titulo">
+      <div><strong>${titulo}</strong><span>${subtitulo}</span></div>
+      <small>${paginaManual !== "—" ? `Manual • pág. ${escaparHTML(paginaManual)}` : "Cota não localizada"}</small>
+    </div>`;
+
+  const vistaSuperior = aberturaConfirmada ? `
+    <svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do refrigerador e abertura das portas">
+      <defs>
+        <marker id="seta-topo" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker>
+        <pattern id="hachura-parede" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="12"></line></pattern>
+      </defs>
+      <g class="parede-planta"><rect x="58" y="30" width="404" height="20"></rect><text x="260" y="23">PAREDE / FUNDO DO NICHO</text></g>
+      <g class="marcenaria-planta"><path d="M58 58H138V220H104M462 58H382V220H416"></path></g>
+      <line class="eixo-tecnico" x1="260" y1="52" x2="260" y2="350"></line>
+      <g class="produto-topo-tecnico">
+        <rect x="138" y="68" width="244" height="152" rx="2"></rect>
+        <line x1="138" y1="220" x2="382" y2="220"></line>
+        <circle cx="138" cy="220" r="5"></circle><circle cx="382" cy="220" r="5"></circle>
+      </g>
+      ${frenchDoor ? `
+        <g class="portas-planta">
+          <path d="M138 214 L77 314 L92 323 L153 223 Z"></path>
+          <path d="M382 214 L443 314 L428 323 L367 223 Z"></path>
+          <path class="arco-abertura" d="M260 220 A122 122 0 0 1 84 318"></path>
+          <path class="arco-abertura" d="M260 220 A122 122 0 0 0 436 318"></path>
+        </g>` : `
+        <g class="portas-planta">
+          <path d="M382 214 L443 314 L428 323 L367 223 Z"></path>
+          <path class="arco-abertura" d="M138 220 A244 244 0 0 0 436 318"></path>
+        </g>`}
+      <g class="cotas-planta">
+        <path d="M138 62V50M382 62V50"></path>
+        <line x1="138" y1="56" x2="382" y2="56" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
+        <text class="cota-valor" x="260" y="48">${escaparHTML(largura)}</text>
+        <path d="M390 68H414M390 220H414"></path>
+        <line x1="406" y1="68" x2="406" y2="220" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
+        <text class="cota-valor cota-profundidade" x="428" y="144">${escaparHTML(profundidadeGabinete)}</text>
+        <path d="M77 328V360M443 328V360"></path>
+        <line x1="77" y1="350" x2="443" y2="350" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
+        <text class="cota-valor" x="260" y="374">${escaparHTML(larguraPortasAbertas || "Não localizado")}</text>
+        <text class="cota-legenda" x="260" y="391">largura total com portas abertas</text>
+        <path d="M462 50H482M443 323H482"></path>
+        <line x1="474" y1="50" x2="474" y2="323" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
+        <text class="cota-valor cota-profundidade" x="496" y="186">${escaparHTML(profundidadePortasAbertas || "—")}</text>
+      </g>
+      ${angulo ? `<text class="angulo-porta" x="260" y="302">ABERTURA ${escaparHTML(angulo)}</text>` : ""}
+      <g class="legenda-pivos"><path d="M138 220l-26 15"></path><text x="108" y="245">dobradiça</text><path d="M382 220l26 15"></path><text x="412" y="245">dobradiça</text></g>
+    </svg>` : `
+    <div class="vista-indisponivel"><span>—</span><strong>Abertura não localizada no manual</strong><p>O sistema não desenha o giro da porta sem ângulo ou distância confirmada.</p></div>`;
+
+  return `
+    <div class="vistas-projeto-grade">
+      <section class="vista-projeto-card">
+        ${cabecalho("Vista frontal", "Produto, nicho e folgas técnicas", paginaFrontal)}
+        <svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do refrigerador">
+          <defs><marker id="seta-frente" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker></defs>
+          <g class="nicho-tecnico"><path d="M154 48H370V328H154Z"></path><path d="M154 48l18-16h216v280l-18 16"></path><path d="M370 48l18-16M370 328l18-16"></path></g>
+          <text class="nota-nicho" x="270" y="27">NICHO / MARCENARIA</text>
+          <g class="produto-frontal">
+            <rect x="176" y="70" width="172" height="246" rx="2"></rect>
+            ${frenchDoor ? `<line x1="262" y1="70" x2="262" y2="210"></line><line x1="176" y1="210" x2="348" y2="210"></line><line x1="246" y1="105" x2="246" y2="184"></line><line x1="278" y1="105" x2="278" y2="184"></line>` : `<line x1="176" y1="118" x2="348" y2="118"></line><line x1="326" y1="142" x2="326" y2="250"></line>`}
+          </g>
+          <g class="linhas-extensao"><path d="M176 316V358M348 316V358M166 70H118M166 316H118"></path></g>
+          <line class="cota-tecnica" x1="176" y1="350" x2="348" y2="350" marker-start="url(#seta-frente)" marker-end="url(#seta-frente)"></line>
+          <text class="cota-valor" x="262" y="376">${escaparHTML(largura)}</text>
+          <line class="cota-tecnica" x1="126" y1="70" x2="126" y2="316" marker-start="url(#seta-frente)" marker-end="url(#seta-frente)"></line>
+          <text class="cota-valor cota-altura" x="96" y="193">${escaparHTML(altura)}</text>
+          <g class="chamadas-tecnicas">
+            <path d="M348 70H400"></path><text x="406" y="66">Folga superior</text><text class="destaque" x="406" y="82">${escaparHTML(superior)}</text>
+            <path d="M348 174H400"></path><text x="406" y="170">Folga lateral</text><text class="destaque" x="406" y="186">${escaparHTML(lateral)}</text>
+            <path d="M348 290l50 25"></path><text x="404" y="312">Profundidade</text><text class="destaque" x="404" y="328">${escaparHTML(profundidade)}</text>
+            <path d="M176 300l-38 24"></path><text x="44" y="335">Folga traseira: ${escaparHTML(traseira)}</text>
+          </g>
+        </svg>
+      </section>
+      <section class="vista-projeto-card">
+        ${cabecalho("Vista superior", `Abertura — gavetas: ${escaparHTML(gavetas || "não localizado")}`, paginaSuperior)}
+        ${vistaSuperior}
+      </section>
+      <section class="vista-projeto-card vista-produto-real">
+        ${cabecalho("Imagem do produto", "Referência visual — sem valor de cota", "—")}
+        <img src="${escaparHTML(imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)}">
+      </section>
+    </div>`;
+}
+
 function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   const produto = todosProdutos.find(item => String(item.id) === String(idProduto));
   if (!produto) return;
@@ -221,6 +465,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   const dimensoes = typeof criarBlocagemDimensional === "function"
     ? criarBlocagemDimensional(produto.dimensoes || {}, produto)
     : criarDimensoes(produto.dimensoes || {}, produto);
+  const medidasProjeto = criarMedidasProjeto(produto, dimensoes);
     
   const documentos = criarDocumentos(produto.documentos);
   const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
@@ -297,7 +542,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
     <div class="area-tecnica">
       <nav class="tabs" aria-label="Informações do produto">
         <button type="button" class="tab ativo" data-tab="especificacoes">Especificações</button>
-        <button type="button" class="tab" data-tab="dimensoes">Medidas para projeto</button>
+        <button type="button" class="tab" data-tab="dimensoes">Medidas para projeto ${produto.medidasProjeto ? '<span class="tab-selo-ia">IA</span>' : ""}</button>
         <button type="button" class="tab" data-tab="documentos">Downloads</button>
       </nav>
 
@@ -316,10 +561,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       </section>
 
       <section class="painel-tab" id="painel-dimensoes">
-        <div class="card-dimensoes">${dimensoes}</div>
-        <!-- TABELA DA IA INJETADA AQUI, LOGO ABAIXO DO DESENHO -->
-        ${tabelaIA}
-        ${criarAviso()}
+        ${medidasProjeto}
       </section>
 
       <section class="painel-tab" id="painel-documentos">
