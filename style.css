@@ -82,8 +82,8 @@ header.topbar {
   flex-shrink: 0 !important;
 }
 
-.logo-club { width: 165px !important; max-width: 165px !important; height: 50px !important; max-height: 50px !important; object-fit: contain !important; }
-.logo-info { width: 82px !important; max-width: 82px !important; height: 42px !important; max-height: 42px !important; object-fit: contain !important; }
+.logo-club { width: 110px !important; max-width: 165px !important; height: 50px !important; max-height: 50px !important; object-fit: contain !important; }
+.logo-info { width: 90px !important; max-width: 82px !important; height: 42px !important; max-height: 42px !important; object-fit: contain !important; }
 .separador-logo { width: 1px !important; height: 38px !important; background: #ffffff4d !important; }
 
 /* Botão de Favoritos da Topbar */
