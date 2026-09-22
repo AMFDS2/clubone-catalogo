@@ -120,6 +120,21 @@ header.topbar {
   line-height: 1;
 }
 
+/* Símbolos definidos no tema para não depender do texto gerado pelo JS. */
+.alternar-filtros-icone {
+  font-size: 0 !important;
+}
+
+#alternarFiltrosLateral[aria-expanded="true"] .alternar-filtros-icone::before {
+  content: "−";
+  font-size: 16px;
+}
+
+#alternarFiltrosLateral[aria-expanded="false"] .alternar-filtros-icone::before {
+  content: "+";
+  font-size: 16px;
+}
+
 /* Miniaturas mais leves: sem placas bege ou brancas atrás dos produtos */
 .produto-imagem,
 .miniatura {
@@ -333,6 +348,473 @@ body.campanha-fechada .campanha-reabrir {
 
 body:not(.campanha-fechada) .campanha-reabrir {
   display: none !important;
+}
+
+/* ==============================================================
+   RESPONSIVIDADE FINAL — TABLET E CELULAR
+   Mantida no fim do arquivo para prevalecer sobre o CSS original.
+============================================================== */
+
+/* Tablet horizontal e notebooks compactos */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .catalogo {
+    grid-template-columns: 300px minmax(0, 1fr) !important;
+  }
+
+  .sidebar {
+    padding: 18px 14px !important;
+  }
+
+  .produto {
+    grid-template-columns: 68px minmax(0, 1fr) 20px !important;
+    padding-inline: 9px !important;
+  }
+
+  .produto-imagem {
+    width: 68px !important;
+    height: 58px !important;
+  }
+
+  .produto-hero {
+    grid-template-columns: minmax(250px, 45%) minmax(0, 55%) !important;
+    gap: 18px !important;
+    padding: 22px 24px 0 !important;
+  }
+
+  .produto-resumo .nome-produto {
+    font-size: clamp(24px, 2.6vw, 30px) !important;
+  }
+
+  .produto-imagem-principal {
+    min-height: 310px !important;
+  }
+
+  .area-tecnica {
+    padding-inline: 24px !important;
+  }
+
+  .grade-tecnica,
+  .card-dimensoes .dimensoes-tecnicas {
+    gap: 18px !important;
+  }
+}
+
+/* Tablet vertical e celular */
+@media (max-width: 900px) {
+  :root {
+    --topbar: 132px;
+  }
+
+  header.topbar {
+    position: sticky !important;
+    top: 0 !important;
+    height: auto !important;
+    min-height: var(--topbar) !important;
+    padding: 10px 18px 12px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-rows: 58px 42px !important;
+    column-gap: 16px !important;
+    row-gap: 9px !important;
+    align-items: center !important;
+  }
+
+  .topbar-logos {
+    min-width: 0 !important;
+    gap: 14px !important;
+  }
+
+  .logo-club {
+    width: clamp(126px, 23vw, 155px) !important;
+    height: 46px !important;
+  }
+
+  .logo-info {
+    width: clamp(62px, 11vw, 78px) !important;
+    height: 38px !important;
+  }
+
+  .separador-logo {
+    height: 32px !important;
+  }
+
+  .top-actions {
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  .btn-favoritos-nav {
+    min-height: 40px !important;
+    padding: 7px 11px !important;
+    gap: 7px !important;
+  }
+
+  .busca-topbar {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    order: initial !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .busca-topbar input {
+    height: 42px !important;
+    padding-inline: 15px 44px !important;
+    font-size: 13px !important;
+    background: rgba(255,255,255,.08) !important;
+  }
+
+  .catalogo {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+  }
+
+  .sidebar {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 14px 18px 18px !important;
+    overflow: visible !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--borda) !important;
+  }
+
+  .alternar-filtros {
+    margin: 0 0 8px !important;
+  }
+
+  .painel-filtros {
+    width: 100% !important;
+    max-height: 420px !important;
+  }
+
+  .painel-filtros.fechado {
+    max-height: 0 !important;
+  }
+
+  .resultado-cabecalho {
+    margin: 16px 0 8px !important;
+  }
+
+  .lista-produtos {
+    flex: none !important;
+    width: 100% !important;
+    height: clamp(240px, 34vh, 310px) !important;
+    min-height: 240px !important;
+    max-height: 310px !important;
+    margin-top: 0 !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+  }
+
+  .produto {
+    min-height: 76px !important;
+    grid-template-columns: 72px minmax(0, 1fr) 24px !important;
+    gap: 10px !important;
+    padding: 9px 11px !important;
+  }
+
+  .produto-imagem {
+    width: 72px !important;
+    height: 56px !important;
+  }
+
+  .produto-informacoes h3 {
+    font-size: 12px !important;
+  }
+
+  .produto-favorito {
+    min-width: 32px !important;
+    min-height: 32px !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+
+  .produto-hero {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    gap: 18px !important;
+    padding: 20px 18px 0 !important;
+  }
+
+  .produto-media {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .produto-imagem-principal {
+    width: 100% !important;
+    min-height: 250px !important;
+    height: min(42vh, 340px) !important;
+    max-height: 340px !important;
+  }
+
+  .produto-imagem-principal img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 320px !important;
+    object-fit: contain !important;
+  }
+
+  .galeria-miniaturas {
+    width: 100% !important;
+    max-height: none !important;
+    padding: 2px 0 5px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+  }
+
+  .miniatura {
+    width: 56px !important;
+    height: 48px !important;
+    flex: 0 0 56px !important;
+  }
+
+  .produto-resumo .nome-produto {
+    margin-top: 12px !important;
+    font-size: clamp(23px, 5vw, 31px) !important;
+    line-height: 1.14 !important;
+  }
+
+  .produto-resumo .destaques {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 16px 12px !important;
+  }
+
+  .area-tecnica {
+    padding: 18px 18px 34px !important;
+  }
+
+  .tabs {
+    position: static !important;
+    gap: 24px !important;
+  }
+
+  .grade-tecnica,
+  .card-dimensoes .dimensoes-tecnicas,
+  .contato-grade {
+    grid-template-columns: 1fr !important;
+  }
+
+  .secao-contato {
+    padding: 44px 18px !important;
+  }
+
+  .rodape {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 24px 18px !important;
+  }
+
+  .drawer-favoritos {
+    width: min(420px, 100vw) !important;
+  }
+
+  body:not(.campanha-fechada) {
+    padding-bottom: 56px !important;
+  }
+
+  .barra-campanha {
+    position: fixed !important;
+    min-height: 56px !important;
+    padding: 7px 14px !important;
+    grid-template-columns: auto minmax(0, 1fr) auto auto !important;
+    gap: 10px !important;
+  }
+
+  .campanha-separador,
+  .barra-campanha p {
+    display: none !important;
+  }
+
+  .campanha-selo {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .campanha-periodo {
+    min-width: 118px !important;
+    margin: 0 !important;
+    padding: 2px 10px !important;
+    grid-column: auto !important;
+  }
+
+  .campanha-fechar {
+    position: static !important;
+    right: auto !important;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  :root {
+    --topbar: 126px;
+  }
+
+  header.topbar {
+    grid-template-rows: 54px 40px !important;
+    padding: 8px 14px 10px !important;
+    column-gap: 8px !important;
+    row-gap: 8px !important;
+  }
+
+  .topbar-logos {
+    gap: 9px !important;
+  }
+
+  .logo-club {
+    width: clamp(112px, 34vw, 145px) !important;
+    height: 42px !important;
+  }
+
+  .logo-info {
+    width: clamp(54px, 16vw, 69px) !important;
+    height: 34px !important;
+  }
+
+  .separador-logo {
+    height: 28px !important;
+  }
+
+  .btn-favoritos-nav {
+    min-width: 92px !important;
+    padding: 6px 8px !important;
+  }
+
+  .btn-favoritos-nav span:first-of-type {
+    display: none !important;
+  }
+
+  .btn-favoritos-nav::before {
+    content: "ITENS";
+    font-size: 9px;
+    font-weight: 700;
+  }
+
+  .busca-topbar input {
+    height: 40px !important;
+    font-size: 12px !important;
+  }
+
+  .sidebar {
+    padding-inline: 12px !important;
+  }
+
+  .resultado-cabecalho {
+    align-items: flex-end !important;
+    gap: 6px !important;
+  }
+
+  .resultado-cabecalho strong {
+    font-size: 9px !important;
+  }
+
+  .ordenacao {
+    font-size: 8px !important;
+  }
+
+  .ordenacao select {
+    max-width: 102px !important;
+    font-size: 8px !important;
+  }
+
+  .lista-produtos {
+    height: 276px !important;
+    min-height: 276px !important;
+    max-height: 276px !important;
+  }
+
+  .produto {
+    min-height: 72px !important;
+    grid-template-columns: 68px minmax(0, 1fr) 24px !important;
+    padding: 8px !important;
+  }
+
+  .produto-imagem {
+    width: 68px !important;
+    height: 54px !important;
+  }
+
+  .produto-hero {
+    padding-inline: 14px !important;
+  }
+
+  .produto-imagem-principal {
+    min-height: 220px !important;
+    height: 260px !important;
+  }
+
+  .produto-imagem-principal img {
+    max-height: 250px !important;
+  }
+
+  .produto-resumo .nome-produto {
+    font-size: clamp(22px, 7vw, 28px) !important;
+  }
+
+  .produto-resumo .destaques {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .acoes {
+    flex-direction: column !important;
+  }
+
+  .botao-preto,
+  .botao-secundario {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 44px !important;
+  }
+
+  .area-tecnica {
+    padding-inline: 14px !important;
+  }
+
+  .linha-especificacao {
+    grid-template-columns: minmax(112px, 42%) minmax(0, 58%) !important;
+    gap: 10px !important;
+  }
+
+  .rodape {
+    grid-template-columns: 1fr !important;
+  }
+
+  .barra-campanha {
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+  }
+
+  .campanha-titulo strong {
+    font-size: 10px !important;
+    letter-spacing: .15em !important;
+  }
+
+  .campanha-periodo {
+    display: none !important;
+  }
+
+  .campanha-reabrir {
+    right: 10px !important;
+    bottom: 10px !important;
+    max-width: calc(100vw - 20px) !important;
+  }
+}
+
+/* Celulares estreitos */
+@media (max-width: 390px) {
+  .logo-club { width: 108px !important; }
+  .logo-info { width: 52px !important; }
+  .separador-logo { display: none !important; }
+  .btn-favoritos-nav { min-width: 84px !important; }
+  .produto { grid-template-columns: 58px minmax(0, 1fr) 22px !important; gap: 7px !important; }
+  .produto-imagem { width: 58px !important; height: 50px !important; }
+  .produto-informacoes h3 { font-size: 11px !important; }
 }
 
 /* ==============================================================

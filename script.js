@@ -75,7 +75,7 @@ function configurarEventosFixos() {
     const rotulo = botaoFiltros.querySelector(".alternar-filtros-rotulo");
     const icone = botaoFiltros.querySelector(".alternar-filtros-icone");
     if (rotulo) rotulo.textContent = aberto ? "Recolher filtros" : "Mostrar filtros";
-    if (icone) icone.textContent = aberto ? "−" : "+";
+    if (icone) icone.textContent = aberto ? "⌃" : "⌄";
   };
 
   const filtrosRecolhidos = localStorage.getItem(STORAGE_FILTROS);
