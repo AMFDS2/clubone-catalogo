@@ -1,1 +1,6 @@
 catalogo.zip
+.env
+.env.*
+!.env.example
+cta.zip
+cta.zip

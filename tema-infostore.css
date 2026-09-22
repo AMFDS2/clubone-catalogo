@@ -1,0 +1,346 @@
+/* ==============================================================
+   TEMA INFO STORE + CLUB ONE
+   Carregue este arquivo depois de todos os outros CSS.
+   Ele altera apenas a identidade visual e preserva o layout.
+============================================================== */
+
+:root {
+  --info-azul-950: #0d1f4d;
+  --info-azul-900: #142b63;
+  --info-azul-800: #1c3b7a;
+  --info-azul-700: #2452ad;
+  --info-azul-100: #e9effc;
+  --info-vermelho: #e52633;
+  --club-dourado: #d89d35;
+  --info-texto: #142b57;
+}
+
+/* Top bar: identidade Info Store sem perder o aspecto premium */
+header.topbar {
+  background:
+    radial-gradient(circle at 18% -80%, rgba(66, 113, 205, .28), transparent 36%),
+    linear-gradient(105deg, var(--info-azul-950), var(--info-azul-900) 55%, #10265b) !important;
+  border-bottom: 1px solid rgba(229, 38, 51, .72) !important;
+  box-shadow: 0 7px 22px rgba(7, 24, 65, .22) !important;
+}
+
+.separador-logo {
+  background: linear-gradient(transparent, rgba(255,255,255,.48), transparent) !important;
+}
+
+/* Pesquisa com brilho azul discreto */
+.busca-topbar input {
+  border: 1px solid rgba(144, 178, 244, .48) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025)) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 4px 18px rgba(3,15,48,.18) !important;
+}
+
+.busca-topbar input:hover {
+  border-color: rgba(188, 210, 255, .72) !important;
+}
+
+.busca-topbar input:focus {
+  border-color: #a9c6ff !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 0 0 3px rgba(88,139,238,.18), 0 7px 24px rgba(3,15,48,.24) !important;
+}
+
+.busca-topbar .icone-busca { color: #dce8ff !important; }
+
+.btn-favoritos-nav {
+  border-color: rgba(174, 201, 255, .42) !important;
+  background: rgba(255,255,255,.035) !important;
+}
+
+.btn-favoritos-nav:hover {
+  border-color: rgba(255,255,255,.72) !important;
+  background: rgba(255,255,255,.075) !important;
+}
+
+.btn-favoritos-nav svg { color: var(--club-dourado); }
+
+/* Navegação lateral */
+.grupo-filtro h2,
+.resultado-cabecalho strong,
+.produto-informacoes h3 {
+  color: var(--info-texto);
+}
+
+.opcao-filtro input { accent-color: var(--info-azul-700); }
+
+.limpar-filtros:hover {
+  border-color: var(--info-azul-700);
+  color: var(--info-azul-700);
+}
+
+.produto {
+  position: relative;
+  overflow: hidden;
+}
+
+.produto:hover { background: #f6f8fd; }
+
+.produto.ativo {
+  background: #f8faff;
+  box-shadow: inset 0 0 0 1px var(--info-azul-700);
+}
+
+.produto.ativo::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  bottom: 17px;
+  left: 0;
+  width: 2px;
+  border-radius: 0 2px 2px 0;
+  background: var(--info-vermelho);
+}
+
+/* Conteúdo editorial */
+.badge {
+  border-color: rgba(28,59,122,.55);
+  color: var(--info-azul-800);
+  background: rgba(255,255,255,.55);
+}
+
+.produto-resumo .nome-produto {
+  max-width: 680px;
+  color: var(--info-texto);
+  font-size: clamp(27px, 2vw, 34px);
+  font-weight: 700;
+  line-height: 1.13;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.produto-identificacao { color: #64708a; }
+
+.codigo-produto strong,
+.linha-especificacao strong,
+.linha-dimensao-tecnica strong {
+  color: var(--info-azul-800);
+}
+
+/* Indicadores, botões e galeria */
+.destaque-icone {
+  color: var(--info-azul-700) !important;
+  background: var(--info-azul-100) !important;
+}
+
+.botao-preto {
+  border-color: var(--info-azul-900) !important;
+  background: linear-gradient(105deg, var(--info-azul-950), var(--info-azul-800)) !important;
+  box-shadow: 0 5px 15px rgba(20,43,99,.14);
+}
+
+.botao-preto:hover {
+  opacity: 1;
+  background: linear-gradient(105deg, #10265b, #2452ad) !important;
+}
+
+.botao-secundario:hover,
+.botao-secundario.ativo {
+  border-color: var(--info-azul-700) !important;
+  background: #f5f8ff !important;
+  color: var(--info-azul-800) !important;
+}
+
+.miniatura:hover,
+.miniatura.ativo {
+  border-color: var(--info-azul-700) !important;
+  box-shadow: 0 0 0 2px rgba(36,82,173,.08);
+}
+
+/* Abas: azul principal e vermelho apenas como assinatura */
+.tab.ativo { color: var(--info-azul-900); }
+
+.tab.ativo::after {
+  height: 2px;
+  background: linear-gradient(90deg, var(--info-azul-700) 0 82%, var(--info-vermelho) 82% 100%) !important;
+}
+
+.tab-selo-ia {
+  border-color: var(--info-azul-700);
+  color: var(--info-azul-700);
+  background: #f6f8ff;
+}
+
+/* Títulos e cotas técnicas */
+.area-tecnica h2,
+.area-tecnica h3,
+.card-dimensoes h3,
+.medidas-projeto-cabecalho h3,
+.vista-projeto-titulo strong {
+  color: var(--info-texto);
+}
+
+.card-dimensoes .linhas-medidas line,
+.chamadas-tecnicas path {
+  stroke: var(--info-azul-700) !important;
+}
+
+.card-dimensoes .linhas-medidas text,
+.chamadas-tecnicas .destaque {
+  fill: var(--info-azul-700) !important;
+}
+
+/* O dourado continua exclusivo do Club One e da campanha */
+.produto-favorito,
+.campanha-reabrir,
+.campanha-titulo strong,
+.campanha-periodo strong {
+  color: var(--club-dourado);
+}
+
+/* ==============================================================
+   CAMPANHA: integração Info Store + Club One
+============================================================== */
+.barra-campanha {
+  background:
+    radial-gradient(circle at 18% 140%, rgba(66,113,205,.22), transparent 34%),
+    linear-gradient(105deg, #08183d 0%, #10265b 54%, #091b45 100%) !important;
+  border-top: 1px solid rgba(229,38,51,.78) !important;
+  box-shadow: 0 -8px 28px rgba(7,24,65,.25), inset 0 1px rgba(255,255,255,.045) !important;
+}
+
+.barra-campanha::before {
+  opacity: .12;
+  background: repeating-linear-gradient(116deg, transparent 0 40px, rgba(255,255,255,.04) 41px, transparent 42px 82px) !important;
+}
+
+.campanha-selo {
+  color: var(--club-dourado) !important;
+  border-color: rgba(216,157,53,.58) !important;
+  background: rgba(216,157,53,.055);
+}
+
+.campanha-titulo span,
+.campanha-periodo small {
+  color: rgba(211,224,252,.62) !important;
+}
+
+.campanha-separador,
+.campanha-periodo {
+  border-color: rgba(229,38,51,.56) !important;
+}
+
+.campanha-separador {
+  background: linear-gradient(transparent, rgba(229,38,51,.72), transparent) !important;
+}
+
+.barra-campanha p { color: rgba(255,255,255,.9); }
+.barra-campanha p span { color: rgba(211,224,252,.58); }
+.campanha-fechar { color: rgba(220,231,255,.5); }
+.campanha-fechar:hover { color: #fff; }
+
+.campanha-reabrir {
+  border-color: rgba(216,157,53,.65) !important;
+  background: linear-gradient(110deg, rgba(8,24,61,.98), rgba(16,38,91,.98)) !important;
+  box-shadow: 0 8px 28px rgba(7,24,65,.3) !important;
+}
+
+.campanha-reabrir::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  border-radius: inherit;
+  border-top: 1px solid rgba(229,38,51,.72);
+}
+
+/* ==============================================================
+   CONTATO E RODAPÉ
+============================================================== */
+.secao-contato {
+  background:
+    radial-gradient(circle at 50% 0, rgba(36,82,173,.075), transparent 34%),
+    linear-gradient(180deg, #f4f6fb 0%, #eef2f9 100%) !important;
+  border-top: 1px solid rgba(36,82,173,.09);
+}
+
+.contato-etiqueta {
+  border-color: rgba(36,82,173,.45) !important;
+  background: rgba(255,255,255,.64);
+  color: var(--info-azul-800);
+}
+
+.contato-cabecalho h2,
+.contato-card h3 {
+  color: var(--info-texto);
+}
+
+.contato-cabecalho h2::after {
+  content: "";
+  width: 42px;
+  height: 2px;
+  margin: 13px auto 0;
+  display: block;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--info-azul-700) 0 76%, var(--info-vermelho) 76% 100%);
+}
+
+.contato-card {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(28,59,122,.13) !important;
+  background: rgba(255,255,255,.84) !important;
+  box-shadow: 0 9px 26px rgba(13,31,77,.045);
+}
+
+.contato-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 22px;
+  left: 22px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--info-azul-700) 0 88%, var(--info-vermelho) 88% 100%);
+  opacity: .8;
+}
+
+.contato-card:hover {
+  border-color: rgba(36,82,173,.42) !important;
+  box-shadow: 0 14px 32px rgba(13,31,77,.1) !important;
+}
+
+.contato-icone.contato-foto {
+  border-color: var(--info-azul-700) !important;
+  box-shadow: 0 0 0 3px rgba(36,82,173,.08);
+}
+
+.contato-tipo {
+  color: var(--info-azul-700) !important;
+  letter-spacing: .035em;
+}
+
+.contato-botao {
+  border-color: var(--info-azul-900) !important;
+  background: linear-gradient(105deg, var(--info-azul-950), var(--info-azul-800)) !important;
+  box-shadow: 0 5px 14px rgba(20,43,99,.13);
+}
+
+.contato-botao:hover {
+  border-color: var(--info-vermelho) !important;
+  background: linear-gradient(105deg, var(--info-azul-900), var(--info-azul-700)) !important;
+}
+
+.rodape {
+  background: #f9faff !important;
+  border-top-color: rgba(28,59,122,.14) !important;
+}
+
+.beneficio-icone,
+.beneficio strong {
+  color: var(--info-azul-800) !important;
+}
+
+.beneficio:first-child .beneficio-icone {
+  color: var(--info-vermelho) !important;
+}
+
+@media (max-width: 900px) {
+  .produto-resumo .nome-produto {
+    font-size: 25px !important;
+    line-height: 1.16 !important;
+    letter-spacing: -.025em;
+  }
+}

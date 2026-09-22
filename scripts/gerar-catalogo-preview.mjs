@@ -233,7 +233,7 @@ function documentosOficiais(documentos = []) {
   });
 }
 
-function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore) {
+function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore, anterior = {}) {
   const cat = categoria(base.segmento);
   const nomeOficial = nomeProduto(base, enriquecido);
   const imagens = Array.isArray(enriquecido.imagens) && enriquecido.imagens.length
@@ -267,11 +267,12 @@ function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore) {
     instalacao: "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     documentos: documentosOficiais(enriquecido.documentos),
     sobreMarca: "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    revisaoPendente: enriquecido.statusExtracao !== "EXTRAIDO"
+    revisaoPendente: enriquecido.statusExtracao !== "EXTRAIDO",
+    ...(anterior.medidasProjeto ? { medidasProjeto: anterior.medidasProjeto } : {})
   };
 }
 
-function criarProdutoPendente(base, enriquecido, ordem, siteInfoStore, motivoPendencia) {
+function criarProdutoPendente(base, enriquecido, ordem, siteInfoStore, motivoPendencia, anterior = {}) {
   const cat = categoria(base.segmento);
   const nomeOficial = nomeProduto(base, enriquecido);
 
@@ -302,7 +303,8 @@ function criarProdutoPendente(base, enriquecido, ordem, siteInfoStore, motivoPen
     documentos: documentosOficiais(enriquecido?.documentos),
     sobreMarca: "Consulte disponibilidade e condições comerciais com a equipe Info Store.",
     revisaoPendente: true,
-    motivoPendencia
+    motivoPendencia,
+    ...(anterior.medidasProjeto ? { medidasProjeto: anterior.medidasProjeto } : {})
   };
 }
 
@@ -330,7 +332,7 @@ async function executar() {
     const siteInfoStore = await localizarUrlInfoStore(produtoBase.codigo, produtoBase.modelo);
 
     if (enriquecido.imagem || (Array.isArray(enriquecido.imagens) && enriquecido.imagens.length)) {
-      catalogo.push(criarProdutoNovo(produtoBase, enriquecido, ordem, siteInfoStore));
+      catalogo.push(criarProdutoNovo(produtoBase, enriquecido, ordem, siteInfoStore, anterior));
       continue;
     }
 
@@ -359,7 +361,7 @@ async function executar() {
     }
 
     const motivoPendencia = Object.keys(enriquecido).length ? "Imagem não disponível" : "Fonte ainda precisa de revisão";
-    catalogo.push(criarProdutoPendente(produtoBase, enriquecido, ordem, siteInfoStore, motivoPendencia));
+    catalogo.push(criarProdutoPendente(produtoBase, enriquecido, ordem, siteInfoStore, motivoPendencia, anterior));
     pendencias.push({
       codigo: produtoBase.codigo,
       modelo: produtoBase.modelo,
