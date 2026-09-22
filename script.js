@@ -27,6 +27,7 @@ async function inicializar() {
     const dados = await resposta.json();
     todosProdutos = Array.isArray(dados) ? dados.filter(produtoValido) : [];
     produtosFiltrados = [...todosProdutos];
+    sincronizarFavoritosComCatalogo();
     renderizarFiltros();
     ordenarProdutos();
     renderizarProdutos(produtosFiltrados);
@@ -541,15 +542,15 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
         </tr>
         <tr style="border-bottom: 1px solid #e4e0d9;">
           <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Lateral (Mínimo)</td>
-          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_lateral || '-')}</td>
+          <td style="padding: 10px 0; text-align: right; color: #e52633;">${escaparHTML(ia.respiro_lateral || '-')}</td>
         </tr>
         <tr style="border-bottom: 1px solid #e4e0d9;">
           <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Superior (Mínimo)</td>
-          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_superior || '-')}</td>
+          <td style="padding: 10px 0; text-align: right; color: #e52633;">${escaparHTML(ia.respiro_superior || '-')}</td>
         </tr>
         <tr>
           <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Traseiro</td>
-          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_traseiro || '-')}</td>
+          <td style="padding: 10px 0; text-align: right; color: #e52633;">${escaparHTML(ia.respiro_traseiro || '-')}</td>
         </tr>
       </table>
       <div style="margin-top: 10px; font-size: 11px; color: #999; text-align: right;">
@@ -795,15 +796,15 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
         </tr>
         <tr style="border-bottom: 1px solid #e4e0d9;">
           <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Lateral (Mínimo)</td>
-          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_lateral || '-')}</td>
+          <td style="padding: 10px 0; text-align: right; color: #e52633;">${escaparHTML(ia.respiro_lateral || '-')}</td>
         </tr>
         <tr style="border-bottom: 1px solid #e4e0d9;">
           <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Superior (Mínimo)</td>
-          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_superior || '-')}</td>
+          <td style="padding: 10px 0; text-align: right; color: #e52633;">${escaparHTML(ia.respiro_superior || '-')}</td>
         </tr>
         <tr>
           <td style="padding: 10px 0; font-weight: 600; color: #444;">Respiro Traseiro</td>
-          <td style="padding: 10px 0; text-align: right; color: #c9892b;">${escaparHTML(ia.respiro_traseiro || '-')}</td>
+          <td style="padding: 10px 0; text-align: right; color: #e52633;">${escaparHTML(ia.respiro_traseiro || '-')}</td>
         </tr>
       </table>
       <div style="margin-top: 10px; font-size: 11px; color: #999; text-align: right;">
@@ -915,6 +916,40 @@ function getFavoritos() {
   }
 }
 
+function localizarProdutoAtual(item = {}) {
+  const id = String(item.id || "").trim();
+  const modelo = normalizarTexto(item.modelo || "");
+  const codigo = normalizarTexto(item.codigo || item.codigoInfo || "");
+
+  return todosProdutos.find(produto => {
+    const mesmoId = id && String(produto.id) === id;
+    const mesmoModelo = modelo && normalizarTexto(produto.modelo || "") === modelo;
+    const mesmoCodigo = codigo && normalizarTexto(produto.codigoInfo || "") === codigo;
+    return mesmoId || mesmoModelo || mesmoCodigo;
+  });
+}
+
+function obterFavoritosAtualizados() {
+  return getFavoritos().map(item => {
+    const produtoAtual = localizarProdutoAtual(item);
+    if (!produtoAtual) return item;
+
+    return {
+      ...normalizarProdutoParaFavorito(produtoAtual),
+      quantidade: Math.max(1, Number(item.quantidade) || 1)
+    };
+  });
+}
+
+function sincronizarFavoritosComCatalogo() {
+  const atuais = getFavoritos();
+  if (!atuais.length || !todosProdutos.length) return;
+
+  const atualizados = obterFavoritosAtualizados();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(atualizados));
+  atualizarInterfaceFavoritos();
+}
+
 function saveFavoritos(favs) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
   atualizarInterfaceFavoritos();
@@ -1006,18 +1041,12 @@ function renderDrawerFavoritos(favs) {
 }
 
 function baixarMemorialPDF() {
-  let favs = getFavoritos();
+  let favs = obterFavoritosAtualizados();
   if (favs.length === 0) return;
 
-  favs = favs.map(item => {
-    const original = todosProdutos.find(p => String(p.id) === String(item.id));
-    if (original) {
-      const normalizado = normalizarProdutoParaFavorito(original);
-      normalizado.quantidade = item.quantidade || 1;
-      return normalizado;
-    }
-    return item;
-  });
+  // Atualiza o armazenamento antes de montar o documento. Assim, gaveta e PDF
+  // usam exatamente a mesma versão atual do catálogo.
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
 
   const totalPecas = favs.reduce((soma, item) => soma + (item.quantidade || 1), 0);
   const dataAtual = new Date().toLocaleDateString("pt-BR", {
@@ -1039,25 +1068,25 @@ function baixarMemorialPDF() {
         @page { size: A4 portrait; margin: 0; }
         * { box-sizing: border-box; }
         body { font-family: 'Manrope', Arial, sans-serif; margin: 0; padding: 0; color: #20201e; background: #ffffff; -webkit-print-color-adjust: exact !important; }
-        .topbar-documento { background: #181816 !important; border-bottom: 2px solid #c9892b !important; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .topbar-documento { background: linear-gradient(105deg, #0d1f4d, #142b63) !important; border-bottom: 2px solid #e52633 !important; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
         .logos { display: flex; align-items: center; gap: 20px; }
-        .logo-club { height: 36px; object-fit: contain; }
-        .logo-info { height: 28px; object-fit: contain; }
+        .logo-info { height: 36px; object-fit: contain; }
+        .logo-club { height: 27px; object-fit: contain; opacity: .92; }
         .separador { width: 1px; height: 28px; background: rgba(255,255,255,0.22); }
         .meta-documento { text-align: right; }
-        .meta-documento strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #c9892b; margin-bottom: 4px; }
-        .meta-documento span { font-size: 11px; font-weight: 400; color: #9e9b95; }
+        .meta-documento strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff; margin-bottom: 4px; }
+        .meta-documento span { font-size: 11px; font-weight: 400; color: #cbd8f4; }
         .conteudo-pagina { padding: 40px; }
         .titulo-bloco { margin-bottom: 30px; }
         .titulo-bloco h1 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 600; text-transform: uppercase; margin: 0 0 6px; color: #11110f; }
         .titulo-bloco p { margin: 0; font-size: 12px; color: #6d6b67; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; text-transform: uppercase; background: #f7f5f1 !important; color: #484745; padding: 10px 14px; text-align: left; border-top: 1px solid #e4e0d9; border-bottom: 1px solid #e4e0d9; }
+        th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; text-transform: uppercase; background: #eef3fd !important; color: #142b63; padding: 10px 14px; text-align: left; border-top: 1px solid #d6e0f5; border-bottom: 1px solid #d6e0f5; }
         td { padding: 14px; border-bottom: 1px solid #ece8e1; font-size: 12px; vertical-align: middle; }
         .col-item { width: 55px; text-align: center; }
         .col-item img { width: 44px; height: 44px; object-fit: contain; display: block; margin: 0 auto; }
         .produto-nome { font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 12px; color: #1a1a18; display: block; max-width: 320px; }
-        .tag-fab { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; color: #c9892b; text-transform: uppercase; }
+        .tag-fab { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; color: #e52633; text-transform: uppercase; }
         .col-mod { font-family: 'Manrope', sans-serif; font-size: 11px; color: #55534e; white-space: nowrap; }
         .col-cod { font-family: 'SF Mono', monospace; font-size: 11px; font-weight: 500; color: #33312e; white-space: nowrap; }
         .col-qtd { text-align: center; width: 50px; font-weight: 600; }
@@ -1068,9 +1097,9 @@ function baixarMemorialPDF() {
     <body>
       <div class="topbar-documento">
         <div class="logos">
-          <img class="logo-club" src="${window.location.origin}/assets/logoclub.png" alt="Club One">
-          <span class="separador"></span>
           <img class="logo-info" src="${window.location.origin}/assets/logoin.png" alt="Info Store">
+          <span class="separador"></span>
+          <img class="logo-club" src="${window.location.origin}/assets/logoclub.png" alt="Club One">
         </div>
         <div class="meta-documento">
           <strong>Solicitação de Especificação</strong>
