@@ -271,17 +271,19 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
   const statusConfig = {
     CONFIRMADO: { classe: "confirmado", icone: "✓", texto: "Confirmado no manual" },
     REVISAR: { classe: "revisar", icone: "●", texto: "Revisão recomendada" },
-    NAO_LOCALIZADO: { classe: "nao-localizado", icone: "—", texto: "Não localizado" }
+    NAO_LOCALIZADO: { classe: "nao-localizado", icone: "—", texto: "Não localizado" },
+    NAO_APLICAVEL: { classe: "nao-aplicavel", icone: "○", texto: "Não se aplica" }
   };
 
   function linha(rotulo, campo = {}) {
     const config = statusConfig[campo.status] || statusConfig.NAO_LOCALIZADO;
-    const valor = campo.valor || "Não informado";
+    const valor = campo.status === "NAO_APLICAVEL" ? "Não se aplica" : (campo.valor || "Não informado");
     const pagina = campo.pagina ? `<small>pág. ${escaparHTML(campo.pagina)}</small>` : "";
+    const referencia = campo.referencia ? `<small>ref. ${escaparHTML(campo.referencia)}</small>` : "";
     const observacao = campo.observacao ? ` title="${escaparHTML(campo.observacao)}"` : "";
     return `
       <div class="medida-ia-linha"${observacao}>
-        <span class="medida-ia-item">${escaparHTML(rotulo)} ${pagina}</span>
+        <span class="medida-ia-item">${escaparHTML(rotulo)} ${pagina} ${referencia}</span>
         <strong>${escaparHTML(valor)}</strong>
         <span class="medida-status ${config.classe}"><i>${config.icone}</i>${config.texto}</span>
       </div>`;
@@ -302,6 +304,28 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
   const instalacao = dados.instalacao || {};
   const fonte = dados.fonte || {};
   const observacoes = Array.isArray(dados.observacoes) ? dados.observacoes.filter(Boolean) : [];
+  const camposValidacao = [
+    ...Object.values(dados.dimensoesProduto || {}), ...Object.values(dados.dimensoesNicho || {}),
+    ...Object.values(dados.folgas || {}), ...Object.values(dados.abertura || {}),
+    ...Object.values(dados.geometriaInstalacao || {}), ...Object.values(dados.instalacao || {})
+  ].filter(campo => campo && typeof campo === "object" && campo.status);
+  const contagemCalculada = camposValidacao.reduce((acc, campo) => {
+    acc[campo.status] = (acc[campo.status] || 0) + 1;
+    return acc;
+  }, { CONFIRMADO: 0, REVISAR: 0, NAO_LOCALIZADO: 0, NAO_APLICAVEL: 0 });
+  const aplicaveis = camposValidacao.length - contagemCalculada.NAO_APLICAVEL;
+  const validacaoCalculada = {
+    status: contagemCalculada.REVISAR ? "REVISAO_NECESSARIA" : (contagemCalculada.CONFIRMADO ? "APROVADO_PARA_DESENHO" : "DADOS_INSUFICIENTES"),
+    percentualConfirmado: aplicaveis ? Math.round((contagemCalculada.CONFIRMADO / aplicaveis) * 100) : 0,
+    contagem: contagemCalculada
+  };
+  const validacao = dados.validacao || validacaoCalculada;
+  const contagem = validacao.contagem || {};
+  const validacaoTexto = validacao.status === "APROVADO_PARA_DESENHO"
+    ? "Cotas confirmadas liberadas para o desenho"
+    : validacao.status === "REVISAO_NECESSARIA"
+      ? "Há cotas que exigem revisão técnica"
+      : "Dados insuficientes para desenho completo";
   const vistasTecnicas = criarVistasTecnicasProjeto(produto, dados);
 
   return `
@@ -313,6 +337,15 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
       <div class="fonte-medidas">
         <strong>${escaparHTML(fonte.nome || "Manual oficial")}</strong>
         <span>${dados.revisado ? "Revisado" : "Revisão técnica recomendada"}</span>
+      </div>
+    </div>
+
+    <div class="resumo-validacao ${escaparHTML((validacao.status || "DADOS_INSUFICIENTES").toLowerCase())}">
+      <div><strong>${escaparHTML(validacaoTexto)}</strong><span>${Number(validacao.percentualConfirmado || 0)}% dos campos aplicáveis confirmados</span></div>
+      <div class="resumo-validacao-contagens">
+        <span><b>${Number(contagem.CONFIRMADO || 0)}</b> confirmados</span>
+        <span><b>${Number(contagem.REVISAR || 0)}</b> revisar</span>
+        <span><b>${Number(contagem.NAO_LOCALIZADO || 0)}</b> não localizados</span>
       </div>
     </div>
 
@@ -362,6 +395,7 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
       <span><i class="confirmado">✓</i> Confirmado no manual</span>
       <span><i class="revisar">●</i> Revisão recomendada</span>
       <span><i class="nao-localizado">—</i> Não localizado</span>
+      <span><i class="nao-aplicavel">○</i> Não se aplica</span>
     </div>
     <p class="aviso-ia">Informações extraídas por IA a partir do manual oficial. Confirme as cotas antes da execução do projeto.</p>`;
 }
@@ -374,17 +408,18 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const folgas = dados.folgas || {};
   const abertura = dados.abertura || {};
   const geometria = dados.geometriaInstalacao || {};
-  const valor = (campo, vazio = "Não localizado") => campo?.valor || vazio;
+  const valor = (campo, vazio = "") => campo?.status === "CONFIRMADO" && campo?.valor ? campo.valor : vazio;
+  const referencia = (...campos) => campos.find(campo => campo?.status === "CONFIRMADO" && campo?.referencia)?.referencia || "";
   const pagina = (...campos) => campos.find(campo => campo?.pagina)?.pagina || "—";
   const largura = valor(geometria.larguraProduto, valor(dimensoes.largura));
   const altura = valor(geometria.alturaProduto, valor(dimensoes.altura));
   const profundidade = valor(geometria.profundidadeTotalProduto, valor(dimensoes.profundidade));
-  const profundidadeGabinete = valor(geometria.profundidadeGabinete,"Não localizado");
+  const profundidadeGabinete = valor(geometria.profundidadeGabinete);
   const superior = valor(folgas.superior);
-  const lateral = valor(geometria.folgaLateral,"Não localizado");
+  const lateral = valor(geometria.folgaLateral);
   const lateralEsquerda = valor(geometria.folgaLateralEsquerda, "");
   const lateralDireita = valor(geometria.folgaLateralDireita, "");
-  const traseira = valor(geometria.afastamentoTraseiro,"Não localizado");
+  const traseira = valor(geometria.afastamentoTraseiro);
   const angulo = valor(geometria.anguloAbertura, valor(abertura.anguloPorta, ""));
   const anguloEsquerda = valor(geometria.anguloAberturaEsquerda, "");
   const anguloDireita = valor(geometria.anguloAberturaDireita, "");
@@ -393,16 +428,19 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const gavetas = valor(geometria.profundidadeComGavetasEstendidas, valor(abertura.distanciaGavetasEstendidas, ""));
   const paginaFrontal = pagina(dimensoes.largura, dimensoes.altura, dimensoes.profundidade, folgas.superior);
   const paginaSuperior = pagina(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta);
+  const referenciaFrontal = referencia(geometria.larguraProduto, dimensoes.largura, geometria.alturaProduto, dimensoes.altura);
+  const referenciaSuperior = referencia(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta);
   const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
   const frenchDoor = /french|rf70|rf80|multidoor|multi door/.test(textoProduto);
   const sideBySide = produto.moldeTecnico === "geladeira-side-by-side" || produto.familiaTecnica === "side-by-side" || /side by side|rs60|rs58/.test(textoProduto);
   const duasPortasVerticais = frenchDoor || sideBySide;
   const aberturaConfirmada = Boolean(angulo || anguloEsquerda || anguloDireita || larguraPortasAbertas || profundidadePortasAbertas || gavetas);
+  const frontalConfirmada = Boolean(largura && altura);
 
-  const cabecalho = (titulo, subtitulo, paginaManual) => `
+  const cabecalho = (titulo, subtitulo, paginaManual, referenciaManual = "") => `
     <div class="vista-projeto-titulo">
       <div><strong>${titulo}</strong><span>${subtitulo}</span></div>
-      <small>${paginaManual !== "—" ? `Manual • pág. ${escaparHTML(paginaManual)}` : "Cota não localizada"}</small>
+      <small>${paginaManual !== "—" ? `Manual • pág. ${escaparHTML(paginaManual)}${referenciaManual ? ` • ref. ${escaparHTML(referenciaManual)}` : ""}` : "Cota não localizada"}</small>
     </div>`;
 
   const vistaSuperior = aberturaConfirmada ? `
@@ -439,11 +477,11 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
         <text class="cota-valor cota-profundidade" x="428" y="144">${escaparHTML(profundidadeGabinete)}</text>
         <path d="M77 328V360M443 328V360"></path>
         <line x1="77" y1="350" x2="443" y2="350" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
-        <text class="cota-valor" x="260" y="374">${escaparHTML(larguraPortasAbertas || "Não localizado")}</text>
+        ${larguraPortasAbertas ? `<text class="cota-valor" x="260" y="374">${escaparHTML(larguraPortasAbertas)}</text>` : ""}
         <text class="cota-legenda" x="260" y="391">largura total com portas abertas</text>
         <path d="M462 50H482M443 323H482"></path>
         <line x1="474" y1="50" x2="474" y2="323" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
-        <text class="cota-valor cota-profundidade" x="496" y="186">${escaparHTML(profundidadePortasAbertas || "—")}</text>
+        ${profundidadePortasAbertas ? `<text class="cota-valor cota-profundidade" x="496" y="186">${escaparHTML(profundidadePortasAbertas)}</text>` : ""}
       </g>
       ${sideBySide && (anguloEsquerda || anguloDireita) ? `
         <text class="angulo-porta" x="174" y="294">ESQ. ${escaparHTML(anguloEsquerda || "—")}</text>
@@ -456,8 +494,8 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   return `
     <div class="vistas-projeto-grade">
       <section class="vista-projeto-card">
-        ${cabecalho("Vista frontal", "Produto, nicho e folgas técnicas", paginaFrontal)}
-        <svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do refrigerador">
+        ${cabecalho("Vista frontal", "Produto, nicho e folgas técnicas", paginaFrontal, referenciaFrontal)}
+        ${frontalConfirmada ? `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do refrigerador">
           <defs><marker id="seta-frente" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker></defs>
           <g class="nicho-tecnico"><path d="M154 48H370V328H154Z"></path><path d="M154 48l18-16h216v280l-18 16"></path><path d="M370 48l18-16M370 328l18-16"></path></g>
           <text class="nota-nicho" x="270" y="27">NICHO / MARCENARIA</text>
@@ -471,16 +509,16 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
           <line class="cota-tecnica" x1="126" y1="70" x2="126" y2="316" marker-start="url(#seta-frente)" marker-end="url(#seta-frente)"></line>
           <text class="cota-valor cota-altura" x="96" y="193">${escaparHTML(altura)}</text>
           <g class="chamadas-tecnicas">
-            <path d="M348 70H400"></path><text x="406" y="66">Folga superior</text><text class="destaque" x="406" y="82">${escaparHTML(superior)}</text>
-            <path d="M348 174H400"></path><text x="406" y="170">${sideBySide ? "Folga dir." : "Folga lateral"}</text><text class="destaque" x="406" y="186">${escaparHTML(sideBySide ? (lateralDireita || "Não localizado") : lateral)}</text>
-            ${sideBySide ? `<path d="M176 174H132"></path><text x="42" y="170">Folga esq.</text><text class="destaque" x="42" y="186">${escaparHTML(lateralEsquerda || "Não localizado")}</text>` : ""}
-            <path d="M348 290l50 25"></path><text x="404" y="312">Profundidade</text><text class="destaque" x="404" y="328">${escaparHTML(profundidade)}</text>
-            <path d="M176 300l-38 24"></path><text x="44" y="335">Folga traseira: ${escaparHTML(traseira)}</text>
+            ${superior ? `<path d="M348 70H400"></path><text x="406" y="66">Folga superior</text><text class="destaque" x="406" y="82">${escaparHTML(superior)}</text>` : ""}
+            ${(sideBySide ? lateralDireita : lateral) ? `<path d="M348 174H400"></path><text x="406" y="170">${sideBySide ? "Folga dir." : "Folga lateral"}</text><text class="destaque" x="406" y="186">${escaparHTML(sideBySide ? lateralDireita : lateral)}</text>` : ""}
+            ${sideBySide && lateralEsquerda ? `<path d="M176 174H132"></path><text x="42" y="170">Folga esq.</text><text class="destaque" x="42" y="186">${escaparHTML(lateralEsquerda)}</text>` : ""}
+            ${profundidade ? `<path d="M348 290l50 25"></path><text x="404" y="312">Profundidade</text><text class="destaque" x="404" y="328">${escaparHTML(profundidade)}</text>` : ""}
+            ${traseira ? `<path d="M176 300l-38 24"></path><text x="44" y="335">Folga traseira: ${escaparHTML(traseira)}</text>` : ""}
           </g>
-        </svg>
+        </svg>` : `<div class="vista-indisponivel"><span>—</span><strong>Vista frontal aguardando cotas</strong><p>Largura e altura precisam estar confirmadas no manual antes de gerar o desenho.</p></div>`}
       </section>
       <section class="vista-projeto-card">
-        ${cabecalho("Vista superior", sideBySide ? "Abertura independente das portas" : `Abertura — gavetas: ${escaparHTML(gavetas || "não localizado")}`, paginaSuperior)}
+        ${cabecalho("Vista superior", sideBySide ? "Abertura independente das portas" : `Abertura${gavetas ? ` — gavetas: ${escaparHTML(gavetas)}` : ""}`, paginaSuperior, referenciaSuperior)}
         ${vistaSuperior}
       </section>
       <section class="vista-projeto-card vista-produto-real">

@@ -66,7 +66,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para 01121WBA089."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://www.electrolux-ui.com/DocumentDownLoad.aspx?DocURL=2021/A22/240501umPT.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://www.electrolux-ui.com/DocumentDownLoad.aspx?DocURL=2021/A22/240501umPT.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T20:59:36.153Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "01362wba135",
@@ -3612,7 +3885,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para 01121RBA106."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-e623c32d-1aff-4fdf-82d0-584d374d9c3b&fileName=G0052317-001_UserManual_EM50T 90T 120T_Elux_Brazil-872x1238.raw.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-e623c32d-1aff-4fdf-82d0-584d374d9c3b&fileName=G0052317-001_UserManual_EM50T 90T 120T_Elux_Brazil-872x1238.raw.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T20:59:43.545Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "02623fba130",
@@ -3949,7 +4495,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para 02500FBA130."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-46fbea9f-c944-46c3-9a5c-4e911800e379&fileName=G0041319_IM_IM7_IM7S_IM7B_ELUX_PTG_REV006_DIGITAL-583x1296.raw.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-46fbea9f-c944-46c3-9a5c-4e911800e379&fileName=G0041319_IM_IM7_IM7S_IM7B_ELUX_PTG_REV006_DIGITAL-583x1296.raw.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T20:59:46.743Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "02501fba135",
@@ -4573,7 +5392,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para 02327FBA135."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://api.electrolux-medialibrary.com/asset/2ee325cb-65bd-4358-a1e3-e699f985644a/E4RM3Q/2409179ISV/PDF/2409179ISV.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://api.electrolux-medialibrary.com/asset/2ee325cb-65bd-4358-a1e3-e699f985644a/E4RM3Q/2409179ISV/PDF/2409179ISV.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T20:59:54.910Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "02503fba106",
@@ -4631,7 +5723,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para 02503FBA106."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-375e4551-4482-4daa-85ec-94d8e5045978&fileName=G0045837_IM_DB44_DB44S_IB45_IB45S_IB54_IB54S_IB54B_IB55_IB55S_IF43_IF43S_IB43B_IW43S_IF45_IF45S_IW45S-583x1296.raw.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-375e4551-4482-4daa-85ec-94d8e5045978&fileName=G0045837_IM_DB44_DB44S_IB45_IB45S_IB54_IB54S_IB54B_IB55_IB55S_IF43_IF43S_IB43B_IW43S_IF45_IF45S_IW45S-583x1296.raw.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T20:59:59.811Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "01572rb1135",
@@ -4689,7 +6054,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para 01572RB1135."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-b4aea8ec-52cf-438b-b0f8-9edc132765a6&fileName=G0046130-002_ManualRefrigES5GB_PORT872x1238.raw_compressed.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-b4aea8ec-52cf-438b-b0f8-9edc132765a6&fileName=G0046130-002_ManualRefrigES5GB_PORT872x1238.raw_compressed.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:00:04.827Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "02545fba130",
@@ -5690,7 +7328,284 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 3 evidência(s) localizada(s) para 24601TBC135."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "100 cm",
+          "pagina": "9",
+          "referencia": "a uma altura entre 40 e 100 cm e não deve",
+          "status": "CONFIRMADO",
+          "observacao": "Extração local do texto do manual."
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "100 cm",
+          "pagina": "9",
+          "referencia": "a uma altura entre 40 e 100 cm e não deve",
+          "status": "CONFIRMADO",
+          "observacao": "Extração local do texto do manual."
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 8: (Altura do produto)",
+        "pág. 9: a uma altura entre 40 e 100 cm e não deve",
+        "pág. 9: Se a altura do tanque é maior que 100 cm do chão, o excesso de água nas mangueiras não"
+      ],
+      "validacao": {
+        "status": "APROVADO_PARA_DESENHO",
+        "percentualConfirmado": 6,
+        "contagem": {
+          "CONFIRMADO": 2,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 31,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://api.electrolux-medialibrary.com/asset/466d74a4-06c1-4bbe-a798-d47f4f4fdbb5/E4RM3Q/a5381493-cf12-4e5e-9abc-17d552ed7770/ORIGINAL/a5381493-cf12-4e5e-9abc-17d552ed7770.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://api.electrolux-medialibrary.com/asset/466d74a4-06c1-4bbe-a798-d47f4f4fdbb5/E4RM3Q/a5381493-cf12-4e5e-9abc-17d552ed7770/ORIGINAL/a5381493-cf12-4e5e-9abc-17d552ed7770.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:00:13.413Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "2115cdbb106",
@@ -12199,7 +14114,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para UN98U9500HGXZD."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://downloadcenter.samsung.com/content/EM/202607/20260718034013001/BN68-26265A-00_SUG_Y26%20TV%20ALL_ZD_B-POR_260224.0.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://downloadcenter.samsung.com/content/EM/202607/20260718034013001/BN68-26265A-00_SUG_Y26%20TV%20ALL_ZD_B-POR_260224.0.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:00:17.929Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "un50m75hagxzd",
@@ -13824,7 +16012,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para NA30N6555TG/AZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NA30N6555TG&CttFileID=10338112&CDCttType=UM&VPath=UM%2F202504%2F20250430153504117%2FO_01._DG68-01089B-02_IB_FULL_NA30N6555TS_BPT.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NA30N6555TG&CttFileID=10338112&CDCttType=UM&VPath=UM%2F202504%2F20250430153504117%2FO_01._DG68-01089B-02_IB_FULL_NA30N6555TS_BPT.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:00:29.236Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "nv7b4420xakbz",
@@ -13897,7 +16358,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true
+    "revisaoPendente": true,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para NV7B4420XAK/BZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NV7B4420XAK&CttFileID=10419129&CDCttType=UM&VPath=UM%2F202505%2F20250520151243871%2FDG68-01413J-01_IBIM_NV7000B_BZ_BPT_241119.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NV7B4420XAK&CttFileID=10419129&CDCttType=UM&VPath=UM%2F202505%2F20250520151243871%2FDG68-01413J-01_IBIM_NV7000B_BZ_BPT_241119.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:00:42.333Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "nv7b4545sakbz",
@@ -14176,7 +16910,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para NSG6DG8300SRAZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NSG6DG8300SR&CttFileID=10131892&CDCttType=UM&VPath=UM%2F202504%2F20250401153316467%2FO_DG68-01613B-01_IB_FULL_NX9100D_NSG6DG8300SRAZ_BPT.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NSG6DG8300SR&CttFileID=10131892&CDCttType=UM&VPath=UM%2F202504%2F20250401153316467%2FO_DG68-01613B-01_IB_FULL_NX9100D_NSG6DG8300SRAZ_BPT.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:00:55.934Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "nsg6dg8700sraz",
@@ -14469,7 +17476,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para RS60T5200S9/AZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RS60T5200S9%2FAZ&CttFileID=11374582&CDCttType=UM&VPath=UM%2F202604%2F20260415030418069%2FOID62927-02_SBS_RS5300T_BPT_260312.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RS60T5200S9%2FAZ&CttFileID=11374582&CDCttType=UM&VPath=UM%2F202604%2F20260415030418069%2FOID62927-02_SBS_RS5300T_BPT_260312.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:01:04.990Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "rt38dg6120s9fz",
@@ -14557,7 +17837,280 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 0 evidência(s) localizada(s) para RT38DG6120S9FZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [],
+      "validacao": {
+        "status": "DADOS_INSUFICIENTES",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 33,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RT38DG6120S9&CttFileID=11374580&CDCttType=UM&VPath=UM%2F202604%2F20260415025442415%2FOID74620-03_TMF_RT6300D_BPT_260312.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RT38DG6120S9&CttFileID=11374580&CDCttType=UM&VPath=UM%2F202604%2F20260415025442415%2FOID74620-03_TMF_RT6300D_BPT_260312.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:01:13.616Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "rt42dg6630s9fz",
@@ -15274,7 +18827,283 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 2 evidência(s) localizada(s) para RF29DB9950QDAZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "3 mm / 1 mm",
+          "pagina": "34, 35",
+          "referencia": "para facilitar o alinhamento. A altura máxima",
+          "status": "REVISAR",
+          "observacao": "Mais de um valor associado ao campo; conferir a tabela ou o desenho."
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 34: para facilitar o alinhamento. A altura máxima",
+        "pág. 35: 1. Verifique a diferença de altura entre as portas"
+      ],
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 1,
+          "NAO_LOCALIZADO": 32,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RF29DB9950QD&CttFileID=11349848&CDCttType=UM&VPath=UM%2F202603%2F20260330163622185%2FOID75409-05_T-TYPE_RF9000D_BPT_260312.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RF29DB9950QD&CttFileID=11349848&CDCttType=UM&VPath=UM%2F202603%2F20260330163622185%2FOID75409-05_T-TYPE_RF9000D_BPT_260312.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:01:24.904Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "rs58t5561b1az",
@@ -15440,7 +19269,283 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 2 evidência(s) localizada(s) para RM90F66C1CAZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "3 mm / 1 mm",
+          "pagina": "34, 35",
+          "referencia": "para facilitar o alinhamento. A altura máxima",
+          "status": "REVISAR",
+          "observacao": "Mais de um valor associado ao campo; conferir a tabela ou o desenho."
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 34: para facilitar o alinhamento. A altura máxima",
+        "pág. 35: 1. Verifique a diferença de altura entre as portas"
+      ],
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 1,
+          "NAO_LOCALIZADO": 32,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RM90F66C1C&CttFileID=11555526&CDCttType=UM&VPath=UM%2F202607%2F20260716093908536%2FDA68-04836M-01_T-TYPE_RF9000F_BPT_260715.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RM90F66C1C&CttFileID=11555526&CDCttType=UM&VPath=UM%2F202607%2F20260716093908536%2FDA68-04836M-01_T-TYPE_RF9000F_BPT_260715.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:01:36.400Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "rf70h25hetaz",
@@ -15527,110 +19632,127 @@
         "largura": {
           "valor": "912 mm",
           "pagina": "20",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Largura B para os modelos RF70H25*"
+          "observacao": "Largura B para os modelos RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "altura": {
           "valor": "1749 mm",
           "pagina": "20",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Altura C para os modelos RF70H25*"
+          "observacao": "Altura C para os modelos RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "profundidade": {
           "valor": "698 mm",
           "pagina": "20",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Profundidade A para os modelos RF70H25*"
+          "observacao": "Profundidade A para os modelos RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         }
       },
       "dimensoesNicho": {
         "largura": {
           "valor": "≥ 920 mm",
           "pagina": "22",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Largura W recomendada do gabinete para RF70H25*"
+          "observacao": "Largura W recomendada do gabinete para RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "altura": {
           "valor": "≥ 1803 mm",
           "pagina": "22",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Altura H recomendada do gabinete para RF70H25*"
+          "observacao": "Altura H recomendada do gabinete para RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "profundidade": {
           "valor": "≥ 748 mm",
           "pagina": "22",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Profundidade D recomendada do gabinete para RF70H25*"
+          "observacao": "Profundidade D recomendada do gabinete para RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         }
       },
       "folgas": {
         "superior": {
           "valor": "superior a 100 mm",
           "pagina": "6",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Lado superior: superior a 100 mm"
+          "observacao": "Lado superior: superior a 100 mm | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "lateral": {
           "valor": "superior a 50 mm",
           "pagina": "6",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Lado direito, esquerdo e parte traseira: superior a 50 mm"
+          "observacao": "Lado direito, esquerdo e parte traseira: superior a 50 mm | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "traseira": {
           "valor": "superior a 50 mm",
           "pagina": "6",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Lado direito, esquerdo e parte traseira: superior a 50 mm"
+          "observacao": "Lado direito, esquerdo e parte traseira: superior a 50 mm | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "frontal": {
           "valor": "95 mm",
           "pagina": "19",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Afastamento mínimo de 95 mm da parede para permitir a abertura da porta quando instalado próximo a uma parede fixa"
+          "observacao": "Afastamento mínimo de 95 mm da parede para permitir a abertura da porta quando instalado próximo a uma parede fixa | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         }
       },
       "abertura": {
         "anguloPorta": {
           "valor": "108°",
           "pagina": "21",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Ângulo de abertura da porta para RF70H25*"
+          "observacao": "Ângulo de abertura da porta para RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "distanciaPortasAbertas": {
           "valor": "1140 mm",
           "pagina": "21",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Medida 10 para o modelo RF70H25*"
+          "observacao": "Medida 10 para o modelo RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "distanciaGavetasEstendidas": {
           "valor": "1113 mm",
           "pagina": "21",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Medida 09 para o modelo RF70H25*"
+          "observacao": "Medida 09 para o modelo RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         }
       },
       "instalacao": {
         "pontoEletrico": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         },
         "pontoAgua": {
           "valor": "30 e 125 psi (206 e 861 kPa)",
           "pagina": "6",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Pressão da água necessária para o funcionamento adequado do mecanismo de fabricação de gelo"
+          "observacao": "Pressão da água necessária para o funcionamento adequado do mecanismo de fabricação de gelo | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "pontoGas": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         },
         "dreno": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         }
@@ -15640,15 +19762,147 @@
         "A tomada deve ser de fácil acesso para que o eletrodoméstico possa ser desconectado rapidamente da fonte em caso de emergência, e ela deve estar fora da área da traseira do eletrodoméstico.",
         "O refrigerador deve estar conectado à terra de forma segura.",
         "A linha de água deve ser conectada por um técnico qualificado.",
-        "Um espaço mínimo de 4 mm deve ser mantido entre o refrigerador e as paredes laterais ao instalar dentro de um gabinete."
+        "Um espaço mínimo de 4 mm deve ser mantido entre o refrigerador e as paredes laterais ao instalar dentro de um gabinete.",
+        "Extração offline: 13 evidência(s) localizada(s) para RF70H25HETAZ."
       ],
       "fonte": {
         "nome": "Manual do usuário",
         "url": "https://downloadcenter.samsung.com/content/UM/202609/20260917172708751/OID145843-00_FDR_RF80H_BPT_260723.pdf",
-        "modelo": "gemini-3.5-flash-lite",
-        "extraidoEm": "2026-09-21T20:39:58.518Z"
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://downloadcenter.samsung.com/content/UM/202609/20260917172708751/OID145843-00_FDR_RF80H_BPT_260723.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs-fallback",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T20:45:53.404Z"
       },
-      "revisado": false
+      "revisado": false,
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "912 mm",
+          "pagina": "20",
+          "referencia": "",
+          "status": "REVISAR",
+          "observacao": "Largura B para os modelos RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Confirmação rejeitada: faltam valor, página ou referência."
+        },
+        "alturaProduto": {
+          "valor": "1749 mm",
+          "pagina": "20",
+          "referencia": "",
+          "status": "REVISAR",
+          "observacao": "Altura C para os modelos RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Confirmação rejeitada: faltam valor, página ou referência."
+        },
+        "profundidadeTotalProduto": {
+          "valor": "698 mm",
+          "pagina": "20",
+          "referencia": "",
+          "status": "REVISAR",
+          "observacao": "Profundidade A para os modelos RF70H25* | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Confirmação rejeitada: faltam valor, página ou referência."
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 42,
+        "contagem": {
+          "CONFIRMADO": 14,
+          "REVISAR": 3,
+          "NAO_LOCALIZADO": 16,
+          "NAO_APLICAVEL": 0
+        }
+      }
     }
   },
   {
@@ -15914,7 +20168,283 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 3 evidência(s) localizada(s) para DW50C6070FS/AZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "29 cm / 845 mm",
+          "pagina": "17, 35",
+          "referencia": "maiores. Dependendo da altura do cesto superior, o cesto inferior pode acomodar louças de até",
+          "status": "REVISAR",
+          "observacao": "Mais de um valor associado ao campo; conferir a tabela ou o desenho."
+        },
+        "profundidade": {
+          "valor": "845 mm",
+          "pagina": "35",
+          "referencia": "(Largura × Profundidade × Altura)",
+          "status": "REVISAR",
+          "observacao": "Extração local do texto do manual."
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 17: maiores. Dependendo da altura do cesto superior, o cesto inferior pode acomodar louças de até",
+        "pág. 35: (Largura × Profundidade × Altura)"
+      ],
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 2,
+          "NAO_LOCALIZADO": 31,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DW50C6070FS%2FAZ&CttFileID=9107220&CDCttType=UM&VPath=UM%2F202303%2F20230328140150042%2FFULL_DW4000RM_DW50C6070FS_AZ_DD81-04328A-00_BPT_EN.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DW50C6070FS%2FAZ&CttFileID=9107220&CDCttType=UM&VPath=UM%2F202303%2F20230328140150042%2FFULL_DW4000RM_DW50C6070FS_AZ_DD81-04328A-00_BPT_EN.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:01:46.701Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "dw60c7050fgaz",
@@ -15977,7 +20507,282 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 2 evidência(s) localizada(s) para DW60C7050FG/AZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "845 mm",
+          "pagina": "33",
+          "referencia": "(Largura × Profundidade × Altura)",
+          "status": "REVISAR",
+          "observacao": "Extração local do texto do manual."
+        },
+        "profundidade": {
+          "valor": "845 mm",
+          "pagina": "33",
+          "referencia": "(Largura × Profundidade × Altura)",
+          "status": "REVISAR",
+          "observacao": "Extração local do texto do manual."
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 33: (Largura × Profundidade × Altura)"
+      ],
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 2,
+          "NAO_LOCALIZADO": 31,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DW60C7050FG%2FAZ&CttFileID=9107228&CDCttType=UM&VPath=UM%2F202303%2F20230328140527715%2FFULL_DW2900RM_DW60C7050FS_AZ_DD81-04329A-00_BPT_EN.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DW60C7050FG%2FAZ&CttFileID=9107228&CDCttType=UM&VPath=UM%2F202303%2F20230328140527715%2FFULL_DW2900RM_DW60C7050FS_AZ_DD81-04329A-00_BPT_EN.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:01:58.131Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "dw50c6070fgaz",
@@ -16471,7 +21276,284 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 3 evidência(s) localizada(s) para WD11A4453BW/AZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "90 cm / 60 cm",
+          "pagina": "20, 30",
+          "referencia": "A Samsung recomenda uma altura de cano",
+          "status": "REVISAR",
+          "observacao": "Mais de um valor associado ao campo; conferir a tabela ou o desenho."
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 20: A Samsung recomenda uma altura de cano",
+        "pág. 30: colocada em uma altura entre 60 cm e 90",
+        "pág. 30: cm e 90 cm de altura (*). Recomenda-se"
+      ],
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 1,
+          "NAO_LOCALIZADO": 32,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD11A4453BW%2FAZ&CttFileID=8557297&CDCttType=UM&VPath=UM%2F202203%2F20220330165420842%2FWD11A4453BW_F_127V-220V_Bubble_03881W-00_BPT.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD11A4453BW%2FAZ&CttFileID=8557297&CDCttType=UM&VPath=UM%2F202203%2F20220330165420842%2FWD11A4453BW_F_127V-220V_Bubble_03881W-00_BPT.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:02:08.444Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "wd11a4453bxaz",
@@ -16771,7 +21853,282 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 1 evidência(s) localizada(s) para WD18T6500GV/AZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "60 cm",
+          "pagina": "26",
+          "referencia": "A mangueira de drenagem tem que ser colocada a uma altura",
+          "status": "REVISAR",
+          "observacao": "Extração local do texto do manual."
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 26: A mangueira de drenagem tem que ser colocada a uma altura"
+      ],
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 1,
+          "NAO_LOCALIZADO": 32,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD18T6500GV%2FAZ&CttFileID=9323907&CDCttType=UM&VPath=UM%2F202310%2F20231004140848031%2FDC68-04255B-03_IB_A1_WD6500-AD_SimpleUX_BPT_230920.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD18T6500GV%2FAZ&CttFileID=9323907&CDCttType=UM&VPath=UM%2F202310%2F20231004140848031%2FDC68-04255B-03_IB_A1_WD6500-AD_SimpleUX_BPT_230920.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:02:20.135Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "wh17dbh570gvaz",
@@ -16858,7 +22215,283 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 2 evidência(s) localizada(s) para WH17DBH570GVAZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "460 mm / 60 cm",
+          "pagina": "112, 122",
+          "referencia": "A Samsung recomenda uma altura de cano vertical de 460 mm. É necessário que a mangueira de drenagem seja",
+          "status": "REVISAR",
+          "observacao": "Mais de um valor associado ao campo; conferir a tabela ou o desenho."
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 112: A Samsung recomenda uma altura de cano vertical de 460 mm. É necessário que a mangueira de drenagem seja",
+        "pág. 122: A mangueira de drenagem tem que ser colocada a uma altura"
+      ],
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 1,
+          "NAO_LOCALIZADO": 32,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WH17DBH570GV&CttFileID=9687034&CDCttType=UM&VPath=UM%2F202405%2F20240517052756437%2FDC68-04394L-00_IB_H570D-AD_SimpleUX_BPT_240130.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WH17DBH570GV&CttFileID=9687034&CDCttType=UM&VPath=UM%2F202405%2F20240517052756437%2FDC68-04394L-00_IB_H570D-AD_SimpleUX_BPT_240130.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:02:29.636Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "ww11t4040beaz",
@@ -16944,7 +22577,284 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 3 evidência(s) localizada(s) para WW11T4040BE/AZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "90 cm / 60 cm",
+          "pagina": "17, 26, 27",
+          "referencia": "A Samsung recomenda uma altura de cano",
+          "status": "REVISAR",
+          "observacao": "Mais de um valor associado ao campo; conferir a tabela ou o desenho."
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 17: A Samsung recomenda uma altura de cano",
+        "pág. 26: colocada em uma altura entre 60 cm e",
+        "pág. 27: cm e 90 cm de altura (*). Recomenda-se"
+      ],
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 1,
+          "NAO_LOCALIZADO": 32,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WW11T4040BE&CttFileID=11299774&CDCttType=UM&VPath=UM%2F202602%2F20260226092241195%2FDC68-04363P-00_IB_WW4000T-WASHER-MD_LED_BPT.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WW11T4040BE&CttFileID=11299774&CDCttType=UM&VPath=UM%2F202602%2F20260226092241195%2FDC68-04363P-00_IB_WW4000T-WASHER-MD_LED_BPT.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:02:40.564Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "ww11t4040bxaz",
@@ -17030,7 +22940,284 @@
       }
     ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "observacoes": [
+        "Extração offline: 3 evidência(s) localizada(s) para WW11T4040BX/AZ."
+      ],
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "90 cm / 60 cm",
+          "pagina": "17, 26, 27",
+          "referencia": "A Samsung recomenda uma altura de cano",
+          "status": "REVISAR",
+          "observacao": "Mais de um valor associado ao campo; conferir a tabela ou o desenho."
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "dimensoesNicho": {
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "folgas": {
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "traseira": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "alturaProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeTotalProduto": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeGabinete": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "larguraComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAberturaDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "afastamentoTraseiro": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "instalacao": {
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
+      "evidenciasOffline": [
+        "pág. 17: A Samsung recomenda uma altura de cano",
+        "pág. 26: colocada em uma altura entre 60 cm e",
+        "pág. 27: cm e 90 cm de altura (*). Recomenda-se"
+      ],
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 0,
+        "contagem": {
+          "CONFIRMADO": 0,
+          "REVISAR": 1,
+          "NAO_LOCALIZADO": 32,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "fonte": {
+        "nome": "Manual do usuário",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WW11T4040BX&CttFileID=11299774&CDCttType=UM&VPath=UM%2F202602%2F20260226092241195%2FDC68-04363P-00_IB_WW4000T-WASHER-MD_LED_BPT.pdf",
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WW11T4040BX&CttFileID=11299774&CDCttType=UM&VPath=UM%2F202602%2F20260226092241195%2FDC68-04363P-00_IB_WW4000T-WASHER-MD_LED_BPT.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-25T21:02:51.717Z"
+      },
+      "revisado": false
+    }
   },
   {
     "id": "wd20db8995bzaz",

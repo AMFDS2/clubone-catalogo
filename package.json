@@ -6,13 +6,15 @@
   "type": "module",
   "scripts": {
     "extrair": "node scripts/extrair-ia-manuais.mjs",
+    "extrair:offline": "node scripts/extrair-ia-manuais.mjs --offline",
+    "validar:medidas": "node scripts/validar-medidas-projeto.mjs",
     "ler": "node scripts/ler-planilha.mjs",
     "verificar": "node scripts/verificar-catalogo.mjs",
     "localizar": "node scripts/localizar-fontes.mjs",
     "enriquecer": "node scripts/enriquecer-produtos.mjs",
     "gerar": "node scripts/gerar-catalogo-preview.mjs",
     "atualizar": "npm run ler && npm run verificar && npm run localizar && npm run enriquecer && npm run gerar && npm run extrair",
-    "check": "node --check script.js && node --check blocagem.js && node --check scripts/extrair-ia-manuais.mjs && node --check scripts/ler-planilha.mjs && node --check scripts/verificar-catalogo.mjs && node --check scripts/localizar-fontes.mjs && node --check scripts/enriquecer-produtos.mjs && node --check scripts/fabricantes/electrolux.mjs && node --check scripts/fabricantes/info-store.mjs && node --check scripts/gerar-catalogo-preview.mjs"
+    "check": "node --check script.js && node --check blocagem.js && node --check scripts/extrair-ia-manuais.mjs && node --check scripts/extrair-offline-manuais.mjs && node --check scripts/validar-medidas-projeto.mjs && node --check scripts/ler-planilha.mjs && node --check scripts/verificar-catalogo.mjs && node --check scripts/localizar-fontes.mjs && node --check scripts/enriquecer-produtos.mjs && node --check scripts/fabricantes/electrolux.mjs && node --check scripts/fabricantes/info-store.mjs && node --check scripts/gerar-catalogo-preview.mjs"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,8 @@
   "dependencies": {
     "@google/genai": "^2.23.0",
     "cheerio": "^1.2.0",
-    "exceljs": "^4.4.0"
+    "exceljs": "^4.4.0",
+    "pdfjs-dist": "^5.6.205"
   },
   "main": "blocagem.js",
   "keywords": [],

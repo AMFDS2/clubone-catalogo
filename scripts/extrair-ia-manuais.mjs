@@ -2,34 +2,38 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { GoogleGenAI } from "@google/genai";
+import { extrairOffline } from "./extrair-offline-manuais.mjs";
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const arquivoCatalogo = path.join(raiz, "produtos.preview.json");
 const apiKey = process.env.GEMINI_API_KEY;
-const modeloPrimario = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+const modeloPrimario = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 const modelosFallback = [...new Set([
   modeloPrimario,
-  ...(process.env.GEMINI_FALLBACK_MODELS || "gemini-3.1-flash-lite,gemini-3.6-flash,gemini-3.5-flash")
+  ...(process.env.GEMINI_FALLBACK_MODELS || "gemini-2.5-flash-lite,gemini-3.1-flash-lite,gemini-3.5-flash")
     .split(",")
     .map(item => item.trim())
     .filter(Boolean)
 ])];
 const modeloRevisao = process.env.GEMINI_REVIEW_MODEL === "off"
   ? ""
-  : process.env.GEMINI_REVIEW_MODEL || "gemini-3.5-flash";
+  : process.env.GEMINI_REVIEW_MODEL || "gemini-2.5-flash";
 const forcar = process.argv.includes("--force");
 const completar = process.argv.includes("--completar");
 const rapido = process.argv.includes("--rapido");
+const somenteOffline = process.argv.includes("--offline");
+const somenteOnline = process.argv.includes("--online");
+const modoHibrido = !somenteOffline && !somenteOnline;
 const argumentoModelo = process.argv.find(item => item.startsWith("--modelo="));
 const filtroModelo = argumentoModelo?.split("=").slice(1).join("=").trim().toUpperCase() || "";
 const limiteBytes = 50 * 1024 * 1024;
 
-if (!apiKey) {
+if (!apiKey && !somenteOffline) {
   console.error("ERRO: defina GEMINI_API_KEY antes de executar a extração.");
   process.exit(1);
 }
 
-const ai = new GoogleGenAI({ apiKey });
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 const campoMedida = {
   type: "object",
@@ -258,16 +262,76 @@ function numeroMedida(campo = {}) {
 }
 
 function marcarRevisao(campo, motivo) {
-  if (!campo || campo.status === "NAO_LOCALIZADO") return;
+  if (!campo || campo.status === "NAO_LOCALIZADO" || campo.status === "NAO_APLICAVEL") return;
   campo.status = "REVISAR";
   campo.observacao = [campo.observacao, motivo].filter(Boolean).join(" | ");
+}
+
+const statusPermitidos = new Set(["CONFIRMADO", "REVISAR", "NAO_LOCALIZADO", "NAO_APLICAVEL"]);
+
+function campoVazio(status = "NAO_LOCALIZADO") {
+  return { valor: "", pagina: "", referencia: "", status, observacao: "" };
+}
+
+function normalizarCampo(campo) {
+  const normalizado = { ...campoVazio(), ...(campo && typeof campo === "object" ? campo : {}) };
+  for (const chave of ["valor", "pagina", "referencia", "observacao"]) {
+    normalizado[chave] = String(normalizado[chave] ?? "").trim();
+  }
+  normalizado.status = statusPermitidos.has(normalizado.status) ? normalizado.status : "REVISAR";
+
+  if (["NAO_LOCALIZADO", "NAO_APLICAVEL"].includes(normalizado.status)) {
+    normalizado.valor = "";
+    normalizado.pagina = "";
+    normalizado.referencia = "";
+  } else if (!normalizado.valor || !normalizado.pagina) {
+    normalizado.status = "REVISAR";
+    normalizado.observacao = [normalizado.observacao, "Evidência incompleta: valor e página são obrigatórios."].filter(Boolean).join(" | ");
+  } else if (!normalizado.referencia) {
+    normalizado.observacao = [normalizado.observacao, "Referência não registrada no formato legado; preservar até nova conferência."].filter(Boolean).join(" | ");
+  }
+  return normalizado;
+}
+
+function mesmaMedida(a = {}, b = {}) {
+  const na = numeroMedida(a);
+  const nb = numeroMedida(b);
+  return Number.isFinite(na) && Number.isFinite(nb) && Math.abs(na - nb) < 0.01;
+}
+
+function reconciliarDuplicado(dados, caminhoA, caminhoB) {
+  const [grupoA, nomeA] = caminhoA;
+  const [grupoB, nomeB] = caminhoB;
+  const a = dados[grupoA][nomeA];
+  const b = dados[grupoB][nomeB];
+  if (a.status === "CONFIRMADO" && b.status !== "CONFIRMADO") dados[grupoB][nomeB] = { ...a };
+  else if (b.status === "CONFIRMADO" && a.status !== "CONFIRMADO") dados[grupoA][nomeA] = { ...b };
+  else if (a.status === "CONFIRMADO" && b.status === "CONFIRMADO" && !mesmaMedida(a, b)) {
+    marcarRevisao(a, `Diverge de ${grupoB}.${nomeB}: ${b.valor}.`);
+    marcarRevisao(b, `Diverge de ${grupoA}.${nomeA}: ${a.valor}.`);
+  }
+}
+
+function normalizarResultado(dados = {}) {
+  const resultado = structuredClone(dados && typeof dados === "object" ? dados : {});
+  for (const [grupo, nome] of camposTecnicos(resultado)) {
+    if (!resultado[grupo] || typeof resultado[grupo] !== "object") resultado[grupo] = {};
+    resultado[grupo][nome] = normalizarCampo(resultado[grupo][nome]);
+  }
+  resultado.observacoes = Array.isArray(resultado.observacoes)
+    ? [...new Set(resultado.observacoes.map(item => String(item).trim()).filter(Boolean))]
+    : [];
+  reconciliarDuplicado(resultado, ["dimensoesProduto", "largura"], ["geometriaInstalacao", "larguraProduto"]);
+  reconciliarDuplicado(resultado, ["dimensoesProduto", "altura"], ["geometriaInstalacao", "alturaProduto"]);
+  reconciliarDuplicado(resultado, ["dimensoesProduto", "profundidade"], ["geometriaInstalacao", "profundidadeTotalProduto"]);
+  return resultado;
 }
 
 function auditarGeometria(dados = {}) {
   const g = dados.geometriaInstalacao || {};
   for (const campo of Object.values(g)) {
-    if (campo?.status === "CONFIRMADO" && (!campo.valor || !campo.pagina)) {
-      marcarRevisao(campo, "Confirmação rejeitada: faltam valor ou página.");
+    if (campo?.status === "CONFIRMADO" && (!campo.valor || !campo.pagina || !campo.referencia)) {
+      marcarRevisao(campo, "Confirmação rejeitada: faltam valor, página ou referência.");
     }
   }
 
@@ -287,13 +351,34 @@ function auditarGeometria(dados = {}) {
   if (Number.isFinite(profundidadeTotal) && Number.isFinite(profundidadeAberta) && profundidadeAberta <= profundidadeTotal) {
     marcarRevisao(g.profundidadeComPortasAbertas, "A profundidade com portas abertas deve superar a profundidade total do produto.");
   }
+
+  for (const nome of ["anguloAbertura", "anguloAberturaEsquerda", "anguloAberturaDireita"]) {
+    const angulo = numeroMedida(g[nome]);
+    if (Number.isFinite(angulo) && (angulo <= 0 || angulo > 180)) {
+      marcarRevisao(g[nome], "Ângulo fora do intervalo físico de 1° a 180°.");
+    }
+  }
   return dados;
 }
 
 function camposPendentes(dados = {}) {
   return camposTecnicos(dados)
-    .filter(([grupo, campo]) => dados?.[grupo]?.[campo]?.status !== "CONFIRMADO")
+    .filter(([grupo, campo]) => ["REVISAR", "NAO_LOCALIZADO"].includes(dados?.[grupo]?.[campo]?.status))
     .map(([grupo, campo]) => `${grupo}.${campo}`);
+}
+
+function criarValidacao(dados = {}) {
+  const campos = camposTecnicos(dados).map(([grupo, nome]) => dados?.[grupo]?.[nome] || campoVazio());
+  const contagem = campos.reduce((acc, campo) => {
+    acc[campo.status] = (acc[campo.status] || 0) + 1;
+    return acc;
+  }, { CONFIRMADO: 0, REVISAR: 0, NAO_LOCALIZADO: 0, NAO_APLICAVEL: 0 });
+  const utilizaveis = campos.length - contagem.NAO_APLICAVEL;
+  const percentualConfirmado = utilizaveis ? Math.round((contagem.CONFIRMADO / utilizaveis) * 100) : 0;
+  const status = contagem.REVISAR
+    ? "REVISAO_NECESSARIA"
+    : contagem.CONFIRMADO ? "APROVADO_PARA_DESENHO" : "DADOS_INSUFICIENTES";
+  return { status, percentualConfirmado, contagem };
 }
 
 function combinarResultados(primeiro = {}, segundo = {}) {
@@ -401,18 +486,37 @@ async function executar() {
       }
       if (!pdfs.length) throw new Error("nenhum PDF oficial pôde ser baixado");
 
-      const baseAnterior = completar && produto.medidasProjeto ? produto.medidasProjeto : null;
-      const instrucaoInicial = baseAnterior
+      const dadosAnteriores = produto.medidasProjeto || null;
+      const baseParaBusca = completar && dadosAnteriores ? dadosAnteriores : null;
+      const instrucaoInicial = baseParaBusca
         ? `Faça uma nova busca especialmente pelos campos ainda pendentes: ${pendentesAtuais.join(", ")}.`
         : "Extraia todos os campos do esquema.";
 
-      const primeiraExecucao = await extrairComFallback(produto, pdfs, instrucaoInicial);
-      const primeiraLeitura = primeiraExecucao.dados;
-      const modeloUsado = primeiraExecucao.modeloUsado;
-      let dados = baseAnterior ? combinarResultados(baseAnterior, primeiraLeitura) : primeiraLeitura;
+      let primeiraLeitura;
+      let modeloUsado;
+      if (somenteOffline) {
+        process.stdout.write("[offline] ");
+        primeiraLeitura = await extrairOffline(produto, pdfs);
+        modeloUsado = "offline-pdfjs";
+      } else {
+        try {
+          const primeiraExecucao = await extrairComFallback(produto, pdfs, instrucaoInicial);
+          primeiraLeitura = primeiraExecucao.dados;
+          modeloUsado = primeiraExecucao.modeloUsado;
+        } catch (erro) {
+          if (!modoHibrido || !/429|503|quota|resource_exhausted|unavailable|high demand/i.test(String(erro?.message || erro))) throw erro;
+          process.stdout.write("serviço online indisponível; continuando offline; ");
+          primeiraLeitura = await extrairOffline(produto, pdfs);
+          modeloUsado = "offline-pdfjs-fallback";
+        }
+      }
+      const preservarDadosAnteriores = Boolean(dadosAnteriores && (completar || modeloUsado.startsWith("offline-")));
+      let dados = normalizarResultado(preservarDadosAnteriores
+        ? combinarResultados(dadosAnteriores, primeiraLeitura)
+        : primeiraLeitura);
       const pendentes = camposPendentes(dados);
 
-      if (!rapido && pendentes.length && modeloRevisao && modeloRevisao !== modeloUsado) {
+      if (!somenteOffline && !modeloUsado.startsWith("offline-") && !rapido && pendentes.length && modeloRevisao && modeloRevisao !== modeloUsado) {
         process.stdout.write(`revisando ${pendentes.length} campo(s); `);
         try {
           const segundaLeitura = await extrairComTentativas(
@@ -422,15 +526,16 @@ async function executar() {
             `Concentre a análise nestes campos: ${pendentes.join(", ")}. Examine também desenhos, notas de rodapé e tabelas técnicas. Não altere para CONFIRMADO sem página e evidência explícita.`,
             2
           );
-          dados = combinarResultados(dados, segundaLeitura);
+          dados = normalizarResultado(combinarResultados(dados, segundaLeitura));
         } catch (erro) {
           process.stdout.write(`revisão indisponível (${erro.message}); mantendo Lite; `);
         }
       }
 
-      dados = auditarGeometria(dados);
+      dados = auditarGeometria(normalizarResultado(dados));
       produto.medidasProjeto = {
         ...dados,
+        validacao: criarValidacao(dados),
         fonte: {
           nome: pdfs.map(item => item.manual.nome || "Manual oficial").join(" + "),
           url: urlOriginal(pdfs[0].manual),
@@ -448,6 +553,9 @@ async function executar() {
     } catch (erro) {
       erros++;
       console.log(`ERRO - ${erro.message}`);
+      if (/503|unavailable|high demand/i.test(erro.message)) {
+        console.log("O serviço Gemini está temporariamente indisponível. Nenhum dado foi alterado; tente novamente em alguns minutos.");
+      }
       if (/429|quota|resource_exhausted/i.test(erro.message)) {
         console.log("Limite gratuito atingido. Aguarde e execute novamente; os produtos já concluídos serão ignorados.");
         break;

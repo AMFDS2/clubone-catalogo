@@ -1092,6 +1092,30 @@ header.topbar {
 .legenda-medidas i.revisar { background: #d99a2b; }
 .medida-status.nao-localizado i,
 .legenda-medidas i.nao-localizado { background: #8b8d91; }
+.medida-status.nao-aplicavel i,
+.legenda-medidas i.nao-aplicavel { background: #61708a; }
+
+.resumo-validacao {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid #d9dee8;
+  border-left: 4px solid #173675;
+  border-radius: 9px;
+  background: #f6f8fc;
+  color: var(--texto);
+}
+.resumo-validacao.revisao_necessaria { border-left-color: #d99a2b; background: #fffaf1; }
+.resumo-validacao.dados_insuficientes { border-left-color: #8b8d91; background: #f7f7f7; }
+.resumo-validacao > div:first-child { display: grid; gap: 3px; }
+.resumo-validacao strong { font-size: 11px; }
+.resumo-validacao span { color: var(--suave); font-size: 9px; }
+.resumo-validacao-contagens { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.resumo-validacao-contagens span { padding: 5px 8px; border: 1px solid #dde1e9; border-radius: 999px; background: #fff; }
+.resumo-validacao-contagens b { color: #173675; }
 
 .observacoes-manual {
   margin-top: 16px;
@@ -1259,6 +1283,8 @@ header.topbar {
   .fonte-medidas { text-align: left; }
   .medida-ia-linha { grid-template-columns: 1fr 1fr; }
   .medida-status { grid-column: 1 / -1; padding-top: 0; }
+  .resumo-validacao { align-items: flex-start; flex-direction: column; }
+  .resumo-validacao-contagens { justify-content: flex-start; }
 }
 
 /* ==================================================
