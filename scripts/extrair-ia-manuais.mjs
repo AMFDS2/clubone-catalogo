@@ -3,21 +3,23 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { GoogleGenAI } from "@google/genai";
 import { extrairOffline } from "./extrair-offline-manuais.mjs";
+import { indexarPdfs } from "./indexar-manual.mjs";
+import { aplicarDadosTecnicosValidados } from "./dados-tecnicos-validados.mjs";
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const arquivoCatalogo = path.join(raiz, "produtos.preview.json");
 const apiKey = process.env.GEMINI_API_KEY;
-const modeloPrimario = process.env.GEMINI_MODEL || "gemini-2.5-flash";
-const modelosFallback = [...new Set([
+const modeloPrimario = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+const modelosPreferidos = [...new Set([
   modeloPrimario,
-  ...(process.env.GEMINI_FALLBACK_MODELS || "gemini-2.5-flash-lite,gemini-3.1-flash-lite,gemini-3.5-flash")
+  ...(process.env.GEMINI_FALLBACK_MODELS || "gemini-3.8-flash,gemini-3.7-flash,gemini-3.6-flash,gemini-3.5-flash,gemini-3.5-flash-lite")
     .split(",")
     .map(item => item.trim())
     .filter(Boolean)
 ])];
 const modeloRevisao = process.env.GEMINI_REVIEW_MODEL === "off"
   ? ""
-  : process.env.GEMINI_REVIEW_MODEL || "gemini-2.5-flash";
+  : process.env.GEMINI_REVIEW_MODEL || "";
 const forcar = process.argv.includes("--force");
 const completar = process.argv.includes("--completar");
 const rapido = process.argv.includes("--rapido");
@@ -34,6 +36,29 @@ if (!apiKey && !somenteOffline) {
 }
 
 const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
+
+async function descobrirModelosDisponiveis() {
+  if (!apiKey) return [];
+  try {
+    const resposta = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(apiKey)}`, {
+      signal: AbortSignal.timeout(30000)
+    });
+    if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
+    const corpo = await resposta.json();
+    const disponiveis = new Set((corpo.models || [])
+      .filter(item => (item.supportedGenerationMethods || []).includes("generateContent"))
+      .map(item => String(item.name || "").replace(/^models\//, ""))
+      .filter(Boolean));
+    const preferidosDisponiveis = modelosPreferidos.filter(nome => disponiveis.has(nome));
+    const outrosFlash = [...disponiveis]
+      .filter(nome => /gemini-.*flash/i.test(nome) && !/image|tts|live|preview/i.test(nome))
+      .sort((a, b) => b.localeCompare(a, undefined, { numeric: true }));
+    return [...new Set([...preferidosDisponiveis, ...outrosFlash])].slice(0, 5);
+  } catch (erro) {
+    process.stdout.write(`não foi possível consultar modelos (${erro.message}); usando lista padrão; `);
+    return modelosPreferidos;
+  }
+}
 
 const campoMedida = {
   type: "object",
@@ -162,7 +187,7 @@ async function baixarPdf(url) {
   return bytes;
 }
 
-async function extrair(produto, pdfs, modelo, instrucaoExtra = "") {
+async function extrair(produto, pdfs, modelo, indiceManual, instrucaoExtra = "") {
   const prompt = `Você é um extrator técnico para um catálogo destinado a arquitetos.
 Analise exclusivamente o manual PDF anexado do produto modelo ${produto.modelo || "não informado"}.
 
@@ -198,6 +223,12 @@ Regras obrigatórias:
 29. A cota horizontal entre as extremidades das portas abertas pertence a larguraComPortasAbertas.
 30. A cota perpendicular da parede até a frente aberta pertence a profundidadeComPortasAbertas.
 31. Se o manual apresentar várias famílias em colunas, confronte o modelo normalizado com o cabeçalho e registre a coluna em referencia.
+32. Comece pelas páginas indicadas no ÍNDICE TÉCNICO. O índice é auxiliar; confirme visualmente a tabela ou o desenho no PDF.
+33. A referência deve conter um trecho literal curto do rótulo, a letra/número da cota e o modelo/coluna quando houver.
+34. Nunca classifique CLEARANCE, FOLGA, ESPAÇO PARA ABERTURA ou DISTÂNCIA DA PAREDE como dimensão física do produto.
+35. Para vistas técnicas, identifique o eixo: frontal = largura × altura; lateral = profundidade × altura; superior = largura × profundidade.
+36. Uma medida sem eixo inequívoco deve permanecer REVISAR.
+37. Se foto, desenho e tabela divergirem, priorize a tabela do modelo exato e marque REVISAR explicando a divergência.
 ${instrucaoExtra}`;
 
   const requisicao = {
@@ -206,7 +237,7 @@ ${instrucaoExtra}`;
       role: "user",
       parts: [
         ...pdfs.map(item => ({ inlineData: { data: item.bytes.toString("base64"), mimeType: "application/pdf" } })),
-        { text: `${prompt}\nO JSON deve conter todos os grupos e campos definidos pelo esquema técnico, inclusive campos vazios quando não localizados.` }
+        { text: `${prompt}\n\nÍNDICE TÉCNICO GERADO LOCALMENTE:\n${indiceManual?.resumo || "Índice textual indisponível."}\n\nO JSON deve conter todos os grupos e campos definidos pelo esquema técnico, inclusive campos vazios quando não localizados.` }
       ]
     }],
     config: {
@@ -257,8 +288,13 @@ function camposTecnicos(dados = {}) {
 }
 
 function numeroMedida(campo = {}) {
-  const encontrado = String(campo.valor || "").replace(/\./g, "").replace(",", ".").match(/\d+(?:\.\d+)?/);
-  return encontrado ? Number(encontrado[0]) : NaN;
+  const texto = String(campo.valor || "").trim();
+  const encontrado = texto.replace(/\./g, "").replace(",", ".").match(/\d+(?:\.\d+)?/);
+  if (!encontrado) return NaN;
+  const valor = Number(encontrado[0]);
+  if (/\bcm\b/i.test(texto)) return valor * 10;
+  if (/\bm\b/i.test(texto) && !/\bmm\b/i.test(texto)) return valor * 1000;
+  return valor;
 }
 
 function marcarRevisao(campo, motivo) {
@@ -381,6 +417,59 @@ function criarValidacao(dados = {}) {
   return { status, percentualConfirmado, contagem };
 }
 
+function quantidadeConfirmada(dados = {}) {
+  return camposTecnicos(dados).filter(([grupo, nome]) => dados?.[grupo]?.[nome]?.status === "CONFIRMADO").length;
+}
+
+function dimensoesBasicasConfirmadas(dados = {}) {
+  const dimensoes = dados.dimensoesProduto || {};
+  const geometria = dados.geometriaInstalacao || {};
+  return [
+    dimensoes.largura?.status === "CONFIRMADO" || geometria.larguraProduto?.status === "CONFIRMADO",
+    dimensoes.altura?.status === "CONFIRMADO" || geometria.alturaProduto?.status === "CONFIRMADO",
+    dimensoes.profundidade?.status === "CONFIRMADO" || geometria.profundidadeTotalProduto?.status === "CONFIRMADO"
+  ].filter(Boolean).length;
+}
+
+function normalizarChave(valor = "") {
+  return String(valor).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+}
+
+function aplicarDimensoesCadastradas(produto = {}, dados = {}) {
+  const dimensoes = produto.dimensoes || {};
+  const medidas = dimensoes.produto || dimensoes.semBase || dimensoes.semEmbalagem || dimensoes.comBase || {};
+  const procurar = nomes => {
+    const entrada = Object.entries(medidas).find(([chave]) => nomes.includes(normalizarChave(chave)));
+    return String(entrada?.[1] || "").trim();
+  };
+  const valores = {
+    largura: procurar(["largura", "width"]),
+    altura: procurar(["altura", "height"]),
+    profundidade: procurar(["profundidade", "depth"])
+  };
+  const destinos = {
+    largura: ["larguraProduto"],
+    altura: ["alturaProduto"],
+    profundidade: ["profundidadeTotalProduto"]
+  };
+  let aplicadas = 0;
+  for (const [nome, valor] of Object.entries(valores)) {
+    if (!valor || dados.dimensoesProduto?.[nome]?.status === "CONFIRMADO") continue;
+    const campo = {
+      valor,
+      pagina: "Fonte oficial",
+      referencia: "Cadastro dimensional oficial do produto",
+      status: "CONFIRMADO",
+      observacao: "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+      fonte: "CADASTRO_OFICIAL"
+    };
+    dados.dimensoesProduto[nome] = campo;
+    for (const destino of destinos[nome]) dados.geometriaInstalacao[destino] = { ...campo };
+    aplicadas++;
+  }
+  return aplicadas;
+}
+
 function combinarResultados(primeiro = {}, segundo = {}) {
   const combinado = structuredClone(primeiro);
 
@@ -411,11 +500,11 @@ function combinarResultados(primeiro = {}, segundo = {}) {
   return combinado;
 }
 
-async function extrairComTentativas(produto, pdfs, modelo, instrucaoExtra = "", maximo = 3) {
+async function extrairComTentativas(produto, pdfs, modelo, indiceManual, instrucaoExtra = "", maximo = 3) {
   let ultimoErro;
   for (let tentativa = 1; tentativa <= maximo; tentativa++) {
     try {
-      return await extrair(produto, pdfs, modelo, instrucaoExtra);
+      return await extrair(produto, pdfs, modelo, indiceManual, instrucaoExtra);
     } catch (erro) {
       ultimoErro = erro;
       if (!/429|503|quota|resource_exhausted|unavailable|high demand/i.test(erro.message) || tentativa === maximo) throw erro;
@@ -432,7 +521,7 @@ function erroPermiteFallback(erro) {
     .test(String(erro?.message || erro));
 }
 
-async function extrairComFallback(produto, pdfs, instrucaoExtra = "", modelos = modelosFallback) {
+async function extrairComFallback(produto, pdfs, indiceManual, instrucaoExtra = "", modelos = modelosPreferidos) {
   let ultimoErro;
   for (const modelo of modelos) {
     process.stdout.write(`[${modelo}] `);
@@ -441,6 +530,7 @@ async function extrairComFallback(produto, pdfs, instrucaoExtra = "", modelos = 
         produto,
         pdfs,
         modelo,
+        indiceManual,
         instrucaoExtra,
         rapido ? 1 : 2
       );
@@ -462,6 +552,11 @@ async function salvar(catalogo) {
 
 async function executar() {
   const catalogo = JSON.parse(await fs.readFile(arquivoCatalogo, "utf8"));
+  const modelosAtivos = somenteOffline ? [] : await descobrirModelosDisponiveis();
+  if (!somenteOffline) {
+    if (!modelosAtivos.length) throw new Error("a chave não retornou nenhum modelo compatível com generateContent");
+    console.log(`Modelos disponíveis selecionados: ${modelosAtivos.join(", ")}`);
+  }
   let atualizados = 0;
   let ignorados = 0;
   let erros = 0;
@@ -485,6 +580,8 @@ async function executar() {
         }
       }
       if (!pdfs.length) throw new Error("nenhum PDF oficial pôde ser baixado");
+      const indiceManual = await indexarPdfs(produto, pdfs);
+      process.stdout.write(`${indiceManual.selecionadas.length} página(s) técnica(s) indexada(s); `);
 
       const dadosAnteriores = produto.medidasProjeto || null;
       const baseParaBusca = completar && dadosAnteriores ? dadosAnteriores : null;
@@ -500,7 +597,7 @@ async function executar() {
         modeloUsado = "offline-pdfjs";
       } else {
         try {
-          const primeiraExecucao = await extrairComFallback(produto, pdfs, instrucaoInicial);
+          const primeiraExecucao = await extrairComFallback(produto, pdfs, indiceManual, instrucaoInicial, modelosAtivos);
           primeiraLeitura = primeiraExecucao.dados;
           modeloUsado = primeiraExecucao.modeloUsado;
         } catch (erro) {
@@ -514,6 +611,13 @@ async function executar() {
       let dados = normalizarResultado(preservarDadosAnteriores
         ? combinarResultados(dadosAnteriores, primeiraLeitura)
         : primeiraLeitura);
+
+      if (!somenteOffline && quantidadeConfirmada(dados) === 0) {
+        process.stdout.write("resposta online sem cotas; tentando leitura offline; ");
+        const leituraOffline = await extrairOffline(produto, pdfs);
+        dados = normalizarResultado(combinarResultados(dados, leituraOffline));
+        modeloUsado = `${modeloUsado}+offline-pdfjs`;
+      }
       const pendentes = camposPendentes(dados);
 
       if (!somenteOffline && !modeloUsado.startsWith("offline-") && !rapido && pendentes.length && modeloRevisao && modeloRevisao !== modeloUsado) {
@@ -523,6 +627,7 @@ async function executar() {
             produto,
             pdfs,
             modeloRevisao,
+            indiceManual,
             `Concentre a análise nestes campos: ${pendentes.join(", ")}. Examine também desenhos, notas de rodapé e tabelas técnicas. Não altere para CONFIRMADO sem página e evidência explícita.`,
             2
           );
@@ -533,6 +638,11 @@ async function executar() {
       }
 
       dados = auditarGeometria(normalizarResultado(dados));
+      const cotasManuaisValidadas = aplicarDadosTecnicosValidados(produto, dados);
+      if (cotasManuaisValidadas) {
+        dados = auditarGeometria(normalizarResultado(dados));
+        process.stdout.write(`${cotasManuaisValidadas} cota(s) da tabela do manual validadas; `);
+      }
       produto.medidasProjeto = {
         ...dados,
         validacao: criarValidacao(dados),
@@ -544,11 +654,39 @@ async function executar() {
           modeloRevisao: modeloRevisao || "",
           extraidoEm: new Date().toISOString()
         },
+        indiceTecnico: indiceManual.selecionadas.map(item => ({
+          documento: item.documento,
+          pagina: item.pagina,
+          tipos: item.tipos,
+          pontuacao: item.pontos
+        })),
         revisado: false
       };
+      let cotasCadastroOficial = 0;
+      if (dimensoesBasicasConfirmadas(dados) < 2) {
+        cotasCadastroOficial = aplicarDimensoesCadastradas(produto, dados);
+        if (cotasCadastroOficial) {
+          dados = auditarGeometria(normalizarResultado(dados));
+          process.stdout.write(`${cotasCadastroOficial} cota(s) básica(s) recuperada(s) da ficha oficial; `);
+        }
+      }
+      produto.medidasProjeto = {
+        ...produto.medidasProjeto,
+        ...dados,
+        validacao: criarValidacao(dados),
+        fonte: {
+          ...produto.medidasProjeto.fonte,
+          tipo: cotasCadastroOficial ? "MANUAL_E_CADASTRO_OFICIAL" : "MANUAL"
+        }
+      };
+      const basicasConfirmadas = dimensoesBasicasConfirmadas(dados);
       atualizados++;
       await salvar(catalogo);
-      console.log("OK");
+      if (basicasConfirmadas >= 2) console.log(`OK - ${quantidadeConfirmada(dados)} cota(s) confirmada(s)`);
+      else {
+        erros++;
+        console.log(`PENDENTE - apenas ${basicasConfirmadas}/3 dimensões básicas confirmadas; o desenho não foi liberado`);
+      }
       await new Promise(resolve => setTimeout(resolve, 2500));
     } catch (erro) {
       erros++;

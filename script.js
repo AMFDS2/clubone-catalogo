@@ -12,10 +12,19 @@ const filtrosSelecionados = {
   segmentos: new Set()
 };
 
+const filtroMedidas = {
+  tipoProduto: "",
+  largura: null,
+  altura: null,
+  profundidade: null,
+  considerarFolgas: true
+};
+
 document.addEventListener("DOMContentLoaded", inicializar);
 
 async function inicializar() {
   configurarEventosFixos();
+  configurarFiltroMedidasProjeto();
   configurarCampanha();
   configurarEventosFavoritos();
   atualizarInterfaceFavoritos();
@@ -27,6 +36,7 @@ async function inicializar() {
     const dados = await resposta.json();
     todosProdutos = Array.isArray(dados) ? dados.filter(produtoValido) : [];
     produtosFiltrados = [...todosProdutos];
+    atualizarOpcoesTipoProduto();
     sincronizarFavoritosComCatalogo();
     renderizarFiltros();
     ordenarProdutos();
@@ -101,6 +111,7 @@ function configurarEventosFixos() {
   limparFiltros?.addEventListener("click", () => {
     filtrosSelecionados.fabricantes.clear();
     filtrosSelecionados.segmentos.clear();
+    limparFiltroMedidasProjeto();
     renderizarFiltros();
     aplicarFiltros();
   });
@@ -132,6 +143,8 @@ function aplicarFiltros() {
     const segmento = normalizarTexto(produto.segmento || produto.categoria);
     const correspondeFabricante = !filtrosSelecionados.fabricantes.size || filtrosSelecionados.fabricantes.has(fabricante);
     const correspondeSegmento = !filtrosSelecionados.segmentos.size || filtrosSelecionados.segmentos.has(segmento);
+    const correspondeTipoProduto = !filtroMedidas.tipoProduto || classificarTipoProduto(produto).chave === filtroMedidas.tipoProduto;
+    const correspondeMedidas = produtoCompativelComFiltroMedidas(produto);
 
     const conteudo = normalizarTexto([
       produto.marca,
@@ -144,11 +157,12 @@ function aplicarFiltros() {
       produto.segmento
     ].filter(Boolean).join(" "));
 
-    return correspondeFabricante && correspondeSegmento && (!busca || conteudo.includes(busca));
+    return correspondeFabricante && correspondeSegmento && correspondeTipoProduto && correspondeMedidas && (!busca || conteudo.includes(busca));
   });
 
   ordenarProdutos();
   renderizarProdutos(produtosFiltrados);
+  atualizarResumoFiltroMedidas();
 
   const aindaVisivel = produtosFiltrados.some(produto => produto.id === produtoSelecionado);
   if (!aindaVisivel && produtosFiltrados.length) mostrarDetalhes(produtosFiltrados[0].id);
@@ -228,6 +242,7 @@ function renderizarProdutos(produtos) {
           <img src="${escaparHTML(produto.imagem || IMAGEM_FALLBACK)}" alt="${escaparHTML(produto.nome)}" loading="lazy">
         </span>
         <span class="produto-informacoes">
+          ${criarSeloCompatibilidadeCard(produto)}
           <h3>${escaparHTML(produto.nome)}</h3>
           <p>${escaparHTML(produto.marca || produto.fabricante || "")} • ${escaparHTML(produto.modelo)}</p>
           <p>${escaparHTML(produto.categoria || produto.segmento || "")}</p>
@@ -252,6 +267,344 @@ function renderizarProdutos(produtos) {
   configurarFallbackImagens(container);
 }
 
+
+function configurarFiltroMedidasProjeto() {
+  const painelFiltros = document.getElementById("painelFiltros");
+  if (!painelFiltros || document.getElementById("filtroMedidasProjeto")) return;
+
+  const bloco = document.createElement("section");
+  bloco.id = "filtroMedidasProjeto";
+  bloco.className = "filtro-medidas-projeto";
+  bloco.innerHTML = `
+    <div class="filtro-medidas-cabecalho">
+      <div>
+        <span class="filtro-medidas-kicker">Compatibilidade</span>
+        <h3>Medidas do vão</h3>
+      </div>
+      <span class="filtro-medidas-tag">mm</span>
+    </div>
+    <p class="filtro-medidas-intro">Informe as medidas internas máximas disponíveis no projeto.</p>
+    <label class="filtro-tipo-produto">
+      <span>Tipo de produto</span>
+      <select id="filtroTipoProduto">
+        <option value="">Todos os tipos</option>
+      </select>
+    </label>
+    <div class="filtro-medidas-campos">
+      <label>
+        <span>Largura</span>
+        <input id="filtroLargura" inputmode="decimal" type="number" min="1" step="1" placeholder="Ex.: 920">
+        <small>mm</small>
+      </label>
+      <label>
+        <span>Altura</span>
+        <input id="filtroAltura" inputmode="decimal" type="number" min="1" step="1" placeholder="Ex.: 1900">
+        <small>mm</small>
+      </label>
+      <label>
+        <span>Profundidade</span>
+        <input id="filtroProfundidade" inputmode="decimal" type="number" min="1" step="1" placeholder="Ex.: 800">
+        <small>mm</small>
+      </label>
+    </div>
+    <label class="filtro-medidas-check">
+      <input id="filtroConsiderarFolgas" type="checkbox" checked>
+      <span>
+        <strong>Considerar folgas técnicas</strong>
+        <small>Soma apenas as folgas superior e traseira confirmadas no manual.</small>
+      </span>
+    </label>
+    <div id="resumoFiltroMedidas" class="filtro-medidas-resumo" aria-live="polite">
+      Digite uma ou mais medidas para filtrar.
+    </div>
+    <button id="aplicarMedidasProjeto" class="aplicar-medidas-projeto" type="button">Ver produtos compatíveis</button>
+    <button id="limparMedidasProjeto" class="limpar-medidas-projeto" type="button">Limpar medidas</button>
+    <p class="filtro-medidas-nota">A largura considera o corpo do produto. Espaço para abertura das portas continua indicado na ficha técnica para conferência do arquiteto.</p>`;
+
+  const limpar = painelFiltros.querySelector("#limparFiltros");
+  if (limpar) painelFiltros.insertBefore(bloco, limpar);
+  else painelFiltros.appendChild(bloco);
+
+  ["filtroLargura", "filtroAltura", "filtroProfundidade"].forEach(id => {
+    document.getElementById(id)?.addEventListener("input", () => {
+      lerFiltroMedidasProjeto();
+      aplicarFiltros();
+      atualizarResumoFiltroMedidas();
+    });
+  });
+
+  document.getElementById("filtroTipoProduto")?.addEventListener("change", () => {
+    lerFiltroMedidasProjeto();
+    aplicarFiltros();
+  });
+
+  document.getElementById("filtroConsiderarFolgas")?.addEventListener("change", () => {
+    lerFiltroMedidasProjeto();
+    aplicarFiltros();
+    atualizarResumoFiltroMedidas();
+  });
+
+  document.getElementById("limparMedidasProjeto")?.addEventListener("click", () => {
+    limparFiltroMedidasProjeto();
+    aplicarFiltros();
+  });
+
+  document.getElementById("aplicarMedidasProjeto")?.addEventListener("click", () => {
+    lerFiltroMedidasProjeto();
+    aplicarFiltros();
+    if (!painelFiltros.classList.contains("fechado")) {
+      document.getElementById("alternarFiltrosLateral")?.click();
+    }
+    document.getElementById("produtos")?.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+function lerFiltroMedidasProjeto() {
+  filtroMedidas.tipoProduto = document.getElementById("filtroTipoProduto")?.value || "";
+  filtroMedidas.largura = numeroPositivo(document.getElementById("filtroLargura")?.value);
+  filtroMedidas.altura = numeroPositivo(document.getElementById("filtroAltura")?.value);
+  filtroMedidas.profundidade = numeroPositivo(document.getElementById("filtroProfundidade")?.value);
+  filtroMedidas.considerarFolgas = document.getElementById("filtroConsiderarFolgas")?.checked !== false;
+}
+
+function limparFiltroMedidasProjeto() {
+  filtroMedidas.tipoProduto = "";
+  filtroMedidas.largura = null;
+  filtroMedidas.altura = null;
+  filtroMedidas.profundidade = null;
+  filtroMedidas.considerarFolgas = true;
+
+  const largura = document.getElementById("filtroLargura");
+  const altura = document.getElementById("filtroAltura");
+  const profundidade = document.getElementById("filtroProfundidade");
+  const folgas = document.getElementById("filtroConsiderarFolgas");
+  const tipoProduto = document.getElementById("filtroTipoProduto");
+  if (tipoProduto) tipoProduto.value = "";
+  if (largura) largura.value = "";
+  if (altura) altura.value = "";
+  if (profundidade) profundidade.value = "";
+  if (folgas) folgas.checked = true;
+  atualizarResumoFiltroMedidas();
+}
+
+function classificarTipoProduto(produto = {}) {
+  const texto = normalizarTexto([
+    produto.tipoBloco,
+    produto.nome,
+    produto.nomePlanilha,
+    produto.categoria,
+    produto.segmento,
+    produto.descricao
+  ].filter(Boolean).join(" "));
+
+  const tipos = [
+    ["freezer", "Freezer", /freezer/],
+    ["adega", "Adega / Cervejeira / Frigobar", /adega|cervejeira|frigobar/],
+    ["geladeira", "Geladeira / Refrigerador", /geladeira|refrigerador|french door|side by side|multidoor|multi door/],
+    ["forno", "Forno", /forno/],
+    ["microondas", "Micro-ondas", /micro[- ]?ondas|microondas/],
+    ["cooktop", "Cooktop / Fogão", /cooktop|fogao|fogão/],
+    ["coifa", "Coifa / Depurador", /coifa|depurador/],
+    ["lavanderia", "Lavadora / Lava e seca", /lava e seca|lavadora|maquina de lavar|máquina de lavar|secadora/],
+    ["lava-loucas", "Lava-louças", /lava[- ]?loucas|lava[- ]?louças/],
+    ["ar-condicionado", "Ar-condicionado", /ar[- ]?condicionado|split/],
+    ["tv", "TV", /\btv\b|televisor|televisao|televisão/],
+    ["audio", "Áudio", /soundbar|caixa de som|audio|áudio/]
+  ];
+
+  const encontrado = tipos.find(([, , padrao]) => padrao.test(texto));
+  return encontrado
+    ? { chave: encontrado[0], rotulo: encontrado[1] }
+    : { chave: "outros", rotulo: "Outros produtos" };
+}
+
+function atualizarOpcoesTipoProduto() {
+  const select = document.getElementById("filtroTipoProduto");
+  if (!select) return;
+
+  const contagens = new Map();
+  todosProdutos.forEach(produto => {
+    const tipo = classificarTipoProduto(produto);
+    const atual = contagens.get(tipo.chave) || { rotulo: tipo.rotulo, quantidade: 0 };
+    atual.quantidade += 1;
+    contagens.set(tipo.chave, atual);
+  });
+
+  select.innerHTML = [
+    '<option value="">Todos os tipos</option>',
+    ...[...contagens.entries()]
+      .sort((a, b) => a[1].rotulo.localeCompare(b[1].rotulo, "pt-BR"))
+      .map(([chave, item]) => `<option value="${escaparHTML(chave)}">${escaparHTML(item.rotulo)} (${item.quantidade})</option>`)
+  ].join("");
+
+  select.value = filtroMedidas.tipoProduto;
+}
+
+function filtroMedidasAtivo() {
+  return Boolean(filtroMedidas.largura || filtroMedidas.altura || filtroMedidas.profundidade);
+}
+
+function numeroPositivo(valor) {
+  const numero = Number(String(valor ?? "").replace(",", "."));
+  return Number.isFinite(numero) && numero > 0 ? numero : null;
+}
+
+function numeroMedidaMm(campo) {
+  const valor = campo && typeof campo === "object" && "valor" in campo ? campo.valor : campo;
+  if (valor === null || valor === undefined || valor === "") return null;
+
+  const texto = String(valor)
+    .toLowerCase()
+    .replace(/\u00a0/g, " ")
+    .trim();
+
+  const correspondencia = texto.match(/\d+(?:[.,]\d+)*/);
+  if (!correspondencia) return null;
+
+  let numeroTexto = correspondencia[0];
+  const possuiPonto = numeroTexto.includes(".");
+  const possuiVirgula = numeroTexto.includes(",");
+
+  if (possuiPonto && possuiVirgula) {
+    const ultimoPonto = numeroTexto.lastIndexOf(".");
+    const ultimaVirgula = numeroTexto.lastIndexOf(",");
+    const separadorDecimal = ultimoPonto > ultimaVirgula ? "." : ",";
+    const separadorMilhar = separadorDecimal === "." ? "," : ".";
+    numeroTexto = numeroTexto.split(separadorMilhar).join("");
+    numeroTexto = numeroTexto.replace(separadorDecimal, ".");
+  } else if (possuiPonto || possuiVirgula) {
+    const separador = possuiVirgula ? "," : ".";
+    const partes = numeroTexto.split(separador);
+    const unidadeMmOuAusente = /(?:^|\s)mm\b/.test(texto) || !/(?:cm|metro|metros|\bm\b|pol|polegada|\bin\b|\")/.test(texto);
+    const pareceMilhar = unidadeMmOuAusente && partes.length > 1 && partes.slice(1).every(parte => parte.length === 3);
+    numeroTexto = pareceMilhar ? partes.join("") : numeroTexto.replace(separador, ".");
+  }
+
+  let numero = Number(numeroTexto);
+  if (!Number.isFinite(numero) || numero <= 0) return null;
+
+  if (/(?:polegada|polegadas|\bpol\b|\bin\b|")/.test(texto)) numero *= 25.4;
+  else if (/(?:^|\s)cm\b/.test(texto)) numero *= 10;
+  else if (/(?:^|\s)m\b|metro|metros/.test(texto) && !/(?:^|\s)mm\b/.test(texto)) numero *= 1000;
+
+  return Math.round(numero * 10) / 10;
+}
+
+function normalizarChaveMedida(valor = "") {
+  return normalizarTexto(valor).replace(/[^a-z0-9]/g, "");
+}
+
+function buscarMedidaEmGrupo(grupo, aliases = []) {
+  if (!grupo || typeof grupo !== "object" || Array.isArray(grupo)) return null;
+  const chavesAceitas = aliases.map(normalizarChaveMedida);
+
+  for (const [chave, valor] of Object.entries(grupo)) {
+    const chaveNormalizada = normalizarChaveMedida(chave);
+    if (!chavesAceitas.includes(chaveNormalizada)) continue;
+    const medida = numeroMedidaMm(valor);
+    if (medida) return medida;
+  }
+
+  return null;
+}
+
+function obterGruposDimensionais(produto = {}, dados = {}) {
+  const dimensoesCadastro = produto.dimensoes || {};
+  return [
+    dados.dimensoesProduto,
+    dados.dimensoes,
+    dados.geometriaInstalacao,
+    dimensoesCadastro.produto,
+    dimensoesCadastro.semBase,
+    dimensoesCadastro.semEmbalagem,
+    dimensoesCadastro.comBase,
+    dimensoesCadastro,
+    produto.especificacoes
+  ].filter(grupo => grupo && typeof grupo === "object");
+}
+
+function buscarPrimeiraMedida(grupos, aliases) {
+  for (const grupo of grupos) {
+    const medida = buscarMedidaEmGrupo(grupo, aliases);
+    if (medida) return medida;
+  }
+  return null;
+}
+
+function extrairDimensoesFiltro(produto = {}) {
+  const dados = produto.medidasProjeto || {};
+  const geometria = dados.geometriaInstalacao || {};
+  const folgas = dados.folgas || {};
+  const grupos = obterGruposDimensionais(produto, dados);
+
+  const largura = buscarPrimeiraMedida(grupos, [
+    "larguraProduto", "larguraDoProduto", "larguraSemEmbalagem", "largura", "width"
+  ]);
+  const altura = buscarPrimeiraMedida(grupos, [
+    "alturaProduto", "alturaDoProduto", "alturaSemEmbalagem", "altura", "height"
+  ]);
+  const profundidade = buscarPrimeiraMedida(grupos, [
+    "profundidadeTotalProduto", "profundidadeProduto", "profundidadeDoProduto", "profundidadeSemEmbalagem", "profundidade", "depth"
+  ]);
+
+  const folgaSuperior = filtroMedidas.considerarFolgas ? numeroMedidaMm(folgas.superior) : 0;
+  const folgaTraseira = filtroMedidas.considerarFolgas
+    ? (numeroMedidaMm(folgas.traseira) || numeroMedidaMm(geometria.afastamentoTraseiro))
+    : 0;
+
+  return {
+    largura,
+    altura,
+    profundidade,
+    larguraNecessaria: largura,
+    alturaNecessaria: altura ? altura + (folgaSuperior || 0) : null,
+    profundidadeNecessaria: profundidade ? profundidade + (folgaTraseira || 0) : null,
+    folgaSuperior: folgaSuperior || 0,
+    folgaTraseira: folgaTraseira || 0
+  };
+}
+
+function produtoCompativelComFiltroMedidas(produto) {
+  if (!filtroMedidasAtivo()) return true;
+  const medidas = extrairDimensoesFiltro(produto);
+
+  if (filtroMedidas.largura && (!medidas.larguraNecessaria || medidas.larguraNecessaria > filtroMedidas.largura)) return false;
+  if (filtroMedidas.altura && (!medidas.alturaNecessaria || medidas.alturaNecessaria > filtroMedidas.altura)) return false;
+  if (filtroMedidas.profundidade && (!medidas.profundidadeNecessaria || medidas.profundidadeNecessaria > filtroMedidas.profundidade)) return false;
+  return true;
+}
+
+function criarSeloCompatibilidadeCard(produto) {
+  if (!filtroMedidasAtivo()) return "";
+  const medidas = extrairDimensoesFiltro(produto);
+  const faltantes = [];
+  if (filtroMedidas.largura && !medidas.larguraNecessaria) faltantes.push("largura");
+  if (filtroMedidas.altura && !medidas.alturaNecessaria) faltantes.push("altura");
+  if (filtroMedidas.profundidade && !medidas.profundidadeNecessaria) faltantes.push("profundidade");
+  if (faltantes.length) return `<span class="selo-compatibilidade pendente">Medidas incompletas</span>`;
+  return `<span class="selo-compatibilidade compativel">✓ Compatível com o vão</span>`;
+}
+
+function atualizarResumoFiltroMedidas() {
+  const resumo = document.getElementById("resumoFiltroMedidas");
+  if (!resumo) return;
+  if (!filtroMedidasAtivo()) {
+    resumo.className = "filtro-medidas-resumo";
+    resumo.textContent = "Digite uma ou mais medidas para filtrar.";
+    return;
+  }
+
+  const totalComMedidas = produtosFiltrados.length;
+  const medidasInformadas = [
+    filtroMedidas.largura ? `L ${filtroMedidas.largura} mm` : "",
+    filtroMedidas.altura ? `A ${filtroMedidas.altura} mm` : "",
+    filtroMedidas.profundidade ? `P ${filtroMedidas.profundidade} mm` : ""
+  ].filter(Boolean).join(" × ");
+  const tipoSelecionado = document.getElementById("filtroTipoProduto")?.selectedOptions?.[0]?.textContent || "";
+  resumo.className = "filtro-medidas-resumo ativo";
+  resumo.innerHTML = `<strong>${totalComMedidas}</strong> ${totalComMedidas === 1 ? "produto compatível" : "produtos compatíveis"}<span>${escaparHTML([tipoSelecionado, medidasInformadas].filter(Boolean).join(" • "))}</span>`;
+}
+
 function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
   const dados = produto.medidasProjeto;
 
@@ -269,7 +622,7 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
   }
 
   const statusConfig = {
-    CONFIRMADO: { classe: "confirmado", icone: "✓", texto: "Confirmado no manual" },
+    CONFIRMADO: { classe: "confirmado", icone: "✓", texto: "Confirmado na fonte oficial" },
     REVISAR: { classe: "revisar", icone: "●", texto: "Revisão recomendada" },
     NAO_LOCALIZADO: { classe: "nao-localizado", icone: "—", texto: "Não localizado" },
     NAO_APLICAVEL: { classe: "nao-aplicavel", icone: "○", texto: "Não se aplica" }
@@ -278,7 +631,9 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
   function linha(rotulo, campo = {}) {
     const config = statusConfig[campo.status] || statusConfig.NAO_LOCALIZADO;
     const valor = campo.status === "NAO_APLICAVEL" ? "Não se aplica" : (campo.valor || "Não informado");
-    const pagina = campo.pagina ? `<small>pág. ${escaparHTML(campo.pagina)}</small>` : "";
+    const pagina = campo.pagina
+      ? `<small>${campo.fonte === "CADASTRO_OFICIAL" ? escaparHTML(campo.pagina) : `pág. ${escaparHTML(campo.pagina)}`}</small>`
+      : "";
     const referencia = campo.referencia ? `<small>ref. ${escaparHTML(campo.referencia)}</small>` : "";
     const observacao = campo.observacao ? ` title="${escaparHTML(campo.observacao)}"` : "";
     return `
@@ -303,6 +658,7 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
   const abertura = dados.abertura || {};
   const instalacao = dados.instalacao || {};
   const fonte = dados.fonte || {};
+  const usaCadastroOficial = fonte.tipo === "MANUAL_E_CADASTRO_OFICIAL";
   const observacoes = Array.isArray(dados.observacoes) ? dados.observacoes.filter(Boolean) : [];
   const camposValidacao = [
     ...Object.values(dados.dimensoesProduto || {}), ...Object.values(dados.dimensoesNicho || {}),
@@ -331,7 +687,7 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
   return `
     <div class="medidas-projeto-cabecalho">
       <div>
-        <span class="selo-ia">Dados extraídos do manual</span>
+        <span class="selo-ia">${usaCadastroOficial ? "Dados técnicos oficiais" : "Dados extraídos do manual"}</span>
         <h3>Medidas para projeto</h3>
       </div>
       <div class="fonte-medidas">
@@ -351,8 +707,7 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
 
     ${vistasTecnicas}
 
-    <div class="medidas-projeto-destaque">
-      <div class="medidas-projeto-desenho card-dimensoes">${dimensoesHtml}</div>
+    <div class="medidas-projeto-destaque medidas-projeto-destaque-sem-blocagem">
       ${grupo("Dimensões do produto", [
         ["Largura", dimensoesProduto.largura],
         ["Altura", dimensoesProduto.altura],
@@ -392,17 +747,58 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
       </section>` : ""}
 
     <div class="legenda-medidas">
-      <span><i class="confirmado">✓</i> Confirmado no manual</span>
+      <span><i class="confirmado">✓</i> Confirmado na fonte oficial</span>
       <span><i class="revisar">●</i> Revisão recomendada</span>
       <span><i class="nao-localizado">—</i> Não localizado</span>
       <span><i class="nao-aplicavel">○</i> Não se aplica</span>
     </div>
-    <p class="aviso-ia">Informações extraídas por IA a partir do manual oficial. Confirme as cotas antes da execução do projeto.</p>`;
+    <p class="aviso-ia">${usaCadastroOficial ? "Dimensões básicas provenientes da ficha oficial; dados de instalação complementados pelo manual quando disponíveis." : "Informações extraídas por IA a partir do manual oficial."} Confirme as cotas antes da execução do projeto.</p>`;
+}
+
+function criarVistasTecnicasGenericas(produto = {}, dados = {}) {
+  const dimensoes = dados.dimensoesProduto || {};
+  const nicho = dados.dimensoesNicho || {};
+  const valor = campo => campo?.status === "CONFIRMADO" && campo?.valor ? campo.valor : "";
+  const largura = valor(dimensoes.largura) || valor(dados.geometriaInstalacao?.larguraProduto);
+  const altura = valor(dimensoes.altura) || valor(dados.geometriaInstalacao?.alturaProduto);
+  const profundidade = valor(dimensoes.profundidade) || valor(dados.geometriaInstalacao?.profundidadeTotalProduto);
+  const pagina = (...campos) => campos.find(campo => campo?.status === "CONFIRMADO" && campo?.pagina)?.pagina || "—";
+  const referencia = (...campos) => campos.find(campo => campo?.status === "CONFIRMADO" && campo?.referencia)?.referencia || "";
+  const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
+  const textoProduto = normalizarTexto(`${produto.tipoBloco || ""} ${produto.nome || ""}`);
+  const embutir = /forno|micro|cooktop|lava loucas|lavadora|secadora|coifa/.test(textoProduto);
+  const cotasNicho = [valor(nicho.largura), valor(nicho.altura), valor(nicho.profundidade)].filter(Boolean);
+
+  const cabecalho = (titulo, subtitulo, campos) => {
+    const pag = pagina(...campos);
+    const ref = referencia(...campos);
+    const origem = pag === "Fonte oficial" ? "Ficha oficial" : `Manual • pág. ${escaparHTML(pag)}`;
+    return `<div class="vista-projeto-titulo"><div><strong>${titulo}</strong><span>${subtitulo}</span></div><small>${pag !== "—" ? `${origem}${ref ? ` • ref. ${escaparHTML(ref)}` : ""}` : "Cota não localizada"}</small></div>`;
+  };
+
+  const indisponivel = eixo => `<div class="vista-indisponivel"><span>—</span><strong>Vista ${eixo} aguardando cotas</strong><p>O desenho será liberado quando os dois eixos estiverem confirmados no manual.</p></div>`;
+  const desenho = (eixoX, eixoY, rotuloX, rotuloY, nome) => eixoX && eixoY ? `
+    <svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista ${nome} técnica">
+      <defs><marker id="seta-${nome}" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker></defs>
+      ${embutir && cotasNicho.length >= 2 ? `<rect class="nicho-generico" x="128" y="52" width="264" height="270" rx="2"></rect><text class="nota-nicho" x="260" y="38">NICHO / MARCENARIA</text>` : ""}
+      <rect class="produto-generico" x="164" y="78" width="192" height="218" rx="3"></rect>
+      <line class="cota-tecnica" x1="164" y1="338" x2="356" y2="338" marker-start="url(#seta-${nome})" marker-end="url(#seta-${nome})"></line>
+      <text class="cota-valor" x="260" y="367">${escaparHTML(eixoX)}</text><text class="cota-legenda" x="260" y="389">${rotuloX}</text>
+      <line class="cota-tecnica" x1="126" y1="78" x2="126" y2="296" marker-start="url(#seta-${nome})" marker-end="url(#seta-${nome})"></line>
+      <text class="cota-valor cota-altura" x="96" y="187">${escaparHTML(eixoY)}</text><text class="cota-legenda" x="78" y="320">${rotuloY}</text>
+    </svg>` : indisponivel(nome);
+
+  return `<div class="vistas-projeto-grade">
+    <section class="vista-projeto-card">${cabecalho("Vista frontal", "Largura × altura", [dimensoes.largura, dimensoes.altura])}${desenho(largura, altura, "largura", "altura", "frontal")}</section>
+    <section class="vista-projeto-card">${cabecalho("Vista lateral", "Profundidade × altura", [dimensoes.profundidade, dimensoes.altura])}${desenho(profundidade, altura, "profundidade", "altura", "lateral")}</section>
+    <section class="vista-projeto-card">${cabecalho("Vista superior", "Largura × profundidade", [dimensoes.largura, dimensoes.profundidade])}${desenho(largura, profundidade, "largura", "profundidade", "superior")}</section>
+    <section class="vista-projeto-card vista-produto-real">${cabecalho("Imagem do produto", "Referência visual — sem valor de cota", [])}<img src="${escaparHTML(imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)}"></section>
+  </div>`;
 }
 
 function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const textoProduto = normalizarTexto(`${produto.tipoBloco || ""} ${produto.nome || ""} ${produto.modelo || ""}`);
-  if (!/geladeira|refrigerador|adega|freezer/.test(textoProduto)) return "";
+  if (!/geladeira|refrigerador|adega|freezer/.test(textoProduto)) return criarVistasTecnicasGenericas(produto, dados);
 
   const dimensoes = dados.dimensoesProduto || {};
   const folgas = dados.folgas || {};
@@ -428,8 +824,10 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const gavetas = valor(geometria.profundidadeComGavetasEstendidas, valor(abertura.distanciaGavetasEstendidas, ""));
   const paginaFrontal = pagina(dimensoes.largura, dimensoes.altura, dimensoes.profundidade, folgas.superior);
   const paginaSuperior = pagina(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta);
+  const paginaLateral = pagina(geometria.profundidadeGabinete, geometria.profundidadeTotalProduto, dimensoes.profundidade, geometria.profundidadeComPortasAbertas);
   const referenciaFrontal = referencia(geometria.larguraProduto, dimensoes.largura, geometria.alturaProduto, dimensoes.altura);
   const referenciaSuperior = referencia(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta);
+  const referenciaLateral = referencia(geometria.profundidadeGabinete, geometria.profundidadeTotalProduto, dimensoes.profundidade, geometria.profundidadeComPortasAbertas);
   const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
   const frenchDoor = /french|rf70|rf80|multidoor|multi door/.test(textoProduto);
   const sideBySide = produto.moldeTecnico === "geladeira-side-by-side" || produto.familiaTecnica === "side-by-side" || /side by side|rs60|rs58/.test(textoProduto);
@@ -440,7 +838,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const cabecalho = (titulo, subtitulo, paginaManual, referenciaManual = "") => `
     <div class="vista-projeto-titulo">
       <div><strong>${titulo}</strong><span>${subtitulo}</span></div>
-      <small>${paginaManual !== "—" ? `Manual • pág. ${escaparHTML(paginaManual)}${referenciaManual ? ` • ref. ${escaparHTML(referenciaManual)}` : ""}` : "Cota não localizada"}</small>
+      <small>${paginaManual !== "—" ? `${paginaManual === "Fonte oficial" ? "Ficha oficial" : `Manual • pág. ${escaparHTML(paginaManual)}`}${referenciaManual ? ` • ref. ${escaparHTML(referenciaManual)}` : ""}` : "Cota não localizada"}</small>
     </div>`;
 
   const vistaSuperior = aberturaConfirmada ? `
@@ -481,15 +879,25 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
         <text class="cota-legenda" x="260" y="391">largura total com portas abertas</text>
         <path d="M462 50H482M443 323H482"></path>
         <line x1="474" y1="50" x2="474" y2="323" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
-        ${profundidadePortasAbertas ? `<text class="cota-valor cota-profundidade" x="496" y="186">${escaparHTML(profundidadePortasAbertas)}</text>` : ""}
+        ${profundidadePortasAbertas ? `<text class="cota-valor cota-profundidade-aberta" x="494" y="186">${escaparHTML(profundidadePortasAbertas)}</text>` : ""}
       </g>
       ${sideBySide && (anguloEsquerda || anguloDireita) ? `
         <text class="angulo-porta" x="174" y="294">ESQ. ${escaparHTML(anguloEsquerda || "—")}</text>
         <text class="angulo-porta" x="346" y="294">DIR. ${escaparHTML(anguloDireita || "—")}</text>`
         : angulo ? `<text class="angulo-porta" x="260" y="302">ABERTURA ${escaparHTML(angulo)}</text>` : ""}
       <g class="legenda-pivos"><path d="M138 220l-26 15"></path><text x="108" y="245">dobradiça</text><path d="M382 220l26 15"></path><text x="412" y="245">dobradiça</text></g>
+    </svg>` : (largura && profundidade ? `
+    <svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica fechada do refrigerador">
+      <defs><marker id="seta-topo-fechado" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker></defs>
+      <g class="parede-planta"><rect x="70" y="42" width="380" height="18"></rect><text x="260" y="30">PAREDE / FUNDO</text></g>
+      <rect class="produto-generico" x="142" y="92" width="236" height="190" rx="3"></rect>
+      <line class="cota-tecnica" x1="142" y1="322" x2="378" y2="322" marker-start="url(#seta-topo-fechado)" marker-end="url(#seta-topo-fechado)"></line>
+      <text class="cota-valor" x="260" y="350">${escaparHTML(largura)}</text><text class="cota-legenda" x="260" y="374">largura</text>
+      <line class="cota-tecnica" x1="414" y1="92" x2="414" y2="282" marker-start="url(#seta-topo-fechado)" marker-end="url(#seta-topo-fechado)"></line>
+      <text class="cota-valor cota-profundidade" x="440" y="187">${escaparHTML(profundidade)}</text>
+      <text class="nota-nicho" x="260" y="302">VISTA FECHADA — ABERTURA AINDA NÃO CONFIRMADA</text>
     </svg>` : `
-    <div class="vista-indisponivel"><span>—</span><strong>Abertura não localizada no manual</strong><p>O sistema não desenha o giro da porta sem ângulo ou distância confirmada.</p></div>`;
+    <div class="vista-indisponivel"><span>—</span><strong>Abertura não localizada no manual</strong><p>O sistema não desenha o giro da porta sem ângulo ou distância confirmada.</p></div>`);
 
   return `
     <div class="vistas-projeto-grade">
@@ -521,9 +929,17 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
         ${cabecalho("Vista superior", sideBySide ? "Abertura independente das portas" : `Abertura${gavetas ? ` — gavetas: ${escaparHTML(gavetas)}` : ""}`, paginaSuperior, referenciaSuperior)}
         ${vistaSuperior}
       </section>
-      <section class="vista-projeto-card vista-produto-real">
-        ${cabecalho("Imagem do produto", "Referência visual — sem valor de cota", "—")}
-        <img src="${escaparHTML(imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)}">
+      <section class="vista-projeto-card">
+        ${cabecalho("Vista lateral", "Profundidade total e profundidade do gabinete", paginaLateral, referenciaLateral)}
+        ${altura && profundidade ? `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista lateral técnica do refrigerador">
+          <defs><marker id="seta-lateral" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker></defs>
+          <g class="produto-frontal"><rect x="150" y="58" width="218" height="250" rx="2"></rect><line x1="150" y1="190" x2="368" y2="190"></line></g>
+          ${profundidadeGabinete ? `<line class="eixo-tecnico" x1="336" y1="58" x2="336" y2="308"></line><text class="nota-nicho" x="276" y="88">GABINETE ${escaparHTML(profundidadeGabinete)}</text>` : ""}
+          <line class="cota-tecnica" x1="150" y1="350" x2="368" y2="350" marker-start="url(#seta-lateral)" marker-end="url(#seta-lateral)"></line>
+          <text class="cota-valor" x="259" y="378">${escaparHTML(profundidade)}</text>
+          <line class="cota-tecnica" x1="112" y1="58" x2="112" y2="308" marker-start="url(#seta-lateral)" marker-end="url(#seta-lateral)"></line>
+          <text class="cota-valor cota-altura" x="82" y="183">${escaparHTML(altura)}</text>
+        </svg>` : `<div class="vista-indisponivel"><span>—</span><strong>Vista lateral aguardando cotas</strong><p>Altura e profundidade precisam estar confirmadas.</p></div>`}
       </section>
     </div>`;
 }
@@ -545,10 +961,20 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   const destaques = criarDestaques(produto.destaques);
   const especificacoes = criarEspecificacoes(produto.especificacoes);
   
-  // O seu blocagem.js atua aqui.
-  const dimensoes = typeof criarBlocagemDimensional === "function"
-    ? criarBlocagemDimensional(produto.dimensoes || {}, produto)
-    : criarDimensoes(produto.dimensoes || {}, produto);
+  // Para refrigeração, usamos o desenho técnico local por tipologia.
+  // Isso evita que a blocagem genérica externa sobrescreva Side by Side / French Door.
+  const textoTipoDimensao = normalizarTexto(
+    [produto.nome, produto.modelo, produto.categoria, produto.segmento, produto.tipoBloco]
+      .filter(Boolean)
+      .join(" ")
+  );
+  const ehRefrigeracaoDimensao = /geladeira|refrigerador|freezer|adega|side by side|french door|multidoor|multi door/.test(textoTipoDimensao);
+
+  const dimensoes = ehRefrigeracaoDimensao
+    ? criarDimensoes(produto.dimensoes || {}, produto)
+    : (typeof criarBlocagemDimensional === "function"
+        ? criarBlocagemDimensional(produto.dimensoes || {}, produto)
+        : criarDimensoes(produto.dimensoes || {}, produto));
   const medidasProjeto = criarMedidasProjeto(produto, dimensoes);
     
   const documentos = criarDocumentos(produto.documentos);
@@ -779,6 +1205,30 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   const ehLavadora = textoProduto.includes("lava e seca") || textoProduto.includes("lavadora") || textoProduto.includes("maquina de lavar") || textoProduto.includes("maq lav") || textoProduto.includes("lav roupa") || modeloProduto.startsWith("ww") || modeloProduto.startsWith("wd");
   const ehLavaLoucas = textoProduto.includes("lava loucas") || textoProduto.includes("lava-loucas") || textoProduto.includes("lava louca") || modeloProduto.startsWith("dw");
 
+  // Tipologias de refrigeração: um molde por formato físico, não por SKU.
+  const ehSideBySide =
+    textoProduto.includes("side by side") ||
+    modeloProduto.startsWith("rs");
+
+  const ehFrenchDoor =
+    textoProduto.includes("french door") ||
+    textoProduto.includes("multidoor") ||
+    textoProduto.includes("multi door") ||
+    modeloProduto.startsWith("rf");
+
+  const ehAdegaCervejeira =
+    textoProduto.includes("adega") ||
+    textoProduto.includes("cervejeira") ||
+    textoProduto.includes("frigobar") ||
+    textoProduto.includes("home bar");
+
+  const ehRefrigerador =
+    textoProduto.includes("geladeira") ||
+    textoProduto.includes("refrigerador") ||
+    textoProduto.includes("freezer") ||
+    ehSideBySide ||
+    ehFrenchDoor;
+
   const medidas = dimensoes.produto || dimensoes.semBase || dimensoes.semEmbalagem || dimensoes.comBase || {};
 
   function buscarMedida(nomes = []) {
@@ -818,8 +1268,53 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
     formaProduto = `<g class="forma-produto forma-lavadora"><rect x="58" y="29" width="101" height="156" rx="4"></rect><line x1="58" y1="59" x2="159" y2="59"></line><circle cx="108" cy="119" r="36"></circle><circle cx="108" cy="119" r="27"></circle><rect x="70" y="40" width="36" height="8" rx="1"></rect><circle cx="142" cy="45" r="5"></circle><path d="M159 29 L174 40 L174 173 L159 185"></path></g>`;
   } else if (ehLavaLoucas) {
     formaProduto = `<g class="forma-produto forma-lava-loucas"><rect x="58" y="29" width="101" height="156" rx="3"></rect><line x1="58" y1="59" x2="159" y2="59"></line><line x1="72" y1="46" x2="145" y2="46"></line><rect x="75" y="70" width="66" height="4" rx="2"></rect><path d="M159 29 L174 40 L174 173 L159 185"></path></g>`;
+  } else if (ehAdegaCervejeira) {
+    // Adega / cervejeira / frigobar / Home Bar: gabinete vertical de uma porta.
+    // Mantém o mesmo padrão dimensional validado: somente A / B / C no desenho.
+    formaProduto = `
+      <g class="forma-produto forma-adega">
+        <rect x="68" y="24" width="84" height="164" rx="3"></rect>
+        <path d="M152 24 L168 36 L168 176 L152 188"></path>
+        <line x1="139" y1="58" x2="139" y2="146"></line>
+        <line x1="78" y1="188" x2="78" y2="193"></line>
+        <line x1="142" y1="188" x2="142" y2="193"></line>
+      </g>`;
+  } else if (ehSideBySide) {
+    // Side by Side: duas portas verticais completas.
+    formaProduto = `
+      <g class="forma-produto forma-geladeira forma-side-by-side">
+        <rect x="52" y="22" width="112" height="166" rx="3"></rect>
+        <path d="M164 22 L180 35 L180 176 L164 188"></path>
+        <line x1="108" y1="22" x2="108" y2="188"></line>
+        <line x1="99" y1="60" x2="99" y2="146"></line>
+        <line x1="117" y1="60" x2="117" y2="146"></line>
+        <line x1="62" y1="188" x2="62" y2="193"></line>
+        <line x1="154" y1="188" x2="154" y2="193"></line>
+      </g>`;
+  } else if (ehFrenchDoor) {
+    // French Door / Multi Door: duas portas superiores + gavetas/freezer inferior.
+    formaProduto = `
+      <g class="forma-produto forma-geladeira forma-french-door">
+        <rect x="52" y="22" width="112" height="166" rx="3"></rect>
+        <path d="M164 22 L180 35 L180 176 L164 188"></path>
+        <line x1="108" y1="22" x2="108" y2="116"></line>
+        <line x1="52" y1="116" x2="164" y2="116"></line>
+        <line x1="52" y1="151" x2="164" y2="151"></line>
+        <line x1="99" y1="55" x2="99" y2="102"></line>
+        <line x1="117" y1="55" x2="117" y2="102"></line>
+      </g>`;
+  } else if (ehRefrigerador) {
+    // Duplex / refrigerador convencional.
+    formaProduto = `
+      <g class="forma-produto forma-geladeira forma-duplex">
+        <rect x="63" y="22" width="90" height="166" rx="3"></rect>
+        <path d="M153 22 L169 35 L169 176 L153 188"></path>
+        <line x1="63" y1="76" x2="153" y2="76"></line>
+        <line x1="142" y1="42" x2="142" y2="66"></line>
+        <line x1="142" y1="100" x2="142" y2="156"></line>
+      </g>`;
   } else {
-    formaProduto = `<g class="forma-produto forma-geladeira"><rect x="68" y="22" width="79" height="166" rx="3"></rect><path d="M147 22 L164 35 L164 176 L147 188"></path><line x1="68" y1="106" x2="147" y2="106"></line><line x1="136" y1="48" x2="136" y2="91"></line><line x1="136" y1="119" x2="136" y2="156"></line></g>`;
+    formaProduto = `<g class="forma-produto forma-generica"><rect x="58" y="29" width="101" height="156" rx="3"></rect><path d="M159 29 L174 40 L174 173 L159 185"></path></g>`;
   }
 
   // Verifica se o JSON já possui as medidas executivas extraídas previamente pela IA
@@ -851,36 +1346,39 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
     </div>
   ` : '';
 
-  return `
-    <div class="dimensoes-tecnicas">
-      <div class="desenho-dimensoes">
-        <svg class="diagrama-produto" viewBox="0 0 230 225" role="img" aria-label="Representação dimensional de ${escaparHTML(produto.nome)}">
-          ${formaProduto}
-          <g class="linhas-medidas">
-            <line x1="36" y1="204" x2="170" y2="204"></line>
-            <line x1="36" y1="198" x2="36" y2="210"></line>
-            <line x1="170" y1="198" x2="170" y2="210"></line>
-            <line x1="209" y1="30" x2="209" y2="184"></line>
-            <line x1="203" y1="30" x2="215" y2="30"></line>
-            <line x1="203" y1="184" x2="215" y2="184"></line>
-            <line x1="174" y1="198" x2="198" y2="184"></line>
-            <text x="99" y="221">A</text>
-            <text x="218" y="111">B</text>
-            <text x="194" y="211">C</text>
-          </g>
-        </svg>
-      </div>
+ return `
+  <div class="dimensoes-tecnicas">
+    <div class="desenho-dimensoes">
+      <svg class="diagrama-produto" viewBox="0 0 230 225" role="img" aria-label="Representação dimensional de ${escaparHTML(produto.nome)}">
+        ${formaProduto}
+        <g class="linhas-medidas">
+          <line x1="36" y1="204" x2="170" y2="204"></line>
+          <line x1="36" y1="198" x2="36" y2="210"></line>
+          <line x1="170" y1="198" x2="170" y2="210"></line>
 
-      <div class="tabela-dimensoes-tecnicas">
-        <h4 class="dimensoes-subtitulo">Dimensões do projeto</h4>
-        ${criarLinha("Largura (A)", largura)}
-        ${criarLinha("Altura (B)", altura)}
-        ${criarLinha("Profundidade (C)", profundidade)}
-        ${peso ? `<div class="peso-produto"><strong>Peso:</strong> ${escaparHTML(peso)}</div>` : ""}
-      </div>
+          <line x1="209" y1="30" x2="209" y2="184"></line>
+          <line x1="203" y1="30" x2="215" y2="30"></line>
+          <line x1="203" y1="184" x2="215" y2="184"></line>
+
+          <line x1="174" y1="198" x2="198" y2="184"></line>
+
+          <text x="99" y="221">A</text>
+          <text x="218" y="111">B</text>
+          <text x="194" y="211">C</text>
+        </g>
+      </svg>
     </div>
-    ${tabelaIA}
-  `;
+
+    <div class="tabela-dimensoes-tecnicas">
+      <h4 class="dimensoes-subtitulo">Dimensões do produto</h4>
+      ${criarLinha("A — Largura", largura)}
+      ${criarLinha("B — Altura", altura)}
+      ${criarLinha("C — Profundidade", profundidade)}
+      ${peso ? `<div class="peso-produto"><strong>Peso</strong><span>${escaparHTML(peso)}</span></div>` : ""}
+    </div>
+  </div>
+  ${tabelaIA}
+`;
 }
 
 function criarDocumentos(documentos = []) {
@@ -1079,14 +1577,17 @@ function renderDrawerFavoritos(favs) {
 }
 
 function baixarMemorialPDF() {
-  let favs = obterFavoritosAtualizados();
-  if (favs.length === 0) return;
+  const favs = obterFavoritosAtualizados();
+  if (!favs.length) return;
 
-  // Atualiza o armazenamento antes de montar o documento. Assim, gaveta e PDF
-  // usam exatamente a mesma versão atual do catálogo.
+  // Mantém a gaveta e o documento sincronizados com os dados atuais do catálogo.
   localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
 
-  const totalPecas = favs.reduce((soma, item) => soma + (item.quantidade || 1), 0);
+  const totalPecas = favs.reduce(
+    (soma, item) => soma + Math.max(1, Number(item.quantidade) || 1),
+    0
+  );
+
   const dataAtual = new Date().toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "long",
@@ -1094,99 +1595,119 @@ function baixarMemorialPDF() {
   });
 
   const janelaImpressao = window.open("", "_blank", "width=980,height=820");
+  if (!janelaImpressao) {
+    alert("O navegador bloqueou a janela de impressão. Libere pop-ups para gerar a lista.");
+    return;
+  }
 
-  const conteudoHtml = `
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-      <meta charset="UTF-8">
-      <title>Lista de Interesse - Club One & Info Store</title>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-      <style>
-        @page { size: A4 portrait; margin: 0; }
-        * { box-sizing: border-box; }
-        body { font-family: 'Manrope', Arial, sans-serif; margin: 0; padding: 0; color: #20201e; background: #ffffff; -webkit-print-color-adjust: exact !important; }
-        .topbar-documento { background: linear-gradient(105deg, #0d1f4d, #142b63) !important; border-bottom: 2px solid #e52633 !important; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
-        .logos { display: flex; align-items: center; gap: 20px; }
-        .logo-info { height: 36px; object-fit: contain; }
-        .logo-club { height: 27px; object-fit: contain; opacity: .92; }
-        .separador { width: 1px; height: 28px; background: rgba(255,255,255,0.22); }
-        .meta-documento { text-align: right; }
-        .meta-documento strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff; margin-bottom: 4px; }
-        .meta-documento span { font-size: 11px; font-weight: 400; color: #cbd8f4; }
-        .conteudo-pagina { padding: 40px; }
-        .titulo-bloco { margin-bottom: 30px; }
-        .titulo-bloco h1 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 600; text-transform: uppercase; margin: 0 0 6px; color: #11110f; }
-        .titulo-bloco p { margin: 0; font-size: 12px; color: #6d6b67; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; text-transform: uppercase; background: #eef3fd !important; color: #142b63; padding: 10px 14px; text-align: left; border-top: 1px solid #d6e0f5; border-bottom: 1px solid #d6e0f5; }
-        td { padding: 14px; border-bottom: 1px solid #ece8e1; font-size: 12px; vertical-align: middle; }
-        .col-item { width: 55px; text-align: center; }
-        .col-item img { width: 44px; height: 44px; object-fit: contain; display: block; margin: 0 auto; }
-        .produto-nome { font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 12px; color: #1a1a18; display: block; max-width: 320px; }
-        .tag-fab { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; color: #e52633; text-transform: uppercase; }
-        .col-mod { font-family: 'Manrope', sans-serif; font-size: 11px; color: #55534e; white-space: nowrap; }
-        .col-cod { font-family: 'SF Mono', monospace; font-size: 11px; font-weight: 500; color: #33312e; white-space: nowrap; }
-        .col-qtd { text-align: center; width: 50px; font-weight: 600; }
-        .footer-documento { margin-top: 50px; padding-top: 18px; border-top: 1px solid #e4e0d9; display: flex; justify-content: space-between; align-items: center; font-size: 9px; font-weight: 500; color: #8c8881; text-transform: uppercase; }
-        .footer-total { color: #11110f; font-weight: 600; }
-      </style>
-    </head>
-    <body>
-      <div class="topbar-documento">
-        <div class="logos">
-          <img class="logo-info" src="${window.location.origin}/assets/logoin.png" alt="Info Store">
-          <span class="separador"></span>
-          <img class="logo-club" src="${window.location.origin}/assets/logoclub.png" alt="Club One">
-        </div>
-        <div class="meta-documento">
-          <strong>Solicitação de Especificação</strong>
-          <span>Emitido em: ${dataAtual}</span>
-        </div>
-      </div>
-      <div class="conteudo-pagina">
-        <div class="titulo-bloco">
-          <h1>Lista de Interesse</h1>
-          <p>Relação de itens selecionados para levantamento comercial e orçamentário.</p>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th class="col-item">Item</th>
-              <th>Descrição do Produto</th>
-              <th>Fabricante</th>
-              <th>Modelo</th>
-              <th>Código</th>
-              <th class="col-qtd">Qtd</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${favs.map(item => `
-              <tr>
-                <td class="col-item"><img src="${item.imagem}" alt=""></td>
-                <td><span class="produto-nome">${escaparHTML(item.nome)}</span></td>
-                <td><span class="tag-fab">${escaparHTML(item.fabricante || "Info Store")}</span></td>
-                <td class="col-mod">${escaparHTML(item.modelo)}</td>
-                <td class="col-cod">${escaparHTML(item.codigo)}</td>
-                <td class="col-qtd">${item.quantidade || 1}</td>
-              </tr>
-            `).join("")}
-          </tbody>
-        </table>
-        <div class="footer-documento">
-          <span>Club One Arquitetura & Design • Info Store</span>
-          <span class="footer-total">Total: ${favs.length} ${favs.length === 1 ? 'item' : 'itens'} (${totalPecas} ${totalPecas === 1 ? 'peça' : 'peças'})</span>
-        </div>
-      </div>
-      <script>
-        window.onload = function() { window.print(); };
-      <\/script>
-    </body>
-    </html>
-  `;
+  // As linhas são construídas separadamente para evitar template string aninhada.
+  const linhasTabela = favs.map((item) => {
+    const imagem = escaparHTML(item.imagem || IMAGEM_FALLBACK);
+    const nome = escaparHTML(item.nome || "Produto");
+    const fabricante = escaparHTML(item.fabricante || item.marca || "Info Store");
+    const modelo = escaparHTML(item.modelo || "-");
+    const codigo = escaparHTML(item.codigo || item.codigoInfo || "-");
+    const quantidade = Math.max(1, Number(item.quantidade) || 1);
 
+    return [
+      '<tr>',
+      '<td class="col-item"><img src="' + imagem + '" alt=""></td>',
+      '<td><span class="produto-nome">' + nome + '</span></td>',
+      '<td><span class="tag-fab">' + fabricante + '</span></td>',
+      '<td class="col-mod">' + modelo + '</td>',
+      '<td class="col-cod">' + codigo + '</td>',
+      '<td class="col-qtd">' + quantidade + '</td>',
+      '</tr>'
+    ].join("");
+  }).join("");
+
+  const totalItensTexto = favs.length === 1 ? "item" : "itens";
+  const totalPecasTexto = totalPecas === 1 ? "peça" : "peças";
+
+  const conteudoHtml = [
+    '<!DOCTYPE html>',
+    '<html lang="pt-BR">',
+    '<head>',
+    '<meta charset="UTF-8">',
+    '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+    '<title>Lista de Interesse - Club One &amp; Info Store</title>',
+    '<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">',
+    '<style>',
+    '@page { size: A4 portrait; margin: 0; }',
+    '* { box-sizing: border-box; }',
+    'body { font-family: Manrope, Arial, sans-serif; margin: 0; padding: 0; color: #20201e; background: #ffffff; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }',
+    '.topbar-documento { background: linear-gradient(105deg, #0d1f4d, #142b63) !important; border-bottom: 2px solid #e52633 !important; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }',
+    '.logos { display: flex; align-items: center; gap: 20px; }',
+    '.logo-info { height: 36px; object-fit: contain; }',
+    '.logo-club { height: 27px; object-fit: contain; opacity: .92; }',
+    '.separador { width: 1px; height: 28px; background: rgba(255,255,255,.22); }',
+    '.meta-documento { text-align: right; }',
+    '.meta-documento strong { display: block; font-family: Montserrat, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #fff; margin-bottom: 4px; }',
+    '.meta-documento span { font-size: 11px; color: #cbd8f4; }',
+    '.conteudo-pagina { padding: 40px; }',
+    '.titulo-bloco { margin-bottom: 30px; }',
+    '.titulo-bloco h1 { font-family: Montserrat, sans-serif; font-size: 20px; font-weight: 600; text-transform: uppercase; margin: 0 0 6px; color: #11110f; }',
+    '.titulo-bloco p { margin: 0; font-size: 12px; color: #6d6b67; }',
+    'table { width: 100%; border-collapse: collapse; margin-top: 10px; }',
+    'th { font-family: Montserrat, sans-serif; font-size: 9px; font-weight: 600; text-transform: uppercase; background: #eef3fd !important; color: #142b63; padding: 10px 14px; text-align: left; border-top: 1px solid #d6e0f5; border-bottom: 1px solid #d6e0f5; }',
+    'td { padding: 14px; border-bottom: 1px solid #ece8e1; font-size: 12px; vertical-align: middle; }',
+    '.col-item { width: 55px; text-align: center; }',
+    '.col-item img { width: 44px; height: 44px; object-fit: contain; display: block; margin: 0 auto; }',
+    '.produto-nome { font-family: Manrope, sans-serif; font-weight: 500; font-size: 12px; color: #1a1a18; display: block; max-width: 320px; }',
+    '.tag-fab { font-family: Montserrat, sans-serif; font-size: 10px; font-weight: 600; color: #e52633; text-transform: uppercase; }',
+    '.col-mod { font-family: Manrope, sans-serif; font-size: 11px; color: #55534e; white-space: nowrap; }',
+    '.col-cod { font-family: monospace; font-size: 11px; font-weight: 500; color: #33312e; white-space: nowrap; }',
+    '.col-qtd { text-align: center; width: 50px; font-weight: 600; }',
+    '.footer-documento { margin-top: 50px; padding-top: 18px; border-top: 1px solid #e4e0d9; display: flex; justify-content: space-between; align-items: center; font-size: 9px; font-weight: 500; color: #8c8881; text-transform: uppercase; }',
+    '.footer-total { color: #11110f; font-weight: 600; }',
+    '</style>',
+    '</head>',
+    '<body>',
+    '<div class="topbar-documento">',
+    '<div class="logos">',
+    '<img class="logo-info" src="' + window.location.origin + '/assets/logoin.png" alt="Info Store">',
+    '<span class="separador"></span>',
+    '<img class="logo-club" src="' + window.location.origin + '/assets/logoclub.png" alt="Club One">',
+    '</div>',
+    '<div class="meta-documento">',
+    '<strong>Solicitação de Especificação</strong>',
+    '<span>Emitido em: ' + escaparHTML(dataAtual) + '</span>',
+    '</div>',
+    '</div>',
+    '<div class="conteudo-pagina">',
+    '<div class="titulo-bloco">',
+    '<h1>Lista de Interesse</h1>',
+    '<p>Relação de itens selecionados para levantamento comercial e orçamentário.</p>',
+    '</div>',
+    '<table>',
+    '<thead><tr>',
+    '<th class="col-item">Item</th>',
+    '<th>Descrição do Produto</th>',
+    '<th>Fabricante</th>',
+    '<th>Modelo</th>',
+    '<th>Código</th>',
+    '<th class="col-qtd">Qtd</th>',
+    '</tr></thead>',
+    '<tbody>' + linhasTabela + '</tbody>',
+    '</table>',
+    '<div class="footer-documento">',
+    '<span>Club One Arquitetura &amp; Design • Info Store</span>',
+    '<span class="footer-total">Total: ' + favs.length + ' ' + totalItensTexto + ' (' + totalPecas + ' ' + totalPecasTexto + ')</span>',
+    '</div>',
+    '</div>',
+    '</body>',
+    '</html>'
+  ].join("");
+
+  janelaImpressao.document.open();
   janelaImpressao.document.write(conteudoHtml);
   janelaImpressao.document.close();
+
+  // Dispara a impressão pelo contexto da página principal; evita <script> dentro do HTML gerado.
+  janelaImpressao.addEventListener("load", () => {
+    janelaImpressao.focus();
+    janelaImpressao.print();
+  }, { once: true });
 }
 
 function configurarEventosFavoritos() {

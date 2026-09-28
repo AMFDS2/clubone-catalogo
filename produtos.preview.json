@@ -6057,29 +6057,38 @@
     "revisaoPendente": false,
     "medidasProjeto": {
       "observacoes": [
-        "Extração offline: 0 evidência(s) localizada(s) para 01572RB1135."
+        "Extração offline: 0 evidência(s) localizada(s) para 01572RB1135.",
+        "As duas portas possuem abertura máxima de 135°.",
+        "O espaço total indicado para abertura das portas é de 1661 × 950 mm.",
+        "Manter afastamento traseiro de 100 mm conforme o manual.",
+        "Manter no mínimo 150 mm acima, 100 mm nas laterais e 100 mm atrás do aparelho.",
+        "O aparelho não deve ser instalado sob móveis que avancem além do alinhamento da parede.",
+        "O nivelamento deve ser realizado pelos pés ajustáveis na base do aparelho."
       ],
       "dimensoesProduto": {
         "largura": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "911 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "altura": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1780 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "profundidade": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "666 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         }
       },
       "dimensoesNicho": {
@@ -6107,25 +6116,28 @@
       },
       "folgas": {
         "superior": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "150 mm",
+          "pagina": "Espaçamento mínimo de instalação",
+          "referencia": "Acima: mínimo de 15 cm",
+          "status": "CONFIRMADO",
+          "observacao": "Distâncias mínimas indicadas pelo fabricante para garantir o desempenho do aparelho.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "lateral": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "100 mm",
+          "pagina": "Espaçamento mínimo de instalação",
+          "referencia": "Lateral: mínimo de 10 cm",
+          "status": "CONFIRMADO",
+          "observacao": "Distâncias mínimas indicadas pelo fabricante para garantir o desempenho do aparelho.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "traseira": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "100 mm",
+          "pagina": "Espaçamento mínimo de instalação",
+          "referencia": "Atrás: mínimo de 10 cm",
+          "status": "CONFIRMADO",
+          "observacao": "Distâncias mínimas indicadas pelo fabricante para garantir o desempenho do aparelho.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "frontal": {
           "valor": "",
@@ -6137,18 +6149,20 @@
       },
       "abertura": {
         "anguloPorta": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "135°",
+          "pagina": "Dimensões da abertura da porta",
+          "referencia": "Ângulo de abertura das portas",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas visualmente no desenho Dimensões da abertura da porta.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "distanciaPortasAbertas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1661 mm",
+          "pagina": "Dimensões da abertura da porta",
+          "referencia": "Largura total com as duas portas abertas",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas visualmente no desenho Dimensões da abertura da porta.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "distanciaGavetasEstendidas": {
           "valor": "",
@@ -6160,46 +6174,52 @@
       },
       "geometriaInstalacao": {
         "larguraProduto": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "911 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "alturaProduto": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1780 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "profundidadeTotalProduto": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "666 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "profundidadeGabinete": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "570 mm",
+          "pagina": "Dimensões da abertura da porta",
+          "referencia": "Profundidade do gabinete até o eixo das portas",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas visualmente no desenho Dimensões da abertura da porta.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "larguraComPortasAbertas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1661 mm",
+          "pagina": "Dimensões da abertura da porta",
+          "referencia": "Largura total com as portas abertas",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas visualmente no desenho Dimensões da abertura da porta.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "profundidadeComPortasAbertas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "950 mm",
+          "pagina": "Dimensões da abertura da porta",
+          "referencia": "Profundidade total necessária com as portas abertas",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas visualmente no desenho Dimensões da abertura da porta.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "profundidadeComGavetasEstendidas": {
           "valor": "",
@@ -6209,53 +6229,60 @@
           "observacao": ""
         },
         "anguloAbertura": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "135°",
+          "pagina": "Dimensões da abertura da porta",
+          "referencia": "Ângulo de abertura das portas",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas visualmente no desenho Dimensões da abertura da porta.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "anguloAberturaEsquerda": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "135°",
+          "pagina": "Dimensões da abertura da porta",
+          "referencia": "Porta esquerda aberta",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas visualmente no desenho Dimensões da abertura da porta.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "anguloAberturaDireita": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "135°",
+          "pagina": "Dimensões da abertura da porta",
+          "referencia": "Porta direita aberta",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas visualmente no desenho Dimensões da abertura da porta.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "afastamentoTraseiro": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "100 mm",
+          "pagina": "Espaçamento mínimo de instalação",
+          "referencia": "Afastamento mínimo da parede traseira",
+          "status": "CONFIRMADO",
+          "observacao": "Distâncias mínimas indicadas pelo fabricante para garantir o desempenho do aparelho.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "folgaLateral": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "100 mm",
+          "pagina": "Espaçamento mínimo de instalação",
+          "referencia": "Folga lateral mínima",
+          "status": "CONFIRMADO",
+          "observacao": "Distâncias mínimas indicadas pelo fabricante para garantir o desempenho do aparelho.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "folgaLateralEsquerda": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "100 mm",
+          "pagina": "Espaçamento mínimo de instalação",
+          "referencia": "Folga mínima no lado esquerdo",
+          "status": "CONFIRMADO",
+          "observacao": "Distâncias mínimas indicadas pelo fabricante para garantir o desempenho do aparelho.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "folgaLateralDireita": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "100 mm",
+          "pagina": "Espaçamento mínimo de instalação",
+          "referencia": "Folga mínima no lado direito",
+          "status": "CONFIRMADO",
+          "observacao": "Distâncias mínimas indicadas pelo fabricante para garantir o desempenho do aparelho.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "zeroClearance": {
           "valor": "",
@@ -6304,12 +6331,12 @@
       },
       "evidenciasOffline": [],
       "validacao": {
-        "status": "DADOS_INSUFICIENTES",
-        "percentualConfirmado": 0,
+        "status": "APROVADO_PARA_DESENHO",
+        "percentualConfirmado": 64,
         "contagem": {
-          "CONFIRMADO": 0,
+          "CONFIRMADO": 21,
           "REVISAR": 0,
-          "NAO_LOCALIZADO": 33,
+          "NAO_LOCALIZADO": 12,
           "NAO_APLICAVEL": 0
         }
       },
@@ -6324,9 +6351,24 @@
         ],
         "modelo": "offline-pdfjs",
         "modeloRevisao": "",
-        "extraidoEm": "2026-09-25T21:00:04.827Z"
+        "extraidoEm": "2026-09-28T13:36:57.589Z",
+        "tipo": "MANUAL"
       },
-      "revisado": false
+      "revisado": false,
+      "indiceTecnico": [
+        {
+          "documento": "Manual do usuário",
+          "pagina": 8,
+          "tipos": [],
+          "pontuacao": 6
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 9,
+          "tipos": [],
+          "pontuacao": 5
+        }
+      ]
     }
   },
   {
@@ -18624,64 +18666,76 @@
         "largura": {
           "valor": "908 mm",
           "pagina": "20",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Largura B do modelo RF27CG5*0***"
+          "observacao": "Largura B do modelo RF27CG5*0*** | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "altura": {
           "valor": "1749 mm",
           "pagina": "20",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Altura C do gabinete"
+          "observacao": "Altura C do gabinete | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "profundidade": {
           "valor": "748 mm",
           "pagina": "20",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Profundidade A do modelo RF27CG5*0***"
+          "observacao": "Profundidade A do modelo RF27CG5*0*** | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         }
       },
       "dimensoesNicho": {
         "largura": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         },
         "altura": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         },
         "profundidade": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         }
       },
       "folgas": {
-        "superior": {
-          "valor": "superior a 100 mm",
-          "pagina": "6",
-          "status": "CONFIRMADO",
-          "observacao": "Recomendação de afastamento para eficiência energética"
-        },
         "lateral": {
-          "valor": "superior a 50 mm",
-          "pagina": "6",
+          "valor": "283 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 04",
           "status": "CONFIRMADO",
-          "observacao": "Lado direito, esquerdo e parte traseira: superior a 50 mm"
+          "observacao": "Espaço lateral necessário para abertura completa das portas.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "traseira": {
-          "valor": "superior a 50 mm",
-          "pagina": "6",
+          "valor": "50 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 01",
           "status": "CONFIRMADO",
-          "observacao": "Lado direito, esquerdo e parte traseira: superior a 50 mm"
+          "observacao": "Cotas conferidas na coluna RF27CG5*1*** da tabela dimensional do manual.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "frontal": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         }
@@ -18690,18 +18744,23 @@
         "anguloPorta": {
           "valor": "125°",
           "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 02",
           "status": "CONFIRMADO",
-          "observacao": "Item 02 da tabela de afastamento e abertura"
+          "observacao": "Cotas conferidas na coluna RF27CG5*1*** da tabela dimensional do manual.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "distanciaPortasAbertas": {
-          "valor": "1553 mm",
+          "valor": "1474 mm",
           "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 03",
           "status": "CONFIRMADO",
-          "observacao": "Item 03 para modelo RF32CG5*0*** / RF27CG5*0***"
+          "observacao": "Largura total do produto com as duas portas abertas.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "distanciaGavetasEstendidas": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         }
@@ -18710,24 +18769,28 @@
         "pontoEletrico": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         },
         "pontoAgua": {
           "valor": "206 a 861 kPa",
           "pagina": "6",
+          "referencia": "",
           "status": "CONFIRMADO",
-          "observacao": "Pressão da água exigida para o mecanismo de fabricação de gelo"
+          "observacao": "Pressão da água exigida para o mecanismo de fabricação de gelo | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência."
         },
         "pontoGas": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         },
         "dreno": {
           "valor": "",
           "pagina": "",
+          "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
         }
@@ -18735,15 +18798,248 @@
       "observacoes": [
         "O refrigerador sempre deve ser conectado em sua própria tomada individual, que tenha uma classificação de tensão correspondente à da chapa de características do refrigerador.",
         "A tomada deve ser de fácil acesso para que o eletrodoméstico possa ser desconectado rapidamente da fonte em caso de emergência e deve estar fora da área da traseira do eletrodoméstico.",
-        "Não instale o refrigerador em um local úmido ou em um local onde possa ficar em contato com água."
+        "Não instale o refrigerador em um local úmido ou em um local onde possa ficar em contato com água.",
+        "Extração offline: 11 evidência(s) localizada(s) para RF27CG5910B1AZ.",
+        "Foi utilizada exclusivamente a coluna RF27CG5*1*** correspondente ao modelo RF27CG5910B1AZ.",
+        "Abertura mÃ¡xima das portas: 125Â°.",
+        "Largura total com portas abertas: 1474 mm.",
+        "Profundidade com portas abertas: 1118 mm.",
+        "O desenho informa 1150 mm como profundidade total de espaÃ§o necessÃ¡rio para instalaÃ§Ã£o e abertura.",
+        "Manter afastamento traseiro mÃ­nimo de 50 mm.",
+        "Considerar 283 mm de espaÃ§o lateral para a abertura completa de cada porta.",
+        "Abertura máxima das portas: 125°.",
+        "O desenho informa 1150 mm como profundidade total de espaço necessário para instalação e abertura.",
+        "Manter afastamento traseiro mínimo de 50 mm.",
+        "Considerar 283 mm de espaço lateral para a abertura completa de cada porta."
       ],
       "fonte": {
         "nome": "Manual do usuário",
         "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RF27CG5910B1&CttFileID=11374583&CDCttType=UM&VPath=UM%2F202604%2F20260415031016223%2FOID72180-03_FDR_RF6500C_3Door_BPT_260312.pdf",
-        "modelo": "gemini-3.5-flash-lite",
-        "extraidoEm": "2026-09-21T21:17:23.283Z"
+        "documentos": [
+          {
+            "nome": "Manual do usuário",
+            "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RF27CG5910B1&CttFileID=11374583&CDCttType=UM&VPath=UM%2F202604%2F20260415031016223%2FOID72180-03_FDR_RF6500C_3Door_BPT_260312.pdf"
+          }
+        ],
+        "modelo": "offline-pdfjs",
+        "modeloRevisao": "",
+        "extraidoEm": "2026-09-28T14:13:53.300Z",
+        "tipo": "MANUAL"
       },
-      "revisado": false
+      "revisado": false,
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "908 mm",
+          "pagina": "20",
+          "referencia": "Largura “B” 908 mm 908 mm",
+          "status": "CONFIRMADO",
+          "observacao": "Extração local do texto do manual; confiança moderada."
+        },
+        "alturaProduto": {
+          "valor": "1749 mm",
+          "pagina": "20",
+          "referencia": "",
+          "status": "REVISAR",
+          "observacao": "Altura C do gabinete | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Confirmação rejeitada: faltam valor, página ou referência."
+        },
+        "profundidadeTotalProduto": {
+          "valor": "748 mm",
+          "pagina": "20",
+          "referencia": "",
+          "status": "REVISAR",
+          "observacao": "Profundidade A do modelo RF27CG5*0*** | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Referência não registrada no formato legado; preservar até nova conferência. | Confirmação rejeitada: faltam valor, página ou referência."
+        },
+        "profundidadeGabinete": {
+          "valor": "635 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 06",
+          "status": "CONFIRMADO",
+          "observacao": "Profundidade do gabinete sem considerar toda a projeção frontal.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "larguraComPortasAbertas": {
+          "valor": "1474 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 03",
+          "status": "CONFIRMADO",
+          "observacao": "Largura total com as duas portas abertas.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "1118 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 09",
+          "status": "CONFIRMADO",
+          "observacao": "Profundidade do produto com as portas abertas.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "anguloAbertura": {
+          "valor": "125°",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 02",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas na coluna RF27CG5*1*** da tabela dimensional do manual.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "125°",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 02",
+          "status": "CONFIRMADO",
+          "observacao": "Ângulo máximo da porta esquerda.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "anguloAberturaDireita": {
+          "valor": "125°",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 02",
+          "status": "CONFIRMADO",
+          "observacao": "Ângulo máximo da porta direita.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "afastamentoTraseiro": {
+          "valor": "50 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 01",
+          "status": "CONFIRMADO",
+          "observacao": "Cotas conferidas na coluna RF27CG5*1*** da tabela dimensional do manual.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "folgaLateral": {
+          "valor": "283 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 04",
+          "status": "CONFIRMADO",
+          "observacao": "Espaço lateral necessário para abertura completa.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "folgaLateralEsquerda": {
+          "valor": "283 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 04",
+          "status": "CONFIRMADO",
+          "observacao": "Espaço necessário no lado esquerdo para abertura completa.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "folgaLateralDireita": {
+          "valor": "283 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 04",
+          "status": "CONFIRMADO",
+          "observacao": "Espaço necessário no lado direito para abertura completa.",
+          "fonte": "MANUAL_VALIDADO"
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "avancoFrontal": {
+          "valor": "48 mm",
+          "pagina": "21",
+          "referencia": "RF27CG5*1*** / item 08",
+          "status": "CONFIRMADO",
+          "observacao": "Projeção frontal indicada no desenho dimensional.",
+          "fonte": "MANUAL_VALIDADO"
+        }
+      },
+      "validacao": {
+        "status": "REVISAO_NECESSARIA",
+        "percentualConfirmado": 61,
+        "contagem": {
+          "CONFIRMADO": 20,
+          "REVISAR": 2,
+          "NAO_LOCALIZADO": 11,
+          "NAO_APLICAVEL": 0
+        }
+      },
+      "indiceTecnico": [
+        {
+          "documento": "Manual do usuário",
+          "pagina": 3,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 6,
+          "tipos": [],
+          "pontuacao": 2
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 20,
+          "tipos": [
+            "família do modelo"
+          ],
+          "pontuacao": 13
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 21,
+          "tipos": [
+            "família do modelo"
+          ],
+          "pontuacao": 13
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 23,
+          "tipos": [],
+          "pontuacao": 2
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 25,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 26,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 31,
+          "tipos": [],
+          "pontuacao": 4
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 49,
+          "tipos": [],
+          "pontuacao": 2
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 58,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 60,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 62,
+          "tipos": [],
+          "pontuacao": 2
+        }
+      ]
     }
   },
   {
@@ -18829,30 +19125,118 @@
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false,
     "medidasProjeto": {
-      "observacoes": [
-        "Extração offline: 2 evidência(s) localizada(s) para RF29DB9950QDAZ."
-      ],
+      "dimensoes": {
+        "largura": {
+          "valor": "912",
+          "unidade": "mm",
+          "referencia": "RF29D** / item B, pág 21"
+        },
+        "alturaTotal": {
+          "valor": "1853",
+          "unidade": "mm",
+          "referencia": "RF29D** / item D, pág 21"
+        },
+        "alturaSemDobradica": {
+          "valor": "1797",
+          "unidade": "mm",
+          "referencia": "RF29D** / item C, pág 21"
+        },
+        "profundidadeTotalProduto": {
+          "valor": "869",
+          "unidade": "mm",
+          "referencia": "RF29D** / item A, pág 21"
+        },
+        "profundidadeGabinete": {
+          "valor": null,
+          "unidade": null,
+          "referencia": null
+        },
+        "larguraComPortasAbertas": {
+          "valor": "1498",
+          "unidade": "mm",
+          "referencia": "RF29D** / item 03, pág 22"
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "1231",
+          "unidade": "mm",
+          "referencia": "RF29D** / item 07, pág 22"
+        },
+        "profundidadeComGavetasEstendidas": {
+          "valor": null,
+          "unidade": null,
+          "referencia": null
+        }
+      },
+      "instalacao": {
+        "afastamentoTraseiro": {
+          "valor": null,
+          "unidade": null,
+          "referencia": null
+        },
+        "afastamentoLateral": {
+          "valor": null,
+          "unidade": null,
+          "referencia": null
+        },
+        "afastamentoSuperior": {
+          "valor": null,
+          "unidade": null,
+          "referencia": null
+        },
+        "observacoes": "Recomenda-se que o espaço entre o refrigerador e as paredes (ou os armários) próximas seja superior a 2\" (50 mm). O refrigerador deve ser nivelado em um piso sólido e plano. A superfície deve ser capaz de suportar um refrigerador totalmente carregado.",
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO",
+          "observacao": ""
+        }
+      },
       "dimensoesProduto": {
         "largura": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "912 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "altura": {
-          "valor": "3 mm / 1 mm",
-          "pagina": "34, 35",
-          "referencia": "para facilitar o alinhamento. A altura máxima",
-          "status": "REVISAR",
-          "observacao": "Mais de um valor associado ao campo; conferir a tabela ou o desenho."
+          "valor": "1853 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "profundidade": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "869 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         }
       },
       "dimensoesNicho": {
@@ -18880,11 +19264,12 @@
       },
       "folgas": {
         "superior": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "superior a 50 mm",
+          "pagina": "22",
+          "referencia": "RF29D** / item 01",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "lateral": {
           "valor": "",
@@ -18910,18 +19295,20 @@
       },
       "abertura": {
         "anguloPorta": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "125°",
+          "pagina": "22",
+          "referencia": "RF29D** / item 02",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "distanciaPortasAbertas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1498 mm",
+          "pagina": "22",
+          "referencia": "RF29D** / item 03",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "distanciaGavetasEstendidas": {
           "valor": "",
@@ -18933,46 +19320,52 @@
       },
       "geometriaInstalacao": {
         "larguraProduto": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "912 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "alturaProduto": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1853 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "profundidadeTotalProduto": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "869 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada; não foi extraída do manual nesta execução.",
+          "fonte": "CADASTRO_OFICIAL"
         },
         "profundidadeGabinete": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "748 mm",
+          "pagina": "22",
+          "referencia": "RF29D** / item 05",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "larguraComPortasAbertas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1498 mm",
+          "pagina": "22",
+          "referencia": "RF29D** / item 03",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "profundidadeComPortasAbertas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1231 mm",
+          "pagina": "22",
+          "referencia": "RF29D** / item 07",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "profundidadeComGavetasEstendidas": {
           "valor": "",
@@ -18982,11 +19375,12 @@
           "observacao": ""
         },
         "anguloAbertura": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "125°",
+          "pagina": "22",
+          "referencia": "RF29D** / item 02",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "anguloAberturaEsquerda": {
           "valor": "",
@@ -19017,18 +19411,20 @@
           "observacao": ""
         },
         "folgaLateralEsquerda": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "295 mm",
+          "pagina": "22",
+          "referencia": "RF29D** / item 04",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "folgaLateralDireita": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "295 mm",
+          "pagina": "22",
+          "referencia": "RF29D** / item 04",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         },
         "zeroClearance": {
           "valor": "",
@@ -19038,54 +19434,25 @@
           "observacao": ""
         },
         "avancoFrontal": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "55 mm",
+          "pagina": "22",
+          "referencia": "RF29D** / item 06",
+          "status": "CONFIRMADO",
+          "observacao": "Tabela dimensional da família RF29D**.",
+          "fonte": "MANUAL_VALIDADO"
         }
       },
-      "instalacao": {
-        "pontoEletrico": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
-        },
-        "pontoAgua": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
-        },
-        "pontoGas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
-        },
-        "dreno": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
-        }
-      },
-      "evidenciasOffline": [
-        "pág. 34: para facilitar o alinhamento. A altura máxima",
-        "pág. 35: 1. Verifique a diferença de altura entre as portas"
+      "observacoes": [
+        "Extração offline: 2 evidência(s) localizada(s) para RF29DB9950QDAZ.",
+        "Cotas de abertura conferidas na tabela RF29D** do manual."
       ],
       "validacao": {
-        "status": "REVISAO_NECESSARIA",
-        "percentualConfirmado": 0,
+        "status": "APROVADO_PARA_DESENHO",
+        "percentualConfirmado": 48,
         "contagem": {
-          "CONFIRMADO": 0,
-          "REVISAR": 1,
-          "NAO_LOCALIZADO": 32,
+          "CONFIRMADO": 16,
+          "REVISAR": 0,
+          "NAO_LOCALIZADO": 17,
           "NAO_APLICAVEL": 0
         }
       },
@@ -19100,8 +19467,97 @@
         ],
         "modelo": "offline-pdfjs",
         "modeloRevisao": "",
-        "extraidoEm": "2026-09-25T21:01:24.904Z"
+        "extraidoEm": "2026-09-28T13:11:45.180Z",
+        "tipo": "MANUAL"
       },
+      "indiceTecnico": [
+        {
+          "documento": "Manual do usuário",
+          "pagina": 3,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 21,
+          "tipos": [
+            "família do modelo"
+          ],
+          "pontuacao": 5
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 22,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 24,
+          "tipos": [],
+          "pontuacao": 2
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 26,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 30,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 34,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 35,
+          "tipos": [],
+          "pontuacao": 4
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 36,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 37,
+          "tipos": [],
+          "pontuacao": 2
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 42,
+          "tipos": [],
+          "pontuacao": 6
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 43,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 53,
+          "tipos": [],
+          "pontuacao": 1
+        },
+        {
+          "documento": "Manual do usuário",
+          "pagina": 77,
+          "tipos": [],
+          "pontuacao": 2
+        }
+      ],
       "revisado": false
     }
   },

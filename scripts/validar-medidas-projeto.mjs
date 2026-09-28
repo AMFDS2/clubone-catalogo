@@ -10,8 +10,13 @@ const grupos = ["dimensoesProduto", "dimensoesNicho", "folgas", "abertura", "geo
 
 const normalizarModelo = valor => String(valor || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
 const numero = campo => {
-  const encontrado = String(campo?.valor || "").replace(/\./g, "").replace(",", ".").match(/\d+(?:\.\d+)?/);
-  return encontrado ? Number(encontrado[0]) : NaN;
+  const texto = String(campo?.valor || "").trim();
+  const encontrado = texto.replace(/\./g, "").replace(",", ".").match(/\d+(?:\.\d+)?/);
+  if (!encontrado) return NaN;
+  const valor = Number(encontrado[0]);
+  if (/\bcm\b/i.test(texto)) return valor * 10;
+  if (/\bm\b/i.test(texto) && !/\bmm\b/i.test(texto)) return valor * 1000;
+  return valor;
 };
 
 function validar(produto) {
@@ -21,8 +26,8 @@ function validar(produto) {
 
   for (const grupo of grupos) {
     for (const [nome, campo] of Object.entries(dados[grupo] || {})) {
-      if (campo.status === "CONFIRMADO" && (!campo.valor || !campo.pagina)) {
-        erros.push(`${grupo}.${nome}: CONFIRMADO sem valor ou página.`);
+      if (campo.status === "CONFIRMADO" && (!campo.valor || !campo.pagina || !campo.referencia)) {
+        erros.push(`${grupo}.${nome}: CONFIRMADO sem valor, página ou referência auditável.`);
       }
       if (campo.status === "REVISAR") {
         erros.push(`${grupo}.${nome}: exige revisão técnica (${campo.valor || "sem valor"}).`);
@@ -34,6 +39,17 @@ function validar(produto) {
   }
 
   const g = dados.geometriaInstalacao || {};
+  const d = dados.dimensoesProduto || {};
+  const basicas = [
+    ["largura", d.largura, g.larguraProduto],
+    ["altura", d.altura, g.alturaProduto],
+    ["profundidade", d.profundidade, g.profundidadeTotalProduto]
+  ];
+  for (const [nome, principal, duplicado] of basicas) {
+    if (principal?.status !== "CONFIRMADO" && duplicado?.status !== "CONFIRMADO") {
+      erros.push(`dimensão básica ${nome}: não confirmada; desenho técnico bloqueado.`);
+    }
+  }
   const largura = numero(g.larguraProduto);
   const larguraAberta = numero(g.larguraComPortasAbertas);
   if (Number.isFinite(largura) && Number.isFinite(larguraAberta) && larguraAberta <= largura) {
@@ -43,6 +59,14 @@ function validar(produto) {
   const gabinete = numero(g.profundidadeGabinete);
   if (Number.isFinite(profundidade) && Number.isFinite(gabinete) && gabinete > profundidade) {
     erros.push("profundidadeGabinete não pode superar profundidadeTotalProduto.");
+  }
+  const profundidadeAberta = numero(g.profundidadeComPortasAbertas);
+  if (Number.isFinite(profundidade) && Number.isFinite(profundidadeAberta) && profundidadeAberta <= profundidade) {
+    erros.push("profundidadeComPortasAbertas deve superar profundidadeTotalProduto.");
+  }
+  for (const nome of ["anguloAbertura", "anguloAberturaEsquerda", "anguloAberturaDireita"]) {
+    const valor = numero(g[nome]);
+    if (Number.isFinite(valor) && (valor <= 0 || valor > 180)) erros.push(`${nome}: ângulo fora do intervalo físico.`);
   }
   return erros;
 }

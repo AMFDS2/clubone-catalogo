@@ -1233,6 +1233,10 @@ header.topbar {
 .angulo-porta { fill: #47443e; font-size: 10px; font-weight: 800; }
 .cota-altura { transform: rotate(-90deg); transform-origin: 96px 193px; }
 .cota-profundidade { transform: rotate(-90deg); transform-origin: 428px 144px; }
+.cota-profundidade-aberta {
+  transform: rotate(-90deg);
+  transform-origin: 494px 186px;
+}
 
 .chamadas-tecnicas path { fill: none; stroke: var(--dourado); stroke-width: 1.15; }
 .chamadas-tecnicas text, .legenda-pivos text {
@@ -1558,4 +1562,535 @@ header.topbar { gap: clamp(20px, 3vw, 48px) !important; background: linear-gradi
     line-height: 1.16 !important;
     letter-spacing: -0.025em;
   }
+}
+.produto-generico {
+  fill: #f4f1eb;
+  stroke: #393733;
+  stroke-width: 2;
+}
+
+.nicho-generico {
+  fill: none;
+  stroke: #a89f91;
+  stroke-width: 2;
+  stroke-dasharray: 7 5;
+}
+.medidas-projeto-destaque-sem-blocagem {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+/* =========================================================
+   CLUB ONE — FILTRO "MEDIDAS DO VÃO" (teste v1)
+   ========================================================= */
+.filtro-medidas-projeto {
+  margin: 12px;
+  padding: 14px;
+  border: 1px solid #e2e6eb;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fff 0%, #fbfbfc 100%);
+  box-shadow: 0 8px 18px rgba(19, 31, 47, .05);
+}
+
+.filtro-medidas-cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.filtro-medidas-kicker {
+  display: block;
+  margin-bottom: 2px;
+  color: #d71920;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.filtro-medidas-cabecalho h3 {
+  margin: 0;
+  color: #172235;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.filtro-medidas-tag {
+  flex: 0 0 auto;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: #f2f4f7;
+  color: #596579;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.filtro-medidas-intro,
+.filtro-medidas-nota {
+  margin: 7px 0 10px;
+  color: #667085;
+  font-size: 8px;
+  line-height: 1.45;
+}
+
+.filtro-tipo-produto {
+  display: grid;
+  gap: 5px;
+  margin: 10px 0;
+  color: #344054;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.filtro-tipo-produto select {
+  width: 100%;
+  height: 34px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #fff;
+  color: #172235;
+  font-size: 9px;
+  font-weight: 600;
+  outline: none;
+  padding: 0 30px 0 9px;
+}
+
+.filtro-tipo-produto select:focus {
+  border-color: #d71920;
+  box-shadow: 0 0 0 3px rgba(215, 25, 32, .09);
+}
+
+.filtro-medidas-campos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 7px;
+}
+
+.filtro-medidas-campos label {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 68px 20px;
+  align-items: center;
+  gap: 6px;
+  color: #344054;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.filtro-medidas-campos input {
+  width: 100%;
+  min-width: 0;
+  height: 30px;
+  box-sizing: border-box;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #fff;
+  color: #172235;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: right;
+  outline: none;
+  padding: 0 8px;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.filtro-medidas-campos input:focus {
+  border-color: #d71920;
+  box-shadow: 0 0 0 3px rgba(215, 25, 32, .09);
+}
+
+.filtro-medidas-campos small {
+  color: #98a2b3;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.filtro-medidas-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 11px 0 8px;
+  padding: 9px;
+  border-radius: 9px;
+  background: #f7f8fa;
+  cursor: pointer;
+}
+
+.filtro-medidas-check input {
+  margin: 2px 0 0;
+  accent-color: #d71920;
+}
+
+.filtro-medidas-check span {
+  display: grid;
+  gap: 2px;
+}
+
+.filtro-medidas-check strong {
+  color: #344054;
+  font-size: 8px;
+}
+
+.filtro-medidas-check small {
+  color: #7a8495;
+  font-size: 7px;
+  line-height: 1.35;
+}
+
+.filtro-medidas-resumo {
+  margin-top: 8px;
+  padding: 8px 9px;
+  border: 1px dashed #d9dee7;
+  border-radius: 8px;
+  background: #fff;
+  color: #7a8495;
+  font-size: 8px;
+  line-height: 1.35;
+}
+
+.filtro-medidas-resumo.ativo {
+  border-style: solid;
+  border-color: #b9dfc8;
+  background: #f2fbf6;
+  color: #1f6b42;
+}
+
+.filtro-medidas-resumo strong {
+  font-size: 11px;
+}
+
+.filtro-medidas-resumo span {
+  display: block;
+  margin-top: 3px;
+  color: #55715f;
+  font-size: 7px;
+  font-weight: 700;
+}
+
+.limpar-medidas-projeto {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+  background: #fff;
+  color: #596579;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.aplicar-medidas-projeto {
+  width: 100%;
+  margin-top: 9px;
+  padding: 9px 10px;
+  border: 1px solid #173979;
+  border-radius: 8px;
+  background: #173979;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.aplicar-medidas-projeto:hover {
+  border-color: #d71920;
+  background: #d71920;
+}
+
+.limpar-medidas-projeto:hover {
+  border-color: #d71920;
+  color: #d71920;
+}
+
+.selo-compatibilidade {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 5px;
+  padding: 3px 6px;
+  border-radius: 999px;
+  font-size: 7px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.selo-compatibilidade.compativel {
+  background: #eaf8ef;
+  color: #187443;
+}
+
+.selo-compatibilidade.pendente {
+  background: #fff6e8;
+  color: #9a650d;
+}
+
+@media (max-width: 900px) {
+  .filtro-medidas-projeto { margin: 10px; }
+  .filtro-medidas-campos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .filtro-medidas-campos label {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+  .filtro-medidas-campos input { text-align: left; }
+  .filtro-medidas-campos small { display: none; }
+}
+
+@media (max-width: 560px) {
+  .filtro-medidas-campos { grid-template-columns: 1fr; }
+  .filtro-medidas-campos label { grid-template-columns: minmax(0, 1fr) 82px; align-items: center; }
+  .filtro-medidas-campos label > span { font-size: 9px; }
+}
+
+/* Permite que o painel cresça com o novo bloco sem cortar fabricantes/segmentos. */
+.painel-filtros:not(.fechado) {
+  max-height: clamp(300px, 46vh, 500px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #c8ced8 transparent;
+}
+
+.painel-filtros:not(.fechado)::-webkit-scrollbar { width: 6px; }
+.painel-filtros:not(.fechado)::-webkit-scrollbar-thumb { background: #c8ced8; border-radius: 999px; }
+
+/* Desktop: mantém filtros e produtos disponíveis durante toda a navegação. */
+@media (min-width: 1251px) {
+  .catalogo {
+    display: block;
+    padding-left: 365px;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: 20;
+    top: var(--topbar);
+    bottom: 0;
+    left: 0;
+    width: 365px;
+    height: auto;
+    box-shadow: 10px 0 24px rgba(17, 37, 74, .035);
+  }
+
+  .secao-contato,
+  .rodape {
+    margin-left: 365px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1250px) {
+  .catalogo {
+    display: block;
+    padding-left: 340px;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: 20;
+    top: var(--topbar);
+    bottom: 0;
+    left: 0;
+    width: 340px;
+    height: auto;
+    box-shadow: 10px 0 24px rgba(17, 37, 74, .035);
+  }
+
+  .secao-contato,
+  .rodape {
+    margin-left: 340px;
+  }
+}
+
+/* Mobile e tablet: a lista preenche todo o espaço restante da tela. */
+@media (max-width: 900px) {
+  .sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    height: calc(100dvh - var(--topbar)) !important;
+    min-height: 620px !important;
+    max-height: none !important;
+    overflow: hidden !important;
+  }
+
+  .painel-filtros:not(.fechado) {
+    flex: 0 1 auto !important;
+    max-height: min(46dvh, 460px) !important;
+    overflow-y: auto !important;
+  }
+
+  .resultado-cabecalho {
+    flex: 0 0 auto !important;
+  }
+
+  .lista-produtos {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-bottom: 0 !important;
+    overflow-y: auto !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .sidebar {
+    min-height: calc(100dvh - var(--topbar)) !important;
+  }
+}
+
+/* ==================================================
+   IDENTIDADE INFO STORE + LISTA EM ALTURA TOTAL
+   Mantido ao final do arquivo para prevalecer sobre
+   os ajustes legados de desktop, tablet e celular.
+================================================== */
+:root {
+  --info-azul: #263d7c;
+  --info-azul-escuro: #10275f;
+  --info-azul-claro: #eef3fc;
+  --info-vermelho: #e32636;
+  --info-fundo: #f5f5f5;
+  --info-branco: #ffffff;
+  --dourado: var(--info-azul);
+  --topo: var(--info-azul);
+  --fundo: var(--info-fundo);
+  --claro: var(--info-branco);
+  --borda: #dfe3eb;
+}
+
+body,
+.detalhes {
+  background: var(--info-fundo) !important;
+}
+
+header.topbar {
+  background: linear-gradient(105deg, var(--info-azul-escuro), var(--info-azul)) !important;
+  border-bottom-color: var(--info-vermelho) !important;
+}
+
+/* No cabeçalho azul, todos os detalhes antes amarelos ficam brancos. */
+.btn-favoritos-nav,
+.btn-favoritos-nav:hover {
+  border-color: rgba(255, 255, 255, .42) !important;
+  color: #fff !important;
+}
+
+.btn-favoritos-nav svg {
+  stroke: #fff !important;
+}
+
+.btn-favoritos-nav .badge {
+  background: #fff !important;
+  color: var(--info-azul-escuro) !important;
+}
+
+/* Fora do cabeçalho, o azul substitui o amarelo sem perder contraste. */
+.produto-favorito,
+.documento-acao,
+.aviso-icone,
+.contato-tipo {
+  color: var(--info-azul) !important;
+}
+
+.produto.ativo {
+  background: var(--info-azul-claro) !important;
+  box-shadow: inset 0 0 0 1px var(--info-azul) !important;
+}
+
+.tab.ativo::after {
+  background: var(--info-vermelho) !important;
+}
+
+.campo-busca input:focus {
+  border-color: var(--info-azul) !important;
+  box-shadow: 0 0 0 3px rgba(38, 61, 124, .13) !important;
+}
+
+.aplicar-medidas-projeto {
+  border-color: var(--info-azul) !important;
+  background: var(--info-azul) !important;
+}
+
+.aplicar-medidas-projeto:hover,
+.contato-botao:hover {
+  border-color: var(--info-vermelho) !important;
+  background: var(--info-vermelho) !important;
+  color: #fff !important;
+}
+
+.secao-contato {
+  background: #f0f3f9 !important;
+}
+
+/* A coluna lateral ocupa do cabeçalho até a base da janela. */
+@media (min-width: 901px) {
+  .sidebar {
+    position: fixed !important;
+    top: var(--topbar) !important;
+    bottom: 0 !important;
+    height: calc(100dvh - var(--topbar)) !important;
+    min-height: 0 !important;
+    max-height: calc(100dvh - var(--topbar)) !important;
+    overflow: hidden !important;
+  }
+
+  .lista-produtos {
+    flex: 1 1 0 !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-bottom: 0 !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* Em telas menores, a lista usa todo o restante visível da página. */
+@media (max-width: 900px) {
+  .sidebar {
+    height: calc(100dvh - var(--topbar)) !important;
+    min-height: calc(100dvh - var(--topbar)) !important;
+    max-height: calc(100dvh - var(--topbar)) !important;
+    background: var(--info-branco) !important;
+  }
+
+  .lista-produtos {
+    flex: 1 1 0 !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+  }
+}
+/* =========================================
+   AJUSTE FINAL DAS COTAS A / B / C
+========================================= */
+
+.diagrama-produto .linhas-medidas text {
+  stroke: none !important;
+  fill: #2455b5 !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+
+.diagrama-produto .linhas-medidas .rotulo-cota {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.01em;
+}
+
+.diagrama-produto .linhas-medidas .rotulo-a {
+  text-anchor: middle;
+}
+
+.diagrama-produto .linhas-medidas .rotulo-b {
+  text-anchor: start;
+}
+
+.diagrama-produto .linhas-medidas .rotulo-c {
+  text-anchor: start;
 }

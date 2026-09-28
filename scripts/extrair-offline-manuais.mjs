@@ -1,4 +1,5 @@
 import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
+import { linhasDaPagina } from "./indexar-manual.mjs";
 
 const campoVazio = () => ({ valor: "", pagina: "", referencia: "", status: "NAO_LOCALIZADO", observacao: "" });
 const estrutura = {
@@ -46,24 +47,31 @@ function criarResultado() {
   return resultado;
 }
 
-function linhasDaPagina(itens) {
-  const linhas = new Map();
-  for (const item of itens) {
-    const y = Math.round((item.transform?.[5] || 0) / 3) * 3;
-    if (!linhas.has(y)) linhas.set(y, []);
-    linhas.get(y).push({ x: item.transform?.[4] || 0, texto: String(item.str || "").trim() });
-  }
-  return [...linhas.entries()]
-    .sort((a, b) => b[0] - a[0])
-    .map(([, partes]) => partes.sort((a, b) => a.x - b.x).map(item => item.texto).filter(Boolean).join(" "))
-    .filter(Boolean);
-}
-
 function extrairValor(texto, tipo) {
   const regex = tipo === "angulo"
     ? /\b\d{2,3}(?:[.,]\d+)?\s*(?:°|graus?)\b/i
     : /\b\d{1,4}(?:[.,]\d+)?\s*(?:mm|cm|m)\b/i;
   return texto.match(regex)?.[0]?.replace(/\s+/g, " ") || "";
+}
+
+const contextoDeFolga = /folga|clearance|afastamento|dist[aâ]ncia.{0,25}parede|espa[cç]o.{0,25}(?:livre|abertura|ventila)/i;
+const contextoDeNicho = /nicho|recorte|cutout|marcenaria|cavity|cabinet opening/i;
+
+function candidatoValido(grupo, nome, linha) {
+  if (grupo === "dimensoesProduto" || ["larguraProduto", "alturaProduto", "profundidadeTotalProduto"].includes(nome)) {
+    if (contextoDeFolga.test(linha) || contextoDeNicho.test(linha)) return false;
+  }
+  if (grupo === "dimensoesNicho" && !contextoDeNicho.test(linha)) return false;
+  return true;
+}
+
+function pontuarCandidato({ linha, contexto, forte, modeloNaPagina, grupo, nome }) {
+  let pontos = forte ? 5 : 1;
+  if (modeloNaPagina) pontos += 4;
+  if (/(?:^|\s)(?:largura|altura|profundidade|width|height|depth)\s*[:\-]/i.test(linha)) pontos += 3;
+  if (/tabela|table|dimens|measurements?|especifica/i.test(contexto)) pontos += 2;
+  if ((grupo === "dimensoesProduto" || /Produto$/.test(nome)) && contextoDeFolga.test(contexto)) pontos -= 8;
+  return pontos;
 }
 
 function adicionarCandidato(mapa, grupo, nome, candidato) {
@@ -77,15 +85,18 @@ function adicionarCandidato(mapa, grupo, nome, candidato) {
 function aplicarCandidatos(resultado, candidatos) {
   for (const [chave, itens] of candidatos) {
     const [grupo, nome] = chave.split(".");
-    const valores = [...new Set(itens.map(item => item.valor))];
-    const escolhido = itens[0];
+    const ordenados = [...itens].sort((a, b) => b.pontos - a.pontos || Number(a.pagina) - Number(b.pagina));
+    const maiorPontuacao = ordenados[0]?.pontos ?? 0;
+    const finalistas = ordenados.filter(item => item.pontos >= maiorPontuacao - 1);
+    const valores = [...new Set(finalistas.map(item => item.valor))];
+    const escolhido = finalistas[0];
     resultado[grupo][nome] = {
       valor: valores.length === 1 ? escolhido.valor : valores.join(" / "),
-      pagina: [...new Set(itens.map(item => item.pagina))].join(", "),
+      pagina: [...new Set(finalistas.map(item => item.pagina))].join(", "),
       referencia: escolhido.referencia,
-      status: valores.length === 1 && escolhido.forte ? "CONFIRMADO" : "REVISAR",
+      status: valores.length === 1 && escolhido.forte && escolhido.pontos >= 5 ? "CONFIRMADO" : "REVISAR",
       observacao: valores.length === 1
-        ? "Extração local do texto do manual."
+        ? `Extração local do texto do manual; confiança ${escolhido.pontos >= 8 ? "alta" : "moderada"}.`
         : "Mais de um valor associado ao campo; conferir a tabela ou o desenho."
     };
   }
@@ -109,16 +120,21 @@ export async function extrairOffline(produto, pdfs) {
     for (let pagina = 1; pagina <= documento.numPages; pagina++) {
       const conteudo = await (await documento.getPage(pagina)).getTextContent();
       const linhas = linhasDaPagina(conteudo.items);
+      const textoPagina = linhas.join(" ");
+      const modeloNormalizado = String(produto.modelo || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+      const modeloNaPagina = modeloNormalizado && textoPagina.toUpperCase().replace(/[^A-Z0-9]/g, "").includes(modeloNormalizado);
       for (let indice = 0; indice < linhas.length; indice++) {
         const linha = linhas[indice];
         const contexto = [linhas[indice - 1], linha, linhas[indice + 1]].filter(Boolean).join(" | ");
         for (const [grupo, nome, padrao, tipo] of regras) {
           if (!padrao.test(linha)) continue;
+          if (!candidatoValido(grupo, nome, linha)) continue;
           const valor = extrairValor(linha, tipo) || extrairValor(contexto, tipo);
           if (!valor) continue;
           const forte = Boolean(extrairValor(linha, tipo)) && linha.length <= 180;
           const referencia = linha.slice(0, 150);
-          adicionarCandidato(candidatos, grupo, nome, { valor, pagina: String(pagina), referencia, forte });
+          const pontos = pontuarCandidato({ linha, contexto, forte, modeloNaPagina, grupo, nome });
+          adicionarCandidato(candidatos, grupo, nome, { valor, pagina: String(pagina), referencia, forte, pontos });
           evidencias.push(`pág. ${pagina}: ${referencia}`);
         }
       }
