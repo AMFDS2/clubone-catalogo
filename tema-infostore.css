@@ -11,7 +11,7 @@
   --info-azul-700: #2452ad;
   --info-azul-100: #e9effc;
   --info-vermelho: #e52633;
-  --club-dourado: #d89d35;
+  --club-dourado: #fcf6ed;
   --info-texto: #142b57;
 }
 
@@ -299,7 +299,7 @@ header.topbar {
 
 .campanha-selo {
   color: var(--club-dourado) !important;
-  border-color: rgba(216,157,53,.58) !important;
+  border-color: rgba(250, 249, 248, 0.911) !important;
   background: rgba(216,157,53,.055);
 }
 

@@ -829,7 +829,9 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const referenciaSuperior = referencia(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta);
   const referenciaLateral = referencia(geometria.profundidadeGabinete, geometria.profundidadeTotalProduto, dimensoes.profundidade, geometria.profundidadeComPortasAbertas);
   const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
-  const frenchDoor = /french|rf70|rf80|multidoor|multi door/.test(textoProduto);
+  const quatroPortas = /4 portas|quatro portas|iq8|multidoor|multi door/.test(textoProduto);
+  const tresPortas = !quatroPortas && /3 portas|tres portas|im7|im8|french|rf70|rf80/.test(textoProduto);
+  const frenchDoor = quatroPortas || tresPortas;
   const sideBySide = produto.moldeTecnico === "geladeira-side-by-side" || produto.familiaTecnica === "side-by-side" || /side by side|rs60|rs58/.test(textoProduto);
   const duasPortasVerticais = frenchDoor || sideBySide;
   const aberturaConfirmada = Boolean(angulo || anguloEsquerda || anguloDireita || larguraPortasAbertas || profundidadePortasAbertas || gavetas);
@@ -909,7 +911,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
           <text class="nota-nicho" x="270" y="27">NICHO / MARCENARIA</text>
           <g class="produto-frontal">
             <rect x="176" y="70" width="172" height="246" rx="2"></rect>
-            ${frenchDoor ? `<line x1="262" y1="70" x2="262" y2="210"></line><line x1="176" y1="210" x2="348" y2="210"></line><line x1="246" y1="105" x2="246" y2="184"></line><line x1="278" y1="105" x2="278" y2="184"></line>` : sideBySide ? `<line x1="262" y1="70" x2="262" y2="316"></line><line x1="248" y1="112" x2="248" y2="246"></line><line x1="276" y1="112" x2="276" y2="246"></line>` : `<line x1="176" y1="118" x2="348" y2="118"></line><line x1="326" y1="142" x2="326" y2="250"></line>`}
+            ${quatroPortas ? `<line x1="262" y1="70" x2="262" y2="316"></line><line x1="176" y1="210" x2="348" y2="210"></line><line x1="246" y1="105" x2="246" y2="184"></line><line x1="278" y1="105" x2="278" y2="184"></line><line x1="246" y1="232" x2="246" y2="292"></line><line x1="278" y1="232" x2="278" y2="292"></line>` : tresPortas ? `<line x1="262" y1="70" x2="262" y2="210"></line><line x1="176" y1="210" x2="348" y2="210"></line><line x1="246" y1="105" x2="246" y2="184"></line><line x1="278" y1="105" x2="278" y2="184"></line>` : sideBySide ? `<line x1="262" y1="70" x2="262" y2="316"></line><line x1="248" y1="112" x2="248" y2="246"></line><line x1="276" y1="112" x2="276" y2="246"></line>` : `<line x1="176" y1="118" x2="348" y2="118"></line><line x1="326" y1="142" x2="326" y2="250"></line>`}
           </g>
           <g class="linhas-extensao"><path d="M176 316V358M348 316V358M166 70H118M166 316H118"></path></g>
           <line class="cota-tecnica" x1="176" y1="350" x2="348" y2="350" marker-start="url(#seta-frente)" marker-end="url(#seta-frente)"></line>
@@ -961,20 +963,10 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   const destaques = criarDestaques(produto.destaques);
   const especificacoes = criarEspecificacoes(produto.especificacoes);
   
-  // Para refrigeração, usamos o desenho técnico local por tipologia.
-  // Isso evita que a blocagem genérica externa sobrescreva Side by Side / French Door.
-  const textoTipoDimensao = normalizarTexto(
-    [produto.nome, produto.modelo, produto.categoria, produto.segmento, produto.tipoBloco]
-      .filter(Boolean)
-      .join(" ")
-  );
-  const ehRefrigeracaoDimensao = /geladeira|refrigerador|freezer|adega|side by side|french door|multidoor|multi door/.test(textoTipoDimensao);
-
-  const dimensoes = ehRefrigeracaoDimensao
-    ? criarDimensoes(produto.dimensoes || {}, produto)
-    : (typeof criarBlocagemDimensional === "function"
-        ? criarBlocagemDimensional(produto.dimensoes || {}, produto)
-        : criarDimensoes(produto.dimensoes || {}, produto));
+  // O seu blocagem.js atua aqui.
+  const dimensoes = typeof criarBlocagemDimensional === "function"
+    ? criarBlocagemDimensional(produto.dimensoes || {}, produto)
+    : criarDimensoes(produto.dimensoes || {}, produto);
   const medidasProjeto = criarMedidasProjeto(produto, dimensoes);
     
   const documentos = criarDocumentos(produto.documentos);
@@ -1204,25 +1196,13 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   const ehForno = textoProduto.includes("forno") || textoProduto.includes("micro-ondas") || textoProduto.includes("microondas");
   const ehLavadora = textoProduto.includes("lava e seca") || textoProduto.includes("lavadora") || textoProduto.includes("maquina de lavar") || textoProduto.includes("maq lav") || textoProduto.includes("lav roupa") || modeloProduto.startsWith("ww") || modeloProduto.startsWith("wd");
   const ehLavaLoucas = textoProduto.includes("lava loucas") || textoProduto.includes("lava-loucas") || textoProduto.includes("lava louca") || modeloProduto.startsWith("dw");
-
-  // Tipologias de refrigeração: um molde por formato físico, não por SKU.
-  const ehSideBySide =
-    textoProduto.includes("side by side") ||
-    modeloProduto.startsWith("rs");
-
-  const ehFrenchDoor =
-    textoProduto.includes("french door") ||
-    textoProduto.includes("multidoor") ||
-    textoProduto.includes("multi door") ||
-    modeloProduto.startsWith("rf");
-
-  const ehRefrigerador =
-    textoProduto.includes("geladeira") ||
-    textoProduto.includes("refrigerador") ||
-    textoProduto.includes("freezer") ||
-    textoProduto.includes("adega") ||
-    ehSideBySide ||
-    ehFrenchDoor;
+  const ehFreezerHorizontal = /freezer horizontal|freezer chest|horizontal freezer/.test(textoProduto);
+  const ehFreezerVertical = !ehFreezerHorizontal && /freezer vertical|freezer/.test(textoProduto);
+  const ehFrigobar = /frigobar|mini ?bar|minibar/.test(textoProduto);
+  const ehAdegaCervejeira = /adega|cervejeira|wine cooler|beer center/.test(textoProduto);
+  const ehQuatroPortas = /4 portas|quatro portas|iq8|multidoor|multi door/.test(textoProduto);
+  const ehTresPortas = !ehQuatroPortas && /3 portas|tres portas|im7|im8/.test(textoProduto);
+  const ehSideBySide = !ehQuatroPortas && !ehTresPortas && /side by side|side-by-side|rs58|rs60/.test(textoProduto);
 
   const medidas = dimensoes.produto || dimensoes.semBase || dimensoes.semEmbalagem || dimensoes.comBase || {};
 
@@ -1263,42 +1243,18 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
     formaProduto = `<g class="forma-produto forma-lavadora"><rect x="58" y="29" width="101" height="156" rx="4"></rect><line x1="58" y1="59" x2="159" y2="59"></line><circle cx="108" cy="119" r="36"></circle><circle cx="108" cy="119" r="27"></circle><rect x="70" y="40" width="36" height="8" rx="1"></rect><circle cx="142" cy="45" r="5"></circle><path d="M159 29 L174 40 L174 173 L159 185"></path></g>`;
   } else if (ehLavaLoucas) {
     formaProduto = `<g class="forma-produto forma-lava-loucas"><rect x="58" y="29" width="101" height="156" rx="3"></rect><line x1="58" y1="59" x2="159" y2="59"></line><line x1="72" y1="46" x2="145" y2="46"></line><rect x="75" y="70" width="66" height="4" rx="2"></rect><path d="M159 29 L174 40 L174 173 L159 185"></path></g>`;
+  } else if (ehFreezerHorizontal) {
+    formaProduto = `<g class="forma-produto forma-freezer-horizontal"><rect x="28" y="86" width="153" height="82" rx="4"></rect><path d="M28 86 L44 70 L196 70 L181 86 Z"></path><path d="M181 86 L196 70 L196 151 L181 168 Z"></path><line x1="44" y1="76" x2="178" y2="76"></line><line x1="37" y1="168" x2="37" y2="177"></line><line x1="172" y1="168" x2="172" y2="177"></line></g>`;
+  } else if (ehFrigobar || ehAdegaCervejeira || ehFreezerVertical) {
+    formaProduto = `<g class="forma-produto forma-porta-unica"><rect x="68" y="22" width="79" height="166" rx="3"></rect><path d="M147 22 L164 35 L164 176 L147 188"></path><line x1="136" y1="54" x2="136" y2="119"></line>${ehAdegaCervejeira ? `<rect class="porta-vidro" x="76" y="36" width="63" height="137" rx="2"></rect><line x1="82" y1="62" x2="133" y2="62"></line><line x1="82" y1="86" x2="133" y2="86"></line><line x1="82" y1="110" x2="133" y2="110"></line><line x1="82" y1="134" x2="133" y2="134"></line>` : ""}</g>`;
+  } else if (ehQuatroPortas) {
+    formaProduto = `<g class="forma-produto forma-geladeira-quatro-portas"><rect x="52" y="22" width="108" height="166" rx="3"></rect><path d="M160 22 L176 35 L176 176 L160 188"></path><line x1="106" y1="22" x2="106" y2="188"></line><line x1="52" y1="108" x2="160" y2="108"></line><line x1="96" y1="48" x2="96" y2="91"></line><line x1="116" y1="48" x2="116" y2="91"></line><line x1="96" y1="123" x2="96" y2="165"></line><line x1="116" y1="123" x2="116" y2="165"></line></g>`;
+  } else if (ehTresPortas) {
+    formaProduto = `<g class="forma-produto forma-geladeira-tres-portas"><rect x="52" y="22" width="108" height="166" rx="3"></rect><path d="M160 22 L176 35 L176 176 L160 188"></path><line x1="106" y1="22" x2="106" y2="111"></line><line x1="52" y1="111" x2="160" y2="111"></line><line x1="96" y1="48" x2="96" y2="91"></line><line x1="116" y1="48" x2="116" y2="91"></line><line x1="72" y1="127" x2="140" y2="127"></line></g>`;
   } else if (ehSideBySide) {
-    // Side by Side: duas portas verticais completas.
-    formaProduto = `
-      <g class="forma-produto forma-geladeira forma-side-by-side">
-        <rect x="52" y="22" width="112" height="166" rx="3"></rect>
-        <path d="M164 22 L180 35 L180 176 L164 188"></path>
-        <line x1="108" y1="22" x2="108" y2="188"></line>
-        <line x1="99" y1="60" x2="99" y2="146"></line>
-        <line x1="117" y1="60" x2="117" y2="146"></line>
-        <line x1="62" y1="188" x2="62" y2="193"></line>
-        <line x1="154" y1="188" x2="154" y2="193"></line>
-      </g>`;
-  } else if (ehFrenchDoor) {
-    // French Door / Multi Door: duas portas superiores + gavetas/freezer inferior.
-    formaProduto = `
-      <g class="forma-produto forma-geladeira forma-french-door">
-        <rect x="52" y="22" width="112" height="166" rx="3"></rect>
-        <path d="M164 22 L180 35 L180 176 L164 188"></path>
-        <line x1="108" y1="22" x2="108" y2="116"></line>
-        <line x1="52" y1="116" x2="164" y2="116"></line>
-        <line x1="52" y1="151" x2="164" y2="151"></line>
-        <line x1="99" y1="55" x2="99" y2="102"></line>
-        <line x1="117" y1="55" x2="117" y2="102"></line>
-      </g>`;
-  } else if (ehRefrigerador) {
-    // Duplex / refrigerador convencional.
-    formaProduto = `
-      <g class="forma-produto forma-geladeira forma-duplex">
-        <rect x="63" y="22" width="90" height="166" rx="3"></rect>
-        <path d="M153 22 L169 35 L169 176 L153 188"></path>
-        <line x1="63" y1="76" x2="153" y2="76"></line>
-        <line x1="142" y1="42" x2="142" y2="66"></line>
-        <line x1="142" y1="100" x2="142" y2="156"></line>
-      </g>`;
+    formaProduto = `<g class="forma-produto forma-geladeira-side-by-side"><rect x="52" y="22" width="108" height="166" rx="3"></rect><path d="M160 22 L176 35 L176 176 L160 188"></path><line x1="106" y1="22" x2="106" y2="188"></line><line x1="96" y1="48" x2="96" y2="156"></line><line x1="116" y1="48" x2="116" y2="156"></line></g>`;
   } else {
-    formaProduto = `<g class="forma-produto forma-generica"><rect x="58" y="29" width="101" height="156" rx="3"></rect><path d="M159 29 L174 40 L174 173 L159 185"></path></g>`;
+    formaProduto = `<g class="forma-produto forma-geladeira"><rect x="68" y="22" width="79" height="166" rx="3"></rect><path d="M147 22 L164 35 L164 176 L147 188"></path><line x1="68" y1="106" x2="147" y2="106"></line><line x1="136" y1="48" x2="136" y2="91"></line><line x1="136" y1="119" x2="136" y2="156"></line></g>`;
   }
 
   // Verifica se o JSON já possui as medidas executivas extraídas previamente pela IA
@@ -1330,39 +1286,36 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
     </div>
   ` : '';
 
- return `
-  <div class="dimensoes-tecnicas">
-    <div class="desenho-dimensoes">
-      <svg class="diagrama-produto" viewBox="0 0 230 225" role="img" aria-label="Representação dimensional de ${escaparHTML(produto.nome)}">
-        ${formaProduto}
-        <g class="linhas-medidas">
-          <line x1="36" y1="204" x2="170" y2="204"></line>
-          <line x1="36" y1="198" x2="36" y2="210"></line>
-          <line x1="170" y1="198" x2="170" y2="210"></line>
+  return `
+    <div class="dimensoes-tecnicas">
+      <div class="desenho-dimensoes">
+        <svg class="diagrama-produto" viewBox="0 0 230 225" role="img" aria-label="Representação dimensional de ${escaparHTML(produto.nome)}">
+          ${formaProduto}
+          <g class="linhas-medidas">
+            <line x1="36" y1="204" x2="170" y2="204"></line>
+            <line x1="36" y1="198" x2="36" y2="210"></line>
+            <line x1="170" y1="198" x2="170" y2="210"></line>
+            <line x1="209" y1="30" x2="209" y2="184"></line>
+            <line x1="203" y1="30" x2="215" y2="30"></line>
+            <line x1="203" y1="184" x2="215" y2="184"></line>
+            <line x1="174" y1="198" x2="198" y2="184"></line>
+            <text x="99" y="221">A</text>
+            <text x="218" y="111">B</text>
+            <text x="194" y="211">C</text>
+          </g>
+        </svg>
+      </div>
 
-          <line x1="209" y1="30" x2="209" y2="184"></line>
-          <line x1="203" y1="30" x2="215" y2="30"></line>
-          <line x1="203" y1="184" x2="215" y2="184"></line>
-
-          <line x1="174" y1="198" x2="198" y2="184"></line>
-
-          <text x="99" y="221">A</text>
-          <text x="218" y="111">B</text>
-          <text x="194" y="211">C</text>
-        </g>
-      </svg>
+      <div class="tabela-dimensoes-tecnicas">
+        <h4 class="dimensoes-subtitulo">Dimensões do projeto</h4>
+        ${criarLinha("Largura (A)", largura)}
+        ${criarLinha("Altura (B)", altura)}
+        ${criarLinha("Profundidade (C)", profundidade)}
+        ${peso ? `<div class="peso-produto"><strong>Peso:</strong> ${escaparHTML(peso)}</div>` : ""}
+      </div>
     </div>
-
-    <div class="tabela-dimensoes-tecnicas">
-      <h4 class="dimensoes-subtitulo">Dimensões do produto</h4>
-      ${criarLinha("A — Largura", largura)}
-      ${criarLinha("B — Altura", altura)}
-      ${criarLinha("C — Profundidade", profundidade)}
-      ${peso ? `<div class="peso-produto"><strong>Peso</strong><span>${escaparHTML(peso)}</span></div>` : ""}
-    </div>
-  </div>
-  ${tabelaIA}
-`;
+    ${tabelaIA}
+  `;
 }
 
 function criarDocumentos(documentos = []) {

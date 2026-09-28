@@ -1352,6 +1352,10 @@ header.topbar {
 }
 
 .card-dimensoes .forma-produto .tela-tv { fill: #fbfaf8; }
+.card-dimensoes .forma-produto .porta-vidro {
+  fill: #eef1f6;
+  stroke: #383631;
+}
 .card-dimensoes .forma-cooktop ellipse { fill: none; }
 
 .card-dimensoes .linhas-medidas line {
@@ -2065,32 +2069,4 @@ header.topbar {
     margin-top: 10px !important;
     margin-bottom: 0 !important;
   }
-}
-/* =========================================
-   AJUSTE FINAL DAS COTAS A / B / C
-========================================= */
-
-.diagrama-produto .linhas-medidas text {
-  stroke: none !important;
-  fill: #2455b5 !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
-}
-
-.diagrama-produto .linhas-medidas .rotulo-cota {
-  font-size: 11px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.01em;
-}
-
-.diagrama-produto .linhas-medidas .rotulo-a {
-  text-anchor: middle;
-}
-
-.diagrama-produto .linhas-medidas .rotulo-b {
-  text-anchor: start;
-}
-
-.diagrama-produto .linhas-medidas .rotulo-c {
-  text-anchor: start;
 }
