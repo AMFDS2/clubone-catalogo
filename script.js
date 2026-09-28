@@ -1216,16 +1216,11 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
     textoProduto.includes("multi door") ||
     modeloProduto.startsWith("rf");
 
-  const ehAdegaCervejeira =
-    textoProduto.includes("adega") ||
-    textoProduto.includes("cervejeira") ||
-    textoProduto.includes("frigobar") ||
-    textoProduto.includes("home bar");
-
   const ehRefrigerador =
     textoProduto.includes("geladeira") ||
     textoProduto.includes("refrigerador") ||
     textoProduto.includes("freezer") ||
+    textoProduto.includes("adega") ||
     ehSideBySide ||
     ehFrenchDoor;
 
@@ -1268,17 +1263,6 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
     formaProduto = `<g class="forma-produto forma-lavadora"><rect x="58" y="29" width="101" height="156" rx="4"></rect><line x1="58" y1="59" x2="159" y2="59"></line><circle cx="108" cy="119" r="36"></circle><circle cx="108" cy="119" r="27"></circle><rect x="70" y="40" width="36" height="8" rx="1"></rect><circle cx="142" cy="45" r="5"></circle><path d="M159 29 L174 40 L174 173 L159 185"></path></g>`;
   } else if (ehLavaLoucas) {
     formaProduto = `<g class="forma-produto forma-lava-loucas"><rect x="58" y="29" width="101" height="156" rx="3"></rect><line x1="58" y1="59" x2="159" y2="59"></line><line x1="72" y1="46" x2="145" y2="46"></line><rect x="75" y="70" width="66" height="4" rx="2"></rect><path d="M159 29 L174 40 L174 173 L159 185"></path></g>`;
-  } else if (ehAdegaCervejeira) {
-    // Adega / cervejeira / frigobar / Home Bar: gabinete vertical de uma porta.
-    // Mantém o mesmo padrão dimensional validado: somente A / B / C no desenho.
-    formaProduto = `
-      <g class="forma-produto forma-adega">
-        <rect x="68" y="24" width="84" height="164" rx="3"></rect>
-        <path d="M152 24 L168 36 L168 176 L152 188"></path>
-        <line x1="139" y1="58" x2="139" y2="146"></line>
-        <line x1="78" y1="188" x2="78" y2="193"></line>
-        <line x1="142" y1="188" x2="142" y2="193"></line>
-      </g>`;
   } else if (ehSideBySide) {
     // Side by Side: duas portas verticais completas.
     formaProduto = `
