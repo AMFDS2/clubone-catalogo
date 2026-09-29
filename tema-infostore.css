@@ -1068,3 +1068,98 @@ body:has(.drawer-favoritos:not(.hidden)) .campanha-reabrir {
     letter-spacing: -.025em;
   }
 }
+
+/* ==============================================================
+   REFINO FINAL — VISTAS TÉCNICAS E ATENDIMENTO COMPACTO
+============================================================== */
+.vistas-projeto-grade {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-auto-rows: 1fr;
+  gap: 12px !important;
+  align-items: stretch;
+}
+
+.vista-projeto-card {
+  height: 100%;
+  min-height: 0 !important;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px !important;
+  background: #fff !important;
+}
+
+.vista-projeto-titulo {
+  min-height: 76px !important;
+  box-sizing: border-box;
+  padding: 10px 12px 6px !important;
+}
+
+.vista-projeto-titulo strong { font-size: 12px !important; }
+.vista-projeto-titulo span,
+.vista-projeto-titulo small { font-size: 9px !important; line-height: 1.35; }
+.vista-projeto-titulo small { white-space: normal !important; text-align: right; }
+.vista-tecnica-svg {
+  height: 285px !important;
+  flex: 1 1 auto;
+  min-height: 285px;
+}
+.parede-planta text,
+.nota-nicho,
+.cota-legenda,
+.chamadas-tecnicas text,
+.legenda-pivos text { font-size: 9px !important; }
+
+.vista-indisponivel {
+  min-height: 285px !important;
+  flex: 1 1 auto;
+  padding: 16px !important;
+}
+.vista-indisponivel > span { width: 28px !important; height: 28px !important; margin-bottom: 6px !important; }
+.vista-indisponivel p { margin-top: 5px !important; font-size: 10px !important; }
+.vista-projeto-card.vista-pendente { grid-column: span 1; }
+
+.vista-produto-real img {
+  height: 245px !important;
+  margin-bottom: 12px !important;
+}
+
+.secao-contato { padding: 24px 4% !important; }
+.contato-cabecalho { max-width: none !important; margin: 0 auto 18px !important; }
+.contato-etiqueta { padding: 3px 9px !important; font-size: 8px !important; }
+.contato-cabecalho h2 { margin: 8px 0 4px !important; font-size: clamp(20px, 2vw, 26px) !important; }
+.contato-cabecalho h2::after { margin-top: 7px !important; }
+.contato-cabecalho p { font-size: 11px !important; }
+.contato-grade { gap: 10px !important; }
+.contato-card {
+  min-height: 0 !important;
+  padding: 14px !important;
+  grid-template-columns: 40px minmax(0, 1fr) !important;
+  gap: 11px !important;
+  align-items: center !important;
+}
+.contato-icone { width: 40px !important; height: 40px !important; min-width: 40px !important; }
+.contato-conteudo { min-height: 0 !important; display: grid !important; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center; }
+.contato-tipo,
+.contato-card h3,
+.contato-card p { grid-column: 1; }
+.contato-tipo { font-size: 8px !important; }
+.contato-card h3 { margin: 2px 0 3px !important; font-size: 15px !important; }
+.contato-card p { margin: 0 !important; font-size: 10px !important; line-height: 1.35 !important; }
+.contato-botao { grid-column: 2; grid-row: 1 / span 3; width: auto !important; min-width: 132px; min-height: 34px !important; margin: 0 !important; padding: 0 12px !important; }
+
+@media (max-width: 1100px) {
+  .vistas-projeto-grade { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .vista-produto-real { grid-column: 1 / -1 !important; }
+  .contato-conteudo { grid-template-columns: 1fr !important; }
+  .contato-botao { grid-column: 1; grid-row: auto; margin-top: 9px !important; width: 100% !important; }
+}
+
+@media (max-width: 650px) {
+  .vistas-projeto-grade { grid-template-columns: 1fr !important; }
+  .vista-tecnica-svg { height: 255px !important; }
+  .vista-projeto-titulo { min-height: 82px !important; flex-direction: column; gap: 4px !important; }
+  .vista-projeto-titulo small { text-align: left; }
+  .secao-contato { padding: 26px 16px !important; }
+  .contato-card { padding: 13px !important; }
+  .contato-card p { display: none; }
+}

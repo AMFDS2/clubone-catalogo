@@ -8,6 +8,7 @@ const campoManual = (valor, pagina, referencia, observacao = "") => ({
 });
 
 const garantirEstrutura = dados => {
+  dados.dimensoesProduto ||= {};
   dados.folgas ||= {};
   dados.abertura ||= {};
   dados.geometriaInstalacao ||= {};
@@ -112,6 +113,7 @@ const regras = [
     aplicar(dados) {
       garantirEstrutura(dados);
 
+      const paginaDimensoes = 20;
       const pagina = 21;
       const familia = "RF27CG5*1***";
       const nota =
@@ -120,6 +122,13 @@ const regras = [
       // A leitura automática confundiu uma anotação do manual com folga superior.
       // Como essa cota não foi confirmada na tabela desta família, ela não deve ser exibida.
       delete dados.folgas.superior;
+
+      dados.dimensoesProduto.largura = campoManual("908 mm", paginaDimensoes, `${familia} / dimensão B`, "Largura total do produto.");
+      dados.dimensoesProduto.altura = campoManual("1778 mm", paginaDimensoes, `${familia} / dimensão D`, "Altura total do produto, incluindo dobradiças.");
+      dados.dimensoesProduto.profundidade = campoManual("748 mm", paginaDimensoes, `${familia} / dimensão A`, "Profundidade total do produto.");
+      dados.geometriaInstalacao.larguraProduto = campoManual("908 mm", paginaDimensoes, `${familia} / dimensão B`, "Largura total do produto.");
+      dados.geometriaInstalacao.alturaProduto = campoManual("1778 mm", paginaDimensoes, `${familia} / dimensão D`, "Altura total do produto.");
+      dados.geometriaInstalacao.profundidadeTotalProduto = campoManual("748 mm", paginaDimensoes, `${familia} / dimensão A`, "Profundidade total do produto.");
 
       dados.folgas.traseira = campoManual(
         "50 mm",
@@ -239,7 +248,32 @@ const regras = [
         ])
       ];
 
-      return 14;
+      return 20;
+    }
+  },
+
+  {
+    corresponde: modelo => modelo === "RF70H25HETAZ",
+
+    aplicar(dados) {
+      garantirEstrutura(dados);
+      const notaDimensoes = "Cotas do produto conferidas no desenho dimensional do manual oficial.";
+      const notaAbertura = "Cotas de abertura conferidas no desenho de instalação do manual oficial.";
+
+      dados.dimensoesProduto.largura = campoManual("912 mm", 20, "Dimensões do produto / largura", notaDimensoes);
+      dados.dimensoesProduto.altura = campoManual("1749 mm", 20, "Dimensões do produto / altura", notaDimensoes);
+      dados.dimensoesProduto.profundidade = campoManual("698 mm", 20, "Dimensões do produto / profundidade", notaDimensoes);
+      dados.geometriaInstalacao.larguraProduto = campoManual("912 mm", 20, "Dimensões do produto / largura", notaDimensoes);
+      dados.geometriaInstalacao.alturaProduto = campoManual("1749 mm", 20, "Dimensões do produto / altura", notaDimensoes);
+      dados.geometriaInstalacao.profundidadeTotalProduto = campoManual("698 mm", 20, "Dimensões do produto / profundidade", notaDimensoes);
+      dados.abertura.anguloPorta = campoManual("108°", 21, "Ângulo máximo de abertura das portas", notaAbertura);
+      dados.abertura.distanciaPortasAbertas = campoManual("1140 mm", 21, "Largura com portas abertas", notaAbertura);
+      dados.abertura.distanciaGavetasEstendidas = campoManual("1113 mm", 21, "Profundidade com gavetas estendidas", notaAbertura);
+      dados.geometriaInstalacao.anguloAbertura = campoManual("108°", 21, "Ângulo máximo de abertura das portas", notaAbertura);
+      dados.geometriaInstalacao.larguraComPortasAbertas = campoManual("1140 mm", 21, "Largura com portas abertas", notaAbertura);
+      dados.geometriaInstalacao.profundidadeComGavetasEstendidas = campoManual("1113 mm", 21, "Profundidade com gavetas estendidas", notaAbertura);
+      dados.observacoes = [...new Set([...dados.observacoes, "Dimensões e cotas de abertura do RF70H25HETAZ restauradas a partir do manual oficial."])];
+      return 12;
     }
   },
 

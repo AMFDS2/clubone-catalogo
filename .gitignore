@@ -4,3 +4,6 @@ catalogo.zip
 !.env.example
 cta.zip
 cta.zip
+
+node_modules/
+*.zip

@@ -137,44 +137,136 @@
   }
 
   function detalhesFrontais(tipo, x, y, w, h) {
-    if (tipo === "tv") {
-      return `<rect class="bloco-detalhe" x="${x + 7}" y="${y + 7}" width="${w - 14}" height="${h - 14}" rx="2" />
-        <line class="bloco-detalhe" x1="${x + w / 2}" y1="${y + h}" x2="${x + w / 2}" y2="${y + h + 13}" />
-        <line class="bloco-detalhe" x1="${x + w * 0.35}" y1="${y + h + 13}" x2="${x + w * 0.65}" y2="${y + h + 13}" />`;
+    // Normaliza o tipo para não quebrar com acentos ou variações de texto
+    const t = String(tipo || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+
+    // 1. TV / VÍDEO / MONITORES
+    if (t.includes("tv") || t.includes("monitor") || t.includes("video")) {
+      const borda = Math.max(6, Math.min(w, h) * 0.03);
+      return `<rect class="bloco-detalhe" x="${x + borda}" y="${y + borda}" width="${w - borda * 2}" height="${h - borda * 2}" rx="2" />`;
     }
-    if (["lavadora", "secadora"].includes(tipo)) {
-      const r = Math.min(w * 0.32, h * 0.26);
-      return `<line class="bloco-detalhe" x1="${x}" y1="${y + 28}" x2="${x + w}" y2="${y + 28}" />
-        <circle class="bloco-detalhe" cx="${x + w / 2}" cy="${y + h * 0.6}" r="${r}" />
-        <circle class="bloco-detalhe" cx="${x + w / 2}" cy="${y + h * 0.6}" r="${r * 0.76}" />
-        <rect class="bloco-detalhe" x="${x + 9}" y="${y + 9}" width="${w * 0.35}" height="8" rx="1" />`;
+
+    // 2. LAVADORA, SECADORA E LAVA E SECA
+    if (t.includes("lavadora") || t.includes("secadora") || t.includes("lava") && t.includes("seca")) {
+      const altPainel = Math.max(25, h * 0.15);
+      const r = Math.min(w * 0.32, (h - altPainel) * 0.34);
+      const cy = y + altPainel + (h - altPainel) * 0.52;
+      return `<line class="bloco-detalhe" x1="${x}" y1="${y + altPainel}" x2="${x + w}" y2="${y + altPainel}" />
+        <rect class="bloco-detalhe" x="${x + w * 0.06}" y="${y + altPainel * 0.22}" width="${w * 0.32}" height="${altPainel * 0.55}" rx="2" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.58}" cy="${y + altPainel * 0.5}" r="${altPainel * 0.22}" />
+        <circle class="bloco-detalhe" cx="${x + w / 2}" cy="${cy}" r="${r}" />
+        <circle class="bloco-detalhe" cx="${x + w / 2}" cy="${cy}" r="${r * 0.75}" />
+        <line class="bloco-detalhe" x1="${x + w * 0.08}" y1="${y + h - h * 0.08}" x2="${x + w * 0.92}" y2="${y + h - h * 0.08}" stroke-dasharray="4,4" />`;
     }
-    if (tipo === "fogao") {
-      return `<line class="bloco-detalhe" x1="${x}" y1="${y + 35}" x2="${x + w}" y2="${y + 35}" />
-        <circle class="bloco-detalhe" cx="${x + w * 0.2}" cy="${y + 18}" r="4" />
-        <circle class="bloco-detalhe" cx="${x + w * 0.38}" cy="${y + 18}" r="4" />
-        <rect class="bloco-detalhe" x="${x + w * 0.47}" y="${y + 13}" width="${w * 0.18}" height="10" rx="1" />
-        <circle class="bloco-detalhe" cx="${x + w * 0.75}" cy="${y + 18}" r="4" />
-        <circle class="bloco-detalhe" cx="${x + w * 0.9}" cy="${y + 18}" r="4" />
-        <rect class="bloco-detalhe" x="${x + 10}" y="${y + 48}" width="${w - 20}" height="${h - 62}" rx="2" />
-        <line class="bloco-detalhe" x1="${x + 18}" y1="${y + 59}" x2="${x + w - 18}" y2="${y + 59}" />`;
+
+    // 3. FOGÃO DE PISO
+    if (t.includes("fogao") && !t.includes("cooktop")) {
+      const altMesa = Math.max(30, h * 0.16);
+      const altPainelInferior = Math.max(25, h * 0.12);
+      return `<line class="bloco-detalhe" x1="${x}" y1="${y + altMesa}" x2="${x + w}" y2="${y + altMesa}" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.16}" cy="${y + altMesa * 0.5}" r="5" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.32}" cy="${y + altMesa * 0.5}" r="5" />
+        <rect class="bloco-detalhe" x="${x + w * 0.42}" y="${y + altMesa * 0.3}" width="${w * 0.16}" height="${altMesa * 0.4}" rx="1" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.68}" cy="${y + altMesa * 0.5}" r="5" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.84}" cy="${y + altMesa * 0.5}" r="5" />
+        <rect class="bloco-detalhe" x="${x + w * 0.1}" y="${y + altMesa + (h - altMesa - altPainelInferior) * 0.18}" width="${w * 0.8}" height="${(h - altMesa - altPainelInferior) * 0.68}" rx="3" />
+        <line class="bloco-detalhe" x1="${x + w * 0.18}" y1="${y + altMesa + (h - altMesa - altPainelInferior) * 0.1}" x2="${x + w * 0.82}" y2="${y + altMesa + (h - altMesa - altPainelInferior) * 0.1}" stroke-width="2.5" />
+        <line class="bloco-detalhe" x1="${x}" y1="${y + h - altPainelInferior}" x2="${x + w}" y2="${y + h - altPainelInferior}" />`;
     }
-    if (["forno", "microondas"].includes(tipo)) {
-      return `<rect class="bloco-detalhe" x="${x + 10}" y="${y + 35}" width="${w - 20}" height="${h - 49}" rx="2" />
-        <line class="bloco-detalhe" x1="${x + 10}" y1="${y + 25}" x2="${x + w - 10}" y2="${y + 25}" />`;
+
+    // 4. COOKTOP (Vista frontal estreita / embutimento)
+    if (t.includes("cooktop")) {
+      const altMesa = Math.max(15, h * 0.3);
+      return `<line class="bloco-detalhe" x1="${x}" y1="${y + altMesa}" x2="${x + w}" y2="${y + altMesa}" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.25}" cy="${y + altMesa * 0.5}" r="4" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.42}" cy="${y + altMesa * 0.5}" r="4" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.58}" cy="${y + altMesa * 0.5}" r="4" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.75}" cy="${y + altMesa * 0.5}" r="4" />`;
     }
-    if (tipo === "lava-loucas") {
-      return `<line class="bloco-detalhe" x1="${x}" y1="${y + 29}" x2="${x + w}" y2="${y + 29}" />
-        <line class="bloco-detalhe" x1="${x + 13}" y1="${y + 15}" x2="${x + w - 13}" y2="${y + 15}" />`;
+
+    // 5. MICRO-ONDAS — porta sempre contida na face frontal
+    if (t.includes("microondas") || t.includes("micro-ondas")) {
+      const margem = Math.max(7, Math.min(w, h) * 0.07);
+      const painelW = Math.max(22, w * 0.2);
+      const portaX = x + margem;
+      const portaY = y + margem;
+      const portaW = Math.max(24, w - painelW - margem * 3);
+      const portaH = Math.max(24, h - margem * 2);
+      const painelX = portaX + portaW + margem;
+      return `<!-- Porta panorâmica contida no gabinete -->
+        <rect class="bloco-detalhe" x="${portaX}" y="${portaY}" width="${portaW}" height="${portaH}" rx="3" />
+        <rect class="bloco-detalhe" x="${portaX + 5}" y="${portaY + 5}" width="${Math.max(14, portaW - 10)}" height="${Math.max(14, portaH - 10)}" rx="2" />
+        <!-- Painel lateral -->
+        <line class="bloco-detalhe" x1="${painelX - margem / 2}" y1="${portaY}" x2="${painelX - margem / 2}" y2="${portaY + portaH}" />
+        <rect class="bloco-detalhe" x="${painelX}" y="${portaY + 5}" width="${Math.max(12, painelW - margem)}" height="${Math.max(6, portaH * 0.14)}" rx="1" />
+        <circle class="bloco-detalhe" cx="${painelX + (painelW - margem) / 2}" cy="${portaY + portaH * 0.45}" r="2.5" />
+        <circle class="bloco-detalhe" cx="${painelX + (painelW - margem) / 2}" cy="${portaY + portaH * 0.64}" r="2.5" />
+        <line class="bloco-detalhe" x1="${portaX + 5}" y1="${portaY + 4}" x2="${portaX + portaW - 5}" y2="${portaY + 4}" stroke-width="2" />`;
     }
-    if (tipo === "soundbar") {
+
+    // 6. FORNO DE EMBUTIR
+    if (t.includes("forno")) {
+      const altPainel = Math.max(30, h * 0.18);
+      const altPuxador = y + altPainel + Math.max(8, h * 0.05);
+      const inicioVidro = altPuxador + Math.max(8, h * 0.05);
+      const altVidro = Math.max(20, y + h - inicioVidro - 10);
+      const largVidro = w * 0.76;
+      return `<!-- Painel superior com display digital -->
+        <line class="bloco-detalhe" x1="${x}" y1="${y + altPainel}" x2="${x + w}" y2="${y + altPainel}" />
+        <rect class="bloco-detalhe" x="${x + w * 0.35}" y="${y + altPainel * 0.28}" width="${w * 0.3}" height="${altPainel * 0.45}" rx="1" />
+        <!-- Puxador horizontal -->
+        <line class="bloco-detalhe" x1="${x + w * 0.15}" y1="${altPuxador}" x2="${x + w * 0.85}" y2="${altPuxador}" stroke-width="2.5" />
+        <!-- Vidro panorâmico frontal -->
+        <rect class="bloco-detalhe" x="${x + (w - largVidro) / 2}" y="${inicioVidro}" width="${largVidro}" height="${altVidro}" rx="2" />`;
+    }
+
+    // 7. LAVA-LOUÇAS
+    if (t.includes("lava") && (t.includes("louca") || t.includes("loucas"))) {
+      const altPainel = Math.max(25, h * 0.15);
+      const altRodape = y + h - Math.max(35, h * 0.12);
+      return `<!-- Painel de comando e botões -->
+        <line class="bloco-detalhe" x1="${x}" y1="${y + altPainel}" x2="${x + w}" y2="${y + altPainel}" />
+        <rect class="bloco-detalhe" x="${x + w * 0.3}" y="${y + altPainel * 0.25}" width="${w * 0.4}" height="${altPainel * 0.5}" rx="1" />
+        <!-- Friso / Pega da porta basculante -->
+        <line class="bloco-detalhe" x1="${x + w * 0.2}" y1="${y + altPainel + 10}" x2="${x + w * 0.8}" y2="${y + altPainel + 10}" />
+        <!-- Recuo inferior de rodapé de marcenaria -->
+        <line class="bloco-detalhe" x1="${x}" y1="${altRodape}" x2="${x + w}" y2="${altRodape}" stroke-dasharray="4,4" />
+        <line class="bloco-detalhe" x1="${x + w * 0.08}" y1="${altRodape}" x2="${x + w * 0.08}" y2="${y + h}" />
+        <line class="bloco-detalhe" x1="${x + w * 0.92}" y1="${altRodape}" x2="${x + w * 0.92}" y2="${y + h}" />`;
+    }
+
+    // 7. SOUNDBAR
+    if (t.includes("soundbar") || t.includes("audio")) {
       return `<circle class="bloco-detalhe" cx="${x + 15}" cy="${y + h / 2}" r="3" />
-        <circle class="bloco-detalhe" cx="${x + w - 15}" cy="${y + h / 2}" r="3" />`;
+        <circle class="bloco-detalhe" cx="${x + w - 15}" cy="${y + h / 2}" r="3" />
+        <line class="bloco-detalhe" x1="${x + 25}" y1="${y + h / 2}" x2="${x + w - 25}" y2="${y + h / 2}" stroke-dasharray="2,2" />`;
     }
+
+    // 8. GELADEIRA / REFRIGERADOR (Identifica French Door ou Duplex)
+    if (t.includes("geladeira") || t.includes("refrigerador") || t.includes("french") || t.includes("side")) {
+      if (w >= 750) {
+        // French Door / Side by Side (2 portas superiores + gavetão inferior)
+        const altGaveta = h * 0.38;
+        return `<line class="bloco-detalhe" x1="${x + w / 2}" y1="${y}" x2="${x + w / 2}" y2="${y + h - altGaveta}" />
+          <line class="bloco-detalhe" x1="${x + w / 2 - 10}" y1="${y + h * 0.15}" x2="${x + w / 2 - 10}" y2="${y + h * 0.45}" stroke-width="2" />
+          <line class="bloco-detalhe" x1="${x + w / 2 + 10}" y1="${y + h * 0.15}" x2="${x + w / 2 + 10}" y2="${y + h * 0.45}" stroke-width="2" />
+          <line class="bloco-detalhe" x1="${x}" y1="${y + h - altGaveta}" x2="${x + w}" y2="${y + h - altGaveta}" />
+          <line class="bloco-detalhe" x1="${x + w * 0.3}" y1="${y + h - altGaveta + 14}" x2="${x + w * 0.7}" y2="${y + h - altGaveta + 14}" stroke-width="2" />`;
+      }
+      // Duplex convencional
+      const divPorta = h * 0.35;
+      return `<line class="bloco-detalhe" x1="${x}" y1="${y + divPorta}" x2="${x + w}" y2="${y + divPorta}" />
+        <line class="bloco-detalhe" x1="${x + w - 12}" y1="${y + divPorta * 0.4}" x2="${x + w - 12}" y2="${y + divPorta * 0.9}" stroke-width="2" />
+        <line class="bloco-detalhe" x1="${x + w - 12}" y1="${y + divPorta + 15}" x2="${x + w - 12}" y2="${y + divPorta + (h - divPorta) * 0.4}" stroke-width="2" />`;
+    }
+
+    // Padrão genérico de fallback
     return `<line class="bloco-detalhe" x1="${x}" y1="${y + h * 0.56}" x2="${x + w}" y2="${y + h * 0.56}" />
       <line class="bloco-detalhe" x1="${x + w - 12}" y1="${y + 25}" x2="${x + w - 12}" y2="${y + h * 0.45}" />`;
   }
-
   function blocoFrontal(g, tipo) {
     const x = 48;
     const y = 42;

@@ -1,0 +1,1289 @@
+{
+  "geradoEm": "2026-09-29T13:07:02.784Z",
+  "produtosNoCatalogo": 109,
+  "documentosEncontrados": 89,
+  "produtosSemDocumento": [
+    {
+      "fabricante": "Electrolux",
+      "modelo": "29909HBB189",
+      "codigo": "COI0014",
+      "produto": "Coifa de Parede Electrolux 90cm Inox Home Pro Painel Frontal de Vidro Espelhado (CE9HP)"
+    },
+    {
+      "fabricante": "Electrolux",
+      "modelo": "03121FBA006",
+      "codigo": "FRE0012",
+      "produto": "Freezer Horizontal Electrolux 197L Inverter Bivolt Uma Porta Branco (HB200)"
+    },
+    {
+      "fabricante": "Electrolux",
+      "modelo": "02543FBA130",
+      "codigo": "GEL0032",
+      "produto": "Filtro de Água para Geladeira Electrolux DM85X, DM86X, DM86V, DM90X, DM91X, DQ90X, IQ8IS, IQ8IB e IM8IS"
+    },
+    {
+      "fabricante": "Electrolux",
+      "modelo": "02544FBA130",
+      "codigo": "GEL0033",
+      "produto": "Kit Filtro de Água para Geladeira Electrolux DM85X, DM86X, DM86V, DM90X, DM91X, DQ90X, IQ8IS e IQ8IB (3 unidades)"
+    },
+    {
+      "fabricante": "Electrolux",
+      "modelo": "02547FBA135",
+      "codigo": "GEL0034",
+      "produto": "Filtro de Água para Geladeira Electrolux DM85X, DM86X, DM86V, DM90X, DM91X, DQ90X, IQ8IS, IQ8IB e IM8IS"
+    },
+    {
+      "fabricante": "Electrolux",
+      "modelo": "10347DBA185",
+      "codigo": "MIC0003",
+      "produto": "Torre de cocção Micro-ondas de Embutir Experience ME3BC + Forno de Embutir Elétrico Cinza (OE8EW) Electrolux"
+    },
+    {
+      "fabricante": "Electrolux",
+      "modelo": "54341HBB189",
+      "codigo": "MIC0016",
+      "produto": "Micro-ondas de Embutir Electrolux 34L Inox Espelhado Home Pro com Grill e Função Tira Odor (ME3HP)"
+    },
+    {
+      "fabricante": "Samsung",
+      "modelo": "UN98DU9000GXZD",
+      "codigo": "TVV0633",
+      "produto": "TV LED 98 DU9000 4K SMART (120HZ/GAMEHUB/WIF/TIZE"
+    },
+    {
+      "fabricante": "Samsung",
+      "modelo": "RS58T5561B1/AZ",
+      "codigo": "GEL0092",
+      "produto": "Geladeira Side by Side RS58 Family Hub Black Inox 127V 608L"
+    }
+  ],
+  "baixados": [
+    {
+      "arquivo": "Electrolux/01121WBA089/001-Manual-do-usuario.pdf",
+      "url": "https://www.electrolux-ui.com/DocumentDownLoad.aspx?DocURL=2021\\A22\\240501umPT.pdf",
+      "contentType": "application/pdf; charset=utf-8",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "01121WBA089",
+          "codigo": "ADE0002",
+          "produto": "Adega de Vinho Climatizada Electrolux 12 garrafas Uma Porta Acabamento em Alumínio (ACB12)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/01362WBA135/002-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/5ed68db8-5d3b-491d-a336-d5b857c384e4/E4RM3Q/30e1387b-668e-4ba4-b78b-1c2848ab477b/ORIGINAL/30e1387b-668e-4ba4-b78b-1c2848ab477b.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "01362WBA135",
+          "codigo": "ADE0004",
+          "produto": "Adega de Vinho Climatizada Electrolux 34 Garrafas Uma Porta com Painel Digital (WSF34)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/01107FBA135__02107FBA135/003-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-b39347ab-fea7-421d-8850-91a4e89c2b77&fileName=G0043322_IM_EB100_EB10C_DIGITAL-583x1238.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "01107FBA135",
+          "codigo": "ADE0011",
+          "produto": "Cervejeira Home Bar Electrolux Frost Free 100L Porta de Vidro Preta (EB100)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "02107FBA135",
+          "codigo": "ADE0012",
+          "produto": "Cervejeira Home Bar Electrolux Frost Free 100L com Torre de Chopp e Porta de Vidro Preta (EB10C)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/29909PBI135/004-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/298ce72d-d45c-4612-bafd-203a8eb6c7eb/E4RM3Q/5a1cb0a3-dfc6-46f8-b2a7-0fd026524f5e/ORIGINAL/5a1cb0a3-dfc6-46f8-b2a7-0fd026524f5e.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "29909PBI135",
+          "codigo": "COI0003",
+          "produto": "Coifa de Ilha Electrolux 90cm Preta Pro Series com Painel Touch e Filtro Baffle (90CIV)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/29709DBA189/005-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/3289a975-6a88-4876-a76e-90d586b7c235/E4RM3Q/9630f598-8a1d-4d0a-b719-e927936c33e6/ORIGINAL/9630f598-8a1d-4d0a-b719-e927936c33e6.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "29709DBA189",
+          "codigo": "COI0018",
+          "produto": "Coifa de Parede Electrolux 70cm Inox com Painel Soft Touch e Filtros de Alumínio Laváveis (70CS)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/50807SBA235__53807UBA235/006-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/af142ecb-3b8f-4355-863e-58945b7e6f03/E4RM3Q/4a8510d3-b2cd-4f55-b322-23ca74af182e/ORIGINAL/4a8510d3-b2cd-4f55-b322-23ca74af182e.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "50807SBA235",
+          "codigo": "FOG0012",
+          "produto": "Forno de Embutir Electrolux a Gás 80L Efficient com PerfectCook360 Preto (OE8GH)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "53807UBA235",
+          "codigo": "FOG0031",
+          "produto": "Forno de Embutir Electrolux Elétrico 80L Experience com FoodSensor Preto (OE8EF)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/53801WBA235/007-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/293ce104-34b8-4a1a-9042-e21edd3380a0/E4RM3Q/0a238a80-641d-4e94-b92e-99e414d74bbc/ORIGINAL/0a238a80-641d-4e94-b92e-99e414d74bbc.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "53801WBA235",
+          "codigo": "FOG0018",
+          "produto": "Forno de Embutir Elétrico Electrolux 80L Expert Pro Series com VaporCrisp e Wi-fi (OE9XB)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/66052KBA285/008-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/d0731879-b701-4a54-8283-3f825a45be8b/E4RM3Q/9096b023-9d96-4010-94ae-2a925b512f3a/ORIGINAL/9096b023-9d96-4010-94ae-2a925b512f3a.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "66052KBA285",
+          "codigo": "FOG0025",
+          "produto": "Fogão 5 bocas Electrolux Cinza Expert Função Air Fryer, 2 Fornos, Grill e Timer (FE5AD)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/23051GBA035/009-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-c026093b-89ff-11f0-b37f-aa566e67f7ac&fileName=A29736402-A_G0050202-001_IM_ALICIA__ELUX_PTG_DIG_250812L-583x1238.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "23051GBA035",
+          "codigo": "FOG0052",
+          "produto": "Fogão 5 bocas Electrolux Preto Efficient Mesa de Vidro, PerfectCook e Grades de Ferro (FE5GB)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/33059CBB035/010-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-f11033b1-1040-11f0-b37f-ebeae565a142&fileName=A29498601-A_G0046454-001_MANUAL_INSTR_COOKTOP ELUX GLASS_Mar25_250326L-2476x1750.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "33059CBB035",
+          "codigo": "FOG0054",
+          "produto": "Cooktop 5 Bocas Gás Electrolux Mesa de Vidro Efficient Tripla Chama e Grade Aço Fosco (KE5GT)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/53807DBB235/011-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-28727fcb-2bbb-11f0-b37f-da360934cb22&fileName=G0046950_IM_TYSON_ELUX_PTG_REV001_DIGITAL 1-583x1238.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "53807DBB235",
+          "codigo": "FOG0057",
+          "produto": "Forno de Embutir Elétrico Electrolux 80L Experience Air fryer, PerfectCook360 e Painel Touch (OE8EA)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/23052GBA135/012-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-eeae696c-57a1-4d25-89be-27e9eb5940e5&fileName=A29736402-A_G0050202-001_IM_ALICIA__ELUX_PTG_DIG_250812L 2-583x1238.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "23052GBA135",
+          "codigo": "FOG0069",
+          "produto": "Fogão 5 bocas Electrolux Preto Experience Mesa de Vidro, 2 Fornos e PerfectCook360 (FE5DB)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/04182FBA006__04180FBA106/013-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-68328619-17ac-4536-a1c2-fb6f7a297e89&fileName=G0042662_IM_FARADAY_ENE_CODE_PTG_REV002_DIGITAL-583x1238.raw (1).pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "04182FBA006",
+          "codigo": "FRE0010",
+          "produto": "Freezer Vertical Electrolux Efficient 175L SmartBivolt Inverter (FEI19T)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "04180FBA106",
+          "codigo": "GEL0069",
+          "produto": "Freezer Vertical Electrolux Efficient 175L SmartBivolt Inverter (FEI19T)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/06503FBA006/014-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-31f882eb-7cf5-44cf-bc09-90dc815f0ab1&fileName=G0042662_IM_FARADAY_ENE_CODE_PTG_REV002_DIGITAL-583x1238.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "06503FBA006",
+          "codigo": "FRE0011",
+          "produto": "Freezer Horizontal Electrolux 513L SmartBivolt (HI550T)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/01051RBA106__01091RBA106__01092RBA135/015-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/c875b6bd-c33c-40dc-973f-60ecad0574c1/E4RM3Q/0bebe51d-1b8b-4728-91af-6e49b7f117a0/ORIGINAL/0bebe51d-1b8b-4728-91af-6e49b7f117a0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "01051RBA106",
+          "codigo": "GEL0011",
+          "produto": "Frigobar Electrolux 47L Efficient com Controle de Temperatura Cor Branca (EM50)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "01091RBA106",
+          "codigo": "GEL0013",
+          "produto": "Frigobar Electrolux 90L Efficient com Controle de Temperatura Preto (EM90B)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "01092RBA135",
+          "codigo": "GEL0018",
+          "produto": "Frigobar Electrolux 90L Efficient com Controle de Temperatura Preto (EM90B)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/01121RBA106/016-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-e623c32d-1aff-4fdf-82d0-584d374d9c3b&fileName=G0052317-001_UserManual_EM50T 90T 120T_Elux_Brazil-872x1238.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "01121RBA106",
+          "codigo": "GEL0022",
+          "produto": "Frigobar Electrolux 124L Efficient Bivolt Branco (EM120T)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/02623FBA130__02545FBA130/017-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-cba5cded-bfb2-4834-9948-1ffc743494d4&fileName=G0035041_IM_IM8_IM8S_IM8B_IM8IS_IQ8S_IQ8IS_IQ8IB_IQ8WS-583x1296.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "02623FBA130",
+          "codigo": "GEL0029",
+          "produto": "Geladeira Electrolux Frost Free 596L Efficient com AutoSense 3 Portas Cor Inox Look (IM8S)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "02545FBA130",
+          "codigo": "GEL0096",
+          "produto": "Geladeira Electrolux Frost Free Inverter 583L AutoSense e FlexiSpace 4 Portas Inox Espelhado Home Pro (IQ8WS)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/02500FBA130__02501FBA135/018-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-46fbea9f-c944-46c3-9a5c-4e911800e379&fileName=G0041319_IM_IM7_IM7S_IM7B_ELUX_PTG_REV006_DIGITAL-583x1296.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "02500FBA130",
+          "codigo": "GEL0066",
+          "produto": "Geladeira Electrolux Frost Free Inverter 484L Efficient AutoSense 3 Portas Inox Look (IM7S)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "02501FBA135",
+          "codigo": "GEL0067",
+          "produto": "Geladeira Electrolux Frost Free Inverter 484L Efficient AutoSense 3 Portas Black Inox Look (IM7B)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/02481FBA030/019-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-9078ffbc-ddb4-408d-a3d7-98b0dab069fa&fileName=G0040815_IM_IT70_IT70S_IT70B_IB6_IB6S_IB6B_ELUX_DIGITAL1583x1238.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "02481FBA030",
+          "codigo": "GEL0073",
+          "produto": "Geladeira Electrolux Frost Free Inverter 481L Efficient com AutoSense SmartBivolt Duplex cor Inox Look (IT70S)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/02327FBA135/020-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/2ee325cb-65bd-4358-a1e3-e699f985644a/E4RM3Q/2409179ISV/PDF/2409179ISV.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "02327FBA135",
+          "codigo": "GEL0079",
+          "produto": "Geladeira Electrolux Frost Free Inverter 323L Efficient AutoSense Inverse Black Glass (IB42G)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/02503FBA106/021-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-375e4551-4482-4daa-85ec-94d8e5045978&fileName=G0045837_IM_DB44_DB44S_IB45_IB45S_IB54_IB54S_IB54B_IB55_IB55S_IF43_IF43S_IB43B_IW43S_IF45_IF45S_IW45S-583x1296.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "02503FBA106",
+          "codigo": "GEL0081",
+          "produto": "Geladeira Electrolux Frost Free com AutoSense 481L Efficient Duplex Branca (TF71)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/01572RB1135/022-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-b4aea8ec-52cf-438b-b0f8-9edc132765a6&fileName=G0046130-002_ManualRefrigES5GB_PORT872x1238.raw_compressed.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "01572RB1135",
+          "codigo": "GEL0087",
+          "produto": "Geladeira Electrolux Frost Free Inverter 526L Efficient com AutoSense Side by Side Vidro Preto (ES5GB)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/01432RBA088/023-Manual-do-usuario.pdf",
+      "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-76ecaa34-69b0-466e-9e8d-0d8a49618c6d&fileName=ElectroluxBANGKOKLow-BIVOLT-IM-ES40SeES40B-1783x1267.raw.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "01432RBA088",
+          "codigo": "GEL0114",
+          "produto": "Geladeira Electrolux Frost Free Inverter 431L AutoSense Bivolt Side by Side Cor Inox Look (ES40S)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/24607LBA135/024-Manual-do-usuario.pdf",
+      "url": "https://www.electrolux-ui.com/DocumentDownLoad.aspx?DocURL=2019\\A17\\635302umPT.pdf",
+      "contentType": "application/pdf; charset=utf-8",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "24607LBA135",
+          "codigo": "LAL0004",
+          "produto": "Lava-Louças Electrolux 14 Serviços Preta Pro Series com Função Higienizar (LP14V)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/24601LBB189/025-Manual-do-usuario.pdf",
+      "url": "https://www.electrolux-ui.com/DocumentDownLoad.aspx?DocURL=2019\\A17\\635301umPT.pdf",
+      "contentType": "application/pdf; charset=utf-8",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "24601LBB189",
+          "codigo": "LAL0009",
+          "produto": "Lava-Louças Electrolux 14 Serviços Inox Home Pro com Função Higienizar (LP14X)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/240601LBC189/026-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/1a143a40-ec0d-49fb-80d8-6757b07eb24a/E4RM3Q/250402ZR0N/PDF/250402ZR0N.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "240601LBC189",
+          "codigo": "LAL0010",
+          "produto": "Lava-Louças Electrolux 14 Serviços Inox Home Pro com Função Higienizar 70° (LS14X)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/24601TBC135/027-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/466d74a4-06c1-4bbe-a798-d47f4f4fdbb5/E4RM3Q/a5381493-cf12-4e5e-9abc-17d552ed7770/ORIGINAL/a5381493-cf12-4e5e-9abc-17d552ed7770.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "24601TBC135",
+          "codigo": "LAL0016",
+          "produto": "Lava-Louças Electrolux 14 Serviços Preta Experience com Função Higienizar Compras (LL14P)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/2115CDBB106/028-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/b9ead352-fd45-4c3a-ab3f-843d3f96916e/E4RM3Q/250204SDEZ/PDF/250204SDEZ.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "2115CDBB106",
+          "codigo": "LAV0063",
+          "produto": "Máquina de Lavar Electrolux 14,5kg Branca Efficient Cesto inox e Jet&Clean (LEE15)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/10347PBA106__10347PBA186__10237PBA186__mais-2/029-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/f3ce8385-c4bb-48cc-9a9c-3fffdf6a2540/E4RM3Q/24112868UI/PDF/24112868UI.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "10347PBA106",
+          "codigo": "MIC0001",
+          "produto": "Micro-ondas Electrolux 36L Branco Efficient com Descongelamento Assistido (ME36B)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "10347PBA186",
+          "codigo": "MIC0004",
+          "produto": "Micro-ondas Electrolux 36L cor Inox Efficient com Descongelamento Assistido (ME36S)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "10237PBA186",
+          "codigo": "MIC0005",
+          "produto": "Micro-ondas Electrolux 23L cor Inox Efficient com Descongelamento Assistido (ME23S)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "10237PBA106",
+          "codigo": "MIC0008",
+          "produto": "Micro-ondas Electrolux 23L Branco Efficient com Descongelamento Assistido (ME23B)"
+        },
+        {
+          "fabricante": "Electrolux",
+          "modelo": "10237PBA135",
+          "codigo": "MIC0025",
+          "produto": "Micro-ondas Electrolux 23L Preto Efficient com Descongelamento Assistido (ME23P)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Electrolux/54341PBA135/030-Manual-do-usuario.pdf",
+      "url": "https://api.electrolux-medialibrary.com/asset/36b0a0d7-5e97-4d5b-8102-0bcb0ffc198c/E4RM3Q/240917XFZG/PDF/240917XFZG.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Electrolux",
+          "modelo": "54341PBA135",
+          "codigo": "MIC0007",
+          "produto": "Micro-ondas de Embutir Electrolux 34L Preto com Grill Pro Series (MV43T)"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN32H5000FGXZD/031-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202503/20250316034723001/BN68-21457A-00_SUG_F6%20H5_ZD_B-POR_241206.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN32H5000FGXZD",
+          "codigo": "TVV0648",
+          "produto": "Smart TV 32 polegadas HD H5000F 2025"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN43F6000FGXZD/032-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202503/20250324034042001/BN68-21457A-00_SUG_F6%20H5_ZD_B-POR_241206.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN43F6000FGXZD",
+          "codigo": "TVV0649",
+          "produto": "Smart TV 43 polegadas Full HD F6000F 2025"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN43U8600FGXZD/033-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=UN43U8600FG&CttFileID=10787633&CDCttType=EM&VPath=EM%2F202508%2F20250810044110001%2FBN68-22887A-01_SUG_Y25+4K+8K+UHD+QD_ZD_B-POR_250806.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN43U8600FGXZD",
+          "codigo": "TVV0650",
+          "produto": "Smart TV 43\" Crystal UHD 4K U8600F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN50U8600FGXZD/034-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=UN50U8600FG&CttFileID=10787696&CDCttType=EM&VPath=EM%2F202508%2F20250810044309001%2FBN68-22887A-01_SUG_Y25+4K+8K+UHD+QD_ZD_B-POR_250806.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN50U8600FGXZD",
+          "codigo": "TVV0651",
+          "produto": "Smart TV 50\" Crystal UHD 4K U8600F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN55U8600FGXZD/035-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=UN55U8600FG&CttFileID=10787618&CDCttType=EM&VPath=EM%2F202508%2F20250810044046001%2FBN68-22887A-01_SUG_Y25+4K+8K+UHD+QD_ZD_B-POR_250806.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN55U8600FGXZD",
+          "codigo": "TVV0652",
+          "produto": "Smart TV 55\" Crystal UHD 4K U8600F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN65U8600FGXZD/036-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=UN65U8600FG&CttFileID=10787619&CDCttType=EM&VPath=EM%2F202508%2F20250810044048001%2FBN68-22887A-01_SUG_Y25+4K+8K+UHD+QD_ZD_B-POR_250806.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN65U8600FGXZD",
+          "codigo": "TVV0653",
+          "produto": "Smart TV 65\" Crystal UHD 4K U8600F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN75U8600FGXZD/037-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=UN75U8600FG&CttFileID=10787621&CDCttType=EM&VPath=EM%2F202508%2F20250810044051001%2FBN68-22887A-01_SUG_Y25+4K+8K+UHD+QD_ZD_B-POR_250806.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN75U8600FGXZD",
+          "codigo": "TVV0654",
+          "produto": "Smart TV 75\" Crystal UHD 4K U8600F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN85U8600FGXZD/038-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=UN85U8600FG&CttFileID=10787622&CDCttType=EM&VPath=EM%2F202508%2F20250810044052001%2FBN68-22887A-01_SUG_Y25+4K+8K+UHD+QD_ZD_B-POR_250806.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN85U8600FGXZD",
+          "codigo": "TVV0655",
+          "produto": "Super Big Smart TV 85 polegadas Crystal UHD 4K U8600F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN55Q7FAAGXZD/039-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202504/20250407034559001/BN68-23161A-00_SUG_Y25%208K%20QLED%20LS_ZD_B-POR_250224.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN55Q7FAAGXZD",
+          "codigo": "TVV0656",
+          "produto": "Vision AI TV 55 polegadas QLED 4K Q7F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN65Q7FAAGXZD/040-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202503/20250331035525001/BN68-23161A-00_SUG_Y25%208K%20QLED%20LS_ZD_B-POR_250224.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN65Q7FAAGXZD",
+          "codigo": "TVV0657",
+          "produto": "Vision AI TV 65 polegadas QLED 4K Q7F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN75Q7FAAGXZD/041-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202504/20250406035308001/BN68-23161A-00_SUG_Y25%208K%20QLED%20LS_ZD_B-POR_250224.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN75Q7FAAGXZD",
+          "codigo": "TVV0658",
+          "produto": "Vision AI TV 75 polegadas QLED 4K Q7F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN55LS03FAGXZD/042-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=QN55LS03FAG&CttFileID=10800108&CDCttType=EM&VPath=EM%2F202508%2F20250815044344001%2FBN68-22748B-00_SUG_Y25+QLED+QD+LS_ZD_B-POR_250729.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN55LS03FAGXZD",
+          "codigo": "TVV0665",
+          "produto": "Vision AI TV 55 polegadas The Frame 4K LS03F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN50LS03FAGXZD/043-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=QN50LS03FAG&CttFileID=10800125&CDCttType=EM&VPath=EM%2F202508%2F20250815044518001%2FBN68-22748B-00_SUG_Y25+QLED+QD+LS_ZD_B-POR_250729.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN50LS03FAGXZD",
+          "codigo": "TVV0670",
+          "produto": "Vision AI TV 50 polegadas The Frame 4K LS03F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN55QN85FAGXZD/044-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=QN55QN85FAG&CttFileID=11211139&CDCttType=EM&VPath=EM%2F202512%2F20251218040457001%2FBN68-21775A-01_RG_Y25+QLED+QD+LS_ZD_B-POR_251114.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN55QN85FAGXZD",
+          "codigo": "TVV0674",
+          "produto": "Vision AI TV 55 polegadas Neo QLED 4K QN85F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN65QN85FAGXZD/045-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=QN65QN85FAG&CttFileID=10787816&CDCttType=EM&VPath=EM%2F202508%2F20250810044652001%2FBN68-22887A-01_SUG_Y25+4K+8K+UHD+QD_ZD_B-POR_250806.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN65QN85FAGXZD",
+          "codigo": "TVV0675",
+          "produto": "Vision AI TV 65 polegadas Neo QLED 4K QN85F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN55S90FAGXZD/046-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=QN55S90FAG&CttFileID=10800099&CDCttType=EM&VPath=EM%2F202508%2F20250815044252001%2FBN68-22748B-00_SUG_Y25+QLED+QD+LS_ZD_B-POR_250729.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN55S90FAGXZD",
+          "codigo": "TVV0676",
+          "produto": "Vision AI TV 55 polegadas OLED 4K S90F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN43QN90FAGXZD/047-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202508/20250815044418001/BN68-22748B-00_SUG_Y25%20QLED%20QD%20LS_ZD_B-POR_250729.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN43QN90FAGXZD",
+          "codigo": "TVV0677",
+          "produto": "Vision AI TV 43 polegadas Neo QLED 4K QN90F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN43Q5FAAGXZD/048-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202511/20251130040535001/BN68-23161B-00_SUG_Y25%204K%20FHD%20HD%20QD%20LS_ZD_B-POR_250822.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN43Q5FAAGXZD",
+          "codigo": "TVV0692",
+          "produto": "Smart TV 43\" QLED Full HD Q5F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN50Q7FAAGXZD/049-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202503/20250331035443001/BN68-23161A-00_SUG_Y25%208K%20QLED%20LS_ZD_B-POR_250224.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN50Q7FAAGXZD",
+          "codigo": "TVV0693",
+          "produto": "Vision AI TV 50 polegadas QLED 4K Q7F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN85Q7FAAGXZD/050-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202504/20250406035335001/BN68-23161A-00_SUG_Y25%208K%20QLED%20LS_ZD_B-POR_250224.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN85Q7FAAGXZD",
+          "codigo": "TVV0694",
+          "produto": "Super Big Vision AI TV 85 polegadas QLED 4K Q7F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN77S90FAGXZD/051-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=QN77S90FAG&CttFileID=10800116&CDCttType=EM&VPath=EM%2F202508%2F20250815044422001%2FBN68-22748B-00_SUG_Y25+QLED+QD+LS_ZD_B-POR_250729.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN77S90FAGXZD",
+          "codigo": "TVV0698",
+          "produto": "Super Big Vision AI TV 77 polegadas OLED 4K S90F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN70U8000HGXZD/052-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202606/20260604035440001/BN68-25211A-00_SUG_Y26%20TV%20ALL_ZD_B-POR_260113.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN70U8000HGXZD",
+          "codigo": "TVV0705",
+          "produto": "Smart TV Samsung Vision AI 70\" Crystal UHD 4K U8000H"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN98U9500HGXZD/053-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202607/20260718034013001/BN68-26265A-00_SUG_Y26%20TV%20ALL_ZD_B-POR_260224.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN98U9500HGXZD",
+          "codigo": "TVV0706",
+          "produto": "Smart TV Samsung Vision AI 98\" Crystal UHD 4K U9500H"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN50M75HAGXZD/054-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202607/20260708034301001/BN68-25177B-00_RG_Y26%20NEO-QLED%20M80H_ZD_B-POR_260122.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN50M75HAGXZD",
+          "codigo": "TVV0707",
+          "produto": "Combo Smart TV 50\" Mini LED 4K M75H + Soundbar HW-B400F"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN55M75HAGXZD/055-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202607/20260708034314001/BN68-26265A-00_SUG_Y26%20TV%20ALL_ZD_B-POR_260224.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN55M75HAGXZD",
+          "codigo": "TVV0708",
+          "produto": "Smart TV Samsung Vision AI 55” Mini LED 4K M75H"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN65M75HAGXZD/056-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202607/20260709041054001/BN68-25177B-00_RG_Y26%20NEO-QLED%20M80H_ZD_B-POR_260122.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN65M75HAGXZD",
+          "codigo": "TVV0709",
+          "produto": "Smart TV Samsung Vision AI 65” Mini LED 4K M75H"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/UN75M75HAGXZD/057-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202607/20260708034324001/BN68-25177B-00_RG_Y26%20NEO-QLED%20M80H_ZD_B-POR_260122.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "UN75M75HAGXZD",
+          "codigo": "TVV0710",
+          "produto": "Smart TV Samsung Vision AI 75” Mini LED 4K M75H"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN55QN70HAGXZD/058-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202605/20260531043749001/BN68-26266A-00_SUG_Y26%20TV%20ALL_ZD_B-POR_260213.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN55QN70HAGXZD",
+          "codigo": "TVV0713",
+          "produto": "Smart TV Samsung Vision AI 55\" Neo QLED 4K QN70H"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN75QN70HAGXZD/059-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202605/20260531043806001/BN68-25177B-00_RG_Y26%20NEO-QLED%20M80H_ZD_B-POR_260122.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN75QN70HAGXZD",
+          "codigo": "TVV0715",
+          "produto": "Smart TV Samsung Vision AI 75\" Neo QLED 4K QN70H"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/QN85QN70HAGXZD/060-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/EM/202605/20260531043844001/BN68-25177B-00_RG_Y26%20NEO-QLED%20M80H_ZD_B-POR_260122.0.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "QN85QN70HAGXZD",
+          "codigo": "TVV0716",
+          "produto": "Smart TV Samsung Vision AI 85\" Neo QLED 4K QN70H"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/NA30N6555TG-AZ/061-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NA30N6555TG&CttFileID=10338112&CDCttType=UM&VPath=UM%2F202504%2F20250430153504117%2FO_01._DG68-01089B-02_IB_FULL_NA30N6555TS_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "NA30N6555TG/AZ",
+          "codigo": "FOG0060",
+          "produto": "Cooktop à Gás 5 Queimadores Black Inox Wi-Fi e Dupla Chama"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/NV7B4420XAK-BZ/062-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NV7B4420XAK&CttFileID=10419129&CDCttType=UM&VPath=UM%2F202505%2F20250520151243871%2FDG68-01413J-01_IBIM_NV7000B_BZ_BPT_241119.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "NV7B4420XAK/BZ",
+          "codigo": "FOG0061",
+          "produto": "Forno Elétrico Função Air Fry e Wi-Fi 76L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/NV7B4545SAK-BZ/063-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NV7B4545SAK&CttFileID=10419129&CDCttType=UM&VPath=UM%2F202505%2F20250520151243871%2FDG68-01413J-01_IBIM_NV7000B_BZ_BPT_241119.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "NV7B4545SAK/BZ",
+          "codigo": "FOG0062",
+          "produto": "Forno Elétrico Porta Dupla Função Air Fry e Wi-Fi 76L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/NSG6DG8300SRAZ/064-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NSG6DG8300SR&CttFileID=10131892&CDCttType=UM&VPath=UM%2F202504%2F20250401153316467%2FO_DG68-01613B-01_IB_FULL_NX9100D_NSG6DG8300SRAZ_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "NSG6DG8300SRAZ",
+          "codigo": "FOG0063",
+          "produto": "Fogão Série 3 5 Bocas Inox Wi-Fi e Air Fry"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/NSG6DG8700SRAZ/065-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=NSG6DG8700SR&CttFileID=10025224&CDCttType=UM&VPath=UM%2F202412%2F20241219154231665%2FO_DG68-01615B-02_IB_HTML_NX9100D_NSG6DB870012AA_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "NSG6DG8700SRAZ",
+          "codigo": "FOG0064",
+          "produto": "Fogão Série 7 5 Bocas Inox Câmera e Air Fry"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/RS60T5200S9-AZ/066-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RS60T5200S9%2FAZ&CttFileID=11374582&CDCttType=UM&VPath=UM%2F202604%2F20260415030418069%2FOID62927-02_SBS_RS5300T_BPT_260312.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "RS60T5200S9/AZ",
+          "codigo": "GEL0038",
+          "produto": "Geladeira Side by Side RS60 com Dispenser de Água e Gelo Inox 127V 628L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/RT38DG6120S9FZ/067-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RT38DG6120S9&CttFileID=11374580&CDCttType=UM&VPath=UM%2F202604%2F20260415025442415%2FOID74620-03_TMF_RT6300D_BPT_260312.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "RT38DG6120S9FZ",
+          "codigo": "GEL0048",
+          "produto": "Geladeira Duplex RT38 Evolution com SmartThings AI Bivolt 393L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/RT42DG6630S9FZ/068-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RT42DG6630S9&CttFileID=11374580&CDCttType=UM&VPath=UM%2F202604%2F20260415025442415%2FOID74620-03_TMF_RT6300D_BPT_260312.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "RT42DG6630S9FZ",
+          "codigo": "GEL0050",
+          "produto": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/RT42DG6630B1FZ/069-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RT42DG6630B1&CttFileID=11374580&CDCttType=UM&VPath=UM%2F202604%2F20260415025442415%2FOID74620-03_TMF_RT6300D_BPT_260312.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "RT42DG6630B1FZ",
+          "codigo": "GEL0051",
+          "produto": "Geladeira Duplex RT42 Evolution com SmartThings AI Bivolt 415L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/RF27CG5910B1AZ/070-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RF27CG5910B1&CttFileID=11374583&CDCttType=UM&VPath=UM%2F202604%2F20260415031016223%2FOID72180-03_FDR_RF6500C_3Door_BPT_260312.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "RF27CG5910B1AZ",
+          "codigo": "GEL0054",
+          "produto": "Geladeira French Door RF27 Family Hub Black Inox 127V 707L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/RF29DB9950QDAZ/071-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RF29DB9950QD&CttFileID=11349848&CDCttType=UM&VPath=UM%2F202603%2F20260330163622185%2FOID75409-05_T-TYPE_RF9000D_BPT_260312.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "RF29DB9950QDAZ",
+          "codigo": "GEL0064",
+          "produto": "Geladeira Bespoke AI 4-Door French Door RF29D Family Hub 127V 809L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/RM90F66C1CAZ/072-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RM90F66C1C&CttFileID=11555526&CDCttType=UM&VPath=UM%2F202607%2F20260716093908536%2FDA68-04836M-01_T-TYPE_RF9000F_BPT_260715.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "RM90F66C1CAZ",
+          "codigo": "GEL0109",
+          "produto": "Geladeira Bespoke AI 4-Door French Door RM90F Family Hub Black Charcoal 127V 658L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/RF70H25HETAZ/073-Manual-do-usuario.pdf",
+      "url": "https://downloadcenter.samsung.com/content/UM/202609/20260917172708751/OID145843-00_FDR_RF80H_BPT_260723.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "RF70H25HETAZ",
+          "codigo": "GEL0116",
+          "produto": "Geladeira French Door RF70H com Dispenser de Água e Gelo Inox 127V 664L"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/DW60C7050FS-AZ/074-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DW60C7050FS%2FAZ&CttFileID=9107228&CDCttType=UM&VPath=UM%2F202303%2F20230328140527715%2FFULL_DW2900RM_DW60C7050FS_AZ_DD81-04329A-00_BPT_EN.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "DW60C7050FS/AZ",
+          "codigo": "LAL0002",
+          "produto": "Lava-louças 14 Serviços com limpeza silenciosa 127V"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/DW50C6070FS-AZ/075-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DW50C6070FS%2FAZ&CttFileID=9107220&CDCttType=UM&VPath=UM%2F202303%2F20230328140150042%2FFULL_DW4000RM_DW50C6070FS_AZ_DD81-04328A-00_BPT_EN.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "DW50C6070FS/AZ",
+          "codigo": "LAL0005",
+          "produto": "Lava-louças 10 Serviços com abertura automática da porta 127V"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/DW60C7050FG-AZ/076-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DW60C7050FG%2FAZ&CttFileID=9107228&CDCttType=UM&VPath=UM%2F202303%2F20230328140527715%2FFULL_DW2900RM_DW60C7050FS_AZ_DD81-04329A-00_BPT_EN.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "DW60C7050FG/AZ",
+          "codigo": "LAL0006",
+          "produto": "Lava-louças 14 Serviços com limpeza silenciosa 127V"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/DW50C6070FG-AZ/077-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DW50C6070FG%2FAZ&CttFileID=9107220&CDCttType=UM&VPath=UM%2F202303%2F20230328140150042%2FFULL_DW4000RM_DW50C6070FS_AZ_DD81-04328A-00_BPT_EN.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "DW50C6070FG/AZ",
+          "codigo": "LAL0007",
+          "produto": "Lava-louças 10 Serviços com abertura automática da porta 127V"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/DV12B6800EW-AZ/078-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DV12B6800EW%2FAZ&CttFileID=9094914&CDCttType=UM&VPath=UM%2F202303%2F20230321170419716%2FDV6900B_DC68-04394C-01_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "DV12B6800EW/AZ",
+          "codigo": "LAV0009",
+          "produto": "Secadora Elétrica DV12B com Sensor Dry Branca 220V 12kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WD11A4453BW-AZ/079-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD11A4453BW%2FAZ&CttFileID=8557297&CDCttType=UM&VPath=UM%2F202203%2F20220330165420842%2FWD11A4453BW_F_127V-220V_Bubble_03881W-00_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WD11A4453BW/AZ",
+          "codigo": "LAV0015",
+          "produto": "Lava e Seca WD11A com Ecobubble™ Branca 127V 11kg + 7kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WD11A4453BX-AZ/080-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD11A4453BX%2FAZ&CttFileID=8557297&CDCttType=UM&VPath=UM%2F202203%2F20220330165420842%2FWD11A4453BW_F_127V-220V_Bubble_03881W-00_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WD11A4453BX/AZ",
+          "codigo": "LAV0016",
+          "produto": "Lava e Seca WD11A com Ecobubble™ Inox 127V 11kg + 7kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WD18T6500GV-AZ/081-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD18T6500GV%2FAZ&CttFileID=9323907&CDCttType=UM&VPath=UM%2F202310%2F20231004140848031%2FDC68-04255B-03_IB_A1_WD6500-AD_SimpleUX_BPT_230920.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WD18T6500GV/AZ",
+          "codigo": "LAV0019",
+          "produto": "Lava e Seca Smart WD18T com AI Wash Black 127V 18kg + 10kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WH17DBH570GVAZ/082-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WH17DBH570GV&CttFileID=9687034&CDCttType=UM&VPath=UM%2F202405%2F20240517052756437%2FDC68-04394L-00_IB_H570D-AD_SimpleUX_BPT_240130.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WH17DBH570GVAZ",
+          "codigo": "LAV0026",
+          "produto": "Lavadora e Secadora Bespoke AI Laundry Hub WH17D a Gás Black 127V 17kg + 20kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WW11T4040BE-AZ/083-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WW11T4040BE&CttFileID=11299774&CDCttType=UM&VPath=UM%2F202602%2F20260226092241195%2FDC68-04363P-00_IB_WW4000T-WASHER-MD_LED_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WW11T4040BE/AZ",
+          "codigo": "LAV0028",
+          "produto": "Lavadora Porta Black WW11T Digital Inverter Branca 127V 11kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WW11T4040BX-AZ/084-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WW11T4040BX&CttFileID=11299774&CDCttType=UM&VPath=UM%2F202602%2F20260226092241195%2FDC68-04363P-00_IB_WW4000T-WASHER-MD_LED_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WW11T4040BX/AZ",
+          "codigo": "LAV0029",
+          "produto": "Lavadora Porta Black WW11T Digital Inverter Inox 127V 11kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WD20DB8995BZAZ/085-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD20DB8995BZ&CttFileID=10036723&CDCttType=UM&VPath=UM%2F202501%2F20250113154236182%2FOID77285_IB_T-PJT_WD8000D_7LCD_BPT_240724.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WD20DB8995BZAZ",
+          "codigo": "LAV0043",
+          "produto": "Lava e Seca Bespoke AI Laundry WD20D Heat Pump Inox 127V 20kg + 15kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WD13FG6B34BX-AZ/086-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD13FG6B34BXAZ&CttFileID=11113949&CDCttType=UM&VPath=UM%2F202511%2F20251114173832946%2FWeb_IB_B700_COMBO-MD_SimpleUX_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WD13FG6B34BX/AZ",
+          "codigo": "LAV0057",
+          "produto": "Lava e Seca Smart WD13FG com AI Control Inox 127V 13kg + 8kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WF90F20ADSBZ/087-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WF90F20ADS&CttFileID=10842748&CDCttType=UM&VPath=UM%2F202509%2F20250904202612604%2FOID86557_IB_WF90F-AD_7LCD_BPT_250528.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WF90F20ADSBZ",
+          "codigo": "LAV0058",
+          "produto": "Bespoke AI Laundry Lavadora WF90F AI Home | Inox | 220V | 20kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/DV90F20CDSBZ/088-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=DV90F20CDSBZ&CttFileID=11185730&CDCttType=UM&VPath=UM%2F202511%2F20251127083642955%2FOID96669_IB_DV90F_7LCD_BPT_250701.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "DV90F20CDSBZ",
+          "codigo": "LAV0059",
+          "produto": "Secadora Bespoke AI Laundry DV90F Heat Pump Inox 220V 20kg"
+        }
+      ]
+    },
+    {
+      "arquivo": "Samsung/WD13FG6B34BEAZ/089-Manual-do-usuario.pdf",
+      "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=WD13FG6B34BEAZ&CttFileID=11186239&CDCttType=UM&VPath=UM%2F202511%2F20251127145743790%2FWeb_IB_B700_COMBO-MD_SimpleUX_BPT.pdf",
+      "contentType": "application/pdf",
+      "produtos": [
+        {
+          "fabricante": "Samsung",
+          "modelo": "WD13FG6B34BEAZ",
+          "codigo": "LAV0060",
+          "produto": "Lava e Seca Smart WD13FG com AI Control Branca 127V 13kg + 8kg"
+        }
+      ]
+    }
+  ],
+  "falhas": [],
+  "totalBaixados": 89,
+  "totalFalhas": 0
+}

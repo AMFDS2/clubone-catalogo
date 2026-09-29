@@ -1108,6 +1108,105 @@ header.topbar {
   background: #f6f8fc;
   color: var(--texto);
 }
+
+/* ==================================================
+   DOWNLOAD GERAL DE MANUAIS
+================================================== */
+.secao-downloads-gerais {
+  padding: 44px clamp(24px, 6vw, 96px);
+  background: #fff;
+  border-top: 1px solid var(--borda);
+  border-bottom: 1px solid var(--borda);
+}
+
+.downloads-gerais-conteudo {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.downloads-gerais-etiqueta {
+  margin-bottom: 9px;
+  color: #263d7c;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.downloads-gerais-conteudo h2 {
+  margin: 0 0 8px;
+  color: #10275f;
+  font-family: var(--fonte-titulos);
+  font-size: clamp(22px, 2.4vw, 32px);
+}
+
+.downloads-gerais-conteudo p {
+  max-width: 650px;
+  margin: 0 0 20px;
+  color: var(--suave);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.botao-download-manuais {
+  min-height: 44px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid #263d7c;
+  border-radius: 8px;
+  background: #263d7c;
+  color: #fff;
+  font-family: var(--fonte-titulos);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.botao-download-manuais:hover {
+  border-color: #e32636;
+  background: #e32636;
+  transform: translateY(-1px);
+}
+
+.downloads-gerais-conteudo small {
+  max-width: 620px;
+  margin-top: 12px;
+  color: #7a7f89;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+@media (min-width: 901px) {
+  .secao-downloads-gerais {
+    margin-left: 340px;
+  }
+}
+
+@media (min-width: 1251px) {
+  .secao-downloads-gerais {
+    margin-left: 365px;
+  }
+}
+
+@media (max-width: 560px) {
+  .secao-downloads-gerais {
+    padding: 34px 18px;
+  }
+
+  .botao-download-manuais {
+    width: 100%;
+  }
+}
 .resumo-validacao.revisao_necessaria { border-left-color: #d99a2b; background: #fffaf1; }
 .resumo-validacao.dados_insuficientes { border-left-color: #8b8d91; background: #f7f7f7; }
 .resumo-validacao > div:first-child { display: grid; gap: 3px; }
@@ -1447,7 +1546,7 @@ body:not(.campanha-fechada) { padding-bottom: 72px; }
 }
 .campanha-reabrir span { font-size: 18px; }
 .campanha-reabrir strong { font-family: var(--fonte-titulos); font-size: 9px; letter-spacing: .14em; }
-.campanha-reabrir small { padding-left: 9px; border-left: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.72); font-size: 8px; }
+.campanha-reabrir small { padding-left: 9px; border-left: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.72); font-size: 9px; }
 .campanha-reabrir i { color: rgba(255,255,255,.55); font-size: 14px; font-style: normal; }
 .campanha-reabrir:hover { border-color: #e4b45a; transform: translateY(-1px); }
 .campanha-fechada .campanha-reabrir { display: grid; }
