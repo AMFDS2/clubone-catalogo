@@ -789,9 +789,9 @@ function criarVistasTecnicasGenericas(produto = {}, dados = {}) {
     </svg>` : indisponivel(nome);
 
   return `<div class="vistas-projeto-grade">
-    <section class="vista-projeto-card">${cabecalho("Vista frontal", "Largura × altura", [dimensoes.largura, dimensoes.altura])}${desenho(largura, altura, "largura", "altura", "frontal")}</section>
-    <section class="vista-projeto-card">${cabecalho("Vista lateral", "Profundidade × altura", [dimensoes.profundidade, dimensoes.altura])}${desenho(profundidade, altura, "profundidade", "altura", "lateral")}</section>
-    <section class="vista-projeto-card">${cabecalho("Vista superior", "Largura × profundidade", [dimensoes.largura, dimensoes.profundidade])}${desenho(largura, profundidade, "largura", "profundidade", "superior")}</section>
+    <section class="vista-projeto-card ${largura && altura ? "" : "vista-pendente"}">${cabecalho("Vista frontal", "Largura × altura", [dimensoes.largura, dimensoes.altura])}${desenho(largura, altura, "largura", "altura", "frontal")}</section>
+    <section class="vista-projeto-card ${profundidade && altura ? "" : "vista-pendente"}">${cabecalho("Vista lateral", "Profundidade × altura", [dimensoes.profundidade, dimensoes.altura])}${desenho(profundidade, altura, "profundidade", "altura", "lateral")}</section>
+    <section class="vista-projeto-card ${largura && profundidade ? "" : "vista-pendente"}">${cabecalho("Vista superior", "Largura × profundidade", [dimensoes.largura, dimensoes.profundidade])}${desenho(largura, profundidade, "largura", "profundidade", "superior")}</section>
     <section class="vista-projeto-card vista-produto-real">${cabecalho("Imagem do produto", "Referência visual — sem valor de cota", [])}<img src="${escaparHTML(imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)}"></section>
   </div>`;
 }
@@ -829,10 +829,12 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const referenciaSuperior = referencia(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta);
   const referenciaLateral = referencia(geometria.profundidadeGabinete, geometria.profundidadeTotalProduto, dimensoes.profundidade, geometria.profundidadeComPortasAbertas);
   const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
-  const quatroPortas = /4 portas|quatro portas|iq8|multidoor|multi door/.test(textoProduto);
-  const tresPortas = !quatroPortas && /3 portas|tres portas|im7|im8|french|rf70|rf80/.test(textoProduto);
+  const molde = normalizarTexto(produto.moldeTecnico || produto.familiaTecnica || "");
+  const modeloNormalizado = normalizarTexto(produto.modelo || "").replace(/\s/g, "");
+  const sideBySide = /side by side/.test(molde) || /side by side|rs60|rs58/.test(textoProduto) || /^01572rb1135/.test(modeloNormalizado);
+  const quatroPortas = !sideBySide && (/quatro portas/.test(molde) || /4 portas|quatro portas|iq8|multidoor|multi door|rf29|rf27/.test(textoProduto));
+  const tresPortas = !sideBySide && !quatroPortas && (/tres portas|french door/.test(molde) || /3 portas|tres portas|im7|im8|french|rf70|rf80/.test(textoProduto));
   const frenchDoor = quatroPortas || tresPortas;
-  const sideBySide = produto.moldeTecnico === "geladeira-side-by-side" || produto.familiaTecnica === "side-by-side" || /side by side|rs60|rs58/.test(textoProduto);
   const duasPortasVerticais = frenchDoor || sideBySide;
   const aberturaConfirmada = Boolean(angulo || anguloEsquerda || anguloDireita || larguraPortasAbertas || profundidadePortasAbertas || gavetas);
   const frontalConfirmada = Boolean(largura && altura);
@@ -903,7 +905,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
 
   return `
     <div class="vistas-projeto-grade">
-      <section class="vista-projeto-card">
+      <section class="vista-projeto-card ${frontalConfirmada ? "" : "vista-pendente"}">
         ${cabecalho("Vista frontal", "Produto, nicho e folgas técnicas", paginaFrontal, referenciaFrontal)}
         ${frontalConfirmada ? `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do refrigerador">
           <defs><marker id="seta-frente" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker></defs>
@@ -927,11 +929,11 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
           </g>
         </svg>` : `<div class="vista-indisponivel"><span>—</span><strong>Vista frontal aguardando cotas</strong><p>Largura e altura precisam estar confirmadas no manual antes de gerar o desenho.</p></div>`}
       </section>
-      <section class="vista-projeto-card">
+      <section class="vista-projeto-card ${largura && profundidade ? "" : "vista-pendente"}">
         ${cabecalho("Vista superior", sideBySide ? "Abertura independente das portas" : `Abertura${gavetas ? ` — gavetas: ${escaparHTML(gavetas)}` : ""}`, paginaSuperior, referenciaSuperior)}
         ${vistaSuperior}
       </section>
-      <section class="vista-projeto-card">
+      <section class="vista-projeto-card ${altura && profundidade ? "" : "vista-pendente"}">
         ${cabecalho("Vista lateral", "Profundidade total e profundidade do gabinete", paginaLateral, referenciaLateral)}
         ${altura && profundidade ? `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista lateral técnica do refrigerador">
           <defs><marker id="seta-lateral" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker></defs>
@@ -944,6 +946,77 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
         </svg>` : `<div class="vista-indisponivel"><span>—</span><strong>Vista lateral aguardando cotas</strong><p>Altura e profundidade precisam estar confirmadas.</p></div>`}
       </section>
     </div>`;
+}
+
+function obterDimensoesParaBlocagem(produto = {}) {
+  const dimensoesCadastradas = produto.dimensoes || {};
+  const grupoCadastrado = dimensoesCadastradas.produto || dimensoesCadastradas;
+  const possuiDimensoesCadastradas = [
+    grupoCadastrado.largura,
+    grupoCadastrado.altura,
+    grupoCadastrado.profundidade
+  ].some(valor => valor !== undefined && valor !== null && String(valor).trim() !== "");
+
+  if (possuiDimensoesCadastradas) return dimensoesCadastradas;
+
+  const medidasProjeto = produto.medidasProjeto || {};
+  const dimensoesAtuais = medidasProjeto.dimensoesProduto || {};
+  const dimensoesLegadas = medidasProjeto["dimensoes Fisicas"] || medidasProjeto.dimensoesFisicas || {};
+
+  const obterCampoConfirmado = (...campos) => {
+    for (const campo of campos) {
+      if (campo === undefined || campo === null || campo === "") continue;
+
+      if (typeof campo !== "object") return campo;
+
+      const status = String(campo.status || "").toUpperCase();
+      const valor = campo.valor;
+      if (valor === undefined || valor === null || valor === "") continue;
+
+      if (!status || status === "CONFIRMADO" || status === "MANUAL_VALIDADO") {
+        return valor;
+      }
+    }
+    return "";
+  };
+
+  const comUnidade = (valor, unidade) => {
+    if (valor === undefined || valor === null || String(valor).trim() === "") return "";
+    const texto = String(valor).trim();
+    return /[a-zA-Z]/.test(texto) ? texto : `${texto} ${unidade}`;
+  };
+
+  const largura = comUnidade(obterCampoConfirmado(
+    dimensoesAtuais.largura,
+    dimensoesAtuais.larguraExternaProduto,
+    dimensoesLegadas.largura,
+    dimensoesLegadas.larguraExternaProduto
+  ), "mm");
+
+  const altura = comUnidade(obterCampoConfirmado(
+    dimensoesAtuais.altura,
+    dimensoesAtuais.alturaExternaProduto,
+    dimensoesLegadas.altura,
+    dimensoesLegadas.alturaExternaProduto
+  ), "mm");
+
+  const profundidade = comUnidade(obterCampoConfirmado(
+    dimensoesAtuais.profundidade,
+    dimensoesAtuais.profundidadeExternaProduto,
+    dimensoesLegadas.profundidade,
+    dimensoesLegadas.profundidadeExternaProduto
+  ), "mm");
+
+  const peso = comUnidade(obterCampoConfirmado(
+    dimensoesAtuais.peso,
+    dimensoesAtuais.pesoLiquido,
+    dimensoesLegadas.peso,
+    dimensoesLegadas.pesoLiquido
+  ), "kg");
+
+  return {
+    produto: { largura, altura, profundidade, peso }
+  };
 }
 
 function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
@@ -963,10 +1036,12 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   const destaques = criarDestaques(produto.destaques);
   const especificacoes = criarEspecificacoes(produto.especificacoes);
   
-  // O seu blocagem.js atua aqui.
+  // A blocagem usa primeiro as dimensões do cadastro e, quando elas estiverem
+  // vazias, reaproveita somente medidas confirmadas extraídas do manual.
+  const dimensoesFonte = obterDimensoesParaBlocagem(produto);
   const dimensoes = typeof criarBlocagemDimensional === "function"
-    ? criarBlocagemDimensional(produto.dimensoes || {}, produto)
-    : criarDimensoes(produto.dimensoes || {}, produto);
+    ? criarBlocagemDimensional(dimensoesFonte, produto)
+    : criarDimensoes(dimensoesFonte, produto);
   const medidasProjeto = criarMedidasProjeto(produto, dimensoes);
     
   const documentos = criarDocumentos(produto.documentos);
@@ -988,7 +1063,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   // NOVA LÓGICA: Montar a Tabela da IA de forma independente
   const ia = produto.medidasIA;
-  const tabelaIA = ia ? `
+  const tabelaIA = ia && !produto.medidasProjeto ? `
     <div style="margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
       <h4 style="margin-top: 0; margin-bottom: 15px; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Manuais Oficiais)</h4>
       <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
@@ -1193,7 +1268,8 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   const ehTV = categoriaProduto === "video" || textoProduto.startsWith("tv ") || textoProduto.includes(" tv ") || textoProduto.includes("televisor");
   const ehCooktop = textoProduto.includes("cooktop");
   const ehFogao = textoProduto.startsWith("fog ") || textoProduto.includes(" fog ") || textoProduto.includes("fogao") || modeloProduto.startsWith("nsg");
-  const ehForno = textoProduto.includes("forno") || textoProduto.includes("micro-ondas") || textoProduto.includes("microondas");
+  const ehMicroondas = /micro[- ]?ondas|microondas/.test(textoProduto) || /^(mg|ms|mc)/.test(modeloProduto);
+  const ehForno = !ehMicroondas && textoProduto.includes("forno");
   const ehLavadora = textoProduto.includes("lava e seca") || textoProduto.includes("lavadora") || textoProduto.includes("maquina de lavar") || textoProduto.includes("maq lav") || textoProduto.includes("lav roupa") || modeloProduto.startsWith("ww") || modeloProduto.startsWith("wd");
   const ehLavaLoucas = textoProduto.includes("lava loucas") || textoProduto.includes("lava-loucas") || textoProduto.includes("lava louca") || modeloProduto.startsWith("dw");
   const ehFreezerHorizontal = /freezer horizontal|freezer chest|horizontal freezer/.test(textoProduto);
@@ -1232,11 +1308,25 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   let formaProduto = "";
 
   if (ehTV) {
-    formaProduto = `<g class="forma-produto forma-tv"><rect x="25" y="46" width="165" height="98" rx="3"></rect><rect x="33" y="54" width="149" height="82" rx="1" class="tela-tv"></rect><line x1="107" y1="144" x2="107" y2="163"></line><line x1="76" y1="164" x2="138" y2="164"></line><path d="M190 46 L198 52 L198 138 L190 144"></path></g>`;
+    formaProduto = `<g class="forma-produto forma-tv"><rect x="25" y="46" width="165" height="98" rx="3"></rect><rect x="33" y="54" width="149" height="82" rx="1" class="tela-tv"></rect><path d="M190 46 L198 52 L198 138 L190 144"></path></g>`;
   } else if (ehCooktop) {
     formaProduto = `<g class="forma-produto forma-cooktop"><path d="M29 79 L154 57 L190 87 L63 112 Z"></path><path d="M63 112 L190 87 L190 101 L63 127 Z"></path><path d="M29 79 L63 112 L63 127 L29 94 Z"></path><ellipse cx="72" cy="88" rx="16" ry="9"></ellipse><ellipse cx="122" cy="78" rx="16" ry="9"></ellipse><ellipse cx="104" cy="104" rx="15" ry="8"></ellipse><ellipse cx="154" cy="94" rx="15" ry="8"></ellipse></g>`;
   } else if (ehFogao) {
     formaProduto = `<g class="forma-produto forma-fogao"><rect x="55" y="47" width="110" height="137" rx="3"></rect><path d="M55 47 L151 47 L174 62 L76 62 Z"></path><rect x="61" y="63" width="98" height="25" rx="2"></rect><circle cx="74" cy="75" r="4"></circle><circle cx="89" cy="75" r="4"></circle><circle cx="131" cy="75" r="4"></circle><circle cx="146" cy="75" r="4"></circle><rect x="98" y="70" width="23" height="10" rx="1"></rect><rect x="66" y="98" width="88" height="66" rx="2"></rect><line x1="75" y1="108" x2="145" y2="108"></line><path d="M165 70 L174 62 L174 169 L165 184"></path><line x1="68" y1="184" x2="68" y2="190"></line><line x1="151" y1="184" x2="151" y2="190"></line></g>`;
+  } else if (ehMicroondas) {
+    formaProduto = `<g class="forma-produto forma-microondas">
+      <rect x="34" y="65" width="139" height="91" rx="4"></rect>
+      <path d="M34 65 L49 53 L188 53 L173 65 Z"></path>
+      <path d="M173 65 L188 53 L188 143 L173 156 Z"></path>
+      <rect x="43" y="75" width="96" height="69" rx="3" class="porta-vidro"></rect>
+      <rect x="48" y="80" width="86" height="59" rx="2"></rect>
+      <line x1="143" y1="75" x2="143" y2="144"></line>
+      <rect x="149" y="81" width="18" height="9" rx="1"></rect>
+      <circle cx="158" cy="102" r="3"></circle>
+      <circle cx="158" cy="115" r="3"></circle>
+      <circle cx="158" cy="128" r="3"></circle>
+      <line x1="52" y1="70" x2="132" y2="70"></line>
+    </g>`;
   } else if (ehForno) {
     formaProduto = `<g class="forma-produto forma-forno"><rect x="55" y="38" width="104" height="142" rx="3"></rect><rect x="64" y="72" width="86" height="86" rx="2"></rect><line x1="64" y1="61" x2="150" y2="61"></line><circle cx="75" cy="50" r="3"></circle><circle cx="88" cy="50" r="3"></circle><path d="M159 38 L174 49 L174 168 L159 180"></path></g>`;
   } else if (ehLavadora) {
