@@ -605,6 +605,54 @@ function atualizarResumoFiltroMedidas() {
   resumo.innerHTML = `<strong>${totalComMedidas}</strong> ${totalComMedidas === 1 ? "produto compatível" : "produtos compatíveis"}<span>${escaparHTML([tipoSelecionado, medidasInformadas].filter(Boolean).join(" • "))}</span>`;
 }
 
+function produtoPossuiVistaTecnica(produto = {}) {
+  const dados = produto.medidasProjeto;
+  if (!dados || typeof dados !== "object") return false;
+
+  const dimensoes = dados.dimensoesProduto || {};
+  const geometria = dados.geometriaInstalacao || {};
+  const abertura = dados.abertura || {};
+  const confirmado = campo => Boolean(
+    campo &&
+    campo.status === "CONFIRMADO" &&
+    campo.valor !== undefined &&
+    campo.valor !== null &&
+    String(campo.valor).trim()
+  );
+
+  const largura = confirmado(geometria.larguraProduto) || confirmado(dimensoes.largura);
+  const altura = confirmado(geometria.alturaProduto) || confirmado(dimensoes.altura);
+  const profundidade = confirmado(geometria.profundidadeTotalProduto) || confirmado(dimensoes.profundidade);
+  const textoProduto = normalizarTexto(`${produto.tipoBloco || ""} ${produto.nome || ""} ${produto.modelo || ""}`);
+
+  // Produtos genéricos precisam de dois eixos confirmados para formar ao
+  // menos uma vista: frontal, lateral ou superior.
+  if (!/geladeira|refrigerador|adega|freezer/.test(textoProduto)) {
+    return (largura && altura) || (altura && profundidade) || (largura && profundidade);
+  }
+
+  // Refrigeração também pode ter uma planta de abertura válida mesmo quando
+  // o manual não informa todos os três eixos externos no mesmo quadro.
+  const aberturaConfirmada = [
+    geometria.anguloAbertura,
+    geometria.anguloAberturaEsquerda,
+    geometria.anguloAberturaDireita,
+    geometria.larguraComPortasAbertas,
+    geometria.profundidadeComPortasAbertas,
+    geometria.profundidadeComGavetasEstendidas,
+    abertura.anguloPorta,
+    abertura.distanciaPortasAbertas,
+    abertura.distanciaGavetasEstendidas
+  ].some(confirmado);
+
+  return Boolean(
+    (largura && altura) ||
+    (altura && profundidade) ||
+    (largura && profundidade) ||
+    aberturaConfirmada
+  );
+}
+
 function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
   const dados = produto.medidasProjeto;
 
@@ -1042,7 +1090,8 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   const dimensoes = typeof criarBlocagemDimensional === "function"
     ? criarBlocagemDimensional(dimensoesFonte, produto)
     : criarDimensoes(dimensoesFonte, produto);
-  const medidasProjeto = criarMedidasProjeto(produto, dimensoes);
+  const exibirMedidasProjeto = produtoPossuiVistaTecnica(produto);
+  const medidasProjeto = exibirMedidasProjeto ? criarMedidasProjeto(produto, dimensoes) : "";
     
   const documentos = criarDocumentos(produto.documentos);
   const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
@@ -1119,7 +1168,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
     <div class="area-tecnica">
       <nav class="tabs" aria-label="Informações do produto">
         <button type="button" class="tab ativo" data-tab="especificacoes">Especificações</button>
-        <button type="button" class="tab" data-tab="dimensoes">Medidas para projeto ${produto.medidasProjeto ? '<span class="tab-selo-ia">IA</span>' : ""}</button>
+        ${exibirMedidasProjeto ? `<button type="button" class="tab" data-tab="dimensoes">Medidas para projeto <span class="tab-selo-ia">IA</span></button>` : ""}
         <button type="button" class="tab" data-tab="documentos">Downloads</button>
       </nav>
 
@@ -1137,9 +1186,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
         </div>
       </section>
 
-      <section class="painel-tab" id="painel-dimensoes">
-        ${medidasProjeto}
-      </section>
+      ${exibirMedidasProjeto ? `<section class="painel-tab" id="painel-dimensoes">${medidasProjeto}</section>` : ""}
 
       <section class="painel-tab" id="painel-documentos">
         <div class="card-documentos">
