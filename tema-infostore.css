@@ -1263,3 +1263,83 @@ body:has(.drawer-favoritos:not(.hidden)) .campanha-reabrir {
     max-height: 300px !important;
   }
 }
+/* =========================================================
+   ESCALA AUTOMÁTICA POR TIPO DE PRODUTO
+   ========================================================= */
+
+/* Configuração padrão */
+.produto-imagem-principal {
+  height: 500px !important;
+  min-height: 500px !important;
+  max-height: 500px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.produto-imagem-principal img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  padding: 12px !important;
+  box-sizing: border-box !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+  transform-origin: center !important;
+}
+
+/* Geladeiras, refrigeradores e Side by Side */
+.produto-imagem-principal:has(img[alt*="geladeira" i]) img,
+.produto-imagem-principal:has(img[alt*="refrigerador" i]) img,
+.produto-imagem-principal:has(img[alt*="side by side" i]) img,
+.produto-imagem-principal:has(img[alt*="french door" i]) img {
+  transform: scale(1.38) !important;
+}
+
+/* Adegas, cervejeiras e frigobares */
+.produto-imagem-principal:has(img[alt*="adega" i]) img,
+.produto-imagem-principal:has(img[alt*="cervejeira" i]) img,
+.produto-imagem-principal:has(img[alt*="frigobar" i]) img {
+  transform: scale(0.88) !important;
+}
+
+/* Tablet */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .produto-imagem-principal {
+    height: 410px !important;
+    min-height: 410px !important;
+    max-height: 410px !important;
+  }
+
+  .produto-imagem-principal:has(img[alt*="geladeira" i]) img,
+  .produto-imagem-principal:has(img[alt*="refrigerador" i]) img,
+  .produto-imagem-principal:has(img[alt*="side by side" i]) img,
+  .produto-imagem-principal:has(img[alt*="french door" i]) img {
+    transform: scale(1.25) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .produto-imagem-principal {
+    height: 340px !important;
+    min-height: 340px !important;
+    max-height: 340px !important;
+  }
+
+  .produto-imagem-principal:has(img[alt*="geladeira" i]) img,
+  .produto-imagem-principal:has(img[alt*="refrigerador" i]) img,
+  .produto-imagem-principal:has(img[alt*="side by side" i]) img,
+  .produto-imagem-principal:has(img[alt*="french door" i]) img {
+    transform: scale(1.16) !important;
+  }
+
+  .produto-imagem-principal:has(img[alt*="adega" i]) img,
+  .produto-imagem-principal:has(img[alt*="cervejeira" i]) img,
+  .produto-imagem-principal:has(img[alt*="frigobar" i]) img {
+    transform: scale(0.92) !important;
+  }
+}
