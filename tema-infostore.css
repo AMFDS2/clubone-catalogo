@@ -1163,3 +1163,103 @@ body:has(.drawer-favoritos:not(.hidden)) .campanha-reabrir {
   .contato-card { padding: 13px !important; }
   .contato-card p { display: none; }
 }
+/* ==========================================================
+   GALERIA PRINCIPAL — TAMANHO PADRONIZADO
+========================================================== */
+
+@media (min-width: 1181px) {
+  .produto-hero {
+    grid-template-columns: minmax(320px, 40%) minmax(0, 60%) !important;
+    align-items: stretch !important;
+  }
+
+  .produto-media {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 500px !important;
+    align-items: stretch !important;
+  }
+
+  .produto-imagem-principal {
+    width: 100% !important;
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    overflow: hidden !important;
+    background: transparent !important;
+  }
+
+  .produto-imagem-principal img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+
+    padding: 14px !important;
+    box-sizing: border-box !important;
+
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .galeria-miniaturas {
+    height: 500px !important;
+    max-height: 500px !important;
+    justify-content: flex-start !important;
+  }
+}
+
+/* Notebook e tablet horizontal */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .produto-imagem-principal {
+    height: 400px !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+  }
+
+  .produto-imagem-principal img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    object-fit: contain !important;
+  }
+
+  .galeria-miniaturas {
+    height: 400px !important;
+    max-height: 400px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .produto-imagem-principal {
+    width: 100% !important;
+    height: 340px !important;
+    min-height: 340px !important;
+    max-height: 340px !important;
+  }
+
+  .produto-imagem-principal img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .produto-imagem-principal {
+    height: 300px !important;
+    min-height: 300px !important;
+    max-height: 300px !important;
+  }
+}
