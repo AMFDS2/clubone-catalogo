@@ -83,7 +83,7 @@ header.topbar {
 }
 
 .logo-club { width: 110px !important; max-width: 165px !important; height: 50px !important; max-height: 50px !important; object-fit: contain !important; }
-.logo-info { width: 90px !important; max-width: 82px !important; height: 42px !important; max-height: 42px !important; object-fit: contain !important; }
+.logo-info { width: 120px !important; max-width: 120px !important; height: 90px !important; max-height: 90px !important; object-fit: contain !important; }
 .separador-logo { width: 1px !important; height: 38px !important; background: #ffffff4d !important; }
 
 /* Botão de Favoritos da Topbar */
@@ -2169,3 +2169,7 @@ header.topbar {
     margin-bottom: 0 !important;
   }
 }
+
+.descricao-climatizacao { margin: 0 0 28px; max-width: 1000px; line-height: 1.65; }
+.descricao-climatizacao h3 { color: #183568; margin: 0 0 12px; }
+.descricao-climatizacao p { margin: 0 0 14px; }
