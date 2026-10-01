@@ -605,51 +605,118 @@ function atualizarResumoFiltroMedidas() {
   resumo.innerHTML = `<strong>${totalComMedidas}</strong> ${totalComMedidas === 1 ? "produto compatível" : "produtos compatíveis"}<span>${escaparHTML([tipoSelecionado, medidasInformadas].filter(Boolean).join(" • "))}</span>`;
 }
 
-function produtoPossuiVistaTecnica(produto = {}) {
-  const dados = produto.medidasProjeto;
-  if (!dados || typeof dados !== "object") return false;
+function obterDimensoesConfirmadasProduto(produto = {}) {
+  const dados = produto.medidasProjeto || {};
+  const dimensoesProjeto = dados.dimensoesProduto || {};
+  const dimensoesFisicas = dados.dimensoesFisicasProduto || {};
+  const dimensoesLegadas =
+    dados["dimensoes Fisicas"] ||
+    dados.dimensoesFisicas ||
+    {};
 
-  const dimensoes = dados.dimensoesProduto || {};
-  const geometria = dados.geometriaInstalacao || {};
-  const abertura = dados.abertura || {};
-  const confirmado = campo => Boolean(
-    campo &&
-    campo.status === "CONFIRMADO" &&
-    campo.valor !== undefined &&
-    campo.valor !== null &&
-    String(campo.valor).trim()
-  );
+  const dimensoesCadastro =
+    produto.dimensoes?.produto ||
+    produto.dimensoes ||
+    {};
 
-  const largura = confirmado(geometria.larguraProduto) || confirmado(dimensoes.largura);
-  const altura = confirmado(geometria.alturaProduto) || confirmado(dimensoes.altura);
-  const profundidade = confirmado(geometria.profundidadeTotalProduto) || confirmado(dimensoes.profundidade);
-  const textoProduto = normalizarTexto(`${produto.tipoBloco || ""} ${produto.nome || ""} ${produto.modelo || ""}`);
+  function campoConfirmado(...campos) {
+    for (const campo of campos) {
+      if (campo === null || campo === undefined || campo === "") continue;
 
-  // Produtos genéricos precisam de dois eixos confirmados para formar ao
-  // menos uma vista: frontal, lateral ou superior.
-  if (!/geladeira|refrigerador|adega|freezer/.test(textoProduto)) {
-    return (largura && altura) || (altura && profundidade) || (largura && profundidade);
+      if (typeof campo !== "object") {
+        return {
+          valor: String(campo).trim(),
+          pagina: "Fonte oficial",
+          referencia: "Cadastro dimensional oficial do produto",
+          status: "CONFIRMADO",
+          fonte: "CADASTRO_OFICIAL"
+        };
+      }
+
+      const status = String(campo.status || "").toUpperCase();
+      let valor = campo.valor;
+      if (valor === null || valor === undefined || String(valor).trim() === "") continue;
+      if (status && status !== "CONFIRMADO" && status !== "MANUAL_VALIDADO") continue;
+
+      valor = String(valor).trim();
+      if (campo.unidade && !/[a-zA-Z]/.test(valor)) valor = `${valor} ${campo.unidade}`;
+      return { ...campo, valor, status: "CONFIRMADO" };
+    }
+    return {};
   }
 
-  // Refrigeração também pode ter uma planta de abertura válida mesmo quando
-  // o manual não informa todos os três eixos externos no mesmo quadro.
-  const aberturaConfirmada = [
-    geometria.anguloAbertura,
-    geometria.anguloAberturaEsquerda,
-    geometria.anguloAberturaDireita,
-    geometria.larguraComPortasAbertas,
-    geometria.profundidadeComPortasAbertas,
-    geometria.profundidadeComGavetasEstendidas,
-    abertura.anguloPorta,
-    abertura.distanciaPortasAbertas,
-    abertura.distanciaGavetasEstendidas
-  ].some(confirmado);
+  return {
+    largura: campoConfirmado(
+      dimensoesProjeto.largura,
+      dimensoesProjeto.larguraExternaProduto,
+      dimensoesFisicas.largura,
+      dimensoesFisicas.larguraProduto,
+      dimensoesLegadas.largura,
+      dimensoesLegadas.larguraProduto,
+      dimensoesLegadas.larguraExternaProduto,
+      dimensoesCadastro.largura
+    ),
+    altura: campoConfirmado(
+      dimensoesProjeto.altura,
+      dimensoesProjeto.alturaExternaProduto,
+      dimensoesFisicas.altura,
+      dimensoesFisicas.alturaProduto,
+      dimensoesLegadas.altura,
+      dimensoesLegadas.alturaProduto,
+      dimensoesLegadas.alturaExternaProduto,
+      dimensoesCadastro.altura
+    ),
+    profundidade: campoConfirmado(
+      dimensoesProjeto.profundidade,
+      dimensoesProjeto.profundidadeTotalProduto,
+      dimensoesFisicas.profundidade,
+      dimensoesFisicas.profundidadeProduto,
+      dimensoesFisicas.profundidadeTotalProduto,
+      dimensoesLegadas.profundidade,
+      dimensoesLegadas.profundidadeProduto,
+      dimensoesLegadas.profundidadeTotalProduto,
+      dimensoesCadastro.profundidade
+    )
+  };
+}
+
+function produtoPossuiVistaTecnica(produto = {}) {
+  const dimensoesConfirmadas = obterDimensoesConfirmadasProduto(produto);
+
+  function possuiValor(campo) {
+    if (campo === null || campo === undefined) return false;
+
+    if (typeof campo !== "object") {
+      return String(campo).trim() !== "";
+    }
+
+    const valor = campo.valor;
+
+    if (
+      valor === null ||
+      valor === undefined ||
+      String(valor).trim() === ""
+    ) {
+      return false;
+    }
+
+    const status = String(campo.status || "").toUpperCase();
+
+    return (
+      !status ||
+      status === "CONFIRMADO" ||
+      status === "MANUAL_VALIDADO"
+    );
+  }
+
+  const largura = possuiValor(dimensoesConfirmadas.largura);
+  const altura = possuiValor(dimensoesConfirmadas.altura);
+  const profundidade = possuiValor(dimensoesConfirmadas.profundidade);
 
   return Boolean(
     (largura && altura) ||
     (altura && profundidade) ||
-    (largura && profundidade) ||
-    aberturaConfirmada
+    (largura && profundidade)
   );
 }
 
@@ -700,7 +767,7 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
       </section>`;
   }
 
-  const dimensoesProduto = dados.dimensoesProduto || {};
+  const dimensoesProduto = obterDimensoesConfirmadasProduto(produto);
   const dimensoesNicho = dados.dimensoesNicho || {};
   const folgas = dados.folgas || {};
   const abertura = dados.abertura || {};
@@ -804,7 +871,7 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
 }
 
 function criarVistasTecnicasGenericas(produto = {}, dados = {}) {
-  const dimensoes = dados.dimensoesProduto || {};
+  const dimensoes = obterDimensoesConfirmadasProduto(produto);
   const nicho = dados.dimensoesNicho || {};
   const valor = campo => campo?.status === "CONFIRMADO" && campo?.valor ? campo.valor : "";
   const largura = valor(dimensoes.largura) || valor(dados.geometriaInstalacao?.larguraProduto);
@@ -848,7 +915,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const textoProduto = normalizarTexto(`${produto.tipoBloco || ""} ${produto.nome || ""} ${produto.modelo || ""}`);
   if (!/geladeira|refrigerador|adega|freezer/.test(textoProduto)) return criarVistasTecnicasGenericas(produto, dados);
 
-  const dimensoes = dados.dimensoesProduto || {};
+  const dimensoes = obterDimensoesConfirmadasProduto(produto);
   const folgas = dados.folgas || {};
   const abertura = dados.abertura || {};
   const geometria = dados.geometriaInstalacao || {};
@@ -998,6 +1065,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
 
 function obterDimensoesParaBlocagem(produto = {}) {
   const dimensoesCadastradas = produto.dimensoes || {};
+  if (dimensoesCadastradas.evaporadora || dimensoesCadastradas.condensadora) return dimensoesCadastradas;
   const grupoCadastrado = dimensoesCadastradas.produto || dimensoesCadastradas;
   const possuiDimensoesCadastradas = [
     grupoCadastrado.largura,
@@ -1007,60 +1075,11 @@ function obterDimensoesParaBlocagem(produto = {}) {
 
   if (possuiDimensoesCadastradas) return dimensoesCadastradas;
 
-  const medidasProjeto = produto.medidasProjeto || {};
-  const dimensoesAtuais = medidasProjeto.dimensoesProduto || {};
-  const dimensoesLegadas = medidasProjeto["dimensoes Fisicas"] || medidasProjeto.dimensoesFisicas || {};
-
-  const obterCampoConfirmado = (...campos) => {
-    for (const campo of campos) {
-      if (campo === undefined || campo === null || campo === "") continue;
-
-      if (typeof campo !== "object") return campo;
-
-      const status = String(campo.status || "").toUpperCase();
-      const valor = campo.valor;
-      if (valor === undefined || valor === null || valor === "") continue;
-
-      if (!status || status === "CONFIRMADO" || status === "MANUAL_VALIDADO") {
-        return valor;
-      }
-    }
-    return "";
-  };
-
-  const comUnidade = (valor, unidade) => {
-    if (valor === undefined || valor === null || String(valor).trim() === "") return "";
-    const texto = String(valor).trim();
-    return /[a-zA-Z]/.test(texto) ? texto : `${texto} ${unidade}`;
-  };
-
-  const largura = comUnidade(obterCampoConfirmado(
-    dimensoesAtuais.largura,
-    dimensoesAtuais.larguraExternaProduto,
-    dimensoesLegadas.largura,
-    dimensoesLegadas.larguraExternaProduto
-  ), "mm");
-
-  const altura = comUnidade(obterCampoConfirmado(
-    dimensoesAtuais.altura,
-    dimensoesAtuais.alturaExternaProduto,
-    dimensoesLegadas.altura,
-    dimensoesLegadas.alturaExternaProduto
-  ), "mm");
-
-  const profundidade = comUnidade(obterCampoConfirmado(
-    dimensoesAtuais.profundidade,
-    dimensoesAtuais.profundidadeExternaProduto,
-    dimensoesLegadas.profundidade,
-    dimensoesLegadas.profundidadeExternaProduto
-  ), "mm");
-
-  const peso = comUnidade(obterCampoConfirmado(
-    dimensoesAtuais.peso,
-    dimensoesAtuais.pesoLiquido,
-    dimensoesLegadas.peso,
-    dimensoesLegadas.pesoLiquido
-  ), "kg");
+  const dimensoesConfirmadas = obterDimensoesConfirmadasProduto(produto);
+  const largura = dimensoesConfirmadas.largura?.valor || "";
+  const altura = dimensoesConfirmadas.altura?.valor || "";
+  const profundidade = dimensoesConfirmadas.profundidade?.valor || "";
+  const peso = produto.especificacoes?.["Peso líquido"] || produto.especificacoes?.Peso || "";
 
   return {
     produto: { largura, altura, profundidade, peso }
@@ -1087,11 +1106,13 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   // A blocagem usa primeiro as dimensões do cadastro e, quando elas estiverem
   // vazias, reaproveita somente medidas confirmadas extraídas do manual.
   const dimensoesFonte = obterDimensoesParaBlocagem(produto);
-  const dimensoes = typeof criarBlocagemDimensional === "function"
-    ? criarBlocagemDimensional(dimensoesFonte, produto)
+  const geradorBlocagem = window.criarBlocagemDimensional;
+  const dimensoes = typeof geradorBlocagem === "function"
+    ? geradorBlocagem(dimensoesFonte, produto)
     : criarDimensoes(dimensoesFonte, produto);
-  const exibirMedidasProjeto = produtoPossuiVistaTecnica(produto);
-  const medidasProjeto = exibirMedidasProjeto ? criarMedidasProjeto(produto, dimensoes) : "";
+  const ehClima = normalizarTexto(produto.segmento || produto.categoria).includes("climatizacao");
+  const exibirMedidasProjeto = ehClima || produtoPossuiVistaTecnica(produto);
+  const medidasProjeto = ehClima ? dimensoes : exibirMedidasProjeto ? criarMedidasProjeto(produto, dimensoes) : "";
     
   const documentos = criarDocumentos(produto.documentos);
   const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
@@ -1145,6 +1166,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
         <span class="badge">${escaparHTML(produto.categoria || produto.segmento || "")}</span>
         <h1 class="nome-produto">${escaparHTML(produto.nome)}</h1>
         <p class="subtitulo produto-identificacao">${escaparHTML(produto.marca || produto.fabricante || "")} <span aria-hidden="true">•</span> Modelo ${escaparHTML(produto.modelo)}</p>
+        ${produto.revisaoPendente ? '<p class="texto-tecnico">Cadastro com pendências. Veja os detalhes em Downloads.</p>' : ""}
         <p class="codigo-produto">Código Info Store: <strong>${escaparHTML(produto.codigoInfo || "Consultar")}</strong></p>
         
         ${destaques ? `<div class="destaques">${destaques}</div>` : ""}
@@ -1168,7 +1190,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
     <div class="area-tecnica">
       <nav class="tabs" aria-label="Informações do produto">
         <button type="button" class="tab ativo" data-tab="especificacoes">Especificações</button>
-        ${exibirMedidasProjeto ? `<button type="button" class="tab" data-tab="dimensoes">Medidas para projeto <span class="tab-selo-ia">IA</span></button>` : ""}
+        ${exibirMedidasProjeto ? `<button type="button" class="tab" data-tab="dimensoes">Medidas para projeto ${ehClima ? "" : '<span class="tab-selo-ia">IA</span>'}</button>` : ""}
         <button type="button" class="tab" data-tab="documentos">Downloads</button>
       </nav>
 
@@ -1191,6 +1213,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       <section class="painel-tab" id="painel-documentos">
         <div class="card-documentos">
           <h3 class="dimensoes-subtitulo">Documentos e Manuais</h3>
+          ${ehClima && produto.pendencias?.length ? `<p class="texto-tecnico">Pendências deste produto: ${escaparHTML(produto.pendencias.join("; "))}.</p>` : ""}
           <div class="lista-documentos">${documentos}</div>
         </div>
       </section>
@@ -1229,7 +1252,10 @@ function configurarGaleria() {
 }
 
 function criarBotaoInfoStore(url) {
-  if (!url) return "";
+  try {
+    const destino = new URL(url);
+    if (destino.protocol !== "https:" || !/^(www\.)?infostore\.com\.br$/.test(destino.hostname) || !/\/p$/.test(destino.pathname)) return "";
+  } catch { return ""; }
   return `<a href="${escaparHTML(url)}" target="_blank" rel="noopener noreferrer" class="botao-preto">Ver na Info Store ↗</a>`;
 }
 
@@ -1457,10 +1483,10 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
 
 function criarDocumentos(documentos = []) {
   const lista = Array.isArray(documentos) ? documentos : [];
-  const validos = lista.filter(documento => documento && documento.nome && documento.url);
+  const validos = lista.filter(documento => documento && documento.nome && /^(assets|manuais-oficiais)\//.test(documento.url || "") && !documento.url.split("/").includes("..") && !/[\\?#]/.test(documento.url));
 
   if (!validos.length) {
-    return `<p class="texto-tecnico">Nenhum documento oficial disponível no momento.</p>`;
+    return `<p class="texto-tecnico">Nenhum documento disponível no momento.</p>`;
   }
 
   return validos.map(documento => `

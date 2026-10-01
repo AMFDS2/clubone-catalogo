@@ -318,7 +318,22 @@
       })}`;
   }
 
+  function vistasClimatizacao(dimensoes, produto) {
+    const grupos = produto.tipoBloco === "ar-janela" ? [["produto", "Unidade de janela"]] : [["evaporadora", "Evaporadora · unidade interna"], ["condensadora", "Condensadora · unidade externa"]];
+    return grupos.map(([chave, nome]) => {
+      const g = dimensoes[chave] || {};
+      const w = numero(g.largura), h = numero(g.altura), d = numero(g.profundidade);
+      const tabela = ["largura", "altura", "profundidade", "peso"].map(k => `<div class="bloco-linha"><strong>${escapar(k)}</strong><span>${escapar(g[k] || "Em revisão")}</span></div>`).join("");
+      const vista = (rotulo, a, b, la, lb) => {
+        if (!a || !b) return `<section><h5>${rotulo}</h5><p class="texto-tecnico">Cotas em revisão.</p></section>`;
+        const escala = 125 / Math.max(a, b), sw = a * escala, sh = b * escala;
+        return `<section><h5>${rotulo}</h5><svg viewBox="0 0 200 185" role="img" aria-label="${escapar(nome + " " + rotulo)}"><rect x="30" y="22" width="${sw}" height="${sh}" fill="#f7f5f0" stroke="#333"/><line x1="30" y1="${sh+32}" x2="${sw+30}" y2="${sh+32}" stroke="#888"/><text x="${sw/2+30}" y="${sh+48}" text-anchor="middle" font-size="10">${escapar(la)}</text><text x="${sw+38}" y="${sh/2+22}" font-size="10" transform="rotate(-90 ${sw+38} ${sh/2+22})" text-anchor="middle">${escapar(lb)}</text></svg></section>`;
+      };
+      return `<section class="climatizacao-unidade"><h4>${escapar(nome)}</h4><div class="climatizacao-vistas">${vista("Frontal",w,h,g.largura,g.altura)}${vista("Superior",w,d,g.largura,g.profundidade)}${vista("Lateral",d,h,g.profundidade,g.altura)}</div><div class="bloco-tabela">${tabela}</div><p class="blocagem-nota">Envelope dimensional ilustrativo, sem folgas de instalação. Consulte o manual específico para afastamentos, tubulação e dreno.</p></section>`;
+    }).join("");
+  }
   window.criarBlocagemDimensional = function criarBlocagemDimensional(dimensoes = {}, produto = {}) {
+    if (/^ar-/.test(produto.tipoBloco || "")) return vistasClimatizacao(dimensoes, produto);
     const grupo = grupoMedidas(dimensoes);
     const largura = medida(grupo, ["largura", "width"]);
     const altura = medida(grupo, ["altura", "height"]);
