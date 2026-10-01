@@ -424,11 +424,6 @@ body:not(.campanha-fechada) .campanha-reabrir {
     gap: 14px !important;
   }
 
-  .logo-club {
-    width: clamp(126px, 23vw, 155px) !important;
-    height: 46px !important;
-  }
-
   .logo-info {
     width: clamp(62px, 11vw, 78px) !important;
     height: 38px !important;

@@ -1,3 +1,5 @@
+import { localSeguro } from "./lib/arquivos-locais.mjs";
+import { ehClimatizacao } from "./lib/climatizacao.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -142,7 +144,7 @@ function normalizarModelo(valor = "") {
 }
 
 function urlOriginal(documento = {}) {
-  return String(documento.urlOriginal || documento.url || "").replace(/\\/g, "/");
+  return String(localSeguro(documento.url) ? documento.url : (documento.urlOriginal || documento.url || "")).replace(/\\/g, "/");
 }
 
 function selecionarManuais(produto = {}) {
@@ -165,6 +167,7 @@ function selecionarManuais(produto = {}) {
 }
 
 async function baixarPdf(url) {
+  if (localSeguro(url)) return fs.readFile(path.join(raiz, url));
   const resposta = await fetch(url, {
     signal: AbortSignal.timeout(60000),
     headers: {
@@ -562,6 +565,7 @@ async function executar() {
   let erros = 0;
 
   for (const produto of catalogo) {
+    if (ehClimatizacao(produto)) { ignorados++; continue; }
     if (filtroModelo && normalizarModelo(produto.modelo) !== normalizarModelo(filtroModelo)) continue;
     const pendentesAtuais = camposPendentes(produto.medidasProjeto || {});
     if (produto.medidasProjeto && !forcar && !(completar && pendentesAtuais.length)) { ignorados++; continue; }

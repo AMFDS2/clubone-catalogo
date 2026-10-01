@@ -387,6 +387,113 @@ function limparFiltroMedidasProjeto() {
   atualizarResumoFiltroMedidas();
 }
 
+
+function ehProdutoPortatil(produto = {}) {
+  const segmento = normalizarTexto(produto.segmento || "");
+  const categoria = normalizarTexto(produto.categoria || "");
+  return segmento === "portateis" || categoria.includes("eletroportateis") || categoria === "portateis";
+}
+
+function obterDadosAmbientePortatil(produto = {}) {
+  if (!ehProdutoPortatil(produto)) return null;
+
+  const origem = produto.aplicacaoAmbiente || produto.ambiente || produto.lifestyle || {};
+  const imagemDeclarada = typeof origem === "string"
+    ? origem
+    : (origem.imagem || origem.image || produto.imagemAmbiente || produto.imagemLifestyle || "");
+
+  const imagemGaleria = (Array.isArray(produto.imagens) ? produto.imagens : []).find(imagem =>
+    /(?:^|[\\/_-])(ambiente|ambientada|lifestyle|uso|cozinha|bancada|home|scene)(?:[\\/_.-]|$)/i.test(String(imagem || ""))
+  );
+
+  const imagem = imagemDeclarada || imagemGaleria || "";
+  if (!imagem) return null;
+
+  const texto = normalizarTexto([produto.nome, produto.categoria, produto.modelo].filter(Boolean).join(" "));
+  let titulo = "Pensado para o uso no dia a dia";
+  let descricao = "Veja como o produto pode se integrar ao ambiente sem perder praticidade e presença visual.";
+
+  if (/cafeteira|espresso|cafe/.test(texto)) {
+    titulo = "Ideal para o cantinho do café";
+    descricao = "Uma referência visual para bancadas de café, cozinhas e áreas gourmet.";
+  } else if (/torradeira|sanduicheira|grill/.test(texto)) {
+    titulo = "Perfeito para bancadas de café da manhã";
+    descricao = "Ajuda a visualizar proporção, acabamento e presença do produto sobre a bancada.";
+  } else if (/air ?fryer|fritadeira/.test(texto)) {
+    titulo = "Integração com a bancada de preparo";
+    descricao = "Referência de uso para cozinhas e áreas gourmet, preservando espaço funcional ao redor do produto.";
+  } else if (/liquidificador|mixer|processador|multiprocessador/.test(texto)) {
+    titulo = "Para a área de preparo";
+    descricao = "Uma leitura visual de como o produto se comporta em bancadas de cozinha e apoio.";
+  } else if (/aspirador/.test(texto)) {
+    titulo = "Uso integrado aos ambientes da casa";
+    descricao = "Referência visual do produto em contexto de uso residencial.";
+  }
+
+  if (origem && typeof origem === "object") {
+    titulo = origem.titulo || origem.title || titulo;
+    descricao = origem.descricao || origem.description || descricao;
+  }
+
+  return { imagem, titulo, descricao };
+}
+
+function criarDimensoesCompactasPortatil(produto = {}) {
+  const dimensoes = obterDimensoesParaBlocagem(produto);
+  const medidas = dimensoes.produto || dimensoes.semBase || dimensoes.semEmbalagem || dimensoes.comBase || dimensoes || {};
+  const valor = (...chaves) => {
+    for (const chave of chaves) {
+      const achado = Object.entries(medidas).find(([nome]) => normalizarTexto(nome) === normalizarTexto(chave));
+      if (achado && achado[1] !== undefined && achado[1] !== null && String(achado[1]).trim()) return achado[1];
+    }
+    return "";
+  };
+  const largura = valor("largura", "width");
+  const altura = valor("altura", "height");
+  const profundidade = valor("profundidade", "depth");
+  const peso = medidas.peso || dimensoes.peso || produto.especificacoes?.["Peso líquido"] || produto.especificacoes?.Peso || "";
+
+  const itens = [
+    ["Largura", largura], ["Altura", altura], ["Profundidade", profundidade], ["Peso", peso]
+  ].filter(([, v]) => v !== "" && v != null);
+
+  if (!itens.length) return `<p class="texto-tecnico">Dimensões ainda não cadastradas.</p>`;
+
+  return `<div class="dimensoes-portatil-compactas">
+    ${itens.map(([rotulo, v]) => `<div class="medida-portatil"><span>${escaparHTML(rotulo)}</span><strong>${escaparHTML(v)}</strong></div>`).join("")}
+  </div>`;
+}
+
+function criarAplicacaoAmbientePortatil(produto = {}) {
+  const ambiente = obterDadosAmbientePortatil(produto);
+  if (!ambiente) return "";
+  return `<div class="aplicacao-ambiente-portatil">
+    <div class="aplicacao-ambiente-imagem">
+      <img src="${escaparHTML(ambiente.imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)} em ambiente" loading="lazy">
+    </div>
+    <div class="aplicacao-ambiente-conteudo">
+      <span class="aplicacao-kicker">Aplicação no ambiente</span>
+      <h3>${escaparHTML(ambiente.titulo)}</h3>
+      <p>${escaparHTML(ambiente.descricao)}</p>
+      <div class="aplicacao-medidas">${criarDimensoesCompactasPortatil(produto)}</div>
+    </div>
+  </div>`;
+}
+
+function criarPainelMarcaPortatil(produto = {}) {
+  const marca = produto.marca || produto.fabricante || "Fabricante";
+  return `<div class="painel-marca-portatil">
+    <span class="aplicacao-kicker">Marca</span>
+    <h3>${escaparHTML(marca)}</h3>
+    <p>Produto apresentado com base nas informações técnicas e imagens cadastradas para este modelo.</p>
+    <div class="marca-modelo-portatil"><span>Modelo</span><strong>${escaparHTML(produto.modelo || "Consultar")}</strong></div>
+  </div>`;
+}
+
+function criarAvisoPortatil() {
+  return `<div class="aviso aviso-portatil"><span class="aviso-icone">ⓘ</span><div><strong>Antes de usar</strong><p>Confira a voltagem, as dimensões e as orientações de uso do fabricante para o modelo escolhido.</p></div></div>`;
+}
+
 function classificarTipoProduto(produto = {}) {
   const texto = normalizarTexto([
     produto.tipoBloco,
@@ -424,6 +531,7 @@ function atualizarOpcoesTipoProduto() {
 
   const contagens = new Map();
   todosProdutos.forEach(produto => {
+    if (ehProdutoPortatil(produto)) return;
     const tipo = classificarTipoProduto(produto);
     const atual = contagens.get(tipo.chave) || { rotulo: tipo.rotulo, quantidade: 0 };
     atual.quantidade += 1;
@@ -566,6 +674,7 @@ function extrairDimensoesFiltro(produto = {}) {
 
 function produtoCompativelComFiltroMedidas(produto) {
   if (!filtroMedidasAtivo()) return true;
+  if (ehProdutoPortatil(produto)) return false;
   const medidas = extrairDimensoesFiltro(produto);
 
   if (filtroMedidas.largura && (!medidas.larguraNecessaria || medidas.larguraNecessaria > filtroMedidas.largura)) return false;
@@ -1102,19 +1211,31 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   const destaques = criarDestaques(produto.destaques);
   const especificacoes = criarEspecificacoes(produto.especificacoes);
+  const ehPortatil = ehProdutoPortatil(produto);
   
   // A blocagem usa primeiro as dimensões do cadastro e, quando elas estiverem
   // vazias, reaproveita somente medidas confirmadas extraídas do manual.
   const dimensoesFonte = obterDimensoesParaBlocagem(produto);
   const geradorBlocagem = window.criarBlocagemDimensional;
-  const dimensoes = typeof geradorBlocagem === "function"
-    ? geradorBlocagem(dimensoesFonte, produto)
-    : criarDimensoes(dimensoesFonte, produto);
+  const dimensoes = ehPortatil
+    ? criarDimensoesCompactasPortatil(produto)
+    : (typeof geradorBlocagem === "function"
+        ? geradorBlocagem(dimensoesFonte, produto)
+        : criarDimensoes(dimensoesFonte, produto));
   const ehClima = normalizarTexto(produto.segmento || produto.categoria).includes("climatizacao");
-  const exibirMedidasProjeto = ehClima || produtoPossuiVistaTecnica(produto);
-  const medidasProjeto = ehClima ? dimensoes : exibirMedidasProjeto ? criarMedidasProjeto(produto, dimensoes) : "";
+  const exibirMedidasProjeto = !ehPortatil && (ehClima || produtoPossuiVistaTecnica(produto));
+  const geradorVistasClima = window.criarVistasClimatizacao;
+  const medidasProjeto = ehClima
+    ? (typeof geradorVistasClima === "function"
+        ? geradorVistasClima(dimensoesFonte, produto)
+        : dimensoes)
+    : exibirMedidasProjeto
+      ? criarMedidasProjeto(produto, dimensoes)
+      : "";
     
   const documentos = criarDocumentos(produto.documentos);
+  const aplicacaoAmbiente = ehPortatil ? criarAplicacaoAmbientePortatil(produto) : "";
+  const painelMarcaPortatil = ehPortatil ? criarPainelMarcaPortatil(produto) : "";
   const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
   
   const imagens = obterImagensProduto(produto);
@@ -1133,7 +1254,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   // NOVA LÓGICA: Montar a Tabela da IA de forma independente
   const ia = produto.medidasIA;
-  const tabelaIA = ia && !produto.medidasProjeto ? `
+  const tabelaIA = !ehPortatil && ia && !produto.medidasProjeto ? `
     <div style="margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
       <h4 style="margin-top: 0; margin-bottom: 15px; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Manuais Oficiais)</h4>
       <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
@@ -1190,33 +1311,36 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
     <div class="area-tecnica">
       <nav class="tabs" aria-label="Informações do produto">
         <button type="button" class="tab ativo" data-tab="especificacoes">Especificações</button>
+        ${ehPortatil && aplicacaoAmbiente ? `<button type="button" class="tab" data-tab="ambiente">Aplicação no ambiente</button>` : ""}
         ${exibirMedidasProjeto ? `<button type="button" class="tab" data-tab="dimensoes">Medidas para projeto ${ehClima ? "" : '<span class="tab-selo-ia">IA</span>'}</button>` : ""}
-        <button type="button" class="tab" data-tab="documentos">Downloads</button>
+        ${ehPortatil ? `<button type="button" class="tab" data-tab="marca">Marca</button>` : `<button type="button" class="tab" data-tab="documentos">Downloads</button>`}
       </nav>
 
       <section class="painel-tab ativo" id="painel-especificacoes">
         <div class="grade-tecnica">
           <div class="tabela-especificacoes">${especificacoes}</div>
           <div>
-            <div class="card-dimensoes">
-              <h3 class="dimensoes-subtitulo">Dimensões</h3>
+            <div class="card-dimensoes ${ehPortatil ? "card-dimensoes-portatil" : ""}">
+              <h3 class="dimensoes-subtitulo">${ehPortatil ? "Medidas do produto" : "Dimensões"}</h3>
               ${dimensoes}
             </div>
             ${tabelaIA}
-            ${criarAviso()}
+            ${ehPortatil ? criarAvisoPortatil() : criarAviso()}
           </div>
         </div>
       </section>
 
+      ${ehPortatil && aplicacaoAmbiente ? `<section class="painel-tab" id="painel-ambiente">${aplicacaoAmbiente}</section>` : ""}
+
       ${exibirMedidasProjeto ? `<section class="painel-tab" id="painel-dimensoes">${medidasProjeto}</section>` : ""}
 
-      <section class="painel-tab" id="painel-documentos">
+      ${ehPortatil ? `<section class="painel-tab" id="painel-marca">${painelMarcaPortatil}</section>` : `<section class="painel-tab" id="painel-documentos">
         <div class="card-documentos">
           <h3 class="dimensoes-subtitulo">Documentos e Manuais</h3>
           ${ehClima && produto.pendencias?.length ? `<p class="texto-tecnico">Pendências deste produto: ${escaparHTML(produto.pendencias.join("; "))}.</p>` : ""}
           <div class="lista-documentos">${documentos}</div>
         </div>
-      </section>
+      </section>`}
     </div>`;
 
   configurarAbas();

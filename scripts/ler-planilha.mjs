@@ -62,23 +62,69 @@ async function lerArquivo(caminho, modelosEncontrados) {
 }
 
 async function executar() {
-  const arquivos = (await fs.readdir(pastaDados))
-    .filter(nome => nome.toLowerCase().endsWith(".xlsx"))
-    .sort();
-  if (!arquivos.length) throw new Error("Nenhuma planilha .xlsx encontrada em dados.");
+  const nomePlanilhaPrincipal = "produtos_catalogo.xlsx";
+  const caminhoPlanilhaPrincipal = path.join(
+    pastaDados,
+    nomePlanilhaPrincipal
+  );
 
-  console.log("Lendo as planilhas de produtos...");
+  try {
+    await fs.access(caminhoPlanilhaPrincipal);
+  } catch {
+    throw new Error(
+      `Planilha principal não encontrada: dados/${nomePlanilhaPrincipal}`
+    );
+  }
+
+  console.log(
+    `Lendo a planilha principal: dados/${nomePlanilhaPrincipal}`
+  );
+
   const produtos = [];
   const modelosEncontrados = new Set();
   const avisos = [];
-  for (const arquivo of arquivos) {
-    const resultado = await lerArquivo(path.join(pastaDados, arquivo), modelosEncontrados);
-    produtos.push(...resultado.produtos);
-    if (resultado.semModelo.length) avisos.push(`${arquivo}:${resultado.semModelo.join(",")}`);
+
+  const resultado = await lerArquivo(
+    caminhoPlanilhaPrincipal,
+    modelosEncontrados
+  );
+
+  produtos.push(...resultado.produtos);
+
+  if (resultado.semModelo.length) {
+    avisos.push(
+      `${nomePlanilhaPrincipal}: ${resultado.semModelo.join(", ")}`
+    );
   }
-  await fs.writeFile(caminhoSaida, JSON.stringify(produtos, null, 2), "utf8");
-  console.log(`\nLeitura concluída.\nProdutos encontrados: ${produtos.length}\nArquivo gerado: ${caminhoSaida}`);
-  if (avisos.length) console.warn(`Linhas ignoradas por falta de modelo: ${avisos.join("; ")}`);
+
+  if (!produtos.length) {
+    throw new Error(
+      `Nenhum produto válido foi encontrado em dados/${nomePlanilhaPrincipal}`
+    );
+  }
+
+  await fs.writeFile(
+    caminhoSaida,
+    JSON.stringify(produtos, null, 2),
+    "utf8"
+  );
+
+  console.log("\nLeitura concluída.");
+  console.log(`Produtos encontrados: ${produtos.length}`);
+  console.log(`Arquivo gerado: ${caminhoSaida}`);
+
+  if (avisos.length) {
+    console.warn(
+      `Linhas ignoradas por falta de modelo: ${avisos.join("; ")}`
+    );
+  }
 }
 
-executar().catch(erro => { console.error("Erro ao processar as planilhas:", erro.message); process.exitCode = 1; });
+executar().catch(erro => {
+  console.error(
+    "Erro ao processar a planilha principal:",
+    erro?.message || erro
+  );
+
+  process.exitCode = 1;
+});

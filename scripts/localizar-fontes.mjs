@@ -1,9 +1,11 @@
+import { ehClimatizacao } from "./lib/climatizacao.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { gunzipSync } from "node:zlib";
 import { localizarFonteElectrolux } from "./fabricantes/electrolux.mjs";
 import { localizarFonteInfoStore } from "./fabricantes/info-store.mjs";
+import { localizarFontePortateis } from "./fabricantes/portateis.mjs";
 
 const caminhoAtual = fileURLToPath(import.meta.url);
 const pastaScripts = path.dirname(caminhoAtual);
@@ -209,8 +211,8 @@ function localizarPaginaDoModelo(modelo, paginas) {
 
 async function executar() {
   const textoPendencias = await fs.readFile(caminhoPendencias, "utf8");
-  const pendencias = JSON.parse(textoPendencias);
-  const paginas = pendencias.some(item => !/electrolux/i.test(item.fabricante || ""))
+  const pendencias = JSON.parse(textoPendencias).filter(p => !ehClimatizacao(p));
+  const paginas = pendencias.some(item => /samsung/i.test(item.fabricante || ""))
     ? await mapearSitemaps()
     : [];
 
@@ -227,8 +229,16 @@ async function executar() {
         const apoio = await localizarFonteInfoStore(produto);
         if (apoio.status === "LOCALIZADO") resultado = apoio;
       }
-    } else {
+    } else if (/walita|philips|\bwap\b/i.test(produto.fabricante || "")) {
+      resultado = await localizarFontePortateis(produto);
+      if (resultado.status !== "LOCALIZADO") {
+        const apoio = await localizarFonteInfoStore(produto);
+        if (apoio.status === "LOCALIZADO") resultado = apoio;
+      }
+    } else if (/samsung/i.test(produto.fabricante || "")) {
       resultado = localizarPaginaDoModelo(produto.modelo, paginas);
+    } else {
+      resultado = await localizarFonteInfoStore(produto);
     }
 
     console.log(
@@ -244,6 +254,7 @@ async function executar() {
       fonteInterna: resultado.url,
       alternativas: resultado.alternativas,
       origemFonte: resultado.origemFonte || "FABRICANTE",
+      correspondencia: resultado.correspondencia || "",
       dataConsulta: new Date().toISOString()
     });
   }

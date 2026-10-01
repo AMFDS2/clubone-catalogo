@@ -1,437 +1,5 @@
 [
   {
-    "id": "01121wba089",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "ADE0002",
-    "produto": "ADEGA 12 GARRAFAS ACB12 PRE 127V",
-    "modelo": "01121WBA089",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "01362wba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "ADE0004",
-    "produto": "ADEGA 34 GARRAFAS WSF34 PRE 127V",
-    "modelo": "01362WBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "01107fba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "ADE0011",
-    "produto": "CERVEJEIRA 100L PAINEL DIGITAL EB100 PRE 127V",
-    "modelo": "01107FBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02107fba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "ADE0012",
-    "produto": "CERVEJEIRA 100L PAINEL DIGITAL C/ TORRE EB10C PRE 127V",
-    "modelo": "02107FBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "29909pbi135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "COI0003",
-    "produto": "COIFA DE ILHA TOUCH PRO SERIES 90CM 90CIV PRE 127V",
-    "modelo": "29909PBI135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "29909hbb189",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "COI0014",
-    "produto": "COIFA DE PAREDE TOUCH HOME PRO 90CM CE9HP CIN 127V",
-    "modelo": "29909HBB189",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "29709dba189",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "COI0018",
-    "produto": "COIFA DE PAREDE TOUCH 70CM 70CS CIN 127V",
-    "modelo": "29709DBA189",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "50807sba235",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FOG0012",
-    "produto": "FORNO EMBUT 80L GAS EXPE OE8GH PRE 220V (CONVEC)",
-    "modelo": "50807SBA235",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "53801wba235",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FOG0018",
-    "produto": "FORNO EMBUT 80L ELET PRO SERIES OE9XB PRE 220V (CO",
-    "modelo": "53801WBA235",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "66052kba285",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FOG0025",
-    "produto": "FOG 5 BOCAS EXPE FE5AD CIN 220V (D.FOR/M.VID)",
-    "modelo": "66052KBA285",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "53807uba235",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FOG0031",
-    "produto": "FORNO EMBUT 80L ELET EXPE OE8EF PRE 220V",
-    "modelo": "53807UBA235",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "23051gba035",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FOG0052",
-    "produto": "FOG 5 BOCAS EFFIC FE5GB PRE BIVOLT (M.VID)",
-    "modelo": "23051GBA035",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "33059cbb035",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FOG0054",
-    "produto": "COOKTOP 5 BOCAS GAS KE5GT PRE BIVOLT (TRIPLACHAMA)",
-    "modelo": "33059CBB035",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "53807dbb235",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FOG0057",
-    "produto": "FORNO EMBUT 80L ELET EXPE OE8EA PRE 220V",
-    "modelo": "53807DBB235",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "23052gba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FOG0069",
-    "produto": "FOG 5 BOCAS EXPE FE5DB PRE 127V (D.FOR/M.VID)",
-    "modelo": "23052GBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "04182fba006",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FRE0010",
-    "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19T BRA BIVOLT",
-    "modelo": "04182FBA006",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "06503fba006",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FRE0011",
-    "produto": "FREEZER HORIZONT INV 1 POR 513L HI550T BRA BIVOLT",
-    "modelo": "06503FBA006",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "03121fba006",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "FRE0012",
-    "produto": "FREEZER HORIZONT CYCLE 1 PORTA 197L HB200 BRA BIVOLT",
-    "modelo": "03121FBA006",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "01051rba106",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0011",
-    "produto": "FRIGOBAR 47L EM50 BRA 127V",
-    "modelo": "01051RBA106",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "01091rba106",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0013",
-    "produto": "FRIGOBAR 90L EM90 BRA 127V",
-    "modelo": "01091RBA106",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "01092rba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0018",
-    "produto": "FRIGOBAR 90L EM90B PRE 127V",
-    "modelo": "01092RBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "01121rba106",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0022",
-    "produto": "FRIGOBAR 122L EM120 BRA 127V",
-    "modelo": "01121RBA106",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02623fba130",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0029",
-    "produto": "GELADEIRA FF INV MLTDOOR 590L IM8S CIN 127V",
-    "modelo": "02623FBA130",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02543fba130",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0032",
-    "produto": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
-    "modelo": "02543FBA130",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02544fba130",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0033",
-    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
-    "modelo": "02544FBA130",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02547fba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0034",
-    "produto": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
-    "modelo": "02547FBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02500fba130",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0066",
-    "produto": "GELADEIRA FF INV MLTDOOR 480L IM7S CIN 127V",
-    "modelo": "02500FBA130",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02501fba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0067",
-    "produto": "GELADEIRA FF INV MLTDOOR 480L IM7B PRE 127V",
-    "modelo": "02501FBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "04180fba106",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0069",
-    "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19 BRA 127V",
-    "modelo": "04180FBA106",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02481fba030",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0073",
-    "produto": "GELADEIRA FF INV 480L DUPLEX IT70S CIN BIVOLT",
-    "modelo": "02481FBA030",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02327fba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0079",
-    "produto": "GELADEIRA FF INV 322L INVERSE IB42G PRE 127V",
-    "modelo": "02327FBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02503fba106",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0081",
-    "produto": "GELADEIRA FF 480L DUPLEX TF71 BRA 127V",
-    "modelo": "02503FBA106",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "01572rb1135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0087",
-    "produto": "GELADEIRA FF INV SIDEBYSIDE 526L ES5GB PRE 127V",
-    "modelo": "01572RB1135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "02545fba130",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0096",
-    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8WS CIN 127V",
-    "modelo": "02545FBA130",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "01432rba088",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0114",
-    "produto": "GELADEIRA FF INV SIDEBYSIDE 431L ES40S CIN BIVOLT",
-    "modelo": "01432RBA088",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "24607lba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "LAL0004",
-    "produto": "LAVA LOUCAS 14 SERVICOS PRO SERIES LP14V PRE 127V",
-    "modelo": "24607LBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "24601lbb189",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "LAL0009",
-    "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LP14X CIN 127V",
-    "modelo": "24601LBB189",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "240601lbc189",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "LAL0010",
-    "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LS14X CIN 127V",
-    "modelo": "240601LBC189",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "24601tbc135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "LAL0016",
-    "produto": "LAVA LOUCAS 14 SERVICOS LL14P PRE 127V",
-    "modelo": "24601TBC135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "2115cdbb106",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "LAV0063",
-    "produto": "MAQ LAV TL 14,5KG LEE15 BRA 127V (CESTINOX) (B)",
-    "modelo": "2115CDBB106",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "10347pba106",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "MIC0001",
-    "produto": "MICRO-ONDAS 36L EFFICIENT ME36B BRA 127V",
-    "modelo": "10347PBA106",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "10347dba185",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "MIC0003",
-    "produto": "MICRO-ONDAS EMBUTIR 34L EXPERIENCE ME3BC CIN 220V",
-    "modelo": "10347DBA185",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "10347pba186",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "MIC0004",
-    "produto": "MICRO-ONDAS 36L EFFICIENT ME36S PRA 127V",
-    "modelo": "10347PBA186",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "10237pba186",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "MIC0005",
-    "produto": "MICRO-ONDAS 23L EFFICIENT ME23S PRA 127V",
-    "modelo": "10237PBA186",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "54341pba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "MIC0007",
-    "produto": "MICRO-ONDAS EMBUTIR 34L PRO SERIES MV43T PRE 127V",
-    "modelo": "54341PBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "10237pba106",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "MIC0008",
-    "produto": "MICRO-ONDAS 23L EFFICIENT ME23B BRA 127V",
-    "modelo": "10237PBA106",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "54341hbb189",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "MIC0016",
-    "produto": "MICRO-ONDAS EMBUTIR 34L HOME PRO ME3HP CIN 127V",
-    "modelo": "54341HBB189",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "10237pba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "MIC0025",
-    "produto": "MICRO-ONDAS 23L EFFICIENT ME23P PRE 127V",
-    "modelo": "10237PBA135",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
     "id": "un98du9000gxzd",
     "fabricante": "SAMSUNG (NAC)",
     "segmento": "VIDEO",
@@ -978,6 +546,1473 @@
     "codigo": "LAV0060",
     "produto": "LAVA E SECA INV SMART 13KG WD13FG BRA 127V",
     "modelo": "WD13FG6B34BEAZ",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "lcst9f-02i-9kbtu",
+    "fabricante": "AGRATTO (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0566",
+    "produto": "AGRATTO INV 9000BTU LIV TOP (CL-A/COND.CIRC)",
+    "modelo": "LCST9F-02I-9KBTU",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "lci60f-02",
+    "fabricante": "AGRATTO (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0630",
+    "produto": "AGRATTO INV 55000BTU CASSETE (CL-A/COND.QUAD)",
+    "modelo": "LCI60F-02",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "zicst9f-02",
+    "fabricante": "AGRATTO (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0643",
+    "produto": "AGRATTO INV 9000BTU ZEN TOP (CL-A/COND.CIRC)",
+    "modelo": "ZICST9F-02",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "zicst12f-02",
+    "fabricante": "AGRATTO (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0644",
+    "produto": "AGRATTO INV 12000BTU ZEN TOP (CL-A/COND.CIRC)",
+    "modelo": "ZICST12F-02",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "je09f/ji09f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0474",
+    "produto": "ELECTROLUX INV COLOR 9000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "JE09F/JI09F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "je12f/ji12f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0477",
+    "produto": "ELECTROLUX INV COLOR 12000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "JE12F/JI12F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "je18f/ji18f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0480",
+    "produto": "ELECTROLUX INV COLOR 18000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "JE18F/JI18F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "ye09f/yi09f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0486",
+    "produto": "ELECTROLUX INV COLOR WIF 9000BTU (CL-C/COND.CIRCU",
+    "modelo": "YE09F/YI09F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "ye18f/yi18f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0492",
+    "produto": "ELECTROLUX INV COLOR WIF 18000BTU (CL-C/COND.CIRCU",
+    "modelo": "YE18F/YI18F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "ye24f/yi24f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0495",
+    "produto": "ELECTROLUX INV COLOR WIF 24000BTU (CL-C/COND.CIRCU",
+    "modelo": "YE24F/YI24F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "d36f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0601",
+    "produto": "ELECTROLUX INV 36000BTU PISO-TETO (CL-C/COND.QUAD)",
+    "modelo": "D36F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "ne09f/ni09f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0633",
+    "produto": "ELECTROLUX INV MAXCOMFORT 9000BTU (CL-C/COND.QUAD)",
+    "modelo": "NE09F/NI09F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "ne12f/ni12f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0636",
+    "produto": "ELECTROLUX INV MAXCOMFORT 12000BTU (CL-C/COND.QUAD)",
+    "modelo": "NE12F/NI12F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "ne18f/ni18f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0639",
+    "produto": "ELECTROLUX INV MAXCOMFORT 18000BTU (CL-C/COND.QUAD)",
+    "modelo": "NE18F/NI18F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "ne24f/ni24f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0642",
+    "produto": "ELECTROLUX INV MAXCOMFORT 23000BTU (CL-C/COND.QUAD)",
+    "modelo": "NE24F/NI24F",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38ezvca09m5/42ez",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0576",
+    "produto": "MIDEA INV AI ECOMASTER WIF 9000BTU (CL-A/COND.QUAD)",
+    "modelo": "38EZVCA09M5/42EZ",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38ezvca12m5/42ez",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0579",
+    "produto": "MIDEA INV AI ECOMASTER WIF 12000BTU (CL-A/COND.QUAD)",
+    "modelo": "38EZVCA12M5/42EZ",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38ezvca18m5/42ez",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0582",
+    "produto": "MIDEA INV AI ECOMASTER WIF 18000BTU (CL-A/COND.QUAD)",
+    "modelo": "38EZVCA18M5/42EZ",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38ezvca24m5/42ez",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0585",
+    "produto": "MIDEA INV AI ECOMASTER WIF 24000BTU (CL-A/COND.QUAD)",
+    "modelo": "38EZVCA24M5/42EZ",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38tf/42affci09s5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0607",
+    "produto": "MIDEA INV AI ECOMASTER WIF 24000BTU (CL-A/COND.QUAD)",
+    "modelo": "38TF/42AFFCI09S5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38tb/42ebvcb12m5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0610",
+    "produto": "MIDEA INV AIRVOLUTION LITE 12000BTU (CL-C/COND.CIRCU",
+    "modelo": "38TB/42EBVCB12M5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38tf/42ffci18s5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0613",
+    "produto": "MIDEA INV AIRVOLUTION LITE 18000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "38TF/42FFCI18S5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38tf/42affci22s5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0616",
+    "produto": "MIDEA INV AIRVOLUTION LITE 22000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "38TF/42AFFCI22S5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38tv/42afvci09s5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0619",
+    "produto": "MIDEA INV AI AIRVOLUTION WIF 9000BTU (CL-A/COND.CIRCU",
+    "modelo": "38TV/42AFVCI09S5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38ta/42efvcb12m5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0622",
+    "produto": "MIDEA INV AI AIRVOLUTION WIF 12000BTU (CL-A/COND.CIRCU",
+    "modelo": "38TA/42EFVCB12M5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38tv/42fvci18s5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0625",
+    "produto": "MIDEA INV AI AIRVOLUTION WIF 18000BTU (CL-A/COND.CIRCU",
+    "modelo": "38TV/42FVCI18S5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38ta/42efvcb22m5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0628",
+    "produto": "MIDEA INV AI AIRVOLUTION WIF 22000BTU (CL-A/COND.CIRCU",
+    "modelo": "38TA/42EFVCB22M5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38ccv/42zqvf36c5c",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0647",
+    "produto": "MIDEA INV 36000BTU PISO-TETO (CL-A/COND.QUAD)",
+    "modelo": "38CCV/42ZQVF36C5C",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "40kvqof12c5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0656",
+    "produto": "MIDEA INV 12000BTU CASSETE 1 VIA (CL-A/COND.REDONDA)",
+    "modelo": "40KVQOF12C5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "40kvqof18c5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0659",
+    "produto": "MIDEA INV 18000BTU CASSETE 1 VIA (CL-A/COND.REDONDA)",
+    "modelo": "40KVQOF18C5",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "40kvqf36c5a.40kwflb.38ccvf36515mca",
+    "fabricante": "CARRIER",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0666",
+    "produto": "AR-CONDICIONADO SPLIT CASSETTE CARRIER INVERTER 36.000 BTU/H FRIO 220 V – 4 VIAS",
+    "modelo": "40KVQF36C5A.40KWFLB.38CCVF36515MCA",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38ccv/40kvqf48c5a",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0669",
+    "produto": "MIDEA INV 48000BTU CASSETE 4 VIAS (CL-A/COND.QUAD)",
+    "modelo": "38CCV/40KVQF48C5A",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "38ccv/40kvqf54c5a",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0672",
+    "produto": "MIDEA INV 60000BTU CASSETE 4 VIAS (CL-A/COND.QUAD)",
+    "modelo": "38CCV/40KVQF54C5A",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "my-av1030br",
+    "fabricante": "MYSTIC (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0673",
+    "produto": "MYSTIC JANELA 10000BTU 127V (CL-A/CONTROLE)",
+    "modelo": "MY-AV1030BR",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01362wba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "ADE0004",
+    "produto": "ADEGA 34 GARRAFAS WSF34 PRE 127V",
+    "modelo": "01362WBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01107fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "ADE0011",
+    "produto": "CERVEJEIRA 100L PAINEL DIGITAL EB100 PRE 127V",
+    "modelo": "01107FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02107fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "ADE0012",
+    "produto": "CERVEJEIRA 100L PAINEL DIGITAL C/ TORRE EB10C PRE 127V",
+    "modelo": "02107FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "29909pbi135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "COI0003",
+    "produto": "COIFA DE ILHA TOUCH PRO SERIES 90CM 90CIV PRE 127V",
+    "modelo": "29909PBI135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "29909hbb189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "COI0014",
+    "produto": "COIFA DE PAREDE TOUCH HOME PRO 90CM CE9HP CIN 127V",
+    "modelo": "29909HBB189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "29709dba189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "COI0018",
+    "produto": "COIFA DE PAREDE TOUCH 70CM 70CS CIN 127V",
+    "modelo": "29709DBA189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "50807sba235",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0012",
+    "produto": "FORNO EMBUT 80L GAS EXPE OE8GH PRE 220V (CONVEC)",
+    "modelo": "50807SBA235",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "53801wba235",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0018",
+    "produto": "FORNO EMBUT 80L ELET PRO SERIES OE9XB PRE 220V (CO",
+    "modelo": "53801WBA235",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "66052kba285",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0025",
+    "produto": "FOG 5 BOCAS EXPE FE5AD CIN 220V (D.FOR/M.VID)",
+    "modelo": "66052KBA285",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "53807uba235",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0031",
+    "produto": "FORNO EMBUT 80L ELET EXPE OE8EF PRE 220V",
+    "modelo": "53807UBA235",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "23051gba035",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0052",
+    "produto": "FOG 5 BOCAS EFFIC FE5GB PRE BIVOLT (M.VID)",
+    "modelo": "23051GBA035",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "33059cbb035",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0054",
+    "produto": "COOKTOP 5 BOCAS GAS KE5GT PRE BIVOLT (TRIPLACHAMA)",
+    "modelo": "33059CBB035",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "53807dbb235",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0057",
+    "produto": "FORNO EMBUT 80L ELET EXPE OE8EA PRE 220V",
+    "modelo": "53807DBB235",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "23052gba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FOG0069",
+    "produto": "FOG 5 BOCAS EXPE FE5DB PRE 127V (D.FOR/M.VID)",
+    "modelo": "23052GBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "04182fba006",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FRE0010",
+    "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19T BRA BIVOLT",
+    "modelo": "04182FBA006",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "06503fba006",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FRE0011",
+    "produto": "FREEZER HORIZONT INV 1 POR 513L HI550T BRA BIVOLT",
+    "modelo": "06503FBA006",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "03121fba006",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "FRE0012",
+    "produto": "FREEZER HORIZONT CYCLE 1 PORTA 197L HB200 BRA BIVOLT",
+    "modelo": "03121FBA006",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01051rba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0011",
+    "produto": "FRIGOBAR 47L EM50 BRA 127V",
+    "modelo": "01051RBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01091rba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0013",
+    "produto": "FRIGOBAR 90L EM90 BRA 127V",
+    "modelo": "01091RBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01092rba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0018",
+    "produto": "FRIGOBAR 90L EM90B PRE 127V",
+    "modelo": "01092RBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01121rba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0022",
+    "produto": "FRIGOBAR 122L EM120 BRA 127V",
+    "modelo": "01121RBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02623fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0029",
+    "produto": "GELADEIRA FF INV MLTDOOR 590L IM8S CIN 127V",
+    "modelo": "02623FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02543fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0032",
+    "produto": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
+    "modelo": "02543FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02544fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0033",
+    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
+    "modelo": "02544FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02547fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0034",
+    "produto": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
+    "modelo": "02547FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02500fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0066",
+    "produto": "GELADEIRA FF INV MLTDOOR 480L IM7S CIN 127V",
+    "modelo": "02500FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02501fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0067",
+    "produto": "GELADEIRA FF INV MLTDOOR 480L IM7B PRE 127V",
+    "modelo": "02501FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "04180fba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0069",
+    "produto": "FREEZER VERTICAL CYCLE INV 1 POR 175L FEI19 BRA 127V",
+    "modelo": "04180FBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02481fba030",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0073",
+    "produto": "GELADEIRA FF INV 480L DUPLEX IT70S CIN BIVOLT",
+    "modelo": "02481FBA030",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02327fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0079",
+    "produto": "GELADEIRA FF INV 322L INVERSE IB42G PRE 127V",
+    "modelo": "02327FBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02503fba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0081",
+    "produto": "GELADEIRA FF 480L DUPLEX TF71 BRA 127V",
+    "modelo": "02503FBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01572rb1135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0087",
+    "produto": "GELADEIRA FF INV SIDEBYSIDE 526L ES5GB PRE 127V",
+    "modelo": "01572RB1135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "02545fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0096",
+    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8WS CIN 127V",
+    "modelo": "02545FBA130",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "01432rba088",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0114",
+    "produto": "GELADEIRA FF INV SIDEBYSIDE 431L ES40S CIN BIVOLT",
+    "modelo": "01432RBA088",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "24607lba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAL0004",
+    "produto": "LAVA LOUCAS 14 SERVICOS PRO SERIES LP14V PRE 127V",
+    "modelo": "24607LBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "24601lbb189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAL0009",
+    "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LP14X CIN 127V",
+    "modelo": "24601LBB189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "240601lbc189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAL0010",
+    "produto": "LAVA LOUCAS 14 SERVICOS HOME PRO LS14X CIN 127V",
+    "modelo": "240601LBC189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "24601tbc135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAL0016",
+    "produto": "LAVA LOUCAS 14 SERVICOS LL14P PRE 127V",
+    "modelo": "24601TBC135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "2115cdbb106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "LAV0063",
+    "produto": "MAQ LAV TL 14,5KG LEE15 BRA 127V (CESTINOX) (B)",
+    "modelo": "2115CDBB106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10347pba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0001",
+    "produto": "MICRO-ONDAS 36L EFFICIENT ME36B BRA 127V",
+    "modelo": "10347PBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10347dba185",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0003",
+    "produto": "MICRO-ONDAS EMBUTIR 34L EXPERIENCE ME3BC CIN 220V",
+    "modelo": "10347DBA185",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10347pba186",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0004",
+    "produto": "MICRO-ONDAS 36L EFFICIENT ME36S PRA 127V",
+    "modelo": "10347PBA186",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10237pba186",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0005",
+    "produto": "MICRO-ONDAS 23L EFFICIENT ME23S PRA 127V",
+    "modelo": "10237PBA186",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "54341pba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0007",
+    "produto": "MICRO-ONDAS EMBUTIR 34L PRO SERIES MV43T PRE 127V",
+    "modelo": "54341PBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10237pba106",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0008",
+    "produto": "MICRO-ONDAS 23L EFFICIENT ME23B BRA 127V",
+    "modelo": "10237PBA106",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "54341hbb189",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0016",
+    "produto": "MICRO-ONDAS EMBUTIR 34L HOME PRO ME3HP CIN 127V",
+    "modelo": "54341HBB189",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "10237pba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "MIC0025",
+    "produto": "MICRO-ONDAS 23L EFFICIENT ME23P PRE 127V",
+    "modelo": "10237PBA135",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4310anbr414",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0036",
+    "produto": "TORRADEIRA ELETRICA EFFIC ETS10 PRE 127V",
+    "modelo": "4310ANBR414",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4612apbr401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0047",
+    "produto": "LIQUID 1,75L EXPERT 1200W CPO VIDRO BLP70 PRE 127V",
+    "modelo": "4612APBR401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4411akbr401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0057",
+    "produto": "ESPREMEDOR EFFIC 800ML ECP10 CIN 127V",
+    "modelo": "4411AKBR401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4812fgbr401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0059",
+    "produto": "VPORIZADOR ROUPA EXPER C/TABUA EGS20 PRE 127V",
+    "modelo": "4812FGBR401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4011ahbr407",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0060",
+    "produto": "MIXER 3 EM 1 400W EIB10 PRE 127V",
+    "modelo": "4011AHBR407",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4713aabr410",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0062",
+    "produto": "BATEDEIRA PLANETARIA 5L EXPER 750W EKM40 PRE 127V",
+    "modelo": "4713AABR410",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "5310abbr401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0063",
+    "produto": "VPORIZADOR ROUPA PORTATIL EFFIC EPS10 127V",
+    "modelo": "5310ABBR401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4330aobr401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0067",
+    "produto": "PANELA DE ARROZ ELETRICA 2L EFFIC ERC10 PRE 127V",
+    "modelo": "4330AOBR401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4510aebr402",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0068",
+    "produto": "SANDUICHEIRA EFFIC ESG20 CIN 127V",
+    "modelo": "4510AEBR402",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4811aqbr401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0069",
+    "produto": "FERRO A VAPOR EFFIC ESI10 AZU 127V",
+    "modelo": "4811AQBR401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "09140gbc006",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0079",
+    "produto": "PURIFICADOR AGUA TOUCH PE12B BRA BIVOLT",
+    "modelo": "09140GBC006",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4910aobr403",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0080",
+    "produto": "CAFETEIRA ELET EXPERT 38 XICARAS ECM30 CIN 127V",
+    "modelo": "4910AOBR403",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "3011ahbr411",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0087",
+    "produto": "ASPIRADOR DE PO E AGUA 1400W 5L AWD01 PRE 127V",
+    "modelo": "3011AHBR411",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4330aobr403",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0089",
+    "produto": "PANELA DE ARROZ ELETRICA 3,5L EFFIC ERC30 CIN 127V",
+    "modelo": "4330AOBR403",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4810asbr401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0090",
+    "produto": "FERRO A VAPOR EXPER ESI80 VER 127V",
+    "modelo": "4810ASBR401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "5011aibr408",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0091",
+    "produto": "CHALEIRA ELET EFFIC 1,8L EEK10 CIN 127V",
+    "modelo": "5011AIBR408",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "09140gbc085",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0094",
+    "produto": "PURIFICADOR AGUA TOUCH PE12G CIN BIVOLT",
+    "modelo": "09140GBC085",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4340ajbr483",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0123",
+    "produto": "PANELA ELETRICA PRESSAO 6L DIG EXPER PCC20 CIN 127",
+    "modelo": "4340AJBR483",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "3015akbr403",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0125",
+    "produto": "ASPIRADOR DE PO VERTICAL 1450W STK14 AZU 127",
+    "modelo": "3015AKBR403",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "3015acg0034",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0126",
+    "produto": "ASPIRADOR DE PO VERTICAL S/FIO ERG24N PRE BIVOLT",
+    "modelo": "3015ACG0034",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4911aobr405",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0127",
+    "produto": "CAFETEIRA ELET EFFIC 30 XICARAS ECM22 CIN 127",
+    "modelo": "4911AOBR405",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "d30eba51n09",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0128",
+    "produto": "BEBEDOURO AGUA C/ COMPRESSOR BC01X CIN 127",
+    "modelo": "D30EBA51N09",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "d30eba51n06",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0129",
+    "produto": "BEBEDOURO AGUA C/ COMPRESSOR BC01B BRA 127V",
+    "modelo": "D30EBA51N06",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "p30eba51n09",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0130",
+    "produto": "PURIFICADOR AGUA C/ COMPRESSOR PC01X GRA 127V",
+    "modelo": "P30EBA51N09",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "p30eba51n06",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0131",
+    "produto": "PURIFICADOR AGUA C/ COMPRESSOR PC01B BRA 127V",
+    "modelo": "P30EBA51N06",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "p15eba00c35",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0132",
+    "produto": "PURIFICADOR AGUA PE15P PRE BIVOLT",
+    "modelo": "P15EBA00C35",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4910anbr405",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0133",
+    "produto": "CAFETEIRA ELET EFFIC 15 XICARAS ECM10 PRE 127",
+    "modelo": "4910ANBR405",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "3410anbr417",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0152",
+    "produto": "LAVADORA ALTA PRESSAO 1800PSI EWS1800 PRE 127V",
+    "modelo": "3410ANBR417",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "5310agbr401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0159",
+    "produto": "AIR FRYER 5,6L EFFIC 1400W EAF40 CIN 127V",
+    "modelo": "5310AGBR401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4611atbr401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0160",
+    "produto": "LIQUID PORTATIL BLENDER BSE20 320W C/2 COPO 127V",
+    "modelo": "4611ATBR401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4610avbr402",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0164",
+    "produto": "LIQUID 2,7L EFFI 1000W TRI FORCE EBL1000 CIN 127V",
+    "modelo": "4610AVBR402",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4612avbr406",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0165",
+    "produto": "LIQUID 3,2L EFFI 1500W TRI FORCE EBL1500 CIN 127V",
+    "modelo": "4612AVBR406",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "5311aabr101",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0179",
+    "produto": "AIR FRYER 12L DIG OVEN EXPER 1700W EAF85 GRA 127V",
+    "modelo": "5311AABR101",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "5310adbr101",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0203",
+    "produto": "AIR FRYER 7,0L EFFIC DIG 1700W EAF70 PRE 127V",
+    "modelo": "5310ADBR101",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4912aabr101",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0209",
+    "produto": "CAFETEIRA ESPRESSO AUT C/ CAPS E VAPORI ECM70 PRE 127V",
+    "modelo": "4912AABR101",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "4912aabr103",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0210",
+    "produto": "CAFETEIRA ESPRESSO EXPERT AUT C/ MOED E ESPUM ECM90 PRE 127V",
+    "modelo": "4912AABR103",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "5710aabr101",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0211",
+    "produto": "ESPUMADOR DE LEITE 300ML EMF10 127V",
+    "modelo": "5710AABR101",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "p40eba60009",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0212",
+    "produto": "PURIFICADOR AGUA PN10X PRE PILHA",
+    "modelo": "P40EBA60009",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "a27329401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "UTD0007",
+    "produto": "POTES HERMETICOS QUADRADOS DE VIDRO C/ 4UN",
+    "modelo": "A27329401",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "a21392801",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "UTD0008",
+    "produto": "POTES HERMETICOS C/ TAMPA DE BAMBU C/ 4UN",
+    "modelo": "A21392801",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "a20998601",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "UTD0009",
+    "produto": "POTES HERMETICOS REFRATARIOS DE BAMBU C/ 2UN",
+    "modelo": "A20998601",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "a26191301",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "UTD0010",
+    "produto": "CONJUNTO DE UTENSILIOS DE BAMBU C/ 06 PECAS",
+    "modelo": "A26191301",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "tpn0471",
+    "fabricante": "TP-LINK (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0176",
+    "produto": "ROBO ASP C/PANO/CTRL RV20 MAX PRE BIVOLT",
+    "modelo": "TPN0471",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "tpn0519",
+    "fabricante": "TP-LINK (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0177",
+    "produto": "ROBO ASP C/PANO/CTRL RV30 MAX PRE BIVOLT",
+    "modelo": "TPN0519",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "8720389007729",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0096",
+    "produto": "CAFETEIRA ESPRESSO AUT 1200 1500W EP1220 PRE 127V",
+    "modelo": "8720389007729",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "889016422240",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0097",
+    "produto": "FERRO A VAPOR SERIE 1000 1200W DST1050 AZUL 127V",
+    "modelo": "889016422240",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "8720389024962",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0105",
+    "produto": "PAPA BOLINHAS GC026 PRE",
+    "modelo": "8720389024962",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "8710103885801",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0110",
+    "produto": "LIQUID 2L DAILY JARRA SAN 600W RI2112 PRE 127V",
+    "modelo": "8710103885801",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "8710103950646",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0111",
+    "produto": "LIQUID 3L SERIE 5000 INQUEBR 1400W RI2244 PRE 127V",
+    "modelo": "8710103950646",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "8710103900405",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0113",
+    "produto": "LIQUID 2L DAILY 550W RI2110 PRE 127V",
+    "modelo": "8710103900405",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "8720389025051",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0114",
+    "produto": "MLTPROCESSADOR KIT 3 600W RI7300 PRE 127V",
+    "modelo": "8720389025051",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "886224293240",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0115",
+    "produto": "LIQUID 3L SERIE 5000 INQUEBR 1200W RI2242 PRE 127V",
+    "modelo": "886224293240",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "688001000580",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0124",
+    "produto": "MLTPROCESSADOR POWRCHOP KIT 6 ACE 1000W HR7304 PRE",
+    "modelo": "688001000580",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "688001002071",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0140",
+    "produto": "AIR FRYER 12L DIG OVEN 1600W AI551 PRE 127V",
+    "modelo": "688001002071",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "688001000198",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0141",
+    "produto": "LIQUID 3L SERIE 3000 1000W HR2270 PRE 127V",
+    "modelo": "688001000198",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "688001000808",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0151",
+    "produto": "AIR FRYER 6,2L SER 1000 XL NA130 PRE 127V",
+    "modelo": "688001000808",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "ste1010/72",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0156",
+    "produto": "VPORIZADOR VERTICAL 1000 1600W STE1010 BRA 127V",
+    "modelo": "STE1010/72",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "dst2020/32",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0167",
+    "produto": "FERRO A VAPOR SERIE 2000 1400W DST2020 ROX 127V",
+    "modelo": "DST2020/32",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "gc6842/32",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0169",
+    "produto": "FERRO A VAPOR PERFECTCARE 2000W GC6842 ROS 127V",
+    "modelo": "GC6842/32",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "na341/00",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0170",
+    "produto": "AIR FRYER 7,2L DIG SER 3000 C/ VISOR NA341 PRE 127V",
+    "modelo": "NA341/00",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "ste3170/82",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0171",
+    "produto": "VAPORIZADOR VERTICAL SERIE 3000 1600W STE3170 PRE 127",
+    "modelo": "STE3170/82",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "sth3020/12",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0172",
+    "produto": "VAPORIZADOR PORTATIL SERIE 3000 1000W STH3020 BRA 127",
+    "modelo": "STH3020/12",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "889008032240",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0175",
+    "produto": "FERRO A VAPOR SERIE 300 1400W DST3010 ROX//ROS 127V",
+    "modelo": "889008032240",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "688001003092",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0213",
+    "produto": "AIR FRYER 7,1L SER 1000 DUPL CESTO 1850W NA150 PRE 127V",
+    "modelo": "688001003092",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "688001002777",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0214",
+    "produto": "CAFETEIRA ESPRESSO AUT 5500 1400W EP5547 PRE 127V",
+    "modelo": "688001002777",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "688001006010",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0216",
+    "produto": "UMIDIFICADOR AR ULTRASSONICO CONECTADO HU1510 BRA BIV",
+    "modelo": "688001006010",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "688001006260",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0217",
+    "produto": "MINI PROCESSADOR DE ALIMENTOS SER 3000 1L 450W HR1501 PRE 127V",
+    "modelo": "688001006260",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw009626",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0158",
+    "produto": "AIR FRYER 10L BARBECUE 1800W PRE 127V",
+    "modelo": "FW009626",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw009448",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0180",
+    "produto": "ASPIRADOR DE PO PORT C/FIO CAR 12V2 180W 12VDC",
+    "modelo": "FW009448",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw010142",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0182",
+    "produto": "ROBO ASP C/PANO/CTRL ROBOT W1000 BIVOLT",
+    "modelo": "FW010142",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw009557",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0183",
+    "produto": "ROBO ASP C/PANO/CTRL/MAP ROBOT W3000 BIV",
+    "modelo": "FW009557",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw010277",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0185",
+    "produto": "CHALEIRA ELET PORT/BASEGIR WCE2 1,7L INO 127V",
+    "modelo": "FW010277",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw010769",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0186",
+    "produto": "ESPREMEDOR WJ1200 1,2L 40W INO 127V",
+    "modelo": "FW010769",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw010535",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0190",
+    "produto": "SANDUICHEIRA WS750 INO 127V",
+    "modelo": "FW010535",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw009519",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0191",
+    "produto": "TORRADEIRA ELET WTE1 INO 127V",
+    "modelo": "FW009519",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw010084",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0193",
+    "produto": "CAFETEIRA ELET AROMA 38 XICARAS DIGITAL WCD1500 INO 127V",
+    "modelo": "FW010084",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw009523",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0194",
+    "produto": "CHALEIRA ELET WCE1 1,7L INO 127V",
+    "modelo": "FW009523",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw007733",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0195",
+    "produto": "UMIDIFICADOR AR AIR FLOW C/LUMINARIA E DIFUSOR BRA BIV",
+    "modelo": "FW007733",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw009468",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0196",
+    "produto": "EXTRATORA PORTATIL SPOT CLEANER W3 1450W 127V",
+    "modelo": "FW009468",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw004192",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0199",
+    "produto": "LAVADORA ALTA PRESSAO 1300PSI AGIL 1800 127V",
+    "modelo": "FW004192",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw010340",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0200",
+    "produto": "LIQUID 2L 900W CPO VIDRO WB2000 PRE 127V",
+    "modelo": "FW010340",
+    "statusPesquisa": "PENDENTE"
+  },
+  {
+    "id": "fw012054",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0202",
+    "produto": "AIR FRYER 10L BARBECUE 1700W PRE 127V",
+    "modelo": "FW012054",
     "statusPesquisa": "PENDENTE"
   }
 ]

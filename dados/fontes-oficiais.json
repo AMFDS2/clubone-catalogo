@@ -1356,52 +1356,6 @@
     "dataConsulta": "2026-09-18T14:25:08.745Z"
   },
   {
-    "modelo": "02543FBA130",
-    "codigo": "GEL0032",
-    "produto": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
-    "fabricante": "ELECTROLUX (NAC)",
-    "statusFonte": "LOCALIZADO",
-    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-585l-efficient-com-autosense-e-dispenser-de-agua-e-gelo-3-portas-cor-inox-look--im8is-/p",
-    "alternativas": [
-      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-585l-efficient-com-autosense-e-dispenser-de-agua-e-gelo-3-portas-cor-inox-look--im8is-/p",
-      "https://loja.electrolux.com.br/filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is--iq8ib-e-im8is/p"
-    ],
-    "origemFonte": "FABRICANTE",
-    "dataConsulta": "2026-09-21T19:48:47.487Z"
-  },
-  {
-    "modelo": "02544FBA130",
-    "codigo": "GEL0033",
-    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
-    "fabricante": "ELECTROLUX (NAC)",
-    "statusFonte": "LOCALIZADO",
-    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-home-pro-541l--iq8is--1/p",
-    "alternativas": [
-      "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-home-pro-541l--iq8is--1/p",
-      "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-3-unidades/p",
-      "https://loja.electrolux.com.br/filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is--iq8ib-e-im8is/p",
-      "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-2-unidades/p"
-    ],
-    "origemFonte": "FABRICANTE",
-    "dataConsulta": "2026-09-21T19:48:48.474Z"
-  },
-  {
-    "modelo": "02547FBA135",
-    "codigo": "GEL0034",
-    "produto": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
-    "fabricante": "ELECTROLUX (NAC)",
-    "statusFonte": "LOCALIZADO",
-    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-pro-series-583l--iq8ib-/p",
-    "alternativas": [
-      "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-pro-series-583l--iq8ib-/p",
-      "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-3-unidades/p",
-      "https://loja.electrolux.com.br/filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is--iq8ib-e-im8is/p",
-      "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-2-unidades/p"
-    ],
-    "origemFonte": "FABRICANTE",
-    "dataConsulta": "2026-09-21T19:48:49.574Z"
-  },
-  {
     "modelo": "10347DBA185",
     "codigo": "MIC0003",
     "produto": "MICRO-ONDAS EMBUTIR 34L EXPERIENCE ME3BC CIN 220V",
@@ -1416,7 +1370,1418 @@
       "https://loja.electrolux.com.br/forno-de-embutir-a-gas-80l-experience-com-foodsensor---micro-ondas-de-embutir-34l-experience-electrolux--oe8gf-me3bc-/p"
     ],
     "origemFonte": "FABRICANTE",
-    "dataConsulta": "2026-09-21T19:48:50.607Z"
+    "dataConsulta": "2026-09-30T20:05:54.701Z"
+  },
+  {
+    "modelo": "ZICST9F-02",
+    "codigo": "ARC0643",
+    "fonteInterna": "https://www.agratto.com.br/ar-condicionado/residencial/zen-inverter/ar-condicionado-zen-agratto-split-inverter-zics9f-02",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:36:36.492Z"
+  },
+  {
+    "modelo": "ZICST12F-02",
+    "codigo": "ARC0644",
+    "fonteInterna": "https://www.agratto.com.br/ar-condicionado/residencial/zen-inverter/ar-condicionado-zen-agratto-split-inverter-zicst12f-02-12kbtu",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:08.152Z"
+  },
+  {
+    "modelo": "YE09F/YI09F",
+    "codigo": "ARC0486",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-split-electrolux-9000-btus-color-adapt-frio-com-wi-fi-yi09f-ye09f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:18.190Z"
+  },
+  {
+    "modelo": "NE09F/NI09F",
+    "codigo": "ARC0633",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-split-electrolux-maxcomfort-full-inverter-frio-9-000-btus-ni09f-ne09f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:35.853Z"
+  },
+  {
+    "modelo": "NE12F/NI12F",
+    "codigo": "ARC0636",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-split-electrolux-maxcomfort-full-inverter-frio-12-000-btus-ni12f-ne12f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:36.114Z"
+  },
+  {
+    "modelo": "NE18F/NI18F",
+    "codigo": "ARC0639",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-electrolux-maxcomfort-full-inverter-frio-18-000-btus-ni18f-ne18f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:36.341Z"
+  },
+  {
+    "modelo": "NE24F/NI24F",
+    "codigo": "ARC0642",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-split-electrolux-maxcomfort-full-inverter-frio-23-000-btus-ni24f-ne24f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:36.556Z"
+  },
+  {
+    "modelo": "38EZVCA09M5/42EZ",
+    "codigo": "ARC0576",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-9000-btus-inverter-ai-ecomaster-frio-midea/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:37.128Z"
+  },
+  {
+    "modelo": "38EZVCA12M5/42EZ",
+    "codigo": "ARC0579",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-12000-btus-inverter-ai-ecomaster-frio-midea/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:37.389Z"
+  },
+  {
+    "modelo": "38EZVCA18M5/42EZ",
+    "codigo": "ARC0582",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-18000-btus-inverter-ai-ecomaster-frio-midea/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:37.632Z"
+  },
+  {
+    "modelo": "38EZVCA24M5/42EZ",
+    "codigo": "ARC0585",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-24000-btus-inverter-ai-ecomaster-frio-midea/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:37.821Z"
+  },
+  {
+    "modelo": "38TV/42AFVCI09S5",
+    "codigo": "ARC0619",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-inverter-9000-btu-airvolution-frio-midea-3/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:40:56.281Z"
+  },
+  {
+    "modelo": "38TA/42EFVCB12M5",
+    "codigo": "ARC0622",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-12000-btus-inverter-ai-airvolution-frio-midea/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:40.914Z"
+  },
+  {
+    "modelo": "38TA/42EFVCB22M5",
+    "codigo": "ARC0628",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-22000-btus-inverter-ai-airvolution-frio-midea/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:37:42.351Z"
+  },
+  {
+    "modelo": "38CCV/42ZQVF36C5C",
+    "codigo": "ARC0647",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-teto-36000-btus-xpower-inverter-frio-carrier/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:38:02.836Z"
+  },
+  {
+    "modelo": "40KVQOF18C5",
+    "codigo": "ARC0659",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-cassette-18000-btus-inverter-1-via-frio-carrier/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-09-30T21:38:12.121Z"
+  },
+  {
+    "modelo": "LCST9F-02I-9KBTU",
+    "codigo": "ARC0566",
+    "fonteInterna": "https://www.agratto.com.br/ar-condicionado/ar-condicionado-split/condicionador-de-ar-split-liv-inverter-top-lcst9f-02i-9kbtu-agratto",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:00.581Z"
+  },
+  {
+    "modelo": "LCI60F-02",
+    "codigo": "ARC0630",
+    "fonteInterna": "https://www.infostore.com.br/ar-condicionado-split-agratto-55000-btus-cassete-inverter/p",
+    "origemFonte": "INFO_STORE",
+    "fonteInfoStore": "https://www.infostore.com.br/ar-condicionado-split-agratto-55000-btus-cassete-inverter/p",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:00.647Z"
+  },
+  {
+    "modelo": "JE09F/JI09F",
+    "codigo": "ARC0474",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-split-electrolux-inverter-9000-btus-color-adapt-frio-ji09f-je09f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:00.686Z"
+  },
+  {
+    "modelo": "JE12F/JI12F",
+    "codigo": "ARC0477",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-split-electrolux-inverter-12000-btus-color-adapt-frio-ji12f-je12f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:00.720Z"
+  },
+  {
+    "modelo": "JE18F/JI18F",
+    "codigo": "ARC0480",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-split-electrolux-color-adapt-inverter-18-000-btus-frio-ji18f-je18f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:00.753Z"
+  },
+  {
+    "modelo": "YE18F/YI18F",
+    "codigo": "ARC0492",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-split-electrolux-18000-btus-color-adapt-frio-com-wi-fi-yi18f-ye18f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:00.790Z"
+  },
+  {
+    "modelo": "YE24F/YI24F",
+    "codigo": "ARC0495",
+    "fonteInterna": "https://loja.electrolux.com.br/ar-condicionado-split-electrolux-24000-btus-color-adapt-frio-com-wi-fi-yi24f-ye24f/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:00.823Z"
+  },
+  {
+    "modelo": "D36F",
+    "codigo": "ARC0601",
+    "fonteInterna": "https://www.infostore.com.br/ar-condicionado-electrolux-split-36-000btus-inverter-frio-efficient-piso-teto/p",
+    "origemFonte": "INFO_STORE",
+    "fonteInfoStore": "https://www.infostore.com.br/ar-condicionado-electrolux-split-36-000btus-inverter-frio-efficient-piso-teto/p",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:00.869Z"
+  },
+  {
+    "modelo": "38TF/42AFFCI09S5",
+    "codigo": "ARC0607",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-9000-btu-airvolution-frio-midea-5/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "https://www.infostore.com.br/ar-condicionado-split-midea-9-000-btus-airvolution-lite-inverter-frio-classe-c/p",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:01.932Z"
+  },
+  {
+    "modelo": "38TB/42EBVCB12M5",
+    "codigo": "ARC0610",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-12000-btus-inverter-lite-frio-midea/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:03.650Z"
+  },
+  {
+    "modelo": "38TF/42AFFCI22S5",
+    "codigo": "ARC0616",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-22000-btu-airvolution-frio-midea-5/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "https://www.infostore.com.br/ar-condicionado-split-midea-22-000-btus-airvolution-lite-inverter-frio-classe-c/p",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:04.862Z"
+  },
+  {
+    "modelo": "40KVQOF12C5",
+    "codigo": "ARC0656",
+    "fonteInterna": "https://www.infostore.com.br/ar-condicionado-split-midea-12000-btus-inverter-cassete-1-via-frio-classe-a/p",
+    "origemFonte": "INFO_STORE",
+    "fonteInfoStore": "https://www.infostore.com.br/ar-condicionado-split-midea-12000-btus-inverter-cassete-1-via-frio-classe-a/p",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:06.278Z"
+  },
+  {
+    "modelo": "38CCV/40KVQF48C5A",
+    "codigo": "ARC0669",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-cassette-48000-btu-inverter-frio-carrier-4-vias/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:09.821Z"
+  },
+  {
+    "modelo": "38CCV/40KVQF54C5A",
+    "codigo": "ARC0672",
+    "fonteInterna": "https://www.midea.com.br/ar-condicionado-split-cassette-54000-btu-inverter-frio-carrier-4-vias/p",
+    "origemFonte": "FABRICANTE",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:14:11.581Z"
+  },
+  {
+    "modelo": "38TV/42FVCI18S5",
+    "codigo": "ARC0625",
+    "fonteInterna": "https://www.infostore.com.br/ar-condicionado-split-midea-18-000-btus-ai-airvolution-wi-fi-frio-classe-a/p",
+    "origemFonte": "INFO_STORE",
+    "fonteInfoStore": "https://www.infostore.com.br/ar-condicionado-split-midea-18-000-btus-ai-airvolution-wi-fi-frio-classe-a/p",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:15:18.683Z"
+  },
+  {
+    "modelo": "38TF/42FFCI18S5",
+    "codigo": "ARC0613",
+    "fonteInterna": "https://www.infostore.com.br/ar-condicionado-split-midea-18-000-btus-airvolution-lite-inverter-frio-classe-c/p",
+    "origemFonte": "INFO_STORE",
+    "fonteInfoStore": "https://www.infostore.com.br/ar-condicionado-split-midea-18-000-btus-airvolution-lite-inverter-frio-classe-c/p",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:18:32.804Z"
+  },
+  {
+    "modelo": "38CCV/40KVQF36C5A",
+    "codigo": "ARC0666",
+    "fonteInterna": "",
+    "origemFonte": "",
+    "fonteInfoStore": "",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "REVISAR",
+    "dataConsulta": "2026-10-01T13:23:17.030Z"
+  },
+  {
+    "modelo": "MY-AV1030BR",
+    "codigo": "ARC0673",
+    "fonteInterna": "https://www.infostore.com.br/ar-condicionado-janela-mystic-10000-btus-my-av1030br-127v-branco/p",
+    "origemFonte": "INFO_STORE",
+    "fonteInfoStore": "https://www.infostore.com.br/ar-condicionado-janela-mystic-10000-btus-my-av1030br-127v-branco/p",
+    "fluxo": "CLIMATIZACAO",
+    "segmento": "CLIMATIZACAO",
+    "statusFonte": "LOCALIZADO",
+    "dataConsulta": "2026-10-01T13:25:32.462Z"
+  },
+  {
+    "modelo": "4310ANBR414",
+    "codigo": "POR0036",
+    "produto": "TORRADEIRA ELETRICA EFFIC ETS10 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/torradeira-eletrica-electrolux-efficient-ets10-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/torradeira-eletrica-electrolux-efficient-ets10-/p",
+      "https://loja.electrolux.com.br/escova-pets-para-aspirador-32mm/p",
+      "https://loja.electrolux.com.br/torradeira-eletrica-electrolux-experience-ets25/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:44:54.798Z"
+  },
+  {
+    "modelo": "4612APBR401",
+    "codigo": "POR0047",
+    "produto": "LIQUID 1,75L EXPERT 1200W CPO VIDRO BLP70 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/liquidificador-electrolux-expert-blp70-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/liquidificador-electrolux-expert-blp70-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:44:55.612Z"
+  },
+  {
+    "modelo": "4411AKBR401",
+    "codigo": "POR0057",
+    "produto": "ESPREMEDOR EFFIC 800ML ECP10 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/espremedor-de-laranjas-e-frutas-electrolux-efficient-800ml--ecp10-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/espremedor-de-laranjas-e-frutas-electrolux-efficient-800ml--ecp10-/p",
+      "https://loja.electrolux.com.br/frigideira-de-aluminio-antiaderente-electrolux-efficient-20cm-cinza-ecpa16/p",
+      "https://loja.electrolux.com.br/frigideira-de-aluminio-antiaderente-electrolux-efficient-24cm-cinza-ecpa15/p",
+      "https://loja.electrolux.com.br/panela-de-aluminio-antiaderente-electrolux-efficient-16cm-cinza-ecpa14/p",
+      "https://loja.electrolux.com.br/panela-de-aluminio-cacarola-antiaderente-electrolux-efficient-20cm-cinza-ecpa13/p",
+      "https://loja.electrolux.com.br/panela-de-aluminio-cacarola-antiaderente-electrolux-efficient-24cm-cinza-escuro-ecpa12/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:44:56.896Z"
+  },
+  {
+    "modelo": "4812FGBR401",
+    "codigo": "POR0059",
+    "produto": "VPORIZADOR ROUPA EXPER C/TABUA EGS20 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/vaporizador-de-roupas-electrolux-expert--egs20-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/vaporizador-de-roupas-electrolux-expert--egs20-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:44:57.749Z"
+  },
+  {
+    "modelo": "4011AHBR407",
+    "codigo": "POR0060",
+    "produto": "MIXER 3 EM 1 400W EIB10 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/mixer_3_em_1_eib10_electrolux/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/mixer_3_em_1_eib10_electrolux/p",
+      "https://loja.electrolux.com.br/mixer-electrolux-preto-400w-com-tecnologia-truflow--eib05-/p",
+      "https://loja.electrolux.com.br/mixer-3-em-1-electrolux-vermelho-600w-com-haste-em-inox-e-tecnologia-truflow--eib21-/p",
+      "https://loja.electrolux.com.br/mixer_3_em_1_com_haste_em_aco_inox_eib20_electrolux/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:44:58.962Z"
+  },
+  {
+    "modelo": "4713AABR410",
+    "codigo": "POR0062",
+    "produto": "BATEDEIRA PLANETARIA 5L EXPER 750W EKM40 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/batedeira-planetaria-electrolux-750w-cinza-experience-com-tigela-inox-5l--ekm40-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/batedeira-planetaria-electrolux-750w-cinza-experience-com-tigela-inox-5l--ekm40-/p",
+      "https://loja.electrolux.com.br/batedeira-planetaria-electrolux-750w-preta-experience-com-tigela-5l--ekm30-/p",
+      "https://loja.electrolux.com.br/batedeira-planetaria-electrolux-750w-150-anos-maizena---ekm41-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:44:59.953Z"
+  },
+  {
+    "modelo": "5310ABBR401",
+    "codigo": "POR0063",
+    "produto": "VPORIZADOR ROUPA PORTATIL EFFIC EPS10 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/vaporizador-passadeira-de-roupas-portatil-electrolux-efficient-care--eps10-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/vaporizador-passadeira-de-roupas-portatil-electrolux-efficient-care--eps10-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:00.518Z"
+  },
+  {
+    "modelo": "4330AOBR401",
+    "codigo": "POR0067",
+    "produto": "PANELA DE ARROZ ELETRICA 2L EFFIC ERC10 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-2l-cor-preto-inox-efficient-2-em-1-com-visor-glass-por-rita-lobo--erc10-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-2l-cor-preto-inox-efficient-2-em-1-com-visor-glass-por-rita-lobo--erc10-/p",
+      "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-35l-efficient-por-rita-lobo--erc20-/p",
+      "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-35l-efficient-visor-glass-por-rita-lobo--erc30-/p",
+      "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-3-5l-efficient-visor-glass-por-rita-lobo--erc31-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:01.509Z"
+  },
+  {
+    "modelo": "4510AEBR402",
+    "codigo": "POR0068",
+    "produto": "SANDUICHEIRA EFFIC ESG20 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/sanduicheira-electrolux-efficient-inox--esg20-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/sanduicheira-electrolux-efficient-inox--esg20-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:02.295Z"
+  },
+  {
+    "modelo": "4811AQBR401",
+    "codigo": "POR0069",
+    "produto": "FERRO A VAPOR EFFIC ESI10 AZU 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/ferro-de-passar-a-vapor-e-a-seco-electrolux-efficient--esi10-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/ferro-de-passar-a-vapor-e-a-seco-electrolux-efficient--esi10-/p",
+      "https://loja.electrolux.com.br/resistencia-tubular-127v/p",
+      "https://loja.electrolux.com.br/resistencia-dreno-ventilador-1/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:03.393Z"
+  },
+  {
+    "modelo": "09140GBC006",
+    "codigo": "POR0079",
+    "produto": "PURIFICADOR AGUA TOUCH PE12B BRA BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/filtro-refil-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/filtro-refil-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v/p",
+      "https://loja.electrolux.com.br/kit-2-filtros-refis-originais-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v-pe12p/p",
+      "https://loja.electrolux.com.br/kit-6-filtros-refis-originais-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v-pe12p/p",
+      "https://loja.electrolux.com.br/filtro-refil-original-acqua-pure-para-purificador-de-agua-electrolux-pe12-pc02/p",
+      "https://loja.electrolux.com.br/kit-3-filtros-refis-originais-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v-pe12p/p",
+      "https://loja.electrolux.com.br/pe12b-pe12b-purif-agua-pelt-bivolt/p",
+      "https://loja.electrolux.com.br/pe12b-pe12b-purif-agua-pelt-bivolt-filtro-refil-de-agua-acqua-pure/p",
+      "https://loja.electrolux.com.br/41037911-celula-pertier/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:04.031Z"
+  },
+  {
+    "modelo": "4910AOBR403",
+    "codigo": "POR0080",
+    "produto": "CAFETEIRA ELET EXPERT 38 XICARAS ECM30 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cafeteira_eletrica_programavel_digital_ecm30_electrolux/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-com-jarra-inox-30-xicaras-efficient--ecm22-/p",
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-programavel-com-timer-30-xicaras-experience--ecm25-/p",
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-inox-30-xicaras-efficient-ecm20/p",
+      "https://loja.electrolux.com.br/cafeteira_eletrica_programavel_digital_ecm30_electrolux/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:05.697Z"
+  },
+  {
+    "modelo": "3011AHBR411",
+    "codigo": "POR0087",
+    "produto": "ASPIRADOR DE PO E AGUA 1400W 5L AWD01 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/aspirador-de-po-e-agua-electrolux-1400w-5l-c--conjunto-de-acessorios-e-rodas-360---awd01-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/aspirador-de-po-e-agua-electrolux-1400w-5l-c--conjunto-de-acessorios-e-rodas-360---awd01-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:06.126Z"
+  },
+  {
+    "modelo": "4330AOBR403",
+    "codigo": "POR0089",
+    "produto": "PANELA DE ARROZ ELETRICA 3,5L EFFIC ERC30 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-35l-efficient-visor-glass-por-rita-lobo--erc30-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-35l-efficient-visor-glass-por-rita-lobo--erc30-/p",
+      "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-35l-efficient-por-rita-lobo--erc20-/p",
+      "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-2l-cor-preto-inox-efficient-2-em-1-com-visor-glass-por-rita-lobo--erc10-/p",
+      "https://loja.electrolux.com.br/panela-de-arroz-eletrica-electrolux-3-5l-efficient-visor-glass-por-rita-lobo--erc31-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:07.118Z"
+  },
+  {
+    "modelo": "4810ASBR401",
+    "codigo": "POR0090",
+    "produto": "FERRO A VAPOR EXPER ESI80 VER 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/ferro-de-passar-a-vapor-e-a-seco-experience-care--esi80-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/ferro-de-passar-a-vapor-e-a-seco-experience-care--esi80-/p",
+      "https://loja.electrolux.com.br/resistencia-tubular-127v/p",
+      "https://loja.electrolux.com.br/resistencia-dreno-ventilador-1/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:07.959Z"
+  },
+  {
+    "modelo": "5011AIBR408",
+    "codigo": "POR0091",
+    "produto": "CHALEIRA ELET EFFIC 1,8L EEK10 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/chaleira-eletrica-electrolux-18l-efficient--eek10-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/chaleira-eletrica-electrolux-18l-efficient--eek10-/p",
+      "https://loja.electrolux.com.br/chaleira-eletrica-electrolux-17l-experience--eek25-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:08.699Z"
+  },
+  {
+    "modelo": "09140GBC085",
+    "codigo": "POR0094",
+    "produto": "PURIFICADOR AGUA TOUCH PE12G CIN BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/filtro-refil-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/filtro-refil-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v/p",
+      "https://loja.electrolux.com.br/kit-2-filtros-refis-originais-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v-pe12p/p",
+      "https://loja.electrolux.com.br/filtro-refil-original-acqua-pure-para-purificador-de-agua-electrolux-pe12-pc02/p",
+      "https://loja.electrolux.com.br/kit-6-filtros-refis-originais-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v-pe12p/p",
+      "https://loja.electrolux.com.br/kit-3-filtros-refis-originais-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v-pe12p/p",
+      "https://loja.electrolux.com.br/41037911-celula-pertier/p",
+      "https://loja.electrolux.com.br/pe12g-pe12g-purif-agua-pelt-bivolt/p",
+      "https://loja.electrolux.com.br/pe12g-pe12g-purif-agua-pelt-bivolt-filtro-refil-de-agua-acqua-pure/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:09.768Z"
+  },
+  {
+    "modelo": "4340AJBR483",
+    "codigo": "POR0123",
+    "produto": "PANELA ELETRICA PRESSAO 6L DIG EXPER PCC20 CIN 127",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/panela-de-pressao-eletrica-electrolux-6l-preta-experience-por-rita-lobo-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/panela-de-pressao-eletrica-electrolux-6l-preta-experience-por-rita-lobo-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:10.144Z"
+  },
+  {
+    "modelo": "3015AKBR403",
+    "codigo": "POR0125",
+    "produto": "ASPIRADOR DE PO VERTICAL 1450W STK14 AZU 127",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/aspirador-vertical-com-fio-plus-2-em-1--stk14-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/aspirador-vertical-com-fio-plus-2-em-1--stk14-/p",
+      "https://loja.electrolux.com.br/aspirador-de-po-vertical-1450w-electrolux-2-em-1--stk14w-/p",
+      "https://loja.electrolux.com.br/aspirador-de-po-vertical-1450w-plus-electrolux-2-em-1-filtro-hepa-cabo-eletrico-5m-stk14b/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:11.942Z"
+  },
+  {
+    "modelo": "3015ACG0034",
+    "codigo": "POR0126",
+    "produto": "ASPIRADOR DE PO VERTICAL S/FIO ERG24N PRE BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/aspirador-de-po-vertical-144v-ergorapido-electrolux-sem-fio-2-em-1-luz-led-ate-30-min--erg24n-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/aspirador-de-po-vertical-144v-ergorapido-electrolux-sem-fio-2-em-1-luz-led-ate-30-min--erg24n-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:12.605Z"
+  },
+  {
+    "modelo": "4911AOBR405",
+    "codigo": "POR0127",
+    "produto": "CAFETEIRA ELET EFFIC 30 XICARAS ECM22 CIN 127",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-com-jarra-inox-30-xicaras-efficient--ecm22-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-com-jarra-inox-30-xicaras-efficient--ecm22-/p",
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-efficient-com-jarra-de-aco-inox--ecm12-/p",
+      "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-capsula--po-e-sache-experience-vaporizador-de-leite-preta-ecm70/p",
+      "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-expert-moedor-integrado-e-espumador-de-leite-preta-ecm90/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:13.940Z"
+  },
+  {
+    "modelo": "D30EBA51N09",
+    "codigo": "POR0128",
+    "produto": "BEBEDOURO AGUA C/ COMPRESSOR BC01X CIN 127",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/bebedouro-electrolux-agua-gelada--fria-e-natural-com-compressor-cinza--bc01x-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/bebedouro-electrolux-agua-gelada--fria-e-natural-com-compressor-cinza--bc01x-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:14.682Z"
+  },
+  {
+    "modelo": "D30EBA51N06",
+    "codigo": "POR0129",
+    "produto": "BEBEDOURO AGUA C/ COMPRESSOR BC01B BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/bebedouro-electrolux-agua-gelada--fria-e-natural-com-compressor-branco--bc01b-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/bebedouro-electrolux-agua-gelada--fria-e-natural-com-compressor-branco--bc01b-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:15.961Z"
+  },
+  {
+    "modelo": "P30EBA51N09",
+    "codigo": "POR0130",
+    "produto": "PURIFICADOR AGUA C/ COMPRESSOR PC01X GRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/kit-3-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/kit-3-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+      "https://loja.electrolux.com.br/kit-2-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+      "https://loja.electrolux.com.br/kit-6-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+      "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-pe15p-pn10b-pn10x-e-pn10p/p",
+      "https://loja.electrolux.com.br/purificador-electrolux-experience-agua-fria--natural-e-gelada-com-compressor-grafite--pc01x-/p",
+      "https://loja.electrolux.com.br/pe15x-pe15x-purif-agua-pelt-bivolt-filtro-refil-de-agua-acqua-pure-p/p",
+      "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-e-pe15p/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:16.526Z"
+  },
+  {
+    "modelo": "P30EBA51N06",
+    "codigo": "POR0131",
+    "produto": "PURIFICADOR AGUA C/ COMPRESSOR PC01B BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/kit-3-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/kit-3-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+      "https://loja.electrolux.com.br/kit-2-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+      "https://loja.electrolux.com.br/kit-6-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+      "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-pe15p-pn10b-pn10x-e-pn10p/p",
+      "https://loja.electrolux.com.br/purificador-electrolux-experience-agua-fria--natural-e-gelada-com-compressor-branco--pc01b-/p",
+      "https://loja.electrolux.com.br/pe15x-pe15x-purif-agua-pelt-bivolt-filtro-refil-de-agua-acqua-pure-p/p",
+      "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-e-pe15p/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:17.351Z"
+  },
+  {
+    "modelo": "P15EBA00C35",
+    "codigo": "POR0132",
+    "produto": "PURIFICADOR AGUA PE15P PRE BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/kit-3-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/kit-3-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+      "https://loja.electrolux.com.br/kit-2-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+      "https://loja.electrolux.com.br/kit-6-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+      "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-pe15p-pn10b-pn10x-e-pn10p/p",
+      "https://loja.electrolux.com.br/purificador-electrolux-agua-gelada-3-niveis-preto-efficient-eletronico--pe15p----bivolt/p",
+      "https://loja.electrolux.com.br/pe15x-pe15x-purif-agua-pelt-bivolt-filtro-refil-de-agua-acqua-pure-p/p",
+      "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-e-pe15p/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:18.057Z"
+  },
+  {
+    "modelo": "4910ANBR405",
+    "codigo": "POR0133",
+    "produto": "CAFETEIRA ELET EFFIC 15 XICARAS ECM10 PRE 127",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-15-xicaras-efficient--ecm10-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-15-xicaras-efficient--ecm10-/p",
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-efficient-com-jarra-de-aco-inox--ecm12-/p",
+      "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-capsula--po-e-sache-experience-vaporizador-de-leite-preta-ecm70/p",
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-com-jarra-inox-30-xicaras-efficient--ecm22-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:18.702Z"
+  },
+  {
+    "modelo": "3410ANBR417",
+    "codigo": "POR0152",
+    "produto": "LAVADORA ALTA PRESSAO 1800PSI EWS1800 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/lavadora-de-alta-pressao-electrolux-1800psi-1400w-powerwash-aplicador-detergente--ews1800-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/lavadora-de-alta-pressao-electrolux-1800psi-1400w-powerwash-aplicador-detergente--ews1800-/p",
+      "https://loja.electrolux.com.br/lavadora-de-alta-pressao-electrolux-1850psi-1450w-powerwash-aplicador-detergente--ews1850--/p",
+      "https://loja.electrolux.com.br/lavadora-de-alta-pressao-electrolux-1850psi-1500w-powerwash-c--canhao-de-espuma--ews1850p-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:20.147Z"
+  },
+  {
+    "modelo": "5310AGBR401",
+    "codigo": "POR0159",
+    "produto": "AIR FRYER 5,6L EFFIC 1400W EAF40 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/air-fryer-electrolux-por-rita-lobo-5-6-l-cinza-efficient-timer-e-conveccao-1400w-eaf40/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cesto-4l-para-air-fryer-electrolux-eaf30-eaf31/p",
+      "https://loja.electrolux.com.br/air-fryer-electrolux-por-rita-lobo-5-6-l-cinza-efficient-timer-e-conveccao-1400w-eaf40/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:22.403Z"
+  },
+  {
+    "modelo": "4611ATBR401",
+    "codigo": "POR0160",
+    "produto": "LIQUID PORTATIL BLENDER BSE20 320W C/2 COPO 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/liquidificador-portatil-electrolux-sport-blender-320w-efficient-acabamento-inox--bse20-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/liquidificador-portatil-electrolux-sport-blender-320w-efficient-acabamento-inox--bse20-/p",
+      "https://loja.electrolux.com.br/liquidificador-portatil-sem-fio-electrolux-120w-experience-preto-carregamento-usb-bse40/p",
+      "https://loja.electrolux.com.br/garrafa-adicional-para-sport-blender-bse10-electrolux-aesb1/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:23.370Z"
+  },
+  {
+    "modelo": "4610AVBR402",
+    "codigo": "POR0164",
+    "produto": "LIQUID 2,7L EFFI 1000W TRI FORCE EBL1000 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/liquidificador-electrolux-1000w-2-7l-efficient-com-triforce-5-velocidades-cinza--ebl1000-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/liquidificador-electrolux-1000w-2-7l-efficient-com-triforce-5-velocidades-cinza--ebl1000-/p",
+      "https://loja.electrolux.com.br/liquidificador-electrolux-600w-2-7l-efficient-com-triforce-3-velocidades-preto--ebl700-/p",
+      "https://loja.electrolux.com.br/liquidificador-electrolux-1500w-3-2l-efficient-com-triforce-15-velocidades-cinza--ebl1500-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:24.541Z"
+  },
+  {
+    "modelo": "4612AVBR406",
+    "codigo": "POR0165",
+    "produto": "LIQUID 3,2L EFFI 1500W TRI FORCE EBL1500 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/liquidificador-electrolux-1500w-3-2l-efficient-com-triforce-15-velocidades-cinza--ebl1500-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/liquidificador-electrolux-1500w-3-2l-efficient-com-triforce-15-velocidades-cinza--ebl1500-/p",
+      "https://loja.electrolux.com.br/liquidificador-electrolux-600w-2-7l-efficient-com-triforce-3-velocidades-preto--ebl700-/p",
+      "https://loja.electrolux.com.br/liquidificador-electrolux-1300w-3-2l-efficient-com-triforce-12-velocidades-preto--ebl1300-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:25.559Z"
+  },
+  {
+    "modelo": "5311AABR101",
+    "codigo": "POR0179",
+    "produto": "AIR FRYER 12L DIG OVEN EXPER 1700W EAF85 GRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/air-fryer-oven-5-em-1-electrolux-por-rita-lobo-12l-experience--eaf85-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cesto-4l-para-air-fryer-electrolux-eaf30-eaf31/p",
+      "https://loja.electrolux.com.br/air-fryer-oven-5-em-1-electrolux-por-rita-lobo-12l-experience--eaf85-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:27.395Z"
+  },
+  {
+    "modelo": "5310ADBR101",
+    "codigo": "POR0203",
+    "produto": "AIR FRYER 7,0L EFFIC DIG 1700W EAF70 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/air-fryer-electrolux-por-rita-lobo-7l-preta-efficient-1700w-eaf70/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cesto-4l-para-air-fryer-electrolux-eaf30-eaf31/p",
+      "https://loja.electrolux.com.br/air-fryer-electrolux-por-rita-lobo-7l-preta-efficient-1700w-eaf70/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:28.449Z"
+  },
+  {
+    "modelo": "4912AABR101",
+    "codigo": "POR0209",
+    "produto": "CAFETEIRA ESPRESSO AUT C/ CAPS E VAPORI ECM70 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-capsula--po-e-sache-experience-vaporizador-de-leite-preta-ecm70/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-capsula--po-e-sache-experience-vaporizador-de-leite-preta-ecm70/p",
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-efficient-com-jarra-de-aco-inox--ecm12-/p",
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-com-jarra-inox-30-xicaras-efficient--ecm22-/p",
+      "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-expert-moedor-integrado-e-espumador-de-leite-preta-ecm90/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:29.899Z"
+  },
+  {
+    "modelo": "4912AABR103",
+    "codigo": "POR0210",
+    "produto": "CAFETEIRA ESPRESSO EXPERT AUT C/ MOED E ESPUM ECM90 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-expert-moedor-integrado-e-espumador-de-leite-preta-ecm90/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-expert-moedor-integrado-e-espumador-de-leite-preta-ecm90/p",
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-efficient-com-jarra-de-aco-inox--ecm12-/p",
+      "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-capsula--po-e-sache-experience-vaporizador-de-leite-preta-ecm70/p",
+      "https://loja.electrolux.com.br/cafeteira-eletrica-electrolux-com-jarra-inox-30-xicaras-efficient--ecm22-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:30.998Z"
+  },
+  {
+    "modelo": "5710AABR101",
+    "codigo": "POR0211",
+    "produto": "ESPUMADOR DE LEITE 300ML EMF10 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/espumador-de-leite-soft-crema-electrolux-300ml-experience-emf10-1/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/espumador-de-leite-soft-crema-electrolux-300ml-experience-emf10-1/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:31.519Z"
+  },
+  {
+    "modelo": "P40EBA60009",
+    "codigo": "POR0212",
+    "produto": "PURIFICADOR AGUA PN10X PRE PILHA",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-pe15p-pn10b-pn10x-e-pn10p/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-pe15p-pn10b-pn10x-e-pn10p/p",
+      "https://loja.electrolux.com.br/purificador-de-agua-electrolux-efficient-compacto-agua-natural-com-tecnologia-acqua-pure-pn10x/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:45:32.444Z"
+  },
+  {
+    "modelo": "889016422240",
+    "codigo": "POR0097",
+    "produto": "FERRO A VAPOR SERIE 1000 1200W DST1050 AZUL 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/ferro-a-vapor-serie-1000-philips-walita---dst1050/p",
+    "alternativas": [
+      "https://www.walita.com.br/ferro-a-vapor-serie-1000-philips-walita---dst1050/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:44.370Z"
+  },
+  {
+    "modelo": "8720389024962",
+    "codigo": "POR0105",
+    "produto": "PAPA BOLINHAS GC026 PRE",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/papa-bolinhas-philips-walita-preto-gc026-wal-gc026-80br_preto/p",
+    "alternativas": [
+      "https://www.walita.com.br/papa-bolinhas-philips-walita-preto-gc026-wal-gc026-80br_preto/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:45.048Z"
+  },
+  {
+    "modelo": "8710103900405",
+    "codigo": "POR0113",
+    "produto": "LIQUID 2L DAILY 550W RI2110 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/liquidificador-daily-philips-walita-ri2110-branco_ri2110-00_branco/p",
+    "alternativas": [
+      "https://www.walita.com.br/liquidificador-daily-philips-walita-ri2110-branco_ri2110-00_branco/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:47.732Z"
+  },
+  {
+    "modelo": "688001000580",
+    "codigo": "POR0124",
+    "produto": "MLTPROCESSADOR POWRCHOP KIT 6 ACE 1000W HR7304 PRE",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/multiprocessador-powerchop-1000-philips-walita-preto-1000w-hr7304-hr7304_92/p",
+    "alternativas": [
+      "https://www.walita.com.br/multiprocessador-powerchop-1000-philips-walita-preto-1000w-hr7304-hr7304_92/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:50.365Z"
+  },
+  {
+    "modelo": "688001000808",
+    "codigo": "POR0151",
+    "produto": "AIR FRYER 6,2L SER 1000 XL NA130 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/fritadeira-airfryer-serie-1000-xl-philips-walita-preta-1700w-na130-na130_00/p",
+    "alternativas": [
+      "https://www.walita.com.br/fritadeira-airfryer-serie-1000-xl-philips-walita-preta-1700w-na130-na130_00/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:52.831Z"
+  },
+  {
+    "modelo": "STE1010/72",
+    "codigo": "POR0156",
+    "produto": "VPORIZADOR VERTICAL 1000 1600W STE1010 BRA 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/vaporizador-de-roupas-serie-1000-philips-walita-verde-1600w---ste1010-ste1010_70/p",
+    "alternativas": [
+      "https://www.walita.com.br/vaporizador-de-roupas-serie-1000-philips-walita-verde-1600w---ste1010-ste1010_70/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:53.187Z"
+  },
+  {
+    "modelo": "DST2020/32",
+    "codigo": "POR0167",
+    "produto": "FERRO A VAPOR SERIE 2000 1400W DST2020 ROX 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/ferro-a-vapor-serie-2000-philips-walita-roxo-dst2020-32/p",
+    "alternativas": [
+      "https://www.walita.com.br/ferro-a-vapor-serie-2000-philips-walita-roxo-dst2020-32/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:53.986Z"
+  },
+  {
+    "modelo": "GC6842/32",
+    "codigo": "POR0169",
+    "produto": "FERRO A VAPOR PERFECTCARE 2000W GC6842 ROS 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/ferro-perfect-care-compact-essential-philips-110v-gc6842-32_gc6842-32_brancoroxo/p",
+    "alternativas": [
+      "https://www.walita.com.br/ferro-perfect-care-compact-essential-philips-110v-gc6842-32_gc6842-32_brancoroxo/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:55.735Z"
+  },
+  {
+    "modelo": "NA341/00",
+    "codigo": "POR0170",
+    "produto": "AIR FRYER 7,2L DIG SER 3000 C/ VISOR NA341 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/fritadeira-airfryer-serie-3000-7-2l-digital-com-visor-philips-walita-na341-na341-00/p",
+    "alternativas": [
+      "https://www.walita.com.br/fritadeira-airfryer-serie-3000-7-2l-digital-com-visor-philips-walita-na341-na341-00/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:56.567Z"
+  },
+  {
+    "modelo": "STE3170/82",
+    "codigo": "POR0171",
+    "produto": "VAPORIZADOR VERTICAL SERIE 3000 1600W STE3170 PRE 127",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/vaporizador-de-roupas-vertical-serie-3000-philips-walita-preto-2000w---ste3170-ste3170-80_preto/p",
+    "alternativas": [
+      "https://www.walita.com.br/vaporizador-de-roupas-vertical-serie-3000-philips-walita-preto-2000w---ste3170-ste3170-80_preto/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:57.316Z"
+  },
+  {
+    "modelo": "STH3020/12",
+    "codigo": "POR0172",
+    "produto": "VAPORIZADOR PORTATIL SERIE 3000 1000W STH3020 BRA 127",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/vaporizador-portatil-serie-3000-branco-philips-walita_sth3020-12_branco/p",
+    "alternativas": [
+      "https://www.walita.com.br/vaporizador-portatil-serie-3000-branco-philips-walita_sth3020-12_branco/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:58.376Z"
+  },
+  {
+    "modelo": "889008032240",
+    "codigo": "POR0175",
+    "produto": "FERRO A VAPOR SERIE 300 1400W DST3010 ROX//ROS 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/ferro-a-vapor-serie-3000-220v_dst3010-34_brancorosa/p",
+    "alternativas": [
+      "https://www.walita.com.br/ferro-a-vapor-serie-3000-220v_dst3010-34_brancorosa/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:45:59.425Z"
+  },
+  {
+    "modelo": "688001003092",
+    "codigo": "POR0213",
+    "produto": "AIR FRYER 7,1L SER 1000 DUPL CESTO 1850W NA150 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/fritadeira-airfryer-serie-1000-duplo-cesto-7-1l-philips-walita-na150-na150-00/p",
+    "alternativas": [
+      "https://www.walita.com.br/fritadeira-airfryer-serie-1000-duplo-cesto-7-1l-philips-walita-na150-na150-00/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:46:00.350Z"
+  },
+  {
+    "modelo": "688001002777",
+    "codigo": "POR0214",
+    "produto": "CAFETEIRA ESPRESSO AUT 5500 1400W EP5547 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/cafeteira-espresso-superautomatica-lattego-serie-5500-philips-walita-preta-e-cromada-1400w-ep5547-ep5547-93/p",
+    "alternativas": [
+      "https://www.walita.com.br/cafeteira-espresso-superautomatica-lattego-serie-5500-philips-walita-preta-e-cromada-1400w-ep5547-ep5547-93/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:46:01.027Z"
+  },
+  {
+    "modelo": "688001006260",
+    "codigo": "POR0217",
+    "produto": "MINI PROCESSADOR DE ALIMENTOS SER 3000 1L 450W HR1501 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/processador-de-alimentos-powerchop-serie-3000-philips-walita-preto--450w-hr1501-hr1501_01/p",
+    "alternativas": [
+      "https://www.walita.com.br/processador-de-alimentos-powerchop-serie-3000-philips-walita-preto--450w-hr1501-hr1501_01/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:46:02.530Z"
+  },
+  {
+    "modelo": "FW009626",
+    "codigo": "POR0158",
+    "produto": "AIR FRYER 10L BARBECUE 1800W PRE 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/fritadeira-eletrica-wap-10l-air-fryer-barbecue-digital-1800w-127v/p",
+    "alternativas": [
+      "https://www.infostore.com.br/fritadeira-eletrica-wap-10l-air-fryer-barbecue-digital-1800w-127v/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T17:46:04.348Z"
+  },
+  {
+    "modelo": "FW009448",
+    "codigo": "POR0180",
+    "produto": "ASPIRADOR DE PO PORT C/FIO CAR 12V2 180W 12VDC",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/aspirador-de-po-automotivo-wap-420ml-car12v2-180w-12vdc/p",
+    "alternativas": [
+      "https://www.infostore.com.br/aspirador-de-po-automotivo-wap-420ml-car12v2-180w-12vdc/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T17:46:05.584Z"
+  },
+  {
+    "modelo": "FW010142",
+    "codigo": "POR0182",
+    "produto": "ROBO ASP C/PANO/CTRL ROBOT W1000 BIVOLT",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.wap.ind.br/robo-aspirador-de-po-wap-robot-w1000/p",
+    "alternativas": [
+      "https://loja.wap.ind.br/robo-aspirador-de-po-wap-robot-w1000/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:46:06.288Z"
+  },
+  {
+    "modelo": "FW010277",
+    "codigo": "POR0185",
+    "produto": "CHALEIRA ELET PORT/BASEGIR WCE2 1,7L INO 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.wap.ind.br/chaleira-eletrica-wce2-1/p",
+    "alternativas": [
+      "https://loja.wap.ind.br/chaleira-eletrica-wce2-1/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:46:07.797Z"
+  },
+  {
+    "modelo": "FW010769",
+    "codigo": "POR0186",
+    "produto": "ESPREMEDOR WJ1200 1,2L 40W INO 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/espremedor-de-frutas-wap-1-2l-prosdocimo-wj1200-40w--127v/p",
+    "alternativas": [
+      "https://www.infostore.com.br/espremedor-de-frutas-wap-1-2l-prosdocimo-wj1200-40w--127v/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T17:46:09.066Z"
+  },
+  {
+    "modelo": "FW010535",
+    "codigo": "POR0190",
+    "produto": "SANDUICHEIRA WS750 INO 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/sanduicheira-grill-wap-inox-antiaderente-prosdocimo-ws750-127v/p",
+    "alternativas": [
+      "https://www.infostore.com.br/sanduicheira-grill-wap-inox-antiaderente-prosdocimo-ws750-127v/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T17:46:10.516Z"
+  },
+  {
+    "modelo": "FW009519",
+    "codigo": "POR0191",
+    "produto": "TORRADEIRA ELET WTE1 INO 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/torradeira-eletrica-wap-wte1-127v/p",
+    "alternativas": [
+      "https://www.infostore.com.br/torradeira-eletrica-wap-wte1-127v/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T17:46:12.406Z"
+  },
+  {
+    "modelo": "FW010084",
+    "codigo": "POR0193",
+    "produto": "CAFETEIRA ELET AROMA 38 XICARAS DIGITAL WCD1500 INO 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.wap.ind.br/cafeteira-digital-aroma-wap-wcd-1500/p",
+    "alternativas": [
+      "https://loja.wap.ind.br/cafeteira-digital-aroma-wap-wcd-1500/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:46:13.251Z"
+  },
+  {
+    "modelo": "FW009523",
+    "codigo": "POR0194",
+    "produto": "CHALEIRA ELET WCE1 1,7L INO 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/chaleira-eletrica-wap-1-7l-prosdocimo-wce1-127v/p",
+    "alternativas": [
+      "https://www.infostore.com.br/chaleira-eletrica-wap-1-7l-prosdocimo-wce1-127v/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T17:46:14.453Z"
+  },
+  {
+    "modelo": "FW007733",
+    "codigo": "POR0195",
+    "produto": "UMIDIFICADOR AR AIR FLOW C/LUMINARIA E DIFUSOR BRA BIV",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.wap.ind.br/umidificador-com-luminaria-e-difusor-de-aromas-wap-air-flow/p",
+    "alternativas": [
+      "https://loja.wap.ind.br/umidificador-com-luminaria-e-difusor-de-aromas-wap-air-flow/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:46:15.068Z"
+  },
+  {
+    "modelo": "FW009468",
+    "codigo": "POR0196",
+    "produto": "EXTRATORA PORTATIL SPOT CLEANER W3 1450W 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.wap.ind.br/extratora-de-sujeiras-portatil-wap-spot-cleaner-w3/p",
+    "alternativas": [
+      "https://loja.wap.ind.br/extratora-de-sujeiras-portatil-wap-spot-cleaner-w3/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:46:15.472Z"
+  },
+  {
+    "modelo": "FW004192",
+    "codigo": "POR0199",
+    "produto": "LAVADORA ALTA PRESSAO 1300PSI AGIL 1800 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.wap.ind.br/lavadora-de-alta-pressao-1400w-1300psi-wap-agil-1800/p",
+    "alternativas": [
+      "https://loja.wap.ind.br/lavadora-de-alta-pressao-1400w-1300psi-wap-agil-1800/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T17:46:16.316Z"
+  },
+  {
+    "modelo": "FW010340",
+    "codigo": "POR0200",
+    "produto": "LIQUID 2L 900W CPO VIDRO WB2000 PRE 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/liquidificador-wap-2l-900w-copo-de-vidro-wb2000-127v-preto-e-cinza/p",
+    "alternativas": [
+      "https://www.infostore.com.br/liquidificador-wap-2l-900w-copo-de-vidro-wb2000-127v-preto-e-cinza/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T17:46:17.586Z"
+  },
+  {
+    "modelo": "FW012054",
+    "codigo": "POR0202",
+    "produto": "AIR FRYER 10L BARBECUE 1700W PRE 127V",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/fritadeira-eletrica-wap-10l-air-fryer-barbecue-flame-digital-1700w-127v/p",
+    "alternativas": [
+      "https://www.infostore.com.br/fritadeira-eletrica-wap-10l-air-fryer-barbecue-flame-digital-1700w-127v/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T17:46:18.692Z"
+  },
+  {
+    "modelo": "UN98DU9000GXZD",
+    "codigo": "TVV0633",
+    "produto": "TV LED 98 DU9000 4K SMART (120HZ/GAMEHUB/WIF/TIZE",
+    "fabricante": "SAMSUNG (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.samsung.com/br/tvs/uhd-4k-tv/du9000-98-inch-crystal-uhd-4k-tizen-os-smart-tv-un98du9000gxzd/",
+    "alternativas": [
+      "https://www.samsung.com/br/tvs/uhd-4k-tv/du9000-98-inch-crystal-uhd-4k-tizen-os-smart-tv-un98du9000gxzd/",
+      "https://www.samsung.com/br/support/model/UN98DU9000GXZD/"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T17:46:18.715Z"
   },
   {
     "modelo": "NV7B4420XAK/BZ",
@@ -1430,7 +2795,8 @@
       "https://www.samsung.com/br/support/model/NV7B4420XAK/BZ/"
     ],
     "origemFonte": "FABRICANTE",
-    "dataConsulta": "2026-09-21T19:48:50.697Z"
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T19:46:30.479Z"
   },
   {
     "modelo": "NV7B4545SAK/BZ",
@@ -1444,7 +2810,8 @@
       "https://www.samsung.com/br/support/model/NV7B4545SAK/BZ/"
     ],
     "origemFonte": "FABRICANTE",
-    "dataConsulta": "2026-09-21T19:48:50.741Z"
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T19:46:30.514Z"
   },
   {
     "modelo": "RF27CG5910B1AZ",
@@ -1458,6 +2825,262 @@
       "https://www.samsung.com/br/support/model/RF27CG5910B1AZ/"
     ],
     "origemFonte": "FABRICANTE",
-    "dataConsulta": "2026-09-21T19:48:50.784Z"
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T19:46:30.536Z"
+  },
+  {
+    "modelo": "02543FBA130",
+    "codigo": "GEL0032",
+    "produto": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is--iq8ib-e-im8is/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is--iq8ib-e-im8is/p",
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-585l-efficient-com-autosense-e-dispenser-de-agua-e-gelo-3-portas-cor-inox-look--im8is-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T19:46:32.313Z"
+  },
+  {
+    "modelo": "02544FBA130",
+    "codigo": "GEL0033",
+    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-3-unidades/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-3-unidades/p",
+      "https://loja.electrolux.com.br/filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is--iq8ib-e-im8is/p",
+      "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-2-unidades/p",
+      "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-home-pro-541l--iq8is--1/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T19:46:33.776Z"
+  },
+  {
+    "modelo": "02547FBA135",
+    "codigo": "GEL0034",
+    "produto": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-3-unidades/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-3-unidades/p",
+      "https://loja.electrolux.com.br/filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is--iq8ib-e-im8is/p",
+      "https://loja.electrolux.com.br/kit-filtro-de-agua-para-geladeira-electrolux-dm85x--dm86x--dm86v--dm90x--dm91x--dq90x--iq8is-e-iq8ib-2-unidades/p",
+      "https://loja.electrolux.com.br/geladeira-electrolux-multidoor-com-flexispace-pro-series-583l--iq8ib-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T19:46:35.513Z"
+  },
+  {
+    "modelo": "A27329401",
+    "codigo": "UTD0007",
+    "produto": "POTES HERMETICOS QUADRADOS DE VIDRO C/ 4UN",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/potes-hermeticos-de-vidro-quadrados-com-4-unidades---electrolux/p",
+    "alternativas": [
+      "https://www.infostore.com.br/potes-hermeticos-de-vidro-quadrados-com-4-unidades---electrolux/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T19:46:37.372Z"
+  },
+  {
+    "modelo": "A21392801",
+    "codigo": "UTD0008",
+    "produto": "POTES HERMETICOS C/ TAMPA DE BAMBU C/ 4UN",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/potes-hermeticos-com-tampa-de-bambu---electrolux/p",
+    "alternativas": [
+      "https://www.infostore.com.br/potes-hermeticos-com-tampa-de-bambu---electrolux/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T19:46:39.201Z"
+  },
+  {
+    "modelo": "A20998601",
+    "codigo": "UTD0009",
+    "produto": "POTES HERMETICOS REFRATARIOS DE BAMBU C/ 2UN",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/potes-hermeticos-refratarios-com-tampa-de-bambu-2-unidades---electrolux/p",
+    "alternativas": [
+      "https://www.infostore.com.br/potes-hermeticos-refratarios-com-tampa-de-bambu-2-unidades---electrolux/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T19:46:40.910Z"
+  },
+  {
+    "modelo": "A26191301",
+    "codigo": "UTD0010",
+    "produto": "CONJUNTO DE UTENSILIOS DE BAMBU C/ 06 PECAS",
+    "fabricante": "ELECTROLUX (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.infostore.com.br/conjunto-de-utensilios-de-bambu-de-06-pecas---electrolux/p",
+    "alternativas": [
+      "https://www.infostore.com.br/conjunto-de-utensilios-de-bambu-de-06-pecas---electrolux/p"
+    ],
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-01T19:46:43.164Z"
+  },
+  {
+    "modelo": "TPN0471",
+    "codigo": "POR0176",
+    "produto": "ROBO ASP C/PANO/CTRL RV20 MAX PRE BIVOLT",
+    "fabricante": "TP-LINK (NAC)",
+    "statusFonte": "NAO_LOCALIZADO",
+    "fonteInterna": "",
+    "alternativas": [],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T19:46:45.206Z"
+  },
+  {
+    "modelo": "TPN0519",
+    "codigo": "POR0177",
+    "produto": "ROBO ASP C/PANO/CTRL RV30 MAX PRE BIVOLT",
+    "fabricante": "TP-LINK (NAC)",
+    "statusFonte": "NAO_LOCALIZADO",
+    "fonteInterna": "",
+    "alternativas": [],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-01T19:46:47.089Z"
+  },
+  {
+    "modelo": "8720389007729",
+    "codigo": "POR0096",
+    "produto": "CAFETEIRA ESPRESSO AUT 1200 1500W EP1220 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/tubo-vapor-pannarello-cafeteira-philips-walita-ep1220-1087/p",
+    "alternativas": [
+      "https://www.walita.com.br/tubo-vapor-pannarello-cafeteira-philips-walita-ep1220-1087/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T19:46:48.253Z"
+  },
+  {
+    "modelo": "8710103885801",
+    "codigo": "POR0110",
+    "produto": "LIQUID 2L DAILY JARRA SAN 600W RI2112 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/copo-acrilico-transparente--liquidificador-walita-ri2112-663/p",
+    "alternativas": [
+      "https://www.walita.com.br/copo-acrilico-transparente--liquidificador-walita-ri2112-663/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T19:46:48.882Z"
+  },
+  {
+    "modelo": "8710103950646",
+    "codigo": "POR0111",
+    "produto": "LIQUID 3L SERIE 5000 INQUEBR 1400W RI2244 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/copo-liquidificador-walita-ri2240-ri2242-ri2244-687/p",
+    "alternativas": [
+      "https://www.walita.com.br/copo-liquidificador-walita-ri2240-ri2242-ri2244-687/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T19:46:49.492Z"
+  },
+  {
+    "modelo": "8720389025051",
+    "codigo": "POR0114",
+    "produto": "MLTPROCESSADOR KIT 3 600W RI7300 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/suporte-disco-fatiador-processador-walita-ri7300-ri7301-556/p",
+    "alternativas": [
+      "https://www.walita.com.br/suporte-disco-fatiador-processador-walita-ri7300-ri7301-556/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T19:46:50.151Z"
+  },
+  {
+    "modelo": "886224293240",
+    "codigo": "POR0115",
+    "produto": "LIQUID 3L SERIE 5000 INQUEBR 1200W RI2242 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/faca-vermelha-liquidificador-walita-ri2240-ri2242-654/p",
+    "alternativas": [
+      "https://www.walita.com.br/faca-vermelha-liquidificador-walita-ri2240-ri2242-654/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T19:46:51.226Z"
+  },
+  {
+    "modelo": "688001002071",
+    "codigo": "POR0140",
+    "produto": "AIR FRYER 12L DIG OVEN 1600W AI551 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/puxador-preto-cesta-airfryer-walita-ai551-1099/p",
+    "alternativas": [
+      "https://www.walita.com.br/puxador-preto-cesta-airfryer-walita-ai551-1099/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T19:46:51.897Z"
+  },
+  {
+    "modelo": "688001000198",
+    "codigo": "POR0141",
+    "produto": "LIQUID 3L SERIE 3000 1000W HR2270 PRE 127V",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/copo-acrilico-liquidificador-walita-hr2270-hr2271-1093/p",
+    "alternativas": [
+      "https://www.walita.com.br/copo-acrilico-liquidificador-walita-hr2270-hr2271-1093/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T19:46:52.599Z"
+  },
+  {
+    "modelo": "688001006010",
+    "codigo": "POR0216",
+    "produto": "UMIDIFICADOR AR ULTRASSONICO CONECTADO HU1510 BRA BIV",
+    "fabricante": "WALITA (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.walita.com.br/reservatorio-agua-umidificador-philips-walita-hu1510-1180/p",
+    "alternativas": [
+      "https://www.walita.com.br/reservatorio-agua-umidificador-philips-walita-hu1510-1180/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T19:46:53.512Z"
+  },
+  {
+    "modelo": "FW009557",
+    "codigo": "POR0183",
+    "produto": "ROBO ASP C/PANO/CTRL/MAP ROBOT W3000 BIV",
+    "fabricante": "WAP (NAC)",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.wap.ind.br/robot-w3000/p",
+    "alternativas": [
+      "https://loja.wap.ind.br/robot-w3000/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "MODELO_EXATO",
+    "dataConsulta": "2026-10-01T19:46:54.721Z"
   }
 ]

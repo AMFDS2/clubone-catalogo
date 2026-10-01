@@ -1,0 +1,56 @@
+{
+  "ARC0643": {
+    "modelo": "ZICST9F-02",
+    "sha256Ficha": "c58480e07044b6012b7922d29aaf1ec34d08dce386e314b232eceb3fac255ed0",
+    "paginaFicha": 2,
+    "descricao": "Ar-condicionado split Agratto Zen Inverter de 9.000 BTUs. ciclo frio. com serpentina em cobre. filtro e fluido refrigerante R32.",
+    "especificacoes": {
+      "Capacidade de refrigeração": "9000 BTU/h",
+      "Compressor": "Inverter",
+      "Ciclo": "Frio",
+      "Voltagem": "220 V",
+      "Classificação energética": "A",
+      "Fluido refrigerante": "R32"
+    },
+    "dimensoes": {
+      "evaporadora": {
+        "largura": "770 mm",
+        "altura": "201 mm",
+        "profundidade": "250 mm"
+      },
+      "condensadora": {
+        "largura": "478 mm",
+        "altura": "550 mm",
+        "profundidade": "390 mm"
+      }
+    },
+    "criterio": "Medidas C x L x A da página 2 convertidas para largura=comprimento, profundidade=L, altura=A conforme setas do desenho oficial. Tensão confirmada na página 9 do manual, modelos ZICS 220V/60Hz. Transcrição visual revisada; não inferir dados quando o hash mudar."
+  },
+  "ARC0644": {
+    "modelo": "ZICST12F-02",
+    "sha256Ficha": "cddcf34b5cecdb53551622f63959b0350528e0373b11efe4ac5a527123174d7a",
+    "paginaFicha": 2,
+    "descricao": "Ar-condicionado split Agratto Zen Inverter de 12.000 BTUs. ciclo frio. com serpentina em cobre. filtro e fluido refrigerante R32.",
+    "especificacoes": {
+      "Capacidade de refrigeração": "12000 BTU/h",
+      "Compressor": "Inverter",
+      "Ciclo": "Frio",
+      "Voltagem": "220 V",
+      "Classificação energética": "A",
+      "Fluido refrigerante": "R32"
+    },
+    "dimensoes": {
+      "evaporadora": {
+        "largura": "770 mm",
+        "altura": "201 mm",
+        "profundidade": "250 mm"
+      },
+      "condensadora": {
+        "largura": "478 mm",
+        "altura": "550 mm",
+        "profundidade": "390 mm"
+      }
+    },
+    "criterio": "Medidas C x L x A da página 2 convertidas para largura=comprimento, profundidade=L, altura=A conforme setas do desenho oficial. Tensão confirmada na página 9 do manual, modelos ZICS 220V/60Hz. Transcrição visual revisada; não inferir dados quando o hash mudar."
+  }
+}

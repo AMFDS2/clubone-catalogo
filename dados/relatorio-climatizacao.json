@@ -1,0 +1,491 @@
+[
+  {
+    "codigo": "ARC0566",
+    "modelo": "LCST9F-02I-9KBTU",
+    "marca": "Agratto",
+    "status": "REVISAR",
+    "pendencias": [
+      "Ficha técnica e manual publicados em pastas do fabricante: confirmar o arquivo exato antes da importação",
+      "Descrição ausente nas fontes consultadas",
+      "Manual local ausente nas fontes consultadas",
+      "Dimensões completas de evaporadora ausentes",
+      "Dimensões completas de condensadora ausentes",
+      "Capacidade de refrigeração não confirmado",
+      "Voltagem não confirmado",
+      "Ciclo não confirmado",
+      "Link do produto na Info Store ainda não confirmado pelo código"
+    ],
+    "imagens": 6,
+    "documentos": 0,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0630",
+    "modelo": "LCI60F-02",
+    "marca": "Agratto",
+    "status": "REVISAR",
+    "pendencias": [
+      "Info Store: ordem dos eixos não informada em DIMENSÕES DO PRODUTO; medidas preservadas na ficha, sem gerar vistas",
+      "Manual local ausente nas fontes consultadas",
+      "Dimensões completas de evaporadora ausentes",
+      "Dimensões completas de condensadora ausentes"
+    ],
+    "imagens": 6,
+    "documentos": 0,
+    "origemDados": "INFO_STORE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0643",
+    "modelo": "ZICST9F-02",
+    "marca": "Agratto",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 6,
+    "documentos": 2,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0644",
+    "modelo": "ZICST12F-02",
+    "marca": "Agratto",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 6,
+    "documentos": 2,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0474",
+    "modelo": "JE09F/JI09F",
+    "marca": "Electrolux",
+    "status": "REVISAR",
+    "pendencias": [
+      "Link do produto na Info Store ainda não confirmado pelo código"
+    ],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0477",
+    "modelo": "JE12F/JI12F",
+    "marca": "Electrolux",
+    "status": "REVISAR",
+    "pendencias": [
+      "Link do produto na Info Store ainda não confirmado pelo código"
+    ],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0480",
+    "modelo": "JE18F/JI18F",
+    "marca": "Electrolux",
+    "status": "REVISAR",
+    "pendencias": [
+      "Link do produto na Info Store ainda não confirmado pelo código"
+    ],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0486",
+    "modelo": "YE09F/YI09F",
+    "marca": "Electrolux",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0492",
+    "modelo": "YE18F/YI18F",
+    "marca": "Electrolux",
+    "status": "REVISAR",
+    "pendencias": [
+      "Dimensões completas de evaporadora ausentes",
+      "Dimensões completas de condensadora ausentes",
+      "Link do produto na Info Store ainda não confirmado pelo código"
+    ],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0495",
+    "modelo": "YE24F/YI24F",
+    "marca": "Electrolux",
+    "status": "REVISAR",
+    "pendencias": [
+      "Link do produto na Info Store ainda não confirmado pelo código"
+    ],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0601",
+    "modelo": "D36F",
+    "marca": "Electrolux",
+    "status": "REVISAR",
+    "pendencias": [
+      "Info Store: ordem dos eixos não informada em DIMENSÕES DO PRODUTO; medidas preservadas na ficha, sem gerar vistas",
+      "Manual local ausente nas fontes consultadas",
+      "Dimensões completas de evaporadora ausentes",
+      "Dimensões completas de condensadora ausentes"
+    ],
+    "imagens": 12,
+    "documentos": 0,
+    "origemDados": "INFO_STORE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0633",
+    "modelo": "NE09F/NI09F",
+    "marca": "Electrolux",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0636",
+    "modelo": "NE12F/NI12F",
+    "marca": "Electrolux",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0639",
+    "modelo": "NE18F/NI18F",
+    "marca": "Electrolux",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0642",
+    "modelo": "NE24F/NI24F",
+    "marca": "Electrolux",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 3,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0576",
+    "modelo": "38EZVCA09M5/42EZ",
+    "marca": "Midea",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0579",
+    "modelo": "38EZVCA12M5/42EZ",
+    "marca": "Midea",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0582",
+    "modelo": "38EZVCA18M5/42EZ",
+    "marca": "Midea",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0585",
+    "modelo": "38EZVCA24M5/42EZ",
+    "marca": "Midea",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0607",
+    "modelo": "38TF/42AFFCI09S5",
+    "marca": "Midea",
+    "status": "REVISAR",
+    "pendencias": [
+      "Dimensões completas de evaporadora ausentes",
+      "Dimensões completas de condensadora ausentes"
+    ],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {
+      "especificacoes.Compressor": "INFO_STORE",
+      "especificacoes.Tempo de garantia": "INFO_STORE",
+      "especificacoes.Origem": "INFO_STORE",
+      "especificacoes.Tipo": "INFO_STORE",
+      "especificacoes.Tecnologia": "INFO_STORE",
+      "especificacoes.Serpentina": "INFO_STORE",
+      "especificacoes.Proteção anticorrosão": "INFO_STORE",
+      "especificacoes.Desumidificação": "INFO_STORE",
+      "especificacoes.Modo ventilação": "INFO_STORE",
+      "especificacoes.Modo sleep": "INFO_STORE",
+      "especificacoes.Modo turbo": "INFO_STORE",
+      "especificacoes.Timer": "INFO_STORE",
+      "especificacoes.Reinício automático": "INFO_STORE",
+      "especificacoes.Display digital": "INFO_STORE",
+      "especificacoes.Filtro de ar": "INFO_STORE",
+      "especificacoes.Auto limpeza": "INFO_STORE",
+      "especificacoes.Inteligência artificial": "INFO_STORE",
+      "especificacoes.Produto conectado": "INFO_STORE",
+      "especificacoes.Nível de ruído": "INFO_STORE",
+      "especificacoes.Itens inclusos": "INFO_STORE",
+      "especificacoes.Recursos especiais": "INFO_STORE",
+      "especificacoes.Dimensões": "INFO_STORE",
+      "especificacoes.Peso": "INFO_STORE",
+      "especificacoes.Informações do produto": "INFO_STORE"
+    }
+  },
+  {
+    "codigo": "ARC0610",
+    "modelo": "38TB/42EBVCB12M5",
+    "marca": "Midea",
+    "status": "REVISAR",
+    "pendencias": [
+      "Manual local ausente nas fontes consultadas"
+    ],
+    "imagens": 8,
+    "documentos": 0,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0613",
+    "modelo": "38TF/42FFCI18S5",
+    "marca": "Midea",
+    "status": "REVISAR",
+    "pendencias": [
+      "Manual local ausente nas fontes consultadas"
+    ],
+    "imagens": 10,
+    "documentos": 0,
+    "origemDados": "INFO_STORE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0616",
+    "modelo": "38TF/42AFFCI22S5",
+    "marca": "Midea",
+    "status": "REVISAR",
+    "pendencias": [
+      "Divergência: planilha indica inverter; fonte principal indica compressor fixo/on-off"
+    ],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {
+      "especificacoes.Tempo de garantia": "INFO_STORE",
+      "especificacoes.Origem": "INFO_STORE",
+      "especificacoes.Tipo": "INFO_STORE",
+      "especificacoes.Eficiência energética": "INFO_STORE",
+      "especificacoes.Modo turbo": "INFO_STORE",
+      "especificacoes.Modo eco": "INFO_STORE",
+      "especificacoes.Modo sleep": "INFO_STORE",
+      "especificacoes.Modo silencioso": "INFO_STORE",
+      "especificacoes.Desumidificação": "INFO_STORE",
+      "especificacoes.Auto limpeza": "INFO_STORE",
+      "especificacoes.Filtro": "INFO_STORE",
+      "especificacoes.Proteção anticorrosão": "INFO_STORE",
+      "especificacoes.Display": "INFO_STORE",
+      "especificacoes.Timer": "INFO_STORE",
+      "especificacoes.Nível de ruído": "INFO_STORE",
+      "especificacoes.Material da serpentina": "INFO_STORE",
+      "especificacoes.Área recomendada": "INFO_STORE",
+      "especificacoes.Itens inclusos": "INFO_STORE",
+      "especificacoes.Recursos especiais": "INFO_STORE",
+      "especificacoes.Dimensões do produto (l x a x p)": "INFO_STORE",
+      "especificacoes.Peso": "INFO_STORE",
+      "especificacoes.Informações do produto": "INFO_STORE"
+    }
+  },
+  {
+    "codigo": "ARC0619",
+    "modelo": "38TV/42AFVCI09S5",
+    "marca": "Midea",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0622",
+    "modelo": "38TA/42EFVCB12M5",
+    "marca": "Midea",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0625",
+    "modelo": "38TV/42FVCI18S5",
+    "marca": "Midea",
+    "status": "REVISAR",
+    "pendencias": [
+      "Manual local ausente nas fontes consultadas"
+    ],
+    "imagens": 11,
+    "documentos": 0,
+    "origemDados": "INFO_STORE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0628",
+    "modelo": "38TA/42EFVCB22M5",
+    "marca": "Midea",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0647",
+    "modelo": "38CCV/42ZQVF36C5C",
+    "marca": "Midea",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0656",
+    "modelo": "40KVQOF12C5",
+    "marca": "Midea",
+    "status": "REVISAR",
+    "pendencias": [
+      "Info Store: ordem dos eixos não informada em DIMENSÕES DO PRODUTO; medidas preservadas na ficha, sem gerar vistas",
+      "Manual local ausente nas fontes consultadas",
+      "Dimensões completas de evaporadora ausentes",
+      "Dimensões completas de condensadora ausentes"
+    ],
+    "imagens": 6,
+    "documentos": 0,
+    "origemDados": "INFO_STORE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0659",
+    "modelo": "40KVQOF18C5",
+    "marca": "Midea",
+    "status": "EXTRAIDO",
+    "pendencias": [],
+    "imagens": 6,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0666",
+    "modelo": "38CCV/40KVQF36C5A",
+    "marca": "Midea",
+    "status": "REVISAR",
+    "pendencias": [
+      "Referência exata não localizada na fonte oficial; revisar modelo completo/conjunto",
+      "Modelo não confirmado na fonte oficial ou Info Store",
+      "Descrição ausente nas fontes consultadas",
+      "Imagem local ausente",
+      "Manual local ausente nas fontes consultadas",
+      "Dimensões completas de evaporadora ausentes",
+      "Dimensões completas de condensadora ausentes",
+      "Capacidade de refrigeração não confirmado",
+      "Voltagem não confirmado",
+      "Ciclo não confirmado",
+      "Planilha indica inverter, mas a tecnologia não está confirmada nos campos oficiais",
+      "Link do produto na Info Store ainda não confirmado pelo código"
+    ],
+    "imagens": 0,
+    "documentos": 0,
+    "origemDados": "",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0669",
+    "modelo": "38CCV/40KVQF48C5A",
+    "marca": "Midea",
+    "status": "REVISAR",
+    "pendencias": [
+      "Link do produto na Info Store ainda não confirmado pelo código"
+    ],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0672",
+    "modelo": "38CCV/40KVQF54C5A",
+    "marca": "Midea",
+    "status": "REVISAR",
+    "pendencias": [
+      "Link do produto na Info Store ainda não confirmado pelo código"
+    ],
+    "imagens": 8,
+    "documentos": 1,
+    "origemDados": "FABRICANTE",
+    "fontesCampos": {}
+  },
+  {
+    "codigo": "ARC0673",
+    "modelo": "MY-AV1030BR",
+    "marca": "Mystic",
+    "status": "REVISAR",
+    "pendencias": [
+      "Manual local ausente nas fontes consultadas"
+    ],
+    "imagens": 5,
+    "documentos": 0,
+    "origemDados": "INFO_STORE",
+    "fontesCampos": {}
+  }
+]

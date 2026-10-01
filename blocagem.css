@@ -132,3 +132,135 @@
   .blocagem-visual { min-height: 190px; }
   .blocagem-svg { width: 240px; height: 200px; }
 }
+
+.climatizacao-unidade {
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 28px;
+}
+
+.climatizacao-unidade > h4 {
+  margin: 0 0 10px;
+  color: var(--texto);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.climatizacao-vistas {
+  width: 100%;
+  min-width: 0;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.climatizacao-vista {
+  min-width: 0;
+  min-height: 176px;
+  padding: 8px 6px 4px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--borda) 72%, transparent);
+  border-radius: 9px;
+  background: #fff9;
+}
+
+.climatizacao-vista h5 {
+  margin: 0 0 4px;
+  color: var(--texto);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.climatizacao-vistas .climatizacao-svg {
+  width: 100% !important;
+  height: 148px !important;
+  max-width: none !important;
+  display: block;
+  overflow: visible;
+}
+
+.clima-corpo {
+  fill: #f7f5f0;
+  stroke: #33322f;
+  stroke-width: 1.35;
+  vector-effect: non-scaling-stroke;
+}
+
+.clima-detalhe {
+  fill: none;
+  stroke: #77746e;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.clima-cota {
+  stroke: #8b8984;
+  stroke-width: 0.9;
+  vector-effect: non-scaling-stroke;
+}
+
+.clima-cota-texto {
+  fill: #33322f;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.climatizacao-vista-pendente {
+  display: grid;
+  align-content: start;
+}
+
+.climatizacao-vista-pendente .texto-tecnico {
+  margin: 42px auto 0;
+  color: var(--suave);
+  font-size: 10px;
+  text-align: center;
+}
+
+.climatizacao-unidade > .bloco-tabela {
+  margin-top: 10px;
+}
+
+.climatizacao-sem-cotas {
+  margin: 14px 0;
+  color: var(--suave);
+}
+
+@media (max-width: 900px) {
+  .climatizacao-vistas {
+    gap: 8px;
+  }
+
+  .climatizacao-vista {
+    min-height: 164px;
+  }
+
+  .climatizacao-vistas .climatizacao-svg {
+    height: 136px !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .climatizacao-vistas {
+    grid-template-columns: none !important;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(156px, 72vw);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    padding: 0 0 8px;
+  }
+
+  .climatizacao-vista {
+    min-height: 160px;
+    scroll-snap-align: start;
+  }
+
+  .climatizacao-vistas .climatizacao-svg {
+    height: 132px !important;
+  }
+}

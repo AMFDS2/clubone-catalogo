@@ -24,6 +24,7 @@ function textoSeguro(valor = "", padrao = "sem-identificacao") {
 }
 
 function urlDireta(valor = "") {
+  if (/^(assets|manuais-oficiais)\//.test(valor) && !valor.split("/").includes("..")) return valor;
   try {
     const url = new URL(String(valor));
     if (/^(docs|drive)\.google\.com$/i.test(url.hostname)) {
@@ -106,6 +107,11 @@ async function esperar(ms) {
 }
 
 async function baixar(documento) {
+  if (/^(assets|manuais-oficiais)\//.test(documento.url) && !documento.url.split("/").includes("..")) {
+    const local = path.join(RAIZ, documento.url);
+    if (!fs.existsSync(local)) throw new Error("PDF local ausente");
+    return { headers: { get: () => "application/pdf" }, body: Readable.toWeb(fs.createReadStream(local)) };
+  }
   let ultimoErro;
   for (let tentativa = 1; tentativa <= TENTATIVAS; tentativa++) {
     try {

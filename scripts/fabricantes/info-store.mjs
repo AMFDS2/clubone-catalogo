@@ -24,8 +24,8 @@ function link(produto = {}) {
   return produto.linkText ? `${BASE}/${String(produto.linkText).replace(/^\/+/, "")}/p` : "";
 }
 
-async function consultar(termo) {
-  const resposta = await fetch(`${BASE}/api/catalog_system/pub/products/search?ft=${encodeURIComponent(termo)}`, {
+async function consultar(termo, porCodigo = false) {
+  const resposta = await fetch(`${BASE}/api/catalog_system/pub/products/search?${porCodigo ? "fq=alternateIds_RefId:" : "ft="}${encodeURIComponent(termo)}`, {
     signal: AbortSignal.timeout(45000),
     headers: { Accept: "application/json", "User-Agent": "Mozilla/5.0 CatalogoClubOne/4.0" }
   });
@@ -43,7 +43,7 @@ async function localizarProduto(item = {}) {
   const codigoInfo = chave(item.codigo);
 
   for (const termo of procurados) {
-    const resultados = await consultar(termo);
+    const resultados = await consultar(termo, termo === codigoInfo);
     const validos = resultados.filter(produto => !/garantia-estendida/i.test(link(produto)));
 
     // O código interno da Info Store é a chave mais confiável. Quando ele existe,
@@ -51,7 +51,7 @@ async function localizarProduto(item = {}) {
     if (codigoInfo) {
       const porCodigo = validos.find(produto => referencias(produto).includes(codigoInfo));
       if (porCodigo) return { produto: porCodigo, correspondencia: "CODIGO_INFO" };
-      if (termo === codigoInfo) continue;
+      continue;
     }
 
     const exato = validos.find(produto => {
@@ -107,6 +107,14 @@ export async function extrairProdutoInfoStore(item = {}) {
     }
     const especificacoes = Object.fromEntries([
       ["Capacidade total", primeiro(produto, ["Capacidade", "Capacidade Total"])],
+      ["Capacidade", primeiro(produto, ["Capacidade útil", "Capacidade do cesto", "Volume", "Capacidade"])],
+      ["Potência", primeiro(produto, ["Potência", "Potência do motor", "Potência nominal"])],
+      ["Velocidades", primeiro(produto, ["Número de velocidades", "Velocidades"])],
+      ["Timer", primeiro(produto, ["Timer", "Temporizador"])],
+      ["Temperatura", primeiro(produto, ["Temperatura máxima", "Controle de temperatura", "Temperatura"])],
+      ["Pressão", primeiro(produto, ["Pressão", "Pressão da bomba"])],
+      ["Acessórios", primeiro(produto, ["Acessórios inclusos", "Acessórios"])],
+      ["Garantia", primeiro(produto, ["Garantia", "Prazo de garantia"])],
       ["Capacidade de lavagem", primeiro(produto, ["Capacidade de lavagem"])],
       ["Serviços", primeiro(produto, ["Quantidade de serviços"])],
       ["Voltagem", primeiro(produto, ["Voltagem", "Tensão"])],
@@ -121,7 +129,7 @@ export async function extrairProdutoInfoStore(item = {}) {
     return {
       titulo: limpar(produto.productName || produto.productTitle),
       descricao: limpar(produto.description),
-      urlsImagens: urlsImagens.slice(0, 5),
+      urlsImagens: urlsImagens.slice(0, 8),
       especificacoes,
       dimensoes: largura || altura || profundidade ? { produto: { largura, altura, profundidade } } : {},
       documentos: [],

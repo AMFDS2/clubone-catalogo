@@ -2173,3 +2173,168 @@ header.topbar {
 .descricao-climatizacao { margin: 0 0 28px; max-width: 1000px; line-height: 1.65; }
 .descricao-climatizacao h3 { color: #183568; margin: 0 0 12px; }
 .descricao-climatizacao p { margin: 0 0 14px; }
+
+/* =========================================================
+   ELETROPORTÁTEIS — experiência simplificada
+   ========================================================= */
+.card-dimensoes-portatil {
+  padding: 22px;
+}
+
+.dimensoes-portatil-compactas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.medida-portatil {
+  min-height: 72px;
+  padding: 14px 15px;
+  border: 1px solid rgba(20, 43, 99, 0.1);
+  border-radius: 12px;
+  background: #fafbfc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.medida-portatil span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #7a7f89;
+  font-weight: 700;
+}
+
+.medida-portatil strong {
+  font-size: 14px;
+  color: #17181a;
+  font-weight: 650;
+}
+
+.aplicacao-ambiente-portatil {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, .75fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.aplicacao-ambiente-imagem {
+  min-height: 390px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f3f4f6;
+  border: 1px solid rgba(20, 43, 99, 0.08);
+}
+
+.aplicacao-ambiente-imagem img {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  display: block;
+  object-fit: cover;
+}
+
+.aplicacao-ambiente-conteudo,
+.painel-marca-portatil {
+  border: 1px solid rgba(20, 43, 99, 0.09);
+  border-radius: 18px;
+  padding: 28px;
+  background: #fff;
+}
+
+.aplicacao-ambiente-conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aplicacao-kicker {
+  display: block;
+  margin-bottom: 8px;
+  color: #e52633;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+.aplicacao-ambiente-conteudo h3,
+.painel-marca-portatil h3 {
+  margin: 0 0 12px;
+  font-size: clamp(22px, 2vw, 31px);
+  line-height: 1.12;
+  color: #17181a;
+  font-weight: 600;
+}
+
+.aplicacao-ambiente-conteudo > p,
+.painel-marca-portatil > p {
+  margin: 0;
+  color: #666d78;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.aplicacao-medidas {
+  margin-top: 22px;
+}
+
+.aplicacao-medidas .dimensoes-portatil-compactas {
+  grid-template-columns: 1fr 1fr;
+}
+
+.painel-marca-portatil {
+  max-width: 720px;
+}
+
+.marca-modelo-portatil {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #eceef1;
+}
+
+.marca-modelo-portatil span {
+  color: #7a7f89;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+
+.marca-modelo-portatil strong {
+  color: #17181a;
+  font-size: 14px;
+}
+
+.aviso-portatil {
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .aplicacao-ambiente-portatil {
+    grid-template-columns: 1fr;
+  }
+  .aplicacao-ambiente-imagem,
+  .aplicacao-ambiente-imagem img {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 560px) {
+  .dimensoes-portatil-compactas,
+  .aplicacao-medidas .dimensoes-portatil-compactas {
+    grid-template-columns: 1fr;
+  }
+  .aplicacao-ambiente-conteudo,
+  .painel-marca-portatil {
+    padding: 20px;
+  }
+}

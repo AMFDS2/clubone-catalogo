@@ -1,10 +1,13 @@
+import { ehClimatizacao } from "./lib/climatizacao.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import * as cheerio from "cheerio";
+import sharp from "sharp";
 import { extrairDocumentosOficiais } from "./extrair-documentos-oficiais.mjs"
 import { extrairProdutoElectrolux } from "./fabricantes/electrolux.mjs";
 import { extrairProdutoInfoStore } from "./fabricantes/info-store.mjs";
+import { extrairProdutoPortateis } from "./fabricantes/portateis.mjs";
 
 const pastaScripts = path.dirname(fileURLToPath(import.meta.url));
 const raiz = path.resolve(pastaScripts, "..");
@@ -16,6 +19,13 @@ const CAMPOS = [
   ["Capacidade total", ["Capacidade Total (L)", "Total (L)", "Bruta Total (L)"]],
   ["Capacidade de lavagem", ["Capacidade de lavagem (kg)", "Capacidade de lavagem"]],
   ["Capacidade de secagem", ["Capacidade de secagem (kg)", "Capacidade de secagem"]],
+  ["Capacidade", ["Capacidade", "Capacidade útil", "Volume"]],
+  ["Potência", ["Potência", "Potência do motor", "Potência nominal"]],
+  ["Velocidades", ["Número de velocidades", "Velocidades"]],
+  ["Timer", ["Timer", "Temporizador"]],
+  ["Temperatura", ["Temperatura", "Controle de temperatura", "Temperatura máxima"]],
+  ["Garantia", ["Garantia", "Prazo de garantia"]],
+  ["Acessórios", ["Acessórios", "Acessórios inclusos"]],
   ["Voltagem", ["Voltagem", "Tensão/Frequência", "Tensão"]],
   ["Cor", ["Cor principal", "Cor da estrutura", "Cor"]],
   ["Tipo de porta", ["Tipo de porta"]],
@@ -194,7 +204,7 @@ function extrairDimensoes($) {
 }
 
 function criarDestaques(especificacoes) {
-  const prioridades = ["Capacidade total", "Capacidade de lavagem", "Capacidade de secagem", "Tamanho da tela", "Resolução", "Frequência do painel", "Tecnologia do painel", "Voltagem", "Cor", "Tipo de porta", "Frost Free", "Wi-Fi", "SmartThings", "Classificação energética", "Sistema operacional", "Potência de áudio"];
+  const prioridades = ["Capacidade", "Potência", "Voltagem", "Temperatura", "Velocidades", "Capacidade total", "Capacidade de lavagem", "Capacidade de secagem", "Tamanho da tela", "Resolução", "Frequência do painel", "Tecnologia do painel", "Cor", "Tipo de porta", "Frost Free", "Wi-Fi", "SmartThings", "Classificação energética", "Sistema operacional", "Potência de áudio"];
   return prioridades.filter(nome => especificacoes[nome]).slice(0, 5).map(rotulo => {
     let valor = especificacoes[rotulo];
     if (["Wi-Fi", "SmartThings", "Frost Free"].includes(rotulo) && normalizar(valor) === "sim") valor = rotulo;
@@ -202,7 +212,7 @@ function criarDestaques(especificacoes) {
   });
 }
 
-async function baixarImagem(url, modelo, indice = 0) {
+async function baixarImagem(url, modelo, indice = 0, nomePersonalizado = "") {
   if (!url) return "";
   const resposta = await fetch(url, { signal: AbortSignal.timeout(45000), headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" } });
   if (!resposta.ok) throw new Error(`Imagem HTTP ${resposta.status}`);
@@ -210,44 +220,479 @@ async function baixarImagem(url, modelo, indice = 0) {
   const extensao = tipo.includes("png") ? ".png" : tipo.includes("webp") ? ".webp" : ".jpg";
   const pasta = path.join(pastaImagens, nomeSeguro(modelo));
   await fs.mkdir(pasta, { recursive: true });
-  const nomeArquivo = indice === 0 ? "principal" : `galeria-${String(indice + 1).padStart(2, "0")}`;
+  const nomeArquivo = nomePersonalizado || (indice === 0 ? "principal" : `galeria-${String(indice + 1).padStart(2, "0")}`);
   const arquivo = path.join(pasta, `${nomeArquivo}${extensao}`);
   await fs.writeFile(arquivo, Buffer.from(await resposta.arrayBuffer()));
   return `assets/produtos/${nomeSeguro(modelo)}/${nomeArquivo}${extensao}`;
 }
 
+function valorPreenchido(valor) {
+  if (valor === null || valor === undefined) return false;
+  if (typeof valor === "string") return valor.trim() !== "";
+  if (Array.isArray(valor)) return valor.length > 0;
+  if (typeof valor === "object") return Object.keys(valor).length > 0;
+  return true;
+}
+
+
+function ehPortatilItem(item = {}) {
+  return /portate/i.test(String(item.segmento || "")) || /eletroport/i.test(String(item.categoria || ""));
+}
+
+function caminhoAbsolutoAsset(relativo = "") {
+  if (!relativo) return "";
+  return path.join(raiz, relativo.replace(/^[/\\]+/, ""));
+}
+
+function extensaoArquivo(caminhoArquivo = "") {
+  return path.extname(caminhoArquivo).toLowerCase() || ".jpg";
+}
+
+function clamp(valor, min, max) {
+  return Math.min(max, Math.max(min, valor));
+}
+
+function analisarCanal(raw, info) {
+  const { width, height, channels } = info;
+  let total = 0;
+  let totalSat = 0;
+  let totalLum = 0;
+  let totalLum2 = 0;
+  let brancos = 0;
+  let escuros = 0;
+  let bordaBranca = 0;
+  let bordaTotal = 0;
+  let grad = 0;
+  const buckets = new Set();
+
+  const passoBucket = 32;
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const idx = (y * width + x) * channels;
+      const r = raw[idx] ?? 0;
+      const g = raw[idx + 1] ?? 0;
+      const b = raw[idx + 2] ?? 0;
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      const lum = (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+      const sat = max === 0 ? 0 : (max - min) / max;
+
+      total += 1;
+      totalSat += sat;
+      totalLum += lum;
+      totalLum2 += lum * lum;
+      if (r > 240 && g > 240 && b > 240) brancos += 1;
+      if (r < 25 && g < 25 && b < 25) escuros += 1;
+      buckets.add(`${Math.floor(r / passoBucket)}-${Math.floor(g / passoBucket)}-${Math.floor(b / passoBucket)}`);
+
+      if (x < 4 || y < 4 || x >= width - 4 || y >= height - 4) {
+        bordaTotal += 1;
+        if (r > 240 && g > 240 && b > 240) bordaBranca += 1;
+      }
+
+      if (x + 1 < width) {
+        const idxR = idx + channels;
+        grad += Math.abs(r - (raw[idxR] ?? 0)) + Math.abs(g - (raw[idxR + 1] ?? 0)) + Math.abs(b - (raw[idxR + 2] ?? 0));
+      }
+      if (y + 1 < height) {
+        const idxD = ((y + 1) * width + x) * channels;
+        grad += Math.abs(r - (raw[idxD] ?? 0)) + Math.abs(g - (raw[idxD + 1] ?? 0)) + Math.abs(b - (raw[idxD + 2] ?? 0));
+      }
+    }
+  }
+
+  const lumMedio = totalLum / Math.max(1, total);
+  const lumVar = Math.max(0, (totalLum2 / Math.max(1, total)) - (lumMedio * lumMedio));
+  const lumDesvio = Math.sqrt(lumVar);
+
+  return {
+    brancos: brancos / Math.max(1, total),
+    escuros: escuros / Math.max(1, total),
+    bordaBranca: bordaBranca / Math.max(1, bordaTotal),
+    saturacao: totalSat / Math.max(1, total),
+    diversidade: buckets.size,
+    contraste: lumDesvio / 255,
+    gradiente: grad / Math.max(1, total) / 255,
+    luminosidade: lumMedio / 255
+  };
+}
+
+async function pontuarImagemAmbiente(relativo = "", indice = 0) {
+  const absoluto = caminhoAbsolutoAsset(relativo);
+  if (!absoluto) return null;
+
+  try {
+    const leitura = sharp(absoluto, { failOn: 'none' });
+    const metadata = await leitura.metadata();
+    const { data, info } = await leitura
+      .rotate()
+      .resize({ width: 96, height: 96, fit: 'inside', withoutEnlargement: true })
+      .ensureAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+
+    const canais = analisarCanal(data, info);
+    const largura = metadata.width || info.width || 1;
+    const altura = metadata.height || info.height || 1;
+    const proporcao = largura / Math.max(1, altura);
+
+    const bonusHorizontal = proporcao >= 1.05 ? 0.25 : proporcao >= 0.9 ? 0.1 : 0;
+    const bonusNaoPrincipal = indice > 0 ? Math.min(0.35, indice * 0.08) : -0.1;
+    const penalidadeMuitoBranca = canais.brancos > 0.68 && canais.bordaBranca > 0.82 ? 1.25 : 0;
+    const penalidadePackshot = canais.bordaBranca > 0.86 ? 0.8 : 0;
+
+    const score =
+      (1 - canais.bordaBranca) * 2.2 +
+      (1 - canais.brancos) * 1.2 +
+      canais.saturacao * 0.9 +
+      clamp((canais.diversidade - 10) / 22, 0, 1) * 0.9 +
+      canais.contraste * 1.1 +
+      canais.gradiente * 1.0 +
+      bonusHorizontal +
+      bonusNaoPrincipal -
+      penalidadeMuitoBranca -
+      penalidadePackshot;
+
+    const candidatoForte = (
+      canais.bordaBranca < 0.72 &&
+      canais.brancos < 0.58 &&
+      canais.diversidade >= 12 &&
+      (canais.saturacao >= 0.13 || canais.contraste >= 0.18)
+    );
+
+    return {
+      relativo,
+      absoluto,
+      indice,
+      score,
+      candidatoForte,
+      metricas: {
+        largura,
+        altura,
+        proporcao,
+        ...canais
+      }
+    };
+  } catch (erro) {
+    return null;
+  }
+}
+
+async function escolherImagemAmbienteLocal(imagens = []) {
+  const analises = [];
+  for (let i = 0; i < imagens.length; i++) {
+    const analise = await pontuarImagemAmbiente(imagens[i], i);
+    if (analise) analises.push(analise);
+  }
+
+  if (!analises.length) return "";
+
+  const fortes = analises.filter(item => item.candidatoForte).sort((a, b) => b.score - a.score);
+  const fracos = analises
+    .filter(item => !item.candidatoForte)
+    .sort((a, b) => b.score - a.score);
+
+  const escolhido = fortes[0] || fracos[0];
+  if (!escolhido) return "";
+
+  const limite = escolhido.candidatoForte ? 1.65 : 2.3;
+  if (escolhido.score < limite) return "";
+
+  const ext = extensaoArquivo(escolhido.absoluto);
+  const destino = path.join(path.dirname(escolhido.absoluto), `ambiente${ext}`);
+  if (destino !== escolhido.absoluto) {
+    await fs.copyFile(escolhido.absoluto, destino);
+  }
+  return `assets/produtos/${nomeSeguro(path.basename(path.dirname(escolhido.absoluto)))}/ambiente${ext}`;
+}
+
+function ehObjetoSimples(valor) {
+  return Boolean(
+    valor &&
+    typeof valor === "object" &&
+    !Array.isArray(valor)
+  );
+}
+
+/**
+ * Combina dois objetos mantendo a fonte principal.
+ *
+ * Exemplo:
+ * fabricante = { Cor: "Preto", Potência: "" }
+ * infoStore  = { Cor: "Grafite", Potência: "3950 W" }
+ *
+ * resultado  = { Cor: "Preto", Potência: "3950 W" }
+ */
+function mesclarComPrioridade(principal = {}, apoio = {}) {
+  const resultado = {};
+  const campos = new Set([
+    ...Object.keys(apoio || {}),
+    ...Object.keys(principal || {})
+  ]);
+
+  for (const campo of campos) {
+    const valorPrincipal = principal?.[campo];
+    const valorApoio = apoio?.[campo];
+
+    if (
+      ehObjetoSimples(valorPrincipal) ||
+      ehObjetoSimples(valorApoio)
+    ) {
+      resultado[campo] = mesclarComPrioridade(
+        ehObjetoSimples(valorPrincipal) ? valorPrincipal : {},
+        ehObjetoSimples(valorApoio) ? valorApoio : {}
+      );
+
+      continue;
+    }
+
+    resultado[campo] = valorPreenchido(valorPrincipal)
+      ? valorPrincipal
+      : valorApoio;
+  }
+
+  return resultado;
+}
+
+function mesclarListas(...listas) {
+  const resultado = [];
+  const encontrados = new Set();
+
+  for (const lista of listas) {
+    if (!Array.isArray(lista)) continue;
+
+    for (const item of lista) {
+      const valor = String(item || "").trim();
+
+      if (!valor || encontrados.has(valor)) continue;
+
+      encontrados.add(valor);
+      resultado.push(valor);
+    }
+  }
+
+  return resultado;
+}
+
+function mesclarDocumentos(...listas) {
+  const resultado = [];
+  const encontrados = new Set();
+
+  for (const lista of listas) {
+    if (!Array.isArray(lista)) continue;
+
+    for (const documento of lista) {
+      const url = String(documento?.url || "").trim();
+
+      if (!url || encontrados.has(url)) continue;
+
+      encontrados.add(url);
+      resultado.push(documento);
+    }
+  }
+
+  return resultado;
+}
+
 async function processar(item, indice, total) {
   console.log(`[${indice + 1}/${total}] ${item.modelo}`);
+
   try {
     const html = await baixarPagina(item.fonteInterna);
     const $ = cheerio.load(html);
     const estruturado = jsonLd($);
-    const ehElectrolux = /electrolux/i.test(item.fabricante || "");
-    const oficial = ehElectrolux && item.origemFonte !== "INFO_STORE"
+
+    const fabricante = String(item.fabricante || "");
+    const ehElectrolux = /electrolux/i.test(fabricante);
+    const ehPortatilComConector = /walita|philips|\bwap\b/i.test(fabricante);
+    const fonteEhInfoStore = item.origemFonte === "INFO_STORE";
+
+    /*
+     * Extração especializada do fabricante.
+     * Atualmente a Electrolux possui um extrator próprio.
+     */
+    const oficial = !fonteEhInfoStore && ehElectrolux
       ? await extrairProdutoElectrolux($, html, item)
-      : null;
-    const apoio = ehElectrolux ? await extrairProdutoInfoStore(item) : null;
-    const oficialValidado = oficial?.validadoFabricante === true;
-    const extraido = ehElectrolux ? {
-      // O fabricante prevalece somente após confirmação exata do código
-      // comercial (IM8S, 90CIV, CE9HP etc.). Sem confirmação, a Info Store é
-      // usada como apoio, nunca uma correspondência aproximada do fabricante.
-      titulo: oficialValidado ? (oficial?.titulo || apoio?.titulo || "") : (apoio?.titulo || oficial?.titulo || ""),
-      descricao: oficialValidado ? (oficial?.descricao || apoio?.descricao || "") : (apoio?.descricao || oficial?.descricao || ""),
-      urlsImagens: oficialValidado && oficial?.urlsImagens?.length
-        ? oficial.urlsImagens
-        : (apoio?.urlsImagens?.length ? apoio.urlsImagens : (oficial?.urlsImagens || [])),
-      especificacoes: oficialValidado
-        ? { ...(apoio?.especificacoes || {}), ...(oficial?.especificacoes || {}) }
-        : { ...(oficial?.especificacoes || {}), ...(apoio?.especificacoes || {}) },
-      dimensoes: oficialValidado && Object.keys(oficial?.dimensoes || {}).length
-        ? oficial.dimensoes
-        : (apoio?.dimensoes || {}),
-      documentos: oficialValidado && oficial?.documentos?.length
-        ? oficial.documentos
-        : (apoio?.documentos || []),
-      fonteApoio: apoio?.fonteApoio || ""
-    } : null;
+      : !fonteEhInfoStore && ehPortatilComConector
+        ? await extrairProdutoPortateis(item)
+        : null;
+
+    /*
+     * Extração genérica da página oficial.
+     * É usada por Samsung, Agratto e demais fabricantes que não tenham
+     * um extrator especializado.
+     */
+    const paginaAtual = {
+      titulo: limparTexto(
+        estruturado?.name ||
+        $('meta[property="og:title"]').attr("content") ||
+        $("title").text()
+      ),
+
+      descricao: limparTexto(
+        estruturado?.description ||
+        $('meta[name="description"]').attr("content") ||
+        ""
+      ),
+
+      urlsImagens: extrairImagens(
+        $,
+        estruturado,
+        item.modelo,
+        item.fonteInterna
+      ),
+
+      especificacoes: extrairEspecificacoes($),
+
+      dimensoes: extrairDimensoes($),
+
+      documentos: await extrairDocumentosOficiais(
+        $,
+        html,
+        item.fonteInterna,
+        item.modelo
+      )
+    };
+
+    /*
+     * Se existir um extrator especializado, ele tem prioridade sobre a
+     * extração genérica da mesma página.
+     */
+    const dadosFabricante = oficial
+      ? {
+          titulo: oficial.titulo || paginaAtual.titulo,
+          descricao: oficial.descricao || paginaAtual.descricao,
+
+          urlsImagens: mesclarListas(
+            oficial.urlsImagens,
+            paginaAtual.urlsImagens
+          ),
+
+          imagemAmbienteUrl: oficial.imagemAmbienteUrl || "",
+
+          especificacoes: mesclarComPrioridade(
+            oficial.especificacoes,
+            paginaAtual.especificacoes
+          ),
+
+          dimensoes: mesclarComPrioridade(
+            oficial.dimensoes,
+            paginaAtual.dimensoes
+          ),
+
+          documentos: mesclarDocumentos(
+            oficial.documentos,
+            paginaAtual.documentos
+          )
+        }
+      : paginaAtual;
+
+    /*
+     * A Info Store passa a ser consultada para TODOS os fabricantes e
+     * segmentos. O extrator valida primeiro pelo código Info Store e
+     * depois por uma referência exata.
+     */
+    const apoio = await extrairProdutoInfoStore(item);
+
+    /*
+     * Consideramos o fabricante validado quando:
+     * 1. O extrator especializado confirmou o produto; ou
+     * 2. A localização confirmou o modelo exato; ou
+     * 3. A fonte foi marcada como localizada no fabricante.
+     */
+    const fabricanteValidado =
+      !fonteEhInfoStore &&
+      (
+        oficial?.validadoFabricante === true ||
+        item.correspondencia === "MODELO_EXATO" ||
+        (
+          item.statusFonte === "LOCALIZADO" &&
+          item.origemFonte === "FABRICANTE"
+        )
+      );
+
+    /*
+     * Regra final:
+     *
+     * FABRICANTE VALIDADO:
+     * fabricante é principal e Info Store preenche lacunas.
+     *
+     * FABRICANTE NÃO VALIDADO:
+     * Info Store é principal, desde que tenha localizado o código ou
+     * a referência exata.
+     */
+    const principal = fabricanteValidado
+      ? dadosFabricante
+      : (apoio || dadosFabricante);
+
+    const secundario = fabricanteValidado
+      ? apoio
+      : dadosFabricante;
+
+    const extraido = {
+      titulo:
+        principal?.titulo ||
+        secundario?.titulo ||
+        "",
+
+      descricao:
+        principal?.descricao ||
+        secundario?.descricao ||
+        "",
+
+      /*
+       * Fabricante aparece primeiro na galeria.
+       * A Info Store complementa até o máximo de oito imagens.
+       */
+      urlsImagens: mesclarListas(
+        principal?.urlsImagens,
+        secundario?.urlsImagens
+      ).slice(0, 8),
+
+      imagemAmbienteUrl:
+        principal?.imagemAmbienteUrl ||
+        secundario?.imagemAmbienteUrl ||
+        "",
+
+      /*
+       * A fonte principal prevalece campo por campo.
+       * A secundária somente preenche os campos vazios.
+       */
+      especificacoes: mesclarComPrioridade(
+        principal?.especificacoes,
+        secundario?.especificacoes
+      ),
+
+      dimensoes: mesclarComPrioridade(
+        principal?.dimensoes,
+        secundario?.dimensoes
+      ),
+
+      /*
+       * Documentos oficiais do fabricante aparecem primeiro.
+       */
+      documentos: mesclarDocumentos(
+        dadosFabricante?.documentos,
+        apoio?.documentos
+      ),
+
+      fonteApoio: apoio?.fonteApoio || "",
+
+      origemDados: fabricanteValidado
+        ? apoio
+          ? "FABRICANTE_COM_COMPLEMENTO_INFO_STORE"
+          : "FABRICANTE"
+        : apoio
+          ? "INFO_STORE"
+          : item.origemFonte || "NAO_IDENTIFICADA",
+
+      correspondenciaInfoStore:
+        apoio?.correspondencia || "",
+
+      codigoInfoValidado:
+        apoio?.codigoInfoValidado === true
+    };
     const titulo = extraido?.titulo || limparTexto(estruturado?.name || $('meta[property="og:title"]').attr("content") || $("title").text());
     const descricao = extraido?.descricao || limparTexto(estruturado?.description || $('meta[name="description"]').attr("content") || "");
     const especificacoes = extraido?.especificacoes || extrairEspecificacoes($);
@@ -270,6 +715,23 @@ async function processar(item, indice, total) {
     }
 
     const imagem = imagens[0] || "";
+    let imagemAmbiente = "";
+
+    if (extraido?.imagemAmbienteUrl) {
+      try {
+        imagemAmbiente = await baixarImagem(extraido.imagemAmbienteUrl, item.modelo, 0, "ambiente");
+      } catch (erro) {
+        errosImagens.push(`Ambiente: ${erro.message}`);
+      }
+    }
+
+    if (!imagemAmbiente && ehPortatilItem(item) && imagens.length) {
+      try {
+        imagemAmbiente = await escolherImagemAmbienteLocal(imagens);
+      } catch (erro) {
+        errosImagens.push(`Ambiente automático: ${erro.message}`);
+      }
+    }
 
     const pendencias = [
       ...(!imagem ? ["Imagem não extraída"] : []),
@@ -285,6 +747,7 @@ async function processar(item, indice, total) {
       tituloOficial: titulo,
       descricao,
       imagens,
+      imagemAmbiente,
       dimensoes,
       documentos,
       especificacoes,
@@ -307,7 +770,7 @@ async function executar() {
   try { anteriores = JSON.parse(await fs.readFile(caminhoSaida, "utf8")); } catch {}
   const existentes = new Set(anteriores.map(item => nomeSeguro(item.modelo)));
   const forcar = process.env.FORCAR_ATUALIZACAO === "1";
-  const confirmados = fontes.filter(item => item.statusFonte === "LOCALIZADO" && (forcar || !existentes.has(nomeSeguro(item.modelo))));
+  const confirmados = fontes.filter(item => !ehClimatizacao(item) && item.fluxo !== "CLIMATIZACAO" && item.statusFonte === "LOCALIZADO" && (forcar || !existentes.has(nomeSeguro(item.modelo))));
   console.log(`Modelos para enriquecer: ${confirmados.length}`);
 
   const resultadosNovos = [];

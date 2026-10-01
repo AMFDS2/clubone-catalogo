@@ -1,4 +1,6 @@
 import fs from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { ehClimatizacao, completo } from "./lib/climatizacao.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -39,11 +41,12 @@ function normalizarModelo(valor = "") {
 function temImagemValida(produto) {
   return Boolean(
     produto.imagem &&
-    !produto.imagem.includes("produto-sem-imagem")
+    !produto.imagem.includes("produto-sem-imagem") && existsSync(path.join(pastaProjeto, produto.imagem))
   );
 }
 
 function temDimensoes(produto) {
+  if (ehClimatizacao(produto)) return produto.tipoBloco === "ar-janela" ? completo(produto.dimensoes?.produto) : completo(produto.dimensoes?.evaporadora) && completo(produto.dimensoes?.condensadora);
   return Boolean(
     produto.dimensoes &&
     Object.keys(produto.dimensoes).length > 0
@@ -53,7 +56,7 @@ function temDimensoes(produto) {
 function temEspecificacoes(produto) {
   return Boolean(
     produto.especificacoes &&
-    Object.keys(produto.especificacoes).length > 0
+    Object.keys(produto.especificacoes).some(k => !["Modelo", "Categoria", "Código Info Store"].includes(k))
   );
 }
 
@@ -111,6 +114,8 @@ async function executar() {
     if (!temEspecificacoes(produtoAtual)) {
       motivos.push("Especificações ausentes");
     }
+
+    if (produtoAtual.revisaoPendente) motivos.push("Dados ou arquivos em revisão");
 
     if (motivos.length > 0) {
       incompletos.push({

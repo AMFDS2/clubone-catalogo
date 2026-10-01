@@ -1,0 +1,37 @@
+[
+  {
+    "codigo": "TVV0633",
+    "modelo": "UN98DU9000GXZD",
+    "problemas": [
+      "1 imagem(ns) não incluída(s) no pacote original"
+    ]
+  },
+  {
+    "codigo": "ARC0613",
+    "modelo": "38TF/42FFCI18S5",
+    "problemas": [
+      "10 imagem(ns) não incluída(s) no pacote original"
+    ]
+  },
+  {
+    "codigo": "ARC0625",
+    "modelo": "38TV/42FVCI18S5",
+    "problemas": [
+      "11 imagem(ns) não incluída(s) no pacote original"
+    ]
+  },
+  {
+    "codigo": "ARC0656",
+    "modelo": "40KVQOF12C5",
+    "problemas": [
+      "6 imagem(ns) não incluída(s) no pacote original"
+    ]
+  },
+  {
+    "codigo": "ARC0673",
+    "modelo": "MY-AV1030BR",
+    "problemas": [
+      "5 imagem(ns) não incluída(s) no pacote original"
+    ]
+  }
+]

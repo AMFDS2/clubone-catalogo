@@ -149,6 +149,50 @@
       return `<rect class="bloco-detalhe" x="${x + borda}" y="${y + borda}" width="${w - borda * 2}" height="${h - borda * 2}" rx="2" />`;
     }
 
+    // ELETROPORTÁTEIS — mantém o envelope dimensional e diferencia a função.
+    if (t.includes("air-fryer") || t.includes("cafeteira")) {
+      const painel = Math.max(20, h * 0.2);
+      return `<rect class="bloco-detalhe" x="${x + w * 0.18}" y="${y + painel * 0.28}" width="${w * 0.64}" height="${painel * 0.48}" rx="2" />
+        <line class="bloco-detalhe" x1="${x + w * 0.15}" y1="${y + painel}" x2="${x + w * 0.85}" y2="${y + painel}" />
+        <rect class="bloco-detalhe" x="${x + w * 0.16}" y="${y + painel + h * 0.08}" width="${w * 0.68}" height="${Math.max(18, h * 0.48)}" rx="4" />
+        <line class="bloco-detalhe" x1="${x + w * 0.36}" y1="${y + painel + h * 0.15}" x2="${x + w * 0.64}" y2="${y + painel + h * 0.15}" stroke-width="2.5" />`;
+    }
+
+    if (t.includes("liquidificador") || t.includes("processador")) {
+      return `<path class="bloco-detalhe" d="M ${x + w * 0.27} ${y + h * 0.1} L ${x + w * 0.73} ${y + h * 0.1} L ${x + w * 0.65} ${y + h * 0.62} L ${x + w * 0.35} ${y + h * 0.62} Z" />
+        <rect class="bloco-detalhe" x="${x + w * 0.3}" y="${y + h * 0.64}" width="${w * 0.4}" height="${h * 0.25}" rx="3" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.5}" cy="${y + h * 0.76}" r="${Math.max(2, Math.min(w, h) * 0.04)}" />`;
+    }
+
+    if (t.includes("robo-aspirador")) {
+      const r = Math.min(w, h) * 0.32;
+      return `<circle class="bloco-detalhe" cx="${x + w / 2}" cy="${y + h / 2}" r="${r}" />
+        <circle class="bloco-detalhe" cx="${x + w / 2}" cy="${y + h / 2}" r="${r * 0.18}" />
+        <line class="bloco-detalhe" x1="${x + w / 2}" y1="${y + h / 2 - r}" x2="${x + w / 2}" y2="${y + h / 2 - r * 0.55}" />`;
+    }
+
+    if (t.includes("chaleira")) {
+      return `<path class="bloco-detalhe" d="M ${x + w * 0.25} ${y + h * 0.22} Q ${x + w * 0.2} ${y + h * 0.72} ${x + w * 0.38} ${y + h * 0.84} L ${x + w * 0.68} ${y + h * 0.84} Q ${x + w * 0.78} ${y + h * 0.55} ${x + w * 0.68} ${y + h * 0.22} Z" />
+        <path class="bloco-detalhe" d="M ${x + w * 0.68} ${y + h * 0.34} Q ${x + w * 0.94} ${y + h * 0.42} ${x + w * 0.72} ${y + h * 0.68}" />`;
+    }
+
+    if (t.includes("sanduicheira") || t.includes("torradeira")) {
+      return `<rect class="bloco-detalhe" x="${x + w * 0.12}" y="${y + h * 0.28}" width="${w * 0.76}" height="${h * 0.48}" rx="5" />
+        <line class="bloco-detalhe" x1="${x + w * 0.25}" y1="${y + h * 0.4}" x2="${x + w * 0.75}" y2="${y + h * 0.4}" />`;
+    }
+
+    if (t.includes("ferro-vaporizador")) {
+      return `<path class="bloco-detalhe" d="M ${x + w * 0.18} ${y + h * 0.78} L ${x + w * 0.82} ${y + h * 0.78} L ${x + w * 0.62} ${y + h * 0.38} Q ${x + w * 0.38} ${y + h * 0.3} ${x + w * 0.18} ${y + h * 0.78} Z" />
+        <path class="bloco-detalhe" d="M ${x + w * 0.4} ${y + h * 0.43} Q ${x + w * 0.58} ${y + h * 0.48} ${x + w * 0.66} ${y + h * 0.67}" />`;
+    }
+
+    if (t.includes("aspirador") || t.includes("umidificador") || t.includes("lavadora-pressao") || t.includes("espremedor") || t.includes("papa-bolinhas") || t === "portatil") {
+      const raio = Math.max(4, Math.min(w, h) * 0.12);
+      return `<rect class="bloco-detalhe" x="${x + w * 0.16}" y="${y + h * 0.16}" width="${w * 0.68}" height="${h * 0.68}" rx="${raio}" />
+        <circle class="bloco-detalhe" cx="${x + w * 0.5}" cy="${y + h * 0.48}" r="${raio}" />
+        <line class="bloco-detalhe" x1="${x + w * 0.3}" y1="${y + h * 0.72}" x2="${x + w * 0.7}" y2="${y + h * 0.72}" />`;
+    }
+
     // 2. LAVADORA, SECADORA E LAVA E SECA
     if (t.includes("lavadora") || t.includes("secadora") || t.includes("lava") && t.includes("seca")) {
       const altPainel = Math.max(25, h * 0.15);
@@ -318,22 +362,169 @@
       })}`;
   }
 
+  function blocagemClimatizacaoProduto(dimensoes, produto) {
+    const ehJanela = produto.tipoBloco === "ar-janela";
+    const grupo = ehJanela
+      ? (dimensoes.produto || dimensoes.evaporadora || {})
+      : (dimensoes.evaporadora || dimensoes.produto || {});
+    const largura = medida(grupo, ["largura", "width"]);
+    const altura = medida(grupo, ["altura", "height"]);
+    const profundidade = medida(grupo, ["profundidade", "depth"]);
+    const peso = grupo.peso || "";
+
+    if (!largura && !altura && !profundidade) {
+      return '<p class="texto-tecnico">Dimensões da evaporadora em revisão.</p>';
+    }
+
+    const larguraNumero = numero(largura) || 800;
+    const alturaNumero = numero(altura) || 300;
+    const profundidadeNumero = numero(profundidade) || 220;
+    const frente = 150;
+    const corpo = limitar((alturaNumero / larguraNumero) * frente, 30, ehJanela ? 82 : 68);
+    const recuo = limitar((profundidadeNumero / larguraNumero) * 74, 20, 54);
+    const x = 28;
+    const y = 82;
+    const dx = recuo;
+    const dy = -recuo * 0.46;
+    const tipo = produto.tipoBloco || "ar-split";
+
+    let detalhes = `<line class="bloco-detalhe" x1="${x + frente * 0.08}" y1="${y + corpo * 0.72}" x2="${x + frente * 0.92}" y2="${y + corpo * 0.72}" />`;
+    if (tipo === "ar-piso-teto") {
+      detalhes = `<line class="bloco-detalhe" x1="${x + frente * 0.08}" y1="${y + corpo * 0.62}" x2="${x + frente * 0.92}" y2="${y + corpo * 0.62}" />
+        <line class="bloco-detalhe" x1="${x + frente * 0.14}" y1="${y + corpo * 0.78}" x2="${x + frente * 0.86}" y2="${y + corpo * 0.78}" />`;
+    } else if (tipo === "ar-cassete") {
+      detalhes = `<rect class="bloco-detalhe" x="${x + frente * 0.12}" y="${y + corpo * 0.18}" width="${frente * 0.76}" height="${corpo * 0.64}" rx="2" />`;
+    } else if (ehJanela) {
+      const raio = Math.min(frente, corpo) * 0.25;
+      detalhes = `<circle class="bloco-detalhe" cx="${x + frente * 0.42}" cy="${y + corpo * 0.52}" r="${raio}" />
+        <circle class="bloco-detalhe" cx="${x + frente * 0.42}" cy="${y + corpo * 0.52}" r="${raio * 0.22}" />
+        <line class="bloco-detalhe" x1="${x + frente * 0.75}" y1="${y + corpo * 0.2}" x2="${x + frente * 0.75}" y2="${y + corpo * 0.82}" />`;
+    }
+
+    const desenho = `<g class="bloco-forma bloco-climatizacao bloco-${escapar(tipo)}">
+        <polygon class="bloco-face-topo" points="${x},${y} ${x + frente},${y} ${x + frente + dx},${y + dy} ${x + dx},${y + dy}" />
+        <polygon class="bloco-face-lateral" points="${x + frente},${y} ${x + frente + dx},${y + dy} ${x + frente + dx},${y + corpo + dy} ${x + frente},${y + corpo}" />
+        <rect class="bloco-face-frente" x="${x}" y="${y}" width="${frente}" height="${corpo}" rx="${tipo === "ar-split" ? 8 : 2}" />
+        ${detalhes}
+      </g>
+      ${linhasCota({
+        ax1: x, ay1: y + corpo + 24, ax2: x + frente, ay2: y + corpo + 24,
+        bx: x + frente + dx + 14, by1: y + dy, by2: y + corpo + dy,
+        cx1: x + frente + 6, cy1: y + corpo + 17,
+        cx2: x + frente + dx + 6, cy2: y + corpo + dy + 17
+      })}`;
+
+    const linha = (rotulo, valor) => `<div class="bloco-linha"><strong>${escapar(rotulo)}</strong><span>${escapar(valor || "—")}</span></div>`;
+    const unidade = ehJanela ? "unidade" : "evaporadora";
+
+    return `<div class="blocagem-dimensoes blocagem-climatizacao">
+      <div class="blocagem-visual">
+        <svg class="blocagem-svg" viewBox="0 0 260 235" role="img" aria-label="Blocagem dimensional da ${unidade} de ${escapar(produto.nome || produto.modelo || "ar-condicionado")}">
+          ${desenho}
+        </svg>
+      </div>
+      <div class="bloco-tabela">
+        <h4>Dimensões da ${unidade}</h4>
+        ${linha("A — Largura", largura)}
+        ${linha("B — Altura", altura)}
+        ${linha("C — Profundidade", profundidade)}
+        ${peso ? linha("Peso", peso) : ""}
+        <p class="blocagem-nota">Blocagem dimensional da ${unidade}. ${ehJanela ? "Vistas técnicas completas" : "Condensadora e vistas técnicas completas"} disponíveis em Medidas para projeto.</p>
+      </div>
+    </div>`;
+  }
+
   function vistasClimatizacao(dimensoes, produto) {
-    const grupos = produto.tipoBloco === "ar-janela" ? [["produto", "Unidade de janela"]] : [["evaporadora", "Evaporadora · unidade interna"], ["condensadora", "Condensadora · unidade externa"]];
+    const gruposBase = produto.tipoBloco === "ar-janela"
+      ? [["produto", "Unidade de janela"]]
+      : [["evaporadora", "Evaporadora · unidade interna"], ["condensadora", "Condensadora · unidade externa"]];
+
+    const grupos = gruposBase.filter(([chave]) => {
+      const grupo = dimensoes[chave] || {};
+      return [grupo.largura, grupo.altura, grupo.profundidade].filter(Boolean).length >= 2;
+    });
+
+    if (!grupos.length) {
+      return '<p class="texto-tecnico climatizacao-sem-cotas">Dimensões técnicas ainda não confirmadas.</p>';
+    }
+
+    const detalheTecnico = (tipo, chave, rotulo, x, y, largura, altura) => {
+      if (rotulo !== "Frontal") return "";
+      if (chave === "condensadora") {
+        const raio = Math.max(7, Math.min(largura, altura) * 0.28);
+        return `<circle class="clima-detalhe" cx="${x + largura * 0.42}" cy="${y + altura / 2}" r="${raio}" />
+          <circle class="clima-detalhe" cx="${x + largura * 0.42}" cy="${y + altura / 2}" r="${raio * 0.18}" />
+          <line class="clima-detalhe" x1="${x + largura * 0.78}" y1="${y + altura * 0.2}" x2="${x + largura * 0.78}" y2="${y + altura * 0.8}" />`;
+      }
+      if (tipo === "ar-cassete") {
+        return `<rect class="clima-detalhe" x="${x + largura * 0.12}" y="${y + altura * 0.22}" width="${largura * 0.76}" height="${altura * 0.56}" rx="2" />`;
+      }
+      if (tipo === "ar-piso-teto") {
+        return `<line class="clima-detalhe" x1="${x + largura * 0.1}" y1="${y + altura * 0.66}" x2="${x + largura * 0.9}" y2="${y + altura * 0.66}" />
+          <line class="clima-detalhe" x1="${x + largura * 0.16}" y1="${y + altura * 0.78}" x2="${x + largura * 0.84}" y2="${y + altura * 0.78}" />`;
+      }
+      return `<line class="clima-detalhe" x1="${x + largura * 0.08}" y1="${y + altura * 0.7}" x2="${x + largura * 0.92}" y2="${y + altura * 0.7}" />`;
+    };
+
+    const vista = (nomeGrupo, chave, rotulo, a, b, legendaA, legendaB) => {
+      if (!a || !b) {
+        return `<section class="climatizacao-vista climatizacao-vista-pendente"><h5>${escapar(rotulo)}</h5><p class="texto-tecnico">Cota não confirmada.</p></section>`;
+      }
+
+      const areaLargura = 118;
+      const areaAltura = 82;
+      const escala = Math.min(areaLargura / a, areaAltura / b);
+      const largura = Math.max(15, a * escala);
+      const altura = Math.max(12, b * escala);
+      const x = 20 + (areaLargura - largura) / 2;
+      const y = 24 + (areaAltura - altura) / 2;
+      const cotaY = y + altura + 13;
+      const cotaX = x + largura + 13;
+      const tipo = produto.tipoBloco || "ar-split";
+
+      return `<section class="climatizacao-vista" data-vista="${escapar(rotulo.toLowerCase())}">
+        <h5>${escapar(rotulo)}</h5>
+        <svg class="climatizacao-svg" viewBox="0 0 170 150" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${escapar(nomeGrupo + " — " + rotulo)}">
+          <rect class="clima-corpo clima-${escapar(tipo)}" x="${x}" y="${y}" width="${largura}" height="${altura}" rx="2" />
+          ${detalheTecnico(tipo, chave, rotulo, x, y, largura, altura)}
+          <line class="clima-cota" x1="${x}" y1="${cotaY}" x2="${x + largura}" y2="${cotaY}" />
+          <text class="clima-cota-texto" x="${x + largura / 2}" y="${cotaY + 12}" text-anchor="middle">${escapar(legendaA)}</text>
+          <line class="clima-cota" x1="${cotaX}" y1="${y}" x2="${cotaX}" y2="${y + altura}" />
+          <text class="clima-cota-texto" x="${cotaX + 10}" y="${y + altura / 2}" transform="rotate(-90 ${cotaX + 10} ${y + altura / 2})" text-anchor="middle">${escapar(legendaB)}</text>
+        </svg>
+      </section>`;
+    };
+
     return grupos.map(([chave, nome]) => {
-      const g = dimensoes[chave] || {};
-      const w = numero(g.largura), h = numero(g.altura), d = numero(g.profundidade);
-      const tabela = ["largura", "altura", "profundidade", "peso"].map(k => `<div class="bloco-linha"><strong>${escapar(k)}</strong><span>${escapar(g[k] || "Em revisão")}</span></div>`).join("");
-      const vista = (rotulo, a, b, la, lb) => {
-        if (!a || !b) return `<section><h5>${rotulo}</h5><p class="texto-tecnico">Cotas em revisão.</p></section>`;
-        const escala = 125 / Math.max(a, b), sw = a * escala, sh = b * escala;
-        return `<section><h5>${rotulo}</h5><svg viewBox="0 0 200 185" role="img" aria-label="${escapar(nome + " " + rotulo)}"><rect x="30" y="22" width="${sw}" height="${sh}" fill="#f7f5f0" stroke="#333"/><line x1="30" y1="${sh+32}" x2="${sw+30}" y2="${sh+32}" stroke="#888"/><text x="${sw/2+30}" y="${sh+48}" text-anchor="middle" font-size="10">${escapar(la)}</text><text x="${sw+38}" y="${sh/2+22}" font-size="10" transform="rotate(-90 ${sw+38} ${sh/2+22})" text-anchor="middle">${escapar(lb)}</text></svg></section>`;
-      };
-      return `<section class="climatizacao-unidade"><h4>${escapar(nome)}</h4><div class="climatizacao-vistas">${vista("Frontal",w,h,g.largura,g.altura)}${vista("Superior",w,d,g.largura,g.profundidade)}${vista("Lateral",d,h,g.profundidade,g.altura)}</div><div class="bloco-tabela">${tabela}</div><p class="blocagem-nota">Envelope dimensional ilustrativo, sem folgas de instalação. Consulte o manual específico para afastamentos, tubulação e dreno.</p></section>`;
+      const grupo = dimensoes[chave] || {};
+      const largura = numero(grupo.largura);
+      const altura = numero(grupo.altura);
+      const profundidade = numero(grupo.profundidade);
+      const tabela = [
+        ["Largura", grupo.largura],
+        ["Altura", grupo.altura],
+        ["Profundidade", grupo.profundidade],
+        ["Peso", grupo.peso]
+      ].map(([rotulo, valor]) => `<div class="bloco-linha"><strong>${escapar(rotulo)}</strong><span>${escapar(valor || "Não informado")}</span></div>`).join("");
+
+      return `<section class="climatizacao-unidade" data-unidade="${escapar(chave)}">
+        <h4>${escapar(nome)}</h4>
+        <div class="climatizacao-vistas">
+          ${vista(nome, chave, "Frontal", largura, altura, grupo.largura, grupo.altura)}
+          ${vista(nome, chave, "Superior", largura, profundidade, grupo.largura, grupo.profundidade)}
+          ${vista(nome, chave, "Lateral", profundidade, altura, grupo.profundidade, grupo.altura)}
+        </div>
+        <div class="bloco-tabela">${tabela}</div>
+        <p class="blocagem-nota">Envelope dimensional ilustrativo, sem folgas de instalação. Consulte o manual específico para afastamentos, tubulação e dreno.</p>
+      </section>`;
     }).join("");
   }
+  window.criarVistasClimatizacao = vistasClimatizacao;
+
   window.criarBlocagemDimensional = function criarBlocagemDimensional(dimensoes = {}, produto = {}) {
-    if (/^ar-/.test(produto.tipoBloco || "")) return vistasClimatizacao(dimensoes, produto);
+    const ehPortatil = produto.experiencia === "portatil" || /eletroport/i.test(String(produto.categoria || "")) || /portate/i.test(String(produto.segmento || ""));
+    if (ehPortatil || produto.exibirBlocagem === false) return "";
+    if (/^ar-/.test(produto.tipoBloco || "")) return blocagemClimatizacaoProduto(dimensoes, produto);
     const grupo = grupoMedidas(dimensoes);
     const largura = medida(grupo, ["largura", "width"]);
     const altura = medida(grupo, ["altura", "height"]);

@@ -1,50 +1,14 @@
 [
   {
-    "id": "02543fba130",
+    "id": "d36f",
     "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0032",
-    "produto": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
-    "modelo": "02543FBA130",
-    "statusPesquisa": "REVISAR",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0601",
+    "produto": "ELECTROLUX INV 36000BTU PISO-TETO (CL-C/COND.QUAD)",
+    "modelo": "D36F",
+    "statusPesquisa": "NOVO",
     "motivos": [
-      "Dimensões ausentes"
-    ]
-  },
-  {
-    "id": "02544fba130",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0033",
-    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
-    "modelo": "02544FBA130",
-    "statusPesquisa": "REVISAR",
-    "motivos": [
-      "Dimensões ausentes"
-    ]
-  },
-  {
-    "id": "02547fba135",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "GEL0034",
-    "produto": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
-    "modelo": "02547FBA135",
-    "statusPesquisa": "REVISAR",
-    "motivos": [
-      "Dimensões ausentes"
-    ]
-  },
-  {
-    "id": "10347dba185",
-    "fabricante": "ELECTROLUX (NAC)",
-    "segmento": "LINHA BRANCA",
-    "codigo": "MIC0003",
-    "produto": "MICRO-ONDAS EMBUTIR 34L EXPERIENCE ME3BC CIN 220V",
-    "modelo": "10347DBA185",
-    "statusPesquisa": "REVISAR",
-    "motivos": [
-      "Dimensões ausentes"
+      "Modelo ainda não existe no produtos.json"
     ]
   },
   {
@@ -56,7 +20,8 @@
     "modelo": "NV7B4420XAK/BZ",
     "statusPesquisa": "REVISAR",
     "motivos": [
-      "Dimensões ausentes"
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
     ]
   },
   {
@@ -68,7 +33,8 @@
     "modelo": "NV7B4545SAK/BZ",
     "statusPesquisa": "REVISAR",
     "motivos": [
-      "Dimensões ausentes"
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
     ]
   },
   {
@@ -80,7 +46,463 @@
     "modelo": "RF27CG5910B1AZ",
     "statusPesquisa": "REVISAR",
     "motivos": [
-      "Dimensões ausentes"
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "lcst9f-02i-9kbtu",
+    "fabricante": "AGRATTO (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0566",
+    "produto": "AGRATTO INV 9000BTU LIV TOP (CL-A/COND.CIRC)",
+    "modelo": "LCST9F-02I-9KBTU",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "lci60f-02",
+    "fabricante": "AGRATTO (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0630",
+    "produto": "AGRATTO INV 55000BTU CASSETE (CL-A/COND.QUAD)",
+    "modelo": "LCI60F-02",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "je09f/ji09f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0474",
+    "produto": "ELECTROLUX INV COLOR 9000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "JE09F/JI09F",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "je12f/ji12f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0477",
+    "produto": "ELECTROLUX INV COLOR 12000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "JE12F/JI12F",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "je18f/ji18f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0480",
+    "produto": "ELECTROLUX INV COLOR 18000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "JE18F/JI18F",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "ye18f/yi18f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0492",
+    "produto": "ELECTROLUX INV COLOR WIF 18000BTU (CL-C/COND.CIRCU",
+    "modelo": "YE18F/YI18F",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "ye24f/yi24f",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0495",
+    "produto": "ELECTROLUX INV COLOR WIF 24000BTU (CL-C/COND.CIRCU",
+    "modelo": "YE24F/YI24F",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "38tf/42affci09s5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0607",
+    "produto": "MIDEA INV AI ECOMASTER WIF 24000BTU (CL-A/COND.QUAD)",
+    "modelo": "38TF/42AFFCI09S5",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "38tb/42ebvcb12m5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0610",
+    "produto": "MIDEA INV AIRVOLUTION LITE 12000BTU (CL-C/COND.CIRCU",
+    "modelo": "38TB/42EBVCB12M5",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "38tf/42ffci18s5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0613",
+    "produto": "MIDEA INV AIRVOLUTION LITE 18000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "38TF/42FFCI18S5",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "38tf/42affci22s5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0616",
+    "produto": "MIDEA INV AIRVOLUTION LITE 22000BTU (CL-C/COND.CIRCULAR)",
+    "modelo": "38TF/42AFFCI22S5",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "38tv/42fvci18s5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0625",
+    "produto": "MIDEA INV AI AIRVOLUTION WIF 18000BTU (CL-A/COND.CIRCU",
+    "modelo": "38TV/42FVCI18S5",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "40kvqof12c5",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0656",
+    "produto": "MIDEA INV 12000BTU CASSETE 1 VIA (CL-A/COND.REDONDA)",
+    "modelo": "40KVQOF12C5",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "40kvqf36c5a.40kwflb.38ccvf36515mca",
+    "fabricante": "CARRIER",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0666",
+    "produto": "AR-CONDICIONADO SPLIT CASSETTE CARRIER INVERTER 36.000 BTU/H FRIO 220 V – 4 VIAS",
+    "modelo": "40KVQF36C5A.40KWFLB.38CCVF36515MCA",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Imagem principal ausente"
+    ]
+  },
+  {
+    "id": "38ccv/40kvqf48c5a",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0669",
+    "produto": "MIDEA INV 48000BTU CASSETE 4 VIAS (CL-A/COND.QUAD)",
+    "modelo": "38CCV/40KVQF48C5A",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "38ccv/40kvqf54c5a",
+    "fabricante": "MIDEA (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0672",
+    "produto": "MIDEA INV 60000BTU CASSETE 4 VIAS (CL-A/COND.QUAD)",
+    "modelo": "38CCV/40KVQF54C5A",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "my-av1030br",
+    "fabricante": "MYSTIC (NAC)",
+    "segmento": "CLIMATIZACAO",
+    "codigo": "ARC0673",
+    "produto": "MYSTIC JANELA 10000BTU 127V (CL-A/CONTROLE)",
+    "modelo": "MY-AV1030BR",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "02543fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0032",
+    "produto": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
+    "modelo": "02543FBA130",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "02544fba130",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0033",
+    "produto": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
+    "modelo": "02544FBA130",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "02547fba135",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "codigo": "GEL0034",
+    "produto": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
+    "modelo": "02547FBA135",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "a27329401",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "UTD0007",
+    "produto": "POTES HERMETICOS QUADRADOS DE VIDRO C/ 4UN",
+    "modelo": "A27329401",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "a21392801",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "UTD0008",
+    "produto": "POTES HERMETICOS C/ TAMPA DE BAMBU C/ 4UN",
+    "modelo": "A21392801",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "a20998601",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "UTD0009",
+    "produto": "POTES HERMETICOS REFRATARIOS DE BAMBU C/ 2UN",
+    "modelo": "A20998601",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "a26191301",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "UTD0010",
+    "produto": "CONJUNTO DE UTENSILIOS DE BAMBU C/ 06 PECAS",
+    "modelo": "A26191301",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "tpn0471",
+    "fabricante": "TP-LINK (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0176",
+    "produto": "ROBO ASP C/PANO/CTRL RV20 MAX PRE BIVOLT",
+    "modelo": "TPN0471",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Imagem principal ausente",
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "tpn0519",
+    "fabricante": "TP-LINK (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0177",
+    "produto": "ROBO ASP C/PANO/CTRL RV30 MAX PRE BIVOLT",
+    "modelo": "TPN0519",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Imagem principal ausente",
+      "Dimensões ausentes",
+      "Especificações ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "8720389007729",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0096",
+    "produto": "CAFETEIRA ESPRESSO AUT 1200 1500W EP1220 PRE 127V",
+    "modelo": "8720389007729",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "8710103885801",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0110",
+    "produto": "LIQUID 2L DAILY JARRA SAN 600W RI2112 PRE 127V",
+    "modelo": "8710103885801",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "8710103950646",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0111",
+    "produto": "LIQUID 3L SERIE 5000 INQUEBR 1400W RI2244 PRE 127V",
+    "modelo": "8710103950646",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "8720389025051",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0114",
+    "produto": "MLTPROCESSADOR KIT 3 600W RI7300 PRE 127V",
+    "modelo": "8720389025051",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "886224293240",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0115",
+    "produto": "LIQUID 3L SERIE 5000 INQUEBR 1200W RI2242 PRE 127V",
+    "modelo": "886224293240",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "688001002071",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0140",
+    "produto": "AIR FRYER 12L DIG OVEN 1600W AI551 PRE 127V",
+    "modelo": "688001002071",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "688001000198",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0141",
+    "produto": "LIQUID 3L SERIE 3000 1000W HR2270 PRE 127V",
+    "modelo": "688001000198",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "688001006010",
+    "fabricante": "WALITA (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0216",
+    "produto": "UMIDIFICADOR AR ULTRASSONICO CONECTADO HU1510 BRA BIV",
+    "modelo": "688001006010",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
+    ]
+  },
+  {
+    "id": "fw009557",
+    "fabricante": "WAP (NAC)",
+    "segmento": "PORTATEIS",
+    "codigo": "POR0183",
+    "produto": "ROBO ASP C/PANO/CTRL/MAP ROBOT W3000 BIV",
+    "modelo": "FW009557",
+    "statusPesquisa": "REVISAR",
+    "motivos": [
+      "Dimensões ausentes",
+      "Dados ou arquivos em revisão"
     ]
   }
 ]

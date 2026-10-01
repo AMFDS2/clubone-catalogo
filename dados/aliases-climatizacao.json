@@ -1,0 +1,7 @@
+{
+  "ARC0601": {
+    "modelos": ["DI36F/DE36F"],
+    "criterio": "A ficha Info Store do mesmo código identifica DI36F/DE36F. Material oficial Electrolux usa D36F para esse conjunto.",
+    "fonte": "https://content.electrolux.com.br/brasil/electrolux/danielle/v1/di36f_de36f/index.html"
+  }
+}

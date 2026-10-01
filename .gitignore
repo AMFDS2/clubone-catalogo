@@ -7,3 +7,5 @@ cta.zip
 
 node_modules/
 *.zip
+
+.cache/
