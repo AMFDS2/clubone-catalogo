@@ -67,7 +67,7 @@
     "fabricante": "SAMSUNG (NAC)",
     "segmento": "VIDEO",
     "codigo": "TVV0654",
-    "produto": "TV LED 75 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
+    "produto": "TV LED 65 U8600F 4K SMART (GAMEHUB/WIF/TIZEN)",
     "modelo": "UN75U8600FGXZD",
     "statusPesquisa": "PENDENTE"
   },
@@ -1656,129 +1656,111 @@
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "tpn0471",
-    "fabricante": "TP-LINK (NAC)",
-    "segmento": "PORTATEIS",
-    "codigo": "POR0176",
-    "produto": "ROBO ASP C/PANO/CTRL RV20 MAX PRE BIVOLT",
-    "modelo": "TPN0471",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "tpn0519",
-    "fabricante": "TP-LINK (NAC)",
-    "segmento": "PORTATEIS",
-    "codigo": "POR0177",
-    "produto": "ROBO ASP C/PANO/CTRL RV30 MAX PRE BIVOLT",
-    "modelo": "TPN0519",
-    "statusPesquisa": "PENDENTE"
-  },
-  {
-    "id": "8720389007729",
+    "id": "ep1220",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
-    "codigo": "POR0096",
+    "codigo": "POR0177",
     "produto": "CAFETEIRA ESPRESSO AUT 1200 1500W EP1220 PRE 127V",
-    "modelo": "8720389007729",
+    "modelo": "EP1220",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "889016422240",
+    "id": "dst1050",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0097",
     "produto": "FERRO A VAPOR SERIE 1000 1200W DST1050 AZUL 127V",
-    "modelo": "889016422240",
+    "modelo": "DST1050",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "8720389024962",
+    "id": "gc026",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0105",
     "produto": "PAPA BOLINHAS GC026 PRE",
-    "modelo": "8720389024962",
+    "modelo": "GC026",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "8710103885801",
+    "id": "ri2112",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0110",
     "produto": "LIQUID 2L DAILY JARRA SAN 600W RI2112 PRE 127V",
-    "modelo": "8710103885801",
+    "modelo": "RI2112",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "8710103950646",
+    "id": "ri2244",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0111",
     "produto": "LIQUID 3L SERIE 5000 INQUEBR 1400W RI2244 PRE 127V",
-    "modelo": "8710103950646",
+    "modelo": "RI2244",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "8710103900405",
+    "id": "ri2110",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0113",
     "produto": "LIQUID 2L DAILY 550W RI2110 PRE 127V",
-    "modelo": "8710103900405",
+    "modelo": "RI2110",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "8720389025051",
+    "id": "ri7300",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0114",
     "produto": "MLTPROCESSADOR KIT 3 600W RI7300 PRE 127V",
-    "modelo": "8720389025051",
+    "modelo": "RI7300",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "886224293240",
+    "id": "ri2242",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0115",
     "produto": "LIQUID 3L SERIE 5000 INQUEBR 1200W RI2242 PRE 127V",
-    "modelo": "886224293240",
+    "modelo": "RI2242",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "688001000580",
+    "id": "hr7304",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0124",
     "produto": "MLTPROCESSADOR POWRCHOP KIT 6 ACE 1000W HR7304 PRE",
-    "modelo": "688001000580",
+    "modelo": "HR7304",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "688001002071",
+    "id": "ai551",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0140",
     "produto": "AIR FRYER 12L DIG OVEN 1600W AI551 PRE 127V",
-    "modelo": "688001002071",
+    "modelo": "AI551",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "688001000198",
+    "id": "hr2270",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0141",
     "produto": "LIQUID 3L SERIE 3000 1000W HR2270 PRE 127V",
-    "modelo": "688001000198",
+    "modelo": "HR2270",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "688001000808",
+    "id": "na130",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0151",
     "produto": "AIR FRYER 6,2L SER 1000 XL NA130 PRE 127V",
-    "modelo": "688001000808",
+    "modelo": "NA130",
     "statusPesquisa": "PENDENTE"
   },
   {
@@ -1836,48 +1818,48 @@
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "889008032240",
+    "id": "dst3010",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0175",
     "produto": "FERRO A VAPOR SERIE 300 1400W DST3010 ROX//ROS 127V",
-    "modelo": "889008032240",
+    "modelo": "DST3010",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "688001003092",
+    "id": "na150",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0213",
     "produto": "AIR FRYER 7,1L SER 1000 DUPL CESTO 1850W NA150 PRE 127V",
-    "modelo": "688001003092",
+    "modelo": "NA150",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "688001002777",
+    "id": "ep5547",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0214",
     "produto": "CAFETEIRA ESPRESSO AUT 5500 1400W EP5547 PRE 127V",
-    "modelo": "688001002777",
+    "modelo": "EP5547",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "688001006010",
+    "id": "hu1510",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0216",
     "produto": "UMIDIFICADOR AR ULTRASSONICO CONECTADO HU1510 BRA BIV",
-    "modelo": "688001006010",
+    "modelo": "HU1510",
     "statusPesquisa": "PENDENTE"
   },
   {
-    "id": "688001006260",
+    "id": "hr1501",
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "codigo": "POR0217",
     "produto": "MINI PROCESSADOR DE ALIMENTOS SER 3000 1L 450W HR1501 PRE 127V",
-    "modelo": "688001006260",
+    "modelo": "HR1501",
     "statusPesquisa": "PENDENTE"
   },
   {

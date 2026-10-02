@@ -38,33 +38,188 @@ function termos(item = {}) {
   return [...new Set([item.codigo, item.modelo, ...tokensComerciais(item)].map(chave).filter(Boolean))];
 }
 
+const TERMOS_ACESSORIOS = [
+  "TUBO", "PANNARELLO", "JARRA", "TAMPA", "FILTRO", "COPO", "LAMINA", "LÂMINA",
+  "BICO", "MANGUEIRA", "RESERVATORIO", "RESERVATÓRIO", "BANDEJA", "PECA", "PEÇA",
+  "ACESSORIO", "ACESSÓRIO", "ANEL", "VEDACAO", "VEDAÇÃO", "ACOPLAMENTO", "ENGRENAGEM",
+  "EIXO", "SUPORTE", "PORTA FILTRO", "PORTA-FILTRO",
+  "FACA", "PENEIRA", "ESPATULA", "ESPÁTULA", "DISCO", "BATEDOR",
+  "TRAVA", "BORRACHA", "GUARNICAO", "GUARNIÇÃO"
+];
+
+function textoProduto(produto = {}) {
+  // Não usamos a descrição para decidir se é acessório. Um produto principal
+  // pode mencionar faca, filtro, copo ou outros itens na descrição.
+  return limpar([
+    produto.productName,
+    produto.productTitle,
+    produto.linkText,
+    ...(produto.items || []).flatMap(sku => [sku.name, sku.nameComplete])
+  ].filter(Boolean).join(" ")).toUpperCase();
+}
+
+function itemEhAcessorio(item = {}) {
+  const texto = limpar(`${item.produto || ""} ${item.modelo || ""}`).toUpperCase();
+  return TERMOS_ACESSORIOS.some(termo => texto.includes(termo));
+}
+
+function produtoEhAcessorio(produto = {}, item = {}) {
+  if (itemEhAcessorio(item)) return false;
+  const texto = textoProduto(produto);
+  return TERMOS_ACESSORIOS.some(termo => texto.includes(termo));
+}
+
+function tipoEsperado(item = {}) {
+  const t = limpar(item.produto || "").toUpperCase();
+  if (t.includes("LIQUID")) return ["LIQUIDIFICADOR", "LIQUID"];
+  if (t.includes("CAFETEIRA")) return ["CAFETEIRA"];
+  if (t.includes("AIR FRYER") || t.includes("AIRFRYER") || t.includes("FRITADEIRA")) return ["AIR FRYER", "AIRFRYER", "FRITADEIRA"];
+  if (t.includes("PROCESSADOR")) return ["PROCESSADOR"];
+  if (t.includes("FERRO")) return ["FERRO"];
+  if (t.includes("ASPIRADOR")) return ["ASPIRADOR"];
+  if (t.includes("TORRADEIRA")) return ["TORRADEIRA"];
+  if (t.includes("SANDUICHEIRA")) return ["SANDUICHEIRA"];
+  if (t.includes("CHALEIRA")) return ["CHALEIRA"];
+  if (t.includes("ESPUMADOR")) return ["ESPUMADOR"];
+  if (t.includes("PURIFICADOR")) return ["PURIFICADOR"];
+  if (t.includes("UMIDIFICADOR")) return ["UMIDIFICADOR"];
+  return [];
+}
+
+function pontuarProduto(produto = {}, item = {}) {
+  if (produtoEhAcessorio(produto, item)) return -10000;
+
+  const refs = referencias(produto);
+  const codigo = chave(item.codigo);
+  const modelo = chave(String(item.modelo || "").split("/")[0]);
+  const texto = chave(textoProduto(produto));
+  const tipos = tipoEsperado(item);
+
+  let pontos = 0;
+
+  if (codigo && refs.includes(codigo)) pontos += 1200;
+  else if (codigo && refs.some(ref => ref.includes(codigo))) pontos += 700;
+
+  if (modelo && refs.includes(modelo)) pontos += 600;
+  else if (modelo && refs.some(ref => ref.startsWith(modelo) || modelo.startsWith(ref))) pontos += 420;
+  else if (modelo && refs.some(ref => ref.includes(modelo) || modelo.includes(ref))) pontos += 280;
+
+  if (modelo && texto.includes(modelo)) pontos += 180;
+  if (tipos.length && tipos.some(tipo => texto.includes(chave(tipo)))) pontos += 140;
+
+  const qtdImagens = (produto.items || []).reduce((total, sku) => total + ((sku.images || []).length), 0);
+  if (qtdImagens > 0) pontos += 30;
+  if (qtdImagens >= 4) pontos += 20;
+
+  return pontos;
+}
+
+function adicionarUnicos(destino, produtos = []) {
+  const vistos = new Set(destino.map(produto => link(produto) || referencias(produto).join("|")));
+  for (const produto of produtos) {
+    const id = link(produto) || referencias(produto).join("|");
+    if (!id || vistos.has(id)) continue;
+    vistos.add(id);
+    destino.push(produto);
+  }
+}
+
 async function localizarProduto(item = {}) {
-  const procurados = termos(item);
   const codigoInfo = chave(item.codigo);
+  const modelo = chave(String(item.modelo || "").split("/")[0]);
+  const candidatos = [];
 
-  for (const termo of procurados) {
-    const resultados = await consultar(termo, termo === codigoInfo);
-    const validos = resultados.filter(produto => !/garantia-estendida/i.test(link(produto)));
+  /*
+   * 1) O Código Info Store é a âncora de identidade mais forte.
+   *
+   * Se a consulta exata por RefId retornar um produto cujo RefId seja
+   * exatamente PORxxxx, aceitamos imediatamente esse produto. Não aplicamos
+   * o filtro heurístico de acessórios aqui, porque títulos de produtos
+   * principais podem conter palavras como JARRA, COPO ou FILTRO.
+   *
+   * Exemplo: POR0111 representa o liquidificador completo. Se o RefId é
+   * POR0111, ele deve vencer qualquer coincidência de peça encontrada pelo
+   * modelo RI2244.
+   */
+  if (codigoInfo) {
+    try {
+      const porCodigoExato = await consultar(codigoInfo, true);
+      const produtosCodigoValidos = porCodigoExato.filter(produto =>
+        !/garantia-estendida/i.test(link(produto))
+      );
 
-    // O código interno da Info Store é a chave mais confiável. Quando ele existe,
-    // nenhum resultado aproximado por nome ou modelo pode substituí-lo.
-    if (codigoInfo) {
-      const porCodigo = validos.find(produto => referencias(produto).includes(codigoInfo));
-      if (porCodigo) return { produto: porCodigo, correspondencia: "CODIGO_INFO" };
-      continue;
-    }
+      /*
+       * A consulta acima já usa o filtro exato alternateIds_RefId:PORxxxx.
+       * Em alguns retornos da VTEX o RefId usado no filtro não é repetido
+       * nos campos que referencias() consegue ler. Quando o filtro exato
+       * retorna um único produto válido, esse próprio resultado é nossa
+       * evidência mais forte e pode ser aceito com segurança.
+       */
+      if (produtosCodigoValidos.length === 1) {
+        return {
+          produto: produtosCodigoValidos[0],
+          correspondencia: "CODIGO_INFO"
+        };
+      }
 
-    const exato = validos.find(produto => {
-      if (/garantia-estendida/i.test(link(produto))) return false;
-      const refs = referencias(produto);
-      return procurados.some(valor => valor.length >= 3 && refs.includes(valor));
-    });
-    if (exato) return { produto: exato, correspondencia: "REFERENCIA_EXATA" };
+      const produtoCodigoExato = produtosCodigoValidos.find(produto =>
+        referencias(produto).includes(codigoInfo)
+      );
+
+      if (produtoCodigoExato) {
+        return {
+          produto: produtoCodigoExato,
+          correspondencia: "CODIGO_INFO"
+        };
+      }
+
+      adicionarUnicos(candidatos, produtosCodigoValidos);
+    } catch {}
+
+    // Algumas páginas não expõem o RefId no filtro exato, então ampliamos
+    // para a busca textual. Aqui ainda exigimos validação pelo ranking abaixo.
+    try { adicionarUnicos(candidatos, await consultar(codigoInfo, false)); } catch {}
   }
 
-  // Não devolve o primeiro resultado da busca: isso era o que permitia misturar
-  // imagens de produtos visualmente parecidos, mas com referências diferentes.
-  return null;
+  // 2) Modelo comercial.
+  if (modelo) {
+    try { adicionarUnicos(candidatos, await consultar(modelo, false)); } catch {}
+  }
+
+  // 3) Demais tokens comerciais somente se ainda precisarmos ampliar a busca.
+  if (candidatos.length < 3) {
+    for (const termo of tokensComerciais(item)) {
+      if (termo === codigoInfo || termo === modelo) continue;
+      try { adicionarUnicos(candidatos, await consultar(termo, false)); } catch {}
+      if (candidatos.length >= 12) break;
+    }
+  }
+
+  const validos = candidatos
+    .filter(produto => !/garantia-estendida/i.test(link(produto)))
+    .map(produto => ({ produto, pontos: pontuarProduto(produto, item) }))
+    .filter(resultado => resultado.pontos > 0)
+    .sort((a, b) => b.pontos - a.pontos);
+
+  const melhor = validos[0];
+  if (!melhor) return null;
+
+  const refs = referencias(melhor.produto);
+  const codigoExato = Boolean(codigoInfo && refs.includes(codigoInfo));
+  const modeloExato = Boolean(modelo && refs.includes(modelo));
+
+  // Código Info exato sempre vence. Sem código exato, exigimos uma evidência forte
+  // de modelo/tipo para não misturar produtos parecidos.
+  if (!codigoExato && melhor.pontos < 300) return null;
+
+  return {
+    produto: melhor.produto,
+    correspondencia: codigoExato
+      ? "CODIGO_INFO"
+      : modeloExato
+        ? "MODELO_EXATO"
+        : "MODELO_VALIDADO"
+  };
 }
 
 export async function localizarFonteInfoStore(item = {}) {

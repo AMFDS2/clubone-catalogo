@@ -455,6 +455,97 @@ function mesclarComPrioridade(principal = {}, apoio = {}) {
   return resultado;
 }
 
+
+function textoIdentidadePagina(pagina = {}, url = "") {
+  return limparTexto([
+    pagina?.titulo,
+    url
+  ].filter(Boolean).join(" ")).toUpperCase();
+}
+
+function paginaPareceAcessorio(pagina = {}, url = "") {
+  /*
+   * Não podemos rejeitar um produto principal apenas porque o título contém
+   * palavras como JARRA, FILTRO ou LÂMINA. Ex.:
+   *   "Liquidificador Série 5000 Jarra Inquebrável ... RI2242"
+   * é um produto principal válido.
+   *
+   * Peças/acessórios normalmente COMEÇAM pelo nome da peça:
+   *   "Faca Preta Liquidificador ..."
+   *   "Peneira Castanha ..."
+   *   "Copo Acrílico ..."
+   */
+  const titulo = limparTexto(pagina?.titulo || "").toUpperCase();
+  const urlTexto = String(url || "").toUpperCase();
+
+  const inicio = titulo
+    .replace(/^PHILIPS\s+WALITA\s+/, "")
+    .replace(/^WALITA\s+/, "")
+    .trim();
+
+  const termosInicio = [
+    "FACA", "PENEIRA", "JARRA", "TAMPA", "FILTRO", "COPO",
+    "LAMINA", "LÂMINA", "BICO", "MANGUEIRA", "RESERVATORIO",
+    "RESERVATÓRIO", "BANDEJA", "PECA", "PEÇA", "ACESSORIO",
+    "ACESSÓRIO", "ACOPLAMENTO", "DISCO", "BATEDOR", "TUBO",
+    "PANNARELLO", "ANEL", "VEDACAO", "VEDAÇÃO", "ENGRENAGEM",
+    "EIXO", "ESPATULA", "ESPÁTULA", "SUPORTE", "ESCOVA",
+    "PORTA FILTRO", "PORTA-FILTRO", "TRAVA", "BORRACHA"
+  ];
+
+  const tituloComecaComoPeca = termosInicio.some(termo =>
+    inicio === termo ||
+    inicio.startsWith(`${termo} `) ||
+    inicio.startsWith(`${termo}-`)
+  );
+
+  if (tituloComecaComoPeca) return true;
+
+  // Quando não há título útil, o slug da URL ainda pode denunciar uma peça.
+  // Aplicamos esta heurística apenas se o título estiver vazio, para não
+  // rejeitar um produto principal por palavras existentes em sua URL.
+  if (!titulo) {
+    const slug = urlTexto.split("/").filter(Boolean).pop() || "";
+    return termosInicio.some(termo => {
+      const termoSlug = termo
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^A-Z0-9]+/g, "-");
+      return slug.startsWith(termoSlug);
+    });
+  }
+
+  return false;
+}
+
+function paginaOficialValidaParaItem(pagina = {}, item = {}) {
+  if (!pagina?.titulo && !item?.fonteInterna) return false;
+  if (paginaPareceAcessorio(pagina, item.fonteInterna)) return false;
+
+  const identidade = textoIdentidadePagina(pagina, item.fonteInterna);
+  const modelo = String(item.modelo || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  const identidadeCompacta = identidade.replace(/[^A-Z0-9]/g, "");
+
+  const produtoPlanilha = String(item.produto || "").toUpperCase();
+  const grupos = [];
+  if (/LIQUID/.test(produtoPlanilha)) grupos.push(/LIQUIDIFICADOR|LIQUID/);
+  if (/CAFETEIRA/.test(produtoPlanilha)) grupos.push(/CAFETEIRA/);
+  if (/AIR\s*FRYER|FRITADEIRA/.test(produtoPlanilha)) grupos.push(/AIR\s*FRYER|AIRFRYER|FRITADEIRA/);
+  if (/PROCESSADOR|MLTPROCESSADOR|MULTIPROCESSADOR/.test(produtoPlanilha)) grupos.push(/PROCESSADOR|MULTIPROCESSADOR/);
+  if (/FERRO/.test(produtoPlanilha)) grupos.push(/FERRO/);
+  if (/ASPIRADOR/.test(produtoPlanilha)) grupos.push(/ASPIRADOR/);
+  if (/TORRADEIRA/.test(produtoPlanilha)) grupos.push(/TORRADEIRA/);
+  if (/SANDUICHEIRA/.test(produtoPlanilha)) grupos.push(/SANDUICHEIRA/);
+  if (/CHALEIRA/.test(produtoPlanilha)) grupos.push(/CHALEIRA/);
+  if (/VAPORIZADOR/.test(produtoPlanilha)) grupos.push(/VAPORIZADOR/);
+  if (/UMIDIFICADOR/.test(produtoPlanilha)) grupos.push(/UMIDIFICADOR/);
+
+  const modeloBate = modelo && identidadeCompacta.includes(modelo);
+  const tipoBate = !grupos.length || grupos.some(re => re.test(identidade));
+
+  return Boolean(modeloBate && tipoBate);
+}
+
 function mesclarListas(...listas) {
   const resultado = [];
   const encontrados = new Set();
@@ -499,9 +590,22 @@ async function processar(item, indice, total) {
   console.log(`[${indice + 1}/${total}] ${item.modelo}`);
 
   try {
-    const html = await baixarPagina(item.fonteInterna);
-    const $ = cheerio.load(html);
-    const estruturado = jsonLd($);
+    // A página da fonte principal pode falhar, bloquear scraping ou vir incompleta.
+    // Isso NÃO deve impedir o fallback da Info Store.
+    let html = "";
+    let erroPaginaPrincipal = "";
+
+    if (item.fonteInterna) {
+      try {
+        html = await baixarPagina(item.fonteInterna);
+      } catch (erro) {
+        erroPaginaPrincipal = erro.message;
+        console.warn(`Fonte principal (${item.modelo}): ${erro.message}. Tentando extratores/API e Info Store.`);
+      }
+    }
+
+    const $ = cheerio.load(html || "");
+    const estruturado = html ? jsonLd($) : null;
 
     const fabricante = String(item.fabricante || "");
     const ehElectrolux = /electrolux/i.test(fabricante);
@@ -601,15 +705,44 @@ async function processar(item, indice, total) {
      * 2. A localização confirmou o modelo exato; ou
      * 3. A fonte foi marcada como localizada no fabricante.
      */
+    /*
+     * IMPORTANTE PARA FABRICANTES COM EXTRATOR ESPECIALIZADO:
+     *
+     * Walita/WAP podem retornar páginas de peças compatíveis com o modelo
+     * (faca, peneira, jarra, tubo etc.). Mesmo que localizar-fontes tenha
+     * marcado a URL como FABRICANTE/MODELO_VALIDADO, isso NÃO é suficiente
+     * para tornar a página confiável.
+     *
+     * Para esses fabricantes, somente o extrator especializado pode validar
+     * o produto principal. Se ele rejeitar ou não localizar o produto, a
+     * Info Store pelo Código Info passa a ser a fonte principal.
+     */
+    const temExtratorEspecializado = ehElectrolux || ehPortatilComConector;
+
+    const paginaOficialValidada =
+      !fonteEhInfoStore &&
+      item.origemFonte === "FABRICANTE" &&
+      paginaOficialValidaParaItem(paginaAtual, item);
+
     const fabricanteValidado =
       !fonteEhInfoStore &&
       (
-        oficial?.validadoFabricante === true ||
-        item.correspondencia === "MODELO_EXATO" ||
-        (
-          item.statusFonte === "LOCALIZADO" &&
-          item.origemFonte === "FABRICANTE"
-        )
+        temExtratorEspecializado
+          ? (
+              (
+                oficial?.validadoFabricante === true &&
+                oficial?.produtoPrincipalValido !== false
+              ) ||
+              paginaOficialValidada
+            )
+          : (
+              item.correspondencia === "MODELO_EXATO" ||
+              item.correspondencia === "MODELO_VALIDADO" ||
+              (
+                item.statusFonte === "LOCALIZADO" &&
+                item.origemFonte === "FABRICANTE"
+              )
+            )
       );
 
     /*
@@ -622,13 +755,33 @@ async function processar(item, indice, total) {
      * Info Store é principal, desde que tenha localizado o código ou
      * a referência exata.
      */
+    const infoStoreExata = apoio?.codigoInfoValidado === true;
+
+    if (process.env.TESTAR_CODIGOS) {
+      console.log(
+        `[${item.codigo || item.modelo}] fonte=${item.origemFonte || "-"} ` +
+        `especializado=${temExtratorEspecializado} ` +
+        `oficialValidado=${oficial?.validadoFabricante === true} ` +
+        `paginaOficialValidada=${paginaOficialValidada} ` +
+        `fabricanteValidado=${fabricanteValidado} ` +
+        `infoStoreExata=${infoStoreExata}`
+      );
+    }
+
+    // Se o fabricante devolveu uma peça/acessório, a correspondência exata
+    // pelo Código Info Store passa a ser a âncora de identidade do produto.
+    const dadosFabricanteValidados =
+      paginaOficialValidada && !(oficial?.validadoFabricante === true)
+        ? paginaAtual
+        : dadosFabricante;
+
     const principal = fabricanteValidado
-      ? dadosFabricante
-      : (apoio || dadosFabricante);
+      ? dadosFabricanteValidados
+      : (infoStoreExata ? apoio : (apoio || dadosFabricanteValidados));
 
     const secundario = fabricanteValidado
       ? apoio
-      : dadosFabricante;
+      : (infoStoreExata ? null : dadosFabricanteValidados);
 
     const extraido = {
       titulo:
@@ -645,10 +798,12 @@ async function processar(item, indice, total) {
        * Fabricante aparece primeiro na galeria.
        * A Info Store complementa até o máximo de oito imagens.
        */
+      // Mantemos candidatos extras: se as URLs oficiais falharem ao baixar,
+      // ainda chegaremos às imagens da Info Store.
       urlsImagens: mesclarListas(
         principal?.urlsImagens,
         secundario?.urlsImagens
-      ).slice(0, 8),
+      ).slice(0, 20),
 
       imagemAmbienteUrl:
         principal?.imagemAmbienteUrl ||
@@ -706,6 +861,8 @@ async function processar(item, indice, total) {
     const errosImagens = [];
 
     for (let i = 0; i < urlsImagens.length; i++) {
+      if (imagens.length >= 8) break;
+
       try {
         const imagemLocal = await baixarImagem(urlsImagens[i], item.modelo, imagens.length);
         if (imagemLocal) imagens.push(imagemLocal);
@@ -737,6 +894,7 @@ async function processar(item, indice, total) {
       ...(!imagem ? ["Imagem não extraída"] : []),
       ...(!Object.keys(dimensoes).length ? ["Dimensões não extraídas"] : []),
       ...(!Object.keys(especificacoes).length ? ["Especificações não extraídas"] : []),
+      ...(erroPaginaPrincipal && !imagem ? [`Fonte principal indisponível: ${erroPaginaPrincipal}`] : []),
       ...(errosImagens.length ? [`Erros de imagens: ${errosImagens.join("; ")}`] : [])
     ];
 
@@ -763,14 +921,62 @@ async function processar(item, indice, total) {
   }
 }
 
+function chaveIdentidade(item = {}) {
+  return String(item.codigo || item.modelo || "").trim().toUpperCase();
+}
+
 async function executar() {
   await fs.mkdir(pastaImagens, { recursive: true });
   const fontes = JSON.parse(await fs.readFile(caminhoFontes, "utf8"));
+
   let anteriores = [];
   try { anteriores = JSON.parse(await fs.readFile(caminhoSaida, "utf8")); } catch {}
-  const existentes = new Set(anteriores.map(item => nomeSeguro(item.modelo)));
+
+  const anterioresPorCodigo = new Map(
+    anteriores.map(item => [chaveIdentidade(item), item])
+  );
+
   const forcar = process.env.FORCAR_ATUALIZACAO === "1";
-  const confirmados = fontes.filter(item => !ehClimatizacao(item) && item.fluxo !== "CLIMATIZACAO" && item.statusFonte === "LOCALIZADO" && (forcar || !existentes.has(nomeSeguro(item.modelo))));
+  const forcarPortateis = process.env.FORCAR_PORTATEIS === "1";
+  const testarCodigos = new Set(
+    String(process.env.TESTAR_CODIGOS || "")
+      .split(",")
+      .map(valor => valor.trim().toUpperCase())
+      .filter(Boolean)
+  );
+
+  const confirmados = fontes.filter(item => {
+    if (ehClimatizacao(item) || item.fluxo === "CLIMATIZACAO") return false;
+
+    const codigoAtual = String(item.codigo || "").trim().toUpperCase();
+    const emTeste = testarCodigos.size && testarCodigos.has(codigoAtual);
+    const portatilForcado = forcarPortateis && ehPortatilItem(item);
+
+    if (forcarPortateis && !ehPortatilItem(item)) return false;
+    if (testarCodigos.size && !emTeste) return false;
+
+    /*
+     * Em modo forçado/teste, portáteis precisam ser processados mesmo quando
+     * localizar-fontes marcou NAO_LOCALIZADO. processar() consulta a Info Store
+     * diretamente pelo Código Info e pode recuperar o produto correto.
+     * Isso também impede que um enriquecimento antigo (ex.: faca/peneira)
+     * permaneça eternamente só porque a nova localização falhou.
+     */
+    if (item.statusFonte !== "LOCALIZADO" && !portatilForcado && !emTeste) return false;
+
+    if (forcar || portatilForcado || emTeste) return true;
+
+    const anterior = anterioresPorCodigo.get(chaveIdentidade(item));
+    if (!anterior) return true;
+
+    // Se o código é o mesmo, mas o modelo mudou (ex.: EAN -> EP1220),
+    // reprocessa automaticamente mesmo sem modo FORCE.
+    return nomeSeguro(anterior.modelo) !== nomeSeguro(item.modelo);
+  });
+
+  if (testarCodigos.size) {
+    console.log(`Modo de teste ativo: ${[...testarCodigos].join(", ")}`);
+  }
   console.log(`Modelos para enriquecer: ${confirmados.length}`);
 
   const resultadosNovos = [];
@@ -779,8 +985,13 @@ async function executar() {
     await new Promise(resolve => setTimeout(resolve, 500));
   }
 
-  const chavesNovas = new Set(resultadosNovos.map(item => nomeSeguro(item.modelo)));
-  const resultados = [...anteriores.filter(item => !chavesNovas.has(nomeSeguro(item.modelo))), ...resultadosNovos];
+  // Também substitui por Código Info Store para eliminar registros antigos
+  // associados ao mesmo SKU, mas com EAN/modelo incorreto.
+  const chavesNovas = new Set(resultadosNovos.map(chaveIdentidade));
+  const resultados = [
+    ...anteriores.filter(item => !chavesNovas.has(chaveIdentidade(item))),
+    ...resultadosNovos
+  ];
 
   await fs.writeFile(caminhoSaida, JSON.stringify(resultados, null, 2), "utf8");
   console.log("\nExtração concluída.");

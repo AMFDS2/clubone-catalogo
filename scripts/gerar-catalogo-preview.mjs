@@ -80,12 +80,111 @@ function limparTituloOficial(titulo = "") {
   return invalido ? "" : limpo;
 }
 
-function nomeProduto(base, enriquecido = {}, anterior = {}) {
-  return (
-    limparTituloOficial(enriquecido.tituloOficial) ||
-    limparTituloOficial(anterior.nomeOficial) ||
-    String(base.produto || anterior.nome || base.modelo || "Produto").trim()
+function tituloPareceAcessorio(titulo = "") {
+  const texto = String(titulo).toUpperCase();
+
+  const termosAcessorios = [
+    "TUBO",
+    "PANNARELLO",
+    "JARRA",
+    "TAMPA",
+    "FILTRO",
+    "COPO",
+    "LAMINA",
+    "LÂMINA",
+    "BICO",
+    "MANGUEIRA",
+    "RESERVATORIO",
+    "RESERVATÓRIO",
+    "BANDEJA",
+    "PECA",
+    "PEÇA",
+    "ACESSORIO",
+    "ACESSÓRIO",
+    "ANEL",
+    "VEDACAO",
+    "VEDAÇÃO",
+    "FACA",
+    "PENEIRA",
+    "ACOPLAMENTO",
+    "ENGRENAGEM",
+    "DISCO",
+    "BATEDOR",
+    "ESPATULA",
+    "ESPÁTULA",
+    "TRAVA",
+    "BORRACHA",
+    "GUARNICAO",
+    "GUARNIÇÃO"
+  ];
+
+  return termosAcessorios.some(termo =>
+    texto.includes(termo)
   );
+}
+
+function tituloCompativelComProduto(titulo = "", base = {}) {
+  if (!titulo) return false;
+
+  /*
+   * Se o título encontrado parece ser peça/acessório,
+   * não permitimos que substitua o produto principal
+   * cadastrado na planilha.
+   */
+  if (tituloPareceAcessorio(titulo)) {
+    return false;
+  }
+
+  return true;
+}
+
+function nomeProduto(base, enriquecido = {}, anterior = {}) {
+  const tituloEnriquecido =
+    limparTituloOficial(enriquecido.tituloOficial);
+
+  const tituloAnterior =
+    limparTituloOficial(anterior.nomeOficial);
+
+  const tituloPlanilha =
+    String(
+      base.produto ||
+      anterior.nome ||
+      base.modelo ||
+      "Produto"
+    ).trim();
+
+  /*
+   * 1. Usa título oficial somente se ele parecer
+   * representar o produto principal.
+   */
+  if (
+    tituloEnriquecido &&
+    tituloCompativelComProduto(
+      tituloEnriquecido,
+      base
+    )
+  ) {
+    return tituloEnriquecido;
+  }
+
+  /*
+   * 2. Título anterior também passa pela mesma
+   * proteção para evitar preservar um erro antigo.
+   */
+  if (
+    tituloAnterior &&
+    tituloCompativelComProduto(
+      tituloAnterior,
+      base
+    )
+  ) {
+    return tituloAnterior;
+  }
+
+  /*
+   * 3. Em caso de dúvida, a planilha vence.
+   */
+  return tituloPlanilha;
 }
 
 function identificarTipoBloco(base = {}, enriquecido = {}) {
@@ -271,44 +370,187 @@ function documentosOficiais(documentos = []) {
 function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore, anterior = {}) {
   const cat = categoria(base.segmento);
   const nomeOficial = nomeProduto(base, enriquecido);
-  const imagens = Array.isArray(enriquecido.imagens) && enriquecido.imagens.length
-    ? enriquecido.imagens
-    : [enriquecido.imagem].filter(Boolean);
+
+  const imagens =
+    Array.isArray(enriquecido.imagens) && enriquecido.imagens.length
+      ? enriquecido.imagens
+      : [enriquecido.imagem].filter(Boolean);
+
   const portatil = ehPortatil(base);
-  const experiencia = portatil ? experienciaPortatil(base, enriquecido) : {};
-  const medidaCompacta = portatil ? dimensoesCompactas(enriquecido.dimensoes) : "";
+
+  const experiencia = portatil
+    ? experienciaPortatil(base, enriquecido)
+    : {};
+
+  const medidaCompacta = portatil
+    ? dimensoesCompactas(enriquecido.dimensoes)
+    : "";
+
+  /*
+   * As especificações extraídas entram primeiro.
+   *
+   * Depois sobrescrevemos os campos críticos com os
+   * dados oficiais da planilha.
+   *
+   * Dessa forma, EAN, GTIN ou códigos retornados pelo
+   * fabricante nunca substituem o MODELO cadastrado.
+   */
+  const especificacoesLimpas =
+    limparEspecificacoes(enriquecido.especificacoes);
 
   return {
-    id: chave(base.modelo).toLowerCase() || chave(base.codigo).toLowerCase(),
+    /*
+     * Identidade do produto:
+     * sempre baseada na planilha.
+     */
+    id:
+      chave(base.modelo).toLowerCase() ||
+      chave(base.codigo).toLowerCase(),
+
     ordem,
+
     marca: marca(base.fabricante),
-    modelo: base.modelo || "Não informado",
+
+    /*
+     * MODELO DA PLANILHA É SOBERANO.
+     */
+    modelo:
+      base.modelo ||
+      "Não informado",
+
     nome: nomeOficial,
+
     nomeOficial,
-    nomePlanilha: base.produto,
-    descricao: enriquecido.descricao || base.produto,
-    codigoInfo: base.codigo,
-    categoria: cat,
-    segmento: base.segmento,
-    tipoBloco: portatil ? "portatil-sem-blocagem" : identificarTipoBloco(base, enriquecido),
-    imagem: imagens[0] || "assets/produto-sem-imagem.svg",
-    imagens: imagens.length ? imagens : ["assets/produto-sem-imagem.svg"],
+
+    /*
+     * Preservamos também o nome original da planilha.
+     */
+    nomePlanilha:
+      base.produto,
+
+    descricao:
+      enriquecido.descricao ||
+      base.produto,
+
+    /*
+     * Código Info Store sempre vem da planilha.
+     */
+    codigoInfo:
+      base.codigo,
+
+    categoria:
+      cat,
+
+    segmento:
+      base.segmento,
+
+    tipoBloco:
+      portatil
+        ? "portatil-sem-blocagem"
+        : identificarTipoBloco(base, enriquecido),
+
+    imagem:
+      imagens[0] ||
+      "assets/produto-sem-imagem.svg",
+
+    imagens:
+      imagens.length
+        ? imagens
+        : ["assets/produto-sem-imagem.svg"],
+
+    /*
+     * Link Info Store localizado usando o produto/código.
+     */
     siteInfoStore,
-    destaques: destaques(enriquecido.destaques),
+
+    destaques:
+      destaques(enriquecido.destaques),
+
+    /*
+     * IMPORTANTE:
+     *
+     * As especificações automáticas entram primeiro.
+     * Os dados da planilha entram por último para
+     * impedir sobrescrita.
+     */
     especificacoes: {
-      Modelo: base.modelo || "Não informado",
-      Categoria: cat,
-      "Código Info Store": base.codigo,
-      ...limparEspecificacoes(enriquecido.especificacoes),
-      ...(medidaCompacta ? { "Dimensões do produto (L × A × P)": medidaCompacta } : {})
+      ...especificacoesLimpas,
+
+      /*
+       * Estes três campos têm prioridade absoluta.
+       */
+      Modelo:
+        base.modelo ||
+        "Não informado",
+
+      Categoria:
+        cat,
+
+      "Código Info Store":
+        base.codigo,
+
+      /*
+       * Para portáteis, mantém somente a dimensão
+       * compacta em Especificações.
+       */
+      ...(medidaCompacta
+        ? {
+            "Dimensões do produto (L × A × P)":
+              medidaCompacta
+          }
+        : {})
     },
-    dimensoes: portatil ? {} : (enriquecido.dimensoes || {}),
-    instalacao: portatil ? "" : "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
-    documentos: portatil ? [] : documentosOficiais(enriquecido.documentos),
-    sobreMarca: "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    revisaoPendente: enriquecido.statusExtracao !== "EXTRAIDO",
+
+    /*
+     * Portátil não utiliza blocagem dimensional.
+     */
+    dimensoes:
+      portatil
+        ? {}
+        : (enriquecido.dimensoes || {}),
+
+    /*
+     * Portátil não precisa da seção técnica
+     * de instalação.
+     */
+    instalacao:
+      portatil
+        ? ""
+        : "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
+
+    /*
+     * Portáteis não exibem manuais/documentos
+     * na experiência atual do catálogo.
+     */
+    documentos:
+      portatil
+        ? []
+        : documentosOficiais(enriquecido.documentos),
+
+    sobreMarca:
+      "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+
+    revisaoPendente:
+      enriquecido.statusExtracao !== "EXTRAIDO",
+
+    /*
+     * Adiciona experiência específica do portátil:
+     * aplicação no ambiente etc.
+     */
     ...experiencia,
-    ...(!portatil && anterior.medidasProjeto ? { medidasProjeto: anterior.medidasProjeto } : {})
+
+    /*
+     * Mantém medidasProjeto somente para produtos
+     * técnicos que não sejam portáteis.
+     */
+    ...(
+      !portatil && anterior.medidasProjeto
+        ? {
+            medidasProjeto:
+              anterior.medidasProjeto
+          }
+        : {}
+    )
   };
 }
 
@@ -360,6 +602,10 @@ function aplicarRegraPortatilAoAnterior(produto = {}, base = {}, enriquecido = {
   const medidaCompacta = dimensoesCompactas(enriquecido?.dimensoes || produto.dimensoes || {});
   const especificacoes = {
     ...(produto.especificacoes || {}),
+    ...limparEspecificacoes(enriquecido?.especificacoes || {}),
+    Modelo: base.modelo || "Não informado",
+    Categoria: categoria(base.segmento),
+    "Código Info Store": base.codigo,
     ...(medidaCompacta ? { "Dimensões do produto (L × A × P)": medidaCompacta } : {})
   };
 

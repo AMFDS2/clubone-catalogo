@@ -1605,9 +1605,33 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   `;
 }
 
+function urlDocumentoPermitida(url = "") {
+  const valor = String(url || "").trim();
+  if (!valor) return false;
+
+  // Arquivos locais gerados/indexados pelo próprio catálogo.
+  if (/^(assets|manuais-oficiais)\//.test(valor)) {
+    return !valor.split("/").includes("..") && !/[\\]/.test(valor);
+  }
+
+  // Manuais oficiais externos: aceita somente HTTPS.
+  // Query string e hash são permitidos porque alguns fabricantes usam esses
+  // parâmetros nos links oficiais de download.
+  try {
+    const destino = new URL(valor);
+    return destino.protocol === "https:" && !destino.username && !destino.password;
+  } catch {
+    return false;
+  }
+}
+
 function criarDocumentos(documentos = []) {
   const lista = Array.isArray(documentos) ? documentos : [];
-  const validos = lista.filter(documento => documento && documento.nome && /^(assets|manuais-oficiais)\//.test(documento.url || "") && !documento.url.split("/").includes("..") && !/[\\?#]/.test(documento.url));
+  const validos = lista.filter(documento =>
+    documento &&
+    documento.nome &&
+    urlDocumentoPermitida(documento.url)
+  );
 
   if (!validos.length) {
     return `<p class="texto-tecnico">Nenhum documento disponível no momento.</p>`;

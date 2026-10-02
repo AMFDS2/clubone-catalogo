@@ -17,6 +17,12 @@ const caminhoPendencias = path.join(
   "pendencias-catalogo.json"
 );
 
+const caminhoProdutosBase = path.join(
+  pastaProjeto,
+  "dados",
+  "produtos-base.json"
+);
+
 const caminhoSaida = path.join(
   pastaProjeto,
   "dados",
@@ -209,9 +215,51 @@ function localizarPaginaDoModelo(modelo, paginas) {
   };
 }
 
+function ehPortatil(item = {}) {
+  return /portateis|portáteis|eletroportateis|eletroportáteis/i.test(String(item.segmento || ""));
+}
+
+function chaveIdentidade(item = {}) {
+  return String(item.codigo || item.modelo || "").trim().toUpperCase();
+}
+
 async function executar() {
-  const textoPendencias = await fs.readFile(caminhoPendencias, "utf8");
-  const pendencias = JSON.parse(textoPendencias).filter(p => !ehClimatizacao(p));
+  const forcarTudo = process.env.FORCAR_ATUALIZACAO === "1";
+  const forcarPortateis = process.env.FORCAR_PORTATEIS === "1";
+
+  const caminhoEntrada = (forcarTudo || forcarPortateis)
+    ? caminhoProdutosBase
+    : caminhoPendencias;
+
+  const textoEntrada = await fs.readFile(caminhoEntrada, "utf8");
+  let pendencias = JSON.parse(textoEntrada).filter(p => !ehClimatizacao(p));
+
+  if (forcarPortateis && !forcarTudo) {
+    pendencias = pendencias.filter(ehPortatil);
+  }
+
+  // Modo de teste rápido: TESTAR_CODIGOS="POR0111,POR0114,POR0115,POR0096"
+  // limita a execução aos códigos informados, sem reprocessar todos os itens.
+  const testarCodigos = new Set(
+    String(process.env.TESTAR_CODIGOS || "")
+      .split(",")
+      .map(valor => valor.trim().toUpperCase())
+      .filter(Boolean)
+  );
+
+  if (testarCodigos.size) {
+    pendencias = pendencias.filter(item => testarCodigos.has(String(item.codigo || "").trim().toUpperCase()));
+    console.log(`Modo de teste ativo: ${[...testarCodigos].join(", ")}`);
+  }
+
+  console.log(
+    forcarTudo
+      ? "Relocalização forçada de todos os produtos não climatização."
+      : forcarPortateis
+        ? "Relocalização forçada somente de eletroportáteis."
+        : "Localizando somente produtos pendentes."
+  );
+
   const paginas = pendencias.some(item => /samsung/i.test(item.fabricante || ""))
     ? await mapearSitemaps()
     : [];
@@ -250,6 +298,7 @@ async function executar() {
       codigo: produto.codigo,
       produto: produto.produto,
       fabricante: produto.fabricante,
+      segmento: produto.segmento,
       statusFonte: resultado.status,
       fonteInterna: resultado.url,
       alternativas: resultado.alternativas,
@@ -261,8 +310,15 @@ async function executar() {
 
   let anteriores = [];
   try { anteriores = JSON.parse(await fs.readFile(caminhoSaida, "utf8")); } catch {}
-  const novas = new Set(resultadosNovos.map(item => normalizarModelo(item.modelo)));
-  const resultados = [...anteriores.filter(item => !novas.has(normalizarModelo(item.modelo))), ...resultadosNovos];
+
+  // Substitui pela identidade comercial (Código Info Store) e não apenas pelo
+  // modelo. Assim, quando um modelo antigo era EAN e passa a EP1220/RI2244,
+  // o registro incorreto anterior é removido em vez de permanecer duplicado.
+  const novas = new Set(resultadosNovos.map(chaveIdentidade));
+  const resultados = [
+    ...anteriores.filter(item => !novas.has(chaveIdentidade(item))),
+    ...resultadosNovos
+  ];
 
   await fs.writeFile(
     caminhoSaida,

@@ -25,7 +25,32 @@ function cabecalho(valor) {
 function limpar(valor) { return texto(valor).trim().replace(/\s+/g, " "); }
 function modelo(valor) { return limpar(valor).toUpperCase().replace(/\s+/g, ""); }
 
-async function lerArquivo(caminho, modelosEncontrados) {
+function extrairModeloDoProduto(produto = "") {
+  const ignorar = new Set(["PRE", "BRA", "INO", "BIV", "BIVOLT", "W", "V"]);
+  const candidatos = String(produto)
+    .toUpperCase()
+    .match(/\b[A-Z]{1,5}[A-Z0-9-]*\d[A-Z0-9-]*\b/g) || [];
+
+  return candidatos
+    .map(valor => valor.replace(/[^A-Z0-9-]/g, ""))
+    .find(valor => valor.length >= 4 && !ignorar.has(valor)) || "";
+}
+
+function modeloConfiavel(fabricante = "", produto = "", valorModelo = "") {
+  const informado = modelo(valorModelo);
+
+  // Para Walita/Philips, um valor somente numérico longo costuma ser EAN/GTIN,
+  // não o modelo comercial. Quando houver um modelo alfanumérico no nome do
+  // produto (EP1220, RI2244, NA150 etc.), ele tem prioridade.
+  if (/walita|philips/i.test(String(fabricante)) && /^\d{8,14}$/.test(informado)) {
+    const extraido = extrairModeloDoProduto(produto);
+    if (extraido) return extraido;
+  }
+
+  return informado;
+}
+
+async function lerArquivo(caminho, produtosEncontrados) {
   const workbook = new ExcelJS.Workbook();
   await workbook.xlsx.readFile(caminho);
   const planilha = workbook.getWorksheet("Produtos") || workbook.worksheets[0];
@@ -49,12 +74,17 @@ async function lerArquivo(caminho, modelosEncontrados) {
       segmento: limpar(linha.getCell(colunas.SEGMENTO).value),
       codigo: limpar(linha.getCell(colunas.CODIGO).value),
       produto: limpar(linha.getCell(colunas.PRODUTO).value),
-      modelo: modelo(linha.getCell(colunas.MODELO).value)
+      modelo: modeloConfiavel(
+        limpar(linha.getCell(colunas.FABRICANTE).value),
+        limpar(linha.getCell(colunas.PRODUTO).value),
+        linha.getCell(colunas.MODELO).value
+      )
     };
     if (!Object.values(item).some(Boolean)) continue;
     if (!item.modelo) { semModelo.push(numero); continue; }
-    if (modelosEncontrados.has(item.modelo)) continue;
-    modelosEncontrados.add(item.modelo);
+    const chaveUnica = item.codigo || item.modelo;
+    if (produtosEncontrados.has(chaveUnica)) continue;
+    produtosEncontrados.add(chaveUnica);
     produtos.push({ id: item.modelo.toLowerCase(), ...item, statusPesquisa: "PENDENTE" });
   }
   console.log(`- ${path.basename(caminho)} (${planilha.name})`);
@@ -81,12 +111,12 @@ async function executar() {
   );
 
   const produtos = [];
-  const modelosEncontrados = new Set();
+  const produtosEncontrados = new Set();
   const avisos = [];
 
   const resultado = await lerArquivo(
     caminhoPlanilhaPrincipal,
-    modelosEncontrados
+    produtosEncontrados
   );
 
   produtos.push(...resultado.produtos);
