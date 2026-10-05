@@ -351,15 +351,89 @@ async function localizarUrlInfoStore(codigo, modelo) {
   return fallback;
 }
 
+const TEXTOS_INVALIDOS_ESPECIFICACAO = new Set([
+  "anterior", "proximo", "util?", "manuais", "conheca", "mobile",
+  "saiba mais", "expandir tudo", "ver mais", "comprar agora",
+  "indisponivel", "esgotado", "selecione", "popup",
+  "global navigation", "gallery", "fechar"
+]);
+
+function valorEspecificacaoValido(campo = "", valor = "") {
+  const texto = normalizar(String(valor).trim()).replace(/[:：]/g, "").trim();
+  if (!texto || texto.length > 100 || TEXTOS_INVALIDOS_ESPECIFICACAO.has(texto)) return false;
+  if (/^(largura|altura|profundidade|peso)(?:\s*\([^)]*\))?$/.test(texto)) return false;
+
+  switch (campo) {
+    case "Capacidade":
+    case "Capacidade total":
+    case "Capacidade de lavagem":
+    case "Capacidade de secagem":
+      return /\d/.test(texto) && /\d(?:[.,]\d+)?\s*(?:l|litros?|ml|kg|btu(?:\/h)?|servicos?|garrafas?|xicaras?)\b/.test(texto);
+    case "Potência":
+    case "Potência de áudio":
+      return /\d(?:[.,]\d+)?\s*(?:k?w|watts?)\b/.test(texto);
+    case "Temperatura":
+      return /\d/.test(texto) && /(°|graus?|\b[cf]\b|\d\s*(?:a|ate|~|–|—|-)\s*\d)/.test(texto);
+    case "Voltagem":
+      return texto === "bivolt" || /\d(?:[.,]\d+)?\s*(?:v|volts?)\b/.test(texto);
+    case "Garantia":
+      return /\d/.test(texto) && /\b(meses?|anos?)\b/.test(texto);
+    case "SmartThings":
+      return /^(sim|nao)$/.test(texto) || /smartthings|compativel/.test(texto);
+    case "Wi-Fi":
+      return /^(sim|nao)$/.test(texto) || /wi[ -]?fi/.test(texto);
+    case "Tecnologia de refrigeração":
+      return !/^(largura|altura|profundidade|peso)/.test(texto);
+    case "Acessórios":
+      return texto.length >= 3 && !/^(manual|manual do usuario|nenhum)$/.test(texto);
+    default:
+      return true;
+  }
+}
+
 function destaques(lista = []) {
+  const usados = new Set();
+  let capacidadeIncluida = false;
+
   return lista
-    .filter(item => item?.valor)
+    .filter(item => {
+      const rotulo = item?.rotulo || "";
+      const valor = item?.valor;
+      if (!valorEspecificacaoValido(rotulo, valor)) return false;
+
+      const ehCapacidade = rotulo === "Capacidade" || rotulo === "Capacidade total";
+      if (ehCapacidade && capacidadeIncluida) return false;
+
+      const chaveValor = normalizar(String(valor).trim());
+      if (usados.has(chaveValor)) return false;
+      usados.add(chaveValor);
+      if (ehCapacidade) capacidadeIncluida = true;
+      return true;
+    })
     .slice(0, 5)
-    .map(item => ({ titulo: item.valor, rotulo: item.rotulo, icone: "◇" }));
+    .map(item => ({
+      titulo: item.valor,
+      rotulo: item.rotulo === "Capacidade total" ? "Capacidade" : item.rotulo,
+      icone: "◇"
+    }));
 }
 
 function limparEspecificacoes(especificacoes = {}) {
-  return Object.fromEntries(Object.entries(especificacoes).filter(([, valor]) => valor !== "" && valor != null));
+  const limpas = Object.fromEntries(
+    Object.entries(especificacoes).filter(([campo, valor]) =>
+      valor !== "" && valor != null && valorEspecificacaoValido(campo, valor)
+    )
+  );
+
+  if (
+    limpas["Capacidade"] &&
+    limpas["Capacidade total"] &&
+    normalizar(limpas["Capacidade"]) === normalizar(limpas["Capacidade total"])
+  ) {
+    delete limpas["Capacidade"];
+  }
+
+  return limpas;
 }
 
 function documentosOficiais(documentos = []) {

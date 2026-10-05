@@ -149,19 +149,66 @@ function textosFolha($) {
   return textos;
 }
 
-function valorAceitavel(valor = "") {
+const TEXTOS_DE_INTERFACE = [
+  "anterior", "proximo", "util?", "manuais", "conheca", "mobile",
+  "saiba mais", "expandir tudo", "ver mais", "comprar agora",
+  "indisponivel", "esgotado", "selecione", "popup",
+  "global navigation", "gallery", "fechar"
+];
+
+function pareceTextoDeInterface(valor = "") {
   const texto = normalizar(valor);
-  return Boolean(texto) && texto.length <= 100 && !["saiba mais", "expandir tudo", "ver mais", "comprar agora", "indisponivel", "esgotado", "selecione", "popup", "global navigation", "gallery", "fechar"].some(item => texto.includes(item));
+  if (!texto) return true;
+  return TEXTOS_DE_INTERFACE.some(item =>
+    texto === item || texto.startsWith(`${item} `)
+  );
 }
 
-function encontrarValor(textos, rotulos) {
+function valorAceitavel(valor = "", campo = "") {
+  const texto = normalizar(valor);
+  if (!texto || texto.length > 100 || pareceTextoDeInterface(texto)) return false;
+
+  // Impede que o próximo rótulo da página seja confundido com o valor.
+  if (/^(largura|altura|profundidade|peso)(?:\s*\([^)]*\))?$/.test(texto)) return false;
+
+  switch (campo) {
+    case "Capacidade":
+    case "Capacidade total":
+    case "Capacidade de lavagem":
+    case "Capacidade de secagem":
+      return /\d/.test(texto) && /\d(?:[.,]\d+)?\s*(?:l|litros?|ml|kg|btu(?:\/h)?|servicos?|garrafas?|xicaras?)\b/.test(texto);
+    case "Potência":
+    case "Potência de áudio":
+      return /\d(?:[.,]\d+)?\s*(?:k?w|watts?)\b/.test(texto);
+    case "Temperatura":
+      return /\d/.test(texto) && /(°|graus?|\b[cf]\b|\d\s*(?:a|ate|~|–|—|-)\s*\d)/.test(texto);
+    case "Voltagem":
+      return texto === "bivolt" || /\d(?:[.,]\d+)?\s*(?:v|volts?)\b/.test(texto);
+    case "Velocidades":
+      return /\d/.test(texto) || /\b(uma|duas|tres|quatro|cinco)\s+velocidades?\b/.test(texto);
+    case "Garantia":
+      return /\d/.test(texto) && /\b(meses?|anos?)\b/.test(texto);
+    case "SmartThings":
+      return /^(sim|nao)$/.test(texto) || /smartthings|compativel/.test(texto);
+    case "Wi-Fi":
+      return /^(sim|nao)$/.test(texto) || /wi[ -]?fi/.test(texto);
+    case "Tecnologia de refrigeração":
+      return !/^(largura|altura|profundidade|peso)/.test(texto);
+    case "Acessórios":
+      return texto.length >= 3 && !/^(manual|manual do usuario|nenhum)$/.test(texto);
+    default:
+      return true;
+  }
+}
+
+function encontrarValor(textos, rotulos, campo) {
   const procurados = rotulos.map(normalizar);
   for (let i = 0; i < textos.length; i++) {
     const atual = normalizar(textos[i]);
     if (!procurados.some(rotulo => atual === rotulo || atual.startsWith(`${rotulo} `))) continue;
     for (let j = i + 1; j <= i + 8 && j < textos.length; j++) {
       const candidato = textos[j];
-      if (!procurados.includes(normalizar(candidato)) && valorAceitavel(candidato)) return candidato;
+      if (!procurados.includes(normalizar(candidato)) && valorAceitavel(candidato, campo)) return candidato;
     }
   }
   return "";
@@ -169,7 +216,23 @@ function encontrarValor(textos, rotulos) {
 
 function extrairEspecificacoes($) {
   const textos = textosFolha($);
-  return Object.fromEntries(CAMPOS.map(([nome, rotulos]) => [nome, encontrarValor(textos, rotulos)]).filter(([, valor]) => valor));
+  return Object.fromEntries(CAMPOS.map(([nome, rotulos]) => [nome, encontrarValor(textos, rotulos, nome)]).filter(([, valor]) => valor));
+}
+
+function limparEspecificacoesExtraidas(especificacoes = {}) {
+  const limpas = Object.fromEntries(
+    Object.entries(especificacoes).filter(([campo, valor]) => valorAceitavel(valor, campo))
+  );
+
+  if (
+    limpas["Capacidade"] &&
+    limpas["Capacidade total"] &&
+    normalizar(limpas["Capacidade"]) === normalizar(limpas["Capacidade total"])
+  ) {
+    delete limpas["Capacidade"];
+  }
+
+  return limpas;
 }
 
 function procurarTripla(texto, rotulos) {
@@ -204,10 +267,21 @@ function extrairDimensoes($) {
 }
 
 function criarDestaques(especificacoes) {
-  const prioridades = ["Capacidade", "Potência", "Voltagem", "Temperatura", "Velocidades", "Capacidade total", "Capacidade de lavagem", "Capacidade de secagem", "Tamanho da tela", "Resolução", "Frequência do painel", "Tecnologia do painel", "Cor", "Tipo de porta", "Frost Free", "Wi-Fi", "SmartThings", "Classificação energética", "Sistema operacional", "Potência de áudio"];
-  return prioridades.filter(nome => especificacoes[nome]).slice(0, 5).map(rotulo => {
-    let valor = especificacoes[rotulo];
-    if (["Wi-Fi", "SmartThings", "Frost Free"].includes(rotulo) && normalizar(valor) === "sim") valor = rotulo;
+  const capacidade = especificacoes["Capacidade total"] ? "Capacidade total" : "Capacidade";
+  const prioridades = [capacidade, "Potência", "Voltagem", "Temperatura", "Velocidades", "Capacidade de lavagem", "Capacidade de secagem", "Tamanho da tela", "Resolução", "Frequência do painel", "Tecnologia do painel", "Cor", "Tipo de porta", "Frost Free", "Wi-Fi", "SmartThings", "Classificação energética", "Sistema operacional", "Potência de áudio"];
+  const usados = new Set();
+
+  return prioridades.filter(nome => {
+    const valor = especificacoes[nome];
+    if (!valor || !valorAceitavel(valor, nome)) return false;
+    const chaveValor = normalizar(valor);
+    if (usados.has(chaveValor)) return false;
+    usados.add(chaveValor);
+    return true;
+  }).slice(0, 5).map(rotuloOriginal => {
+    const rotulo = rotuloOriginal === "Capacidade total" ? "Capacidade" : rotuloOriginal;
+    let valor = especificacoes[rotuloOriginal];
+    if (["Wi-Fi", "SmartThings", "Frost Free"].includes(rotuloOriginal) && normalizar(valor) === "sim") valor = rotuloOriginal;
     return { rotulo, valor };
   });
 }
@@ -850,7 +924,9 @@ async function processar(item, indice, total) {
     };
     const titulo = extraido?.titulo || limparTexto(estruturado?.name || $('meta[property="og:title"]').attr("content") || $("title").text());
     const descricao = extraido?.descricao || limparTexto(estruturado?.description || $('meta[name="description"]').attr("content") || "");
-    const especificacoes = extraido?.especificacoes || extrairEspecificacoes($);
+    const especificacoes = limparEspecificacoesExtraidas(
+      extraido?.especificacoes || extrairEspecificacoes($)
+    );
     const dimensoes = extraido?.dimensoes || extrairDimensoes($);
     const documentos = extraido?.documentos?.length
       ? extraido.documentos
