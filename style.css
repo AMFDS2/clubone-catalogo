@@ -1823,6 +1823,109 @@ header.topbar { gap: clamp(20px, 3vw, 48px) !important; background: linear-gradi
     letter-spacing: -0.025em;
   }
 }
+
+/* ==================================================
+   CORREÇÃO VISUAL — IDENTIDADE INFO STORE
+   Mantida no final para sobrescrever os estilos
+   legados sem alterar estrutura ou funcionalidades.
+================================================== */
+
+.botao-filtro-legado {
+  display: none !important;
+}
+
+.alternar-filtros {
+  width: 100%;
+  min-height: 38px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--info-azul) !important;
+  border-radius: 8px;
+  background: var(--info-branco) !important;
+  color: var(--info-azul) !important;
+  font-family: var(--fonte-titulos);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.alternar-filtros:hover {
+  background: var(--info-azul-claro) !important;
+}
+
+.alternar-filtros[aria-expanded="true"] {
+  background: var(--info-azul) !important;
+  color: var(--info-branco) !important;
+}
+
+.alternar-filtros-icone {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.busca-topbar input,
+.busca-topbar input:hover,
+.busca-topbar input:focus {
+  border-color: rgba(255, 255, 255, .42) !important;
+}
+
+.busca-topbar input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .12) !important;
+}
+
+.busca-topbar .icone-busca {
+  color: var(--info-branco) !important;
+}
+
+.barra-campanha {
+  background: linear-gradient(105deg, var(--info-azul-escuro), var(--info-azul)) !important;
+  border-top-color: var(--info-vermelho) !important;
+}
+
+.campanha-selo,
+.campanha-titulo strong,
+.campanha-periodo strong,
+.campanha-fechar,
+.campanha-fechar:hover {
+  color: var(--info-branco) !important;
+}
+
+.campanha-selo {
+  border-color: rgba(255, 255, 255, .42) !important;
+}
+
+.campanha-periodo {
+  border-left-color: rgba(255, 255, 255, .28) !important;
+}
+
+.campanha-separador {
+  background: linear-gradient(transparent, rgba(255, 255, 255, .5), transparent) !important;
+}
+
+.campanha-reabrir {
+  border-color: rgba(255, 255, 255, .42) !important;
+  background: linear-gradient(105deg, var(--info-azul-escuro), var(--info-azul)) !important;
+  color: var(--info-branco) !important;
+}
+
+.campanha-reabrir:hover {
+  border-color: var(--info-vermelho) !important;
+  background: var(--info-vermelho) !important;
+}
+
+@media (max-width: 900px) {
+  .alternar-filtros {
+    min-height: 42px;
+    font-size: 10px;
+  }
+}
 .produto-generico {
   fill: #f4f1eb;
   stroke: #393733;
@@ -2325,4 +2428,10 @@ header.topbar {
     margin-top: 10px !important;
     margin-bottom: 0 !important;
   }
+}
+
+/* Prioridade final para o foco da busca dentro do cabeçalho. */
+.campo-busca.busca-topbar input:focus {
+  border-color: rgba(255, 255, 255, .58) !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .12) !important;
 }
