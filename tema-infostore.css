@@ -400,7 +400,7 @@ body:not(.campanha-fechada) .campanha-reabrir {
 }
 
 /* Tablet vertical e celular */
-@media (max-width: 900px) {
+@media (max-width: 900px), (hover: none) and (pointer: coarse) and (orientation: portrait) {
   :root {
     --topbar: 132px;
   }
@@ -422,6 +422,11 @@ body:not(.campanha-fechada) .campanha-reabrir {
   .topbar-logos {
     min-width: 0 !important;
     gap: 14px !important;
+  }
+
+  .logo-club {
+    width: clamp(126px, 23vw, 155px) !important;
+    height: 46px !important;
   }
 
   .logo-info {
@@ -647,7 +652,7 @@ body:not(.campanha-fechada) .campanha-reabrir {
 }
 
 /* Celulares */
-@media (max-width: 600px) {
+@media (max-width: 600px), (hover: none) and (pointer: coarse) and (orientation: portrait) and (max-device-width: 600px) {
   :root {
     --topbar: 126px;
   }
@@ -1056,7 +1061,7 @@ body:has(.drawer-favoritos:not(.hidden)) .campanha-reabrir {
   pointer-events: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px), (hover: none) and (pointer: coarse) and (orientation: portrait) {
   .produto-resumo .nome-produto {
     font-size: 25px !important;
     line-height: 1.16 !important;
@@ -1233,7 +1238,7 @@ body:has(.drawer-favoritos:not(.hidden)) .campanha-reabrir {
 }
 
 /* Mobile */
-@media (max-width: 900px) {
+@media (max-width: 900px), (hover: none) and (pointer: coarse) and (orientation: portrait) {
   .produto-imagem-principal {
     width: 100% !important;
     height: 340px !important;
@@ -1318,7 +1323,7 @@ body:has(.drawer-favoritos:not(.hidden)) .campanha-reabrir {
 }
 
 /* Mobile */
-@media (max-width: 900px) {
+@media (max-width: 900px), (hover: none) and (pointer: coarse) and (orientation: portrait) {
   .produto-imagem-principal {
     height: 340px !important;
     min-height: 340px !important;

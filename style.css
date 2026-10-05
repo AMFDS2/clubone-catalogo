@@ -1091,7 +1091,10 @@ header.topbar {
     min-width: 0 !important;
     max-width: none !important;
     flex: 1 1 0 !important;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: center;
+    line-height: 1.15;
   }
 }
 
