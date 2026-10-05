@@ -83,7 +83,7 @@ header.topbar {
 }
 
 .logo-club { width: 110px !important; max-width: 165px !important; height: 50px !important; max-height: 50px !important; object-fit: contain !important; }
-.logo-info { width: 120px !important; max-width: 120px !important; height: 90px !important; max-height: 90px !important; object-fit: contain !important; }
+.logo-info { width: 90px !important; max-width: 82px !important; height: 42px !important; max-height: 42px !important; object-fit: contain !important; }
 .separador-logo { width: 1px !important; height: 38px !important; background: #ffffff4d !important; }
 
 /* Botão de Favoritos da Topbar */
@@ -425,6 +425,115 @@ header.topbar {
 
 .grade-tecnica { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
 
+/* Portáteis: conteúdo prático no lugar da blocagem e das medidas de projeto */
+.card-portatil {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.portatil-ambiente {
+  position: relative;
+  min-height: 230px;
+  margin: 0;
+  overflow: hidden;
+  background: #f3f5f8;
+}
+
+.portatil-ambiente img {
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  max-height: 340px;
+  display: block;
+  object-fit: cover;
+}
+
+.portatil-ambiente figcaption {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(18, 39, 82, .86);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.portatil-conteudo {
+  padding: 20px;
+}
+
+.card-portatil.sem-imagem .portatil-conteudo {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.portatil-kicker {
+  display: block;
+  margin-bottom: 5px;
+  color: #d71920;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.portatil-conteudo h3 {
+  margin: 0 0 16px;
+  color: var(--texto);
+  font-family: var(--fonte-titulos);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.portatil-resumo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--borda);
+  border-left: 1px solid var(--borda);
+}
+
+.portatil-resumo > div {
+  min-width: 0;
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+  border-right: 1px solid var(--borda);
+  border-bottom: 1px solid var(--borda);
+}
+
+.portatil-resumo span {
+  color: var(--suave);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.portatil-resumo strong {
+  overflow-wrap: anywhere;
+  color: var(--texto);
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.portatil-conteudo > p {
+  margin: 14px 0 0;
+  color: var(--suave);
+  font-size: 10px;
+  line-height: 1.55;
+}
+
 .linha-especificacao {
   display: grid;
   grid-template-columns: minmax(140px, 40%) minmax(0, 60%);
@@ -440,6 +549,14 @@ header.topbar {
 }
 .linha-especificacao span:first-child { font-weight: 600; color: var(--texto); }
 .linha-especificacao span:last-child { font-weight: 400; color: var(--suave); }
+
+@media (max-width: 680px) {
+  .portatil-resumo { grid-template-columns: 1fr; }
+  .portatil-ambiente,
+  .portatil-ambiente img { min-height: 190px; }
+  .portatil-conteudo { padding: 16px; }
+  .card-portatil.sem-imagem .portatil-conteudo { min-height: 0; }
+}
 
 /* Área de Dimensões */
 .card-dimensoes .dimensoes-tecnicas {
@@ -953,6 +1070,43 @@ header.topbar {
   /* Gaveta Lateral de Favoritos em tela cheia no celular */
   .drawer-favoritos {
     width: 100% !important;
+  }
+}
+
+/* ==================================================
+   AÇÕES DO PRODUTO — DESKTOP E TABLET NA MESMA LINHA
+================================================== */
+@media (min-width: 601px) {
+  .produto-resumo .acoes {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .produto-resumo .acoes > .botao-preto,
+  .produto-resumo .acoes > .botao-secundario {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    flex: 1 1 0 !important;
+    white-space: nowrap;
+  }
+}
+
+/* No tablet, reduz apenas o respiro interno para os dois textos caberem. */
+@media (min-width: 601px) and (max-width: 1100px) {
+  .produto-resumo .acoes {
+    gap: 8px !important;
+  }
+
+  .produto-resumo .acoes > .botao-preto,
+  .produto-resumo .acoes > .botao-secundario {
+    min-height: 42px !important;
+    padding: 9px 6px !important;
+    font-size: 8px !important;
+    letter-spacing: 0 !important;
   }
 }
 /* Medidas de projeto extraídas dos manuais oficiais */
@@ -2167,174 +2321,5 @@ header.topbar {
     max-height: none !important;
     margin-top: 10px !important;
     margin-bottom: 0 !important;
-  }
-}
-
-.descricao-climatizacao { margin: 0 0 28px; max-width: 1000px; line-height: 1.65; }
-.descricao-climatizacao h3 { color: #183568; margin: 0 0 12px; }
-.descricao-climatizacao p { margin: 0 0 14px; }
-
-/* =========================================================
-   ELETROPORTÁTEIS — experiência simplificada
-   ========================================================= */
-.card-dimensoes-portatil {
-  padding: 22px;
-}
-
-.dimensoes-portatil-compactas {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.medida-portatil {
-  min-height: 72px;
-  padding: 14px 15px;
-  border: 1px solid rgba(20, 43, 99, 0.1);
-  border-radius: 12px;
-  background: #fafbfc;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-}
-
-.medida-portatil span {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: #7a7f89;
-  font-weight: 700;
-}
-
-.medida-portatil strong {
-  font-size: 14px;
-  color: #17181a;
-  font-weight: 650;
-}
-
-.aplicacao-ambiente-portatil {
-  display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(280px, .75fr);
-  gap: 28px;
-  align-items: stretch;
-}
-
-.aplicacao-ambiente-imagem {
-  min-height: 390px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #f3f4f6;
-  border: 1px solid rgba(20, 43, 99, 0.08);
-}
-
-.aplicacao-ambiente-imagem img {
-  width: 100%;
-  height: 100%;
-  min-height: 390px;
-  display: block;
-  object-fit: cover;
-}
-
-.aplicacao-ambiente-conteudo,
-.painel-marca-portatil {
-  border: 1px solid rgba(20, 43, 99, 0.09);
-  border-radius: 18px;
-  padding: 28px;
-  background: #fff;
-}
-
-.aplicacao-ambiente-conteudo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.aplicacao-kicker {
-  display: block;
-  margin-bottom: 8px;
-  color: #e52633;
-  font-size: 10px;
-  line-height: 1.2;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-}
-
-.aplicacao-ambiente-conteudo h3,
-.painel-marca-portatil h3 {
-  margin: 0 0 12px;
-  font-size: clamp(22px, 2vw, 31px);
-  line-height: 1.12;
-  color: #17181a;
-  font-weight: 600;
-}
-
-.aplicacao-ambiente-conteudo > p,
-.painel-marca-portatil > p {
-  margin: 0;
-  color: #666d78;
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-.aplicacao-medidas {
-  margin-top: 22px;
-}
-
-.aplicacao-medidas .dimensoes-portatil-compactas {
-  grid-template-columns: 1fr 1fr;
-}
-
-.painel-marca-portatil {
-  max-width: 720px;
-}
-
-.marca-modelo-portatil {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid #eceef1;
-}
-
-.marca-modelo-portatil span {
-  color: #7a7f89;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  font-weight: 700;
-}
-
-.marca-modelo-portatil strong {
-  color: #17181a;
-  font-size: 14px;
-}
-
-.aviso-portatil {
-  margin-top: 16px;
-}
-
-@media (max-width: 900px) {
-  .aplicacao-ambiente-portatil {
-    grid-template-columns: 1fr;
-  }
-  .aplicacao-ambiente-imagem,
-  .aplicacao-ambiente-imagem img {
-    min-height: 300px;
-  }
-}
-
-@media (max-width: 560px) {
-  .dimensoes-portatil-compactas,
-  .aplicacao-medidas .dimensoes-portatil-compactas {
-    grid-template-columns: 1fr;
-  }
-  .aplicacao-ambiente-conteudo,
-  .painel-marca-portatil {
-    padding: 20px;
   }
 }
