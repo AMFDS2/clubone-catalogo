@@ -1296,7 +1296,7 @@ body:has(.drawer-favoritos:not(.hidden)) .campanha-reabrir {
 .produto-imagem-principal:has(img[alt*="refrigerador" i]) img,
 .produto-imagem-principal:has(img[alt*="side by side" i]) img,
 .produto-imagem-principal:has(img[alt*="french door" i]) img {
-  transform: scale(1.38) !important;
+  transform: scale(1.15) !important;
 }
 
 /* Adegas, cervejeiras e frigobares */

@@ -1385,12 +1385,25 @@ function criarBotaoInfoStore(url) {
 
 function criarDestaques(destaques = []) {
   const lista = Array.isArray(destaques) ? destaques : [];
+  const possuiCapacidadePrincipal = lista.some(item => {
+    if (!item || (!item.titulo && !item.valor)) return false;
+    return normalizarTexto(item.rotulo || "").trim() === "capacidade";
+  });
 
   return lista
     .filter(item => {
       if (!item || (!item.titulo && !item.valor)) return false;
       const valor = String(item.titulo || item.valor).trim();
-      return valor.length <= 48;
+      if (valor.length > 48) return false;
+
+      const rotulo = normalizarTexto(item.rotulo || "");
+      if (rotulo.includes("temperatura")) {
+        return valorTemperaturaValido(valor);
+      }
+
+      if (rotulo.trim() === "capacidade total" && possuiCapacidadePrincipal) return false;
+
+      return true;
     })
     .slice(0, 5)
     .map(item => {
@@ -1407,6 +1420,16 @@ function criarDestaques(destaques = []) {
           </div>
         </div>`;
     }).join("");
+}
+
+function valorTemperaturaValido(valor = "") {
+  const texto = String(valor)
+    .replace(/\u00a0/g, " ")
+    .trim();
+
+  if (!texto || texto.length > 48) return false;
+
+  return /(?:[-+]?\d+(?:[.,]\d+)?\s*(?:°|º)\s*[cf]\b)|(?:[-+]?\d+(?:[.,]\d+)?\s*(?:graus?|celsius|fahrenheit)\b)/i.test(texto);
 }
 
 function criarIconeDestaque(rotulo = "", valor = "") {
