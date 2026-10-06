@@ -7,10 +7,9 @@
 <meta property="og:title" content="Info Store | Catálogo Pro">
 <meta name="apple-mobile-web-app-title" content="Info Store">
   <title>Info Store | Portfólio Técnico</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261006-5">
   <link rel="stylesheet" href="blocagem.css">
   <link rel="stylesheet" href="documentos-oficiais.css">
-  <link rel="stylesheet" href="tema-infostore.css?v=20261006-4">
 </head>
 <body>
   <header class="topbar">
@@ -129,7 +128,8 @@
     <div id="lista-favoritos" class="drawer-content"></div>
     <div class="drawer-footer" id="drawer-footer" style="display: none;">
       <button id="btn-solicitar-orcamento" class="btn-gerar-pdf" type="button">Solicitar orçamento</button>
-      <p id="status-orcamento" class="aviso-orcamento">O PDF será gerado automaticamente antes de escolher o atendimento.</p>
+      <button id="btn-baixar-pdf" class="btn-baixar-pdf" type="button">Salvar PDF</button>
+      <p id="status-orcamento" class="aviso-orcamento">Escolha o atendimento para enviar a lista pelo WhatsApp ou salve uma cópia em PDF.</p>
     </div>
   </aside>
 
@@ -140,8 +140,7 @@
         <div>
           <span>ATENDIMENTO INFO STORE</span>
           <h3 id="titulo-modal-consultores">Escolha com quem deseja falar</h3>
-          <p>Escolha o atendimento. O link do PDF será incluído automaticamente na mensagem.</p>
-          <a id="link-pdf-orcamento" class="link-pdf-orcamento hidden" href="#" target="_blank" rel="noopener">PDF pronto · visualizar ↗</a>
+          <p>Escolha o atendimento para enviar a lista dos itens selecionados pelo WhatsApp.</p>
         </div>
         <button class="modal-consultores-fechar" type="button" data-fechar-consultores aria-label="Fechar">&times;</button>
       </div>
@@ -166,6 +165,6 @@
   </div>
 
   <script src="blocagem.js?v=20261001-2"></script>
-  <script src="script.js?v=20261006-8"></script>
+  <script src="script.js?v=20261006-10"></script>
 </body>
 </html>

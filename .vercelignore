@@ -1,0 +1,19 @@
+# Dependências e caches locais
+node_modules/
+.cache/
+.vercel/
+.git/
+
+# Arquivos de desenvolvimento / automação que não são usados pelo site publicado
+scripts/
+tests/
+dados/
+
+# PDFs/manuais usados somente para leitura técnica local
+manuais-oficiais/
+assets/documentos/
+assets/catalogos/
+
+# Backups e pacotes locais
+*.zip
+*.log

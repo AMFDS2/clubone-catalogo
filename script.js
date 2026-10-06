@@ -428,50 +428,6 @@ function ehProdutoPortatil(produto = {}) {
   return segmento === "portateis" || categoria.includes("eletroportateis") || categoria === "portateis";
 }
 
-function obterDadosAmbientePortatil(produto = {}) {
-  if (!ehProdutoPortatil(produto)) return null;
-
-  const origem = produto.aplicacaoAmbiente || produto.ambiente || produto.lifestyle || {};
-  const imagemDeclarada = typeof origem === "string"
-    ? origem
-    : (origem.imagem || origem.image || produto.imagemAmbiente || produto.imagemLifestyle || "");
-
-  const imagemGaleria = (Array.isArray(produto.imagens) ? produto.imagens : []).find(imagem =>
-    /(?:^|[\\/_-])(ambiente|ambientada|lifestyle|uso|cozinha|bancada|home|scene)(?:[\\/_.-]|$)/i.test(String(imagem || ""))
-  );
-
-  const imagem = imagemDeclarada || imagemGaleria || "";
-  if (!imagem) return null;
-
-  const texto = normalizarTexto([produto.nome, produto.categoria, produto.modelo].filter(Boolean).join(" "));
-  let titulo = "Pensado para o uso no dia a dia";
-  let descricao = "Veja como o produto pode se integrar ao ambiente sem perder praticidade e presença visual.";
-
-  if (/cafeteira|espresso|cafe/.test(texto)) {
-    titulo = "Ideal para o cantinho do café";
-    descricao = "Uma referência visual para bancadas de café, cozinhas e áreas gourmet.";
-  } else if (/torradeira|sanduicheira|grill/.test(texto)) {
-    titulo = "Perfeito para bancadas de café da manhã";
-    descricao = "Ajuda a visualizar proporção, acabamento e presença do produto sobre a bancada.";
-  } else if (/air ?fryer|fritadeira/.test(texto)) {
-    titulo = "Integração com a bancada de preparo";
-    descricao = "Referência de uso para cozinhas e áreas gourmet, preservando espaço funcional ao redor do produto.";
-  } else if (/liquidificador|mixer|processador|multiprocessador/.test(texto)) {
-    titulo = "Para a área de preparo";
-    descricao = "Uma leitura visual de como o produto se comporta em bancadas de cozinha e apoio.";
-  } else if (/aspirador/.test(texto)) {
-    titulo = "Uso integrado aos ambientes da casa";
-    descricao = "Referência visual do produto em contexto de uso residencial.";
-  }
-
-  if (origem && typeof origem === "object") {
-    titulo = origem.titulo || origem.title || titulo;
-    descricao = origem.descricao || origem.description || descricao;
-  }
-
-  return { imagem, titulo, descricao };
-}
-
 function criarDimensoesCompactasPortatil(produto = {}) {
   const dimensoes = obterDimensoesParaBlocagem(produto);
   const medidas = dimensoes.produto || dimensoes.semBase || dimensoes.semEmbalagem || dimensoes.comBase || dimensoes || {};
@@ -495,22 +451,6 @@ function criarDimensoesCompactasPortatil(produto = {}) {
 
   return `<div class="dimensoes-portatil-compactas">
     ${itens.map(([rotulo, v]) => `<div class="medida-portatil"><span>${escaparHTML(rotulo)}</span><strong>${escaparHTML(v)}</strong></div>`).join("")}
-  </div>`;
-}
-
-function criarAplicacaoAmbientePortatil(produto = {}) {
-  const ambiente = obterDadosAmbientePortatil(produto);
-  if (!ambiente) return "";
-  return `<div class="aplicacao-ambiente-portatil">
-    <div class="aplicacao-ambiente-imagem">
-      <img src="${escaparHTML(ambiente.imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)} em ambiente" loading="lazy">
-    </div>
-    <div class="aplicacao-ambiente-conteudo">
-      <span class="aplicacao-kicker">Aplicação no ambiente</span>
-      <h3>${escaparHTML(ambiente.titulo)}</h3>
-      <p>${escaparHTML(ambiente.descricao)}</p>
-      <div class="aplicacao-medidas">${criarDimensoesCompactasPortatil(produto)}</div>
-    </div>
   </div>`;
 }
 
@@ -1621,7 +1561,7 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
         <rect x="98" y="91" width="324" height="188" rx="3"></rect>
         <rect x="109" y="102" width="302" height="166" rx="1"></rect>
       </g>
-      ${cotas(98, 422, 91, 279, largura, altura, "tv-frontal", "largura sem suporte", "altura sem suporte", 62)}
+      ${cotas(98, 422, 91, 279, largura, altura, "tv-frontal", "largura sem suporte", "altura sem suporte", 72, 309)}
     </svg>`;
     if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do televisor sem suporte">
       ${definicoes("tv-lateral")}
@@ -1629,7 +1569,7 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
         <rect x="247" y="78" width="27" height="218" rx="3"></rect>
         <rect x="252" y="94" width="17" height="174" rx="2"></rect>
       </g>
-      ${cotas(247, 274, 78, 296, profundidade, altura, "tv-lateral", "espessura sem suporte", "altura sem suporte")}
+      ${cotas(247, 274, 78, 296, profundidade, altura, "tv-lateral", "espessura sem suporte", "altura sem suporte", 214, 326)}
     </svg>`;
     if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do televisor sem suporte">
       ${definicoes("tv-superior")}
@@ -1637,7 +1577,7 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
         <rect x="98" y="171" width="324" height="28" rx="3"></rect>
         <rect x="110" y="178" width="300" height="14" rx="2"></rect>
       </g>
-      ${cotas(98, 422, 171, 199, largura, profundidade, "tv-superior", "largura sem suporte", "espessura sem suporte", 62)}
+      ${cotas(98, 422, 171, 199, largura, profundidade, "tv-superior", "largura sem suporte", "espessura sem suporte", 72, 232)}
     </svg>`;
     return indisponivel(posicao);
   }
@@ -1756,26 +1696,33 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
     </svg>`;
     if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do refrigerador">
       ${definicoes("refrigerador-lateral")}
-      <g class="produto-frontal">
-        <rect x="157" y="58" width="201" height="251" rx="6"></rect>
-        <rect x="143" y="66" width="14" height="235" rx="3"></rect>
-        <line x1="135" y1="91" x2="143" y2="91"></line><line x1="135" y1="91" x2="135" y2="174"></line>
-        <path d="M358 80h12v197h-12"></path>
-        <line x1="174" y1="128" x2="346" y2="128"></line>
-        <line x1="174" y1="291" x2="342" y2="291"></line>
+      <g class="produto-frontal refrigerador-lateral-detalhado">
+        <!-- Gabinete recuado + porta projetada: leitura mais próxima de um refrigerador real -->
+        <path d="M176 58H344Q356 58 358 70V297Q356 309 344 309H176Z"></path>
+        <rect x="155" y="66" width="21" height="235" rx="4"></rect>
+        <path d="M155 78h-9v88h9M358 82h11v194h-11"></path>
+        <line x1="176" y1="128" x2="344" y2="128"></line>
+        <path d="M187 292H337"></path>
+        <path d="M191 309v8M333 309v8"></path>
+        <path d="M176 58l-11 8M176 309l-11-8"></path>
+        <text class="nota-nicho" x="259" y="336">porta / gabinete</text>
       </g>
-      ${cotas(135, 370, 58, 309, profundidade, altura, "refrigerador-lateral", "profundidade total", "altura total")}
+      ${cotas(146, 369, 58, 317, profundidade, altura, "refrigerador-lateral", "profundidade total", "altura total", 112, 344)}
     </svg>`;
     if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica fechada do refrigerador">
       ${definicoes("refrigerador-superior")}
-      <g class="produto-frontal">
-        <rect x="156" y="68" width="208" height="234" rx="5"></rect>
-        <rect x="147" y="288" width="226" height="14" rx="3"></rect>
-        <line x1="260" y1="288" x2="260" y2="302"></line>
-        <line x1="172" y1="89" x2="348" y2="89"></line>
-        <path d="M364 91h10v175h-10"></path>
+      <g class="produto-frontal refrigerador-superior-detalhado">
+        <!-- Corpo, portas e puxadores vistos de cima -->
+        <rect x="156" y="82" width="208" height="190" rx="5"></rect>
+        <path d="M156 82H364V102H156Z"></path>
+        <path d="M148 272H372Q368 293 350 297H170Q152 293 148 272Z"></path>
+        <line x1="260" y1="272" x2="260" y2="296"></line>
+        <path d="M178 111H342"></path>
+        <path d="M364 108h9v137h-9"></path>
+        <path d="M156 108h-7v137h7"></path>
+        <path d="M247 280v10M273 280v10"></path>
       </g>
-      ${cotas(147, 373, 68, 302, largura, profundidade, "refrigerador-superior", "largura externa", "profundidade total")}
+      ${cotas(148, 372, 82, 297, largura, profundidade, "refrigerador-superior", "largura externa", "profundidade total", 112, 328)}
       ${notaTecnica("Vista fechada — abertura exibida somente quando confirmada no manual")}
     </svg>`;
     return indisponivel(posicao);
@@ -2144,7 +2091,6 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       : "";
     
   const documentos = criarDocumentos(produto.documentos);
-  const aplicacaoAmbiente = ehPortatil ? criarAplicacaoAmbientePortatil(produto) : "";
   const painelMarcaPortatil = ehPortatil ? criarPainelMarcaPortatil(produto) : "";
   const botaoInfoStore = criarBotaoInfoStore(produto.siteInfoStore);
   
@@ -2222,8 +2168,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
     <div class="area-tecnica">
       <nav class="tabs" aria-label="Informações do produto">
         <button type="button" class="tab ativo" data-tab="especificacoes">Especificações</button>
-        ${ehPortatil && aplicacaoAmbiente ? `<button type="button" class="tab" data-tab="ambiente">Aplicação no ambiente</button>` : ""}
-        ${exibirMedidasProjeto ? `<button type="button" class="tab" data-tab="dimensoes">Medidas para projeto ${ehClima ? "" : '<span class="tab-selo-ia">IA</span>'}</button>` : ""}
+                ${exibirMedidasProjeto ? `<button type="button" class="tab" data-tab="dimensoes">Medidas para projeto ${ehClima ? "" : '<span class="tab-selo-ia">IA</span>'}</button>` : ""}
         ${ehPortatil ? `<button type="button" class="tab" data-tab="marca">Marca</button>` : `<button type="button" class="tab" data-tab="documentos">Downloads</button>`}
       </nav>
 
@@ -2241,7 +2186,6 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
         </div>
       </section>
 
-      ${ehPortatil && aplicacaoAmbiente ? `<section class="painel-tab" id="painel-ambiente">${aplicacaoAmbiente}</section>` : ""}
 
       ${exibirMedidasProjeto ? `<section class="painel-tab" id="painel-dimensoes">${medidasProjeto}</section>` : ""}
 
@@ -2606,20 +2550,30 @@ function urlDocumentoPermitida(url = "") {
   }
 }
 
+function urlDocumentoExibicao(documento = {}) {
+  // O catálogo pode manter uma cópia local para leitura técnica/offline,
+  // mas o usuário deve abrir a fonte oficial online sempre que disponível.
+  const oficial = String(documento.urlOriginal || "").trim();
+  if (urlDocumentoPermitida(oficial)) return oficial;
+  return String(documento.url || "").trim();
+}
+
 function criarDocumentos(documentos = []) {
   const lista = Array.isArray(documentos) ? documentos : [];
-  const validos = lista.filter(documento =>
-    documento &&
-    documento.nome &&
-    urlDocumentoPermitida(documento.url)
-  );
+  const validos = lista
+    .map(documento => ({ ...documento, urlExibicao: urlDocumentoExibicao(documento) }))
+    .filter(documento =>
+      documento &&
+      documento.nome &&
+      urlDocumentoPermitida(documento.urlExibicao)
+    );
 
   if (!validos.length) {
     return `<p class="texto-tecnico">Nenhum documento disponível no momento.</p>`;
   }
 
   return validos.map(documento => `
-    <a href="${escaparHTML(documento.url)}" target="_blank" rel="noopener noreferrer" class="documento-link">
+    <a href="${escaparHTML(documento.urlExibicao)}" target="_blank" rel="noopener noreferrer" class="documento-link">
       <span class="documento-informacoes">
         <strong>${escaparHTML(documento.nome)}</strong>
         <small>${escaparHTML(documento.descricao || "Documento oficial do fabricante")}</small>
@@ -2843,6 +2797,9 @@ function concatenarBytes(partes = []) {
 function montarPDFComJPEGs(paginas = [], larguraImagem = 1240, alturaImagem = 1754) {
   if (!paginas.length) throw new Error("Nenhuma página foi criada para o PDF.");
 
+  const paisagem = larguraImagem > alturaImagem;
+  const paginaLargura = paisagem ? 841.89 : 595.28;
+  const paginaAltura = paisagem ? 595.28 : 841.89;
   const totalObjetos = 2 + paginas.length * 3;
   const objetos = new Array(totalObjetos + 1);
   const idsPaginas = [];
@@ -2863,12 +2820,12 @@ function montarPDFComJPEGs(paginas = [], larguraImagem = 1240, alturaImagem = 17
     const imageFooter = asciiBytes("\nendstream");
     objetos[imageId] = concatenarBytes([imageHeader, jpeg, imageFooter]);
 
-    const comando = `q\n595.28 0 0 841.89 0 0 cm\n/${nomeImagem} Do\nQ\n`;
+    const comando = `q\n${paginaLargura} 0 0 ${paginaAltura} 0 0 cm\n/${nomeImagem} Do\nQ\n`;
     const comandoBytes = asciiBytes(comando);
     objetos[contentId] = asciiBytes(`<< /Length ${comandoBytes.length} >>\nstream\n${comando}endstream`);
 
     objetos[pageId] = asciiBytes(
-      `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] ` +
+      `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${paginaLargura} ${paginaAltura}] ` +
       `/Resources << /XObject << /${nomeImagem} ${imageId} 0 R >> >> ` +
       `/Contents ${contentId} 0 R >>`
     );
@@ -2902,20 +2859,90 @@ function montarPDFComJPEGs(paginas = [], larguraImagem = 1240, alturaImagem = 17
   return new Blob(partes, { type: "application/pdf" });
 }
 
+function carregarImagemCanvas(src = "") {
+  return new Promise(resolve => {
+    if (!src) return resolve(null);
+    const imagem = new Image();
+    imagem.decoding = "async";
+    if (/^https?:\/\//i.test(src)) imagem.crossOrigin = "anonymous";
+    imagem.onload = () => resolve(imagem);
+    imagem.onerror = () => resolve(null);
+    imagem.src = src;
+  });
+}
+
+async function primeiraImagemDisponivel(candidatos = []) {
+  for (const src of candidatos.filter(Boolean)) {
+    const imagem = await carregarImagemCanvas(src);
+    if (imagem) return imagem;
+  }
+  return null;
+}
+
+function desenharImagemContida(ctx, imagem, x, y, largura, altura, margem = 0) {
+  if (!imagem?.naturalWidth || !imagem?.naturalHeight) return false;
+  const maxL = Math.max(1, largura - margem * 2);
+  const maxA = Math.max(1, altura - margem * 2);
+  const escala = Math.min(maxL / imagem.naturalWidth, maxA / imagem.naturalHeight);
+  const w = imagem.naturalWidth * escala;
+  const h = imagem.naturalHeight * escala;
+  ctx.drawImage(imagem, x + (largura - w) / 2, y + (altura - h) / 2, w, h);
+  return true;
+}
+
+function quebrarTextoCanvas(ctx, texto = "", larguraMax = 400, maxLinhas = 2) {
+  const palavras = String(texto || "").trim().split(/\s+/).filter(Boolean);
+  if (!palavras.length) return [""];
+  const linhas = [];
+  let atual = "";
+  for (const palavra of palavras) {
+    const teste = atual ? `${atual} ${palavra}` : palavra;
+    if (ctx.measureText(teste).width <= larguraMax) {
+      atual = teste;
+      continue;
+    }
+    if (atual) linhas.push(atual);
+    atual = palavra;
+    if (linhas.length >= maxLinhas - 1) break;
+  }
+  if (atual && linhas.length < maxLinhas) linhas.push(atual);
+  const consumido = linhas.join(" ");
+  if (consumido.length < String(texto || "").trim().length) {
+    linhas[linhas.length - 1] = truncarTextoCanvas(ctx, `${linhas[linhas.length - 1]}…`, larguraMax);
+  }
+  return linhas.slice(0, maxLinhas);
+}
+
 async function criarPDFOrcamento(favs = []) {
   if (!favs.length) throw new Error("Nenhum item selecionado para o orçamento.");
 
-  const LARGURA = 1240;
-  const ALTURA = 1754;
-  const MARGEM = 84;
-  const LINHA = 78;
-  const INICIO_TABELA = 340;
-  const RODAPE = 145;
-  const linhasPorPagina = Math.max(1, Math.floor((ALTURA - INICIO_TABELA - RODAPE) / LINHA));
+  // A4 paisagem em alta resolução. Mantém o visual da referência enviada.
+  const LARGURA = 1754;
+  const ALTURA = 1240;
+  const MARGEM = 72;
+  const TOPO = 158;
+  const Y_TITULO = 262;
+  const Y_TABELA = 402;
+  const ALTURA_CABECALHO = 68;
+  const ALTURA_LINHA = 154;
+  const RODAPE = 94;
+  const linhasPorPagina = Math.max(1, Math.floor((ALTURA - Y_TABELA - ALTURA_CABECALHO - RODAPE) / ALTURA_LINHA));
   const totalPaginas = Math.ceil(favs.length / linhasPorPagina);
   const paginasJPEG = [];
   const totalPecas = favs.reduce((soma, item) => soma + Math.max(1, Number(item.quantidade) || 1), 0);
-  const dataAtual = new Date().toLocaleDateString("pt-BR");
+  const dataAtual = new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+
+  const logoInfo = await primeiraImagemDisponivel([
+    "assets/logoin.png",
+    "assets/logo-info-store.png",
+    "assets/logo-info.png"
+  ]);
+  const logoClub = await primeiraImagemDisponivel([
+    "assets/logo-club-one.png",
+    "assets/logo-clubone.png",
+    "assets/clubone.png",
+    "assets/club-one.png"
+  ]);
 
   for (let pagina = 0; pagina < totalPaginas; pagina++) {
     const canvas = document.createElement("canvas");
@@ -2927,82 +2954,115 @@ async function criarPDFOrcamento(favs = []) {
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, LARGURA, ALTURA);
 
+    // Cabeçalho institucional
     ctx.fillStyle = "#132f69";
-    ctx.fillRect(0, 0, LARGURA, 190);
-    ctx.fillStyle = "#e12633";
-    ctx.fillRect(0, 186, LARGURA, 4);
+    ctx.fillRect(0, 0, LARGURA, TOPO);
+    ctx.fillStyle = "#e52633";
+    ctx.fillRect(0, TOPO - 5, LARGURA, 5);
 
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "700 38px Arial, sans-serif";
-    ctx.fillText("INFO STORE", MARGEM, 78);
-    ctx.font = "400 20px Arial, sans-serif";
-    ctx.fillText("CATÁLOGO PARA PROJETOS", MARGEM, 118);
+    if (!desenharImagemContida(ctx, logoInfo, MARGEM, 28, 150, 88, 4)) {
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "700 31px Arial, sans-serif";
+      ctx.fillText("info store", MARGEM, 82);
+    }
+    ctx.fillStyle = "rgba(255,255,255,.35)";
+    ctx.fillRect(MARGEM + 174, 38, 2, 72);
+    if (!desenharImagemContida(ctx, logoClub, MARGEM + 204, 26, 178, 92, 4)) {
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "400 28px Arial, sans-serif";
+      ctx.fillText("CLUB ONE", MARGEM + 208, 82);
+    }
+
     ctx.textAlign = "right";
-    ctx.fillText(`Emitido em ${dataAtual}`, LARGURA - MARGEM, 100);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "700 18px Arial, sans-serif";
+    ctx.fillText("SOLICITAÇÃO DE ESPECIFICAÇÃO", LARGURA - MARGEM, 52);
+    ctx.fillStyle = "#dbe5fb";
+    ctx.font = "400 17px Arial, sans-serif";
+    ctx.fillText(`Emitido em: ${dataAtual}`, LARGURA - MARGEM, 96);
     ctx.textAlign = "left";
 
-    ctx.fillStyle = "#132f69";
-    ctx.font = "700 34px Arial, sans-serif";
-    ctx.fillText("Lista de interesse", MARGEM, 255);
-    ctx.fillStyle = "#667085";
+    ctx.fillStyle = "#161616";
+    ctx.font = "700 36px Arial, sans-serif";
+    ctx.fillText("LISTA DE INTERESSE", MARGEM, Y_TITULO);
+    ctx.fillStyle = "#646464";
     ctx.font = "400 18px Arial, sans-serif";
-    ctx.fillText("Itens selecionados para levantamento comercial e orçamentário.", MARGEM, 292);
+    ctx.fillText("Relação de itens selecionados para levantamento comercial e orçamentário.", MARGEM, Y_TITULO + 50);
 
-    const colProduto = MARGEM;
-    const colMarca = 610;
-    const colModelo = 790;
-    const colCodigo = 955;
-    const colQtd = 1135;
+    // Colunas inspiradas na referência anexada
+    const xItem = MARGEM + 44;
+    const xDescricao = MARGEM + 190;
+    const xFabricante = 990;
+    const xModelo = 1205;
+    const xCodigo = 1430;
+    const xQtd = 1642;
 
-    ctx.fillStyle = "#eef3fd";
-    ctx.fillRect(MARGEM, INICIO_TABELA - 50, LARGURA - MARGEM * 2, 50);
+    ctx.fillStyle = "#edf3ff";
+    ctx.fillRect(MARGEM, Y_TABELA, LARGURA - MARGEM * 2, ALTURA_CABECALHO);
+    ctx.strokeStyle = "#cad8f4";
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(MARGEM, Y_TABELA); ctx.lineTo(LARGURA - MARGEM, Y_TABELA); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(MARGEM, Y_TABELA + ALTURA_CABECALHO); ctx.lineTo(LARGURA - MARGEM, Y_TABELA + ALTURA_CABECALHO); ctx.stroke();
     ctx.fillStyle = "#142b63";
-    ctx.font = "700 16px Arial, sans-serif";
-    ctx.fillText("PRODUTO", colProduto, INICIO_TABELA - 18);
-    ctx.fillText("FABRICANTE", colMarca, INICIO_TABELA - 18);
-    ctx.fillText("MODELO", colModelo, INICIO_TABELA - 18);
-    ctx.fillText("CÓDIGO", colCodigo, INICIO_TABELA - 18);
-    ctx.fillText("QTD", colQtd, INICIO_TABELA - 18);
+    ctx.font = "700 15px Arial, sans-serif";
+    ctx.fillText("ITEM", xItem, Y_TABELA + 42);
+    ctx.fillText("DESCRIÇÃO DO PRODUTO", xDescricao, Y_TABELA + 42);
+    ctx.fillText("FABRICANTE", xFabricante, Y_TABELA + 42);
+    ctx.fillText("MODELO", xModelo, Y_TABELA + 42);
+    ctx.fillText("CÓDIGO", xCodigo, Y_TABELA + 42);
+    ctx.fillText("QTD", xQtd, Y_TABELA + 42);
 
     const inicio = pagina * linhasPorPagina;
     const itensPagina = favs.slice(inicio, inicio + linhasPorPagina);
+    for (let i = 0; i < itensPagina.length; i++) {
+      const item = itensPagina[i];
+      const y = Y_TABELA + ALTURA_CABECALHO + i * ALTURA_LINHA;
+      const imagemProduto = await carregarImagemCanvas(item.imagem || "");
 
-    itensPagina.forEach((item, i) => {
-      const y = INICIO_TABELA + i * LINHA;
-      ctx.strokeStyle = "#e1e5ee";
+      ctx.strokeStyle = "#ded8cf";
       ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.moveTo(MARGEM, y + LINHA - 8);
-      ctx.lineTo(LARGURA - MARGEM, y + LINHA - 8);
+      ctx.moveTo(MARGEM, y + ALTURA_LINHA);
+      ctx.lineTo(LARGURA - MARGEM, y + ALTURA_LINHA);
       ctx.stroke();
 
-      ctx.fillStyle = "#202020";
-      ctx.font = "600 16px Arial, sans-serif";
-      ctx.fillText(truncarTextoCanvas(ctx, item.nome || "Produto", 490), colProduto, y + 30);
-      ctx.font = "400 15px Arial, sans-serif";
-      ctx.fillStyle = "#505765";
-      ctx.fillText(truncarTextoCanvas(ctx, item.fabricante || item.marca || "-", 155), colMarca, y + 30);
-      ctx.fillText(truncarTextoCanvas(ctx, item.modelo || "-", 140), colModelo, y + 30);
-      ctx.fillText(truncarTextoCanvas(ctx, item.codigo || item.codigoInfo || "-", 145), colCodigo, y + 30);
-      ctx.fillStyle = "#132f69";
-      ctx.font = "700 16px Arial, sans-serif";
-      ctx.fillText(String(Math.max(1, Number(item.quantidade) || 1)), colQtd, y + 30);
-    });
+      if (!desenharImagemContida(ctx, imagemProduto, MARGEM + 22, y + 20, 108, 108, 7)) {
+        ctx.fillStyle = "#f4f5f7";
+        ctx.fillRect(MARGEM + 32, y + 28, 88, 88);
+      }
 
-    ctx.fillStyle = "#132f69";
-    ctx.font = "700 19px Arial, sans-serif";
-    ctx.textAlign = "right";
-    ctx.fillText(
-      `Total: ${favs.length} ${favs.length === 1 ? "item" : "itens"} · ${totalPecas} ${totalPecas === 1 ? "peça" : "peças"}`,
-      LARGURA - MARGEM,
-      ALTURA - 86
-    );
-    ctx.fillStyle = "#888f9e";
+      ctx.fillStyle = "#111111";
+      ctx.font = "600 19px Arial, sans-serif";
+      const linhasNome = quebrarTextoCanvas(ctx, item.nome || "Produto", 730, 2);
+      linhasNome.forEach((linha, indice) => ctx.fillText(linha, xDescricao, y + 63 + indice * 29));
+
+      ctx.fillStyle = "#e52633";
+      ctx.font = "700 16px Arial, sans-serif";
+      ctx.fillText(truncarTextoCanvas(ctx, String(item.fabricante || item.marca || "-").toUpperCase(), 178), xFabricante, y + 72);
+
+      ctx.fillStyle = "#424242";
+      ctx.font = "400 17px Arial, sans-serif";
+      ctx.fillText(truncarTextoCanvas(ctx, item.modelo || "-", 190), xModelo, y + 72);
+      ctx.fillText(truncarTextoCanvas(ctx, item.codigo || item.codigoInfo || "-", 170), xCodigo, y + 72);
+      ctx.fillStyle = "#111111";
+      ctx.font = "700 18px Arial, sans-serif";
+      ctx.fillText(String(Math.max(1, Number(item.quantidade) || 1)), xQtd + 15, y + 72);
+    }
+
+    const yRodape = ALTURA - 68;
+    ctx.strokeStyle = "#d8d3cb";
+    ctx.beginPath(); ctx.moveTo(MARGEM, yRodape - 36); ctx.lineTo(LARGURA - MARGEM, yRodape - 36); ctx.stroke();
+    ctx.fillStyle = "#77736d";
     ctx.font = "400 14px Arial, sans-serif";
-    ctx.fillText(`Catálogo Info Store · página ${pagina + 1} de ${totalPaginas}`, LARGURA - MARGEM, ALTURA - 48);
+    ctx.fillText("CLUB ONE ARQUITETURA & DESIGN • INFO STORE", MARGEM, yRodape);
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#161616";
+    ctx.font = "700 15px Arial, sans-serif";
+    const sufixoPagina = totalPaginas > 1 ? ` • PÁGINA ${pagina + 1}/${totalPaginas}` : "";
+    ctx.fillText(`TOTAL: ${favs.length} ${favs.length === 1 ? "ITEM" : "ITENS"} (${totalPecas} ${totalPecas === 1 ? "PEÇA" : "PEÇAS"})${sufixoPagina}`, LARGURA - MARGEM, yRodape);
     ctx.textAlign = "left";
 
-    paginasJPEG.push(await canvasParaJPEG(canvas));
+    paginasJPEG.push(await canvasParaJPEG(canvas, 0.9));
   }
 
   return montarPDFComJPEGs(paginasJPEG, LARGURA, ALTURA);
@@ -3031,33 +3091,6 @@ async function baixarMemorialPDF() {
   }
 }
 
-function blobParaBase64(blob) {
-  return new Promise((resolve, reject) => {
-    const leitor = new FileReader();
-    leitor.onload = () => resolve(String(leitor.result || "").split(",")[1] || "");
-    leitor.onerror = () => reject(leitor.error || new Error("Falha ao ler PDF."));
-    leitor.readAsDataURL(blob);
-  });
-}
-
-async function publicarPDFOrcamento(blob) {
-  const pdfBase64 = await blobParaBase64(blob);
-  const resposta = await fetch("/api/orcamento", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ pdfBase64 })
-  });
-
-  let dados = {};
-  try { dados = await resposta.json(); } catch {}
-
-  if (!resposta.ok || !dados.url) {
-    throw new Error(dados.erro || `Falha ao publicar PDF (HTTP ${resposta.status}).`);
-  }
-
-  return dados;
-}
-
 let ORCAMENTO_PENDENTE = null;
 
 const CONTATOS_ORCAMENTO = {
@@ -3066,77 +3099,55 @@ const CONTATOS_ORCAMENTO = {
   ana: { nome: "Ana", telefone: "5592992411779" }
 };
 
-function montarMensagemOrcamento(favs = [], contato = {}, urlPDF = "") {
+function montarMensagemOrcamento(favs = [], contato = {}) {
   const totalPecas = favs.reduce(
     (soma, item) => soma + Math.max(1, Number(item.quantidade) || 1),
     0
   );
 
+  const linhasItens = favs.map((item, indice) => {
+    const nome = String(item.nome || "Produto").trim();
+    const marca = String(item.fabricante || item.marca || "").trim();
+    const modelo = String(item.modelo || "-").trim();
+    const codigo = String(item.codigo || item.codigoInfo || "-").trim();
+    const quantidade = Math.max(1, Number(item.quantidade) || 1);
+
+    return [
+      `${indice + 1}. ${nome}`,
+      marca ? `   Marca: ${marca}` : "",
+      `   Modelo: ${modelo}`,
+      `   Código Info Store: ${codigo}`,
+      `   Quantidade: ${quantidade}`
+    ].filter(Boolean).join("\n");
+  });
+
   return [
     `Olá, ${contato.nome || "equipe Info Store"}! Gostaria de solicitar um orçamento para os itens selecionados no Catálogo Info Store.`,
     "",
-    urlPDF ? `Lista completa em PDF: ${urlPDF}` : "Lista completa em PDF disponível no catálogo.",
+    ...linhasItens.flatMap((linha, indice) => indice < linhasItens.length - 1 ? [linha, ""] : [linha]),
     "",
-    `Resumo: ${favs.length} ${favs.length === 1 ? "item" : "itens"} (${totalPecas} ${totalPecas === 1 ? "peça" : "peças"}).`,
+    `Total: ${favs.length} ${favs.length === 1 ? "item" : "itens"} (${totalPecas} ${totalPecas === 1 ? "peça" : "peças"}).`,
     "",
     "Poderia verificar valores e disponibilidade?"
   ].join("\n");
 }
 
-async function abrirSelecaoConsultor() {
+function abrirSelecaoConsultor() {
   const favs = obterFavoritosAtualizados();
   if (!favs.length) {
     alert("Selecione ao menos um produto antes de solicitar o orçamento.");
     return;
   }
 
-  const botao = document.getElementById("btn-solicitar-orcamento");
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
+  ORCAMENTO_PENDENTE = { favs };
+
   const status = document.getElementById("status-orcamento");
-  const textoOriginal = botao?.textContent || "Solicitar orçamento";
+  if (status) status.textContent = "Agora escolha com quem deseja falar.";
 
-  if (botao) {
-    botao.disabled = true;
-    botao.classList.add("carregando");
-    botao.textContent = "Gerando PDF...";
-  }
-  if (status) status.textContent = "Gerando e preparando o link do documento...";
-
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
-
-    const blob = await criarPDFOrcamento(favs);
-    const publicado = await publicarPDFOrcamento(blob);
-
-    ORCAMENTO_PENDENTE = {
-      favs,
-      blob,
-      url: publicado.url,
-      pathname: publicado.pathname || ""
-    };
-
-    const linkPDF = document.getElementById("link-pdf-orcamento");
-    if (linkPDF) {
-      linkPDF.href = publicado.url;
-      linkPDF.classList.remove("hidden");
-    }
-
-    if (status) status.textContent = "PDF pronto. Agora escolha com quem deseja falar.";
-
-    const modal = document.getElementById("modal-consultores");
-    modal?.classList.remove("hidden");
-    modal?.querySelector(".opcao-consultor")?.focus();
-  } catch (erro) {
-    console.error("Falha ao preparar orçamento:", erro);
-    ORCAMENTO_PENDENTE = null;
-    if (status) status.textContent = "Não foi possível criar o link do PDF. Tente novamente.";
-    alert(`Não foi possível preparar o PDF para envio.\n\n${erro.message || erro}`);
-  } finally {
-    if (botao) {
-      botao.disabled = false;
-      botao.classList.remove("carregando");
-      botao.textContent = textoOriginal;
-    }
-  }
+  const modal = document.getElementById("modal-consultores");
+  modal?.classList.remove("hidden");
+  modal?.querySelector(".opcao-consultor")?.focus();
 }
 
 function fecharSelecaoConsultor() {
@@ -3146,17 +3157,12 @@ function fecharSelecaoConsultor() {
 function solicitarOrcamentoWhatsApp(chaveContato) {
   const contato = CONTATOS_ORCAMENTO[chaveContato];
   const favs = ORCAMENTO_PENDENTE?.favs || obterFavoritosAtualizados();
-  const urlPDF = ORCAMENTO_PENDENTE?.url || "";
 
   if (!contato || !favs.length) return;
-  if (!urlPDF) {
-    alert("O PDF ainda não está pronto. Clique novamente em Solicitar orçamento.");
-    return;
-  }
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
 
-  const mensagem = montarMensagemOrcamento(favs, contato, urlPDF);
+  const mensagem = montarMensagemOrcamento(favs, contato);
   const url = `https://wa.me/${contato.telefone}?text=${encodeURIComponent(mensagem)}`;
 
   fecharSelecaoConsultor();
@@ -3177,6 +3183,7 @@ function configurarEventosFavoritos() {
   });
 
   document.getElementById("btn-solicitar-orcamento")?.addEventListener("click", abrirSelecaoConsultor);
+  document.getElementById("btn-baixar-pdf")?.addEventListener("click", baixarMemorialPDF);
 
   document.querySelectorAll("[data-fechar-consultores]").forEach(botao => {
     botao.addEventListener("click", fecharSelecaoConsultor);

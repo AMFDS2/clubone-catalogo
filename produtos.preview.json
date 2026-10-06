@@ -2313,7 +2313,7 @@
       "assets/produtos/un55u8600fgxzd/galeria-04.png",
       "assets/produtos/un55u8600fgxzd/galeria-05.png"
     ],
-    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-55--crystal-uhd-4k-u8600f-2025--bluetooth--wi-fi--gaming-hub--alexa-built-in/p",
+    "siteInfoStore": "",
     "destaques": [
       {
         "titulo": "20W",
@@ -10244,7 +10244,7 @@
       "assets/produtos/qn85q7faagxzd/galeria-04.png",
       "assets/produtos/qn85q7faagxzd/galeria-05.png"
     ],
-    "siteInfoStore": "https://www.infostore.com.br/smart-tv-samsung-85--super-big-vision-ai-qled-ultra-4k-q7f-2025-hdr-qn85q7faagxzd/p",
+    "siteInfoStore": "",
     "destaques": [
       {
         "titulo": "20W",
@@ -18491,7 +18491,7 @@
     "codigoInfo": "FOG0064",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
-    "tipoBloco": "fogao",
+    "tipoBloco": "tv",
     "imagem": "assets/produtos/nsg6dg8700sraz/principal.jpg",
     "imagens": [
       "assets/produtos/nsg6dg8700sraz/principal.jpg",
@@ -22426,7 +22426,7 @@
     "codigoInfo": "GEL0092",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
-    "tipoBloco": "geladeira",
+    "tipoBloco": "soundbar",
     "imagem": "assets/produtos/rs58t5561b1az/principal.jpg",
     "imagens": [
       "assets/produtos/rs58t5561b1az/principal.jpg",
@@ -22495,15 +22495,7 @@
       }
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
-    "documentos": [
-      {
-        "tipo": "manual",
-        "nome": "Manual do usuário",
-        "descricao": "Manual oficial do fabricante",
-        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RS58T5561B1&CttFileID=11374581&CDCttType=UM&VPath=UM%2F202604%2F20260415030109106%2FOID48893-04_SBS_RS5300T_BPT_260312.pdf",
-        "fonte": "Samsung"
-      }
-    ],
+    "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false,
     "medidasProjeto": {
@@ -22537,13 +22529,38 @@
         }
       },
       "dimensoesNicho": {
-        "largura": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
-        "altura": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
-        "profundidade": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" }
+        "largura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
+        "altura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
+        "profundidade": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        }
       },
       "folgas": {
-        "superior": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
-        "lateral": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "superior": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
+        "lateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
         "traseira": {
           "valor": "superior a 50 mm",
           "pagina": "18",
@@ -22551,7 +22568,12 @@
           "status": "CONFIRMADO",
           "fonte": "MANUAL_OFICIAL"
         },
-        "frontal": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" }
+        "frontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        }
       },
       "abertura": {
         "anguloPorta": {
@@ -22568,7 +22590,12 @@
           "status": "CONFIRMADO",
           "fonte": "MANUAL_OFICIAL"
         },
-        "distanciaGavetasEstendidas": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_APLICAVEL" }
+        "distanciaGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_APLICAVEL"
+        }
       },
       "geometriaInstalacao": {
         "larguraProduto": {
@@ -22613,8 +22640,18 @@
           "status": "CONFIRMADO",
           "fonte": "MANUAL_OFICIAL"
         },
-        "profundidadeComGavetasEstendidas": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_APLICAVEL" },
-        "anguloAbertura": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_APLICAVEL" },
+        "profundidadeComGavetasEstendidas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_APLICAVEL"
+        },
+        "anguloAbertura": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_APLICAVEL"
+        },
         "anguloAberturaEsquerda": {
           "valor": "165°",
           "pagina": "18",
@@ -22636,17 +22673,62 @@
           "status": "CONFIRMADO",
           "fonte": "MANUAL_OFICIAL"
         },
-        "folgaLateral": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
-        "folgaLateralEsquerda": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
-        "folgaLateralDireita": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
-        "zeroClearance": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
-        "avancoFrontal": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" }
+        "folgaLateral": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
+        "folgaLateralEsquerda": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
+        "folgaLateralDireita": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
+        "zeroClearance": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
+        "avancoFrontal": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        }
       },
       "instalacao": {
-        "pontoEletrico": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
-        "pontoAgua": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
-        "pontoGas": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_APLICAVEL" },
-        "dreno": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" }
+        "pontoEletrico": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
+        "pontoAgua": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        },
+        "pontoGas": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_APLICAVEL"
+        },
+        "dreno": {
+          "valor": "",
+          "pagina": "",
+          "referencia": "",
+          "status": "NAO_LOCALIZADO"
+        }
       },
       "observacoes": [
         "O manual oficial utiliza o modelo-base RS58T5561B1 para as variantes de tensão.",
@@ -38745,7 +38827,7 @@
     "codigoInfo": "COI0018",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
-    "tipoBloco": "coifa",
+    "tipoBloco": "cooktop",
     "imagem": "assets/produtos/29709dba189/principal.jpg",
     "imagens": [
       "assets/produtos/29709dba189/principal.jpg",
@@ -40220,7 +40302,7 @@
       "assets/produtos/66052kba285/galeria-07.png",
       "assets/produtos/66052kba285/galeria-08.png"
     ],
-    "siteInfoStore": "https://www.infostore.com.br/fogao-electrolux-5-bocas-expert-funcao-air-fryer-fe5ad-220v-cinza/p",
+    "siteInfoStore": "",
     "destaques": [
       {
         "titulo": "108,9 L / 35,1 L",
@@ -42801,7 +42883,7 @@
       "assets/produtos/23052gba135/galeria-07.png",
       "assets/produtos/23052gba135/galeria-08.png"
     ],
-    "siteInfoStore": "https://www.infostore.com.br/fogao-electrolux-5-bocas-experience-com-mesa-de-vidro--duplo-forno-e-perfectcook360-fe5db-127v-preto/p",
+    "siteInfoStore": "",
     "destaques": [
       {
         "titulo": "108,9 L / 35,1 L",
@@ -57920,17 +58002,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "torradeira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de café da manhã",
-      "descricao": "Formato compacto para cozinhas, copas e espaços gourmet.",
-      "imagem": "assets/produtos/4310anbr414/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4612apbr401",
@@ -58000,17 +58072,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4411akbr401",
@@ -58082,17 +58144,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "espremedor",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Uso rápido na bancada",
-      "descricao": "Boa presença em áreas de café da manhã e preparo de bebidas.",
-      "imagem": "assets/produtos/4411akbr401/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4812fgbr401",
@@ -58158,17 +58210,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4011ahbr407",
@@ -58235,17 +58277,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "processador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Apoio para a área de preparo",
-      "descricao": "Indicado para bancadas de apoio durante o preparo de alimentos.",
-      "imagem": "assets/produtos/4011ahbr407/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4713aabr410",
@@ -58316,17 +58348,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "5310abbr401",
@@ -58380,17 +58402,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4330aobr401",
@@ -58458,17 +58470,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4510aebr402",
@@ -58526,17 +58528,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "sanduicheira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Compacta para o café da manhã",
-      "descricao": "Pode permanecer em bancadas de apoio com acesso fácil à tomada.",
-      "imagem": "assets/produtos/4510aebr402/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4811aqbr401",
@@ -58600,17 +58592,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "09140gbc006",
@@ -58656,17 +58638,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4910aobr403",
@@ -58727,17 +58699,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "cafeteira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Perfeito para o cantinho do café",
-      "descricao": "Uma composição natural para bancadas de café, cozinhas e áreas gourmet.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "3011ahbr411",
@@ -58800,17 +58762,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": "assets/produtos/3011ahbr411/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4330aobr403",
@@ -58880,17 +58832,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4810asbr401",
@@ -58953,17 +58895,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": "assets/produtos/4810asbr401/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "5011aibr408",
@@ -59028,17 +58960,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "chaleira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de café",
-      "descricao": "Combina com áreas de café da manhã, copas e espaços gourmet.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "09140gbc085",
@@ -59084,17 +59006,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/09140gbc085/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4340ajbr483",
@@ -59165,17 +59077,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/4340ajbr483/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "3015akbr403",
@@ -59245,17 +59147,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "aspirador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Uso doméstico versátil",
-      "descricao": "Adequado para áreas de serviço, salas e espaços de apoio conforme o tipo de limpeza.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "3015acg0034",
@@ -59328,17 +59220,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "aspirador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Uso doméstico versátil",
-      "descricao": "Adequado para áreas de serviço, salas e espaços de apoio conforme o tipo de limpeza.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4911aobr405",
@@ -59406,17 +59288,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "cafeteira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Perfeito para o cantinho do café",
-      "descricao": "Uma composição natural para bancadas de café, cozinhas e áreas gourmet.",
-      "imagem": "assets/produtos/4911aobr405/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "d30eba51n09",
@@ -59463,17 +59335,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/d30eba51n09/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "d30eba51n06",
@@ -59544,17 +59406,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/d30eba51n06/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "p30eba51n09",
@@ -59600,17 +59452,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/p30eba51n09/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "p30eba51n06",
@@ -59656,17 +59498,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/p30eba51n06/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "p15eba00c35",
@@ -59712,17 +59544,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/p15eba00c35/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4910anbr405",
@@ -59792,17 +59614,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "cafeteira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Perfeito para o cantinho do café",
-      "descricao": "Uma composição natural para bancadas de café, cozinhas e áreas gourmet.",
-      "imagem": "assets/produtos/4910anbr405/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "3410anbr417",
@@ -59862,17 +59674,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "lavadora-pressao",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Indicada para áreas externas",
-      "descricao": "Uso voltado a garagens, quintais e áreas de serviço externas.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "5310agbr401",
@@ -59944,17 +59746,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "air-fryer",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de cozinha",
-      "descricao": "Uso prático no preparo diário, com presença visual compacta sobre a bancada.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4611atbr401",
@@ -60027,17 +59819,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": "assets/produtos/4611atbr401/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4610avbr402",
@@ -60110,17 +59892,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4612avbr406",
@@ -60193,17 +59965,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "5311aabr101",
@@ -60277,17 +60039,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "air-fryer",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de cozinha",
-      "descricao": "Uso prático no preparo diário, com presença visual compacta sobre a bancada.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "5310adbr101",
@@ -60360,17 +60112,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "air-fryer",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de cozinha",
-      "descricao": "Uso prático no preparo diário, com presença visual compacta sobre a bancada.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4912aabr101",
@@ -60443,17 +60185,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "cafeteira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Perfeito para o cantinho do café",
-      "descricao": "Uma composição natural para bancadas de café, cozinhas e áreas gourmet.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "4912aabr103",
@@ -60524,17 +60256,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "cafeteira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Perfeito para o cantinho do café",
-      "descricao": "Uma composição natural para bancadas de café, cozinhas e áreas gourmet.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "5710aabr101",
@@ -60593,17 +60315,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "p40eba60009",
@@ -60649,17 +60361,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/p40eba60009/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "a27329401",
@@ -60692,17 +60394,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": ""
-    }
+    "revisaoPendente": true
   },
   {
     "id": "a21392801",
@@ -60739,17 +60431,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/a21392801/ambiente.png"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "a20998601",
@@ -60785,17 +60467,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": ""
-    }
+    "revisaoPendente": true
   },
   {
     "id": "a26191301",
@@ -60829,17 +60501,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "portatil",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Aplicação no ambiente",
-      "descricao": "Produto compacto para uso cotidiano, com fácil integração ao espaço.",
-      "imagem": "assets/produtos/a26191301/ambiente.png"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "ep1220",
@@ -60893,17 +60555,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "cafeteira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Perfeito para o cantinho do café",
-      "descricao": "Uma composição natural para bancadas de café, cozinhas e áreas gourmet.",
-      "imagem": "assets/produtos/ep1220/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "dst1050",
@@ -60953,17 +60605,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": "assets/produtos/dst1050/ambiente.jpg"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "gc026",
@@ -61015,17 +60657,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "papa-bolinhas",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Compacto para cuidados pessoais e domésticos",
-      "descricao": "Pode ser guardado em closets, lavanderias ou gavetas de apoio.",
-      "imagem": "assets/produtos/gc026/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "ri2112",
@@ -61090,17 +60722,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": "assets/produtos/ri2112/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "ri2244",
@@ -61165,17 +60787,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": "assets/produtos/ri2244/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "ri2110",
@@ -61240,17 +60852,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": "assets/produtos/ri2110/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "ri7300",
@@ -61285,17 +60887,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "processador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Apoio para a área de preparo",
-      "descricao": "Indicado para bancadas de apoio durante o preparo de alimentos.",
-      "imagem": "assets/produtos/ri7300/ambiente.jpg"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "ri2242",
@@ -61339,17 +60931,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": "assets/produtos/ri2242/ambiente.png"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "hr7304",
@@ -61408,17 +60990,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": "assets/produtos/hr7304/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "ai551",
@@ -61491,17 +61063,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "air-fryer",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de cozinha",
-      "descricao": "Uso prático no preparo diário, com presença visual compacta sobre a bancada.",
-      "imagem": "assets/produtos/ai551/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "hr2270",
@@ -61566,17 +61128,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": "assets/produtos/hr2270/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "na130",
@@ -61648,17 +61200,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "air-fryer",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de cozinha",
-      "descricao": "Uso prático no preparo diário, com presença visual compacta sobre a bancada.",
-      "imagem": "assets/produtos/na130/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "ste101072",
@@ -61724,17 +61266,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": "assets/produtos/ste101072/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "dst202032",
@@ -61799,17 +61331,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": "assets/produtos/dst202032/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "gc684232",
@@ -61874,17 +61396,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": "assets/produtos/gc684232/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "na34100",
@@ -61957,17 +61469,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "air-fryer",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de cozinha",
-      "descricao": "Uso prático no preparo diário, com presença visual compacta sobre a bancada.",
-      "imagem": "assets/produtos/na34100/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "ste317082",
@@ -62033,17 +61535,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": "assets/produtos/ste317082/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "sth302012",
@@ -62108,17 +61600,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": "assets/produtos/sth302012/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "dst3010",
@@ -62183,17 +61665,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "ferro-vaporizador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Prático para áreas de apoio",
-      "descricao": "Adequado para lavanderias, closets e espaços de cuidado com roupas.",
-      "imagem": "assets/produtos/dst3010/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "na150",
@@ -62265,17 +61737,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "air-fryer",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de cozinha",
-      "descricao": "Uso prático no preparo diário, com presença visual compacta sobre a bancada.",
-      "imagem": "assets/produtos/na150/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "ep5547",
@@ -62341,17 +61803,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "cafeteira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Perfeito para o cantinho do café",
-      "descricao": "Uma composição natural para bancadas de café, cozinhas e áreas gourmet.",
-      "imagem": "assets/produtos/ep5547/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "hu1510",
@@ -62423,17 +61875,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "umidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Integração em ambientes internos",
-      "descricao": "Pode ser posicionado em áreas de apoio conforme as recomendações de uso do fabricante.",
-      "imagem": "assets/produtos/hu1510/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "hr1501",
@@ -62498,17 +61940,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "processador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Apoio para a área de preparo",
-      "descricao": "Indicado para bancadas de apoio durante o preparo de alimentos.",
-      "imagem": "assets/produtos/hr1501/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "fw009626",
@@ -62545,17 +61977,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "air-fryer",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de cozinha",
-      "descricao": "Uso prático no preparo diário, com presença visual compacta sobre a bancada.",
-      "imagem": "assets/produtos/fw009626/ambiente.jpg"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "fw009448",
@@ -62592,17 +62014,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "aspirador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Uso doméstico versátil",
-      "descricao": "Adequado para áreas de serviço, salas e espaços de apoio conforme o tipo de limpeza.",
-      "imagem": "assets/produtos/fw009448/ambiente.jpg"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "fw010142",
@@ -62669,17 +62081,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "robo-aspirador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Integração discreta ao ambiente",
-      "descricao": "Pode permanecer acessível em salas e áreas de circulação sem interferir visualmente no espaço.",
-      "imagem": "assets/produtos/fw010142/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "fw009557",
@@ -62746,17 +62148,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "robo-aspirador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Integração discreta ao ambiente",
-      "descricao": "Pode permanecer acessível em salas e áreas de circulação sem interferir visualmente no espaço.",
-      "imagem": "assets/produtos/fw009557/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "fw010277",
@@ -62829,17 +62221,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": "assets/produtos/fw010277/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "fw010769",
@@ -62876,17 +62258,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "espremedor",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Uso rápido na bancada",
-      "descricao": "Boa presença em áreas de café da manhã e preparo de bebidas.",
-      "imagem": "assets/produtos/fw010769/ambiente.jpg"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "fw010535",
@@ -62923,17 +62295,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "sanduicheira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Compacta para o café da manhã",
-      "descricao": "Pode permanecer em bancadas de apoio com acesso fácil à tomada.",
-      "imagem": "assets/produtos/fw010535/ambiente.jpg"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "fw009519",
@@ -62970,17 +62332,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "torradeira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de café da manhã",
-      "descricao": "Formato compacto para cozinhas, copas e espaços gourmet.",
-      "imagem": "assets/produtos/fw009519/ambiente.jpg"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "fw010084",
@@ -63035,17 +62387,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "cafeteira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Perfeito para o cantinho do café",
-      "descricao": "Uma composição natural para bancadas de café, cozinhas e áreas gourmet.",
-      "imagem": "assets/produtos/fw010084/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "fw009523",
@@ -63082,17 +62424,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "chaleira",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de café",
-      "descricao": "Combina com áreas de café da manhã, copas e espaços gourmet.",
-      "imagem": "assets/produtos/fw009523/ambiente.jpg"
-    }
+    "revisaoPendente": true
   },
   {
     "id": "fw007733",
@@ -63159,17 +62491,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "umidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Integração em ambientes internos",
-      "descricao": "Pode ser posicionado em áreas de apoio conforme as recomendações de uso do fabricante.",
-      "imagem": "assets/produtos/fw007733/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "fw009468",
@@ -63230,17 +62552,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "aspirador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Uso doméstico versátil",
-      "descricao": "Adequado para áreas de serviço, salas e espaços de apoio conforme o tipo de limpeza.",
-      "imagem": "assets/produtos/fw009468/ambiente.jpg"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "fw004192",
@@ -63301,17 +62613,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "lavadora-pressao",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Indicada para áreas externas",
-      "descricao": "Uso voltado a garagens, quintais e áreas de serviço externas.",
-      "imagem": "assets/produtos/fw004192/ambiente.png"
-    }
+    "revisaoPendente": false
   },
   {
     "id": "fw010340",
@@ -63366,17 +62668,7 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "tipoProduto": "liquidificador",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Pronto para a área de preparo",
-      "descricao": "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet.",
-      "imagem": ""
-    }
+    "revisaoPendente": false
   },
   {
     "id": "fw012054",
@@ -63413,16 +62705,6 @@
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "tipoProduto": "air-fryer",
-    "experiencia": "portatil",
-    "exibirBlocagem": false,
-    "exibirMedidasProjeto": false,
-    "exibirDocumentos": false,
-    "aplicacaoAmbiente": {
-      "titulo": "Ideal para bancadas de cozinha",
-      "descricao": "Uso prático no preparo diário, com presença visual compacta sobre a bancada.",
-      "imagem": "assets/produtos/fw012054/ambiente.jpg"
-    }
+    "revisaoPendente": true
   }
 ]

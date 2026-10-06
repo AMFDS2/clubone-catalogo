@@ -144,7 +144,14 @@ function normalizarModelo(valor = "") {
 }
 
 function urlOriginal(documento = {}) {
-  return String(localSeguro(documento.url) ? documento.url : (documento.urlOriginal || documento.url || "")).replace(/\\/g, "/");
+  return String(documento.urlOriginal || (localSeguro(documento.url) ? "" : documento.url) || documento.url || "").replace(/\\/g, "/");
+}
+
+function urlLeitura(documento = {}) {
+  const local = String(documento.arquivoLocal || "").replace(/\\/g, "/");
+  if (localSeguro(local)) return local;
+  if (localSeguro(documento.url)) return String(documento.url).replace(/\\/g, "/");
+  return urlOriginal(documento);
 }
 
 function selecionarManuais(produto = {}) {
@@ -578,7 +585,7 @@ async function executar() {
       const pdfs = [];
       for (const manual of manuais) {
         try {
-          pdfs.push({ manual, bytes: await baixarPdf(urlOriginal(manual)) });
+          pdfs.push({ manual, bytes: await baixarPdf(urlLeitura(manual)) });
         } catch (erro) {
           process.stdout.write(`PDF ignorado (${erro.message}); `);
         }

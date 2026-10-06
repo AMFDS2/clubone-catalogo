@@ -248,43 +248,6 @@ function dimensoesCompactas(dimensoes = {}) {
   return valores.length === 3 ? valores.join(" × ") : valores.join(" × ");
 }
 
-function textoAplicacaoPortatil(tipo = "portatil") {
-  const mapa = {
-    "air-fryer": ["Ideal para bancadas de cozinha", "Uso prático no preparo diário, com presença visual compacta sobre a bancada."],
-    liquidificador: ["Pronto para a área de preparo", "Formato pensado para permanecer acessível em bancadas de cozinha e espaços gourmet."],
-    cafeteira: ["Perfeito para o cantinho do café", "Uma composição natural para bancadas de café, cozinhas e áreas gourmet."],
-    processador: ["Apoio para a área de preparo", "Indicado para bancadas de apoio durante o preparo de alimentos."],
-    "robo-aspirador": ["Integração discreta ao ambiente", "Pode permanecer acessível em salas e áreas de circulação sem interferir visualmente no espaço."],
-    aspirador: ["Uso doméstico versátil", "Adequado para áreas de serviço, salas e espaços de apoio conforme o tipo de limpeza."],
-    chaleira: ["Ideal para bancadas de café", "Combina com áreas de café da manhã, copas e espaços gourmet."],
-    sanduicheira: ["Compacta para o café da manhã", "Pode permanecer em bancadas de apoio com acesso fácil à tomada."],
-    torradeira: ["Ideal para bancadas de café da manhã", "Formato compacto para cozinhas, copas e espaços gourmet."],
-    umidificador: ["Integração em ambientes internos", "Pode ser posicionado em áreas de apoio conforme as recomendações de uso do fabricante."],
-    "ferro-vaporizador": ["Prático para áreas de apoio", "Adequado para lavanderias, closets e espaços de cuidado com roupas."],
-    espremedor: ["Uso rápido na bancada", "Boa presença em áreas de café da manhã e preparo de bebidas."],
-    "lavadora-pressao": ["Indicada para áreas externas", "Uso voltado a garagens, quintais e áreas de serviço externas."],
-    "papa-bolinhas": ["Compacto para cuidados pessoais e domésticos", "Pode ser guardado em closets, lavanderias ou gavetas de apoio."]
-  };
-  const [titulo, descricao] = mapa[tipo] || ["Aplicação no ambiente", "Produto compacto para uso cotidiano, com fácil integração ao espaço."];
-  return { titulo, descricao };
-}
-
-function experienciaPortatil(base = {}, enriquecido = {}) {
-  const tipo = identificarTipoBloco(base, enriquecido);
-  const textoAmbiente = textoAplicacaoPortatil(tipo);
-  return {
-    tipoProduto: tipo,
-    experiencia: "portatil",
-    exibirBlocagem: false,
-    exibirMedidasProjeto: false,
-    exibirDocumentos: false,
-    aplicacaoAmbiente: {
-      ...textoAmbiente,
-      imagem: enriquecido.imagemAmbiente || ""
-    }
-  };
-}
-
 function criarUrlBuscaInfoStore(termo = "") {
   const valor = String(termo).trim().toUpperCase();
   if (!valor) return URL_INFO_STORE;
@@ -378,9 +341,6 @@ function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore, anterior = {}
 
   const portatil = ehPortatil(base);
 
-  const experiencia = portatil
-    ? experienciaPortatil(base, enriquecido)
-    : {};
 
   const medidaCompacta = portatil
     ? dimensoesCompactas(enriquecido.dimensoes)
@@ -534,12 +494,6 @@ function criarProdutoNovo(base, enriquecido, ordem, siteInfoStore, anterior = {}
       enriquecido.statusExtracao !== "EXTRAIDO",
 
     /*
-     * Adiciona experiência específica do portátil:
-     * aplicação no ambiente etc.
-     */
-    ...experiencia,
-
-    /*
      * Mantém medidasProjeto somente para produtos
      * técnicos que não sejam portáteis.
      */
@@ -558,7 +512,6 @@ function criarProdutoPendente(base, enriquecido, ordem, siteInfoStore, motivoPen
   const cat = categoria(base.segmento);
   const nomeOficial = nomeProduto(base, enriquecido);
   const portatil = ehPortatil(base);
-  const experiencia = portatil ? experienciaPortatil(base, enriquecido) : {};
   const medidaCompacta = portatil ? dimensoesCompactas(enriquecido?.dimensoes) : "";
 
   return {
@@ -590,7 +543,6 @@ function criarProdutoPendente(base, enriquecido, ordem, siteInfoStore, motivoPen
     sobreMarca: "Consulte disponibilidade e condições comerciais com a equipe Info Store.",
     revisaoPendente: true,
     motivoPendencia,
-    ...experiencia,
     ...(!portatil && anterior.medidasProjeto ? { medidasProjeto: anterior.medidasProjeto } : {})
   };
 }
@@ -598,7 +550,6 @@ function criarProdutoPendente(base, enriquecido, ordem, siteInfoStore, motivoPen
 
 function aplicarRegraPortatilAoAnterior(produto = {}, base = {}, enriquecido = {}) {
   if (!ehPortatil(base)) return produto;
-  const experiencia = experienciaPortatil(base, enriquecido);
   const medidaCompacta = dimensoesCompactas(enriquecido?.dimensoes || produto.dimensoes || {});
   const especificacoes = {
     ...(produto.especificacoes || {}),
@@ -614,7 +565,6 @@ function aplicarRegraPortatilAoAnterior(produto = {}, base = {}, enriquecido = {
 
   return {
     ...limpas,
-    ...experiencia,
     tipoBloco: "portatil-sem-blocagem",
     especificacoes,
     dimensoes: {},
