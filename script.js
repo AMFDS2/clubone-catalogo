@@ -61,38 +61,22 @@ function configurarEventosFixos() {
   const painelFiltros = document.getElementById("painelFiltros");
   const limparFiltros = document.getElementById("limparFiltros");
 
-  // Controle lateral exclusivo. O botão antigo pode continuar oculto no HTML
-  // sem impedir que este apareça acima do painel de filtros.
-  document.getElementById("botaoFiltros")?.classList.add("botao-filtro-legado");
-  let botaoFiltros = document.getElementById("alternarFiltrosLateral");
-  if (!botaoFiltros && painelFiltros) {
-    botaoFiltros = document.createElement("button");
-    botaoFiltros.id = "alternarFiltrosLateral";
-    botaoFiltros.type = "button";
-    botaoFiltros.className = "alternar-filtros";
-    botaoFiltros.setAttribute("aria-controls", "painelFiltros");
-    botaoFiltros.setAttribute("aria-expanded", "true");
-    botaoFiltros.innerHTML = `
-      <span class="alternar-filtros-rotulo">Filtros</span>
-      <span class="alternar-filtros-icone" aria-hidden="true">⌃</span>`;
-    painelFiltros.parentNode.insertBefore(botaoFiltros, painelFiltros);
-  }
+  const botaoFiltros = document.getElementById("alternarFiltrosLateral");
 
   const atualizarBotaoFiltros = () => {
     if (!botaoFiltros || !painelFiltros) return;
     const aberto = !painelFiltros.classList.contains("fechado");
+    painelFiltros.hidden = !aberto;
     botaoFiltros.setAttribute("aria-expanded", String(aberto));
     botaoFiltros.setAttribute("aria-label", aberto ? "Recolher filtros" : "Mostrar filtros");
     const rotulo = botaoFiltros.querySelector(".alternar-filtros-rotulo");
     const icone = botaoFiltros.querySelector(".alternar-filtros-icone");
-    if (rotulo) rotulo.textContent = aberto ? "Recolher filtros" : "Mostrar filtros";
+    if (rotulo) rotulo.textContent = "Filtros";
     if (icone) icone.textContent = aberto ? "⌃" : "⌄";
   };
 
-  const filtrosRecolhidos = localStorage.getItem(STORAGE_FILTROS);
-  if (filtrosRecolhidos === "1" || (filtrosRecolhidos === null && window.matchMedia("(max-width: 900px)").matches)) {
-    painelFiltros?.classList.add("fechado");
-  }
+  // Começa recolhido; respeita a escolha feita anteriormente pelo usuário.
+  painelFiltros?.classList.toggle("fechado", localStorage.getItem(STORAGE_FILTROS) !== "0");
 
   atualizarBotaoFiltros();
 
@@ -100,7 +84,22 @@ function configurarEventosFixos() {
   ordenacao?.addEventListener("change", aplicarFiltros);
 
   document.getElementById("filtrosFabricantes")?.addEventListener("change", atualizarSelecaoFiltro);
-  document.getElementById("filtrosSegmentos")?.addEventListener("change", atualizarSelecaoFiltro);
+  document.getElementById("navegacaoSegmentos")?.addEventListener("click", evento => {
+    const botao = evento.target.closest("button[data-segmento]");
+    if (!botao) return;
+    filtrosSelecionados.segmentos.clear();
+    if (botao.dataset.segmento) filtrosSelecionados.segmentos.add(botao.dataset.segmento);
+    renderizarFiltros();
+    aplicarFiltros();
+  });
+  painelFiltros?.addEventListener("keydown", evento => {
+    if (evento.key === "Escape") {
+      painelFiltros.classList.add("fechado");
+      localStorage.setItem(STORAGE_FILTROS, "1");
+      atualizarBotaoFiltros();
+      botaoFiltros?.focus();
+    }
+  });
 
   botaoFiltros?.addEventListener("click", () => {
     painelFiltros?.classList.toggle("fechado");
@@ -180,12 +179,46 @@ function atualizarSelecaoFiltro(evento) {
   const conjunto = filtrosSelecionados[input.dataset.tipoFiltro];
   if (input.checked) conjunto.add(input.value);
   else conjunto.delete(input.value);
+  atualizarOpcoesTipoProduto();
   aplicarFiltros();
 }
 
+function produtosDoSegmento() {
+  return todosProdutos.filter(produto => !filtrosSelecionados.segmentos.size || filtrosSelecionados.segmentos.has(normalizarTexto(produto.segmento || produto.categoria)));
+}
+
 function renderizarFiltros() {
-  preencherGrupoFiltro("filtrosFabricantes", "fabricantes", todosProdutos.map(item => item.marca || item.fabricante));
-  preencherGrupoFiltro("filtrosSegmentos", "segmentos", todosProdutos.map(item => item.segmento || item.categoria));
+  const produtos = produtosDoSegmento();
+  const marcasDisponiveis = new Set(produtos.map(p => normalizarTexto(p.marca || p.fabricante)));
+  for (const marca of filtrosSelecionados.fabricantes) {
+    if (!marcasDisponiveis.has(marca)) filtrosSelecionados.fabricantes.delete(marca);
+  }
+  preencherGrupoFiltro("filtrosFabricantes", "fabricantes", produtos.map(item => item.marca || item.fabricante));
+  atualizarOpcoesTipoProduto();
+  if (document.getElementById("navegacaoSegmentos")?.children.length) atualizarEstadoSegmentos();
+  else renderizarSegmentos();
+}
+
+function renderizarSegmentos() {
+  const container = document.getElementById("navegacaoSegmentos");
+  if (!container) return;
+  const nomes = {"video": "TV e vídeo", "linha branca": "Linha branca", "climatizacao": "Climatização", "portateis": "Portáteis"};
+  const segmentos = new Map();
+  todosProdutos.forEach(produto => {
+    const valor = produto.segmento || produto.categoria;
+    if (valor) segmentos.set(normalizarTexto(valor), valor);
+  });
+  const botoes = [["", "Todos os produtos"], ...[...segmentos].sort((a, b) => a[1].localeCompare(b[1], "pt-BR"))];
+  container.innerHTML = botoes.map(([chave, valor]) => `<button type="button" class="segmento-nav" data-segmento="${escaparHTML(chave)}" aria-pressed="false">${escaparHTML(nomes[chave] || valor)}</button>`).join("");
+  atualizarEstadoSegmentos();
+}
+
+function atualizarEstadoSegmentos() {
+  document.querySelectorAll("#navegacaoSegmentos button[data-segmento]").forEach(botao => {
+    const ativo = botao.dataset.segmento ? filtrosSelecionados.segmentos.has(botao.dataset.segmento) : !filtrosSelecionados.segmentos.size;
+    botao.classList.toggle("ativo", ativo);
+    botao.setAttribute("aria-pressed", String(ativo));
+  });
 }
 
 function preencherGrupoFiltro(containerId, tipo, valores) {
@@ -220,6 +253,7 @@ function ordenarProdutos() {
 
 function renderizarProdutos(produtos) {
   const container = document.getElementById("produtos");
+  container.classList.toggle("poucos-produtos", produtos.length <= 3);
   const quantidade = document.getElementById("quantidadeProdutos");
   const favs = getFavoritos();
 
@@ -530,7 +564,7 @@ function atualizarOpcoesTipoProduto() {
   if (!select) return;
 
   const contagens = new Map();
-  todosProdutos.forEach(produto => {
+  produtosDoSegmento().filter(produto => !filtrosSelecionados.fabricantes.size || filtrosSelecionados.fabricantes.has(normalizarTexto(produto.marca || produto.fabricante))).forEach(produto => {
     if (ehProdutoPortatil(produto)) return;
     const tipo = classificarTipoProduto(produto);
     const atual = contagens.get(tipo.chave) || { rotulo: tipo.rotulo, quantidade: 0 };
@@ -545,6 +579,7 @@ function atualizarOpcoesTipoProduto() {
       .map(([chave, item]) => `<option value="${escaparHTML(chave)}">${escaparHTML(item.rotulo)} (${item.quantidade})</option>`)
   ].join("");
 
+  if (filtroMedidas.tipoProduto && !contagens.has(filtroMedidas.tipoProduto)) filtroMedidas.tipoProduto = "";
   select.value = filtroMedidas.tipoProduto;
 }
 
@@ -1099,15 +1134,20 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
     </style>
   </defs>`;
 
-  function cotas(x1, x2, y1, y2, valorX, valorY, nome, rotuloX, rotuloY) {
+  function cotas(x1, x2, y1, y2, valorX, valorY, nome, rotuloX, rotuloY, xCotaVertical, yCotaHorizontal = 338) {
     const seta = `url(#seta-${sufixo}-${nome})`;
+    // Mantém a cota de altura fora do desenho, inclusive em produtos largos
+    // como TVs, cooktops e freezers horizontais.
+    const posicaoCotaVertical = Number.isFinite(xCotaVertical)
+      ? xCotaVertical
+      : Math.min(112, x1 - 42);
     return `
-      <line class="cota-tecnica" x1="${x1}" y1="338" x2="${x2}" y2="338" marker-start="${seta}" marker-end="${seta}"></line>
-      <text class="cota-valor" x="${(x1 + x2) / 2}" y="366">${escaparHTML(valorX)}</text>
-      <text class="cota-legenda" x="${(x1 + x2) / 2}" y="388">${escaparHTML(rotuloX)}</text>
-      <line class="cota-tecnica" x1="112" y1="${y1}" x2="112" y2="${y2}" marker-start="${seta}" marker-end="${seta}"></line>
-      <text class="cota-valor" x="79" y="${(y1 + y2) / 2}" transform="rotate(-90 79 ${(y1 + y2) / 2})">${escaparHTML(valorY)}</text>
-      <text class="cota-legenda" x="79" y="${y2 + 24}">${escaparHTML(rotuloY)}</text>`;
+      <line class="cota-tecnica" x1="${x1}" y1="${yCotaHorizontal}" x2="${x2}" y2="${yCotaHorizontal}" marker-start="${seta}" marker-end="${seta}"></line>
+      <text class="cota-valor" x="${(x1 + x2) / 2}" y="${yCotaHorizontal + 28}">${escaparHTML(valorX)}</text>
+      <text class="cota-legenda" x="${(x1 + x2) / 2}" y="${yCotaHorizontal + 50}">${escaparHTML(rotuloX)}</text>
+      <line class="cota-tecnica" x1="${posicaoCotaVertical}" y1="${y1}" x2="${posicaoCotaVertical}" y2="${y2}" marker-start="${seta}" marker-end="${seta}"></line>
+      <text class="cota-valor" x="${posicaoCotaVertical - 33}" y="${(y1 + y2) / 2}" transform="rotate(-90 ${posicaoCotaVertical - 33} ${(y1 + y2) / 2})">${escaparHTML(valorY)}</text>
+      <text class="cota-legenda" x="${posicaoCotaVertical}" y="${y2 + 24}">${escaparHTML(rotuloY)}</text>`;
   }
 
   function notaTecnica(texto) {
@@ -1396,36 +1436,109 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
   }
 
   function vistaCooktop(posicao) {
-    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do cooktop">
-      ${definicoes("cooktop-frontal")}
+    const temRecorteConfirmado = Boolean(larguraNicho && profundidadeNicho);
+    const notaRecorte = temRecorteConfirmado
+      ? `Recorte confirmado: ${larguraNicho} × ${profundidadeNicho}`
+      : "Recorte da bancada não localizado na fonte oficial";
+
+    if (posicao === "frontal" && largura && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista axonométrica técnica do cooktop">
+      ${definicoes("cooktop-axonometrica")}
       <g class="produto-frontal">
-        <rect x="124" y="173" width="272" height="42" rx="4"></rect>
-        <line x1="135" y1="173" x2="385" y2="173"></line>
-        <path d="M154 173v-18h43v18M238 173v-25h44v25M323 173v-18h43v18" fill="none"></path>
-        <rect x="151" y="215" width="218" height="54" rx="2"></rect>
+        <!-- mesa superior em projeção axonométrica -->
+        <path d="M132 142 L322 88 L407 139 L216 195 Z"></path>
+        <path d="M216 195 L407 139 L407 151 L216 207 Z"></path>
+        <path d="M132 142 L216 195 L216 207 L132 154 Z"></path>
+        <!-- corpo embutido, indicado com linhas ocultas -->
+        <path d="M174 169 L228 202 L228 245 L367 204 L367 154" stroke-dasharray="7 5"></path>
+        <!-- queimadores em perspectiva -->
+        <!-- matriz padronizada: 2 traseiras + central + 2 dianteiras -->
+        <ellipse cx="195" cy="143" rx="19" ry="11"></ellipse><ellipse cx="195" cy="143" rx="10" ry="6"></ellipse>
+        <ellipse cx="301" cy="113" rx="19" ry="11"></ellipse><ellipse cx="301" cy="113" rx="10" ry="6"></ellipse>
+        <ellipse cx="269" cy="142" rx="28" ry="16"></ellipse><ellipse cx="269" cy="142" rx="18" ry="10"></ellipse><ellipse cx="269" cy="142" rx="9" ry="5"></ellipse>
+        <ellipse cx="234" cy="168" rx="18" ry="10"></ellipse><ellipse cx="234" cy="168" rx="9" ry="5"></ellipse>
+        <ellipse cx="341" cy="138" rx="18" ry="10"></ellipse><ellipse cx="341" cy="138" rx="9" ry="5"></ellipse>
+        <!-- cinco comandos alinhados na borda frontal -->
+        <ellipse cx="274" cy="171" rx="4.5" ry="2.7"></ellipse>
+        <ellipse cx="293" cy="166" rx="4.5" ry="2.7"></ellipse>
+        <ellipse cx="312" cy="160" rx="4.5" ry="2.7"></ellipse>
+        <ellipse cx="331" cy="155" rx="4.5" ry="2.7"></ellipse>
+        <ellipse cx="350" cy="149" rx="4.5" ry="2.7"></ellipse>
       </g>
-      ${cotas(124, 396, 148, 269, largura, altura, "cooktop-frontal", "largura externa", "altura total")}
+      <!-- linhas auxiliares e cotas externas -->
+      <line class="cota-tecnica" x1="216" y1="207" x2="216" y2="238" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="407" y1="151" x2="407" y2="182" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="216" y1="231" x2="407" y2="175" marker-start="url(#seta-${sufixo}-cooktop-axonometrica)" marker-end="url(#seta-${sufixo}-cooktop-axonometrica)"></line>
+      <text class="cota-valor" x="311" y="196" transform="rotate(-16.3 311 196)" style="paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round">${escaparHTML(largura)}</text>
+
+      <line class="cota-tecnica" x1="132" y1="154" x2="101" y2="166" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="216" y1="207" x2="185" y2="219" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="104" y1="171" x2="185" y2="222" marker-start="url(#seta-${sufixo}-cooktop-axonometrica)" marker-end="url(#seta-${sufixo}-cooktop-axonometrica)"></line>
+      <text class="cota-valor" x="143" y="188" transform="rotate(32.2 143 188)" style="paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round">${escaparHTML(profundidade)}</text>
+
+      <line class="cota-tecnica" x1="407" y1="139" x2="437" y2="139" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="407" y1="207" x2="437" y2="207" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="431" y1="139" x2="431" y2="207" marker-start="url(#seta-${sufixo}-cooktop-axonometrica)" marker-end="url(#seta-${sufixo}-cooktop-axonometrica)"></line>
+      <text class="cota-valor" x="425" y="173" transform="rotate(-90 425 173)" style="paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round">${escaparHTML(altura)}</text>
+      <text class="cota-legenda" x="260" y="279">VISTA AXONOMÉTRICA • SEM ESCALA</text>
     </svg>`;
-    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do cooktop">
-      ${definicoes("cooktop-lateral")}
+
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Corte lateral técnico do cooktop e da bancada">
+      ${definicoes("cooktop-corte-lateral")}
       <g class="produto-frontal">
-        <rect x="132" y="173" width="256" height="42" rx="4"></rect>
-        <line x1="143" y1="173" x2="377" y2="173"></line>
-        <path d="M190 173v-21h45v21M285 173v-21h45v21" fill="none"></path>
-        <rect x="165" y="215" width="190" height="54" rx="2"></rect>
+        <!-- tampo da bancada em corte -->
+        <path d="M92 190 H428 V220 H352 M168 220 H92 Z"></path>
+        <path d="M98 195 l22 20 M122 190 l28 28 M392 190 l28 28 M368 190 l28 28" stroke-width="1"></path>
+        <!-- mesa e corpo embutido do cooktop -->
+        <rect x="135" y="169" width="250" height="21" rx="3"></rect>
+        <path d="M166 190 V278 H354 V190"></path>
+        <path d="M181 207 H339" stroke-dasharray="7 5"></path>
+        <path d="M208 169 v-22 h42 v22 M281 169 v-22 h42 v22"></path>
+        ${temRecorteConfirmado ? `<line x1="168" y1="220" x2="352" y2="220" stroke-dasharray="7 5"></line>` : ""}
       </g>
-      ${cotas(132, 388, 152, 269, profundidade, altura, "cooktop-lateral", "profundidade total", "altura total")}
+      <line class="cota-tecnica" x1="135" y1="190" x2="135" y2="327" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="385" y1="190" x2="385" y2="327" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="135" y1="321" x2="385" y2="321" marker-start="url(#seta-${sufixo}-cooktop-corte-lateral)" marker-end="url(#seta-${sufixo}-cooktop-corte-lateral)"></line>
+      <text class="cota-valor" x="260" y="315" style="paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round">${escaparHTML(profundidade)}</text>
+
+      <line class="cota-tecnica" x1="92" y1="147" x2="141" y2="147" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="92" y1="278" x2="166" y2="278" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="98" y1="147" x2="98" y2="278" marker-start="url(#seta-${sufixo}-cooktop-corte-lateral)" marker-end="url(#seta-${sufixo}-cooktop-corte-lateral)"></line>
+      <text class="cota-valor" x="92" y="212" transform="rotate(-90 92 212)" style="paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round">${escaparHTML(altura)}</text>
+      <text class="cota-legenda" x="260" y="296">CORTE ESQUEMÁTICO DA INSTALAÇÃO</text>
+      <text class="cota-legenda" x="260" y="365">PROFUNDIDADE EXTERNA</text>
+      <text class="cota-legenda" x="260" y="395">${escaparHTML(notaRecorte)}</text>
     </svg>`;
-    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do cooktop com cinco queimadores">
-      ${definicoes("cooktop-superior")}
+
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Planta técnica superior do cooktop">
+      ${definicoes("cooktop-planta")}
       <g class="produto-frontal">
-        <rect x="123" y="82" width="274" height="210" rx="8"></rect>
-        <circle cx="178" cy="130" r="25"></circle><circle cx="337" cy="130" r="25"></circle>
-        <circle cx="258" cy="183" r="31"></circle>
-        <circle cx="184" cy="242" r="20"></circle><circle cx="332" cy="242" r="20"></circle>
-        <circle cx="365" cy="260" r="5"></circle><circle cx="365" cy="241" r="5"></circle><circle cx="365" cy="222" r="5"></circle>
+        <rect x="130" y="72" width="260" height="190" rx="5"></rect>
+        ${temRecorteConfirmado ? `<rect x="149" y="90" width="222" height="136" rx="2" stroke-dasharray="8 6"></rect>` : ""}
+        <!-- a mesma matriz da vista axonométrica -->
+        <circle cx="187" cy="112" r="20"></circle><circle cx="187" cy="112" r="10"></circle>
+        <circle cx="333" cy="112" r="20"></circle><circle cx="333" cy="112" r="10"></circle>
+        <circle cx="260" cy="159" r="29"></circle><circle cx="260" cy="159" r="19"></circle><circle cx="260" cy="159" r="10"></circle>
+        <circle cx="190" cy="207" r="18"></circle><circle cx="190" cy="207" r="9"></circle>
+        <circle cx="330" cy="207" r="18"></circle><circle cx="330" cy="207" r="9"></circle>
+        <!-- cinco comandos em linha na borda frontal -->
+        <circle cx="170" cy="244" r="5"></circle>
+        <circle cx="215" cy="244" r="5"></circle>
+        <circle cx="260" cy="244" r="5"></circle>
+        <circle cx="305" cy="244" r="5"></circle>
+        <circle cx="350" cy="244" r="5"></circle>
       </g>
-      ${cotas(123, 397, 82, 292, largura, profundidade, "cooktop-superior", "largura externa", "profundidade total")}
+      <line class="cota-tecnica" x1="130" y1="262" x2="130" y2="334" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="390" y1="262" x2="390" y2="334" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="130" y1="328" x2="390" y2="328" marker-start="url(#seta-${sufixo}-cooktop-planta)" marker-end="url(#seta-${sufixo}-cooktop-planta)"></line>
+      <text class="cota-valor" x="260" y="322" style="paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round">${escaparHTML(largura)}</text>
+
+      <line class="cota-tecnica" x1="82" y1="72" x2="136" y2="72" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="82" y1="262" x2="136" y2="262" stroke-opacity=".45"></line>
+      <line class="cota-tecnica" x1="88" y1="72" x2="88" y2="262" marker-start="url(#seta-${sufixo}-cooktop-planta)" marker-end="url(#seta-${sufixo}-cooktop-planta)"></line>
+      <text class="cota-valor" x="82" y="167" transform="rotate(-90 82 167)" style="paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round">${escaparHTML(profundidade)}</text>
+
+      ${temRecorteConfirmado ? `<text class="cota-legenda" x="260" y="290">LINHA TRACEJADA: RECORTE ${escaparHTML(larguraNicho)} × ${escaparHTML(profundidadeNicho)}</text>` : `<text class="cota-legenda" x="260" y="290">PLANTA DO PRODUTO • RECORTE AINDA NÃO CONFIRMADO</text>`}
+      <text class="cota-legenda" x="260" y="365">LARGURA EXTERNA</text>
     </svg>`;
     return indisponivel(posicao);
   }
@@ -1507,17 +1620,14 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
       <g class="produto-frontal">
         <rect x="98" y="91" width="324" height="188" rx="3"></rect>
         <rect x="109" y="102" width="302" height="166" rx="1"></rect>
-        <line x1="250" y1="279" x2="250" y2="295"></line><line x1="270" y1="279" x2="270" y2="295"></line>
-        <line x1="208" y1="295" x2="312" y2="295"></line>
       </g>
-      ${cotas(98, 422, 91, 295, largura, altura, "tv-frontal", "largura sem suporte", "altura sem suporte")}
+      ${cotas(98, 422, 91, 279, largura, altura, "tv-frontal", "largura sem suporte", "altura sem suporte", 62)}
     </svg>`;
     if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do televisor sem suporte">
       ${definicoes("tv-lateral")}
       <g class="produto-frontal">
         <rect x="247" y="78" width="27" height="218" rx="3"></rect>
         <rect x="252" y="94" width="17" height="174" rx="2"></rect>
-        <line x1="241" y1="296" x2="280" y2="296"></line>
       </g>
       ${cotas(247, 274, 78, 296, profundidade, altura, "tv-lateral", "espessura sem suporte", "altura sem suporte")}
     </svg>`;
@@ -1527,7 +1637,7 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
         <rect x="98" y="171" width="324" height="28" rx="3"></rect>
         <rect x="110" y="178" width="300" height="14" rx="2"></rect>
       </g>
-      ${cotas(98, 422, 171, 199, largura, profundidade, "tv-superior", "largura sem suporte", "espessura sem suporte")}
+      ${cotas(98, 422, 171, 199, largura, profundidade, "tv-superior", "largura sem suporte", "espessura sem suporte", 62)}
     </svg>`;
     return indisponivel(posicao);
   }
@@ -1707,6 +1817,20 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
   const tituloTipo = titulos[tipo] || "produto";
   const origemFrontal = tipo === "forno" && origemNicho ? `${origemDimensoes}${origemNicho !== origemDimensoes ? ` • ${origemNicho}` : ""}` : origemDimensoes;
 
+  if (tipo === "cooktop") {
+    const temRecorteConfirmado = Boolean(larguraNicho && profundidadeNicho);
+    const origemPlanta = temRecorteConfirmado && origemNicho
+      ? `${origemDimensoes}${origemNicho !== origemDimensoes ? ` • ${origemNicho}` : ""}`
+      : origemDimensoes;
+
+    return `<div class="vistas-projeto-grade vistas-projeto-cooktop">
+      <section class="vista-projeto-card ${largura && profundidade && altura ? "" : "vista-pendente"}">${cabecalho("Vista axonométrica", "Dimensões externas do cooktop", origemDimensoes)}${desenhar("frontal")}</section>
+      <section class="vista-projeto-card ${profundidade && altura ? "" : "vista-pendente"}">${cabecalho("Corte lateral", "Produto e plano da bancada", origemDimensoes)}${desenhar("lateral")}</section>
+      <section class="vista-projeto-card ${largura && profundidade ? "" : "vista-pendente"}">${cabecalho(temRecorteConfirmado ? "Planta e recorte" : "Planta superior", temRecorteConfirmado ? "Produto e abertura da bancada" : "Dimensões externas do produto", origemPlanta)}${desenhar("superior")}</section>
+      <section class="vista-projeto-card vista-produto-real">${cabecalho("Imagem do produto", "Referência visual — sem valor de cota", "Imagem comercial")}<img src="${escaparHTML(imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)}"></section>
+    </div>`;
+  }
+
   return `<div class="vistas-projeto-grade vistas-projeto-${tipo}">
     <section class="vista-projeto-card ${largura && altura ? "" : "vista-pendente"}">${cabecalho("Vista frontal", `Elevação técnica do ${tituloTipo}`, origemFrontal)}${desenhar("frontal")}</section>
     <section class="vista-projeto-card ${profundidade && altura ? "" : "vista-pendente"}">${cabecalho("Vista lateral", "Profundidade × altura")}${desenhar("lateral")}</section>
@@ -1719,6 +1843,62 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const textoProduto = normalizarTexto(`${produto.tipoBloco || ""} ${produto.nome || ""} ${produto.modelo || ""}`);
   const tipoDeclarado = normalizarTexto(produto.tipoBloco || "");
   const modeloDeclarado = normalizarTexto(produto.modelo || "").replace(/[^a-z0-9]/g, "");
+  const campoConfirmado = campo => campo?.status === "CONFIRMADO" && campo?.valor !== undefined && campo?.valor !== null && String(campo.valor).trim() !== "" && campo.valor !== "NAO_LOCALIZADO";
+  const fisicasLegadas = dados.dimensoesFisicas || dados.Dimensoes_Fisicas || {};
+  const portasLegadas = dados.portasAbertura || dados.Portas_Abertura || dados.portasEAbertura || {};
+  const modeloSamsung = String(produto.modelo || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  const campoManualSamsung = (valor, unidade, paginaManual, referenciaManual) => ({ valor, unidade, pagina: String(paginaManual), referencia: referenciaManual, status: "CONFIRMADO" });
+  let aberturaTabelaSamsung = {};
+
+  // Somente famílias sem a vista aberta no layout atual. French Door (RF) não entra nesta regra.
+  if (modeloSamsung.startsWith("RS58T5561B1")) {
+    aberturaTabelaSamsung = {
+      largura: campoManualSamsung("1731", "mm", 18, "tabela Afastamento / item 06 / modelo RS58T5561B1"),
+      profundidade: campoManualSamsung("1179", "mm", 18, "tabela Afastamento / item 08 / modelo RS58T5561B1"),
+      anguloEsquerda: campoManualSamsung("165", "°", 18, "tabela Afastamento / item 02 / modelo RS58T5561B1"),
+      anguloDireita: campoManualSamsung("170", "°", 18, "tabela Afastamento / item 03 / modelo RS58T5561B1")
+    };
+  } else if (modeloSamsung.startsWith("RS60T5")) {
+    aberturaTabelaSamsung = {
+      largura: campoManualSamsung("1731", "mm", 19, "tabela Afastamento / item 06 / família RS60T5*"),
+      profundidade: campoManualSamsung("1179", "mm", 19, "tabela Afastamento / item 08 / família RS60T5*"),
+      anguloEsquerda: campoManualSamsung("165", "°", 19, "tabela Afastamento / item 02 / família RS60T5*"),
+      anguloDireita: campoManualSamsung("170", "°", 19, "tabela Afastamento / item 03 / família RS60T5*")
+    };
+  } else {
+    const tabelaRT = {
+      RT31: ["850", "1201"],
+      RT35: ["850", "1263"],
+      RT38: ["1006", "1311"],
+      RT42: ["1006", "1311"],
+      RT47: ["1006", "1356"],
+      RT53: ["1006", "1396"]
+    };
+    const familiaRT = Object.keys(tabelaRT).find(familia => modeloSamsung.startsWith(familia));
+    if (familiaRT) {
+      const [projecaoAberta, profundidadeAberta] = tabelaRT[familiaRT];
+      aberturaTabelaSamsung = {
+        largura: campoManualSamsung(projecaoAberta, "mm", 18, `tabela Afastamento / item 04 / família ${familiaRT}`),
+        profundidade: campoManualSamsung(profundidadeAberta, "mm", 18, `tabela Afastamento / item 05 / família ${familiaRT}`),
+        anguloEsquerda: campoManualSamsung("115", "°", 18, `tabela Afastamento / item 02 / família ${familiaRT}`),
+        anguloDireita: campoManualSamsung("115", "°", 18, `tabela Afastamento / item 02 / família ${familiaRT}`)
+      };
+    }
+  }
+  const usarCompatibilidadeAberturaSamsung = Object.keys(aberturaTabelaSamsung).length > 0;
+  const fisicasAbertura = usarCompatibilidadeAberturaSamsung ? fisicasLegadas : {};
+  const portasAbertura = usarCompatibilidadeAberturaSamsung ? portasLegadas : {};
+
+  const possuiAberturaConfirmadaLegada = [
+    fisicasAbertura.profundidadeComPortasAbertas,
+    fisicasAbertura.larguraComPortasAbertas,
+    fisicasAbertura.larguraComPortasAbertas90,
+    fisicasAbertura.larguraComPortasAbertasMax,
+    portasAbertura.anguloAberturaPortaEsquerda,
+    portasAbertura.anguloAberturaPortaDireita,
+    aberturaTabelaSamsung.largura,
+    aberturaTabelaSamsung.profundidade
+  ].some(campoConfirmado);
   const ehFornoEmbutir = tipoDeclarado === "forno" || (!/micro.?ondas|microondas/.test(textoProduto) && /forno de embutir|\bforno\b/.test(textoProduto));
   const ehFogao = tipoDeclarado === "fogao" || /\bfogao\b/.test(textoProduto);
   if (ehFornoEmbutir) return criarVistasTecnicasEletro(produto, dados, "forno");
@@ -1735,36 +1915,52 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   if (tipoDeclarado === "cooktop" || /cooktop/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "cooktop");
   if (tipoDeclarado === "coifa" || /\bcoifa\b/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "coifa");
   const geladeiraComAberturaEspecial = /side by side|french door|3 portas|tres portas|4 portas|quatro portas|multidoor|multi door|rs60|rs58|rs50|rf29|rf27|rf70|rf80/.test(textoProduto);
-  if (/geladeira|refrigerador/.test(textoProduto) && !geladeiraComAberturaEspecial) return criarVistasTecnicasEletro(produto, dados, "refrigerador");
+  if (/geladeira|refrigerador/.test(textoProduto) && !geladeiraComAberturaEspecial && !possuiAberturaConfirmadaLegada) return criarVistasTecnicasEletro(produto, dados, "refrigerador");
   if (!/geladeira|refrigerador|adega|freezer/.test(textoProduto)) return criarVistasTecnicasGenericas(produto, dados);
 
   const dimensoes = obterDimensoesConfirmadasProduto(produto);
   const folgas = dados.folgas || {};
   const abertura = dados.abertura || {};
   const geometria = dados.geometriaInstalacao || {};
+  const requisitosLegados = usarCompatibilidadeAberturaSamsung ? (dados.folgasVentilacao || dados.Requisitos_Instalacao || dados.instalacaoENicho || {}) : {};
   const valor = (campo, vazio = "") => campo?.status === "CONFIRMADO" && campo?.valor ? campo.valor : vazio;
+  const valorLegado = (campo, vazio = "") => {
+    if (!campoConfirmado(campo)) return vazio;
+    const bruto = String(campo.valor).trim();
+    const unidade = String(campo.unidade || "").trim();
+    return unidade && !bruto.toLowerCase().endsWith(unidade.toLowerCase()) ? `${bruto} ${unidade}`.replace(/\s+°/, "°") : bruto;
+  };
   const referencia = (...campos) => campos.find(campo => campo?.status === "CONFIRMADO" && campo?.referencia)?.referencia || "";
-  const pagina = (...campos) => campos.find(campo => campo?.pagina)?.pagina || "—";
+  const pagina = (...campos) => {
+    const paginaDireta = campos.find(campo => campo?.pagina)?.pagina;
+    if (paginaDireta) return paginaDireta;
+    if (!usarCompatibilidadeAberturaSamsung) return "—";
+    const referenciaComPagina = campos.find(campo => campoConfirmado(campo) && /p[aá]gina\s*\d+/i.test(campo?.referencia || ""))?.referencia || "";
+    return referenciaComPagina.match(/p[aá]gina\s*(\d+)/i)?.[1] || "—";
+  };
   const largura = valor(geometria.larguraProduto, valor(dimensoes.largura));
   const altura = valor(geometria.alturaProduto, valor(dimensoes.altura));
   const profundidade = valor(geometria.profundidadeTotalProduto, valor(dimensoes.profundidade));
-  const profundidadeGabinete = valor(geometria.profundidadeGabinete);
-  const superior = valor(folgas.superior);
-  const lateral = valor(geometria.folgaLateral);
-  const lateralEsquerda = valor(geometria.folgaLateralEsquerda, "");
-  const lateralDireita = valor(geometria.folgaLateralDireita, "");
-  const traseira = valor(geometria.afastamentoTraseiro);
-  const angulo = valor(geometria.anguloAbertura, valor(abertura.anguloPorta, ""));
-  const anguloEsquerda = valor(geometria.anguloAberturaEsquerda, "");
-  const anguloDireita = valor(geometria.anguloAberturaDireita, "");
-  const larguraPortasAbertas = valor(geometria.larguraComPortasAbertas, "");
-  const profundidadePortasAbertas = valor(geometria.profundidadeComPortasAbertas, "");
-  const gavetas = valor(geometria.profundidadeComGavetasEstendidas, valor(abertura.distanciaGavetasEstendidas, ""));
+  const profundidadeGabinete = valor(geometria.profundidadeGabinete, valorLegado(fisicasAbertura.profundidadeSemPortas || fisicasAbertura.profundidadeGabineteSemPortas));
+  const profundidadeVistaSuperior = profundidadeGabinete || (usarCompatibilidadeAberturaSamsung ? profundidade : "");
+  const superior = valor(folgas.superior, valorLegado(requisitosLegados.afastamentoSuperior));
+  const lateral = valor(geometria.folgaLateral, valorLegado(requisitosLegados.afastamentoLateral));
+  const lateralEsquerda = valor(geometria.folgaLateralEsquerda, valorLegado(requisitosLegados.afastamentoLateralEsquerdo));
+  const lateralDireita = valor(geometria.folgaLateralDireita, valorLegado(requisitosLegados.afastamentoLateralDireito));
+  const traseira = valor(geometria.afastamentoTraseiro, valorLegado(requisitosLegados.afastamentoTraseiro));
+  const anguloLegadoEsquerda = valorLegado(portasAbertura.anguloAberturaPortaEsquerda, valorLegado(aberturaTabelaSamsung.anguloEsquerda));
+  const anguloLegadoDireita = valorLegado(portasAbertura.anguloAberturaPortaDireita, valorLegado(aberturaTabelaSamsung.anguloDireita));
+  const angulo = valor(geometria.anguloAbertura, valor(abertura.anguloPorta, anguloLegadoDireita || anguloLegadoEsquerda));
+  const anguloEsquerda = valor(geometria.anguloAberturaEsquerda, anguloLegadoEsquerda);
+  const anguloDireita = valor(geometria.anguloAberturaDireita, anguloLegadoDireita);
+  const larguraPortasAbertas = valor(geometria.larguraComPortasAbertas, valorLegado(fisicasAbertura.larguraComPortasAbertas || fisicasAbertura.larguraComPortasAbertasMax || fisicasAbertura.larguraComPortasAbertas90, valorLegado(aberturaTabelaSamsung.largura)));
+  const profundidadePortasAbertas = valor(geometria.profundidadeComPortasAbertas, valorLegado(fisicasAbertura.profundidadeComPortasAbertas, valorLegado(aberturaTabelaSamsung.profundidade)));
+  const gavetas = valor(geometria.profundidadeComGavetasEstendidas, valor(abertura.distanciaGavetasEstendidas, valorLegado(fisicasAbertura.profundidadeComGavetasEstendidas)));
   const paginaFrontal = pagina(dimensoes.largura, dimensoes.altura, dimensoes.profundidade, folgas.superior);
-  const paginaSuperior = pagina(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta);
+  const paginaSuperior = pagina(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta, fisicasAbertura.profundidadeComPortasAbertas, fisicasAbertura.larguraComPortasAbertas, portasAbertura.anguloAberturaPortaEsquerda, portasAbertura.anguloAberturaPortaDireita, aberturaTabelaSamsung.largura, aberturaTabelaSamsung.profundidade);
   const paginaLateral = pagina(geometria.profundidadeGabinete, geometria.profundidadeTotalProduto, dimensoes.profundidade, geometria.profundidadeComPortasAbertas);
   const referenciaFrontal = referencia(geometria.larguraProduto, dimensoes.largura, geometria.alturaProduto, dimensoes.altura);
-  const referenciaSuperior = referencia(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta);
+  const referenciaSuperior = referencia(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta, fisicasAbertura.profundidadeComPortasAbertas, fisicasAbertura.larguraComPortasAbertas, portasAbertura.anguloAberturaPortaEsquerda, portasAbertura.anguloAberturaPortaDireita, aberturaTabelaSamsung.largura, aberturaTabelaSamsung.profundidade);
   const referenciaLateral = referencia(geometria.profundidadeGabinete, geometria.profundidadeTotalProduto, dimensoes.profundidade, geometria.profundidadeComPortasAbertas);
   const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
   const molde = normalizarTexto(produto.moldeTecnico || produto.familiaTecnica || "");
@@ -1814,7 +2010,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
         <text class="cota-valor" x="260" y="48">${escaparHTML(largura)}</text>
         <path d="M390 68H414M390 220H414"></path>
         <line x1="406" y1="68" x2="406" y2="220" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
-        <text class="cota-valor cota-profundidade" x="428" y="144">${escaparHTML(profundidadeGabinete)}</text>
+        ${profundidadeVistaSuperior ? `<text class="cota-valor cota-profundidade" x="428" y="144">${escaparHTML(profundidadeVistaSuperior)}</text>` : ""}
         <path d="M77 328V360M443 328V360"></path>
         <line x1="77" y1="350" x2="443" y2="350" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
         ${larguraPortasAbertas ? `<text class="cota-valor" x="260" y="374">${escaparHTML(larguraPortasAbertas)}</text>` : ""}
@@ -1996,6 +2192,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   ` : '';
 
   document.getElementById("detalhes").innerHTML = `
+    <button type="button" class="voltar-produtos" id="voltarProdutos">← Voltar aos produtos</button>
     <div class="produto-hero">
       <div class="produto-resumo">
         <span class="badge">${escaparHTML(produto.categoria || produto.segmento || "")}</span>
@@ -2059,11 +2256,15 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   configurarAbas();
   configurarGaleria();
+  document.getElementById("voltarProdutos")?.addEventListener("click", () => {
+    document.querySelector(".sidebar").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    document.getElementById("alternarFiltrosLateral")?.focus({ preventScroll: true });
+  });
   configurarFallbackImagens(document.getElementById("detalhes"));
 
-  if (interacaoDoUsuario && window.matchMedia("(max-width: 900px)").matches) {
+  if (interacaoDoUsuario && window.matchMedia("(max-width: 1100px), (hover: none) and (pointer: coarse) and (max-width: 1400px)").matches) {
     requestAnimationFrame(() => {
-      document.getElementById("detalhes").scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("detalhes").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     });
   }
 }
@@ -2244,7 +2445,50 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
   if (ehTV) {
     formaProduto = `<g class="forma-produto forma-tv"><rect x="25" y="46" width="165" height="98" rx="3"></rect><rect x="33" y="54" width="149" height="82" rx="1" class="tela-tv"></rect><path d="M190 46 L198 52 L198 138 L190 144"></path></g>`;
   } else if (ehCooktop) {
-    formaProduto = `<g class="forma-produto forma-cooktop"><path d="M29 79 L154 57 L190 87 L63 112 Z"></path><path d="M63 112 L190 87 L190 101 L63 127 Z"></path><path d="M29 79 L63 112 L63 127 L29 94 Z"></path><ellipse cx="72" cy="88" rx="16" ry="9"></ellipse><ellipse cx="122" cy="78" rx="16" ry="9"></ellipse><ellipse cx="104" cy="104" rx="15" ry="8"></ellipse><ellipse cx="154" cy="94" rx="15" ry="8"></ellipse></g>`;
+    formaProduto = `<g class="forma-produto forma-cooktop">
+      <defs>
+        <!-- O recorte impede que qualquer queimador ultrapasse a mesa. -->
+        <clipPath id="recorte-mesa-cooktop">
+          <path d="M31 76 L150 43 L199 74 L80 108 Z"></path>
+        </clipPath>
+      </defs>
+
+      <!-- mesa e corpo embutido em projeção axonométrica -->
+      <path d="M31 76 L150 43 L199 74 L80 108 Z"></path>
+      <path d="M80 108 L199 74 L199 89 L80 123 Z"></path>
+      <path d="M31 76 L80 108 L80 123 L31 91 Z"></path>
+
+      <!-- cinco queimadores concêntricos, distribuídos como na referência -->
+      <g class="queimadores-cooktop" clip-path="url(#recorte-mesa-cooktop)">
+        <!-- traseiro esquerdo -->
+        <ellipse cx="78" cy="73" rx="13" ry="7"></ellipse>
+        <ellipse cx="78" cy="73" rx="7" ry="3.8"></ellipse>
+
+        <!-- traseiro direito -->
+        <ellipse cx="143" cy="56" rx="12" ry="6.5"></ellipse>
+        <ellipse cx="143" cy="56" rx="6.2" ry="3.4"></ellipse>
+
+        <!-- central, maior -->
+        <ellipse cx="118" cy="75" rx="18" ry="10"></ellipse>
+        <ellipse cx="118" cy="75" rx="12" ry="6.5"></ellipse>
+        <ellipse cx="118" cy="75" rx="6" ry="3.2"></ellipse>
+
+        <!-- dianteiro esquerdo -->
+        <ellipse cx="91" cy="92" rx="12" ry="6.5"></ellipse>
+        <ellipse cx="91" cy="92" rx="6.2" ry="3.4"></ellipse>
+
+        <!-- dianteiro direito -->
+        <ellipse cx="163" cy="73" rx="12" ry="6.5"></ellipse>
+        <ellipse cx="163" cy="73" rx="6.2" ry="3.4"></ellipse>
+
+        <!-- comandos alinhados na faixa frontal da mesa -->
+        <ellipse cx="126" cy="94" rx="2.5" ry="1.6"></ellipse>
+        <ellipse cx="137" cy="91" rx="2.5" ry="1.6"></ellipse>
+        <ellipse cx="148" cy="88" rx="2.5" ry="1.6"></ellipse>
+        <ellipse cx="159" cy="85" rx="2.5" ry="1.6"></ellipse>
+        <ellipse cx="170" cy="82" rx="2.5" ry="1.6"></ellipse>
+      </g>
+    </g>`;
   } else if (ehFogao) {
     formaProduto = `<g class="forma-produto forma-fogao"><rect x="55" y="47" width="110" height="137" rx="3"></rect><path d="M55 47 L151 47 L174 62 L76 62 Z"></path><rect x="61" y="63" width="98" height="25" rx="2"></rect><circle cx="74" cy="75" r="4"></circle><circle cx="89" cy="75" r="4"></circle><circle cx="131" cy="75" r="4"></circle><circle cx="146" cy="75" r="4"></circle><rect x="98" y="70" width="23" height="10" rx="1"></rect><rect x="66" y="98" width="88" height="66" rx="2"></rect><line x1="75" y1="108" x2="145" y2="108"></line><path d="M165 70 L174 62 L174 169 L165 184"></path><line x1="68" y1="184" x2="68" y2="190"></line><line x1="151" y1="184" x2="151" y2="190"></line></g>`;
   } else if (ehMicroondas) {
@@ -2561,12 +2805,13 @@ function renderDrawerFavoritos(favs) {
   `).join("");
 }
 
-function baixarMemorialPDF() {
-  const favs = obterFavoritosAtualizados();
-  if (!favs.length) return;
+function criarPDFOrcamento(favs = []) {
+  if (!window.jspdf?.jsPDF) {
+    throw new Error("Biblioteca de PDF não carregada.");
+  }
 
-  // Mantém a gaveta e o documento sincronizados com os dados atuais do catálogo.
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
 
   const totalPecas = favs.reduce(
     (soma, item) => soma + Math.max(1, Number(item.quantidade) || 1),
@@ -2579,120 +2824,245 @@ function baixarMemorialPDF() {
     year: "numeric"
   });
 
-  const janelaImpressao = window.open("", "_blank", "width=980,height=820");
-  if (!janelaImpressao) {
-    alert("O navegador bloqueou a janela de impressão. Libere pop-ups para gerar a lista.");
+  doc.setFillColor(13, 31, 77);
+  doc.rect(0, 0, 210, 30, "F");
+  doc.setFillColor(229, 38, 51);
+  doc.rect(0, 29, 210, 1, "F");
+
+  doc.setTextColor(255, 255, 255);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(15);
+  doc.text("INFO STORE", 14, 14);
+  doc.setFontSize(8);
+  doc.setFont("helvetica", "normal");
+  doc.text("CATÁLOGO PARA PROJETOS", 14, 21);
+  doc.text(`Emitido em ${dataAtual}`, 196, 17, { align: "right" });
+
+  doc.setTextColor(18, 24, 38);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(16);
+  doc.text("Lista de interesse", 14, 43);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.setTextColor(95, 103, 118);
+  doc.text("Itens selecionados para levantamento comercial e orçamentário.", 14, 50);
+
+  const corpo = favs.map(item => [
+    item.nome || "Produto",
+    item.fabricante || item.marca || "-",
+    item.modelo || "-",
+    item.codigo || item.codigoInfo || "-",
+    String(Math.max(1, Number(item.quantidade) || 1))
+  ]);
+
+  doc.autoTable({
+    startY: 58,
+    head: [["Produto", "Fabricante", "Modelo", "Código", "Qtd"]],
+    body: corpo,
+    theme: "grid",
+    styles: {
+      font: "helvetica",
+      fontSize: 7.5,
+      cellPadding: 2.6,
+      textColor: [32, 32, 30],
+      lineColor: [225, 229, 238],
+      lineWidth: 0.2,
+      valign: "middle"
+    },
+    headStyles: {
+      fillColor: [238, 243, 253],
+      textColor: [20, 43, 99],
+      fontStyle: "bold",
+      fontSize: 7
+    },
+    columnStyles: {
+      0: { cellWidth: 75 },
+      1: { cellWidth: 31 },
+      2: { cellWidth: 28 },
+      3: { cellWidth: 27 },
+      4: { cellWidth: 12, halign: "center" }
+    },
+    margin: { left: 14, right: 14 },
+    didDrawPage: () => {
+      const pagina = doc.internal.getCurrentPageInfo().pageNumber;
+      doc.setFontSize(7);
+      doc.setTextColor(130, 136, 148);
+      doc.text(`Catálogo Info Store · página ${pagina}`, 14, 291);
+    }
+  });
+
+  const yFinal = Math.min((doc.lastAutoTable?.finalY || 58) + 10, 276);
+  doc.setDrawColor(225, 229, 238);
+  doc.line(14, yFinal, 196, yFinal);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(9);
+  doc.setTextColor(20, 43, 99);
+  doc.text(
+    `Total: ${favs.length} ${favs.length === 1 ? "item" : "itens"} · ${totalPecas} ${totalPecas === 1 ? "peça" : "peças"}`,
+    196,
+    yFinal + 7,
+    { align: "right" }
+  );
+
+  return doc.output("blob");
+}
+
+function baixarBlob(blob, nomeArquivo = "lista-interesse-info-store.pdf") {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = nomeArquivo;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+}
+
+async function baixarMemorialPDF() {
+  const favs = obterFavoritosAtualizados();
+  if (!favs.length) return;
+
+  try {
+    const blob = criarPDFOrcamento(favs);
+    baixarBlob(blob);
+  } catch (erro) {
+    console.error("Falha ao gerar PDF:", erro);
+    alert("Não foi possível gerar o PDF. Atualize a página e tente novamente.");
+  }
+}
+
+function blobParaBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const leitor = new FileReader();
+    leitor.onload = () => resolve(String(leitor.result || "").split(",")[1] || "");
+    leitor.onerror = () => reject(leitor.error || new Error("Falha ao ler PDF."));
+    leitor.readAsDataURL(blob);
+  });
+}
+
+async function publicarPDFOrcamento(blob) {
+  const pdfBase64 = await blobParaBase64(blob);
+  const resposta = await fetch("/api/orcamento", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ pdfBase64 })
+  });
+
+  let dados = {};
+  try { dados = await resposta.json(); } catch {}
+
+  if (!resposta.ok || !dados.url) {
+    throw new Error(dados.erro || `Falha ao publicar PDF (HTTP ${resposta.status}).`);
+  }
+
+  return dados;
+}
+
+let ORCAMENTO_PENDENTE = null;
+
+const CONTATOS_ORCAMENTO = {
+  adaires: { nome: "Adaires", telefone: "5592982893772" },
+  marcelo: { nome: "Marcelo", telefone: "5592982506370" },
+  ana: { nome: "Ana", telefone: "5592992411779" }
+};
+
+function montarMensagemOrcamento(favs = [], contato = {}, urlPDF = "") {
+  const totalPecas = favs.reduce(
+    (soma, item) => soma + Math.max(1, Number(item.quantidade) || 1),
+    0
+  );
+
+  return [
+    `Olá, ${contato.nome || "equipe Info Store"}! Gostaria de solicitar um orçamento para os itens selecionados no Catálogo Info Store.`,
+    "",
+    urlPDF ? `Lista completa em PDF: ${urlPDF}` : "Lista completa em PDF disponível no catálogo.",
+    "",
+    `Resumo: ${favs.length} ${favs.length === 1 ? "item" : "itens"} (${totalPecas} ${totalPecas === 1 ? "peça" : "peças"}).`,
+    "",
+    "Poderia verificar valores e disponibilidade?"
+  ].join("\n");
+}
+
+async function abrirSelecaoConsultor() {
+  const favs = obterFavoritosAtualizados();
+  if (!favs.length) {
+    alert("Selecione ao menos um produto antes de solicitar o orçamento.");
     return;
   }
 
-  // As linhas são construídas separadamente para evitar template string aninhada.
-  const linhasTabela = favs.map((item) => {
-    const imagem = escaparHTML(item.imagem || IMAGEM_FALLBACK);
-    const nome = escaparHTML(item.nome || "Produto");
-    const fabricante = escaparHTML(item.fabricante || item.marca || "Info Store");
-    const modelo = escaparHTML(item.modelo || "-");
-    const codigo = escaparHTML(item.codigo || item.codigoInfo || "-");
-    const quantidade = Math.max(1, Number(item.quantidade) || 1);
+  const botao = document.getElementById("btn-solicitar-orcamento");
+  const status = document.getElementById("status-orcamento");
+  const textoOriginal = botao?.textContent || "Solicitar orçamento";
 
-    return [
-      '<tr>',
-      '<td class="col-item"><img src="' + imagem + '" alt=""></td>',
-      '<td><span class="produto-nome">' + nome + '</span></td>',
-      '<td><span class="tag-fab">' + fabricante + '</span></td>',
-      '<td class="col-mod">' + modelo + '</td>',
-      '<td class="col-cod">' + codigo + '</td>',
-      '<td class="col-qtd">' + quantidade + '</td>',
-      '</tr>'
-    ].join("");
-  }).join("");
+  if (botao) {
+    botao.disabled = true;
+    botao.classList.add("carregando");
+    botao.textContent = "Gerando PDF...";
+  }
+  if (status) status.textContent = "Gerando e preparando o link do documento...";
 
-  const totalItensTexto = favs.length === 1 ? "item" : "itens";
-  const totalPecasTexto = totalPecas === 1 ? "peça" : "peças";
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
 
-  const conteudoHtml = [
-    '<!DOCTYPE html>',
-    '<html lang="pt-BR">',
-    '<head>',
-    '<meta charset="UTF-8">',
-    '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
-    '<title>Lista de Interesse - Club One &amp; Info Store</title>',
-    '<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">',
-    '<style>',
-    '@page { size: A4 portrait; margin: 0; }',
-    '* { box-sizing: border-box; }',
-    'body { font-family: Manrope, Arial, sans-serif; margin: 0; padding: 0; color: #20201e; background: #ffffff; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }',
-    '.topbar-documento { background: linear-gradient(105deg, #0d1f4d, #142b63) !important; border-bottom: 2px solid #e52633 !important; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }',
-    '.logos { display: flex; align-items: center; gap: 20px; }',
-    '.logo-info { height: 36px; object-fit: contain; }',
-    '.logo-club { height: 27px; object-fit: contain; opacity: .92; }',
-    '.separador { width: 1px; height: 28px; background: rgba(255,255,255,.22); }',
-    '.meta-documento { text-align: right; }',
-    '.meta-documento strong { display: block; font-family: Montserrat, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #fff; margin-bottom: 4px; }',
-    '.meta-documento span { font-size: 11px; color: #cbd8f4; }',
-    '.conteudo-pagina { padding: 40px; }',
-    '.titulo-bloco { margin-bottom: 30px; }',
-    '.titulo-bloco h1 { font-family: Montserrat, sans-serif; font-size: 20px; font-weight: 600; text-transform: uppercase; margin: 0 0 6px; color: #11110f; }',
-    '.titulo-bloco p { margin: 0; font-size: 12px; color: #6d6b67; }',
-    'table { width: 100%; border-collapse: collapse; margin-top: 10px; }',
-    'th { font-family: Montserrat, sans-serif; font-size: 9px; font-weight: 600; text-transform: uppercase; background: #eef3fd !important; color: #142b63; padding: 10px 14px; text-align: left; border-top: 1px solid #d6e0f5; border-bottom: 1px solid #d6e0f5; }',
-    'td { padding: 14px; border-bottom: 1px solid #ece8e1; font-size: 12px; vertical-align: middle; }',
-    '.col-item { width: 55px; text-align: center; }',
-    '.col-item img { width: 44px; height: 44px; object-fit: contain; display: block; margin: 0 auto; }',
-    '.produto-nome { font-family: Manrope, sans-serif; font-weight: 500; font-size: 12px; color: #1a1a18; display: block; max-width: 320px; }',
-    '.tag-fab { font-family: Montserrat, sans-serif; font-size: 10px; font-weight: 600; color: #e52633; text-transform: uppercase; }',
-    '.col-mod { font-family: Manrope, sans-serif; font-size: 11px; color: #55534e; white-space: nowrap; }',
-    '.col-cod { font-family: monospace; font-size: 11px; font-weight: 500; color: #33312e; white-space: nowrap; }',
-    '.col-qtd { text-align: center; width: 50px; font-weight: 600; }',
-    '.footer-documento { margin-top: 50px; padding-top: 18px; border-top: 1px solid #e4e0d9; display: flex; justify-content: space-between; align-items: center; font-size: 9px; font-weight: 500; color: #8c8881; text-transform: uppercase; }',
-    '.footer-total { color: #11110f; font-weight: 600; }',
-    '</style>',
-    '</head>',
-    '<body>',
-    '<div class="topbar-documento">',
-    '<div class="logos">',
-    '<img class="logo-info" src="' + window.location.origin + '/assets/logoin.png" alt="Info Store">',
-    '<span class="separador"></span>',
-    '<img class="logo-club" src="' + window.location.origin + '/assets/logoclub.png" alt="Club One">',
-    '</div>',
-    '<div class="meta-documento">',
-    '<strong>Solicitação de Especificação</strong>',
-    '<span>Emitido em: ' + escaparHTML(dataAtual) + '</span>',
-    '</div>',
-    '</div>',
-    '<div class="conteudo-pagina">',
-    '<div class="titulo-bloco">',
-    '<h1>Lista de Interesse</h1>',
-    '<p>Relação de itens selecionados para levantamento comercial e orçamentário.</p>',
-    '</div>',
-    '<table>',
-    '<thead><tr>',
-    '<th class="col-item">Item</th>',
-    '<th>Descrição do Produto</th>',
-    '<th>Fabricante</th>',
-    '<th>Modelo</th>',
-    '<th>Código</th>',
-    '<th class="col-qtd">Qtd</th>',
-    '</tr></thead>',
-    '<tbody>' + linhasTabela + '</tbody>',
-    '</table>',
-    '<div class="footer-documento">',
-    '<span>Club One Arquitetura &amp; Design • Info Store</span>',
-    '<span class="footer-total">Total: ' + favs.length + ' ' + totalItensTexto + ' (' + totalPecas + ' ' + totalPecasTexto + ')</span>',
-    '</div>',
-    '</div>',
-    '</body>',
-    '</html>'
-  ].join("");
+    const blob = criarPDFOrcamento(favs);
+    const publicado = await publicarPDFOrcamento(blob);
 
-  janelaImpressao.document.open();
-  janelaImpressao.document.write(conteudoHtml);
-  janelaImpressao.document.close();
+    ORCAMENTO_PENDENTE = {
+      favs,
+      blob,
+      url: publicado.url,
+      pathname: publicado.pathname || ""
+    };
 
-  // Dispara a impressão pelo contexto da página principal; evita <script> dentro do HTML gerado.
-  janelaImpressao.addEventListener("load", () => {
-    janelaImpressao.focus();
-    janelaImpressao.print();
-  }, { once: true });
+    const linkPDF = document.getElementById("link-pdf-orcamento");
+    if (linkPDF) {
+      linkPDF.href = publicado.url;
+      linkPDF.classList.remove("hidden");
+    }
+
+    if (status) status.textContent = "PDF pronto. Agora escolha com quem deseja falar.";
+
+    const modal = document.getElementById("modal-consultores");
+    modal?.classList.remove("hidden");
+    modal?.querySelector(".opcao-consultor")?.focus();
+  } catch (erro) {
+    console.error("Falha ao preparar orçamento:", erro);
+    ORCAMENTO_PENDENTE = null;
+    if (status) status.textContent = "Não foi possível criar o link do PDF. Tente novamente.";
+    alert(`Não foi possível preparar o PDF para envio.\n\n${erro.message || erro}`);
+  } finally {
+    if (botao) {
+      botao.disabled = false;
+      botao.classList.remove("carregando");
+      botao.textContent = textoOriginal;
+    }
+  }
+}
+
+function fecharSelecaoConsultor() {
+  document.getElementById("modal-consultores")?.classList.add("hidden");
+}
+
+function solicitarOrcamentoWhatsApp(chaveContato) {
+  const contato = CONTATOS_ORCAMENTO[chaveContato];
+  const favs = ORCAMENTO_PENDENTE?.favs || obterFavoritosAtualizados();
+  const urlPDF = ORCAMENTO_PENDENTE?.url || "";
+
+  if (!contato || !favs.length) return;
+  if (!urlPDF) {
+    alert("O PDF ainda não está pronto. Clique novamente em Solicitar orçamento.");
+    return;
+  }
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
+
+  const mensagem = montarMensagemOrcamento(favs, contato, urlPDF);
+  const url = `https://wa.me/${contato.telefone}?text=${encodeURIComponent(mensagem)}`;
+
+  fecharSelecaoConsultor();
+  const whatsapp = window.open(url, "_blank");
+  if (whatsapp) whatsapp.opener = null;
+  else window.location.href = url;
 }
 
 function configurarEventosFavoritos() {
@@ -2706,7 +3076,22 @@ function configurarEventosFavoritos() {
     drawer?.classList.add("hidden");
   });
 
+  document.getElementById("btn-solicitar-orcamento")?.addEventListener("click", abrirSelecaoConsultor);
   document.getElementById("btn-gerar-memorial")?.addEventListener("click", baixarMemorialPDF);
+
+  document.querySelectorAll("[data-fechar-consultores]").forEach(botao => {
+    botao.addEventListener("click", fecharSelecaoConsultor);
+  });
+
+  document.querySelectorAll("[data-consultor]").forEach(botao => {
+    botao.addEventListener("click", () => {
+      solicitarOrcamentoWhatsApp(botao.getAttribute("data-consultor"));
+    });
+  });
+
+  document.addEventListener("keydown", evento => {
+    if (evento.key === "Escape") fecharSelecaoConsultor();
+  });
 
   document.addEventListener("click", (e) => {
     const btnQtd = e.target.closest(".btn-qtd");

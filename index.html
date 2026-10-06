@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="application-name" content="Info Store | Catálogo Pro">
 <meta property="og:title" content="Info Store | Catálogo Pro">
 <meta name="apple-mobile-web-app-title" content="Info Store">
@@ -8,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="blocagem.css">
   <link rel="stylesheet" href="documentos-oficiais.css">
-  <link rel="stylesheet" href="tema-infostore.css">
+  <link rel="stylesheet" href="tema-infostore.css?v=20261006-4">
 </head>
 <body>
   <header class="topbar">
@@ -34,21 +36,24 @@
     <button type="button" class="menu-mobile" id="menuMobile" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </header>
 
+  <nav class="barra-segmentos" aria-label="Segmentos do portfólio">
+    <div id="navegacaoSegmentos" class="navegacao-segmentos"></div>
+  </nav>
+
   <main class="catalogo">
     <aside class="sidebar">
-      <div class="controle-filtros-mobile">
-        <span>Filtros do catálogo</span>
-        <button type="button" class="botao-filtro" id="botaoFiltros" aria-label="Abrir filtros" aria-expanded="true">☷</button>
+      <div class="cabecalho-explorar">
+        <h2>Explorar produtos</h2>
+        <button type="button" id="alternarFiltrosLateral" class="alternar-filtros" aria-controls="painelFiltros" aria-expanded="false">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18M8 3v6M16 9v6M10 15v6"/></svg>
+          <span class="alternar-filtros-rotulo">Filtros</span>
+        </button>
       </div>
 
-      <section class="painel-filtros" id="painelFiltros">
+      <section class="painel-filtros fechado" id="painelFiltros" hidden>
         <div class="grupo-filtro" id="grupoFabricantes">
           <h2>Fabricante</h2>
           <div id="filtrosFabricantes" class="opcoes-filtro"></div>
-        </div>
-        <div class="grupo-filtro" id="grupoSegmentos">
-          <h2>Segmento</h2>
-          <div id="filtrosSegmentos" class="opcoes-filtro"></div>
         </div>
         <button type="button" class="limpar-filtros" id="limparFiltros">↻ Limpar todos os filtros</button>
       </section>
@@ -122,10 +127,48 @@
   <aside id="drawer-favoritos" class="drawer-favoritos hidden">
     <div class="drawer-header"><h3>Seleção para Projeto</h3><button id="btn-fechar-favoritos" type="button">&times;</button></div>
     <div id="lista-favoritos" class="drawer-content"></div>
-    <div class="drawer-footer" id="drawer-footer" style="display: none;"><button id="btn-gerar-memorial" class="btn-gerar-pdf" type="button">↓ Baixar Lista de Interesse (PDF)</button></div>
+    <div class="drawer-footer" id="drawer-footer" style="display: none;">
+      <button id="btn-solicitar-orcamento" class="btn-gerar-pdf" type="button">Solicitar orçamento</button>
+      <button id="btn-gerar-memorial" class="btn-baixar-lista" type="button">↓ Baixar cópia do PDF</button>
+      <p id="status-orcamento" class="aviso-orcamento">O PDF será gerado automaticamente antes de escolher o atendimento.</p>
+    </div>
   </aside>
 
+  <div id="modal-consultores" class="modal-consultores hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-consultores">
+    <button class="modal-consultores-fundo" type="button" data-fechar-consultores aria-label="Fechar seleção de atendimento"></button>
+    <section class="modal-consultores-conteudo">
+      <div class="modal-consultores-cabecalho">
+        <div>
+          <span>ATENDIMENTO INFO STORE</span>
+          <h3 id="titulo-modal-consultores">Escolha com quem deseja falar</h3>
+          <p>Escolha o atendimento. O link do PDF será incluído automaticamente na mensagem.</p>
+          <a id="link-pdf-orcamento" class="link-pdf-orcamento hidden" href="#" target="_blank" rel="noopener">PDF pronto · visualizar ↗</a>
+        </div>
+        <button class="modal-consultores-fechar" type="button" data-fechar-consultores aria-label="Fechar">&times;</button>
+      </div>
+      <div class="lista-consultores">
+        <button class="opcao-consultor" type="button" data-consultor="adaires">
+          <span class="consultor-inicial">AS</span>
+          <span><strong>Adaires Souza</strong><small>Televendas e atendimento comercial</small></span>
+          <i aria-hidden="true">›</i>
+        </button>
+        <button class="opcao-consultor" type="button" data-consultor="marcelo">
+          <span class="consultor-inicial">MF</span>
+          <span><strong>Marcelo Filho</strong><small>Atendimento comercial presencial</small></span>
+          <i aria-hidden="true">›</i>
+        </button>
+        <button class="opcao-consultor" type="button" data-consultor="ana">
+          <span class="consultor-inicial">AS</span>
+          <span><strong>Ana Santos</strong><small>Suporte aos profissionais</small></span>
+          <i aria-hidden="true">›</i>
+        </button>
+      </div>
+    </section>
+  </div>
+
   <script src="blocagem.js?v=20261001-2"></script>
-  <script src="script.js?v=20261001-2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+  <script src="script.js?v=20261006-7"></script>
 </body>
 </html>

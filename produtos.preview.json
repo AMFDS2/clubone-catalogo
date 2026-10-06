@@ -22495,10 +22495,172 @@
       }
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
-    "documentos": [],
+    "documentos": [
+      {
+        "tipo": "manual",
+        "nome": "Manual do usuário",
+        "descricao": "Manual oficial do fabricante",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RS58T5561B1&CttFileID=11374581&CDCttType=UM&VPath=UM%2F202604%2F20260415030109106%2FOID48893-04_SBS_RS5300T_BPT_260312.pdf",
+        "fonte": "Samsung"
+      }
+    ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
     "revisaoPendente": false,
-    "medidasProjeto": {}
+    "medidasProjeto": {
+      "produto": {
+        "modelo": "RS58T5561B1/AZ",
+        "familia": "RS58T5561B1",
+        "marca": "Samsung",
+        "categoria": "Refrigerador Side by Side"
+      },
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "912 mm",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / Largura B",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "altura": {
+          "valor": "1780 mm",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / Altura geral D",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "profundidade": {
+          "valor": "726 mm",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / Profundidade A",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        }
+      },
+      "dimensoesNicho": {
+        "largura": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "altura": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "profundidade": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" }
+      },
+      "folgas": {
+        "superior": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "lateral": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "traseira": {
+          "valor": "superior a 50 mm",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / item 01",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "frontal": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" }
+      },
+      "abertura": {
+        "anguloPorta": {
+          "valor": "165° esquerda / 170° direita",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / itens 02 e 03",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "distanciaPortasAbertas": {
+          "valor": "1731 mm",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / item 06",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "distanciaGavetasEstendidas": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_APLICAVEL" }
+      },
+      "geometriaInstalacao": {
+        "larguraProduto": {
+          "valor": "912 mm",
+          "pagina": "18",
+          "referencia": "Largura B",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "alturaProduto": {
+          "valor": "1780 mm",
+          "pagina": "18",
+          "referencia": "Altura geral D",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "profundidadeTotalProduto": {
+          "valor": "726 mm",
+          "pagina": "18",
+          "referencia": "Profundidade A",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "profundidadeGabinete": {
+          "valor": "610 mm",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / item 07",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "larguraComPortasAbertas": {
+          "valor": "1731 mm",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / item 06",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "profundidadeComPortasAbertas": {
+          "valor": "1179 mm",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / item 08",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "profundidadeComGavetasEstendidas": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_APLICAVEL" },
+        "anguloAbertura": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_APLICAVEL" },
+        "anguloAberturaEsquerda": {
+          "valor": "165°",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / item 02",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "anguloAberturaDireita": {
+          "valor": "170°",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / item 03",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "afastamentoTraseiro": {
+          "valor": "superior a 50 mm",
+          "pagina": "18",
+          "referencia": "tabela Afastamento / item 01",
+          "status": "CONFIRMADO",
+          "fonte": "MANUAL_OFICIAL"
+        },
+        "folgaLateral": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "folgaLateralEsquerda": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "folgaLateralDireita": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "zeroClearance": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "avancoFrontal": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" }
+      },
+      "instalacao": {
+        "pontoEletrico": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "pontoAgua": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" },
+        "pontoGas": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_APLICAVEL" },
+        "dreno": { "valor": "", "pagina": "", "referencia": "", "status": "NAO_LOCALIZADO" }
+      },
+      "observacoes": [
+        "O manual oficial utiliza o modelo-base RS58T5561B1 para as variantes de tensão.",
+        "As portas possuem ângulos independentes: 165° à esquerda e 170° à direita.",
+        "As cotas 355 mm e 474 mm do manual correspondem às projeções laterais de abertura das portas."
+      ],
+      "fonte": {
+        "nome": "Manual do usuário Samsung",
+        "url": "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=RS58T5561B1&CttFileID=11374581&CDCttType=UM&VPath=UM%2F202604%2F20260415030109106%2FOID48893-04_SBS_RS5300T_BPT_260312.pdf",
+        "tipo": "MANUAL_E_CADASTRO_OFICIAL",
+        "paginaTecnica": "18"
+      },
+      "revisado": true
+    }
   },
   {
     "id": "rm90f66c1caz",
@@ -22764,11 +22926,12 @@
           "observacao": ""
         },
         "traseira": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "superior a 50 mm",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 01",
+          "status": "CONFIRMADO",
+          "observacao": "Afastamento mínimo indicado entre a parede e a traseira do produto.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "frontal": {
           "valor": "",
@@ -22780,18 +22943,20 @@
       },
       "abertura": {
         "anguloPorta": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "125°",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 02",
+          "status": "CONFIRMADO",
+          "observacao": "Ângulo máximo confirmado para as portas superiores.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "distanciaPortasAbertas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1498 mm",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 03",
+          "status": "CONFIRMADO",
+          "observacao": "Largura total necessária com as portas superiores abertas.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "distanciaGavetasEstendidas": {
           "valor": "",
@@ -22827,25 +22992,28 @@
           "fonte": "CADASTRO_OFICIAL"
         },
         "profundidadeGabinete": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "610 mm",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 05",
+          "status": "CONFIRMADO",
+          "observacao": "Profundidade do gabinete até o eixo das portas.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "larguraComPortasAbertas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1498 mm",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 03",
+          "status": "CONFIRMADO",
+          "observacao": "Envelope máximo das portas abertas.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "profundidadeComPortasAbertas": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "1093 mm",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 07",
+          "status": "CONFIRMADO",
+          "observacao": "Profundidade total necessária com as portas abertas.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "profundidadeComGavetasEstendidas": {
           "valor": "",
@@ -22855,32 +23023,36 @@
           "observacao": ""
         },
         "anguloAbertura": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "125°",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 02",
+          "status": "CONFIRMADO",
+          "observacao": "Ângulo máximo das portas superiores.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "anguloAberturaEsquerda": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "125°",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 02",
+          "status": "CONFIRMADO",
+          "observacao": "Porta superior esquerda.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "anguloAberturaDireita": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "125°",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 02",
+          "status": "CONFIRMADO",
+          "observacao": "Porta superior direita.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "afastamentoTraseiro": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "superior a 50 mm",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 01",
+          "status": "CONFIRMADO",
+          "observacao": "Afastamento mínimo em relação à parede traseira.",
+          "fonte": "MANUAL_OFICIAL"
         },
         "folgaLateral": {
           "valor": "",
@@ -22911,11 +23083,12 @@
           "observacao": ""
         },
         "avancoFrontal": {
-          "valor": "",
-          "pagina": "",
-          "referencia": "",
-          "status": "NAO_LOCALIZADO",
-          "observacao": ""
+          "valor": "55 mm",
+          "pagina": "23",
+          "referencia": "RM**F67* / RM**F66* / item 06",
+          "status": "CONFIRMADO",
+          "observacao": "Avanço frontal entre o gabinete e a face das portas.",
+          "fonte": "MANUAL_OFICIAL"
         }
       },
       "instalacao": {
