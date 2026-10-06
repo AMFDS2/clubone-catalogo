@@ -2805,108 +2805,208 @@ function renderDrawerFavoritos(favs) {
   `).join("");
 }
 
-function criarPDFOrcamento(favs = []) {
-  if (!window.jspdf?.jsPDF) {
-    throw new Error("Biblioteca de PDF não carregada.");
+function truncarTextoCanvas(ctx, texto = "", larguraMax = 400) {
+  let valor = String(texto || "");
+  if (ctx.measureText(valor).width <= larguraMax) return valor;
+  while (valor.length > 1 && ctx.measureText(`${valor}…`).width > larguraMax) {
+    valor = valor.slice(0, -1);
   }
-
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
-
-  const totalPecas = favs.reduce(
-    (soma, item) => soma + Math.max(1, Number(item.quantidade) || 1),
-    0
-  );
-
-  const dataAtual = new Date().toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric"
-  });
-
-  doc.setFillColor(13, 31, 77);
-  doc.rect(0, 0, 210, 30, "F");
-  doc.setFillColor(229, 38, 51);
-  doc.rect(0, 29, 210, 1, "F");
-
-  doc.setTextColor(255, 255, 255);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(15);
-  doc.text("INFO STORE", 14, 14);
-  doc.setFontSize(8);
-  doc.setFont("helvetica", "normal");
-  doc.text("CATÁLOGO PARA PROJETOS", 14, 21);
-  doc.text(`Emitido em ${dataAtual}`, 196, 17, { align: "right" });
-
-  doc.setTextColor(18, 24, 38);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(16);
-  doc.text("Lista de interesse", 14, 43);
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(9);
-  doc.setTextColor(95, 103, 118);
-  doc.text("Itens selecionados para levantamento comercial e orçamentário.", 14, 50);
-
-  const corpo = favs.map(item => [
-    item.nome || "Produto",
-    item.fabricante || item.marca || "-",
-    item.modelo || "-",
-    item.codigo || item.codigoInfo || "-",
-    String(Math.max(1, Number(item.quantidade) || 1))
-  ]);
-
-  doc.autoTable({
-    startY: 58,
-    head: [["Produto", "Fabricante", "Modelo", "Código", "Qtd"]],
-    body: corpo,
-    theme: "grid",
-    styles: {
-      font: "helvetica",
-      fontSize: 7.5,
-      cellPadding: 2.6,
-      textColor: [32, 32, 30],
-      lineColor: [225, 229, 238],
-      lineWidth: 0.2,
-      valign: "middle"
-    },
-    headStyles: {
-      fillColor: [238, 243, 253],
-      textColor: [20, 43, 99],
-      fontStyle: "bold",
-      fontSize: 7
-    },
-    columnStyles: {
-      0: { cellWidth: 75 },
-      1: { cellWidth: 31 },
-      2: { cellWidth: 28 },
-      3: { cellWidth: 27 },
-      4: { cellWidth: 12, halign: "center" }
-    },
-    margin: { left: 14, right: 14 },
-    didDrawPage: () => {
-      const pagina = doc.internal.getCurrentPageInfo().pageNumber;
-      doc.setFontSize(7);
-      doc.setTextColor(130, 136, 148);
-      doc.text(`Catálogo Info Store · página ${pagina}`, 14, 291);
-    }
-  });
-
-  const yFinal = Math.min((doc.lastAutoTable?.finalY || 58) + 10, 276);
-  doc.setDrawColor(225, 229, 238);
-  doc.line(14, yFinal, 196, yFinal);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(9);
-  doc.setTextColor(20, 43, 99);
-  doc.text(
-    `Total: ${favs.length} ${favs.length === 1 ? "item" : "itens"} · ${totalPecas} ${totalPecas === 1 ? "peça" : "peças"}`,
-    196,
-    yFinal + 7,
-    { align: "right" }
-  );
-
-  return doc.output("blob");
+  return `${valor}…`;
 }
 
+function canvasParaJPEG(canvas, qualidade = 0.88) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(blob => {
+      if (!blob) return reject(new Error("Falha ao preparar uma página do PDF."));
+      blob.arrayBuffer()
+        .then(buffer => resolve(new Uint8Array(buffer)))
+        .catch(reject);
+    }, "image/jpeg", qualidade);
+  });
+}
+
+function asciiBytes(texto = "") {
+  return new TextEncoder().encode(String(texto));
+}
+
+function concatenarBytes(partes = []) {
+  const tamanho = partes.reduce((soma, parte) => soma + parte.length, 0);
+  const saida = new Uint8Array(tamanho);
+  let offset = 0;
+  for (const parte of partes) {
+    saida.set(parte, offset);
+    offset += parte.length;
+  }
+  return saida;
+}
+
+function montarPDFComJPEGs(paginas = [], larguraImagem = 1240, alturaImagem = 1754) {
+  if (!paginas.length) throw new Error("Nenhuma página foi criada para o PDF.");
+
+  const totalObjetos = 2 + paginas.length * 3;
+  const objetos = new Array(totalObjetos + 1);
+  const idsPaginas = [];
+
+  objetos[1] = asciiBytes("<< /Type /Catalog /Pages 2 0 R >>");
+
+  paginas.forEach((jpeg, indice) => {
+    const pageId = 3 + indice * 3;
+    const imageId = pageId + 1;
+    const contentId = pageId + 2;
+    const nomeImagem = `Im${indice + 1}`;
+    idsPaginas.push(`${pageId} 0 R`);
+
+    const imageHeader = asciiBytes(
+      `<< /Type /XObject /Subtype /Image /Width ${larguraImagem} /Height ${alturaImagem} ` +
+      `/ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpeg.length} >>\nstream\n`
+    );
+    const imageFooter = asciiBytes("\nendstream");
+    objetos[imageId] = concatenarBytes([imageHeader, jpeg, imageFooter]);
+
+    const comando = `q\n595.28 0 0 841.89 0 0 cm\n/${nomeImagem} Do\nQ\n`;
+    const comandoBytes = asciiBytes(comando);
+    objetos[contentId] = asciiBytes(`<< /Length ${comandoBytes.length} >>\nstream\n${comando}endstream`);
+
+    objetos[pageId] = asciiBytes(
+      `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] ` +
+      `/Resources << /XObject << /${nomeImagem} ${imageId} 0 R >> >> ` +
+      `/Contents ${contentId} 0 R >>`
+    );
+  });
+
+  objetos[2] = asciiBytes(
+    `<< /Type /Pages /Kids [${idsPaginas.join(" ")}] /Count ${paginas.length} >>`
+  );
+
+  const cabecalho = asciiBytes("%PDF-1.4\n%\xFF\xFF\xFF\xFF\n");
+  const partes = [cabecalho];
+  const offsets = new Array(totalObjetos + 1).fill(0);
+  let posicao = cabecalho.length;
+
+  for (let id = 1; id <= totalObjetos; id++) {
+    offsets[id] = posicao;
+    const inicio = asciiBytes(`${id} 0 obj\n`);
+    const fim = asciiBytes("\nendobj\n");
+    partes.push(inicio, objetos[id], fim);
+    posicao += inicio.length + objetos[id].length + fim.length;
+  }
+
+  const xrefOffset = posicao;
+  let xref = `xref\n0 ${totalObjetos + 1}\n0000000000 65535 f \n`;
+  for (let id = 1; id <= totalObjetos; id++) {
+    xref += `${String(offsets[id]).padStart(10, "0")} 00000 n \n`;
+  }
+  xref += `trailer\n<< /Size ${totalObjetos + 1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
+  partes.push(asciiBytes(xref));
+
+  return new Blob(partes, { type: "application/pdf" });
+}
+
+async function criarPDFOrcamento(favs = []) {
+  if (!favs.length) throw new Error("Nenhum item selecionado para o orçamento.");
+
+  const LARGURA = 1240;
+  const ALTURA = 1754;
+  const MARGEM = 84;
+  const LINHA = 78;
+  const INICIO_TABELA = 340;
+  const RODAPE = 145;
+  const linhasPorPagina = Math.max(1, Math.floor((ALTURA - INICIO_TABELA - RODAPE) / LINHA));
+  const totalPaginas = Math.ceil(favs.length / linhasPorPagina);
+  const paginasJPEG = [];
+  const totalPecas = favs.reduce((soma, item) => soma + Math.max(1, Number(item.quantidade) || 1), 0);
+  const dataAtual = new Date().toLocaleDateString("pt-BR");
+
+  for (let pagina = 0; pagina < totalPaginas; pagina++) {
+    const canvas = document.createElement("canvas");
+    canvas.width = LARGURA;
+    canvas.height = ALTURA;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("O navegador não conseguiu preparar o PDF.");
+
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, LARGURA, ALTURA);
+
+    ctx.fillStyle = "#132f69";
+    ctx.fillRect(0, 0, LARGURA, 190);
+    ctx.fillStyle = "#e12633";
+    ctx.fillRect(0, 186, LARGURA, 4);
+
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "700 38px Arial, sans-serif";
+    ctx.fillText("INFO STORE", MARGEM, 78);
+    ctx.font = "400 20px Arial, sans-serif";
+    ctx.fillText("CATÁLOGO PARA PROJETOS", MARGEM, 118);
+    ctx.textAlign = "right";
+    ctx.fillText(`Emitido em ${dataAtual}`, LARGURA - MARGEM, 100);
+    ctx.textAlign = "left";
+
+    ctx.fillStyle = "#132f69";
+    ctx.font = "700 34px Arial, sans-serif";
+    ctx.fillText("Lista de interesse", MARGEM, 255);
+    ctx.fillStyle = "#667085";
+    ctx.font = "400 18px Arial, sans-serif";
+    ctx.fillText("Itens selecionados para levantamento comercial e orçamentário.", MARGEM, 292);
+
+    const colProduto = MARGEM;
+    const colMarca = 610;
+    const colModelo = 790;
+    const colCodigo = 955;
+    const colQtd = 1135;
+
+    ctx.fillStyle = "#eef3fd";
+    ctx.fillRect(MARGEM, INICIO_TABELA - 50, LARGURA - MARGEM * 2, 50);
+    ctx.fillStyle = "#142b63";
+    ctx.font = "700 16px Arial, sans-serif";
+    ctx.fillText("PRODUTO", colProduto, INICIO_TABELA - 18);
+    ctx.fillText("FABRICANTE", colMarca, INICIO_TABELA - 18);
+    ctx.fillText("MODELO", colModelo, INICIO_TABELA - 18);
+    ctx.fillText("CÓDIGO", colCodigo, INICIO_TABELA - 18);
+    ctx.fillText("QTD", colQtd, INICIO_TABELA - 18);
+
+    const inicio = pagina * linhasPorPagina;
+    const itensPagina = favs.slice(inicio, inicio + linhasPorPagina);
+
+    itensPagina.forEach((item, i) => {
+      const y = INICIO_TABELA + i * LINHA;
+      ctx.strokeStyle = "#e1e5ee";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(MARGEM, y + LINHA - 8);
+      ctx.lineTo(LARGURA - MARGEM, y + LINHA - 8);
+      ctx.stroke();
+
+      ctx.fillStyle = "#202020";
+      ctx.font = "600 16px Arial, sans-serif";
+      ctx.fillText(truncarTextoCanvas(ctx, item.nome || "Produto", 490), colProduto, y + 30);
+      ctx.font = "400 15px Arial, sans-serif";
+      ctx.fillStyle = "#505765";
+      ctx.fillText(truncarTextoCanvas(ctx, item.fabricante || item.marca || "-", 155), colMarca, y + 30);
+      ctx.fillText(truncarTextoCanvas(ctx, item.modelo || "-", 140), colModelo, y + 30);
+      ctx.fillText(truncarTextoCanvas(ctx, item.codigo || item.codigoInfo || "-", 145), colCodigo, y + 30);
+      ctx.fillStyle = "#132f69";
+      ctx.font = "700 16px Arial, sans-serif";
+      ctx.fillText(String(Math.max(1, Number(item.quantidade) || 1)), colQtd, y + 30);
+    });
+
+    ctx.fillStyle = "#132f69";
+    ctx.font = "700 19px Arial, sans-serif";
+    ctx.textAlign = "right";
+    ctx.fillText(
+      `Total: ${favs.length} ${favs.length === 1 ? "item" : "itens"} · ${totalPecas} ${totalPecas === 1 ? "peça" : "peças"}`,
+      LARGURA - MARGEM,
+      ALTURA - 86
+    );
+    ctx.fillStyle = "#888f9e";
+    ctx.font = "400 14px Arial, sans-serif";
+    ctx.fillText(`Catálogo Info Store · página ${pagina + 1} de ${totalPaginas}`, LARGURA - MARGEM, ALTURA - 48);
+    ctx.textAlign = "left";
+
+    paginasJPEG.push(await canvasParaJPEG(canvas));
+  }
+
+  return montarPDFComJPEGs(paginasJPEG, LARGURA, ALTURA);
+}
 function baixarBlob(blob, nomeArquivo = "lista-interesse-info-store.pdf") {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
@@ -2923,7 +3023,7 @@ async function baixarMemorialPDF() {
   if (!favs.length) return;
 
   try {
-    const blob = criarPDFOrcamento(favs);
+    const blob = await criarPDFOrcamento(favs);
     baixarBlob(blob);
   } catch (erro) {
     console.error("Falha ao gerar PDF:", erro);
@@ -3004,7 +3104,7 @@ async function abrirSelecaoConsultor() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(favs));
 
-    const blob = criarPDFOrcamento(favs);
+    const blob = await criarPDFOrcamento(favs);
     const publicado = await publicarPDFOrcamento(blob);
 
     ORCAMENTO_PENDENTE = {
@@ -3077,7 +3177,6 @@ function configurarEventosFavoritos() {
   });
 
   document.getElementById("btn-solicitar-orcamento")?.addEventListener("click", abrirSelecaoConsultor);
-  document.getElementById("btn-gerar-memorial")?.addEventListener("click", baixarMemorialPDF);
 
   document.querySelectorAll("[data-fechar-consultores]").forEach(botao => {
     botao.addEventListener("click", fecharSelecaoConsultor);
