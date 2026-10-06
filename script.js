@@ -887,7 +887,12 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
   const camposValidacao = [
     ...Object.values(dados.dimensoesProduto || {}), ...Object.values(dados.dimensoesNicho || {}),
     ...Object.values(dados.folgas || {}), ...Object.values(dados.abertura || {}),
-    ...Object.values(dados.geometriaInstalacao || {}), ...Object.values(dados.instalacao || {})
+    ...Object.values(dados.geometriaInstalacao || {}), ...Object.values(dados.instalacao || {}),
+    ...Object.values(dados["dimensoes Fisicas"] || dados.dimensoesFisicas || {}),
+    ...Object.values(dados.nichoInstalacao || {}),
+    ...Object.values(dados.espacosFolgas || {}),
+    ...Object.values(dados.folgasEVentilacao || {}),
+    ...Object.values(dados.instalacaoEletrica || {})
   ].filter(campo => campo && typeof campo === "object" && campo.status);
   const contagemCalculada = camposValidacao.reduce((acc, campo) => {
     acc[campo.status] = (acc[campo.status] || 0) + 1;
@@ -899,7 +904,10 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
     percentualConfirmado: aplicaveis ? Math.round((contagemCalculada.CONFIRMADO / aplicaveis) * 100) : 0,
     contagem: contagemCalculada
   };
-  const validacao = dados.validacao || validacaoCalculada;
+  const confirmadosOriginais = Number(dados.validacao?.contagem?.CONFIRMADO || 0);
+  const validacao = contagemCalculada.CONFIRMADO > confirmadosOriginais
+    ? validacaoCalculada
+    : (dados.validacao || validacaoCalculada);
   const contagem = validacao.contagem || {};
   const validacaoTexto = validacao.status === "APROVADO_PARA_DESENHO"
     ? "Cotas confirmadas liberadas para o desenho"
@@ -1020,8 +1028,714 @@ function criarVistasTecnicasGenericas(produto = {}, dados = {}) {
   </div>`;
 }
 
+function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") {
+  const dimensoes = obterDimensoesConfirmadasProduto(produto);
+  const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
+  const nichoAtual = dados.dimensoesNicho || {};
+  const nichoLegado = dados.nichoInstalacao || {};
+  const folgasAtuais = dados.folgas || {};
+  const folgasLegadas = dados.folgasEVentilacao || dados.espacosFolgas || {};
+  const sufixo = String(produto.modelo || tipo).replace(/[^a-z0-9]/gi, "").slice(0, 18) || tipo;
+
+  function campoConfirmado(...campos) {
+    return campos.find(campo => {
+      if (!campo) return false;
+      if (typeof campo !== "object") return String(campo).trim();
+      const status = String(campo.status || "").toUpperCase();
+      return campo.valor && (!status || status === "CONFIRMADO" || status === "MANUAL_VALIDADO");
+    });
+  }
+
+  function valor(...campos) {
+    const campo = campoConfirmado(...campos);
+    if (!campo) return "";
+    if (typeof campo !== "object") return String(campo).trim();
+    const bruto = String(campo.valor || "").trim();
+    return campo.unidade && !/[a-zA-Z²°]/.test(bruto) ? `${bruto} ${campo.unidade}` : bruto;
+  }
+
+  function pagina(...campos) {
+    const campo = campoConfirmado(...campos);
+    if (!campo || typeof campo !== "object") return "";
+    if (campo.fonte === "CADASTRO_OFICIAL" || campo.pagina === "Fonte oficial") return "Ficha oficial";
+    return campo.pagina ? `Manual • pág. ${campo.pagina}` : "Cota confirmada";
+  }
+
+  const largura = valor(dimensoes.largura);
+  const altura = valor(dimensoes.altura);
+  const profundidade = valor(dimensoes.profundidade);
+  const larguraNicho = valor(nichoAtual.largura, nichoLegado.larguraNichoMinima, nichoLegado.larguraNichoRecomendada);
+  const alturaNichoMin = valor(nichoAtual.altura, nichoLegado.alturaNichoMinima, nichoLegado.alturaNichoRecomendada);
+  const alturaNichoMax = valor(nichoLegado.alturaNichoMaxima);
+  const profundidadeNicho = valor(nichoAtual.profundidade, nichoLegado.profundidadeNichoMinima, nichoLegado.profundidadeNichoRecomendada);
+  const folgaSuperior = valor(folgasAtuais.superior, folgasLegadas.folgaSuperior);
+  const folgaEsquerda = valor(folgasLegadas.folgaLateralEsquerda);
+  const folgaDireita = valor(folgasLegadas.folgaLateralDireita);
+  const folgaLateral = valor(folgasAtuais.lateral, folgaEsquerda, folgaDireita);
+  const folgaTraseira = valor(folgasAtuais.traseira, folgasLegadas.afastamentoTraseiro);
+
+  const origemDimensoes = pagina(dimensoes.largura, dimensoes.altura, dimensoes.profundidade);
+  const origemNicho = pagina(
+    nichoAtual.largura,
+    nichoLegado.larguraNichoMinima,
+    nichoAtual.altura,
+    nichoLegado.alturaNichoMinima,
+    nichoAtual.profundidade,
+    nichoLegado.profundidadeNichoMinima
+  );
+
+  const cabecalho = (titulo, subtitulo, origem = origemDimensoes) => `
+    <div class="vista-projeto-titulo">
+      <div><strong>${titulo}</strong><span>${subtitulo}</span></div>
+      <small>${escaparHTML(origem || "Cota não localizada")}</small>
+    </div>`;
+
+  const indisponivel = eixo => `<div class="vista-indisponivel"><span>—</span><strong>Vista ${eixo} aguardando cotas</strong><p>O desenho será liberado quando os dois eixos estiverem confirmados.</p></div>`;
+  const definicoes = nome => `<defs>
+    <marker id="seta-${sufixo}-${nome}" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker>
+    <style>
+      .produto-frontal circle,.produto-frontal ellipse{fill:#f6f3ed;stroke:#292824;stroke-width:1.8}
+      .produto-frontal path{fill:none;stroke:#292824;stroke-width:1.8;stroke-linejoin:round}
+    </style>
+  </defs>`;
+
+  function cotas(x1, x2, y1, y2, valorX, valorY, nome, rotuloX, rotuloY) {
+    const seta = `url(#seta-${sufixo}-${nome})`;
+    return `
+      <line class="cota-tecnica" x1="${x1}" y1="338" x2="${x2}" y2="338" marker-start="${seta}" marker-end="${seta}"></line>
+      <text class="cota-valor" x="${(x1 + x2) / 2}" y="366">${escaparHTML(valorX)}</text>
+      <text class="cota-legenda" x="${(x1 + x2) / 2}" y="388">${escaparHTML(rotuloX)}</text>
+      <line class="cota-tecnica" x1="112" y1="${y1}" x2="112" y2="${y2}" marker-start="${seta}" marker-end="${seta}"></line>
+      <text class="cota-valor" x="79" y="${(y1 + y2) / 2}" transform="rotate(-90 79 ${(y1 + y2) / 2})">${escaparHTML(valorY)}</text>
+      <text class="cota-legenda" x="79" y="${y2 + 24}">${escaparHTML(rotuloY)}</text>`;
+  }
+
+  function notaTecnica(texto) {
+    return texto ? `<text class="cota-legenda" x="260" y="404">${escaparHTML(texto)}</text>` : "";
+  }
+
+  function vistaForno(posicao) {
+    if (posicao === "frontal" && largura && altura) {
+      const notaNicho = larguraNicho && alturaNichoMin
+        ? `Nicho: ${larguraNicho} × ${alturaNichoMin}${alturaNichoMax ? `–${alturaNichoMax}` : ""}${profundidadeNicho ? ` × mín. ${profundidadeNicho}` : ""}`
+        : "";
+      return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do forno de embutir">
+        ${definicoes("forno-frontal")}
+        ${larguraNicho && alturaNichoMin ? `<g class="nicho-tecnico"><path d="M137 52H383V316H137Z"></path></g><text class="nota-nicho" x="260" y="40">NICHO / MARCENARIA</text>` : ""}
+        <g class="produto-frontal">
+          <rect x="150" y="66" width="220" height="238" rx="2"></rect>
+          <line x1="150" y1="116" x2="370" y2="116"></line>
+          <circle cx="181" cy="91" r="8"></circle><circle cx="339" cy="91" r="8"></circle>
+          <rect x="229" y="82" width="62" height="18" rx="2"></rect>
+          <line x1="180" y1="139" x2="340" y2="139"></line>
+          <rect x="179" y="157" width="162" height="123" rx="3"></rect>
+          <line x1="188" y1="289" x2="332" y2="289"></line>
+        </g>
+        ${cotas(150, 370, 66, 304, largura, altura, "forno-frontal", "largura externa", "altura externa")}
+        ${notaTecnica(notaNicho)}
+      </svg>`;
+    }
+    if (posicao === "lateral" && profundidade && altura) {
+      return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do forno de embutir">
+        ${definicoes("forno-lateral")}
+        <g class="produto-frontal">
+          <rect x="165" y="66" width="190" height="238" rx="2"></rect>
+          <rect x="148" y="60" width="18" height="250" rx="2"></rect>
+          <line x1="148" y1="116" x2="355" y2="116"></line>
+          <line x1="137" y1="140" x2="165" y2="140"></line>
+          <path d="M355 88h13v188h-13" fill="none"></path>
+        </g>
+        ${cotas(148, 368, 60, 310, profundidade, altura, "forno-lateral", "profundidade total", "altura externa")}
+        ${profundidadeNicho ? notaTecnica(`Profundidade mínima do nicho: ${profundidadeNicho}`) : ""}
+      </svg>`;
+    }
+    if (posicao === "superior" && largura && profundidade) {
+      return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do forno de embutir">
+        ${definicoes("forno-superior")}
+        <g class="produto-frontal">
+          <rect x="150" y="72" width="220" height="228" rx="2"></rect>
+          <rect x="142" y="286" width="236" height="16" rx="2"></rect>
+          <line x1="164" y1="94" x2="356" y2="94"></line>
+          <line x1="164" y1="278" x2="356" y2="278"></line>
+        </g>
+        ${cotas(142, 378, 72, 302, largura, profundidade, "forno-superior", "largura externa", "profundidade total")}
+        ${folgaSuperior ? notaTecnica(`Ventilação confirmada no manual: ${folgaSuperior}`) : ""}
+      </svg>`;
+    }
+    return indisponivel(posicao);
+  }
+
+  function vistaFogao(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do fogão">
+      ${definicoes("fogao-frontal")}
+      <g class="produto-frontal">
+        <rect x="153" y="77" width="214" height="224" rx="3"></rect>
+        <path d="M153 77L175 58H345L367 77" fill="none"></path>
+        <rect x="160" y="82" width="200" height="45" rx="2"></rect>
+        <circle cx="184" cy="104" r="7"></circle><circle cx="222" cy="104" r="7"></circle><circle cx="260" cy="104" r="7"></circle><circle cx="298" cy="104" r="7"></circle><circle cx="336" cy="104" r="7"></circle>
+        <line x1="178" y1="146" x2="342" y2="146"></line>
+        <rect x="179" y="161" width="162" height="106" rx="4"></rect>
+        <line x1="167" y1="281" x2="353" y2="281"></line>
+        <line x1="174" y1="301" x2="174" y2="313"></line><line x1="346" y1="301" x2="346" y2="313"></line>
+      </g>
+      ${cotas(153, 367, 58, 313, largura, altura, "fogao-frontal", "largura externa", "altura total")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do fogão">
+      ${definicoes("fogao-lateral")}
+      <g class="produto-frontal">
+        <rect x="152" y="94" width="216" height="207" rx="3"></rect>
+        <path d="M152 94L171 77H368V103H152" fill="none"></path>
+        <path d="M344 77V49H368V94" fill="none"></path>
+        <line x1="152" y1="133" x2="368" y2="133"></line>
+        <line x1="172" y1="151" x2="351" y2="151"></line>
+        <rect x="169" y="167" width="180" height="100" rx="3"></rect>
+        <line x1="172" y1="301" x2="172" y2="313"></line><line x1="348" y1="301" x2="348" y2="313"></line>
+      </g>
+      ${cotas(152, 368, 49, 313, profundidade, altura, "fogao-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do fogão com cinco queimadores">
+      ${definicoes("fogao-superior")}
+      <g class="produto-frontal">
+        <rect x="151" y="67" width="218" height="238" rx="3"></rect>
+        <circle cx="196" cy="116" r="22"></circle><circle cx="324" cy="116" r="22"></circle>
+        <circle cx="260" cy="181" r="29"></circle>
+        <circle cx="196" cy="250" r="18"></circle><circle cx="324" cy="250" r="18"></circle>
+        <line x1="151" y1="282" x2="369" y2="282"></line>
+      </g>
+      ${cotas(151, 369, 67, 305, largura, profundidade, "fogao-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaCervejeira(posicao) {
+    const notaFolgas = [folgaSuperior && `superior ${folgaSuperior}`, folgaLateral && `laterais ${folgaLateral}`, folgaTraseira && `traseira ${folgaTraseira}`].filter(Boolean).join(" • ");
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica da cervejeira">
+      ${definicoes("cervejeira-frontal")}
+      <g class="produto-frontal">
+        <rect x="171" y="51" width="178" height="259" rx="5"></rect>
+        <rect x="184" y="70" width="152" height="203" rx="3"></rect>
+        <line x1="198" y1="108" x2="322" y2="108"></line><line x1="198" y1="145" x2="322" y2="145"></line><line x1="198" y1="182" x2="322" y2="182"></line><line x1="198" y1="219" x2="322" y2="219"></line>
+        <line x1="322" y1="83" x2="322" y2="157"></line>
+        <line x1="184" y1="287" x2="336" y2="287"></line><line x1="190" y1="294" x2="330" y2="294"></line>
+      </g>
+      ${cotas(171, 349, 51, 310, largura, altura, "cervejeira-frontal", "largura externa", "altura total")}
+      ${notaTecnica(notaFolgas ? `Folgas mínimas: ${notaFolgas}` : "")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica da cervejeira">
+      ${definicoes("cervejeira-lateral")}
+      <g class="produto-frontal">
+        <rect x="165" y="51" width="190" height="259" rx="4"></rect>
+        <rect x="151" y="58" width="14" height="245" rx="2"></rect>
+        <line x1="144" y1="88" x2="151" y2="88"></line><line x1="144" y1="88" x2="144" y2="162"></line>
+        <path d="M355 62h9v232h-9" fill="none"></path>
+        <line x1="178" y1="287" x2="344" y2="287"></line>
+      </g>
+      ${cotas(144, 364, 51, 310, profundidade, altura, "cervejeira-lateral", "profundidade total", "altura total")}
+      ${folgaTraseira ? notaTecnica(`Afastamento traseiro mínimo: ${folgaTraseira}`) : ""}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica da cervejeira">
+      ${definicoes("cervejeira-superior")}
+      <g class="produto-frontal">
+        <rect x="170" y="69" width="180" height="232" rx="4"></rect>
+        <rect x="163" y="288" width="194" height="14" rx="2"></rect>
+        <line x1="184" y1="89" x2="336" y2="89"></line>
+      </g>
+      ${cotas(163, 357, 69, 302, largura, profundidade, "cervejeira-superior", "largura externa", "profundidade total")}
+      ${folgaLateral ? notaTecnica(`Folga lateral mínima confirmada: ${folgaLateral}`) : ""}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaFrigobar(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do frigobar">
+      ${definicoes("frigobar-frontal")}
+      <g class="produto-frontal">
+        <rect x="172" y="58" width="176" height="250" rx="7"></rect>
+        <line x1="172" y1="105" x2="348" y2="105"></line>
+        <line x1="331" y1="78" x2="331" y2="142"></line>
+        <line x1="184" y1="287" x2="336" y2="287"></line>
+        <line x1="188" y1="308" x2="188" y2="316"></line><line x1="332" y1="308" x2="332" y2="316"></line>
+      </g>
+      ${cotas(172, 348, 58, 316, largura, altura, "frigobar-frontal", "largura externa", "altura total")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do frigobar">
+      ${definicoes("frigobar-lateral")}
+      <g class="produto-frontal">
+        <rect x="169" y="58" width="186" height="250" rx="6"></rect>
+        <rect x="154" y="65" width="15" height="236" rx="3"></rect>
+        <line x1="145" y1="87" x2="154" y2="87"></line><line x1="145" y1="87" x2="145" y2="151"></line>
+        <line x1="181" y1="287" x2="343" y2="287"></line>
+        <line x1="185" y1="308" x2="185" y2="316"></line><line x1="339" y1="308" x2="339" y2="316"></line>
+      </g>
+      ${cotas(145, 355, 58, 316, profundidade, altura, "frigobar-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do frigobar">
+      ${definicoes("frigobar-superior")}
+      <g class="produto-frontal">
+        <rect x="171" y="68" width="178" height="234" rx="5"></rect>
+        <rect x="164" y="288" width="192" height="14" rx="2"></rect>
+        <line x1="184" y1="88" x2="336" y2="88"></line>
+      </g>
+      ${cotas(164, 356, 68, 302, largura, profundidade, "frigobar-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaLavaLoucas(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica da lava-louças">
+      ${definicoes("lava-loucas-frontal")}
+      <g class="produto-frontal">
+        <rect x="158" y="58" width="204" height="250" rx="3"></rect>
+        <rect x="158" y="58" width="204" height="43" rx="3"></rect>
+        <rect x="176" y="72" width="58" height="13" rx="2"></rect>
+        <circle cx="324" cy="79" r="6"></circle><circle cx="343" cy="79" r="4"></circle>
+        <line x1="184" y1="116" x2="336" y2="116"></line>
+        <rect x="174" y="130" width="172" height="137" rx="3"></rect>
+        <line x1="170" y1="283" x2="350" y2="283"></line>
+        <rect x="174" y="289" width="172" height="19" rx="1"></rect>
+      </g>
+      ${cotas(158, 362, 58, 308, largura, altura, "lava-loucas-frontal", "largura externa", "altura total")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica da lava-louças">
+      ${definicoes("lava-loucas-lateral")}
+      <g class="produto-frontal">
+        <rect x="158" y="58" width="204" height="250" rx="3"></rect>
+        <rect x="146" y="60" width="12" height="246" rx="2"></rect>
+        <line x1="146" y1="101" x2="362" y2="101"></line>
+        <line x1="172" y1="283" x2="348" y2="283"></line>
+        <path d="M362 77h10v210h-10" fill="none"></path>
+      </g>
+      ${cotas(146, 372, 58, 308, profundidade, altura, "lava-loucas-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica da lava-louças">
+      ${definicoes("lava-loucas-superior")}
+      <g class="produto-frontal">
+        <rect x="158" y="69" width="204" height="233" rx="3"></rect>
+        <rect x="150" y="286" width="220" height="16" rx="2"></rect>
+        <line x1="173" y1="91" x2="347" y2="91"></line>
+      </g>
+      ${cotas(150, 370, 69, 302, largura, profundidade, "lava-loucas-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaLavadora(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica da lavadora">
+      ${definicoes("lavadora-frontal")}
+      <g class="produto-frontal">
+        <rect x="162" y="54" width="196" height="255" rx="8"></rect>
+        <path d="M162 98L177 54H343L358 98" fill="none"></path>
+        <rect x="181" y="66" width="88" height="20" rx="3"></rect>
+        <circle cx="314" cy="76" r="11"></circle><circle cx="341" cy="76" r="5"></circle>
+        <line x1="172" y1="108" x2="348" y2="108"></line>
+        <path d="M186 124Q260 146 334 124V273Q260 290 186 273Z" fill="none"></path>
+        <line x1="178" y1="291" x2="342" y2="291"></line>
+      </g>
+      ${cotas(162, 358, 54, 309, largura, altura, "lavadora-frontal", "largura externa", "altura total")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica da lavadora">
+      ${definicoes("lavadora-lateral")}
+      <g class="produto-frontal">
+        <rect x="157" y="54" width="206" height="255" rx="8"></rect>
+        <path d="M157 98L178 54H346L363 98" fill="none"></path>
+        <line x1="178" y1="73" x2="346" y2="73"></line>
+        <line x1="170" y1="108" x2="350" y2="108"></line>
+        <path d="M363 86h10v191h-10" fill="none"></path>
+        <line x1="178" y1="291" x2="344" y2="291"></line>
+      </g>
+      ${cotas(157, 373, 54, 309, profundidade, altura, "lavadora-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica da lavadora com tampa">
+      ${definicoes("lavadora-superior")}
+      <g class="produto-frontal">
+        <rect x="160" y="67" width="200" height="237" rx="7"></rect>
+        <rect x="179" y="94" width="162" height="153" rx="8"></rect>
+        <ellipse cx="260" cy="169" rx="65" ry="58"></ellipse>
+        <rect x="181" y="261" width="91" height="22" rx="3"></rect>
+        <circle cx="316" cy="272" r="11"></circle>
+      </g>
+      ${cotas(160, 360, 67, 304, largura, profundidade, "lavadora-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaMicroondas(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do micro-ondas">
+      ${definicoes("microondas-frontal")}
+      <g class="produto-frontal">
+        <rect x="135" y="91" width="250" height="188" rx="5"></rect>
+        <rect x="151" y="108" width="166" height="143" rx="4"></rect>
+        <rect x="330" y="110" width="39" height="25" rx="2"></rect>
+        <circle cx="349" cy="158" r="6"></circle><circle cx="349" cy="181" r="6"></circle><circle cx="349" cy="204" r="6"></circle>
+        <rect x="338" y="225" width="22" height="18" rx="2"></rect>
+        <line x1="306" y1="119" x2="306" y2="238"></line>
+      </g>
+      ${cotas(135, 385, 91, 279, largura, altura, "microondas-frontal", "largura externa", "altura externa")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do micro-ondas">
+      ${definicoes("microondas-lateral")}
+      <g class="produto-frontal">
+        <rect x="143" y="91" width="234" height="188" rx="5"></rect>
+        <rect x="132" y="96" width="11" height="178" rx="2"></rect>
+        <line x1="175" y1="124" x2="345" y2="124"></line><line x1="175" y1="137" x2="345" y2="137"></line><line x1="175" y1="150" x2="345" y2="150"></line>
+        <path d="M377 111h10v147h-10" fill="none"></path>
+      </g>
+      ${cotas(132, 387, 91, 279, profundidade, altura, "microondas-lateral", "profundidade total", "altura externa")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do micro-ondas">
+      ${definicoes("microondas-superior")}
+      <g class="produto-frontal">
+        <rect x="136" y="75" width="248" height="224" rx="5"></rect>
+        <line x1="151" y1="96" x2="369" y2="96"></line>
+        <line x1="151" y1="111" x2="236" y2="111"></line><line x1="151" y1="123" x2="236" y2="123"></line>
+        <rect x="128" y="285" width="264" height="14" rx="2"></rect>
+      </g>
+      ${cotas(128, 392, 75, 299, largura, profundidade, "microondas-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaCooktop(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do cooktop">
+      ${definicoes("cooktop-frontal")}
+      <g class="produto-frontal">
+        <rect x="124" y="173" width="272" height="42" rx="4"></rect>
+        <line x1="135" y1="173" x2="385" y2="173"></line>
+        <path d="M154 173v-18h43v18M238 173v-25h44v25M323 173v-18h43v18" fill="none"></path>
+        <rect x="151" y="215" width="218" height="54" rx="2"></rect>
+      </g>
+      ${cotas(124, 396, 148, 269, largura, altura, "cooktop-frontal", "largura externa", "altura total")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do cooktop">
+      ${definicoes("cooktop-lateral")}
+      <g class="produto-frontal">
+        <rect x="132" y="173" width="256" height="42" rx="4"></rect>
+        <line x1="143" y1="173" x2="377" y2="173"></line>
+        <path d="M190 173v-21h45v21M285 173v-21h45v21" fill="none"></path>
+        <rect x="165" y="215" width="190" height="54" rx="2"></rect>
+      </g>
+      ${cotas(132, 388, 152, 269, profundidade, altura, "cooktop-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do cooktop com cinco queimadores">
+      ${definicoes("cooktop-superior")}
+      <g class="produto-frontal">
+        <rect x="123" y="82" width="274" height="210" rx="8"></rect>
+        <circle cx="178" cy="130" r="25"></circle><circle cx="337" cy="130" r="25"></circle>
+        <circle cx="258" cy="183" r="31"></circle>
+        <circle cx="184" cy="242" r="20"></circle><circle cx="332" cy="242" r="20"></circle>
+        <circle cx="365" cy="260" r="5"></circle><circle cx="365" cy="241" r="5"></circle><circle cx="365" cy="222" r="5"></circle>
+      </g>
+      ${cotas(123, 397, 82, 292, largura, profundidade, "cooktop-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaFreezerHorizontal(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do freezer horizontal">
+      ${definicoes("freezer-horizontal-frontal")}
+      <g class="produto-frontal">
+        <rect x="112" y="116" width="296" height="172" rx="5"></rect>
+        <rect x="105" y="99" width="310" height="25" rx="5"></rect>
+        <line x1="123" y1="135" x2="397" y2="135"></line>
+        <rect x="351" y="148" width="35" height="22" rx="2"></rect>
+        <line x1="130" y1="288" x2="130" y2="304"></line><line x1="390" y1="288" x2="390" y2="304"></line>
+      </g>
+      ${cotas(105, 415, 99, 304, largura, altura, "freezer-horizontal-frontal", "largura externa", "altura total")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do freezer horizontal">
+      ${definicoes("freezer-horizontal-lateral")}
+      <g class="produto-frontal">
+        <rect x="148" y="116" width="224" height="172" rx="5"></rect>
+        <rect x="140" y="99" width="240" height="25" rx="5"></rect>
+        <line x1="159" y1="137" x2="361" y2="137"></line>
+        <line x1="165" y1="288" x2="165" y2="304"></line><line x1="355" y1="288" x2="355" y2="304"></line>
+      </g>
+      ${cotas(140, 380, 99, 304, profundidade, altura, "freezer-horizontal-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do freezer horizontal">
+      ${definicoes("freezer-horizontal-superior")}
+      <g class="produto-frontal">
+        <rect x="105" y="82" width="310" height="205" rx="6"></rect>
+        <rect x="119" y="96" width="282" height="177" rx="4"></rect>
+        <line x1="260" y1="96" x2="260" y2="273"></line>
+        <rect x="226" y="258" width="68" height="9" rx="2"></rect>
+      </g>
+      ${cotas(105, 415, 82, 287, largura, profundidade, "freezer-horizontal-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaAdega(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica da adega climatizada">
+      ${definicoes("adega-frontal")}
+      <g class="produto-frontal">
+        <rect x="177" y="51" width="166" height="258" rx="6"></rect>
+        <rect x="188" y="70" width="144" height="211" rx="3"></rect>
+        <rect x="225" y="78" width="70" height="16" rx="2"></rect>
+        <line x1="199" y1="111" x2="321" y2="111"></line><line x1="199" y1="145" x2="321" y2="145"></line><line x1="199" y1="179" x2="321" y2="179"></line><line x1="199" y1="213" x2="321" y2="213"></line><line x1="199" y1="247" x2="321" y2="247"></line>
+        <path d="M213 101l18 10-18 10M307 101l-18 10 18 10M213 135l18 10-18 10M307 135l-18 10 18 10M213 169l18 10-18 10M307 169l-18 10 18 10" fill="none"></path>
+        <line x1="318" y1="105" x2="318" y2="170"></line>
+        <line x1="190" y1="294" x2="330" y2="294"></line>
+      </g>
+      ${cotas(177, 343, 51, 309, largura, altura, "adega-frontal", "largura externa", "altura total")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica da adega climatizada">
+      ${definicoes("adega-lateral")}
+      <g class="produto-frontal">
+        <rect x="164" y="51" width="191" height="258" rx="5"></rect>
+        <rect x="150" y="58" width="14" height="244" rx="2"></rect>
+        <line x1="143" y1="88" x2="150" y2="88"></line><line x1="143" y1="88" x2="143" y2="153"></line>
+        <line x1="181" y1="294" x2="340" y2="294"></line>
+      </g>
+      ${cotas(143, 355, 51, 309, profundidade, altura, "adega-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica da adega climatizada">
+      ${definicoes("adega-superior")}
+      <g class="produto-frontal">
+        <rect x="174" y="69" width="172" height="233" rx="5"></rect>
+        <rect x="166" y="288" width="188" height="14" rx="2"></rect>
+        <line x1="188" y1="89" x2="332" y2="89"></line>
+      </g>
+      ${cotas(166, 354, 69, 302, largura, profundidade, "adega-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaTelevisor(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do televisor">
+      ${definicoes("tv-frontal")}
+      <g class="produto-frontal">
+        <rect x="98" y="91" width="324" height="188" rx="3"></rect>
+        <rect x="109" y="102" width="302" height="166" rx="1"></rect>
+        <line x1="250" y1="279" x2="250" y2="295"></line><line x1="270" y1="279" x2="270" y2="295"></line>
+        <line x1="208" y1="295" x2="312" y2="295"></line>
+      </g>
+      ${cotas(98, 422, 91, 295, largura, altura, "tv-frontal", "largura sem suporte", "altura sem suporte")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do televisor sem suporte">
+      ${definicoes("tv-lateral")}
+      <g class="produto-frontal">
+        <rect x="247" y="78" width="27" height="218" rx="3"></rect>
+        <rect x="252" y="94" width="17" height="174" rx="2"></rect>
+        <line x1="241" y1="296" x2="280" y2="296"></line>
+      </g>
+      ${cotas(247, 274, 78, 296, profundidade, altura, "tv-lateral", "espessura sem suporte", "altura sem suporte")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do televisor sem suporte">
+      ${definicoes("tv-superior")}
+      <g class="produto-frontal">
+        <rect x="98" y="171" width="324" height="28" rx="3"></rect>
+        <rect x="110" y="178" width="300" height="14" rx="2"></rect>
+      </g>
+      ${cotas(98, 422, 171, 199, largura, profundidade, "tv-superior", "largura sem suporte", "espessura sem suporte")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaLavanderiaFrontal(posicao) {
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica da lavadora ou secadora frontal">
+      ${definicoes("lavanderia-frontal")}
+      <g class="produto-frontal">
+        <rect x="164" y="54" width="192" height="255" rx="6"></rect>
+        <rect x="177" y="67" width="78" height="23" rx="3"></rect>
+        <rect x="270" y="67" width="44" height="18" rx="2"></rect><circle cx="334" cy="77" r="11"></circle>
+        <line x1="164" y1="103" x2="356" y2="103"></line>
+        <circle cx="260" cy="197" r="69"></circle><circle cx="260" cy="197" r="54"></circle><circle cx="260" cy="197" r="39"></circle>
+        <line x1="179" y1="289" x2="341" y2="289"></line>
+      </g>
+      ${cotas(164, 356, 54, 309, largura, altura, "lavanderia-frontal", "largura externa", "altura total")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica da lavadora ou secadora frontal">
+      ${definicoes("lavanderia-lateral")}
+      <g class="produto-frontal">
+        <rect x="153" y="54" width="214" height="255" rx="6"></rect>
+        <rect x="141" y="61" width="12" height="241" rx="2"></rect>
+        <line x1="153" y1="103" x2="367" y2="103"></line>
+        <circle cx="160" cy="197" r="45"></circle>
+        <path d="M367 81h12v196h-12" fill="none"></path>
+        <line x1="170" y1="289" x2="350" y2="289"></line>
+      </g>
+      ${cotas(141, 379, 54, 309, profundidade, altura, "lavanderia-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica da lavadora ou secadora frontal">
+      ${definicoes("lavanderia-superior")}
+      <g class="produto-frontal">
+        <rect x="162" y="66" width="196" height="238" rx="6"></rect>
+        <rect x="151" y="286" width="218" height="18" rx="3"></rect>
+        <line x1="178" y1="89" x2="342" y2="89"></line>
+        <circle cx="260" cy="184" r="62"></circle>
+      </g>
+      ${cotas(151, 369, 66, 304, largura, profundidade, "lavanderia-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaCoifa(posicao) {
+    const ehIlha = /ilha/.test(normalizarTexto(produto.nome || ""));
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica da coifa">
+      ${definicoes("coifa-frontal")}
+      <g class="produto-frontal">
+        <rect x="220" y="50" width="80" height="153" rx="2"></rect>
+        <rect x="207" y="50" width="106" height="16" rx="2"></rect>
+        <path d="M220 188L146 244H374L300 188Z"></path>
+        <rect x="135" y="239" width="250" height="31" rx="4"></rect>
+        <line x1="154" y1="252" x2="366" y2="252"></line>
+        <circle cx="239" cy="257" r="4"></circle><circle cx="281" cy="257" r="4"></circle>
+        ${ehIlha ? `<line x1="194" y1="50" x2="194" y2="27"></line><line x1="326" y1="50" x2="326" y2="27"></line><line x1="194" y1="27" x2="326" y2="27"></line>` : ""}
+      </g>
+      ${cotas(135, 385, 27, 270, largura, altura, "coifa-frontal", "largura externa", "altura total")}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica da coifa">
+      ${definicoes("coifa-lateral")}
+      <g class="produto-frontal">
+        <rect x="231" y="50" width="58" height="153" rx="2"></rect>
+        <path d="M231 188L170 244H350L289 188Z"></path>
+        <rect x="160" y="239" width="200" height="31" rx="4"></rect>
+        <line x1="178" y1="252" x2="342" y2="252"></line>
+        ${ehIlha ? `<line x1="204" y1="50" x2="204" y2="27"></line><line x1="316" y1="50" x2="316" y2="27"></line>` : ""}
+      </g>
+      ${cotas(160, 360, 27, 270, profundidade, altura, "coifa-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica da coifa">
+      ${definicoes("coifa-superior")}
+      <g class="produto-frontal">
+        <rect x="133" y="86" width="254" height="199" rx="5"></rect>
+        <rect x="214" y="132" width="92" height="108" rx="3"></rect>
+        <line x1="153" y1="104" x2="367" y2="104"></line><line x1="153" y1="267" x2="367" y2="267"></line>
+        <circle cx="175" cy="185" r="7"></circle><circle cx="345" cy="185" r="7"></circle>
+      </g>
+      ${cotas(133, 387, 86, 285, largura, profundidade, "coifa-superior", "largura externa", "profundidade total")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  function vistaRefrigerador(posicao) {
+    const texto = normalizarTexto(`${produto.nome || ""} ${produto.modelo || ""} ${produto.moldeTecnico || ""} ${produto.familiaTecnica || ""}`);
+    const sideBySide = /side by side|rs60|rs58|rs50/.test(texto);
+    const quatroPortas = /4 portas|quatro portas|multidoor|multi door|rf29|rf27/.test(texto);
+    const frenchDoor = !quatroPortas && /french door|3 portas|tres portas|rf70|rf80/.test(texto);
+    const duplex = !sideBySide && !quatroPortas && !frenchDoor;
+    const notaPortas = sideBySide ? "Duas portas verticais" : quatroPortas ? "Configuração multidoor / quatro portas" : frenchDoor ? "Duas portas superiores e gaveta inferior" : "Configuração duplex";
+
+    let detalhesFrente = "";
+    if (sideBySide) detalhesFrente = `
+      <line x1="260" y1="58" x2="260" y2="309"></line>
+      <line x1="247" y1="100" x2="247" y2="222"></line><line x1="273" y1="100" x2="273" y2="222"></line>
+      <rect x="194" y="114" width="37" height="56" rx="3"></rect>`;
+    else if (quatroPortas) detalhesFrente = `
+      <line x1="260" y1="58" x2="260" y2="309"></line><line x1="158" y1="190" x2="362" y2="190"></line>
+      <line x1="247" y1="91" x2="247" y2="164"></line><line x1="273" y1="91" x2="273" y2="164"></line>`;
+    else if (frenchDoor) detalhesFrente = `
+      <line x1="260" y1="58" x2="260" y2="205"></line><line x1="158" y1="205" x2="362" y2="205"></line>
+      <line x1="247" y1="91" x2="247" y2="177"></line><line x1="273" y1="91" x2="273" y2="177"></line>
+      <line x1="183" y1="226" x2="337" y2="226"></line><line x1="183" y1="282" x2="337" y2="282"></line>`;
+    else detalhesFrente = `
+      <line x1="158" y1="128" x2="362" y2="128"></line>
+      <line x1="343" y1="79" x2="343" y2="111"></line><line x1="343" y1="150" x2="343" y2="232"></line>`;
+
+    if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica do refrigerador">
+      ${definicoes("refrigerador-frontal")}
+      <g class="produto-frontal">
+        <rect x="158" y="58" width="204" height="251" rx="7"></rect>
+        ${detalhesFrente}
+        <line x1="177" y1="291" x2="343" y2="291"></line>
+        <line x1="181" y1="309" x2="181" y2="317"></line><line x1="339" y1="309" x2="339" y2="317"></line>
+      </g>
+      ${cotas(158, 362, 58, 317, largura, altura, "refrigerador-frontal", "largura externa", "altura total")}
+      ${notaTecnica(notaPortas)}
+    </svg>`;
+    if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do refrigerador">
+      ${definicoes("refrigerador-lateral")}
+      <g class="produto-frontal">
+        <rect x="157" y="58" width="201" height="251" rx="6"></rect>
+        <rect x="143" y="66" width="14" height="235" rx="3"></rect>
+        <line x1="135" y1="91" x2="143" y2="91"></line><line x1="135" y1="91" x2="135" y2="174"></line>
+        <path d="M358 80h12v197h-12"></path>
+        <line x1="174" y1="128" x2="346" y2="128"></line>
+        <line x1="174" y1="291" x2="342" y2="291"></line>
+      </g>
+      ${cotas(135, 370, 58, 309, profundidade, altura, "refrigerador-lateral", "profundidade total", "altura total")}
+    </svg>`;
+    if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica fechada do refrigerador">
+      ${definicoes("refrigerador-superior")}
+      <g class="produto-frontal">
+        <rect x="156" y="68" width="208" height="234" rx="5"></rect>
+        <rect x="147" y="288" width="226" height="14" rx="3"></rect>
+        <line x1="260" y1="288" x2="260" y2="302"></line>
+        <line x1="172" y1="89" x2="348" y2="89"></line>
+        <path d="M364 91h10v175h-10"></path>
+      </g>
+      ${cotas(147, 373, 68, 302, largura, profundidade, "refrigerador-superior", "largura externa", "profundidade total")}
+      ${notaTecnica("Vista fechada — abertura exibida somente quando confirmada no manual")}
+    </svg>`;
+    return indisponivel(posicao);
+  }
+
+  const desenhistas = {
+    forno: vistaForno,
+    fogao: vistaFogao,
+    cervejeira: vistaCervejeira,
+    frigobar: vistaFrigobar,
+    "lava-loucas": vistaLavaLoucas,
+    lavadora: vistaLavadora,
+    microondas: vistaMicroondas,
+    cooktop: vistaCooktop,
+    "freezer-horizontal": vistaFreezerHorizontal,
+    adega: vistaAdega,
+    televisor: vistaTelevisor,
+    "lavanderia-frontal": vistaLavanderiaFrontal,
+    coifa: vistaCoifa,
+    refrigerador: vistaRefrigerador
+  };
+  const titulos = {
+    forno: "forno de embutir",
+    fogao: "fogão",
+    cervejeira: "cervejeira",
+    frigobar: "frigobar",
+    "lava-loucas": "lava-louças",
+    lavadora: "lavadora",
+    microondas: "micro-ondas",
+    cooktop: "cooktop",
+    "freezer-horizontal": "freezer horizontal",
+    adega: "adega climatizada",
+    televisor: "televisor",
+    "lavanderia-frontal": "lavadora ou secadora frontal",
+    coifa: "coifa",
+    refrigerador: "refrigerador"
+  };
+  const desenhar = desenhistas[tipo] || vistaCervejeira;
+  const tituloTipo = titulos[tipo] || "produto";
+  const origemFrontal = tipo === "forno" && origemNicho ? `${origemDimensoes}${origemNicho !== origemDimensoes ? ` • ${origemNicho}` : ""}` : origemDimensoes;
+
+  return `<div class="vistas-projeto-grade vistas-projeto-${tipo}">
+    <section class="vista-projeto-card ${largura && altura ? "" : "vista-pendente"}">${cabecalho("Vista frontal", `Elevação técnica do ${tituloTipo}`, origemFrontal)}${desenhar("frontal")}</section>
+    <section class="vista-projeto-card ${profundidade && altura ? "" : "vista-pendente"}">${cabecalho("Vista lateral", "Profundidade × altura")}${desenhar("lateral")}</section>
+    <section class="vista-projeto-card ${largura && profundidade ? "" : "vista-pendente"}">${cabecalho("Vista superior", "Largura × profundidade")}${desenhar("superior")}</section>
+    <section class="vista-projeto-card vista-produto-real">${cabecalho("Imagem do produto", "Referência visual — sem valor de cota", "Imagem comercial")}<img src="${escaparHTML(imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)}"></section>
+  </div>`;
+}
+
 function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const textoProduto = normalizarTexto(`${produto.tipoBloco || ""} ${produto.nome || ""} ${produto.modelo || ""}`);
+  const tipoDeclarado = normalizarTexto(produto.tipoBloco || "");
+  const modeloDeclarado = normalizarTexto(produto.modelo || "").replace(/[^a-z0-9]/g, "");
+  const ehFornoEmbutir = tipoDeclarado === "forno" || (!/micro.?ondas|microondas/.test(textoProduto) && /forno de embutir|\bforno\b/.test(textoProduto));
+  const ehFogao = tipoDeclarado === "fogao" || /\bfogao\b/.test(textoProduto);
+  if (ehFornoEmbutir) return criarVistasTecnicasEletro(produto, dados, "forno");
+  if (ehFogao) return criarVistasTecnicasEletro(produto, dados, "fogao");
+  if (/cervejeira|beer center|home bar/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "cervejeira");
+  if (/freezer horizontal|conservador horizontal/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "freezer-horizontal");
+  if (/adega|wine cooler/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "adega");
+  if (/smart tv|televisor|\btv\b/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "televisor");
+  if (/frigobar|mini.?bar/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "frigobar");
+  if (tipoDeclarado === "lava loucas" || tipoDeclarado === "lava-loucas" || /lava.?loucas/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "lava-loucas");
+  if (/secadora|lava e seca|washer dryer/.test(textoProduto) || /^(wd|wf|dv)/.test(modeloDeclarado)) return criarVistasTecnicasEletro(produto, dados, "lavanderia-frontal");
+  if (tipoDeclarado === "lavadora" || /maquina de lavar|lavadora/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "lavadora");
+  if (tipoDeclarado === "microondas" || /micro.?ondas/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "microondas");
+  if (tipoDeclarado === "cooktop" || /cooktop/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "cooktop");
+  if (tipoDeclarado === "coifa" || /\bcoifa\b/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "coifa");
+  const geladeiraComAberturaEspecial = /side by side|french door|3 portas|tres portas|4 portas|quatro portas|multidoor|multi door|rs60|rs58|rs50|rf29|rf27|rf70|rf80/.test(textoProduto);
+  if (/geladeira|refrigerador/.test(textoProduto) && !geladeiraComAberturaEspecial) return criarVistasTecnicasEletro(produto, dados, "refrigerador");
   if (!/geladeira|refrigerador|adega|freezer/.test(textoProduto)) return criarVistasTecnicasGenericas(produto, dados);
 
   const dimensoes = obterDimensoesConfirmadasProduto(produto);
