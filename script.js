@@ -3,6 +3,7 @@ const IMAGEM_FALLBACK = "assets/produto-sem-imagem.svg";
 const STORAGE_KEY = "clubone_favoritos_v1";
 const STORAGE_FILTROS = "clubone_filtros_recolhidos_v1";
 const STORAGE_CAMPANHA = "clubone_campanha_recolhida_v1";
+const STORAGE_SIDEBAR = "infostore_sidebar_produtos_recolhida_v1";
 
 let todosProdutos = [];
 let produtosFiltrados = [];
@@ -114,6 +115,52 @@ function configurarEventosFixos() {
     renderizarFiltros();
     aplicarFiltros();
   });
+
+  configurarSidebarProdutos();
+}
+
+function definirSidebarProdutosRecolhida(recolhida, salvar = true) {
+  const sidebar = document.getElementById("sidebarProdutos");
+  const botaoRecolher = document.getElementById("recolherSidebarProdutos");
+  const botaoMostrar = document.getElementById("mostrarSidebarProdutos");
+  if (!sidebar || !botaoRecolher || !botaoMostrar) return;
+
+  document.body.classList.toggle("sidebar-produtos-recolhida", recolhida);
+  sidebar.setAttribute("aria-hidden", String(recolhida));
+  sidebar.inert = recolhida;
+  botaoRecolher.setAttribute("aria-expanded", String(!recolhida));
+  botaoMostrar.setAttribute("aria-expanded", String(!recolhida));
+  botaoMostrar.setAttribute("aria-hidden", String(!recolhida));
+  botaoMostrar.tabIndex = recolhida ? 0 : -1;
+
+  if (salvar) localStorage.setItem(STORAGE_SIDEBAR, recolhida ? "1" : "0");
+}
+
+function configurarSidebarProdutos() {
+  const botaoRecolher = document.getElementById("recolherSidebarProdutos");
+  const botaoMostrar = document.getElementById("mostrarSidebarProdutos");
+  if (!botaoRecolher || !botaoMostrar) return;
+
+  // Garante o rótulo mesmo quando o navegador ainda estiver usando um
+  // index.html anterior que continha somente a seta.
+  let rotuloRecolher = botaoRecolher.querySelector("span");
+  if (!rotuloRecolher) {
+    rotuloRecolher = document.createElement("span");
+    botaoRecolher.append(rotuloRecolher);
+  }
+  rotuloRecolher.textContent = "Recolher";
+
+  definirSidebarProdutosRecolhida(localStorage.getItem(STORAGE_SIDEBAR) === "1", false);
+
+  botaoRecolher.addEventListener("click", () => {
+    definirSidebarProdutosRecolhida(true);
+    botaoMostrar.focus({ preventScroll: true });
+  });
+
+  botaoMostrar.addEventListener("click", () => {
+    definirSidebarProdutosRecolhida(false);
+    requestAnimationFrame(() => botaoRecolher.focus({ preventScroll: true }));
+  });
 }
 
 function configurarCampanha() {
@@ -203,13 +250,24 @@ function renderizarSegmentos() {
   const container = document.getElementById("navegacaoSegmentos");
   if (!container) return;
   const nomes = {"video": "TV e vídeo", "linha branca": "Linha branca", "climatizacao": "Climatização", "portateis": "Portáteis"};
+  const icones = {
+    todos: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>',
+    climatizacao: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="9" rx="2"/><path d="M7 10h10M8 17c1.5-1 2.5-.8 4 0s2.5 1 4 0M8 20c1.5-1 2.5-.8 4 0s2.5 1 4 0"/></svg>',
+    "linha branca": '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2"/><path d="M6 10h12M15 6v2M15 13v3"/></svg>',
+    portateis: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8l1 5H7l1-5Z"/><path d="M9 9v4a3 3 0 0 0 6 0V9M12 16v5M9 21h6"/></svg>',
+    video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'
+  };
   const segmentos = new Map();
   todosProdutos.forEach(produto => {
     const valor = produto.segmento || produto.categoria;
     if (valor) segmentos.set(normalizarTexto(valor), valor);
   });
   const botoes = [["", "Todos os produtos"], ...[...segmentos].sort((a, b) => a[1].localeCompare(b[1], "pt-BR"))];
-  container.innerHTML = botoes.map(([chave, valor]) => `<button type="button" class="segmento-nav" data-segmento="${escaparHTML(chave)}" aria-pressed="false">${escaparHTML(nomes[chave] || valor)}</button>`).join("");
+  container.innerHTML = botoes.map(([chave, valor]) => {
+    const chaveIcone = chave || "todos";
+    const icone = icones[chaveIcone] || icones.todos;
+    return `<button type="button" class="segmento-nav" data-segmento="${escaparHTML(chave)}" aria-pressed="false"><span class="segmento-nav-icone">${icone}</span><span>${escaparHTML(nomes[chave] || valor)}</span></button>`;
+  }).join("");
   atualizarEstadoSegmentos();
 }
 
@@ -2057,6 +2115,10 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   if (!produto) return;
 
   produtoSelecionado = produto.id;
+
+  if (interacaoDoUsuario && window.matchMedia("(max-width: 1100px)").matches) {
+    definirSidebarProdutosRecolhida(true);
+  }
   renderizarProdutos(produtosFiltrados);
 
   requestAnimationFrame(() => {
@@ -2201,8 +2263,11 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   configurarAbas();
   configurarGaleria();
   document.getElementById("voltarProdutos")?.addEventListener("click", () => {
-    document.querySelector(".sidebar").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
-    document.getElementById("alternarFiltrosLateral")?.focus({ preventScroll: true });
+    definirSidebarProdutosRecolhida(false);
+    requestAnimationFrame(() => {
+      document.querySelector(".sidebar")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+      document.getElementById("alternarFiltrosLateral")?.focus({ preventScroll: true });
+    });
   });
   configurarFallbackImagens(document.getElementById("detalhes"));
 
@@ -3122,7 +3187,7 @@ function montarMensagemOrcamento(favs = [], contato = {}) {
   });
 
   return [
-    `Olá, ${contato.nome || "equipe Info Store"}! Gostaria de solicitar um orçamento para os itens selecionados no Catálogo Info Store.`,
+    `Olá, ${contato.nome || "equipe Info Store"}! Gostaria de solicitar um orçamento para os itens selecionados no Portfólio Info Store.`,
     "",
     ...linhasItens.flatMap((linha, indice) => indice < linhasItens.length - 1 ? [linha, ""] : [linha]),
     "",

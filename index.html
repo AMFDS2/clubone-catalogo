@@ -7,7 +7,7 @@
 <meta property="og:title" content="Info Store | Catálogo Pro">
 <meta name="apple-mobile-web-app-title" content="Info Store">
   <title>Info Store | Portfólio Técnico</title>
-  <link rel="stylesheet" href="style.css?v=20261006-5">
+  <link rel="stylesheet" href="style.css?v=20261007-3">
   <link rel="stylesheet" href="blocagem.css">
   <link rel="stylesheet" href="documentos-oficiais.css">
 </head>
@@ -36,17 +36,26 @@
   </header>
 
   <nav class="barra-segmentos" aria-label="Segmentos do portfólio">
-    <div id="navegacaoSegmentos" class="navegacao-segmentos"></div>
+    <div class="barra-segmentos-conteudo">
+      <span class="barra-segmentos-titulo">Navegue por segmento</span>
+      <div id="navegacaoSegmentos" class="navegacao-segmentos"></div>
+    </div>
   </nav>
 
   <main class="catalogo">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebarProdutos">
       <div class="cabecalho-explorar">
         <h2>Explorar produtos</h2>
-        <button type="button" id="alternarFiltrosLateral" class="alternar-filtros" aria-controls="painelFiltros" aria-expanded="false">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18M8 3v6M16 9v6M10 15v6"/></svg>
-          <span class="alternar-filtros-rotulo">Filtros</span>
-        </button>
+        <div class="cabecalho-explorar-acoes">
+          <button type="button" id="alternarFiltrosLateral" class="alternar-filtros" aria-controls="painelFiltros" aria-expanded="false">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18M8 3v6M16 9v6M10 15v6"/></svg>
+            <span class="alternar-filtros-rotulo">Filtros</span>
+          </button>
+          <button type="button" id="recolherSidebarProdutos" class="recolher-sidebar" aria-controls="sidebarProdutos" aria-expanded="true" aria-label="Recolher lista de produtos" title="Recolher lista de produtos">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            <span>Recolher</span>
+          </button>
+        </div>
       </div>
 
       <section class="painel-filtros fechado" id="painelFiltros" hidden>
@@ -72,6 +81,11 @@
         <div class="carregando">Carregando produtos...</div>
       </section>
     </aside>
+
+    <button type="button" id="mostrarSidebarProdutos" class="mostrar-sidebar-produtos" aria-controls="sidebarProdutos" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      <span>Mostrar produtos</span>
+    </button>
 
     <section id="detalhes" class="detalhes">
       <div class="estado-vazio">
@@ -165,6 +179,6 @@
   </div>
 
   <script src="blocagem.js?v=20261001-2"></script>
-  <script src="script.js?v=20261006-10"></script>
+  <script src="script.js?v=20261007-2"></script>
 </body>
 </html>
