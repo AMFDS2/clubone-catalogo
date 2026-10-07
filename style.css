@@ -4363,3 +4363,267 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   .cabecalho-explorar .alternar-filtros { padding-inline: 8px; }
   .recolher-sidebar { min-width: 86px !important; padding-inline: 7px 9px !important; font-size: 10px; }
 }
+
+/* ==============================================================
+   TABLET HORIZONTAL — VISUALIZAÇÃO PRINCIPAL PARA VISITAS
+   Evita que telas touch largas recebam a composição de celular.
+============================================================== */
+@media (min-width: 900px) and (max-width: 1400px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+  :root {
+    --topbar: 76px;
+    --altura-segmentos: 60px;
+  }
+
+  header.topbar {
+    height: var(--topbar) !important;
+    min-height: var(--topbar) !important;
+    padding: 8px 18px !important;
+    display: grid !important;
+    grid-template-columns: auto minmax(280px, 1fr) auto !important;
+    grid-template-rows: 1fr !important;
+    column-gap: 18px !important;
+    row-gap: 0 !important;
+    align-items: center !important;
+  }
+
+  .topbar-logos {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  header.topbar .logo-info {
+    width: clamp(116px, 11vw, 145px) !important;
+    max-width: 145px !important;
+    height: 50px !important;
+    max-height: 50px !important;
+    object-fit: contain;
+  }
+
+  .busca-topbar {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .busca-topbar input {
+    height: 44px !important;
+    font-size: 15px !important;
+  }
+
+  .top-actions {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  .btn-favoritos-nav {
+    min-height: 44px !important;
+    padding: 8px 13px !important;
+    font-size: 10px !important;
+  }
+
+  .barra-segmentos-conteudo {
+    padding: 6px 18px !important;
+    grid-template-columns: 168px minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .barra-segmentos-titulo {
+    display: block !important;
+    font-size: 8px !important;
+  }
+
+  .navegacao-segmentos {
+    gap: 8px !important;
+    overflow: hidden !important;
+  }
+
+  .segmento-nav {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    min-height: 48px !important;
+    padding: 7px 9px !important;
+    gap: 7px !important;
+    font-size: 10px !important;
+  }
+
+  .segmento-nav-icone {
+    width: 19px !important;
+    height: 19px !important;
+    flex-basis: 19px !important;
+  }
+
+  .catalogo {
+    display: block !important;
+    width: 100% !important;
+    min-height: calc(100dvh - var(--topbar) - var(--altura-segmentos)) !important;
+    padding: 0 !important;
+  }
+
+  .sidebar {
+    position: fixed !important;
+    z-index: 85 !important;
+    top: calc(var(--topbar) + var(--altura-segmentos)) !important;
+    right: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: min(370px, 42vw) !important;
+    height: calc(100dvh - var(--topbar) - var(--altura-segmentos)) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 16px !important;
+    overflow: hidden !important;
+    border-right: 1px solid #dce4f2 !important;
+    border-bottom: 0 !important;
+    background: #fbfcff !important;
+    box-shadow: 14px 0 34px rgba(20, 43, 99, .14) !important;
+  }
+
+  body.sidebar-produtos-recolhida .sidebar {
+    display: none !important;
+  }
+
+  body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
+    position: fixed !important;
+    z-index: 84 !important;
+    top: 50% !important;
+    left: 0 !important;
+    width: 46px !important;
+    min-width: 46px !important;
+    min-height: 154px !important;
+    margin: 0 !important;
+    padding: 11px 8px !important;
+    flex-direction: column !important;
+    gap: 9px !important;
+    border-radius: 0 8px 8px 0 !important;
+    transform: translateY(-50%);
+  }
+
+  body.sidebar-produtos-recolhida .mostrar-sidebar-produtos span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .lista-produtos {
+    flex: 1 1 0 !important;
+    height: auto !important;
+    min-height: 180px !important;
+    max-height: none !important;
+  }
+
+  .detalhes {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .voltar-produtos {
+    display: none !important;
+  }
+
+  .produto-hero {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 24px 28px 12px 64px !important;
+    display: grid !important;
+    grid-template-columns: minmax(300px, 36%) minmax(0, 64%) !important;
+    gap: 24px !important;
+    align-items: center !important;
+  }
+
+  .produto-resumo {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .produto-resumo .nome-produto {
+    font-size: clamp(25px, 2.35vw, 32px) !important;
+    line-height: 1.12 !important;
+  }
+
+  .produto-resumo .destaques {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .produto-media {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  .produto-imagem-principal {
+    height: clamp(300px, 43dvh, 410px) !important;
+    min-height: 300px !important;
+    max-height: 410px !important;
+    padding: 14px 18px !important;
+  }
+
+  .produto-imagem-principal img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+  }
+
+  .galeria-miniaturas {
+    width: 60px !important;
+    height: auto !important;
+    max-height: 410px !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  .miniatura {
+    width: 58px !important;
+    height: 48px !important;
+    flex: 0 0 48px !important;
+  }
+
+  .acoes {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+
+  .acoes > a,
+  .acoes > button {
+    width: auto !important;
+    min-width: 0 !important;
+    flex: 1 1 160px;
+  }
+
+  .area-tecnica {
+    padding: 4px 28px 36px !important;
+  }
+
+  .tabs {
+    gap: 30px !important;
+  }
+
+  .campanha-reabrir {
+    right: 16px !important;
+    bottom: 16px !important;
+    transform: scale(.86);
+    transform-origin: right bottom;
+  }
+
+  .secao-contato,
+  .rodape {
+    margin-left: 0 !important;
+  }
+}

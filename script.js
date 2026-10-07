@@ -2116,7 +2116,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   produtoSelecionado = produto.id;
 
-  if (interacaoDoUsuario && window.matchMedia("(max-width: 1100px)").matches) {
+  if (interacaoDoUsuario && window.matchMedia("(max-width: 1100px), (hover: none) and (pointer: coarse) and (max-width: 1400px)").matches) {
     definirSidebarProdutosRecolhida(true);
   }
   renderizarProdutos(produtosFiltrados);
