@@ -86,6 +86,29 @@ header.topbar {
 .logo-info { width: 120px !important; max-width: 120px !important; height: 80px !important; max-height: 80px !important; object-fit: contain !important; }
 .separador-logo { width: 1px !important; height: 38px !important; background: #ffffff4d !important; }
 
+.topbar-identidade {
+  width: clamp(280px, 22vw, 360px);
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  color: #fff;
+}
+
+.topbar-identidade strong {
+  font-family: var(--fonte-titulos);
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: .015em;
+}
+
+.topbar-identidade span {
+  color: rgba(255,255,255,.68);
+  font-size: 11px;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
 /* Botão de Favoritos da Topbar */
 .btn-favoritos-nav {
   background: rgba(255, 255, 255, 0.05);
@@ -1891,7 +1914,7 @@ header.topbar { gap: clamp(20px, 3vw, 48px) !important; background: linear-gradi
 .filtro-medidas-nota {
   margin: 7px 0 10px;
   color: #667085;
-  font-size: 8px;
+  font-size: 9px;
   line-height: 1.45;
 }
 
@@ -1995,7 +2018,7 @@ header.topbar { gap: clamp(20px, 3vw, 48px) !important; background: linear-gradi
 
 .filtro-medidas-check small {
   color: #7a8495;
-  font-size: 7px;
+  font-size: 8px;
   line-height: 1.35;
 }
 
@@ -4379,9 +4402,9 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
     min-height: var(--topbar) !important;
     padding: 8px 18px !important;
     display: grid !important;
-    grid-template-columns: auto minmax(280px, 1fr) auto !important;
+    grid-template-columns: auto minmax(220px, 1fr) auto !important;
     grid-template-rows: 1fr !important;
-    column-gap: 18px !important;
+    column-gap: 12px !important;
     row-gap: 0 !important;
     align-items: center !important;
   }
@@ -4391,14 +4414,32 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
     grid-row: 1 !important;
     width: auto !important;
     min-width: 0 !important;
+    gap: 10px !important;
   }
 
   header.topbar .logo-info {
-    width: clamp(116px, 11vw, 145px) !important;
-    max-width: 145px !important;
+    width: clamp(96px, 10vw, 125px) !important;
+    max-width: 125px !important;
     height: 50px !important;
     max-height: 50px !important;
     object-fit: contain;
+  }
+
+  .topbar-logos .separador-logo {
+    display: block !important;
+    height: 28px !important;
+  }
+
+  .topbar-identidade {
+    width: 120px !important;
+  }
+
+  .topbar-identidade strong {
+    font-size: 11px !important;
+  }
+
+  .topbar-identidade span {
+    display: none;
   }
 
   .busca-topbar {
@@ -4509,14 +4550,14 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
 
   .sidebar .filtro-medidas-campos {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 7px !important;
+    gap: 8px !important;
   }
 
   .sidebar .filtro-medidas-campos label {
     grid-template-columns: minmax(0, 1fr) 17px !important;
     grid-template-rows: auto 38px !important;
     gap: 4px 2px !important;
-    font-size: 8px !important;
+    font-size: 9px !important;
   }
 
   .sidebar .filtro-medidas-campos label > span {
@@ -4526,14 +4567,14 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   .sidebar .filtro-medidas-campos input {
     grid-column: 1;
     grid-row: 2;
-    height: 38px !important;
+    height: 40px !important;
     padding: 0 6px !important;
-    font-size: 13px !important;
+    font-size: 9px !important;
     text-align: left !important;
   }
 
   .sidebar .filtro-medidas-campos input::placeholder {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .sidebar .filtro-medidas-campos small {
@@ -4581,11 +4622,11 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .sidebar .produto-informacoes h3 {
-    font-size: 11px !important;
+    font-size: 13px !important;
   }
 
   .sidebar .produto-informacoes p {
-    font-size: 8px !important;
+    font-size: 9px !important;
   }
 
   body.sidebar-produtos-recolhida .sidebar {
@@ -4746,5 +4787,138 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   .secao-contato,
   .rodape {
     margin-left: 0 !important;
+  }
+}
+
+/* ==============================================================
+   DESKTOP AMPLO — MESMO PADRÃO COMPACTO APROVADO NO TABLET
+============================================================== */
+@media (min-width: 1401px) {
+  .catalogo {
+    padding-left: 340px !important;
+  }
+
+  .sidebar {
+    top: calc(var(--topbar) + var(--altura-segmentos)) !important;
+    width: 340px !important;
+    height: calc(100dvh - var(--topbar) - var(--altura-segmentos)) !important;
+    padding: 14px !important;
+  }
+
+  .secao-contato,
+  .rodape {
+    margin-left: 340px !important;
+  }
+
+  .sidebar .painel-filtros:not(.fechado) {
+    position: absolute !important;
+    z-index: 6 !important;
+    top: 62px !important;
+    right: 14px !important;
+    left: 14px !important;
+    width: auto !important;
+    max-height: calc(100% - 78px) !important;
+    margin: 0 !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    border: 1px solid #ccd7ea !important;
+    background: #fff !important;
+    box-shadow: 0 14px 36px rgba(20, 43, 99, .18) !important;
+  }
+
+  .sidebar .filtro-medidas-projeto {
+    margin: 8px !important;
+    padding: 11px !important;
+  }
+
+  .sidebar .filtro-medidas-campos {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .sidebar .filtro-medidas-campos label {
+    grid-template-columns: minmax(0, 1fr) 18px !important;
+    grid-template-rows: auto 40px !important;
+    gap: 4px 2px !important;
+    font-size: 8px !important;
+  }
+
+  .sidebar .filtro-medidas-campos label > span {
+    grid-column: 1 / -1;
+  }
+
+  .sidebar .filtro-medidas-campos input {
+    grid-column: 1;
+    grid-row: 2;
+    height: 40px !important;
+    padding: 0 7px !important;
+    font-size: 11px !important;
+    text-align: left !important;
+  }
+
+  .sidebar .filtro-medidas-campos input::placeholder {
+    font-size: 7.3px;
+  }
+
+  .sidebar .filtro-medidas-campos small {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    font-size: 7px !important;
+  }
+
+  .sidebar .filtro-tipo-produto select {
+    height: 40px !important;
+    font-size: 12px !important;
+  }
+
+  .sidebar .cabecalho-explorar {
+    margin-bottom: 9px !important;
+  }
+
+  .sidebar .resultado-cabecalho {
+    margin: 11px 0 8px !important;
+  }
+
+  .sidebar .lista-produtos {
+    min-height: 240px !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+  }
+
+  .sidebar .produto {
+    min-height: 74px !important;
+    grid-template-columns: 62px minmax(0, 1fr) 32px !important;
+    gap: 9px !important;
+    padding: 7px 9px !important;
+  }
+
+  .sidebar .produto-imagem {
+    width: 62px !important;
+    height: 50px !important;
+  }
+
+  .sidebar .produto-informacoes h3 {
+    font-size: 13px !important;
+  }
+
+  .sidebar .produto-informacoes p {
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .topbar-identidade {
+    width: auto;
+    max-width: 88px;
+  }
+
+  .topbar-identidade strong {
+    font-size: 9px;
+    line-height: 1.1;
+  }
+
+  .topbar-identidade span {
+    display: none;
   }
 }
