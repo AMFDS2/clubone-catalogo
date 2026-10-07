@@ -1029,7 +1029,6 @@ function criarVistasTecnicasGenericas(produto = {}, dados = {}) {
   const profundidade = valor(dimensoes.profundidade) || valor(dados.geometriaInstalacao?.profundidadeTotalProduto);
   const pagina = (...campos) => campos.find(campo => campo?.status === "CONFIRMADO" && campo?.pagina)?.pagina || "—";
   const referencia = (...campos) => campos.find(campo => campo?.status === "CONFIRMADO" && campo?.referencia)?.referencia || "";
-  const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
   const textoProduto = normalizarTexto(`${produto.tipoBloco || ""} ${produto.nome || ""}`);
   const embutir = /forno|micro|cooktop|lava loucas|lavadora|secadora|coifa/.test(textoProduto);
   const cotasNicho = [valor(nicho.largura), valor(nicho.altura), valor(nicho.profundidade)].filter(Boolean);
@@ -1057,13 +1056,11 @@ function criarVistasTecnicasGenericas(produto = {}, dados = {}) {
     <section class="vista-projeto-card ${largura && altura ? "" : "vista-pendente"}">${cabecalho("Vista frontal", "Largura × altura", [dimensoes.largura, dimensoes.altura])}${desenho(largura, altura, "largura", "altura", "frontal")}</section>
     <section class="vista-projeto-card ${profundidade && altura ? "" : "vista-pendente"}">${cabecalho("Vista lateral", "Profundidade × altura", [dimensoes.profundidade, dimensoes.altura])}${desenho(profundidade, altura, "profundidade", "altura", "lateral")}</section>
     <section class="vista-projeto-card ${largura && profundidade ? "" : "vista-pendente"}">${cabecalho("Vista superior", "Largura × profundidade", [dimensoes.largura, dimensoes.profundidade])}${desenho(largura, profundidade, "largura", "profundidade", "superior")}</section>
-    <section class="vista-projeto-card vista-produto-real">${cabecalho("Imagem do produto", "Referência visual — sem valor de cota", [])}<img src="${escaparHTML(imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)}"></section>
   </div>`;
 }
 
 function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") {
   const dimensoes = obterDimensoesConfirmadasProduto(produto);
-  const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
   const nichoAtual = dados.dimensoesNicho || {};
   const nichoLegado = dados.nichoInstalacao || {};
   const folgasAtuais = dados.folgas || {};
@@ -1832,7 +1829,6 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
       <section class="vista-projeto-card ${largura && profundidade && altura ? "" : "vista-pendente"}">${cabecalho("Vista axonométrica", "Dimensões externas do cooktop", origemDimensoes)}${desenhar("frontal")}</section>
       <section class="vista-projeto-card ${profundidade && altura ? "" : "vista-pendente"}">${cabecalho("Corte lateral", "Produto e plano da bancada", origemDimensoes)}${desenhar("lateral")}</section>
       <section class="vista-projeto-card ${largura && profundidade ? "" : "vista-pendente"}">${cabecalho(temRecorteConfirmado ? "Planta e recorte" : "Planta superior", temRecorteConfirmado ? "Produto e abertura da bancada" : "Dimensões externas do produto", origemPlanta)}${desenhar("superior")}</section>
-      <section class="vista-projeto-card vista-produto-real">${cabecalho("Imagem do produto", "Referência visual — sem valor de cota", "Imagem comercial")}<img src="${escaparHTML(imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)}"></section>
     </div>`;
   }
 
@@ -1840,7 +1836,6 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
     <section class="vista-projeto-card ${largura && altura ? "" : "vista-pendente"}">${cabecalho("Vista frontal", `Elevação técnica do ${tituloTipo}`, origemFrontal)}${desenhar("frontal")}</section>
     <section class="vista-projeto-card ${profundidade && altura ? "" : "vista-pendente"}">${cabecalho("Vista lateral", "Profundidade × altura")}${desenhar("lateral")}</section>
     <section class="vista-projeto-card ${largura && profundidade ? "" : "vista-pendente"}">${cabecalho("Vista superior", "Largura × profundidade")}${desenhar("superior")}</section>
-    <section class="vista-projeto-card vista-produto-real">${cabecalho("Imagem do produto", "Referência visual — sem valor de cota", "Imagem comercial")}<img src="${escaparHTML(imagem)}" alt="${escaparHTML(produto.nome || produto.modelo)}"></section>
   </div>`;
 }
 
@@ -1967,7 +1962,6 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const referenciaFrontal = referencia(geometria.larguraProduto, dimensoes.largura, geometria.alturaProduto, dimensoes.altura);
   const referenciaSuperior = referencia(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta, fisicasAbertura.profundidadeComPortasAbertas, fisicasAbertura.larguraComPortasAbertas, portasAbertura.anguloAberturaPortaEsquerda, portasAbertura.anguloAberturaPortaDireita, aberturaTabelaSamsung.largura, aberturaTabelaSamsung.profundidade);
   const referenciaLateral = referencia(geometria.profundidadeGabinete, geometria.profundidadeTotalProduto, dimensoes.profundidade, geometria.profundidadeComPortasAbertas);
-  const imagem = obterImagensProduto(produto)[0] || IMAGEM_FALLBACK;
   const molde = normalizarTexto(produto.moldeTecnico || produto.familiaTecnica || "");
   const modeloNormalizado = normalizarTexto(produto.modelo || "").replace(/\s/g, "");
   const sideBySide = /side by side/.test(molde) || /side by side|rs60|rs58/.test(textoProduto) || /^01572rb1135/.test(modeloNormalizado);

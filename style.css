@@ -4460,20 +4460,21 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .catalogo {
-    display: block !important;
+    display: grid !important;
+    grid-template-columns: minmax(310px, 34vw) minmax(0, 1fr) !important;
     width: 100% !important;
     min-height: calc(100dvh - var(--topbar) - var(--altura-segmentos)) !important;
     padding: 0 !important;
+    align-items: start !important;
   }
 
   .sidebar {
-    position: fixed !important;
-    z-index: 85 !important;
+    position: sticky !important;
+    z-index: 20 !important;
     top: calc(var(--topbar) + var(--altura-segmentos)) !important;
     right: auto !important;
-    bottom: 0 !important;
     left: 0 !important;
-    width: min(370px, 42vw) !important;
+    width: 100% !important;
     height: calc(100dvh - var(--topbar) - var(--altura-segmentos)) !important;
     min-height: 0 !important;
     max-height: none !important;
@@ -4482,11 +4483,15 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
     border-right: 1px solid #dce4f2 !important;
     border-bottom: 0 !important;
     background: #fbfcff !important;
-    box-shadow: 14px 0 34px rgba(20, 43, 99, .14) !important;
+    box-shadow: none !important;
   }
 
   body.sidebar-produtos-recolhida .sidebar {
     display: none !important;
+  }
+
+  body.sidebar-produtos-recolhida .catalogo {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 
   body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
@@ -4536,6 +4541,16 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
     grid-template-columns: minmax(300px, 36%) minmax(0, 64%) !important;
     gap: 24px !important;
     align-items: center !important;
+  }
+
+  body:not(.sidebar-produtos-recolhida) .produto-hero {
+    padding-left: 28px !important;
+    grid-template-columns: minmax(250px, 40%) minmax(0, 60%) !important;
+    gap: 18px !important;
+  }
+
+  body:not(.sidebar-produtos-recolhida) .produto-resumo .nome-produto {
+    font-size: clamp(22px, 2.2vw, 29px) !important;
   }
 
   .produto-resumo {
