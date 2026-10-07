@@ -3453,7 +3453,7 @@ body:not(.campanha-fechada) .campanha-reabrir {
 .modal-consultores {
   position: fixed;
   inset: 0;
-  z-index: 1600;
+  z-index: 1900;
   display: grid;
   place-items: center;
   padding: 20px;
@@ -4368,7 +4368,7 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
    TABLET HORIZONTAL — VISUALIZAÇÃO PRINCIPAL PARA VISITAS
    Evita que telas touch largas recebam a composição de celular.
 ============================================================== */
-@media (min-width: 900px) and (max-width: 1400px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+@media (min-width: 768px) and (max-width: 1400px) and (orientation: landscape) {
   :root {
     --topbar: 76px;
     --altura-segmentos: 60px;
@@ -4461,7 +4461,7 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
 
   .catalogo {
     display: grid !important;
-    grid-template-columns: minmax(310px, 34vw) minmax(0, 1fr) !important;
+    grid-template-columns: clamp(270px, 29vw, 330px) minmax(0, 1fr) !important;
     width: 100% !important;
     min-height: calc(100dvh - var(--topbar) - var(--altura-segmentos)) !important;
     padding: 0 !important;
@@ -4478,12 +4478,114 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
     height: calc(100dvh - var(--topbar) - var(--altura-segmentos)) !important;
     min-height: 0 !important;
     max-height: none !important;
-    padding: 16px !important;
+    padding: 12px !important;
     overflow: hidden !important;
     border-right: 1px solid #dce4f2 !important;
     border-bottom: 0 !important;
     background: #fbfcff !important;
     box-shadow: none !important;
+  }
+
+  .sidebar .painel-filtros:not(.fechado) {
+    position: absolute !important;
+    z-index: 6 !important;
+    top: 58px !important;
+    right: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+    max-height: calc(100% - 70px) !important;
+    margin: 0 !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    border: 1px solid #ccd7ea !important;
+    background: #fff !important;
+    box-shadow: 0 14px 36px rgba(20, 43, 99, .18) !important;
+  }
+
+  .sidebar .filtro-medidas-projeto {
+    margin: 8px !important;
+    padding: 10px !important;
+  }
+
+  .sidebar .filtro-medidas-campos {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+  }
+
+  .sidebar .filtro-medidas-campos label {
+    grid-template-columns: minmax(0, 1fr) 17px !important;
+    grid-template-rows: auto 38px !important;
+    gap: 4px 2px !important;
+    font-size: 8px !important;
+  }
+
+  .sidebar .filtro-medidas-campos label > span {
+    grid-column: 1 / -1;
+  }
+
+  .sidebar .filtro-medidas-campos input {
+    grid-column: 1;
+    grid-row: 2;
+    height: 38px !important;
+    padding: 0 6px !important;
+    font-size: 13px !important;
+    text-align: left !important;
+  }
+
+  .sidebar .filtro-medidas-campos input::placeholder {
+    font-size: 10px;
+  }
+
+  .sidebar .filtro-medidas-campos small {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    font-size: 7px !important;
+  }
+
+  .sidebar .filtro-tipo-produto select {
+    height: 38px !important;
+    min-height: 38px !important;
+    font-size: 12px !important;
+  }
+
+  .sidebar .cabecalho-explorar {
+    margin-bottom: 8px !important;
+  }
+
+  .sidebar .resultado-cabecalho {
+    margin: 10px 0 8px !important;
+    gap: 6px !important;
+  }
+
+  .sidebar .resultado-cabecalho strong,
+  .sidebar .ordenacao,
+  .sidebar .ordenacao select {
+    font-size: 8px !important;
+  }
+
+  .sidebar .ordenacao select {
+    min-width: 118px !important;
+  }
+
+  .sidebar .produto {
+    min-height: 72px !important;
+    grid-template-columns: 60px minmax(0, 1fr) 34px !important;
+    gap: 8px !important;
+    padding: 7px 8px !important;
+  }
+
+  .sidebar .produto-imagem {
+    width: 60px !important;
+    height: 48px !important;
+  }
+
+  .sidebar .produto-informacoes h3 {
+    font-size: 11px !important;
+  }
+
+  .sidebar .produto-informacoes p {
+    font-size: 8px !important;
   }
 
   body.sidebar-produtos-recolhida .sidebar {
@@ -4518,8 +4620,12 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   .lista-produtos {
     flex: 1 1 0 !important;
     height: auto !important;
-    min-height: 180px !important;
+    min-height: 220px !important;
     max-height: none !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
+    -webkit-overflow-scrolling: touch;
   }
 
   .detalhes {
