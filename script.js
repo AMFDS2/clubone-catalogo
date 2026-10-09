@@ -3336,7 +3336,7 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
 
     const lote = lotes[pagina].itens;
     for (let i = 0; i < lote.length; i++) {
-      const p = lote[i], x = M + i * 552, y = 312, w = 510, h = 820;
+      const p = lote[i], x = M + i * 552, y = 300, w = 510, h = 872;
       ctx.beginPath(); ctx.roundRect(x, y, w, h, 16); ctx.fillStyle = "#fff"; ctx.fill(); ctx.strokeStyle = "#d5dfef"; ctx.lineWidth = 1.5; ctx.stroke();
       const imagem = await primeiraImagemDisponivel(imagensDoProdutoApresentacao(p));
       if (!desenharImagemContida(ctx, imagem, x + 34, y + 24, w - 68, 340, 10)) { ctx.beginPath();ctx.roundRect(x+60,y+50,w-120,280,10);ctx.fillStyle="#f4f6fa";ctx.fill(); }
@@ -3364,20 +3364,23 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
       ctx.fillText(`Código Info Store: ${p.codigoInfo || p.codigo || "—"}  •  Qtd.: ${p.quantidade}`, x + 28, y + 773);
       const preco = p.precoOnline;
       if (preco) {
-        ctx.fillStyle = "#15346e"; ctx.font = "700 21px Arial";
-        ctx.fillText(`No Pix: ${formatarReais(preco.precoPix)}`, x + 28, y + 810);
-        ctx.fillStyle = "#60708c"; ctx.font = "400 13px Arial";
+        ctx.beginPath(); ctx.roundRect(x + 22, y + 790, w - 44, 64, 9);
+        ctx.fillStyle = "#f4f7fc"; ctx.fill();
+        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 790, 4, 64);
+        ctx.fillStyle = "#15346e"; ctx.font = "700 19px Arial";
+        ctx.fillText(`No Pix: ${formatarReais(preco.precoPix)}`, x + 40, y + 817);
+        ctx.fillStyle = "#60708c"; ctx.font = "400 12px Arial";
         const parcela = preco.parcelas ? `  •  ${preco.parcelas.quantidade}x de ${formatarReais(preco.parcelas.valor)}` : "";
-        ctx.fillText(`Preço: ${formatarReais(preco.preco)}${parcela}`, x + 28, y + 837);
+        ctx.fillText(`Preço: ${formatarReais(preco.preco)}${parcela}`, x + 40, y + 841);
       } else {
-        ctx.fillStyle = "#8a6470"; ctx.font = "400 13px Arial"; ctx.fillText("Preço online indisponível no momento", x + 28, y + 810);
+        ctx.fillStyle = "#8a6470"; ctx.font = "400 13px Arial"; ctx.fillText("Preço online indisponível no momento", x + 28, y + 820);
       }
     }
 
     ctx.fillStyle = "#68758c"; ctx.font = "400 12px Arial";
-    ctx.fillText("Imagens ilustrativas. Preços e disponibilidade consultados online e sujeitos a alteração. Valide nichos e folgas no manual oficial.", M, 1190);
+    ctx.fillText("Imagens ilustrativas. Preços e disponibilidade consultados online e sujeitos a alteração. Valide nichos e folgas no manual oficial.", M, 1215);
     ctx.textAlign = "right";
-    if (dados.vendedor) { ctx.fillStyle="#15346e";ctx.font="700 13px Arial";ctx.fillText(`Atendimento: ${dados.vendedor}`, W-M, 1190); }
+    if (dados.vendedor) { ctx.fillStyle="#15346e";ctx.font="700 13px Arial";ctx.fillText(`Atendimento: ${dados.vendedor}`, W-M, 1215); }
     ctx.textAlign = "left";
     paginas.push(await canvasParaJPEG(canvas, 0.91));
   }
