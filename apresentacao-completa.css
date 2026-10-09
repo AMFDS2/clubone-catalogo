@@ -1,0 +1,43 @@
+/* Isolado: não altera o catálogo nem os outros formatos de apresentação. */
+#btn-apresentacao-completa { background: #18386f; color: white; border: 1px solid #18386f; min-height: 44px; }
+#ac-dialog { width: min(1000px,94vw); max-height: 92dvh; margin: auto; padding: 24px; border: 0; border-radius: 18px; box-shadow: 0 24px 80px #07193655; color: #193362; background: #f7f8fb; font: 14px Arial,sans-serif; overflow: auto; box-sizing: border-box; }
+#ac-dialog::backdrop { background: #0c193dbb; }
+#ac-dialog * { box-sizing: border-box; }
+#ac-dialog [hidden] { display: none !important; }
+#ac-dialog .ac-topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+#ac-dialog .ac-topo span { letter-spacing: 1px; font-size: 11px; }
+#ac-dialog h3 { margin: 8px 0 20px; font-size: 26px; }
+#ac-dialog h4 { margin: 0; font-size: 16px; overflow-wrap: anywhere; }
+#ac-dialog fieldset { border: 0; padding: 0; min-width: 0; }
+#ac-dialog label { display: block; font-weight: 600; }
+#ac-dialog input:not([type=checkbox]), #ac-dialog textarea { display: block; width: 100%; margin: 7px 0 14px; padding: 12px; border: 1px solid #cbd5e6; border-radius: 8px; background: white; color: #24395a; font: 16px/1.5 Arial,sans-serif; }
+#ac-dialog textarea { resize: vertical; min-height: 145px; }
+#ac-dialog button { cursor: pointer; border: 1px solid #cbd5e6; background: white; border-radius: 8px; padding: 10px 14px; min-height: 44px; color: #193362; font: 600 14px Arial,sans-serif; }
+#ac-dialog button:disabled { opacity: .45; cursor: default; }
+#ac-dialog :focus-visible { outline: 3px solid #416ecd; outline-offset: 2px; }
+#ac-dialog .ac-dados { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+#ac-dialog .ac-item { border: 1px solid #dce3ee; background: white; border-radius: 12px; padding: 18px; margin: 18px 0; }
+#ac-dialog .ac-item-topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+#ac-dialog .ac-ordem { display: flex; gap: 6px; flex-shrink: 0; }
+#ac-dialog .ac-ajuda { font-size: 13px; color: #626e82; line-height: 1.6; }
+#ac-dialog .ac-fotos { display: grid; grid-template-columns: repeat(auto-fill,minmax(105px,1fr)); gap: 10px; margin: 12px 0 20px; }
+#ac-dialog .ac-fotos label { border: 1px solid #dce3ee; border-radius: 10px; padding: 8px; cursor: pointer; font-size: 12px; }
+#ac-dialog .ac-fotos label:has(:checked) { border-color: #244e93; background: #eef3fc; }
+#ac-dialog .ac-fotos img { display: block; width: 100%; height: 85px; object-fit: contain; margin: 4px 0; }
+#ac-dialog input[type=checkbox] { width: 20px; height: 20px; accent-color: #19386c; }
+#ac-dialog .ac-acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+#ac-gerar, #ac-dialog #ac-baixar { background: #19396f; color: white; border-color: #19396f; }
+#ac-status { line-height: 1.6; padding: 12px; background: #eaf0fa; border-radius: 8px; }
+#ac-status.ac-erro { background: #fff0f0; color: #932234; }
+#ac-previas { display: grid; gap: 20px; }
+#ac-previas img { display: block; width: 100%; height: auto; border: 1px solid #dce3ee; border-radius: 8px; }
+@media(max-width:600px) {
+ #ac-dialog { width: 96vw; padding: 16px; max-height: 94dvh; }
+ #ac-dialog .ac-dados { grid-template-columns: 1fr; }
+ #ac-dialog .ac-item { padding: 12px; }
+ #ac-dialog .ac-item-topo { flex-direction: column; }
+ #ac-dialog .ac-acoes button { width: 100%; }
+}
+
+#ac-dialog .ac-remover { display:flex; align-items:center; gap:10px; margin: 0 0 20px; font-weight:400; line-height:1.5; }
+#ac-dialog .ac-remover input { flex-shrink:0; }
