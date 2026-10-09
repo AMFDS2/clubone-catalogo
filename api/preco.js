@@ -1,4 +1,4 @@
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   const codigo = String(req.query?.codigo || "").trim().toUpperCase();
   if (!/^[A-Z0-9._/-]{2,40}$/.test(codigo)) {
     return res.status(400).json({ erro: "Código inválido" });
