@@ -58,7 +58,7 @@
       ${estado.carregando?'':`<span class="ac-origem">${estado.modo==='ia'?'Seleção com IA':'Seleção por categoria'}</span><div class="ac-grade-complementos">${(estado.sugestoes||[]).map((r,k)=>{
         const adicionado=itens.some(x=>x.produto.codigoInfo===r.produto.codigoInfo);
         return `<article class="ac-card-complemento"><img src="${esc(r.produto.imagem)}" alt="${esc(r.produto.nome)}" loading="lazy"><h5>${esc(r.produto.nome)}</h5><strong>${dinheiro(r.preco)}</strong><small>Preço consultado na Info Store · sujeito a alteração</small><p>${esc(r.motivo)}</p><span class="ac-pendente">Compatibilidade a confirmar</span><p class="ac-ajuda">${esc(r.compatibilidade.texto)}</p><label class="ac-escolher"><input type="checkbox" data-escolher-complemento="${k}" ${adicionado?'disabled':''} ${estado.selecionados?.includes(r.id)&&!adicionado?'checked':''}>${adicionado?'Já incluído':'Incluir na apresentação'}</label></article>`;
-      }).join('')}</div>${estado.sugestoes?.length?`<p class="ac-ajuda">Confira as condições de instalação. Os complementos terão páginas próprias; o aviso de compatibilidade será mantido no PDF.</p><p class="ac-ajuda" data-total-complementos aria-live="polite">${estado.selecionados?.length||0} complemento(s) selecionado(s)</p><button type="button" data-adicionar-complementos>Adicionar à apresentação</button>`:''}`}</div>`:''}</section>`;
+      }).join('')}</div>${estado.sugestoes?.length?`<p class="ac-ajuda">Confira as condições de instalação. Os complementos serão reunidos em uma página após o produto principal; o aviso de compatibilidade será mantido no PDF.</p><p class="ac-ajuda" data-total-complementos aria-live="polite">${estado.selecionados?.length||0} complemento(s) selecionado(s)</p><button type="button" data-adicionar-complementos>Adicionar à apresentação</button>`:''}`}</div>`:''}</section>`;
   }
   async function consultarComplementos(i) {
     if(consultaComplementos||ocupado)return;consultaComplementos=true;
@@ -76,15 +76,18 @@
     const escolhidos=(i.sugestoes?.sugestoes||[]).filter(r=>i.sugestoes.selecionados?.includes(r.id));
     if(!escolhidos.length){status('Marque pelo menos um complemento para adicionar.',true);return;}
     const novos=escolhidos.filter(r=>!itens.some(x=>x.produto.codigoInfo===r.produto.codigoInfo)).map(r=>{
-      const item=novoItem(r.produto);item.complemento=true;item.origemNome=i.titulo;
+      const item=novoItem(r.produto);item.complemento=true;item.origemNome=i.titulo;item.origemId=i.produto.id;
       item.beneficios=[r.motivo,...item.beneficios].filter((x,k,a)=>a.indexOf(x)===k).slice(0,8);return item;
     });
+    const existentes=itens.filter(x=>x.complemento&&x.origemId===i.produto.id).length;
+    if(existentes+novos.length>3){status('Cada produto pode ter até três complementos. Remova um antes de escolher outro.',true);return;}
     itens.splice(itens.indexOf(i)+1,0,...novos);i.sugestoes.selecionados=[];invalidar();renderItens();status(`${novos.length} complemento(s) adicionado(s) após o produto principal. Confira os diferenciais antes de gerar.`);
   }
   function renderItens() {
     $('ac-itens').innerHTML=itens.map((i,n)=>`<article class="ac-item" data-indice="${n}">
       <div class="ac-item-topo"><h4>${n+1}. ${esc(i.produto.nome)}</h4><div class="ac-ordem"><button type="button" data-mover="-1" ${n===0?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para cima">↑</button><button type="button" data-mover="1" ${n===itens.length-1?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para baixo">↓</button></div></div>
       ${painelComplementos(i)}
+      ${i.complemento?'<p class="ac-ajuda">No PDF compacto serão usados a primeira foto selecionada e o primeiro diferencial deste complemento.</p>':''}
       <label>Título comercial <input class="ac-titulo" value="${esc(i.titulo)}" maxlength="160"></label>
       <p class="ac-ajuda">Selecione de 1 a 4 fotos. A primeira selecionada será a foto principal.</p>
       <div class="ac-fotos">${i.opcoes.map((src,k)=>`<label><input type="checkbox" data-foto="${k}" ${i.fotos.includes(src)?'checked':''}><img src="${esc(src)}" alt="Foto ${k+1} de ${esc(i.produto.modelo)}" loading="lazy"><span>Foto ${k+1}</span></label>`).join('') || '<p>Não há fotos cadastradas para este item.</p>'}</div>
@@ -98,7 +101,7 @@
     origemFoco=document.activeElement;
     itens=favs.map(f=>{const p=produtoCompletoApresentacao(f);return novoItem(p,Math.max(1,Number(f.quantidade)||1));});
     for(const campo of ['projeto','cliente','profissional','vendedor']) $('ac-'+campo).value=$('apresentacao-'+campo)?.value || '';
-    invalidar();renderItens();status('A ordem abaixo segue a seleção dos produtos. Use as setas para reorganizar esta apresentação.');
+    invalidar();renderItens();status('A ordem abaixo segue a seleção dos produtos. Use as setas para reorganizar os produtos. Os complementos ficam agrupados após seu produto principal no PDF.');
     $('ac-dialog').showModal();$('ac-projeto').focus();
   }
   function fechar() { if(ocupado||consultaComplementos)return;$('ac-dialog').close();origemFoco?.focus(); }
@@ -166,7 +169,7 @@
     const img=document.createElement('img');img.src=mini.toDataURL('image/jpeg',0.9);img.alt=rotulo;$('ac-previas').append(img);
     mini.width=mini.height=0;
   }
-  function criarEncerramento(logo,arte) {
+  function criarEncerramento(logo,arte,totalPaginas) {
     const canvas=document.createElement('canvas');canvas.width=3508;canvas.height=2480;
     const c=canvas.getContext('2d');c.scale(2,2);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';
     const fundo=c.createLinearGradient(0,0,1754,1240);fundo.addColorStop(0,'#102b62');fundo.addColorStop(1,'#1b4284');c.fillStyle=fundo;c.fillRect(0,0,1754,1240);
@@ -178,11 +181,11 @@
     c.fillStyle='#fff';c.font='700 28px Arial';c.fillText('O melhor mix em tecnologia.',96,982);
     c.fillStyle='rgba(255,255,255,.25)';c.fillRect(96,1090,1562,1);
     c.fillStyle='#bdcde5';c.font='400 16px Arial';c.fillText('INFO STORE  |  APRESENTAÇÃO COMERCIAL',96,1140);
-    c.textAlign='right';c.fillText(`${itens.length+2} / ${itens.length+2}`,1658,1140);
+    c.textAlign='right';c.fillText(`${totalPaginas} / ${totalPaginas}`,1658,1140);
     return canvas;
   }
-  function criarCapa(dados,logoInfo,arteCapa) {
-    const W=1754,H=1240,totalPaginasApresentacao=itens.length+2;
+  function criarCapa(dados,logoInfo,arteCapa,totalPaginasApresentacao) {
+    const W=1754,H=1240;
     const canvas=document.createElement('canvas');canvas.width=3508;canvas.height=2480;
     const ctx=canvas.getContext('2d');ctx.scale(2,2);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
     ctx.fillStyle = "#f7f8fb"; ctx.fillRect(0, 0, W, H);
@@ -319,6 +322,43 @@
     c.font='14px Arial';c.fillText('Imagens do catálogo. Acessórios e elementos de ambientação podem não acompanhar o produto.',64,1205);
     return canvas;
   }
+  function planejarPaginas() {
+    return itens.filter(i=>!i.complemento).flatMap(principal=>{
+      const grupo=itens.filter(i=>i.complemento&&i.origemId===principal.produto.id);
+      return [{principal},...(grupo.length?[{principal,grupo}]:[])];
+    });
+  }
+  async function paginaSolucoes(principal,grupo,n,total,dados,logo,ofertas) {
+    const canvas=document.createElement('canvas');canvas.width=3508;canvas.height=2480;
+    const c=canvas.getContext('2d');c.scale(2,2);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';
+    c.fillStyle='#f7f8fb';c.fillRect(0,0,1754,1240);c.fillStyle='#17366c';c.fillRect(0,0,1754,112);c.fillStyle='#ec263e';c.fillRect(0,112,1754,5);
+    if(logo)desenharImagemContida(c,logo,60,18,185,74);
+    c.textAlign='right';c.fillStyle='#fff';c.font='700 20px Arial';c.fillText('O melhor mix em tecnologia.',1690,49);c.font='17px Arial';c.fillText(`${n+2} / ${total+2}`,1690,80);c.textAlign='left';
+    c.fillStyle='#17366c';c.font='700 38px Arial';c.fillText('Para uma solução completa,',64,195);c.fillText('conheça estes complementos.',64,244);
+    caixa(c,64,278,1626,156,'#fff');
+    const registros=[principal,...grupo];const fotos=await Promise.all(registros.map(i=>i.fotos[0]?carregarFoto(i.fotos[0]):null));
+    if(fotos[0])desenharImagemContida(c,principal.removerFundo?removerFundoBranco(fotos[0]):fotos[0],85,294,190,124,5);
+    c.fillStyle='#62708a';c.font='16px Arial';c.fillText('COMPLEMENTOS PARA O PRODUTO DO SEU PROJETO',306,315);
+    c.fillStyle='#17366c';bloco(c,principal.titulo,306,354,1330,2,27,19,700);
+    const largura=518,espaco=36;
+    for(let k=0;k<grupo.length;k++){
+      const item=grupo[k],x=64+k*(largura+espaco),oferta=ofertas[itens.indexOf(item)];
+      caixa(c,x,475,largura,640,'#fff',18);
+      if(fotos[k+1])desenharImagemContida(c,item.removerFundo?removerFundoBranco(fotos[k+1]):fotos[k+1],x+24,491,largura-48,220,8);
+      else{c.fillStyle='#718098';c.font='18px Arial';c.fillText('Imagem indisponível',x+28,604);}
+      c.fillStyle='#17366c';bloco(c,item.titulo,x+24,750,largura-48,4,24,18,700);
+      c.fillStyle='#52617b';bloco(c,item.beneficios[0]||'Uma opção para complementar seu projeto.',x+24,875,largura-48,3,18,14);
+      c.fillStyle='#6b7587';c.font='14px Arial';c.fillText('VALOR UNITÁRIO',x+24,965);
+      c.fillStyle='#17366c';c.font='700 31px Arial';
+      const pix=oferta&&Number(oferta.precoPix)>0&&Number(oferta.precoPix)<=Number(oferta.preco);
+      c.fillText(oferta?dinheiro(pix?oferta.precoPix:oferta.preco):'Preço sob consulta',x+24,1007);
+      c.font='14px Arial';c.fillStyle='#52617b';c.fillText(pix?'À vista no Pix':'Consulte condições e disponibilidade.',x+24,1034);
+      caixa(c,x+24,1055,largura-48,36,'#fff2d8',8);c.fillStyle='#805000';c.font='15px Arial';c.fillText('Compatibilidade a confirmar',x+38,1079);
+    }
+    c.fillStyle='#52617b';c.font='16px Arial';c.fillText('Itens opcionais vendidos separadamente. Confirme compatibilidade e condições de instalação.',64,1160);
+    c.font='14px Arial';c.fillText(`Preços consultados em ${dados.data}, sujeitos a alteração e disponibilidade.`,64,1190);
+    return {canvas,ausentes:fotos.filter((f,k)=>!f&&registros[k].fotos.length).length};
+  }
   async function gerar() {
     if(ocupado)return;
     try {
@@ -336,19 +376,23 @@
         while(proximo<itens.length){const n=proximo++;ofertas[n]=await preco(itens[n].produto);}
       }));
       const [logo,arteCapa]=await Promise.all([carregarFoto('assets/logoin.png'),carregarFoto('assets/capa-arquitetura-tecnica.png')]);
+      const plano=planejarPaginas(),totalPaginas=plano.length+2;
       const paginas=[];let fotosAusentes=0;
-      const capa=criarCapa(dados,logo,arteCapa);paginas.push(await canvasParaJPEG(capa,0.98));adicionarPrevia(capa,'Capa da apresentação');capa.width=capa.height=0;
-      for(let n=0;n<itens.length;n++){
-        status(`Preparando produto ${n+1} de ${itens.length}...`);
-        const carregadas=await Promise.all(itens[n].fotos.map(carregarFoto));fotosAusentes+=carregadas.filter(x=>!x).length;
-        const canvas=await pagina(itens[n],n,itens.length,dados,logo,ofertas[n],carregadas.filter(Boolean).map(im=>itens[n].removerFundo?removerFundoBranco(im):im));
-        paginas.push(await canvasParaJPEG(canvas,0.98));
-        adicionarPrevia(canvas,`Página ${n+2}: ${itens[n].titulo}`);canvas.width=canvas.height=0;
+      const capa=criarCapa(dados,logo,arteCapa,totalPaginas);paginas.push(await canvasParaJPEG(capa,0.98));adicionarPrevia(capa,'Capa da apresentação');capa.width=capa.height=0;
+      for(let n=0;n<plano.length;n++){
+        const {principal,grupo}=plano[n];let canvas;
+        status(`Preparando página ${n+2} de ${totalPaginas}...`);
+        if(grupo){const paginaGrupo=await paginaSolucoes(principal,grupo,n,plano.length,dados,logo,ofertas);canvas=paginaGrupo.canvas;fotosAusentes+=paginaGrupo.ausentes;}
+        else{
+          const carregadas=await Promise.all(principal.fotos.map(carregarFoto));fotosAusentes+=carregadas.filter(x=>!x).length;
+          canvas=await pagina(principal,n,plano.length,dados,logo,ofertas[itens.indexOf(principal)],carregadas.filter(Boolean).map(im=>principal.removerFundo?removerFundoBranco(im):im));
+        }
+        paginas.push(await canvasParaJPEG(canvas,0.98));adicionarPrevia(canvas,`Página ${n+2}: ${grupo?'Solução completa para ':''}${principal.titulo}`);canvas.width=canvas.height=0;
       }
-      const encerramento=criarEncerramento(logo,arteCapa);paginas.push(await canvasParaJPEG(encerramento,0.98));adicionarPrevia(encerramento,'Agradecimento');encerramento.width=encerramento.height=0;
+      const encerramento=criarEncerramento(logo,arteCapa,totalPaginas);paginas.push(await canvasParaJPEG(encerramento,0.98));adicionarPrevia(encerramento,'Agradecimento');encerramento.width=encerramento.height=0;
       resultado=montarPDFComJPEGs(paginas,3508,2480);$('ac-baixar').hidden=false;
       const faltam=ofertas.filter(p=>!p).length;
-      status(`${itens.length+2} páginas prontas: capa, ${itens.length} produtos e agradecimento.${faltam?` ${faltam} produto(s) com preço sob consulta.`:''}${fotosAusentes?` ${fotosAusentes} foto(s) não carregaram e foram omitidas.`:''} Confira a prévia e baixe o PDF.`);
+      status(`${totalPaginas} páginas prontas: capa, produtos, soluções agrupadas e agradecimento.${faltam?` ${faltam} produto(s) com preço sob consulta.`:''}${fotosAusentes?` ${fotosAusentes} foto(s) não carregaram e foram omitidas.`:''} Confira a prévia e baixe o PDF.`);
       $('ac-baixar').focus();$('ac-previas').scrollIntoView({block:'start',behavior:'smooth'});
     }catch(e){invalidar();status(e.message || 'Não foi possível gerar. Tente novamente.',true);}
     finally{ocupado=false;$('ac-edicao').disabled=false;$('ac-gerar').disabled=false;$('ac-fechar').disabled=false;}
