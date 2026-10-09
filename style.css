@@ -4933,6 +4933,52 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 }
 
+/* ==============================================================
+   TOP BAR INSTITUCIONAL — INFO STORE
+============================================================== */
+
+@media (min-width: 1401px) {
+  :root { --topbar: 82px; }
+
+  header.topbar {
+    padding-inline: 34px !important;
+    gap: clamp(24px, 3vw, 58px) !important;
+  }
+
+  .topbar-logos {
+    gap: 15px !important;
+  }
+
+  header.topbar .logo-info {
+    width: 92px !important;
+    max-width: 92px !important;
+    height: 54px !important;
+    max-height: 54px !important;
+  }
+
+  .topbar-identidade {
+    width: clamp(290px, 23vw, 390px) !important;
+  }
+
+  .topbar-identidade strong {
+    font-size: 18px !important;
+  }
+
+  .topbar-identidade span {
+    font-size: 11px !important;
+  }
+
+  .busca-topbar {
+    width: min(500px, 31vw) !important;
+    max-width: 500px !important;
+    flex-basis: 500px !important;
+  }
+
+  .busca-topbar input {
+    height: 48px !important;
+  }
+}
+
 @media (max-width: 767px) {
   .topbar-identidade {
     width: auto;

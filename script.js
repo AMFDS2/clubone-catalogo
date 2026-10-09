@@ -46,7 +46,9 @@ async function inicializar() {
     if (!resposta.ok) throw new Error(`Falha ao carregar ${ARQUIVO_CATALOGO}: ${resposta.status}`);
 
     const dados = await resposta.json();
-    todosProdutos = Array.isArray(dados) ? dados.filter(produtoValido) : [];
+    todosProdutos = Array.isArray(dados)
+      ? dados.filter(produtoValido).map(aplicarCorrecoesCatalogo)
+      : [];
     produtosFiltrados = [...todosProdutos];
     atualizarOpcoesTipoProduto();
     sincronizarFavoritosComCatalogo();
@@ -65,6 +67,104 @@ async function inicializar() {
 
 function produtoValido(produto) {
   return Boolean(produto && produto.id && produto.modelo && produto.nome);
+}
+
+function aplicarCorrecoesCatalogo(produto = {}) {
+  const modelo = String(produto.modelo || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (modelo !== "UN98DU9000GXZD") return produto;
+
+  const campo = (valor, referencia) => ({
+    valor,
+    unidade: "mm",
+    pagina: "Ficha oficial Samsung",
+    referencia,
+    status: "CONFIRMADO",
+    fonte: "CADASTRO_OFICIAL"
+  });
+
+  return {
+    ...produto,
+    nome: 'Smart Super Big TV 98" Crystal UHD 4K DU9000',
+    descricao: "Smart TV Crystal UHD 4K de 98 polegadas com painel de 120 Hz.",
+    destaques: [
+      { rotulo: "Tamanho da tela", valor: '98"' },
+      { rotulo: "Resolução", valor: "4K (3.840 × 2.160)" },
+      { rotulo: "Frequência do painel", valor: "120 Hz" },
+      { rotulo: "Potência de áudio", valor: "20 W" },
+      { rotulo: "Consumo máximo", valor: "510 W" }
+    ],
+    especificacoes: {
+      ...(produto.especificacoes || {}),
+      "Tamanho da tela": '98 polegadas',
+      "Resolução": "4K (3.840 × 2.160)",
+      "Frequência do painel": "120 Hz",
+      "Processador": "Processador Crystal 4K",
+      "Sistema operacional": "Smart TV Tizen™",
+      "Potência de áudio": "20 W RMS (2 canais)",
+      "Consumo máximo": "510 W",
+      "Alimentação": "AC 100–240 V, 50/60 Hz",
+      "HDMI": "3 entradas",
+      "USB": "2 entradas USB-A",
+      "Padrão VESA": "600 × 400 mm",
+      "Peso sem base": "51,8 kg",
+      "Peso com base": "53,4 kg"
+    },
+    dimensoes: {
+      ...(produto.dimensoes || {}),
+      semBase: { largura: "2181,1 mm", altura: "1244,1 mm", profundidade: "63,5 mm", peso: "51,8 kg" },
+      comBase: { largura: "2181,1 mm", altura: "1298,2 mm", profundidade: "402,3 mm", peso: "53,4 kg" },
+      embalagem: { largura: "2369 mm", altura: "1404 mm", profundidade: "275 mm", peso: "76 kg" }
+    },
+    medidasProjeto: {
+      fonte: {
+        tipo: "MANUAL_E_CADASTRO_OFICIAL",
+        nome: "Samsung — ficha técnica e suporte do modelo UN98DU9000GXZD",
+        url: "https://www.samsung.com/br/support/model/UN98DU9000GXZD/"
+      },
+      revisado: true,
+      dimensoesProduto: {
+        largura: campo("2181,1 mm", "TV sem base"),
+        altura: campo("1244,1 mm", "TV sem base"),
+        profundidade: campo("63,5 mm", "TV sem base")
+      },
+      geometriaInstalacao: {
+        larguraProduto: campo("2181,1 mm", "TV sem base"),
+        alturaProduto: campo("1244,1 mm", "TV sem base"),
+        profundidadeTotalProduto: campo("63,5 mm", "TV sem base")
+      },
+      instalacao: {
+        padraoVesa: { valor: "600 × 400 mm", pagina: "Ficha oficial Samsung", status: "CONFIRMADO" }
+      },
+      validacao: {
+        status: "APROVADO_PARA_DESENHO",
+        percentualConfirmado: 100,
+        contagem: { CONFIRMADO: 6, REVISAR: 0, NAO_LOCALIZADO: 0, NAO_APLICAVEL: 0 }
+      },
+      observacoes: ["As cotas técnicas utilizam as dimensões da TV sem a base."]
+    },
+    documentos: [
+      {
+        nome: "Manual do usuário — Português (Brasil)",
+        url: "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=UN98DU9000G&CttFileID=9745292&CDCttType=UM&VPath=UM%2F202406%2F20240617035137001%2FBN81-25561G-205_EUG_ROPISDBD_SA_B-POR_240328.0.pdf"
+      },
+      {
+        nome: "Suporte oficial Samsung — UN98DU9000GXZD",
+        url: "https://www.samsung.com/br/support/model/UN98DU9000GXZD/"
+      }
+    ]
+  };
+}
+
+function prioridadeSegmento(produtoOuChave = {}) {
+  const valor = typeof produtoOuChave === "string"
+    ? produtoOuChave
+    : (produtoOuChave.segmento || produtoOuChave.categoria || "");
+  const chave = normalizarTexto(valor);
+  if (chave === "linha branca" || chave.includes("linha branca")) return 0;
+  if (chave.includes("climatizacao")) return 1;
+  if (chave === "video" || chave.includes("tv") || chave.includes("video")) return 2;
+  if (chave.includes("portateis") || chave.includes("eletroportateis")) return 3;
+  return 9;
 }
 
 function configurarEventosFixos() {
@@ -298,7 +398,10 @@ function renderizarSegmentos() {
     const valor = produto.segmento || produto.categoria;
     if (valor) segmentos.set(normalizarTexto(valor), valor);
   });
-  const botoes = [["", "Todos os produtos"], ...[...segmentos].sort((a, b) => a[1].localeCompare(b[1], "pt-BR"))];
+  const botoes = [["", "Todos os produtos"], ...[...segmentos].sort((a, b) => {
+    const prioridade = prioridadeSegmento(a[0]) - prioridadeSegmento(b[0]);
+    return prioridade || a[1].localeCompare(b[1], "pt-BR");
+  })];
   container.innerHTML = botoes.map(([chave, valor]) => {
     const chaveIcone = chave || "todos";
     const icone = icones[chaveIcone] || icones.todos;
@@ -340,8 +443,12 @@ function ordenarProdutos() {
   const tipo = document.getElementById("ordenacao").value;
   produtosFiltrados.sort((a, b) => {
     if (tipo === "modelo") return String(a.modelo).localeCompare(String(b.modelo), "pt-BR");
-    if (tipo === "categoria") return String(a.categoria).localeCompare(String(b.categoria), "pt-BR");
-    return (b.ordem || 0) - (a.ordem || 0);
+    if (tipo === "categoria") {
+      const prioridade = prioridadeSegmento(a) - prioridadeSegmento(b);
+      return prioridade || String(a.categoria).localeCompare(String(b.categoria), "pt-BR");
+    }
+    const prioridade = prioridadeSegmento(a) - prioridadeSegmento(b);
+    return prioridade || ((b.ordem || 0) - (a.ordem || 0));
   });
 }
 
@@ -794,6 +901,9 @@ function obterDimensoesConfirmadasProduto(produto = {}) {
 
   const dimensoesCadastro =
     produto.dimensoes?.produto ||
+    produto.dimensoes?.semBase ||
+    produto.dimensoes?.semEmbalagem ||
+    produto.dimensoes?.comBase ||
     produto.dimensoes ||
     {};
 
