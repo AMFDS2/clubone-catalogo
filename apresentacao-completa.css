@@ -41,3 +41,19 @@
 
 #ac-dialog .ac-remover { display:flex; align-items:center; gap:10px; margin: 0 0 20px; font-weight:400; line-height:1.5; }
 #ac-dialog .ac-remover input { flex-shrink:0; }
+
+#ac-dialog .ac-completar {margin:0 0 24px;padding:18px;background:#f5f7fb;border-radius:12px;}
+#ac-dialog [data-completar],#ac-dialog [data-adicionar-complementos] {background:#17366c;color:white;border-color:#17366c;}
+#ac-dialog .ac-painel-complementos {margin-top:22px;}
+#ac-dialog .ac-origem {display:inline-block;font-size:12px;padding:6px 10px;background:#e8eef9;border-radius:20px;margin-bottom:14px;}
+#ac-dialog .ac-grade-complementos {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+#ac-dialog .ac-card-complemento {display:flex;flex-direction:column;padding:14px;background:white;border:1px solid #dce3ee;border-radius:12px;min-width:0;overflow-wrap:anywhere;}
+#ac-dialog .ac-card-complemento img {width:100%;height:150px;object-fit:contain;}
+#ac-dialog .ac-card-complemento h5 {font-size:15px;line-height:1.45;margin:14px 0 10px;}
+#ac-dialog .ac-card-complemento strong {font-size:22px;}
+#ac-dialog .ac-card-complemento small {font-size:11px;line-height:1.5;color:#626e82;margin-top:6px;}
+#ac-dialog .ac-card-complemento p {line-height:1.5;}
+#ac-dialog .ac-pendente {display:block;font-size:12px;line-height:1.5;color:#805000;background:#fff2d8;padding:8px;border-radius:8px;}
+#ac-dialog .ac-escolher {display:flex;gap:8px;align-items:center;border-top:1px solid #dce3ee;padding-top:12px;margin-top:auto;min-height:44px;font-weight:400;}
+#ac-dialog .ac-escolher input {flex-shrink:0;}
+@media(max-width:850px){#ac-dialog .ac-grade-complementos{grid-template-columns:1fr;}#ac-dialog .ac-card-complemento img{height:180px;}#ac-dialog .ac-completar{padding:12px;}}

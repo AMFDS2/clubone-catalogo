@@ -2,6 +2,7 @@
 (() => {
   'use strict';
   const LIMITES = { fotos: 4, beneficios: 8, caracteres: 150 };
+  let consultaComplementos = false;
   let itens = [], resultado = null, ocupado = false, origemFoco;
   const $ = id => document.getElementById(id);
   const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -46,9 +47,44 @@
   }
   function status(s,erro=false) { $('ac-status').textContent=s;$('ac-status').classList.toggle('ac-erro',erro); }
   function invalidar() { resultado=null;$('ac-baixar').hidden=true;$('ac-previas').replaceChildren(); }
+  function novoItem(p,quantidade=1) {
+    const opcoes=fotos(p);return {produto:p,quantidade,titulo:p.nome||p.modelo,opcoes,fotos:opcoes.slice(0,4),beneficios:sugerirBeneficios(p),removerFundo:true};
+  }
+  function painelComplementos(i) {
+    if(i.complemento)return `<p class="ac-pendente">Complemento de ${esc(i.origemNome)} · Compatibilidade a confirmar.</p><button type="button" data-remover-complemento>Remover complemento</button>`;
+    const estado=i.sugestoes;
+    return `<section class="ac-completar" aria-label="Complementos para ${esc(i.titulo)}"><button type="button" data-completar ${consultaComplementos?'disabled':''}>Completar este ambiente</button>
+      ${estado?`<div class="ac-painel-complementos" tabindex="-1"><h4>Complete este ambiente</h4><p class="ac-ajuda" role="status">${esc(estado.mensagem)}</p>
+      ${estado.carregando?'':`<span class="ac-origem">${estado.modo==='ia'?'Seleção com IA':'Seleção por categoria'}</span><div class="ac-grade-complementos">${(estado.sugestoes||[]).map((r,k)=>{
+        const adicionado=itens.some(x=>x.produto.codigoInfo===r.produto.codigoInfo);
+        return `<article class="ac-card-complemento"><img src="${esc(r.produto.imagem)}" alt="${esc(r.produto.nome)}" loading="lazy"><h5>${esc(r.produto.nome)}</h5><strong>${dinheiro(r.preco)}</strong><small>Preço consultado na Info Store · sujeito a alteração</small><p>${esc(r.motivo)}</p><span class="ac-pendente">Compatibilidade a confirmar</span><p class="ac-ajuda">${esc(r.compatibilidade.texto)}</p><label class="ac-escolher"><input type="checkbox" data-escolher-complemento="${k}" ${adicionado?'disabled':''} ${estado.selecionados?.includes(r.id)&&!adicionado?'checked':''}>${adicionado?'Já incluído':'Incluir na apresentação'}</label></article>`;
+      }).join('')}</div>${estado.sugestoes?.length?`<p class="ac-ajuda">Confira as condições de instalação. Os complementos terão páginas próprias; o aviso de compatibilidade será mantido no PDF.</p><p class="ac-ajuda" data-total-complementos aria-live="polite">${estado.selecionados?.length||0} complemento(s) selecionado(s)</p><button type="button" data-adicionar-complementos>Adicionar à apresentação</button>`:''}`}</div>`:''}</section>`;
+  }
+  async function consultarComplementos(i) {
+    if(consultaComplementos||ocupado)return;consultaComplementos=true;
+    i.sugestoes={carregando:true,mensagem:'Buscando ofertas disponíveis na Info Store…'};renderItens();$('ac-gerar').disabled=true;
+    const controle=new AbortController(),tempo=setTimeout(()=>controle.abort(),35000);
+    try {
+      const r=await fetch('/api/complementos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({produtoId:i.produto.id}),signal:controle.signal});
+      const data=await r.json();if(!r.ok)throw Error(data.erro||'Não foi possível consultar. Tente novamente.');
+      if(!Array.isArray(data.sugestoes))throw Error('Resposta inválida. Tente novamente.');
+      i.sugestoes={...data,selecionados:[],mensagem:data.mensagem+(data.parcial?' Algumas consultas falharam; tente novamente para ver mais opções.':'')};
+    } catch(e){i.sugestoes={sugestoes:[],mensagem:e.name==='AbortError'?'A consulta demorou demais. Tente novamente.':e.message};}
+    finally{clearTimeout(tempo);consultaComplementos=false;$('ac-gerar').disabled=false;renderItens();const n=itens.indexOf(i);$('ac-itens').querySelector(`[data-indice="${n}"] .ac-painel-complementos`)?.focus();}
+  }
+  function adicionarComplementos(i) {
+    const escolhidos=(i.sugestoes?.sugestoes||[]).filter(r=>i.sugestoes.selecionados?.includes(r.id));
+    if(!escolhidos.length){status('Marque pelo menos um complemento para adicionar.',true);return;}
+    const novos=escolhidos.filter(r=>!itens.some(x=>x.produto.codigoInfo===r.produto.codigoInfo)).map(r=>{
+      const item=novoItem(r.produto);item.complemento=true;item.origemNome=i.titulo;
+      item.beneficios=[r.motivo,...item.beneficios].filter((x,k,a)=>a.indexOf(x)===k).slice(0,8);return item;
+    });
+    itens.splice(itens.indexOf(i)+1,0,...novos);i.sugestoes.selecionados=[];invalidar();renderItens();status(`${novos.length} complemento(s) adicionado(s) após o produto principal. Confira os diferenciais antes de gerar.`);
+  }
   function renderItens() {
     $('ac-itens').innerHTML=itens.map((i,n)=>`<article class="ac-item" data-indice="${n}">
       <div class="ac-item-topo"><h4>${n+1}. ${esc(i.produto.nome)}</h4><div class="ac-ordem"><button type="button" data-mover="-1" ${n===0?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para cima">↑</button><button type="button" data-mover="1" ${n===itens.length-1?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para baixo">↓</button></div></div>
+      ${painelComplementos(i)}
       <label>Título comercial <input class="ac-titulo" value="${esc(i.titulo)}" maxlength="160"></label>
       <p class="ac-ajuda">Selecione de 1 a 4 fotos. A primeira selecionada será a foto principal.</p>
       <div class="ac-fotos">${i.opcoes.map((src,k)=>`<label><input type="checkbox" data-foto="${k}" ${i.fotos.includes(src)?'checked':''}><img src="${esc(src)}" alt="Foto ${k+1} de ${esc(i.produto.modelo)}" loading="lazy"><span>Foto ${k+1}</span></label>`).join('') || '<p>Não há fotos cadastradas para este item.</p>'}</div>
@@ -60,18 +96,18 @@
   function abrir() {
     const favs=obterFavoritosAtualizados();if(!favs.length)return;
     origemFoco=document.activeElement;
-    itens=favs.map(f=>{const p=produtoCompletoApresentacao(f),opcoes=fotos(p);return {produto:p,quantidade:Math.max(1,Number(f.quantidade)||1),titulo:p.nome || p.nomeOficial || p.modelo,opcoes,fotos:opcoes.slice(0,4),beneficios:sugerirBeneficios(p),removerFundo:true};});
+    itens=favs.map(f=>{const p=produtoCompletoApresentacao(f);return novoItem(p,Math.max(1,Number(f.quantidade)||1));});
     for(const campo of ['projeto','cliente','profissional','vendedor']) $('ac-'+campo).value=$('apresentacao-'+campo)?.value || '';
     invalidar();renderItens();status('A ordem abaixo segue a seleção dos produtos. Use as setas para reorganizar esta apresentação.');
     $('ac-dialog').showModal();$('ac-projeto').focus();
   }
-  function fechar() { if(ocupado)return;$('ac-dialog').close();origemFoco?.focus(); }
+  function fechar() { if(ocupado||consultaComplementos)return;$('ac-dialog').close();origemFoco?.focus(); }
   async function preco(p) {
     const codigo=String(p.codigoInfo || p.codigo || '').trim();if(!codigo)return null;
     const c=new AbortController(),t=setTimeout(()=>c.abort(),15000);
     try {
       const r=await fetch(`/api/preco?codigo=${encodeURIComponent(codigo)}`,{cache:'no-store',signal:c.signal});if(!r.ok)return null;
-      const v=await r.json();const u=new URL(v.url);if(u.hostname!=='www.infostore.com.br' && u.hostname!=='infostore.com.br')return null;
+      const v=await r.json();if(v.disponivel===false)return null;const u=new URL(v.url);if(u.hostname!=='www.infostore.com.br' && u.hostname!=='infostore.com.br')return null;
       if(v.codigo && normal(v.codigo)!==normal(codigo))return null;
       return Number.isFinite(Number(v.preco)) && Number(v.preco)>0 ? v : null;
     }catch{return null;}finally{clearTimeout(t);}
@@ -130,8 +166,23 @@
     const img=document.createElement('img');img.src=mini.toDataURL('image/jpeg',0.9);img.alt=rotulo;$('ac-previas').append(img);
     mini.width=mini.height=0;
   }
+  function criarEncerramento(logo,arte) {
+    const canvas=document.createElement('canvas');canvas.width=3508;canvas.height=2480;
+    const c=canvas.getContext('2d');c.scale(2,2);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';
+    const fundo=c.createLinearGradient(0,0,1754,1240);fundo.addColorStop(0,'#102b62');fundo.addColorStop(1,'#1b4284');c.fillStyle=fundo;c.fillRect(0,0,1754,1240);
+    if(arte){c.save();c.globalAlpha=0.08;c.drawImage(arte,650,0,1104,1240);c.restore();}
+    if(!desenharImagemContida(c,logo,92,66,270,138,4)){c.fillStyle='#fff';c.font='700 42px Arial';c.fillText('info store',96,150);}
+    c.fillStyle='#ec263e';c.fillRect(96,382,92,5);
+    c.fillStyle='#fff';c.font='700 64px Arial';c.fillText('Obrigado por imaginar',96,492);c.fillText('novas possibilidades com a gente.',96,574);
+    c.fillStyle='#dce5f5';c.font='400 28px Arial';c.fillText('Cada projeto começa com uma ideia.',96,680);c.fillText('Conte com a Info Store para dar vida à sua.',96,725);
+    c.fillStyle='#fff';c.font='700 28px Arial';c.fillText('O melhor mix em tecnologia.',96,982);
+    c.fillStyle='rgba(255,255,255,.25)';c.fillRect(96,1090,1562,1);
+    c.fillStyle='#bdcde5';c.font='400 16px Arial';c.fillText('INFO STORE  |  APRESENTAÇÃO COMERCIAL',96,1140);
+    c.textAlign='right';c.fillText(`${itens.length+2} / ${itens.length+2}`,1658,1140);
+    return canvas;
+  }
   function criarCapa(dados,logoInfo,arteCapa) {
-    const W=1754,H=1240,totalPaginasApresentacao=itens.length+1;
+    const W=1754,H=1240,totalPaginasApresentacao=itens.length+2;
     const canvas=document.createElement('canvas');canvas.width=3508;canvas.height=2480;
     const ctx=canvas.getContext('2d');ctx.scale(2,2);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
     ctx.fillStyle = "#f7f8fb"; ctx.fillRect(0, 0, W, H);
@@ -145,7 +196,7 @@
       ctx.fillStyle = "#fff"; ctx.font = "700 34px Arial"; ctx.fillText("info store", 70, 86);
     }
     ctx.textAlign = "right"; ctx.fillStyle = "rgba(255,255,255,.92)"; ctx.font = "500 18px Arial";
-    ctx.fillText("O melhor mix para projetos únicos.", W - 72, 78); ctx.textAlign = "left";
+    ctx.fillText("O melhor mix em tecnologia.", W - 72, 78); ctx.textAlign = "left";
 
     // Arte fixa de desenho técnico: comunica arquitetura sem competir com
     // o projeto do cliente. Os produtos permanecem nas páginas internas.
@@ -220,7 +271,7 @@
     const W=1754,H=1240,canvas=document.createElement('canvas');canvas.width=W*2;canvas.height=H*2;const c=canvas.getContext('2d');c.scale(2,2);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';
     c.fillStyle='#fff';c.fillRect(0,0,W,H);c.fillStyle='#17366c';c.fillRect(0,0,W,112);c.fillStyle='#ec263e';c.fillRect(0,112,W,5);
     if(logo)desenharImagemContida(c,logo,60,18,185,74);else{c.fillStyle='#fff';c.font='700 30px Arial';c.fillText('INFO STORE',60,69);}
-    c.textAlign='right';c.fillStyle='#fff';c.font='700 20px Arial';c.fillText('SELEÇÃO PARA O SEU PROJETO',W-64,49);c.font='400 17px Arial';c.fillText(`${n+2} / ${total+1}  •  ${item.quantidade} ${item.quantidade===1?'unidade':'unidades'}`,W-64,80);c.textAlign='left';
+    c.textAlign='right';c.fillStyle='#fff';c.font='700 20px Arial';c.fillText('O melhor mix em tecnologia.',W-64,49);c.font='400 17px Arial';c.fillText(`${n+2} / ${total+2}  •  ${item.quantidade} ${item.quantidade===1?'unidade':'unidades'}`,W-64,80);c.textAlign='left';
     c.fillStyle='#52617b';bloco(c,dados.projeto || 'Produtos selecionados',64,160,1626,1,24,18,700);
     const contexto=[dados.cliente&&`Cliente: ${dados.cliente}`,dados.profissional&&`Arquiteto(a): ${dados.profissional}`,dados.vendedor&&`Atendimento: ${dados.vendedor}`].filter(Boolean).join('  •  ');
     bloco(c,contexto,64,192,1626,1,18,13);
@@ -233,7 +284,7 @@
     c.fillStyle='#d91e37';c.font='700 18px Arial';c.fillText(String(item.produto.marca || item.produto.fabricante || 'Info Store').toUpperCase(),X,253);
     c.fillStyle='#17366c';bloco(c,item.titulo,X,300,R,3,38,26,700);
     c.fillStyle='#66738b';bloco(c,`Modelo: ${item.produto.modelo || '—'}  •  Código: ${item.produto.codigoInfo || item.produto.codigo || '—'}`,X,432,R,1,18,12);
-    c.fillStyle='#ec263e';c.fillRect(X,448,65,4);c.fillStyle='#17366c';c.font='700 19px Arial';c.fillText('DIFERENCIAIS QUE FAZEM A DIFERENÇA',X,487);
+    c.fillStyle='#ec263e';c.fillRect(X,448,65,4);c.fillStyle='#17366c';c.font='700 19px Arial';c.fillText('DIFERENCIAIS',X,487);
     // Uma única fonte por lista; altura real do texto e intervalo fixo entre itens.
     let fonteBeneficios=22, linhasBeneficios=[], entrelinha=0;
     const intervaloBeneficios=14, alturaDisponivel=445;
@@ -263,6 +314,7 @@
       const parc=oferta.parcelas;const cond=parc && Number(parc.quantidade)>0 && Number(parc.valor)>0?`${parc.quantidade}x de ${dinheiro(parc.valor)}`:'';
       c.font='400 18px Arial';c.fillText([pix?`Preço: ${dinheiro(oferta.preco)}`:'',cond].filter(Boolean).join('  •  '),X+25,py+113);
     }else{c.font='700 30px Arial';c.fillText('Preço sob consulta',X+25,py+60);c.font='400 19px Arial';c.fillText('Consulte nossa equipe para preço e disponibilidade.',X+25,py+96);}
+    if(item.complemento){c.fillStyle='#805000';c.font='14px Arial';c.fillText(truncarTextoCanvas(c,`Compatibilidade a confirmar · Complemento de ${item.origemNome}.`,1626),64,1155);}
     c.fillStyle='#6b7587';c.font='16px Arial';c.fillText(`Consulta de preços: ${dados.data}. Valores unitários sujeitos a alteração e disponibilidade.`,64,1180);
     c.font='14px Arial';c.fillText('Imagens do catálogo. Acessórios e elementos de ambientação podem não acompanhar o produto.',64,1205);
     return canvas;
@@ -293,9 +345,10 @@
         paginas.push(await canvasParaJPEG(canvas,0.98));
         adicionarPrevia(canvas,`Página ${n+2}: ${itens[n].titulo}`);canvas.width=canvas.height=0;
       }
+      const encerramento=criarEncerramento(logo,arteCapa);paginas.push(await canvasParaJPEG(encerramento,0.98));adicionarPrevia(encerramento,'Agradecimento');encerramento.width=encerramento.height=0;
       resultado=montarPDFComJPEGs(paginas,3508,2480);$('ac-baixar').hidden=false;
       const faltam=ofertas.filter(p=>!p).length;
-      status(`${itens.length+1} páginas prontas: capa e ${itens.length} produtos, na ordem exibida.${faltam?` ${faltam} produto(s) com preço sob consulta.`:''}${fotosAusentes?` ${fotosAusentes} foto(s) não carregaram e foram omitidas.`:''} Confira a prévia e baixe o PDF.`);
+      status(`${itens.length+2} páginas prontas: capa, ${itens.length} produtos e agradecimento.${faltam?` ${faltam} produto(s) com preço sob consulta.`:''}${fotosAusentes?` ${fotosAusentes} foto(s) não carregaram e foram omitidas.`:''} Confira a prévia e baixe o PDF.`);
       $('ac-baixar').focus();$('ac-previas').scrollIntoView({block:'start',behavior:'smooth'});
     }catch(e){invalidar();status(e.message || 'Não foi possível gerar. Tente novamente.',true);}
     finally{ocupado=false;$('ac-edicao').disabled=false;$('ac-gerar').disabled=false;$('ac-fechar').disabled=false;}
@@ -306,12 +359,21 @@
     ($('btn-apresentacao-cliente') || footer.lastElementChild).insertAdjacentElement('afterend',b);b.addEventListener('click',abrir);
     document.body.insertAdjacentHTML('beforeend',`<dialog id="ac-dialog" aria-labelledby="ac-heading"><div class="ac-topo"><div><span>APRESENTAÇÃO COMERCIAL</span><h3 id="ac-heading">Um produto por página</h3></div><button type="button" id="ac-fechar" aria-label="Fechar apresentação">×</button></div>
       <fieldset id="ac-edicao"><div class="ac-dados">${[['projeto','Projeto'],['cliente','Cliente'],['profissional','Arquiteto(a)'],['vendedor','Vendedor(a)']].map(([id,label])=>`<label>${label}<input id="ac-${id}" maxlength="80" autocomplete="off"></label>`).join('')}</div>
-      <p class="ac-ajuda">Fotos e diferenciais do catálogo, preço consultado na Info Store ao gerar. Capa no estilo tradicional e um produto por página, na ordem abaixo. PDF em alta resolução (300 dpi). Fotos ambientadas são preservadas; desmarque a remoção se preferir a imagem original.</p><div id="ac-itens"></div></fieldset>
+      <p class="ac-ajuda">Fotos e diferenciais do catálogo, preço consultado na Info Store ao gerar. Use Completar este ambiente para buscar complementos do mix Info Store. As inclusões valem para esta apresentação. Capa, agradecimento e um produto por página, na ordem abaixo. PDF em alta resolução (300 dpi). Fotos ambientadas são preservadas; desmarque a remoção se preferir a imagem original.</p><div id="ac-itens"></div></fieldset>
       <div class="ac-acoes"><button type="button" id="ac-gerar">Gerar prévia completa</button><button type="button" id="ac-baixar" hidden>Baixar apresentação em PDF</button></div><p id="ac-status" role="status" aria-live="polite"></p><div id="ac-previas"></div></dialog>`);
-    $('ac-fechar').addEventListener('click',fechar);$('ac-dialog').addEventListener('cancel',e=>{if(ocupado)e.preventDefault();});
-    $('ac-itens').addEventListener('click',e=>{const btn=e.target.closest('[data-mover]');if(!btn)return;const n=Number(btn.closest('[data-indice]').dataset.indice),m=n+Number(btn.dataset.mover);if(m<0||m>=itens.length)return;[itens[n],itens[m]]=[itens[m],itens[n]];invalidar();renderItens();$('ac-itens').querySelectorAll('.ac-item')[m].querySelector('input').focus();});
+    $('ac-fechar').addEventListener('click',fechar);$('ac-dialog').addEventListener('cancel',e=>{if(ocupado||consultaComplementos)e.preventDefault();});
+    $('ac-itens').addEventListener('click',e=>{
+      const artigo=e.target.closest('[data-indice]');if(!artigo||ocupado||consultaComplementos)return;
+      const atual=itens[Number(artigo.dataset.indice)];
+      if(e.target.closest('[data-completar]')){consultarComplementos(atual);return;}
+      if(e.target.closest('[data-adicionar-complementos]')){adicionarComplementos(atual);return;}
+      if(e.target.closest('[data-remover-complemento]')){itens.splice(itens.indexOf(atual),1);invalidar();renderItens();status('Complemento removido da apresentação.');return;}
+      const btn=e.target.closest('[data-mover]');if(!btn)return;const n=Number(btn.closest('[data-indice]').dataset.indice),m=n+Number(btn.dataset.mover);if(m<0||m>=itens.length)return;[itens[n],itens[m]]=[itens[m],itens[n]];invalidar();renderItens();$('ac-itens').querySelectorAll('.ac-item')[m].querySelector('input').focus();});
     $('ac-itens').addEventListener('input',e=>{const article=e.target.closest('[data-indice]');if(!article)return;const i=itens[Number(article.dataset.indice)];if(e.target.matches('.ac-titulo'))i.titulo=e.target.value;if(e.target.matches('.ac-beneficios'))i.beneficios=e.target.value.split('\n').map(x=>x.trim()).filter(Boolean);invalidar();});
-    $('ac-itens').addEventListener('change',e=>{if(e.target.matches('.ac-remover-fundo')){itens[Number(e.target.closest('[data-indice]').dataset.indice)].removerFundo=e.target.checked;invalidar();return;}if(!e.target.matches('[data-foto]'))return;const i=itens[Number(e.target.closest('[data-indice]').dataset.indice)],src=i.opcoes[Number(e.target.dataset.foto)];if(e.target.checked && i.fotos.length>=4){e.target.checked=false;status('Selecione no máximo quatro fotos por produto.',true);return;}i.fotos=e.target.checked?[...i.fotos,src]:i.fotos.filter(s=>s!==src);invalidar();});
+    $('ac-itens').addEventListener('change',e=>{if(e.target.matches('[data-escolher-complemento]')){
+      const i=itens[Number(e.target.closest('[data-indice]').dataset.indice)],r=i.sugestoes.sugestoes[Number(e.target.dataset.escolherComplemento)];
+      i.sugestoes.selecionados=e.target.checked?[...new Set([...i.sugestoes.selecionados,r.id])]:i.sugestoes.selecionados.filter(id=>id!==r.id);e.target.closest('[data-indice]').querySelector('[data-total-complementos]').textContent=`${i.sugestoes.selecionados.length} complemento(s) selecionado(s)`;return;
+    }if(e.target.matches('.ac-remover-fundo')){itens[Number(e.target.closest('[data-indice]').dataset.indice)].removerFundo=e.target.checked;invalidar();return;}if(!e.target.matches('[data-foto]'))return;const i=itens[Number(e.target.closest('[data-indice]').dataset.indice)],src=i.opcoes[Number(e.target.dataset.foto)];if(e.target.checked && i.fotos.length>=4){e.target.checked=false;status('Selecione no máximo quatro fotos por produto.',true);return;}i.fotos=e.target.checked?[...i.fotos,src]:i.fotos.filter(s=>s!==src);invalidar();});
     document.querySelector('.ac-dados').addEventListener('input',invalidar);
     $('ac-gerar').addEventListener('click',gerar);$('ac-baixar').addEventListener('click',()=>{if(resultado)baixarBlob(resultado,`apresentacao-completa-info-store-${new Date().toISOString().slice(0,10)}.pdf`);});
   }

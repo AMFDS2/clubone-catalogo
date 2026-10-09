@@ -5,5 +5,11 @@
       "path": "/api/limpar-orcamentos",
       "schedule": "0 3 * * *"
     }
-  ]
+  ],
+  "functions": {
+    "api/complementos.js": {
+      "includeFiles": "produtos.preview.json",
+      "maxDuration": 30
+    }
+  }
 }
