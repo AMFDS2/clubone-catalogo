@@ -818,19 +818,6 @@ header.topbar {
 }
 
 /* ==================================================
-   RESPONSIVIDADE (MOBILE & TABLET AJUSTADOS)
-================================================== */
-@media (max-width: 1250px) {
-  .catalogo { grid-template-columns: 340px minmax(0, 1fr); }
-}
-
-@media (max-width: 1100px) {
-  .produto-hero { grid-template-columns: minmax(280px, 45%) minmax(0, 55%); padding: 24px; }
-  .grade-tecnica { grid-template-columns: 1fr; }
-  .rodape { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ==================================================
    RESPONSIVIDADE (MOBILE & TABLET CORRIGIDOS)
 ================================================== */
 @media (max-width: 1250px) {
@@ -4457,8 +4444,10 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .topbar-identidade {
-    width: 120px !important;
-  }
+  width: 250px !important;
+  min-width: 0 !important;
+  gap: 3px;
+}
 
   .topbar-identidade strong {
     font-size: 11px !important;
@@ -4472,16 +4461,17 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
 }
 
   .busca-topbar {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    margin: 0 !important;
-  }
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 300px !important;
+  justify-self: end !important;
+  margin: 0 !important;
+}
 
   .busca-topbar input {
-    height: 44px !important;
+    height: 42px !important;
     font-size: 15px !important;
   }
 
@@ -4972,14 +4962,15 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .busca-topbar {
-    width: min(500px, 31vw) !important;
-    max-width: 500px !important;
-    flex-basis: 500px !important;
-  }
+  width: min(480px, 28vw) !important;
+  max-width: 480px !important;
+  flex-basis: 480px !important;
+}
 
   .busca-topbar input {
-    height: 48px !important;
-  }
+  height: 42px !important;
+  font-size: 13px !important;
+}
 }
 
 @media (max-width: 767px) {
