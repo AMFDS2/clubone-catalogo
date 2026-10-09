@@ -7,7 +7,7 @@
 <meta property="og:title" content="Info Store | Catálogo Pro">
 <meta name="apple-mobile-web-app-title" content="Info Store">
   <title>Info Store | Portfólio Técnico</title>
-  <link rel="stylesheet" href="style.css?v=20261007-9">
+  <link rel="stylesheet" href="style.css?v=20261009-1">
   <link rel="stylesheet" href="blocagem.css">
   <link rel="stylesheet" href="documentos-oficiais.css">
 </head>
@@ -145,10 +145,29 @@
     <div id="lista-favoritos" class="drawer-content"></div>
     <div class="drawer-footer" id="drawer-footer" style="display: none;">
       <button id="btn-solicitar-orcamento" class="btn-gerar-pdf" type="button">Solicitar orçamento</button>
+      <button id="btn-apresentacao-cliente" class="btn-apresentacao-cliente" type="button">Gerar apresentação</button>
       <button id="btn-baixar-pdf" class="btn-baixar-pdf" type="button">Salvar PDF</button>
       <p id="status-orcamento" class="aviso-orcamento">Escolha o atendimento para enviar a lista pelo WhatsApp ou salve uma cópia em PDF.</p>
     </div>
   </aside>
+
+  <div id="modal-apresentacao" class="modal-apresentacao hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-apresentacao">
+    <button class="modal-apresentacao-fundo" type="button" data-fechar-apresentacao aria-label="Fechar"></button>
+    <section class="modal-apresentacao-conteudo">
+      <div class="modal-apresentacao-topo">
+        <div><span>PORTFÓLIO PERSONALIZADO</span><h3 id="titulo-modal-apresentacao">Gerar apresentação</h3></div>
+        <button type="button" data-fechar-apresentacao aria-label="Fechar">&times;</button>
+      </div>
+      <div class="form-apresentacao">
+        <label><span>Categoria / título</span><input id="apresentacao-projeto" type="text" placeholder="Ex.: Fornos ou Cozinha planejada"></label>
+        <label><span>Cliente (opcional)</span><input id="apresentacao-cliente" type="text" placeholder="Nome do cliente"></label>
+        <label><span>Arquiteto(a) / projeto (opcional)</span><input id="apresentacao-profissional" type="text" placeholder="Nome do profissional ou projeto"></label>
+        <label><span>Vendedor(a) (opcional)</span><input id="apresentacao-vendedor" type="text" placeholder="Nome do vendedor responsável"></label>
+      </div>
+      <p class="apresentacao-nota">Os produtos serão separados automaticamente por categoria, com até três itens por página. Preços e disponibilidade serão consultados na Info Store no momento da geração.</p>
+      <button id="btn-confirmar-apresentacao" class="btn-confirmar-apresentacao" type="button">Baixar apresentação em PDF</button>
+    </section>
+  </div>
 
   <div id="modal-consultores" class="modal-consultores hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-consultores">
     <button class="modal-consultores-fundo" type="button" data-fechar-consultores aria-label="Fechar seleção de atendimento"></button>
@@ -182,6 +201,6 @@
   </div>
 
   <script src="blocagem.js?v=20261001-2"></script>
-  <script src="script.js?v=20261007-5"></script>
+  <script src="script.js?v=20261009-3"></script>
 </body>
 </html>

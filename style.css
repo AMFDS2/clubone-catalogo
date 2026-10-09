@@ -3445,6 +3445,32 @@ body:not(.campanha-fechada) .campanha-reabrir {
   outline-offset: 2px;
 }
 
+.btn-apresentacao-cliente {
+  width: 100%; min-height: 46px; margin-top: 10px; padding: 11px 14px;
+  border: 1px solid var(--info-vermelho); border-radius: 8px;
+  background: #fff; color: var(--info-azul-950);
+  font-family: var(--fonte-titulos); font-size: 11px; font-weight: 800;
+  letter-spacing: .025em; text-transform: uppercase; cursor: pointer;
+}
+.btn-apresentacao-cliente:hover { background: #fff5f6; box-shadow: 0 5px 16px rgba(229,38,51,.1); }
+.modal-apresentacao { position: fixed; inset: 0; z-index: 1900; display: grid; place-items: center; padding: 18px; }
+.modal-apresentacao.hidden { display: none; }
+.modal-apresentacao-fundo { position: absolute; inset: 0; border: 0; background: rgba(5,18,48,.68); backdrop-filter: blur(4px); }
+.modal-apresentacao-conteudo { position: relative; width: min(610px,100%); padding: 26px; border-radius: 16px; background: #fff; box-shadow: 0 25px 70px rgba(4,19,54,.32); }
+.modal-apresentacao-topo { display: flex; justify-content: space-between; gap: 18px; padding-bottom: 18px; border-bottom: 1px solid #e4eaf5; }
+.modal-apresentacao-topo span { color: var(--info-vermelho); font-size: 10px; font-weight: 800; letter-spacing: .12em; }
+.modal-apresentacao-topo h3 { margin: 5px 0 0; color: var(--info-azul-950); font-size: 23px; }
+.modal-apresentacao-topo button { width: 34px; height: 34px; border: 1px solid #d5deed; border-radius: 50%; background: #fff; color: var(--info-azul-950); font-size: 20px; cursor: pointer; }
+.form-apresentacao { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 20px 0 13px; }
+.form-apresentacao label > span { display: block; margin-bottom: 6px; color: #526078; font-size: 11px; font-weight: 700; }
+.form-apresentacao label:first-child { grid-column: 1/-1; }
+.form-apresentacao input { box-sizing: border-box; width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid #cfd8e9; border-radius: 8px; color: #102a61; font: inherit; outline: none; }
+.form-apresentacao input:focus { border-color: #2c5ab7; box-shadow: 0 0 0 3px rgba(44,90,183,.1); }
+.apresentacao-nota { margin: 0 0 16px; color: #6c7689; font-size: 11px; line-height: 1.5; }
+.btn-confirmar-apresentacao { width: 100%; min-height: 48px; border: 0; border-radius: 8px; background: linear-gradient(105deg,var(--info-azul-950),var(--info-azul-800)); color: #fff; font-weight: 800; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 20px rgba(16,42,97,.2); }
+.btn-confirmar-apresentacao:hover { box-shadow: inset 0 -3px var(--info-vermelho),0 8px 20px rgba(16,42,97,.2); }
+@media (max-width:600px) { .modal-apresentacao-conteudo{padding:20px}.form-apresentacao{grid-template-columns:1fr}.form-apresentacao label:first-child{grid-column:1} }
+
 .btn-baixar-lista {
   width: 100%;
   min-height: 40px;

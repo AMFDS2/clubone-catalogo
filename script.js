@@ -2643,28 +2643,71 @@ function urlDocumentoExibicao(documento = {}) {
   return String(documento.url || "").trim();
 }
 
-function criarDocumentos(documentos = []) {
-  const lista = Array.isArray(documentos) ? documentos : [];
-  const validos = lista
-    .map(documento => ({ ...documento, urlExibicao: urlDocumentoExibicao(documento) }))
-    .filter(documento =>
-      documento &&
-      documento.nome &&
-      urlDocumentoPermitida(documento.urlExibicao)
-    );
+function criarUrlVisualizacaoPdf(documento = {}) {
+  const urlAtual = String(documento.url || "").trim();
+  const urlOriginal = String(
+    documento.urlOriginal || documento.url || ""
+  ).trim();
 
-  if (!validos.length) {
-    return `<p class="texto-tecnico">Nenhum documento disponível no momento.</p>`;
+  if (!urlOriginal) return "";
+
+  // Evita colocar o visualizador dentro de outro visualizador.
+  if (/docs\.google\.com\/gview/i.test(urlAtual)) {
+    return urlAtual;
   }
 
-  return validos.map(documento => `
-    <a href="${escaparHTML(documento.urlExibicao)}" target="_blank" rel="noopener noreferrer" class="documento-link">
-      <span class="documento-informacoes">
-        <strong>${escaparHTML(documento.nome)}</strong>
-        <small>${escaparHTML(documento.descricao || "Documento oficial do fabricante")}</small>
-      </span>
-      <span class="documento-acao">Abrir PDF ↗</span>
-    </a>`).join("");
+  // Links que não são PDFs continuam abrindo normalmente.
+  if (!/\.pdf(?:$|[?#])/i.test(urlOriginal)) {
+    return urlAtual;
+  }
+
+  return `https://docs.google.com/gview?embedded=0&url=${encodeURIComponent(urlOriginal)}`;
+}
+
+function criarDocumentos(documentos = []) {
+  const lista = Array.isArray(documentos) ? documentos : [];
+
+  const validos = lista.filter(
+    documento =>
+      documento &&
+      documento.nome &&
+      (documento.url || documento.urlOriginal)
+  );
+
+  if (!validos.length) {
+    return `
+      <p class="texto-tecnico">
+        Nenhum documento oficial disponível no momento.
+      </p>
+    `;
+  }
+
+  return validos.map(documento => {
+    const urlVisualizacao = criarUrlVisualizacaoPdf(documento);
+
+    return `
+      <a
+        href="${escaparHTML(urlVisualizacao)}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="documento-link"
+      >
+        <span class="documento-informacoes">
+          <strong>${escaparHTML(documento.nome)}</strong>
+          <small>
+            ${escaparHTML(
+              documento.descricao ||
+              "Documento oficial do fabricante"
+            )}
+          </small>
+        </span>
+
+        <span class="documento-acao">
+          Abrir PDF ↗
+        </span>
+      </a>
+    `;
+  }).join("");
 }
 
 function criarAviso() {
@@ -3152,6 +3195,219 @@ async function criarPDFOrcamento(favs = []) {
 
   return montarPDFComJPEGs(paginasJPEG, LARGURA, ALTURA);
 }
+
+function produtoCompletoApresentacao(item = {}) {
+  return localizarProdutoAtual(item) || item;
+}
+
+function extrairMedidaApresentacao(valor, unidadePadrao = "mm") {
+  if (valor === null || valor === undefined || valor === "") return "—";
+  if (typeof valor === "object") {
+    const conteudo = valor.valor ?? valor.value ?? valor.medida ?? valor.dimensao ?? valor.texto;
+    if (conteudo !== undefined && conteudo !== null && conteudo !== "") {
+      const unidade = valor.unidade || valor.unit || unidadePadrao;
+      const textoConteudo = String(conteudo).trim();
+      return /(?:mm|cm|m|kg|g|l|w|v)$/i.test(textoConteudo)
+        ? textoConteudo
+        : `${textoConteudo} ${unidade}`;
+    }
+    for (const item of Object.values(valor)) {
+      const extraido = extrairMedidaApresentacao(item, unidadePadrao);
+      if (extraido !== "—") return extraido;
+    }
+    return "—";
+  }
+  const texto = String(valor).replace(/\s+/g, " ").trim();
+  if (!texto) return "—";
+  return /(?:mm|cm|m|kg|g|l|w|v)$/i.test(texto) ? texto : `${texto} ${unidadePadrao}`;
+}
+
+function imagensDoProdutoApresentacao(produto = {}) {
+  return [
+    produto.imagem, produto.imagemPrincipal, produto.imagem_principal,
+    ...(Array.isArray(produto.imagens) ? produto.imagens : []),
+    ...(Array.isArray(produto.galeria) ? produto.galeria : [])
+  ].map(item => typeof item === "string" ? item : item?.url || item?.src).filter(Boolean);
+}
+
+function especificacaoApresentacao(produto = {}, nomes = []) {
+  const specs = produto.especificacoes || produto.specs || {};
+  const entradas = Array.isArray(specs)
+    ? specs.map(item => [item?.nome || item?.titulo || item?.chave, item?.valor || item?.value])
+    : Object.entries(specs);
+  for (const procurado of nomes) {
+    const chave = normalizarTexto(procurado);
+    const encontrada = entradas.find(([nome]) => normalizarTexto(nome || "").includes(chave));
+    if (encontrada?.[1] !== undefined && encontrada[1] !== "") return encontrada[1];
+  }
+  return "";
+}
+
+function formatarReais(valor) {
+  const numero = Number(valor);
+  return Number.isFinite(numero)
+    ? numero.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
+    : "—";
+}
+
+async function consultarPrecoInfoStore(produto = {}) {
+  const codigo = String(produto.codigoInfo || produto.codigo || "").trim();
+  if (!codigo || codigo === "-") return null;
+  try {
+    const resposta = await fetch(`/api/preco?codigo=${encodeURIComponent(codigo)}`, { cache: "no-store" });
+    if (!resposta.ok) return null;
+    return await resposta.json();
+  } catch (erro) {
+    console.warn(`Preço indisponível para ${codigo}:`, erro);
+    return null;
+  }
+}
+
+function categoriaApresentacao(produto = {}) {
+  const online = produto.precoOnline?.categoria;
+  if (online) return online;
+  const texto = normalizarTexto(`${produto.categoria || ""} ${produto.nome || ""} ${produto.nomeOficial || ""}`);
+  const regras = [
+    [/lava.?lou[cç]as|lavadora de lou[cç]as/, "Lava-louças"],
+    [/geladeira|refrigerador|french door|side by side/, "Geladeiras"],
+    [/fog[aã]o/, "Fogões"],
+    [/cooktop/, "Cooktops"],
+    [/forno/, "Fornos"],
+    [/micro.?ondas/, "Micro-ondas"],
+    [/coifa|depurador/, "Coifas e depuradores"],
+    [/adega/, "Adegas"],
+    [/cervejeira/, "Cervejeiras"],
+    [/lava.?roupas|lavadora de roupas/, "Lavadoras"],
+    [/ar.?condicionado/, "Ar-condicionado"],
+    [/televisor|smart tv|\btv\b/, "TVs"]
+  ];
+  return regras.find(([regra]) => regra.test(texto))?.[1] || produto.categoria || produto.segmento || "Produtos";
+}
+
+function pluralizarCategoriaApresentacao(nome = "Produtos") {
+  const mapa = { Geladeira:"Geladeiras", Fogão:"Fogões", Forno:"Fornos", Cooktop:"Cooktops", "Lava-louças":"Lava-louças", Refrigerador:"Geladeiras" };
+  return mapa[nome] || nome;
+}
+
+async function criarPDFApresentacao(favs = [], dados = {}) {
+  if (!favs.length) throw new Error("Nenhum produto selecionado.");
+  const W = 1754, H = 1240, M = 68;
+  const produtosBase = favs.map(item => ({
+    ...produtoCompletoApresentacao(item),
+    quantidade: Math.max(1, Number(item.quantidade) || 1)
+  }));
+  const precos = await Promise.all(produtosBase.map(consultarPrecoInfoStore));
+  const produtos = produtosBase.map((produto, indice) => ({ ...produto, precoOnline: precos[indice] }));
+  const lotes = [];
+  const grupos = new Map();
+  produtos.forEach(produto => {
+    const categoria = pluralizarCategoriaApresentacao(categoriaApresentacao(produto));
+    if (!grupos.has(categoria)) grupos.set(categoria, []);
+    grupos.get(categoria).push(produto);
+  });
+  grupos.forEach((itens, categoria) => {
+    for (let i = 0; i < itens.length; i += 3) lotes.push({ categoria, itens: itens.slice(i, i + 3) });
+  });
+  const paginas = [];
+  const logoInfo = await primeiraImagemDisponivel(["assets/logoin.png", "assets/logo-info-store.png", "assets/logo-info.png"]);
+  const logoClub = await primeiraImagemDisponivel(["assets/logo-club-one.png", "assets/logo-clubone.png", "assets/clubone.png", "assets/club-one.png"]);
+
+  for (let pagina = 0; pagina < lotes.length; pagina++) {
+    const canvas = document.createElement("canvas"); canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("O navegador não conseguiu preparar o PDF.");
+    ctx.fillStyle = "#f5f7fb"; ctx.fillRect(0, 0, W, H);
+
+    ctx.fillStyle = "#173875"; ctx.fillRect(0, 0, W, 142);
+    ctx.fillStyle = "#e52633"; ctx.fillRect(0, 136, W, 6);
+    if (!desenharImagemContida(ctx, logoInfo, 48, 24, 150, 84, 4)) { ctx.fillStyle="#fff";ctx.font="700 27px Arial";ctx.fillText("info store",52,75); }
+    ctx.fillStyle = "rgba(255,255,255,.32)"; ctx.fillRect(222, 30, 2, 70);
+    if (!desenharImagemContida(ctx, logoClub, 250, 25, 160, 80, 4)) { ctx.fillStyle="#fff";ctx.font="400 24px Arial";ctx.fillText("CLUB ONE",250,75); }
+    ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = "700 17px Arial";
+    ctx.fillText("PORTFÓLIO TÉCNICO • INFO STORE", W - 55, 52);
+    ctx.fillStyle = "#d9e3f8"; ctx.font = "400 14px Arial";
+    ctx.fillText(`APRESENTAÇÃO PERSONALIZADA  •  ${pagina + 1}/${lotes.length}`, W - 55, 82); ctx.textAlign = "left";
+
+    const titulo = lotes[pagina].categoria || dados.projeto || "Produtos selecionados";
+    ctx.fillStyle = "#15346e"; ctx.font = "700 42px Arial"; ctx.fillText(String(titulo), M, 220);
+    ctx.fillStyle = "#e52633"; ctx.fillRect(M, 239, 86, 4);
+    const linhaContexto = [dados.cliente && `Cliente: ${dados.cliente}`, dados.profissional && `Projeto/Arquiteto: ${dados.profissional}`, dados.vendedor && `Vendedor(a): ${dados.vendedor}`].filter(Boolean).join("  •  ");
+    ctx.fillStyle = "#61708b"; ctx.font = "400 16px Arial"; ctx.fillText(linhaContexto || "Soluções selecionadas para o projeto", M, 276);
+
+    const lote = lotes[pagina].itens;
+    for (let i = 0; i < lote.length; i++) {
+      const p = lote[i], x = M + i * 552, y = 312, w = 510, h = 820;
+      ctx.beginPath(); ctx.roundRect(x, y, w, h, 16); ctx.fillStyle = "#fff"; ctx.fill(); ctx.strokeStyle = "#d5dfef"; ctx.lineWidth = 1.5; ctx.stroke();
+      const imagem = await primeiraImagemDisponivel(imagensDoProdutoApresentacao(p));
+      if (!desenharImagemContida(ctx, imagem, x + 34, y + 24, w - 68, 340, 10)) { ctx.beginPath();ctx.roundRect(x+60,y+50,w-120,280,10);ctx.fillStyle="#f4f6fa";ctx.fill(); }
+
+      const marca = p.marca || p.fabricante || "Info Store";
+      ctx.fillStyle = "#e52633"; ctx.font = "700 14px Arial"; ctx.fillText(String(marca).toUpperCase(), x + 28, y + 402);
+      ctx.fillStyle = "#68758c"; ctx.font = "400 13px Arial"; ctx.fillText(`Modelo: ${p.modelo || "—"}`, x + 28, y + 431);
+      ctx.fillStyle = "#15346e"; ctx.font = "700 20px Arial";
+      quebrarTextoCanvas(ctx, p.nome || p.nomeOficial || "Produto", w - 56, 3).forEach((linha, n) => ctx.fillText(linha, x + 28, y + 473 + n * 27));
+
+      const d = obterDimensoesConfirmadasProduto(p) || {};
+      const largura = extrairMedidaApresentacao(d.largura);
+      const altura = extrairMedidaApresentacao(d.altura);
+      const profundidade = extrairMedidaApresentacao(d.profundidade);
+      ctx.beginPath(); ctx.roundRect(x + 22, y + 575, w - 44, 126, 10); ctx.fillStyle = "#edf3ff"; ctx.fill();
+      ctx.fillStyle = "#15346e"; ctx.font = "700 12px Arial"; ctx.fillText("DIMENSÕES  (L × A × P)", x + 40, y + 607);
+      ctx.font = "700 19px Arial"; ctx.fillText(`${largura} × ${altura} × ${profundidade}`, x + 40, y + 651);
+
+      const capacidade = p.capacidade || especificacaoApresentacao(p, ["capacidade total", "capacidade"]);
+      const voltagem = p.voltagem || especificacaoApresentacao(p, ["voltagem", "tensão"]);
+      const cor = p.cor || especificacaoApresentacao(p, ["cor", "acabamento"]);
+      ctx.fillStyle = "#66748b"; ctx.font = "400 13px Arial";
+      const extras = [capacidade && `Cap.: ${capacidade}`, voltagem && `Voltagem: ${voltagem}`, cor && `Cor: ${cor}`].filter(Boolean).join("  •  ");
+      if (extras) ctx.fillText(truncarTextoCanvas(ctx, extras, w - 56), x + 28, y + 742);
+      ctx.fillText(`Código Info Store: ${p.codigoInfo || p.codigo || "—"}  •  Qtd.: ${p.quantidade}`, x + 28, y + 773);
+      const preco = p.precoOnline;
+      if (preco) {
+        ctx.fillStyle = "#15346e"; ctx.font = "700 21px Arial";
+        ctx.fillText(`No Pix: ${formatarReais(preco.precoPix)}`, x + 28, y + 810);
+        ctx.fillStyle = "#60708c"; ctx.font = "400 13px Arial";
+        const parcela = preco.parcelas ? `  •  ${preco.parcelas.quantidade}x de ${formatarReais(preco.parcelas.valor)}` : "";
+        ctx.fillText(`Preço: ${formatarReais(preco.preco)}${parcela}`, x + 28, y + 837);
+      } else {
+        ctx.fillStyle = "#8a6470"; ctx.font = "400 13px Arial"; ctx.fillText("Preço online indisponível no momento", x + 28, y + 810);
+      }
+    }
+
+    ctx.fillStyle = "#68758c"; ctx.font = "400 12px Arial";
+    ctx.fillText("Imagens ilustrativas. Preços e disponibilidade consultados online e sujeitos a alteração. Valide nichos e folgas no manual oficial.", M, 1190);
+    ctx.textAlign = "right";
+    if (dados.vendedor) { ctx.fillStyle="#15346e";ctx.font="700 13px Arial";ctx.fillText(`Atendimento: ${dados.vendedor}`, W-M, 1190); }
+    ctx.textAlign = "left";
+    paginas.push(await canvasParaJPEG(canvas, 0.91));
+  }
+  return montarPDFComJPEGs(paginas, W, H);
+}
+
+function abrirModalApresentacao() {
+  if (!obterFavoritosAtualizados().length) return;
+  document.getElementById("modal-apresentacao")?.classList.remove("hidden");
+}
+function fecharModalApresentacao() { document.getElementById("modal-apresentacao")?.classList.add("hidden"); }
+async function gerarApresentacaoCliente() {
+  const btn = document.getElementById("btn-confirmar-apresentacao");
+  try {
+    btn.disabled = true; btn.textContent = "Gerando PDF...";
+    const blob = await criarPDFApresentacao(obterFavoritosAtualizados(), {
+      projeto: document.getElementById("apresentacao-projeto")?.value.trim(),
+      cliente: document.getElementById("apresentacao-cliente")?.value.trim(),
+      profissional: document.getElementById("apresentacao-profissional")?.value.trim(),
+      vendedor: document.getElementById("apresentacao-vendedor")?.value.trim()
+    });
+    baixarBlob(blob, `apresentacao-info-store-${new Date().toISOString().slice(0,10)}.pdf`);
+    fecharModalApresentacao();
+  } catch (erro) {
+    console.error("Falha ao gerar apresentação:", erro);
+    alert("Não foi possível gerar a apresentação. Atualize a página e tente novamente.");
+  } finally {
+    btn.disabled = false; btn.textContent = "Baixar apresentação em PDF";
+  }
+}
 function baixarBlob(blob, nomeArquivo = "lista-interesse-info-store.pdf") {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
@@ -3270,6 +3526,9 @@ function configurarEventosFavoritos() {
   });
 
   document.getElementById("btn-solicitar-orcamento")?.addEventListener("click", abrirSelecaoConsultor);
+  document.getElementById("btn-apresentacao-cliente")?.addEventListener("click", abrirModalApresentacao);
+  document.getElementById("btn-confirmar-apresentacao")?.addEventListener("click", gerarApresentacaoCliente);
+  document.querySelectorAll("[data-fechar-apresentacao]").forEach(botao => botao.addEventListener("click", fecharModalApresentacao));
   document.getElementById("btn-baixar-pdf")?.addEventListener("click", baixarMemorialPDF);
 
   document.querySelectorAll("[data-fechar-consultores]").forEach(botao => {
@@ -3283,7 +3542,7 @@ function configurarEventosFavoritos() {
   });
 
   document.addEventListener("keydown", evento => {
-    if (evento.key === "Escape") fecharSelecaoConsultor();
+    if (evento.key === "Escape") { fecharSelecaoConsultor(); fecharModalApresentacao(); }
   });
 
   document.addEventListener("click", (e) => {
