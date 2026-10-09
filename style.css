@@ -1578,7 +1578,7 @@ header.topbar {
   outline: none;
   background: rgba(255,255,255,.055);
   color: #fff;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .busca-topbar input::placeholder { color: rgba(255,255,255,.68); }
@@ -4962,15 +4962,36 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .busca-topbar {
-  width: min(480px, 28vw) !important;
-  max-width: 480px !important;
-  flex-basis: 480px !important;
-}
+    width: min(480px, 28vw) !important;
+    max-width: 480px !important;
+    flex: 0 1 480px !important;
+    min-width: 0 !important;
+    margin-inline: 0 !important;
+  }
 
   .busca-topbar input {
   height: 42px !important;
   font-size: 13px !important;
 }
+}
+
+/* Desktop amplo: busca na posição aprovada no Live Server.
+   Regra isolada para não interferir no tablet e no celular. */
+@media (min-width: 1600px) {
+  header.topbar {
+    position: sticky !important;
+  }
+
+  header.topbar .busca-topbar {
+    position: absolute !important;
+    left: 58% !important;
+    transform: translateX(-50%) !important;
+    width: min(600px, 32vw) !important;
+    max-width: 600px !important;
+    min-width: 0 !important;
+    flex: none !important;
+    margin: 0 !important;
+  }
 }
 
 @media (max-width: 767px) {
