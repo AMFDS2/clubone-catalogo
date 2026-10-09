@@ -4991,6 +4991,6 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .topbar-identidade span {
-    display: none;
-  }
+  display: block;
+}
 }
