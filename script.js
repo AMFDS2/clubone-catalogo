@@ -2135,10 +2135,8 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   produtoSelecionado = produto.id;
 
-  if (interacaoDoUsuario && (ehTabletHorizontal() || window.matchMedia("(max-width: 767px)").matches)) {
-    fecharFiltrosSidebar();
-    definirSidebarProdutosRecolhida(true);
-  }
+  // A lista permanece aberta depois da seleção. Recolher/mostrar é uma
+  // decisão explícita do usuário pelos botões do painel lateral.
   renderizarProdutos(produtosFiltrados);
 
   requestAnimationFrame(() => {
