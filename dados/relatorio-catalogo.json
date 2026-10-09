@@ -1,8 +1,8 @@
 {
-  "dataVerificacao": "2026-10-02T19:16:16.028Z",
+  "dataVerificacao": "2026-10-09T17:57:38.925Z",
   "resumo": {
-    "produtosNaPlanilha": 222,
-    "produtosCadastrados": 118,
+    "produtosNaPlanilha": 235,
+    "produtosCadastrados": 131,
     "produtosIncompletos": 103,
     "produtosNovos": 1,
     "totalPendencias": 104
@@ -1068,6 +1068,123 @@
       "codigo": "MIC0025",
       "produto": "MICRO-ONDAS 23L EFFICIENT ME23P PRE 127V",
       "modelo": "10237PBA135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "01121wba089",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "ADE0002",
+      "produto": "ADEGA 12 GARRAFAS ACB12 PRE 127V",
+      "modelo": "01121WBA089",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "66809hba088",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0051",
+      "produto": "COOKTOP 5 BOCAS GAS KE5HP HOME PRO PRE BIV (TRIPLA",
+      "modelo": "66809HBA088",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "66809pba035",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0055",
+      "produto": "COOKTOP 5 BOCAS GAS KE5PS PRO SERIES BIVOLT",
+      "modelo": "66809PBA035",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "63041vba035",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0065",
+      "produto": "FOG 4 BOCAS EFFIC FE4GB PRE BIVOLT (M.VID)",
+      "modelo": "63041VBA035",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "23041iba088",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "FOG0068",
+      "produto": "FOG 4 BOCAS EFFIC FE4IG CIN BIVOLT (M.VID)",
+      "modelo": "23041IBA088",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02353fba130",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0111",
+      "produto": "GELADEIRA FF 380L DUPLEX IF41S CIN 127V",
+      "modelo": "02353FBA130",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "02352fba106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "GEL0112",
+      "produto": "GELADEIRA FF 380L DUPLEX IF41 BRA 127V",
+      "modelo": "02352FBA106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "2109cdba106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0027",
+      "produto": "MAQ LAV TL 9KG LED09 BRA 127V",
+      "modelo": "2109CDBA106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "2118cdbb135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0052",
+      "produto": "MAQ LAV TL 18KG LEB18 PRE 127V (CESTINOX)",
+      "modelo": "2118CDBB135",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "2115cdbb106",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0056",
+      "produto": "MAQ LAV TL 14,5KG LEE15 BRA 127V (CESTINOX)",
+      "modelo": "2115CDBB106",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "5112qdba199",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0061",
+      "produto": "LAVA E SECA INV 12KG LSC12 CIN 127V",
+      "modelo": "5112QDBA199",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "1512qdba199",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "LAV0062",
+      "produto": "MAQ LAV FL 12KG INV 12KG LFC12 CIN 127V",
+      "modelo": "1512QDBA199",
+      "statusPesquisa": "CADASTRADO"
+    },
+    {
+      "id": "10341cba135",
+      "fabricante": "ELECTROLUX (NAC)",
+      "segmento": "LINHA BRANCA",
+      "codigo": "MIC0009",
+      "produto": "MICRO-ONDAS EMBUTIR 34L EXPERIENCE ME3EP PRE 127V",
+      "modelo": "10341CBA135",
       "statusPesquisa": "CADASTRADO"
     }
   ],

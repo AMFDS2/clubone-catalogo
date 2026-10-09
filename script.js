@@ -3017,14 +3017,49 @@ async function primeiraImagemDisponivel(candidatos = []) {
 }
 
 function desenharImagemContida(ctx, imagem, x, y, largura, altura, margem = 0) {
-  if (!imagem?.naturalWidth || !imagem?.naturalHeight) return false;
+  const larguraImagem = imagem?.naturalWidth || imagem?.width;
+  const alturaImagem = imagem?.naturalHeight || imagem?.height;
+  if (!larguraImagem || !alturaImagem) return false;
   const maxL = Math.max(1, largura - margem * 2);
   const maxA = Math.max(1, altura - margem * 2);
-  const escala = Math.min(maxL / imagem.naturalWidth, maxA / imagem.naturalHeight);
-  const w = imagem.naturalWidth * escala;
-  const h = imagem.naturalHeight * escala;
+  const escala = Math.min(maxL / larguraImagem, maxA / alturaImagem);
+  const w = larguraImagem * escala;
+  const h = alturaImagem * escala;
   ctx.drawImage(imagem, x + (largura - w) / 2, y + (altura - h) / 2, w, h);
   return true;
+}
+
+function prepararImagemCapaSemFundoClaro(imagem) {
+  const larguraOriginal = imagem?.naturalWidth || imagem?.width;
+  const alturaOriginal = imagem?.naturalHeight || imagem?.height;
+  if (!larguraOriginal || !alturaOriginal) return imagem;
+  try {
+    const limite = 1400;
+    const escala = Math.min(1, limite / Math.max(larguraOriginal, alturaOriginal));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(larguraOriginal * escala));
+    canvas.height = Math.max(1, Math.round(alturaOriginal * escala));
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    if (!ctx) return imagem;
+    ctx.drawImage(imagem, 0, 0, canvas.width, canvas.height);
+    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const dados = pixels.data;
+    for (let i = 0; i < dados.length; i += 4) {
+      const r = dados[i], g = dados[i + 1], b = dados[i + 2];
+      const minimo = Math.min(r, g, b);
+      const maximo = Math.max(r, g, b);
+      if (minimo >= 247 && maximo - minimo <= 10) {
+        dados[i + 3] = 0;
+      } else if (minimo >= 226 && maximo - minimo <= 18) {
+        dados[i + 3] = Math.round(dados[i + 3] * ((247 - minimo) / 21));
+      }
+    }
+    ctx.putImageData(pixels, 0, 0);
+    return canvas;
+  } catch (erro) {
+    console.warn("Não foi possível remover o fundo claro da imagem da capa.", erro);
+    return imagem;
+  }
 }
 
 function quebrarTextoCanvas(ctx, texto = "", larguraMax = 400, maxLinhas = 2) {
@@ -3239,17 +3274,6 @@ function especificacaoApresentacao(produto = {}, nomes = []) {
   return "";
 }
 
-function descricaoBreveApresentacao(produto = {}) {
-  const bruto = produto.descricaoBreve || produto.resumo || produto.descricao || produto.diferenciais || "";
-  if (!bruto) return "";
-  const apoio = document.createElement("div");
-  apoio.innerHTML = String(bruto);
-  return (apoio.textContent || apoio.innerText || "")
-    .replace(/\s+/g, " ")
-    .replace(/^[•·\-–—\s]+/, "")
-    .trim();
-}
-
 function formatarReais(valor) {
   const numero = Number(valor);
   return Number.isFinite(numero)
@@ -3296,6 +3320,32 @@ function pluralizarCategoriaApresentacao(nome = "Produtos") {
   return mapa[nome] || nome;
 }
 
+function perfilVisualCapa(produto = {}) {
+  const texto = normalizarTexto([
+    produto.segmento, produto.categoria, produto.tipo, produto.nome, produto.nomeOficial
+  ].filter(Boolean).join(" "));
+
+  if (/portatil|eletroport|air fryer|cafeteira|liquidificador|batedeira|torradeira|sanduicheira|aspirador/.test(texto)) {
+    return { grupo: "portateis", ordemGrupo: 3, ordemInterna: 0, z: 3 };
+  }
+  if (/ar condicionado|climatiza|evaporadora|condensadora/.test(texto)) {
+    return { grupo: "climatizacao", ordemGrupo: 1, ordemInterna: 0, z: 0 };
+  }
+  if (/\btvs?\b|televisor|qled|oled|neo qled|the frame/.test(texto)) {
+    return { grupo: "tv", ordemGrupo: 2, ordemInterna: 0, z: 0 };
+  }
+  if (/geladeira|refrigerador|french door|side by side|lava roupas|lavadora|secadora|lava loucas|fogao|forno|cooktop|coifa|depurador|adega|cervejeira/.test(texto)) {
+    let ordemInterna = 5;
+    if (/geladeira|refrigerador|french door|side by side/.test(texto)) ordemInterna = 0;
+    else if (/lava roupas|lavadora|secadora|lava loucas/.test(texto)) ordemInterna = 1;
+    else if (/fogao/.test(texto)) ordemInterna = 2;
+    else if (/adega|cervejeira/.test(texto)) ordemInterna = 3;
+    else if (/forno|coifa|depurador|cooktop/.test(texto)) ordemInterna = 4;
+    return { grupo: "linhaBranca", ordemGrupo: 0, ordemInterna, z: 2 };
+  }
+  return { grupo: "outros", ordemGrupo: 4, ordemInterna: 0, z: 1 };
+}
+
 async function criarPDFApresentacao(favs = [], dados = {}) {
   if (!favs.length) throw new Error("Nenhum produto selecionado.");
   const W = 1754, H = 1240, M = 68;
@@ -3317,6 +3367,96 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
   });
   const paginas = [];
   const logoInfo = await primeiraImagemDisponivel(["assets/logoin.png", "assets/logo-info-store.png", "assets/logo-info.png"]);
+  const arteCapa = await primeiraImagemDisponivel(["assets/capa-arquitetura-tecnica.png"]);
+  const totalPaginasApresentacao = lotes.length + 1;
+
+  // Capa editorial clara, inspirada em apresentações de arquitetura.
+  {
+    const canvas = document.createElement("canvas"); canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("O navegador não conseguiu preparar a capa do PDF.");
+
+    ctx.fillStyle = "#f7f8fb"; ctx.fillRect(0, 0, W, H);
+
+    // Faixa institucional conforme a referência, sem marcas de clubes.
+    const topo = ctx.createLinearGradient(0, 0, W, 0);
+    topo.addColorStop(0, "#102b62"); topo.addColorStop(0.58, "#1b4284"); topo.addColorStop(1, "#102b62");
+    ctx.fillStyle = topo; ctx.fillRect(0, 0, W, 152);
+    ctx.fillStyle = "#e52633"; ctx.fillRect(0, 148, W, 4);
+    if (!desenharImagemContida(ctx, logoInfo, 70, 24, 190, 98, 4)) {
+      ctx.fillStyle = "#fff"; ctx.font = "700 34px Arial"; ctx.fillText("info store", 70, 86);
+    }
+    ctx.textAlign = "right"; ctx.fillStyle = "rgba(255,255,255,.92)"; ctx.font = "500 18px Arial";
+    ctx.fillText("O melhor mix para projetos únicos.", W - 72, 78); ctx.textAlign = "left";
+
+    // Arte fixa de desenho técnico: comunica arquitetura sem competir com
+    // o projeto do cliente. Os produtos permanecem nas páginas internas.
+    if (arteCapa) {
+      ctx.save();
+      ctx.globalAlpha = 0.42;
+      ctx.drawImage(arteCapa, 0, 152, W, H - 152);
+      ctx.restore();
+      // Véu claro assegura legibilidade absoluta dos dados à esquerda.
+      const veuTexto = ctx.createLinearGradient(0, 0, 980, 0);
+      veuTexto.addColorStop(0, "rgba(247,248,251,.99)");
+      veuTexto.addColorStop(0.75, "rgba(247,248,251,.94)");
+      veuTexto.addColorStop(1, "rgba(247,248,251,0)");
+      ctx.fillStyle = veuTexto;
+      ctx.fillRect(0, 152, 1060, H - 152);
+    }
+
+    ctx.fillStyle = "#14346f"; ctx.font = "700 65px Arial";
+    ctx.fillText("Portfólio Técnico", 72, 285);
+    ctx.fillStyle = "#e52633"; ctx.fillRect(74, 316, 104, 5);
+    const tituloCapa = String(dados.projeto || "Seleção personalizada de produtos");
+    ctx.fillStyle = "#173875"; ctx.font = "700 42px Arial";
+    quebrarTextoCanvas(ctx, tituloCapa, 860, 2)
+      .forEach((linha, indice) => ctx.fillText(linha, 72, 390 + indice * 51));
+    ctx.fillStyle = "#667085"; ctx.font = "400 21px Arial";
+    ctx.fillText("Soluções selecionadas para especificação e composição do projeto.", 72, 510);
+
+    // Categorias presentes na seleção, como pequenos marcadores editoriais.
+    const categoriasCapa = [...grupos.keys()].slice(0, 6);
+    let xCategoria = 72;
+    categoriasCapa.forEach(categoria => {
+      ctx.font = "600 14px Arial";
+      const larguraChip = Math.min(220, Math.max(112, ctx.measureText(categoria).width + 42));
+      ctx.beginPath(); ctx.roundRect(xCategoria, 560, larguraChip, 48, 10);
+      ctx.fillStyle = "#ffffff"; ctx.fill(); ctx.strokeStyle = "#d5deed"; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.fillStyle = "#173875"; ctx.fillText(truncarTextoCanvas(ctx, categoria, larguraChip - 30), xCategoria + 20, 590);
+      xCategoria += larguraChip + 14;
+    });
+
+    const camposCapa = [
+      ["CLIENTE", dados.cliente],
+      ["ARQUITETO(A)", dados.profissional],
+      ["VENDEDOR(A)", dados.vendedor]
+    ].filter(([, valor]) => String(valor || "").trim());
+    if (camposCapa.length) {
+      ctx.beginPath(); ctx.roundRect(72, 700, 860, 270, 16);
+      ctx.fillStyle = "rgba(255,255,255,.94)"; ctx.fill(); ctx.strokeStyle = "#d7dfec"; ctx.lineWidth = 1.5; ctx.stroke();
+      camposCapa.forEach(([rotulo, valor], indice) => {
+        const y = 754 + indice * 74;
+        ctx.fillStyle = "#e52633"; ctx.font = "700 12px Arial"; ctx.fillText(rotulo, 104, y);
+        ctx.fillStyle = "#173875"; ctx.font = "500 20px Arial";
+        ctx.fillText(truncarTextoCanvas(ctx, String(valor), 650), 270, y);
+        if (indice < camposCapa.length - 1) {
+          ctx.strokeStyle = "#e5e9f1"; ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(104, y + 27); ctx.lineTo(900, y + 27); ctx.stroke();
+        }
+      });
+    }
+
+    ctx.fillStyle = "#173875"; ctx.font = "700 24px Arial"; ctx.fillText("Info Store — O melhor mix em tecnologia.", 72, 1080);
+    ctx.fillStyle = "#e52633"; ctx.fillRect(72, 1100, 58, 3);
+
+    const dataCapa = new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+    ctx.fillStyle = "#7a8495"; ctx.font = "400 14px Arial"; ctx.fillText(`Manaus • ${dataCapa}`, 72, 1174);
+    ctx.textAlign = "right"; ctx.fillStyle = "#7a8495"; ctx.font = "400 13px Arial";
+    ctx.fillText(`INFO STORE | PORTFÓLIO TÉCNICO  •  1/${totalPaginasApresentacao}`, W - 72, 1174);
+    ctx.textAlign = "left";
+    paginas.push(await canvasParaJPEG(canvas, 0.92));
+  }
 
   for (let pagina = 0; pagina < lotes.length; pagina++) {
     const canvas = document.createElement("canvas"); canvas.width = W; canvas.height = H;
@@ -3330,7 +3470,7 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
     ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = "700 17px Arial";
     ctx.fillText("INFO STORE | PORTFÓLIO TÉCNICO", W - 55, 52);
     ctx.fillStyle = "#d9e3f8"; ctx.font = "400 14px Arial";
-    ctx.fillText(`APRESENTAÇÃO PERSONALIZADA  •  ${pagina + 1}/${lotes.length}`, W - 55, 82); ctx.textAlign = "left";
+    ctx.fillText(`APRESENTAÇÃO PERSONALIZADA  •  ${pagina + 2}/${totalPaginasApresentacao}`, W - 55, 82); ctx.textAlign = "left";
 
     const titulo = lotes[pagina].categoria || dados.projeto || "Produtos selecionados";
     ctx.fillStyle = "#15346e"; ctx.font = "700 42px Arial"; ctx.fillText(String(titulo), M, 220);
@@ -3351,48 +3491,41 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
       ctx.fillStyle = "#15346e"; ctx.font = "700 20px Arial";
       quebrarTextoCanvas(ctx, p.nome || p.nomeOficial || "Produto", w - 56, 2).forEach((linha, n) => ctx.fillText(linha, x + 28, y + 473 + n * 27));
 
-      const descricaoBreve = descricaoBreveApresentacao(p);
-      if (descricaoBreve) {
-        ctx.fillStyle = "#68758c"; ctx.font = "400 12px Arial";
-        quebrarTextoCanvas(ctx, descricaoBreve, w - 56, 2)
-          .forEach((linha, n) => ctx.fillText(linha, x + 28, y + 535 + n * 18));
-      }
-
       const d = obterDimensoesConfirmadasProduto(p) || {};
       const largura = extrairMedidaApresentacao(d.largura);
       const altura = extrairMedidaApresentacao(d.altura);
       const profundidade = extrairMedidaApresentacao(d.profundidade);
-      ctx.beginPath(); ctx.roundRect(x + 22, y + 582, w - 44, 78, 10); ctx.fillStyle = "#edf3ff"; ctx.fill();
-      ctx.fillStyle = "#15346e"; ctx.font = "700 11px Arial"; ctx.fillText("DIMENSÕES  (L × A × P)", x + 40, y + 605);
-      ctx.font = "700 17px Arial"; ctx.fillText(`${largura} × ${altura} × ${profundidade}`, x + 40, y + 638);
+      ctx.beginPath(); ctx.roundRect(x + 22, y + 550, w - 44, 78, 10); ctx.fillStyle = "#edf3ff"; ctx.fill();
+      ctx.fillStyle = "#15346e"; ctx.font = "700 11px Arial"; ctx.fillText("DIMENSÕES  (L × A × P)", x + 40, y + 573);
+      ctx.font = "700 17px Arial"; ctx.fillText(`${largura} × ${altura} × ${profundidade}`, x + 40, y + 606);
 
       const capacidade = p.capacidade || especificacaoApresentacao(p, ["capacidade total", "capacidade"]);
       const voltagem = p.voltagem || especificacaoApresentacao(p, ["voltagem", "tensão"]);
       const cor = p.cor || especificacaoApresentacao(p, ["cor", "acabamento"]);
       ctx.fillStyle = "#66748b"; ctx.font = "400 13px Arial";
       const extras = [capacidade && `Cap.: ${capacidade}`, voltagem && `Voltagem: ${voltagem}`, cor && `Cor: ${cor}`].filter(Boolean).join("  •  ");
-      if (extras) ctx.fillText(truncarTextoCanvas(ctx, extras, w - 56), x + 28, y + 701);
-      ctx.fillText(`Código Info Store: ${p.codigoInfo || p.codigo || "—"}  •  Qtd.: ${p.quantidade}`, x + 28, y + 732);
+      if (extras) ctx.fillText(truncarTextoCanvas(ctx, extras, w - 56), x + 28, y + 669);
+      ctx.fillText(`Código Info Store: ${p.codigoInfo || p.codigo || "—"}  •  Qtd.: ${p.quantidade}`, x + 28, y + 700);
       const preco = p.precoOnline;
       // A quantidade retornada pelo catálogo VTEX pode ficar zerada mesmo com
       // a oferta ativa na página. URL oficial + preço positivo são a fonte
       // confiável para exibir Pix e parcelamento na apresentação.
       const precoValido = Number(preco?.preco) > 0 && Boolean(preco?.url);
       if (precoValido) {
-        ctx.beginPath(); ctx.roundRect(x + 22, y + 752, w - 44, 64, 9);
+        ctx.beginPath(); ctx.roundRect(x + 22, y + 720, w - 44, 64, 9);
         ctx.fillStyle = "#f4f7fc"; ctx.fill();
-        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 752, 4, 64);
+        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 720, 4, 64);
         ctx.fillStyle = "#15346e"; ctx.font = "700 19px Arial";
-        ctx.fillText(`No Pix: ${formatarReais(preco.precoPix)}`, x + 40, y + 779);
+        ctx.fillText(`No Pix: ${formatarReais(preco.precoPix)}`, x + 40, y + 747);
         ctx.fillStyle = "#60708c"; ctx.font = "400 12px Arial";
         const parcela = preco.parcelas ? `  •  ${preco.parcelas.quantidade}x de ${formatarReais(preco.parcelas.valor)}` : "";
-        ctx.fillText(`Preço: ${formatarReais(preco.preco)}${parcela}`, x + 40, y + 803);
+        ctx.fillText(`Preço: ${formatarReais(preco.preco)}${parcela}`, x + 40, y + 771);
       } else {
-        ctx.beginPath(); ctx.roundRect(x + 22, y + 752, w - 44, 64, 9);
+        ctx.beginPath(); ctx.roundRect(x + 22, y + 720, w - 44, 64, 9);
         ctx.fillStyle = "#fff6f7"; ctx.fill();
-        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 752, 4, 64);
+        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 720, 4, 64);
         ctx.fillStyle = "#6f3340"; ctx.font = "600 13px Arial";
-        ctx.fillText("Solicite disponibilidade de estoque e preço", x + 40, y + 790);
+        ctx.fillText("Solicite disponibilidade de estoque e preço", x + 40, y + 758);
       }
     }
 

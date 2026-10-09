@@ -42,6 +42,25 @@ function prepararURL(valor = "", fonte = "https://www.samsung.com/br/") {
 
 function classificarDocumento(rotulo = "", url = "") {
   const referencia = normalizar(`${rotulo} ${decodeURIComponent(url)}`);
+  if (
+  /remote control|controle remoto|solarcell|remote guide/.test(referencia)
+) {
+  return {
+    tipo: "controle-remoto",
+    nome: "Manual do controle remoto",
+    descricao: "Orientações do controle remoto"
+  };
+}
+
+if (
+  /simple user guide|simple guide|guia simples/.test(referencia)
+) {
+  return {
+    tipo: "guia-rapido",
+    nome: "Guia rápido",
+    descricao: "Guia simplificado do fabricante"
+  };
+}
 
   if (/install|instalacao|installation|guia de instalacao/.test(referencia)) {
     return {
@@ -227,12 +246,13 @@ export async function extrairDocumentosOficiais($, html = "", fonteInterna = "",
   });
 
   const ordem = {
-    manual: 1,
-    instalacao: 2,
-    "guia-rapido": 3,
-    "ficha-tecnica": 4,
-    certificacao: 5
-  };
+  instalacao: 1,
+  manual: 2,
+  "guia-rapido": 3,
+  "ficha-tecnica": 4,
+  certificacao: 5,
+  "controle-remoto": 99
+};
 
   return [...unicos.values()]
     .map(candidato => ({
@@ -252,11 +272,12 @@ export async function extrairDocumentosOficiais($, html = "", fonteInterna = "",
         return false;
       }
     })
-    .filter(documento => documento.tipo === "manual")
+    .filter(documento =>
+  ["manual", "instalacao"].includes(documento.tipo))
     .sort((a, b) =>
       a.prioridadeIdioma - b.prioridadeIdioma ||
       (ordem[a.tipo] || 99) - (ordem[b.tipo] || 99)
     )
-    .slice(0, 1)
+    .slice(0, 2)
     .map(({ prioridadeIdioma, ...documento }) => documento);
 }

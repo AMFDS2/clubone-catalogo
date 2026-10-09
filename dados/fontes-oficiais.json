@@ -745,19 +745,6 @@
     "dataConsulta": "2026-09-16T21:25:06.292Z"
   },
   {
-    "modelo": "01121WBA089",
-    "codigo": "ADE0002",
-    "produto": "ADEGA 12 GARRAFAS ACB12 PRE 127V",
-    "fabricante": "ELECTROLUX (NAC)",
-    "statusFonte": "LOCALIZADO",
-    "fonteInterna": "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-12-garrafas-uma-porta-acabamento-em-aluminio--acb12-/p",
-    "alternativas": [
-      "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-8-garrafas-uma-porta-acabamento-em-aluminio--acb08-/p",
-      "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-12-garrafas-uma-porta-acabamento-em-aluminio--acb12-/p"
-    ],
-    "dataConsulta": "2026-09-18T12:06:32.647Z"
-  },
-  {
     "modelo": "33059CBB035",
     "codigo": "FOG0054",
     "produto": "COOKTOP 5 BOCAS GAS KE5GT PRE BIVOLT (TRIPLACHAMA)",
@@ -1790,6 +1777,202 @@
     "dataConsulta": "2026-10-02T18:42:55.265Z"
   },
   {
+    "modelo": "01121WBA089",
+    "codigo": "ADE0002",
+    "produto": "ADEGA 12 GARRAFAS ACB12 PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-12-garrafas-uma-porta-acabamento-em-aluminio--acb12-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-12-garrafas-uma-porta-acabamento-em-aluminio--acb12-/p",
+      "https://loja.electrolux.com.br/adega-de-vinho-climatizada-electrolux-8-garrafas-uma-porta-acabamento-em-aluminio--acb08-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:10.885Z"
+  },
+  {
+    "modelo": "66809HBA088",
+    "codigo": "FOG0051",
+    "produto": "COOKTOP 5 BOCAS GAS KE5HP HOME PRO PRE BIV (TRIPLA",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cooktop-5-bocas-electrolux-gas-home-pro-espelhado--chamaprecisa-e-multi-chama--ke5hp-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cooktop-5-bocas-electrolux-gas-home-pro-espelhado--chamaprecisa-e-multi-chama--ke5hp-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:11.586Z"
+  },
+  {
+    "modelo": "66809PBA035",
+    "codigo": "FOG0055",
+    "produto": "COOKTOP 5 BOCAS GAS KE5PS PRO SERIES BIVOLT",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/cooktop-5-bocas-electrolux-gas-pro-series-mesa-de-vidro--chamaprecisa-e-multi-chama--ke5ps-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/cooktop-5-bocas-electrolux-gas-pro-series-mesa-de-vidro--chamaprecisa-e-multi-chama--ke5ps-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:12.327Z"
+  },
+  {
+    "modelo": "63041VBA035",
+    "codigo": "FOG0065",
+    "produto": "FOG 4 BOCAS EFFIC FE4GB PRE BIVOLT (M.VID)",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-preto-efficient-mesa-vidro--tripla-chama-e-perfectcook--fe4gb-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-preto-efficient-mesa-vidro--tripla-chama-e-perfectcook--fe4gb-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:12.999Z"
+  },
+  {
+    "modelo": "23041IBA088",
+    "codigo": "FOG0068",
+    "produto": "FOG 4 BOCAS EFFIC FE4IG CIN BIVOLT (M.VID)",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe4ig-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/fogao-4-bocas-electrolux-cinza-efficient-mesa-inox--perfectcook-e-vaporbake®--fe4ig-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:13.834Z"
+  },
+  {
+    "modelo": "02353FBA130",
+    "codigo": "GEL0111",
+    "produto": "GELADEIRA FF 380L DUPLEX IF41S CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-380l-autosense-inverter-duplex-inox-look--if41s-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-380l-autosense-inverter-duplex-inox-look--if41s-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:14.346Z"
+  },
+  {
+    "modelo": "02352FBA106",
+    "codigo": "GEL0112",
+    "produto": "GELADEIRA FF 380L DUPLEX IF41 BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-380l-autosense-inverter-black-inox-look--if41b-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-380l-autosense-inverter-black-inox-look--if41b-/p",
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-380l-autosense-inverter-duplex-inox-look--if41s-/p",
+      "https://loja.electrolux.com.br/geladeira-electrolux-frost-free-380l-autosense-inverter-duplex-branca--if41-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:15.092Z"
+  },
+  {
+    "modelo": "2109CDBA106",
+    "codigo": "LAV0027",
+    "produto": "MAQ LAV TL 9KG LED09 BRA 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/maquina-de-lavar-9kg-electrolux-efficient-care--led09-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/maquina-de-lavar-9kg-electrolux-efficient-care--led09-/p",
+      "https://loja.electrolux.com.br/placa-potencia-com-led-azul/p",
+      "https://loja.electrolux.com.br/lampada-led-bivolt-1-4w-para-geladeira-electrolux/p",
+      "https://loja.electrolux.com.br/depurador-de-ar-electrolux-60cm-retratil-inox-efficient-com-luz-de-led-de6rs/p",
+      "https://loja.electrolux.com.br/depurador-de-ar-electrolux-90cm-retratil-preto-efficient-com-luz-de-led-de9rb/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:16.523Z"
+  },
+  {
+    "modelo": "2118CDBB135",
+    "codigo": "LAV0052",
+    "produto": "MAQ LAV TL 18KG LEB18 PRE 127V (CESTINOX)",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/maquina-de-lavar-electrolux-18-kg-preta-expert-tripla-filtragem-e-jatos-poderosos--leb18/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/maquina-de-lavar-electrolux-18-kg-preta-expert-tripla-filtragem-e-jatos-poderosos--leb18/p",
+      "https://loja.electrolux.com.br/chaleira-eletrica-electrolux-1-7l-verde-linha-100-anos-celebre-pausas/p",
+      "https://loja.electrolux.com.br/torradeira-eletrica-electrolux-verde-linha-100-anos-celebre-sensacoes/p",
+      "https://loja.electrolux.com.br/cafeteira-espresso-electrolux-verde-moedor-integrado-linha-100-anos-celebre-rituais/p",
+      "https://loja.electrolux.com.br/gaseificador-de-agua-electrolux-cilindro-e-garrafa-1l-verde-linha-100-anos-celebre-frescor/p",
+      "https://loja.electrolux.com.br/batedeira-planetaria-electrolux-verde-com-truflow-linha-100-anos-celebre-texturas/p",
+      "https://loja.electrolux.com.br/frigideira-de-ferro-fundido-esmaltado-electrolux-26cm-verde-linha-100-anos-celebre-preparos/p",
+      "https://loja.electrolux.com.br/aspirador-de-po-vertical-sem-fio-electrolux-ergorapido-verde-linha-100-anos-celebre-bem-estar/p",
+      "https://loja.electrolux.com.br/panela-de-ferro-fundido-esmaltado-cacarola-electrolux-24cm-verde-linha-100-anos-celebre-encontros/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:17.589Z"
+  },
+  {
+    "modelo": "5112QDBA199",
+    "codigo": "LAV0061",
+    "produto": "LAVA E SECA INV 12KG LSC12 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/lava-e-seca-electrolux-12kg-cinza-onix-inverter-com-agua-quente-e-lavagem-inteligente--lsc12-/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/lava-e-seca-electrolux-12kg-cinza-onix-inverter-com-agua-quente-e-lavagem-inteligente--lsc12-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:18.472Z"
+  },
+  {
+    "modelo": "1512QDBA199",
+    "codigo": "LAV0062",
+    "produto": "MAQ LAV FL 12KG INV 12KG LFC12 CIN 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/kit-juncao-para-lavadora-e-secadoras-frontais-sfp12-lfe11--lfb12-e-lfc12/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/kit-juncao-para-lavadora-e-secadoras-frontais-sfp12-lfe11--lfb12-e-lfc12/p",
+      "https://loja.electrolux.com.br/maquina-de-lavar-frontal-electrolux-12kg-cinza-onix-inverter-com-agua-quente-e-lavagem-inteligente--lfc12-/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:19.367Z"
+  },
+  {
+    "modelo": "10341CBA135",
+    "codigo": "MIC0009",
+    "produto": "MICRO-ONDAS EMBUTIR 34L EXPERIENCE ME3EP PRE 127V",
+    "fabricante": "ELECTROLUX (NAC)",
+    "segmento": "LINHA BRANCA",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://loja.electrolux.com.br/micro-ondas-de-embutir-34-litros-electrolux-me3ep/p",
+    "alternativas": [
+      "https://loja.electrolux.com.br/micro-ondas-de-embutir-34-litros-electrolux-me3ep/p"
+    ],
+    "origemFonte": "FABRICANTE",
+    "correspondencia": "",
+    "dataConsulta": "2026-10-08T19:10:20.833Z"
+  },
+  {
     "modelo": "NV7B4420XAK/BZ",
     "codigo": "FOG0061",
     "produto": "FORNO EMBUT 76L ELE AIR FRY C/ WI-FI PRE 220V",
@@ -1803,7 +1986,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:21.295Z"
+    "dataConsulta": "2026-10-09T17:58:11.790Z"
   },
   {
     "modelo": "NV7B4545SAK/BZ",
@@ -1819,7 +2002,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:21.332Z"
+    "dataConsulta": "2026-10-09T17:58:11.823Z"
   },
   {
     "modelo": "RF27CG5910B1AZ",
@@ -1835,7 +2018,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:21.355Z"
+    "dataConsulta": "2026-10-09T17:58:11.847Z"
   },
   {
     "modelo": "02543FBA130",
@@ -1851,7 +2034,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:22.485Z"
+    "dataConsulta": "2026-10-09T17:58:13.504Z"
   },
   {
     "modelo": "02544FBA130",
@@ -1869,7 +2052,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:23.202Z"
+    "dataConsulta": "2026-10-09T17:58:14.583Z"
   },
   {
     "modelo": "02547FBA135",
@@ -1887,7 +2070,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:25.873Z"
+    "dataConsulta": "2026-10-09T17:58:15.331Z"
   },
   {
     "modelo": "4310ANBR414",
@@ -1904,7 +2087,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:26.521Z"
+    "dataConsulta": "2026-10-09T17:58:16.496Z"
   },
   {
     "modelo": "4612APBR401",
@@ -1919,7 +2102,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:27.036Z"
+    "dataConsulta": "2026-10-09T17:58:17.075Z"
   },
   {
     "modelo": "4411AKBR401",
@@ -1931,15 +2114,15 @@
     "fonteInterna": "https://loja.electrolux.com.br/espremedor-de-laranjas-e-frutas-electrolux-efficient-800ml--ecp10-/p",
     "alternativas": [
       "https://loja.electrolux.com.br/espremedor-de-laranjas-e-frutas-electrolux-efficient-800ml--ecp10-/p",
-      "https://loja.electrolux.com.br/frigideira-de-aluminio-antiaderente-electrolux-efficient-20cm-cinza-ecpa16/p",
-      "https://loja.electrolux.com.br/frigideira-de-aluminio-antiaderente-electrolux-efficient-24cm-cinza-ecpa15/p",
       "https://loja.electrolux.com.br/panela-de-aluminio-antiaderente-electrolux-efficient-16cm-cinza-ecpa14/p",
       "https://loja.electrolux.com.br/panela-de-aluminio-cacarola-antiaderente-electrolux-efficient-20cm-cinza-ecpa13/p",
-      "https://loja.electrolux.com.br/panela-de-aluminio-cacarola-antiaderente-electrolux-efficient-24cm-cinza-escuro-ecpa12/p"
+      "https://loja.electrolux.com.br/panela-de-aluminio-cacarola-antiaderente-electrolux-efficient-24cm-cinza-escuro-ecpa12/p",
+      "https://loja.electrolux.com.br/frigideira-de-aluminio-antiaderente-electrolux-efficient-20cm-cinza-ecpa16/p",
+      "https://loja.electrolux.com.br/frigideira-de-aluminio-antiaderente-electrolux-efficient-24cm-cinza-ecpa15/p"
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:27.758Z"
+    "dataConsulta": "2026-10-09T17:58:17.874Z"
   },
   {
     "modelo": "4812FGBR401",
@@ -1954,7 +2137,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:28.265Z"
+    "dataConsulta": "2026-10-09T17:58:18.564Z"
   },
   {
     "modelo": "4011AHBR407",
@@ -1967,12 +2150,12 @@
     "alternativas": [
       "https://loja.electrolux.com.br/mixer_3_em_1_eib10_electrolux/p",
       "https://loja.electrolux.com.br/mixer-electrolux-preto-400w-com-tecnologia-truflow--eib05-/p",
-      "https://loja.electrolux.com.br/mixer-3-em-1-electrolux-vermelho-600w-com-haste-em-inox-e-tecnologia-truflow--eib21-/p",
-      "https://loja.electrolux.com.br/mixer_3_em_1_com_haste_em_aco_inox_eib20_electrolux/p"
+      "https://loja.electrolux.com.br/mixer_3_em_1_com_haste_em_aco_inox_eib20_electrolux/p",
+      "https://loja.electrolux.com.br/mixer-3-em-1-electrolux-vermelho-600w-com-haste-em-inox-e-tecnologia-truflow--eib21-/p"
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:29.151Z"
+    "dataConsulta": "2026-10-09T17:58:19.572Z"
   },
   {
     "modelo": "4713AABR410",
@@ -1989,7 +2172,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:30.306Z"
+    "dataConsulta": "2026-10-09T17:58:20.425Z"
   },
   {
     "modelo": "5310ABBR401",
@@ -2004,7 +2187,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:31.407Z"
+    "dataConsulta": "2026-10-09T17:58:20.986Z"
   },
   {
     "modelo": "4330AOBR401",
@@ -2022,7 +2205,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:32.559Z"
+    "dataConsulta": "2026-10-09T17:58:22.589Z"
   },
   {
     "modelo": "4510AEBR402",
@@ -2037,7 +2220,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:32.973Z"
+    "dataConsulta": "2026-10-09T17:58:23.025Z"
   },
   {
     "modelo": "4811AQBR401",
@@ -2054,7 +2237,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:34.665Z"
+    "dataConsulta": "2026-10-09T17:58:25.323Z"
   },
   {
     "modelo": "09140GBC006",
@@ -2076,7 +2259,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:35.297Z"
+    "dataConsulta": "2026-10-09T17:58:26.362Z"
   },
   {
     "modelo": "4910AOBR403",
@@ -2094,7 +2277,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:36.518Z"
+    "dataConsulta": "2026-10-09T17:58:28.453Z"
   },
   {
     "modelo": "3011AHBR411",
@@ -2109,7 +2292,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:36.838Z"
+    "dataConsulta": "2026-10-09T17:58:28.787Z"
   },
   {
     "modelo": "4330AOBR403",
@@ -2127,7 +2310,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:37.748Z"
+    "dataConsulta": "2026-10-09T17:58:29.853Z"
   },
   {
     "modelo": "4810ASBR401",
@@ -2144,7 +2327,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:38.550Z"
+    "dataConsulta": "2026-10-09T17:58:30.691Z"
   },
   {
     "modelo": "5011AIBR408",
@@ -2160,7 +2343,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:39.458Z"
+    "dataConsulta": "2026-10-09T17:58:31.614Z"
   },
   {
     "modelo": "09140GBC085",
@@ -2176,13 +2359,13 @@
       "https://loja.electrolux.com.br/kit-6-filtros-refis-originais-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v-pe12p/p",
       "https://loja.electrolux.com.br/filtro-refil-original-acqua-pure-para-purificador-de-agua-electrolux-pe12-pc02/p",
       "https://loja.electrolux.com.br/kit-3-filtros-refis-originais-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v-pe12p/p",
-      "https://loja.electrolux.com.br/41037911-celula-pertier/p",
       "https://loja.electrolux.com.br/pe12g-pe12g-purif-agua-pelt-bivolt/p",
-      "https://loja.electrolux.com.br/pe12g-pe12g-purif-agua-pelt-bivolt-filtro-refil-de-agua-acqua-pure/p"
+      "https://loja.electrolux.com.br/pe12g-pe12g-purif-agua-pelt-bivolt-filtro-refil-de-agua-acqua-pure/p",
+      "https://loja.electrolux.com.br/41037911-celula-pertier/p"
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:41.583Z"
+    "dataConsulta": "2026-10-09T17:58:32.696Z"
   },
   {
     "modelo": "4340AJBR483",
@@ -2197,7 +2380,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:41.892Z"
+    "dataConsulta": "2026-10-09T17:58:33.470Z"
   },
   {
     "modelo": "3015AKBR403",
@@ -2214,7 +2397,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:42.588Z"
+    "dataConsulta": "2026-10-09T17:58:35.563Z"
   },
   {
     "modelo": "3015ACG0034",
@@ -2229,7 +2412,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:43.219Z"
+    "dataConsulta": "2026-10-09T17:58:36.611Z"
   },
   {
     "modelo": "4911AOBR405",
@@ -2247,7 +2430,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:44.155Z"
+    "dataConsulta": "2026-10-09T17:58:38.037Z"
   },
   {
     "modelo": "D30EBA51N09",
@@ -2262,7 +2445,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:44.684Z"
+    "dataConsulta": "2026-10-09T17:58:38.718Z"
   },
   {
     "modelo": "D30EBA51N06",
@@ -2277,7 +2460,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:45.300Z"
+    "dataConsulta": "2026-10-09T17:58:39.297Z"
   },
   {
     "modelo": "P30EBA51N09",
@@ -2298,7 +2481,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:46.359Z"
+    "dataConsulta": "2026-10-09T17:58:40.394Z"
   },
   {
     "modelo": "P30EBA51N06",
@@ -2319,7 +2502,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:46.934Z"
+    "dataConsulta": "2026-10-09T17:58:42.109Z"
   },
   {
     "modelo": "P15EBA00C35",
@@ -2328,11 +2511,11 @@
     "fabricante": "ELECTROLUX (NAC)",
     "segmento": "PORTATEIS",
     "statusFonte": "LOCALIZADO",
-    "fonteInterna": "https://loja.electrolux.com.br/kit-2-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+    "fonteInterna": "https://loja.electrolux.com.br/kit-3-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
     "alternativas": [
+      "https://loja.electrolux.com.br/kit-3-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
       "https://loja.electrolux.com.br/kit-2-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
       "https://loja.electrolux.com.br/kit-6-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
-      "https://loja.electrolux.com.br/kit-3-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
       "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-pe15p-pn10b-pn10x-e-pn10p/p",
       "https://loja.electrolux.com.br/purificador-electrolux-agua-gelada-3-niveis-preto-efficient-eletronico--pe15p----bivolt/p",
       "https://loja.electrolux.com.br/pe15x-pe15x-purif-agua-pelt-bivolt-filtro-refil-de-agua-acqua-pure-p/p",
@@ -2340,7 +2523,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:47.537Z"
+    "dataConsulta": "2026-10-09T17:58:43.877Z"
   },
   {
     "modelo": "4910ANBR405",
@@ -2358,7 +2541,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:48.657Z"
+    "dataConsulta": "2026-10-09T17:58:44.770Z"
   },
   {
     "modelo": "3410ANBR417",
@@ -2375,7 +2558,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:49.476Z"
+    "dataConsulta": "2026-10-09T17:58:49.003Z"
   },
   {
     "modelo": "5310AGBR401",
@@ -2391,7 +2574,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:51.171Z"
+    "dataConsulta": "2026-10-09T17:58:50.259Z"
   },
   {
     "modelo": "4611ATBR401",
@@ -2408,7 +2591,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:52.516Z"
+    "dataConsulta": "2026-10-09T17:58:51.404Z"
   },
   {
     "modelo": "4610AVBR402",
@@ -2425,7 +2608,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:53.359Z"
+    "dataConsulta": "2026-10-09T17:58:53.621Z"
   },
   {
     "modelo": "4612AVBR406",
@@ -2438,11 +2621,11 @@
     "alternativas": [
       "https://loja.electrolux.com.br/liquidificador-electrolux-1500w-3-2l-efficient-com-triforce-15-velocidades-cinza--ebl1500-/p",
       "https://loja.electrolux.com.br/liquidificador-electrolux-600w-2-7l-efficient-com-triforce-3-velocidades-preto--ebl700-/p",
-      "https://loja.electrolux.com.br/liquidificador-electrolux-1300w-3-2l-efficient-com-triforce-12-velocidades-preto--ebl1300-/p"
+      "https://loja.electrolux.com.br/liquidificador-electrolux-1000w-2-7l-efficient-com-triforce-5-velocidades-vermelho--ebl1010-/p"
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:54.359Z"
+    "dataConsulta": "2026-10-09T17:58:55.621Z"
   },
   {
     "modelo": "5311AABR101",
@@ -2458,7 +2641,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:56.080Z"
+    "dataConsulta": "2026-10-09T17:58:58.387Z"
   },
   {
     "modelo": "5310ADBR101",
@@ -2474,7 +2657,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:57.998Z"
+    "dataConsulta": "2026-10-09T17:58:59.535Z"
   },
   {
     "modelo": "4912AABR101",
@@ -2492,7 +2675,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:16:59.153Z"
+    "dataConsulta": "2026-10-09T17:59:01.255Z"
   },
   {
     "modelo": "4912AABR103",
@@ -2510,7 +2693,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:17:00.351Z"
+    "dataConsulta": "2026-10-09T17:59:02.435Z"
   },
   {
     "modelo": "5710AABR101",
@@ -2525,7 +2708,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:17:00.991Z"
+    "dataConsulta": "2026-10-09T17:59:03.186Z"
   },
   {
     "modelo": "P40EBA60009",
@@ -2541,7 +2724,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "",
-    "dataConsulta": "2026-10-02T19:17:01.497Z"
+    "dataConsulta": "2026-10-09T17:59:04.168Z"
   },
   {
     "modelo": "A27329401",
@@ -2556,7 +2739,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:02.843Z"
+    "dataConsulta": "2026-10-09T17:59:05.553Z"
   },
   {
     "modelo": "A21392801",
@@ -2571,7 +2754,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:04.099Z"
+    "dataConsulta": "2026-10-09T17:59:06.043Z"
   },
   {
     "modelo": "A20998601",
@@ -2586,7 +2769,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:05.281Z"
+    "dataConsulta": "2026-10-09T17:59:07.174Z"
   },
   {
     "modelo": "A26191301",
@@ -2601,7 +2784,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:07.207Z"
+    "dataConsulta": "2026-10-09T17:59:08.030Z"
   },
   {
     "modelo": "EP1220",
@@ -2616,7 +2799,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:08.011Z"
+    "dataConsulta": "2026-10-09T17:59:09.177Z"
   },
   {
     "modelo": "DST1050",
@@ -2631,7 +2814,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:09.238Z"
+    "dataConsulta": "2026-10-09T17:59:10.105Z"
   },
   {
     "modelo": "GC026",
@@ -2646,7 +2829,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:09.473Z"
+    "dataConsulta": "2026-10-09T17:59:10.559Z"
   },
   {
     "modelo": "RI2112",
@@ -2661,7 +2844,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:10.247Z"
+    "dataConsulta": "2026-10-09T17:59:11.083Z"
   },
   {
     "modelo": "RI2244",
@@ -2676,7 +2859,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:11.290Z"
+    "dataConsulta": "2026-10-09T17:59:11.850Z"
   },
   {
     "modelo": "RI2110",
@@ -2691,7 +2874,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:11.968Z"
+    "dataConsulta": "2026-10-09T17:59:12.490Z"
   },
   {
     "modelo": "RI7300",
@@ -2706,7 +2889,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:12.689Z"
+    "dataConsulta": "2026-10-09T17:59:13.103Z"
   },
   {
     "modelo": "RI2242",
@@ -2715,13 +2898,13 @@
     "fabricante": "WALITA (NAC)",
     "segmento": "PORTATEIS",
     "statusFonte": "LOCALIZADO",
-    "fonteInterna": "https://www.walita.com.br/liquidificador-serie-5000-jarra-inquebravel-philips-walita-preto-1200w-ri2242_ri2242_90_preto/p",
+    "fonteInterna": "https://www.infostore.com.br/liquidificador-walita-2l-1200w-serie-5000-jarra-inquebravel-ri2242-127v-preto/p",
     "alternativas": [
-      "https://www.walita.com.br/liquidificador-serie-5000-jarra-inquebravel-philips-walita-preto-1200w-ri2242_ri2242_90_preto/p"
+      "https://www.infostore.com.br/liquidificador-walita-2l-1200w-serie-5000-jarra-inquebravel-ri2242-127v-preto/p"
     ],
-    "origemFonte": "FABRICANTE",
-    "correspondencia": "MODELO_CATALOGO_HTML",
-    "dataConsulta": "2026-10-02T19:17:15.042Z"
+    "origemFonte": "INFO_STORE",
+    "correspondencia": "CODIGO_INFO",
+    "dataConsulta": "2026-10-09T17:59:24.800Z"
   },
   {
     "modelo": "HR7304",
@@ -2736,7 +2919,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:16.021Z"
+    "dataConsulta": "2026-10-09T17:59:25.209Z"
   },
   {
     "modelo": "AI551",
@@ -2751,7 +2934,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:16.649Z"
+    "dataConsulta": "2026-10-09T17:59:26.827Z"
   },
   {
     "modelo": "HR2270",
@@ -2766,7 +2949,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:17.113Z"
+    "dataConsulta": "2026-10-09T17:59:27.381Z"
   },
   {
     "modelo": "NA130",
@@ -2781,7 +2964,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:17.347Z"
+    "dataConsulta": "2026-10-09T17:59:27.931Z"
   },
   {
     "modelo": "STE1010/72",
@@ -2796,7 +2979,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:18.366Z"
+    "dataConsulta": "2026-10-09T17:59:28.771Z"
   },
   {
     "modelo": "DST2020/32",
@@ -2811,7 +2994,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:18.979Z"
+    "dataConsulta": "2026-10-09T17:59:29.150Z"
   },
   {
     "modelo": "GC6842/32",
@@ -2826,7 +3009,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:19.637Z"
+    "dataConsulta": "2026-10-09T17:59:29.761Z"
   },
   {
     "modelo": "NA341/00",
@@ -2841,7 +3024,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:20.236Z"
+    "dataConsulta": "2026-10-09T17:59:30.325Z"
   },
   {
     "modelo": "STE3170/82",
@@ -2856,7 +3039,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:21.063Z"
+    "dataConsulta": "2026-10-09T17:59:31.386Z"
   },
   {
     "modelo": "STH3020/12",
@@ -2871,7 +3054,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:21.771Z"
+    "dataConsulta": "2026-10-09T17:59:32.083Z"
   },
   {
     "modelo": "DST3010",
@@ -2886,7 +3069,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:22.275Z"
+    "dataConsulta": "2026-10-09T17:59:32.675Z"
   },
   {
     "modelo": "NA150",
@@ -2901,7 +3084,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:22.848Z"
+    "dataConsulta": "2026-10-09T17:59:33.117Z"
   },
   {
     "modelo": "EP5547",
@@ -2916,7 +3099,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:23.443Z"
+    "dataConsulta": "2026-10-09T17:59:33.611Z"
   },
   {
     "modelo": "HU1510",
@@ -2931,7 +3114,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:24.108Z"
+    "dataConsulta": "2026-10-09T17:59:34.664Z"
   },
   {
     "modelo": "HR1501",
@@ -2946,7 +3129,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:24.893Z"
+    "dataConsulta": "2026-10-09T17:59:35.252Z"
   },
   {
     "modelo": "FW009626",
@@ -2961,7 +3144,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:26.463Z"
+    "dataConsulta": "2026-10-09T17:59:36.727Z"
   },
   {
     "modelo": "FW009448",
@@ -2976,7 +3159,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:27.384Z"
+    "dataConsulta": "2026-10-09T17:59:37.371Z"
   },
   {
     "modelo": "FW010142",
@@ -2991,7 +3174,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:28.085Z"
+    "dataConsulta": "2026-10-09T17:59:38.062Z"
   },
   {
     "modelo": "FW009557",
@@ -3006,7 +3189,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:28.745Z"
+    "dataConsulta": "2026-10-09T17:59:38.721Z"
   },
   {
     "modelo": "FW010277",
@@ -3021,7 +3204,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:29.182Z"
+    "dataConsulta": "2026-10-09T17:59:39.171Z"
   },
   {
     "modelo": "FW010769",
@@ -3036,7 +3219,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:29.732Z"
+    "dataConsulta": "2026-10-09T17:59:39.926Z"
   },
   {
     "modelo": "FW010535",
@@ -3051,7 +3234,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:30.730Z"
+    "dataConsulta": "2026-10-09T17:59:40.933Z"
   },
   {
     "modelo": "FW009519",
@@ -3066,7 +3249,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:31.865Z"
+    "dataConsulta": "2026-10-09T17:59:42.341Z"
   },
   {
     "modelo": "FW010084",
@@ -3081,7 +3264,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:32.169Z"
+    "dataConsulta": "2026-10-09T17:59:42.748Z"
   },
   {
     "modelo": "FW009523",
@@ -3096,7 +3279,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:33.119Z"
+    "dataConsulta": "2026-10-09T17:59:43.933Z"
   },
   {
     "modelo": "FW007733",
@@ -3111,7 +3294,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:33.906Z"
+    "dataConsulta": "2026-10-09T17:59:44.398Z"
   },
   {
     "modelo": "FW009468",
@@ -3126,7 +3309,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:34.167Z"
+    "dataConsulta": "2026-10-09T17:59:45.192Z"
   },
   {
     "modelo": "FW004192",
@@ -3141,7 +3324,7 @@
     ],
     "origemFonte": "FABRICANTE",
     "correspondencia": "MODELO_VALIDADO",
-    "dataConsulta": "2026-10-02T19:17:34.378Z"
+    "dataConsulta": "2026-10-09T17:59:45.658Z"
   },
   {
     "modelo": "FW010340",
@@ -3156,7 +3339,7 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:35.642Z"
+    "dataConsulta": "2026-10-09T17:59:48.254Z"
   },
   {
     "modelo": "FW012054",
@@ -3171,6 +3354,6 @@
     ],
     "origemFonte": "INFO_STORE",
     "correspondencia": "CODIGO_INFO",
-    "dataConsulta": "2026-10-02T19:17:37.077Z"
+    "dataConsulta": "2026-10-09T17:59:49.108Z"
   }
 ]
