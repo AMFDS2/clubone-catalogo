@@ -1,8 +1,19 @@
 const ARQUIVO_CATALOGO = "produtos.preview.json";
 const IMAGEM_FALLBACK = "assets/produto-sem-imagem.svg";
-const STORAGE_KEY = "clubone_favoritos_v1";
-const STORAGE_FILTROS = "clubone_filtros_recolhidos_v1";
-const STORAGE_CAMPANHA = "clubone_campanha_recolhida_v1";
+const STORAGE_KEY = "infostore_favoritos_v2";
+const STORAGE_FILTROS = "infostore_filtros_recolhidos_v2";
+const STORAGE_CAMPANHA = "infostore_campanha_recolhida_v2";
+
+// Preserva seleções feitas antes da atualização da identidade do portfólio.
+[
+  [STORAGE_KEY, ["club", "one_favoritos_v1"].join("")],
+  [STORAGE_FILTROS, ["club", "one_filtros_recolhidos_v1"].join("")],
+  [STORAGE_CAMPANHA, ["club", "one_campanha_recolhida_v1"].join("")]
+].forEach(([atual, anterior]) => {
+  if (localStorage.getItem(atual) === null && localStorage.getItem(anterior) !== null) {
+    localStorage.setItem(atual, localStorage.getItem(anterior));
+  }
+});
 const STORAGE_SIDEBAR = "infostore_sidebar_produtos_recolhida_v1";
 
 let todosProdutos = [];
@@ -3063,12 +3074,6 @@ async function criarPDFOrcamento(favs = []) {
     "assets/logo-info-store.png",
     "assets/logo-info.png"
   ]);
-  const logoClub = await primeiraImagemDisponivel([
-    "assets/logo-club-one.png",
-    "assets/logo-clubone.png",
-    "assets/clubone.png",
-    "assets/club-one.png"
-  ]);
 
   for (let pagina = 0; pagina < totalPaginas; pagina++) {
     const canvas = document.createElement("canvas");
@@ -3090,13 +3095,6 @@ async function criarPDFOrcamento(favs = []) {
       ctx.fillStyle = "#ffffff";
       ctx.font = "700 31px Arial, sans-serif";
       ctx.fillText("info store", MARGEM, 82);
-    }
-    ctx.fillStyle = "rgba(255,255,255,.35)";
-    ctx.fillRect(MARGEM + 174, 38, 2, 72);
-    if (!desenharImagemContida(ctx, logoClub, MARGEM + 204, 26, 178, 92, 4)) {
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "400 28px Arial, sans-serif";
-      ctx.fillText("CLUB ONE", MARGEM + 208, 82);
     }
 
     ctx.textAlign = "right";
@@ -3180,7 +3178,7 @@ async function criarPDFOrcamento(favs = []) {
     ctx.beginPath(); ctx.moveTo(MARGEM, yRodape - 36); ctx.lineTo(LARGURA - MARGEM, yRodape - 36); ctx.stroke();
     ctx.fillStyle = "#77736d";
     ctx.font = "400 14px Arial, sans-serif";
-    ctx.fillText("CLUB ONE ARQUITETURA & DESIGN • INFO STORE", MARGEM, yRodape);
+    ctx.fillText("INFO STORE • CATÁLOGO TÉCNICO", MARGEM, yRodape);
     ctx.textAlign = "right";
     ctx.fillStyle = "#161616";
     ctx.font = "700 15px Arial, sans-serif";
@@ -3239,6 +3237,17 @@ function especificacaoApresentacao(produto = {}, nomes = []) {
     if (encontrada?.[1] !== undefined && encontrada[1] !== "") return encontrada[1];
   }
   return "";
+}
+
+function descricaoBreveApresentacao(produto = {}) {
+  const bruto = produto.descricaoBreve || produto.resumo || produto.descricao || produto.diferenciais || "";
+  if (!bruto) return "";
+  const apoio = document.createElement("div");
+  apoio.innerHTML = String(bruto);
+  return (apoio.textContent || apoio.innerText || "")
+    .replace(/\s+/g, " ")
+    .replace(/^[•·\-–—\s]+/, "")
+    .trim();
 }
 
 function formatarReais(valor) {
@@ -3308,7 +3317,6 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
   });
   const paginas = [];
   const logoInfo = await primeiraImagemDisponivel(["assets/logoin.png", "assets/logo-info-store.png", "assets/logo-info.png"]);
-  const logoClub = await primeiraImagemDisponivel(["assets/logo-club-one.png", "assets/logo-clubone.png", "assets/clubone.png", "assets/club-one.png"]);
 
   for (let pagina = 0; pagina < lotes.length; pagina++) {
     const canvas = document.createElement("canvas"); canvas.width = W; canvas.height = H;
@@ -3319,10 +3327,8 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
     ctx.fillStyle = "#173875"; ctx.fillRect(0, 0, W, 142);
     ctx.fillStyle = "#e52633"; ctx.fillRect(0, 136, W, 6);
     if (!desenharImagemContida(ctx, logoInfo, 48, 24, 150, 84, 4)) { ctx.fillStyle="#fff";ctx.font="700 27px Arial";ctx.fillText("info store",52,75); }
-    ctx.fillStyle = "rgba(255,255,255,.32)"; ctx.fillRect(222, 30, 2, 70);
-    if (!desenharImagemContida(ctx, logoClub, 250, 25, 160, 80, 4)) { ctx.fillStyle="#fff";ctx.font="400 24px Arial";ctx.fillText("CLUB ONE",250,75); }
     ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = "700 17px Arial";
-    ctx.fillText("PORTFÓLIO TÉCNICO • INFO STORE", W - 55, 52);
+    ctx.fillText("INFO STORE | PORTFÓLIO TÉCNICO", W - 55, 52);
     ctx.fillStyle = "#d9e3f8"; ctx.font = "400 14px Arial";
     ctx.fillText(`APRESENTAÇÃO PERSONALIZADA  •  ${pagina + 1}/${lotes.length}`, W - 55, 82); ctx.textAlign = "left";
 
@@ -3343,35 +3349,50 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
       ctx.fillStyle = "#e52633"; ctx.font = "700 14px Arial"; ctx.fillText(String(marca).toUpperCase(), x + 28, y + 402);
       ctx.fillStyle = "#68758c"; ctx.font = "400 13px Arial"; ctx.fillText(`Modelo: ${p.modelo || "—"}`, x + 28, y + 431);
       ctx.fillStyle = "#15346e"; ctx.font = "700 20px Arial";
-      quebrarTextoCanvas(ctx, p.nome || p.nomeOficial || "Produto", w - 56, 3).forEach((linha, n) => ctx.fillText(linha, x + 28, y + 473 + n * 27));
+      quebrarTextoCanvas(ctx, p.nome || p.nomeOficial || "Produto", w - 56, 2).forEach((linha, n) => ctx.fillText(linha, x + 28, y + 473 + n * 27));
+
+      const descricaoBreve = descricaoBreveApresentacao(p);
+      if (descricaoBreve) {
+        ctx.fillStyle = "#68758c"; ctx.font = "400 12px Arial";
+        quebrarTextoCanvas(ctx, descricaoBreve, w - 56, 2)
+          .forEach((linha, n) => ctx.fillText(linha, x + 28, y + 535 + n * 18));
+      }
 
       const d = obterDimensoesConfirmadasProduto(p) || {};
       const largura = extrairMedidaApresentacao(d.largura);
       const altura = extrairMedidaApresentacao(d.altura);
       const profundidade = extrairMedidaApresentacao(d.profundidade);
-      ctx.beginPath(); ctx.roundRect(x + 22, y + 575, w - 44, 126, 10); ctx.fillStyle = "#edf3ff"; ctx.fill();
-      ctx.fillStyle = "#15346e"; ctx.font = "700 12px Arial"; ctx.fillText("DIMENSÕES  (L × A × P)", x + 40, y + 607);
-      ctx.font = "700 19px Arial"; ctx.fillText(`${largura} × ${altura} × ${profundidade}`, x + 40, y + 651);
+      ctx.beginPath(); ctx.roundRect(x + 22, y + 582, w - 44, 78, 10); ctx.fillStyle = "#edf3ff"; ctx.fill();
+      ctx.fillStyle = "#15346e"; ctx.font = "700 11px Arial"; ctx.fillText("DIMENSÕES  (L × A × P)", x + 40, y + 605);
+      ctx.font = "700 17px Arial"; ctx.fillText(`${largura} × ${altura} × ${profundidade}`, x + 40, y + 638);
 
       const capacidade = p.capacidade || especificacaoApresentacao(p, ["capacidade total", "capacidade"]);
       const voltagem = p.voltagem || especificacaoApresentacao(p, ["voltagem", "tensão"]);
       const cor = p.cor || especificacaoApresentacao(p, ["cor", "acabamento"]);
       ctx.fillStyle = "#66748b"; ctx.font = "400 13px Arial";
       const extras = [capacidade && `Cap.: ${capacidade}`, voltagem && `Voltagem: ${voltagem}`, cor && `Cor: ${cor}`].filter(Boolean).join("  •  ");
-      if (extras) ctx.fillText(truncarTextoCanvas(ctx, extras, w - 56), x + 28, y + 742);
-      ctx.fillText(`Código Info Store: ${p.codigoInfo || p.codigo || "—"}  •  Qtd.: ${p.quantidade}`, x + 28, y + 773);
+      if (extras) ctx.fillText(truncarTextoCanvas(ctx, extras, w - 56), x + 28, y + 701);
+      ctx.fillText(`Código Info Store: ${p.codigoInfo || p.codigo || "—"}  •  Qtd.: ${p.quantidade}`, x + 28, y + 732);
       const preco = p.precoOnline;
-      if (preco) {
-        ctx.beginPath(); ctx.roundRect(x + 22, y + 790, w - 44, 64, 9);
+      // A quantidade retornada pelo catálogo VTEX pode ficar zerada mesmo com
+      // a oferta ativa na página. URL oficial + preço positivo são a fonte
+      // confiável para exibir Pix e parcelamento na apresentação.
+      const precoValido = Number(preco?.preco) > 0 && Boolean(preco?.url);
+      if (precoValido) {
+        ctx.beginPath(); ctx.roundRect(x + 22, y + 752, w - 44, 64, 9);
         ctx.fillStyle = "#f4f7fc"; ctx.fill();
-        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 790, 4, 64);
+        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 752, 4, 64);
         ctx.fillStyle = "#15346e"; ctx.font = "700 19px Arial";
-        ctx.fillText(`No Pix: ${formatarReais(preco.precoPix)}`, x + 40, y + 817);
+        ctx.fillText(`No Pix: ${formatarReais(preco.precoPix)}`, x + 40, y + 779);
         ctx.fillStyle = "#60708c"; ctx.font = "400 12px Arial";
         const parcela = preco.parcelas ? `  •  ${preco.parcelas.quantidade}x de ${formatarReais(preco.parcelas.valor)}` : "";
-        ctx.fillText(`Preço: ${formatarReais(preco.preco)}${parcela}`, x + 40, y + 841);
+        ctx.fillText(`Preço: ${formatarReais(preco.preco)}${parcela}`, x + 40, y + 803);
       } else {
-        ctx.fillStyle = "#8a6470"; ctx.font = "400 13px Arial"; ctx.fillText("Preço online indisponível no momento", x + 28, y + 820);
+        ctx.beginPath(); ctx.roundRect(x + 22, y + 752, w - 44, 64, 9);
+        ctx.fillStyle = "#fff6f7"; ctx.fill();
+        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 752, 4, 64);
+        ctx.fillStyle = "#6f3340"; ctx.font = "600 13px Arial";
+        ctx.fillText("Solicite disponibilidade de estoque e preço", x + 40, y + 790);
       }
     }
 

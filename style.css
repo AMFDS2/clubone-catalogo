@@ -1863,7 +1863,7 @@ header.topbar { gap: clamp(20px, 3vw, 48px) !important; background: linear-gradi
 }
 
 /* =========================================================
-   CLUB ONE — FILTRO "MEDIDAS DO VÃO" (teste v1)
+   INFO STORE — FILTRO "MEDIDAS DO VÃO" (teste v1)
    ========================================================= */
 .filtro-medidas-projeto {
   margin: 12px;
@@ -2356,7 +2356,7 @@ header.topbar {
    style.css e tema-infostore.css separados.
 ================================================== */
 /* ==============================================================
-   TEMA INFO STORE + CLUB ONE
+   TEMA INFO STORE | PORTFÓLIO TÉCNICO
    Carregue este arquivo depois de todos os outros CSS.
    Ele altera apenas a identidade visual e preserva o layout.
 ============================================================== */
@@ -2630,7 +2630,7 @@ header.topbar {
   fill: var(--info-azul-700) !important;
 }
 
-/* O dourado continua exclusivo do Club One e da campanha */
+/* O dourado continua como detalhe exclusivo da campanha */
 .produto-favorito,
 .campanha-reabrir,
 .campanha-titulo strong,
@@ -2639,7 +2639,7 @@ header.topbar {
 }
 
 /* ==============================================================
-   CAMPANHA: integração Info Store + Club One
+   CAMPANHA: integração Info Store + profissionais parceiros
 ============================================================== */
 .barra-campanha {
   background:

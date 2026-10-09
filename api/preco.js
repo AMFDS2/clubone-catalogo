@@ -15,7 +15,11 @@ export default async function handler(req, res) {
     const ofertas = (produto.items || []).flatMap(item =>
       (item.sellers || []).map(seller => ({ item, seller, oferta: seller.commertialOffer || {} }))
     ).filter(item => Number(item.oferta.Price) > 0);
-    const selecionada = ofertas.sort((a, b) => Number(a.oferta.Price) - Number(b.oferta.Price))[0];
+    // Prioriza sempre uma oferta realmente disponível. Alguns produtos têm
+    // mais de um seller e o menor preço pode pertencer a um seller sem estoque.
+    const ofertasComEstoque = ofertas.filter(item => Number(item.oferta.AvailableQuantity || 0) > 0);
+    const selecionada = (ofertasComEstoque.length ? ofertasComEstoque : ofertas)
+      .sort((a, b) => Number(a.oferta.Price) - Number(b.oferta.Price))[0];
     if (!selecionada) return res.status(404).json({ erro: "Produto sem oferta disponível" });
 
     const oferta = selecionada.oferta;
