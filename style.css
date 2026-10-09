@@ -4465,8 +4465,11 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .topbar-identidade span {
-    display: none;
-  }
+  display: block;
+  font-size: 11px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
+}
 
   .busca-topbar {
     grid-column: 2 !important;
