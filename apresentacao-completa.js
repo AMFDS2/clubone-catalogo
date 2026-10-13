@@ -3,7 +3,7 @@
   'use strict';
   const LIMITES = { fotos: 4, beneficios: 8, caracteres: 150 };
   let consultaComplementos = false;
-  let itens = [], resultado = null, ocupado = false, origemFoco;
+  let itens = [], resultado = null, nomePDF = null, ocupado = false, origemFoco;
   const $ = id => document.getElementById(id);
   const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const normal = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -46,7 +46,7 @@
     });
   }
   function status(s,erro=false) { $('ac-status').textContent=s;$('ac-status').classList.toggle('ac-erro',erro); }
-  function invalidar() { resultado=null;$('ac-baixar').hidden=true;$('ac-previas').replaceChildren(); }
+  function invalidar() { resultado=null;nomePDF=null;$('ac-baixar').hidden=true;$('ac-previas').replaceChildren(); }
   function novoItem(p,quantidade=1) {
     const opcoes=fotos(p);return {produto:p,quantidade,titulo:p.nome||p.modelo,opcoes,fotos:opcoes.slice(0,4),beneficios:sugerirBeneficios(p),removerFundo:true};
   }
@@ -252,16 +252,15 @@
       ["VENDEDOR(A)", dados.vendedor]
     ].filter(([, valor]) => String(valor || "").trim());
     if (camposCapa.length) {
-      ctx.beginPath(); ctx.roundRect(72, 700, 860, 270, 16);
-      ctx.fillStyle = "rgba(255,255,255,.94)"; ctx.fill(); ctx.strokeStyle = "#d7dfec"; ctx.lineWidth = 1.5; ctx.stroke();
-      camposCapa.forEach(([rotulo, valor], indice) => {
-        const y = 754 + indice * 74;
-        ctx.fillStyle = "#e52633"; ctx.font = "700 12px Arial"; ctx.fillText(rotulo, 104, y);
-        ctx.fillStyle = "#173875"; ctx.font = "500 20px Arial";
-        ctx.fillText(truncarTextoCanvas(ctx, String(valor), 650), 270, y);
-        if (indice < camposCapa.length - 1) {
-          ctx.strokeStyle = "#e5e9f1"; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.moveTo(104, y + 27); ctx.lineTo(900, y + 27); ctx.stroke();
+      const alturaCartao=40+camposCapa.length*98;
+      caixa(ctx,72,700,860,alturaCartao,'rgba(255,255,255,.96)',16);
+      ctx.strokeStyle='#d7dfec';ctx.lineWidth=1.5;ctx.stroke();
+      camposCapa.forEach(([rotulo,valor],indice)=>{
+        const y=734+indice*98;
+        ctx.fillStyle='#e52633';ctx.font='700 15px Arial';ctx.fillText(rotulo,104,y);
+        ctx.fillStyle='#173875';bloco(ctx,String(valor),104,y+32,796,2,28,22,700);
+        if(indice<camposCapa.length-1){
+          ctx.strokeStyle='#e5e9f1';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(104,y+84);ctx.lineTo(900,y+84);ctx.stroke();
         }
       });
     }
@@ -425,6 +424,14 @@
     c.font='14px Arial';c.fillText(`Valores da apresentação em ${dados.data}, sujeitos a alteração e disponibilidade.`,64,1190);
     return {canvas,ausentes:fotos.filter((f,k)=>!f&&registros[k].fotos.length).length};
   }
+  function nomeArquivoApresentacao(projeto,agora=new Date()) {
+    const nome=String(projeto || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,90).replace(/-+$/,'');
+    if(nome)return `Apresentacao-${nome}.pdf`;
+    const partes=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Manaus',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(agora);
+    const data=Object.fromEntries(partes.map(p=>[p.type,p.value]));
+    return `Apresentacao-Info-Store-${data.year}-${data.month}-${data.day}.pdf`;
+  }
   async function gerar() {
     if(ocupado)return;
     try {
@@ -458,7 +465,7 @@
         paginas.push(await canvasParaJPEG(canvas,0.98));adicionarPrevia(canvas,`Página ${n+2}: ${grupo?'Solução completa para ':''}${principal.titulo}`);canvas.width=canvas.height=0;
       }
       const encerramento=criarEncerramento(logo,arteCapa,totalPaginas);paginas.push(await canvasParaJPEG(encerramento,0.98));adicionarPrevia(encerramento,'Agradecimento');encerramento.width=encerramento.height=0;
-      resultado=montarPDFComJPEGs(paginas,3508,2480);$('ac-baixar').hidden=false;
+      resultado=montarPDFComJPEGs(paginas,3508,2480);nomePDF=nomeArquivoApresentacao(dados.projeto);$('ac-baixar').hidden=false;
       const faltam=ofertas.filter(p=>!p).length;
       status(`${totalPaginas} páginas prontas: capa, produtos, soluções agrupadas e agradecimento.${faltam?` ${faltam} produto(s) com preço sob consulta.`:''}${fotosAusentes?` ${fotosAusentes} foto(s) não carregaram e foram omitidas.`:''} Confira a prévia e baixe o PDF.`);
       $('ac-baixar').focus();$('ac-previas').scrollIntoView({block:'start',behavior:'smooth'});
@@ -466,9 +473,11 @@
     finally{ocupado=false;$('ac-edicao').disabled=false;$('ac-gerar').disabled=false;$('ac-fechar').disabled=false;}
   }
   function iniciar() {
-    const footer=$('drawer-footer');if(!footer || $('btn-apresentacao-completa'))return;
-    const b=document.createElement('button');b.type='button';b.id='btn-apresentacao-completa';b.className='btn-apresentacao-cliente ac-botao';b.textContent='Apresentação completa por item';
-    ($('btn-apresentacao-cliente') || footer.lastElementChild).insertAdjacentElement('afterend',b);b.addEventListener('click',abrir);
+    const footer=$('drawer-footer');if(!footer || $('ac-dialog'))return;
+    const b=$('btn-apresentacao-completa') || document.createElement('button');b.type='button';b.id='btn-apresentacao-completa';b.className='btn-apresentacao-cliente ac-botao';b.textContent='Gerar apresentação';
+    const antigo=$('btn-apresentacao-cliente');if(antigo)antigo.replaceWith(b);
+    else if(!b.isConnected)footer.insertBefore(b,$('btn-baixar-pdf') || footer.firstChild);
+    b.addEventListener('click',abrir);
     document.body.insertAdjacentHTML('beforeend',`<dialog id="ac-dialog" aria-labelledby="ac-heading"><div class="ac-topo"><div><span>APRESENTAÇÃO COMERCIAL</span><h3 id="ac-heading">Um produto por página</h3></div><button type="button" id="ac-fechar" aria-label="Fechar apresentação">×</button></div>
       <fieldset id="ac-edicao"><div class="ac-dados">${[['projeto','Projeto'],['cliente','Cliente'],['profissional','Arquiteto(a)'],['vendedor','Vendedor(a)']].map(([id,label])=>`<label>${label}<input id="ac-${id}" maxlength="80" autocomplete="off"></label>`).join('')}</div>
       <p class="ac-ajuda">Fotos e diferenciais do catálogo, preço consultado na Info Store ao gerar. Use Completar este ambiente para buscar complementos do mix Info Store. As inclusões valem para esta apresentação. Capa, agradecimento e um produto por página, na ordem abaixo. PDF em alta resolução (300 dpi). Fotos ambientadas são preservadas; desmarque a remoção se preferir a imagem original.</p><div id="ac-itens"></div></fieldset>
@@ -487,7 +496,7 @@
       i.sugestoes.selecionados=e.target.checked?[...new Set([...i.sugestoes.selecionados,r.id])]:i.sugestoes.selecionados.filter(id=>id!==r.id);e.target.closest('[data-indice]').querySelector('[data-total-complementos]').textContent=`${i.sugestoes.selecionados.length} complemento(s) selecionado(s)`;return;
     }if(e.target.matches('.ac-remover-fundo')){itens[Number(e.target.closest('[data-indice]').dataset.indice)].removerFundo=e.target.checked;invalidar();return;}if(!e.target.matches('[data-foto]'))return;const i=itens[Number(e.target.closest('[data-indice]').dataset.indice)],src=i.opcoes[Number(e.target.dataset.foto)];if(e.target.checked && i.fotos.length>=4){e.target.checked=false;status('Selecione no máximo quatro fotos por produto.',true);return;}i.fotos=e.target.checked?[...i.fotos,src]:i.fotos.filter(s=>s!==src);invalidar();});
     document.querySelector('.ac-dados').addEventListener('input',invalidar);
-    $('ac-gerar').addEventListener('click',gerar);$('ac-baixar').addEventListener('click',()=>{if(resultado)baixarBlob(resultado,`apresentacao-completa-info-store-${new Date().toISOString().slice(0,10)}.pdf`);});
+    $('ac-gerar').addEventListener('click',gerar);$('ac-baixar').addEventListener('click',()=>{if(resultado)baixarBlob(resultado,nomePDF || nomeArquivoApresentacao(''));});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',iniciar);else iniciar();
 })();
