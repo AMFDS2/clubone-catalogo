@@ -11972,42 +11972,68 @@
     "modelo": "09140GBC006",
     "codigo": "POR0079",
     "produtoPlanilha": "PURIFICADOR AGUA TOUCH PE12B BRA BIVOLT",
-    "tituloOficial": "Filtro/Refil Original de Água Acqua Pure para Purificador Electrolux PE12A/PE12B/PE12G/PE12V",
-    "descricao": "<p><strong>O Refil Original da Electrolux Acqua Pure garante água pura e preserva sua saúde<br /></strong>Com uma Tecnologia de Filtragem avançada, e aprovada por todos os critérios do Inmetro, possui eficiência comprovada em retenção de partículas, controle microbiológico e na redução de cloro livre.</p> <p><strong>Alto poder de purificação e controle microbiológico<br /></strong>O Carvão Ativado com Íons de Prata reduz todo o tipo de partículas sólidas e sedimentos de metais, barro, areia, ferrugem, algas e fungos. Também inibe o desenvolvimento de bactérias e outros microrganismos, além de reduzir odores e sabores.</p> <p><strong>A barreira de Polipropileno Meltblown permite alta vazão e maior capacidade de retenção de contaminantes, purificando ainda mais a água<br /></strong></p> <p><strong>Vida útil<br /></strong>Troque o Refil Original Electrolux a cada 3.000L ou 6 meses, o que ocorrer primeiro.</p> <p><strong>Atenção!<br /></strong>O chamado refil compatível não é testado e aprovado pela Electrolux e coloca em risco tanto a qualidade da água que você toma como a vida útil e desempenho do seu Purificador Electrolux. Fique atento!</p> <p><strong>Retenção de partículas: classe C<br /></strong>O filtro é o coração do produto, responsável pela remoção de partículas sólidas e gosto de cloro.</p> <strong>*Verifique o código, modelo aplicado e compatibilidade.</strong>",
+    "tituloOficial": "Purificador Electrolux Pure 4x Agua Gelada, Fria e Natural com Painel Touch PE12B Bivolt Branco",
+    "descricao": "O Purificador de água Pure 4x da Electrolux possui tecnologia Powerjet que enche o copo até 4x mais rápido. Com Tecnologia Acqua Pure, reduz o cloro, odores e outras partículas na água, além de ser eficaz no controle microbiológico. O design compacto é ideal para casas pequenas, podendo ser instalado em bancadas, oferecendo 4 opções de cores. O painel touch com LED indica a saturação do filtro e permite escolher entre três temperaturas de água: natural, fresca ou gelada.\nA troca do refil é simples, a cada 3.000 litros ou 6 meses, com alerta para a substituição. O purificador também possui bandeja removível e pés antiderrapantes para facilitar a limpeza. Testado conforme normas ABNT, garante água livre de impurezas e bactérias. Com sistema de filtragem Acqua Pure e praticidade na troca do refil, o Pure 4x é uma ótima opção para quem busca qualidade e comodidade na hora de beber água purificada.",
+    "imagem": "assets/produtos/09140gbc006/revisao-20261013-01.jpg",
     "imagens": [
-      "assets/produtos/09140gbc006/principal.jpg",
-      "assets/produtos/09140gbc006/galeria-02.jpg",
-      "assets/produtos/09140gbc006/galeria-03.jpg",
-      "assets/produtos/09140gbc006/galeria-04.jpg",
-      "assets/produtos/09140gbc006/galeria-05.jpg",
-      "assets/produtos/09140gbc006/galeria-06.jpg",
-      "assets/produtos/09140gbc006/galeria-07.jpg",
-      "assets/produtos/09140gbc006/galeria-08.jpg"
+      "assets/produtos/09140gbc006/revisao-20261013-01.jpg",
+      "assets/produtos/09140gbc006/revisao-20261013-02.jpg",
+      "assets/produtos/09140gbc006/revisao-20261013-03.jpg",
+      "assets/produtos/09140gbc006/revisao-20261013-04.jpg",
+      "assets/produtos/09140gbc006/revisao-20261013-05.jpg",
+      "assets/produtos/09140gbc006/revisao-20261013-06.jpg",
+      "assets/produtos/09140gbc006/revisao-20261013-07.jpg",
+      "assets/produtos/09140gbc006/revisao-20261013-08.jpg"
     ],
     "imagemAmbiente": "",
     "dimensoes": {
       "produto": {
-        "largura": "74 mm",
-        "altura": "295 mm",
-        "profundidade": "74 mm"
+        "altura": "350 mm",
+        "largura": "160 mm",
+        "profundidade": "420 mm"
       }
     },
     "documentos": [],
     "especificacoes": {
-      "Cor": "Branco e cinza",
-      "Peso líquido": "0,110kg"
+      "Modelo comercial": "PE12B",
+      "Voltagem": "Bivolt",
+      "Pressão da água": "4 a 40",
+      "Sistema de refrigeração da água": "Eletrônico",
+      "Tipo de filtro": "PP+GAC",
+      "Estágios de purificação": "3",
+      "Opções de temperatura": "Natural e Gelada",
+      "Acabamento": "Plastico",
+      "Tecnologia": "Eletrônico",
+      "Frequência": "50/60 Hz",
+      "Capacidade do reservatório": "0,8 L",
+      "Peso líquido": "4,3 kg",
+      "Cor": "Branco",
+      "Recursos": "Coletor de água removível; Fácil troca do filtro; Fluxo contínuo; Luz indicadora de filtro saturado; Pés de borracha anti-derrapante; Resfriamento da água; Água natural ou gelada; Elimina odores e Impurezas",
+      "Modelo": "09140GBC006",
+      "Código Info Store": "POR0079"
     },
     "destaques": [
       {
+        "titulo": "Branco",
         "rotulo": "Cor",
-        "valor": "Branco e cinza"
+        "icone": "◇"
+      },
+      {
+        "titulo": "Bivolt",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Eletrônico",
+        "rotulo": "Tecnologia",
+        "icone": "◇"
       }
     ],
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
-    "fonteInterna": "https://loja.electrolux.com.br/filtro-refil-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v/p",
+    "fonteInterna": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12b-bivolt-branco/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12b-bivolt-branco/p",
-    "dataConsulta": "2026-10-02T15:41:29.775Z"
+    "dataConsulta": "2026-10-13T15:17:24.710Z"
   },
   {
     "modelo": "4910AOBR403",
@@ -12335,42 +12361,68 @@
     "modelo": "09140GBC085",
     "codigo": "POR0094",
     "produtoPlanilha": "PURIFICADOR AGUA TOUCH PE12G CIN BIVOLT",
-    "tituloOficial": "Filtro/Refil Original de Água Acqua Pure para Purificador Electrolux PE12A/PE12B/PE12G/PE12V",
-    "descricao": "<p><strong>O Refil Original da Electrolux Acqua Pure garante água pura e preserva sua saúde<br /></strong>Com uma Tecnologia de Filtragem avançada, e aprovada por todos os critérios do Inmetro, possui eficiência comprovada em retenção de partículas, controle microbiológico e na redução de cloro livre.</p> <p><strong>Alto poder de purificação e controle microbiológico<br /></strong>O Carvão Ativado com Íons de Prata reduz todo o tipo de partículas sólidas e sedimentos de metais, barro, areia, ferrugem, algas e fungos. Também inibe o desenvolvimento de bactérias e outros microrganismos, além de reduzir odores e sabores.</p> <p><strong>A barreira de Polipropileno Meltblown permite alta vazão e maior capacidade de retenção de contaminantes, purificando ainda mais a água<br /></strong></p> <p><strong>Vida útil<br /></strong>Troque o Refil Original Electrolux a cada 3.000L ou 6 meses, o que ocorrer primeiro.</p> <p><strong>Atenção!<br /></strong>O chamado refil compatível não é testado e aprovado pela Electrolux e coloca em risco tanto a qualidade da água que você toma como a vida útil e desempenho do seu Purificador Electrolux. Fique atento!</p> <p><strong>Retenção de partículas: classe C<br /></strong>O filtro é o coração do produto, responsável pela remoção de partículas sólidas e gosto de cloro.</p> <strong>*Verifique o código, modelo aplicado e compatibilidade.</strong>",
+    "tituloOficial": "Purificador Electrolux Pure 4x Agua Gelada, Fria e Natural com Painel Touch PE12G Bivolt Cinza",
+    "descricao": "O Purificador de Água Electrolux Pure 4x oferece quatro tipos de água: gelada, fria, natural e quente. Com sua funcionalidade multitemperatura, o PE12G permite desfrutar de água na temperatura desejada, seja para se refrescar em dias quentes ou para consumo diário. Com uma interface de painel de toque intuitiva e compatibilidade com diferentes tensões de alimentação, o purificador é fácil de usar e instalar em diversos ambientes. Equipado com tecnologia de filtragem avançada, o Pure 4x remove impurezas da água, garantindo um consumo seguro. Além disso, o design compacto e elegante do PE12G o torna uma adição estilosa para qualquer espaço. Projetado para eficiência energética, o purificador ajuda a reduzir o consumo de energia e custos a longo prazo. A instalação e manutenção do PE12G são simples, garantindo um desempenho ideal e duradouro.",
+    "imagem": "assets/produtos/09140gbc085/revisao-20261013-01.jpg",
     "imagens": [
-      "assets/produtos/09140gbc085/principal.jpg",
-      "assets/produtos/09140gbc085/galeria-02.jpg",
-      "assets/produtos/09140gbc085/galeria-03.jpg",
-      "assets/produtos/09140gbc085/galeria-04.jpg",
-      "assets/produtos/09140gbc085/galeria-05.jpg",
-      "assets/produtos/09140gbc085/galeria-06.jpg",
-      "assets/produtos/09140gbc085/galeria-07.jpg",
-      "assets/produtos/09140gbc085/galeria-08.jpg"
+      "assets/produtos/09140gbc085/revisao-20261013-01.jpg",
+      "assets/produtos/09140gbc085/revisao-20261013-02.jpg",
+      "assets/produtos/09140gbc085/revisao-20261013-03.jpg",
+      "assets/produtos/09140gbc085/revisao-20261013-04.jpg",
+      "assets/produtos/09140gbc085/revisao-20261013-05.jpg",
+      "assets/produtos/09140gbc085/revisao-20261013-06.jpg",
+      "assets/produtos/09140gbc085/revisao-20261013-07.jpg",
+      "assets/produtos/09140gbc085/revisao-20261013-08.jpg"
     ],
-    "imagemAmbiente": "assets/produtos/09140gbc085/ambiente.jpg",
+    "imagemAmbiente": "",
     "dimensoes": {
       "produto": {
-        "largura": "74 mm",
-        "altura": "295 mm",
-        "profundidade": "74 mm"
+        "altura": "350 mm",
+        "largura": "160 mm",
+        "profundidade": "420 mm"
       }
     },
     "documentos": [],
     "especificacoes": {
-      "Cor": "Branco e cinza",
-      "Peso líquido": "0,110kg"
+      "Modelo comercial": "PE12G",
+      "Voltagem": "Bivolt",
+      "Pressão da água": "4 a 40",
+      "Sistema de refrigeração da água": "Eletrônico",
+      "Tipo de filtro": "PP+GAC",
+      "Estágios de purificação": "3",
+      "Opções de temperatura": "Natural e Gelada",
+      "Acabamento": "Plastico",
+      "Tecnologia": "Eletrônico",
+      "Frequência": "50/60 Hz",
+      "Capacidade do reservatório": "0,8 L",
+      "Peso líquido": "4,3 kg",
+      "Cor": "Cinza",
+      "Recursos": "Coletor de água removível; Fácil troca do filtro; Fluxo contínuo; Luz indicadora de filtro saturado; Pés de borracha anti-derrapante; Resfriamento da água; Água natural ou gelada; Elimina odores e Impurezas",
+      "Modelo": "09140GBC085",
+      "Código Info Store": "POR0094"
     },
     "destaques": [
       {
+        "titulo": "Cinza",
         "rotulo": "Cor",
-        "valor": "Branco e cinza"
+        "icone": "◇"
+      },
+      {
+        "titulo": "Bivolt",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Eletrônico",
+        "rotulo": "Tecnologia",
+        "icone": "◇"
       }
     ],
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
-    "fonteInterna": "https://loja.electrolux.com.br/filtro-refil-de-agua-acqua-pure-para-purificador-electrolux-pe12a-pe12b-pe12g-pe12v/p",
+    "fonteInterna": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12g-bivolt-cinza/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12g-bivolt-cinza/p",
-    "dataConsulta": "2026-10-02T15:42:28.435Z"
+    "dataConsulta": "2026-10-13T15:17:24.710Z"
   },
   {
     "modelo": "4340AJBR483",
@@ -12774,124 +12826,208 @@
     "modelo": "P30EBA51N09",
     "codigo": "POR0130",
     "produtoPlanilha": "PURIFICADOR AGUA C/ COMPRESSOR PC01X GRA 127V",
-    "tituloOficial": "Kit 2 Filtros/Refis Original de Água Acqua Pure para Purificador Electrolux PC01B, PC01X, PE15B, PE15X e PE15P",
-    "descricao": "<strong style=\"font-size:16px\">Filtro/Refil para Purificador de Água</strong><br/><span style=\"font-size:16px\">Remove partículas sólidas e gosto de cloro. Um consumível essencial para manter a filtragem da água e o perfeito funcionamento do seu produto.</span><br/><br/><strong style=\"font-size:16px\">TECNOLOGIA ACQUA PURE</strong><br/><br/><strong style=\"font-size:16px\">Filtragem de Polipropileno</strong><br/><span style=\"font-size:16px\">A barreira de Polipropileno permite maior capacidade de retenção de contaminantes, reduzindo partículas sólidas.</span><br/><br/><strong style=\"font-size:16px\">Filtragem de Carvão Ativado</strong><br/><span style=\"font-size:16px\">Reduz o excesso de cloro livre na água, além de reduzir odores e sabores.</span><br/><br/><strong style=\"font-size:16px\">Testado e aprovado</strong><ul><li><span style=\"font-size:16px\">Retém micropartículas de 5 a 15 µm (partículas invisíveis a olho nu).</span></li><li><span style=\"font-size:16px\">Reduz, no mínimo, 75% de cloro livre na água.</span></li><li><span style=\"font-size:16px\">Controle de nível microbiológico, garantindo água segura para o consumo.</span></li><li><br/></li></ul><em style=\"font-size:16px\">Testes realizados de acordo com a norma ABNT NBR:16098:2012. Classificação C para particulado.</em><br/><br/><strong style=\"font-size:16px\">Tempo recomendado para troca</strong><br/><span style=\"font-size:16px\">Mantenha a qualidade da sua água substituindo o filtro/refil a cada 6 meses ou 3.000 L. Só o Refil Original Electrolux garante água pura de verdade.</span><br/><br/><strong style=\"font-size:16px\">Compatibilidade</strong><br/><span style=\"font-size:16px\">Purificadores de Água Electrolux PC01B, PC01X, PE15B, PE15P e PE15X.</span><br/><br/><strong style=\"font-size:16px\">Atenção!</strong><br/><span style=\"font-size:16px\">O chamado filtro/refil compatível não é testado e aprovado pela Electrolux e coloca em risco tanto a qualidade da água que você toma como a vida útil e desempenho do seu Purificador Electrolux. Fique atento!</span><br/><br/><em style=\"font-size:16px\">Verifique o código, modelo aplicado e compatibilidade.</em><br/><br/><strong style=\"font-size:16px\">Meio Ambiente</strong><br/><span style=\"font-size:16px\">O material da embalagem é reciclável, procure separá-lo corretamente para coleta e tratamento adequado. O filtro/refil é feito de material orgânico e reciclável, podendo ser descartado como plástico para que sua reciclagem seja avaliada posteriormente.</span><br/>",
+    "tituloOficial": "Purificador de Água Electrolux Gelada, Fria e Natural Experience com Compressor PC01X 127V Grafite",
+    "descricao": "O Purificador de Água Electrolux Experience garante água limpa e livre de impurezas com opções de água gelada, fria e natural em apenas um clique. Sua Alta Capacidade de Refrigeração gela a água até 5x mais rápido e é ideal para locais movimentados, refrigerando até 1,7L por hora. O Compressor Ecológico utiliza o Gás R-600, com menor impacto ambiental, e alerta quando é necessário trocar o refil, que deve ser feito a cada 6 meses ou 3000 litros de água. A Tecnologia Acqua Pure filtra impurezas, inibe bactérias, retém partículas e reduz o excesso de cloro na água, evitando o descarte de garrafas pet no meio ambiente. A troca de refil é simples e a cada 6 meses recomenda-se usar um filtro original para garantir o desempenho do purificador. A operação é facilitada com um simples clique para acionar o fluxo de água.",
+    "imagem": "assets/produtos/p30eba51n09/revisao-20261013-01.jpg",
     "imagens": [
-      "assets/produtos/p30eba51n09/principal.jpg",
-      "assets/produtos/p30eba51n09/galeria-02.jpg",
-      "assets/produtos/p30eba51n09/galeria-03.jpg",
-      "assets/produtos/p30eba51n09/galeria-04.jpg",
-      "assets/produtos/p30eba51n09/galeria-05.jpg",
-      "assets/produtos/p30eba51n09/galeria-06.jpg",
-      "assets/produtos/p30eba51n09/galeria-07.jpg",
-      "assets/produtos/p30eba51n09/galeria-08.jpg"
+      "assets/produtos/p30eba51n09/revisao-20261013-01.jpg",
+      "assets/produtos/p30eba51n09/revisao-20261013-02.jpg",
+      "assets/produtos/p30eba51n09/revisao-20261013-03.jpg",
+      "assets/produtos/p30eba51n09/revisao-20261013-04.jpg",
+      "assets/produtos/p30eba51n09/revisao-20261013-05.jpg",
+      "assets/produtos/p30eba51n09/revisao-20261013-06.jpg",
+      "assets/produtos/p30eba51n09/revisao-20261013-07.jpg"
     ],
-    "imagemAmbiente": "assets/produtos/p30eba51n09/ambiente.jpg",
+    "imagemAmbiente": "",
     "dimensoes": {
       "produto": {
-        "largura": "298 mm",
-        "altura": "298 mm",
-        "profundidade": "73.8 mm"
+        "altura": "381 mm",
+        "largura": "229 mm",
+        "profundidade": "472 mm"
       }
     },
     "documentos": [],
     "especificacoes": {
-      "Cor": "Azul",
-      "Peso líquido": "0,35 Kg"
+      "Modelo comercial": "PC01X",
+      "Voltagem": "127V",
+      "Potência": "75W",
+      "Pressão da água": "4 a 40 mca",
+      "Tipo de Tomada": "Tipo N (3 pinos)",
+      "Sistema de refrigeração da água": "Compressor",
+      "Tipo de filtro": "De bancada",
+      "Período de troca do refil do filtro (mês)": "6 meses ou 3000L de água",
+      "Estágios de purificação": "3",
+      "Opções de temperatura": "Natural e Gelada",
+      "Acabamento": "Plástico",
+      "Tecnologia": "Compressor",
+      "Capacidade do reservatório": "1.7L",
+      "Peso líquido": "8,65 kg",
+      "Cor": "Grafite",
+      "Recursos": "Fluxo contínuo; Luz indicadora de filtro saturado; Pés de borracha anti-derrapante; Suportes para fixação em parede; Água natural ou gelada; Elimina odores e Impurezas; Acesso ao tanque para limpeza; Bandeja removível; Gás Ecológico",
+      "Modelo": "P30EBA51N09",
+      "Código Info Store": "POR0130"
     },
     "destaques": [
       {
+        "titulo": "Grafite",
         "rotulo": "Cor",
-        "valor": "Azul"
+        "icone": "◇"
+      },
+      {
+        "titulo": "127V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "75W",
+        "rotulo": "Potência",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Compressor",
+        "rotulo": "Tecnologia",
+        "icone": "◇"
       }
     ],
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
-    "fonteInterna": "https://loja.electrolux.com.br/kit-2-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+    "fonteInterna": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01x-127v-grafite/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01x-127v-grafite/p",
-    "dataConsulta": "2026-10-02T15:43:52.711Z"
+    "dataConsulta": "2026-10-13T15:17:24.710Z"
   },
   {
     "modelo": "P30EBA51N06",
     "codigo": "POR0131",
     "produtoPlanilha": "PURIFICADOR AGUA C/ COMPRESSOR PC01B BRA 127V",
-    "tituloOficial": "Kit 2 Filtros/Refis Original de Água Acqua Pure para Purificador Electrolux PC01B, PC01X, PE15B, PE15X e PE15P",
-    "descricao": "<strong style=\"font-size:16px\">Filtro/Refil para Purificador de Água</strong><br/><span style=\"font-size:16px\">Remove partículas sólidas e gosto de cloro. Um consumível essencial para manter a filtragem da água e o perfeito funcionamento do seu produto.</span><br/><br/><strong style=\"font-size:16px\">TECNOLOGIA ACQUA PURE</strong><br/><br/><strong style=\"font-size:16px\">Filtragem de Polipropileno</strong><br/><span style=\"font-size:16px\">A barreira de Polipropileno permite maior capacidade de retenção de contaminantes, reduzindo partículas sólidas.</span><br/><br/><strong style=\"font-size:16px\">Filtragem de Carvão Ativado</strong><br/><span style=\"font-size:16px\">Reduz o excesso de cloro livre na água, além de reduzir odores e sabores.</span><br/><br/><strong style=\"font-size:16px\">Testado e aprovado</strong><ul><li><span style=\"font-size:16px\">Retém micropartículas de 5 a 15 µm (partículas invisíveis a olho nu).</span></li><li><span style=\"font-size:16px\">Reduz, no mínimo, 75% de cloro livre na água.</span></li><li><span style=\"font-size:16px\">Controle de nível microbiológico, garantindo água segura para o consumo.</span></li><li><br/></li></ul><em style=\"font-size:16px\">Testes realizados de acordo com a norma ABNT NBR:16098:2012. Classificação C para particulado.</em><br/><br/><strong style=\"font-size:16px\">Tempo recomendado para troca</strong><br/><span style=\"font-size:16px\">Mantenha a qualidade da sua água substituindo o filtro/refil a cada 6 meses ou 3.000 L. Só o Refil Original Electrolux garante água pura de verdade.</span><br/><br/><strong style=\"font-size:16px\">Compatibilidade</strong><br/><span style=\"font-size:16px\">Purificadores de Água Electrolux PC01B, PC01X, PE15B, PE15P e PE15X.</span><br/><br/><strong style=\"font-size:16px\">Atenção!</strong><br/><span style=\"font-size:16px\">O chamado filtro/refil compatível não é testado e aprovado pela Electrolux e coloca em risco tanto a qualidade da água que você toma como a vida útil e desempenho do seu Purificador Electrolux. Fique atento!</span><br/><br/><em style=\"font-size:16px\">Verifique o código, modelo aplicado e compatibilidade.</em><br/><br/><strong style=\"font-size:16px\">Meio Ambiente</strong><br/><span style=\"font-size:16px\">O material da embalagem é reciclável, procure separá-lo corretamente para coleta e tratamento adequado. O filtro/refil é feito de material orgânico e reciclável, podendo ser descartado como plástico para que sua reciclagem seja avaliada posteriormente.</span><br/>",
+    "tituloOficial": "Purificador de Água Electrolux Gelada, Fria e Natural Experience com Compressor PC01B 127V Branco",
+    "descricao": "O Purificador de Água Electrolux Experience garante água limpa e livre de impurezas com opções de água gelada, fria e natural em apenas um clique. Sua Alta Capacidade de Refrigeração gela a água até 5x mais rápido e é ideal para locais movimentados, refrigerando até 1,2L por hora. O Compressor Ecológico utiliza o Gás R-600, com menor impacto ambiental, e alerta quando é necessário trocar o refil, que deve ser feito a cada 6 meses ou 3000 litros de água. A Tecnologia Acqua Pure filtra impurezas, inibe bactérias, retém partículas e reduz o excesso de cloro na água, evitando o descarte de garrafas pet no meio ambiente. A troca de refil é simples e a cada 6 meses recomenda-se usar um filtro original para garantir o desempenho do purificador. A operação é facilitada com um simples clique para acionar o fluxo de água.",
+    "imagem": "assets/produtos/p30eba51n06/revisao-20261013-01.jpg",
     "imagens": [
-      "assets/produtos/p30eba51n06/principal.jpg",
-      "assets/produtos/p30eba51n06/galeria-02.jpg",
-      "assets/produtos/p30eba51n06/galeria-03.jpg",
-      "assets/produtos/p30eba51n06/galeria-04.jpg",
-      "assets/produtos/p30eba51n06/galeria-05.jpg",
-      "assets/produtos/p30eba51n06/galeria-06.jpg",
-      "assets/produtos/p30eba51n06/galeria-07.jpg",
-      "assets/produtos/p30eba51n06/galeria-08.jpg"
+      "assets/produtos/p30eba51n06/revisao-20261013-01.jpg",
+      "assets/produtos/p30eba51n06/revisao-20261013-02.jpg",
+      "assets/produtos/p30eba51n06/revisao-20261013-03.jpg",
+      "assets/produtos/p30eba51n06/revisao-20261013-04.jpg",
+      "assets/produtos/p30eba51n06/revisao-20261013-05.jpg",
+      "assets/produtos/p30eba51n06/revisao-20261013-06.jpg",
+      "assets/produtos/p30eba51n06/revisao-20261013-07.jpg"
     ],
-    "imagemAmbiente": "assets/produtos/p30eba51n06/ambiente.jpg",
+    "imagemAmbiente": "",
     "dimensoes": {
       "produto": {
-        "largura": "298 mm",
-        "altura": "298 mm",
-        "profundidade": "73.8 mm"
+        "altura": "381 mm",
+        "largura": "229 mm",
+        "profundidade": "434 mm"
       }
     },
     "documentos": [],
     "especificacoes": {
-      "Cor": "Azul",
-      "Peso líquido": "0,35 Kg"
+      "Modelo comercial": "PC01B",
+      "Voltagem": "127V",
+      "Potência": "75W",
+      "Pressão da água": "4 a 40 mca",
+      "Tipo de Tomada": "Tipo N (3 pinos)",
+      "Sistema de refrigeração da água": "Compressor",
+      "Tipo de filtro": "De bancada",
+      "Período de troca do refil do filtro (mês)": "6 meses ou 3000L de água",
+      "Estágios de purificação": "3",
+      "Opções de temperatura": "Natural e Gelada",
+      "Acabamento": "Plástico",
+      "Tecnologia": "Compressor",
+      "Capacidade do reservatório": "1.7L",
+      "Peso líquido": "8,65 kg",
+      "Cor": "Branco",
+      "Recursos": "Fluxo contínuo; Luz indicadora de filtro saturado; Pés de borracha anti-derrapante; Suportes para fixação em parede; Água natural ou gelada; Elimina odores e Impurezas; Acesso ao tanque para limpeza; Bandeja removível; Gás Ecológico",
+      "Modelo": "P30EBA51N06",
+      "Código Info Store": "POR0131"
     },
     "destaques": [
       {
+        "titulo": "Branco",
         "rotulo": "Cor",
-        "valor": "Azul"
+        "icone": "◇"
+      },
+      {
+        "titulo": "127V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "75W",
+        "rotulo": "Potência",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Compressor",
+        "rotulo": "Tecnologia",
+        "icone": "◇"
       }
     ],
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
-    "fonteInterna": "https://loja.electrolux.com.br/kit-2-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+    "fonteInterna": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01b-127v-branco/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01b-127v-branco/p",
-    "dataConsulta": "2026-10-02T15:44:01.504Z"
+    "dataConsulta": "2026-10-13T15:17:24.710Z"
   },
   {
     "modelo": "P15EBA00C35",
     "codigo": "POR0132",
     "produtoPlanilha": "PURIFICADOR AGUA PE15P PRE BIVOLT",
-    "tituloOficial": "Kit 2 Filtros/Refis Original de Água Acqua Pure para Purificador Electrolux PC01B, PC01X, PE15B, PE15X e PE15P",
-    "descricao": "<strong style=\"font-size:16px\">Filtro/Refil para Purificador de Água</strong><br/><span style=\"font-size:16px\">Remove partículas sólidas e gosto de cloro. Um consumível essencial para manter a filtragem da água e o perfeito funcionamento do seu produto.</span><br/><br/><strong style=\"font-size:16px\">TECNOLOGIA ACQUA PURE</strong><br/><br/><strong style=\"font-size:16px\">Filtragem de Polipropileno</strong><br/><span style=\"font-size:16px\">A barreira de Polipropileno permite maior capacidade de retenção de contaminantes, reduzindo partículas sólidas.</span><br/><br/><strong style=\"font-size:16px\">Filtragem de Carvão Ativado</strong><br/><span style=\"font-size:16px\">Reduz o excesso de cloro livre na água, além de reduzir odores e sabores.</span><br/><br/><strong style=\"font-size:16px\">Testado e aprovado</strong><ul><li><span style=\"font-size:16px\">Retém micropartículas de 5 a 15 µm (partículas invisíveis a olho nu).</span></li><li><span style=\"font-size:16px\">Reduz, no mínimo, 75% de cloro livre na água.</span></li><li><span style=\"font-size:16px\">Controle de nível microbiológico, garantindo água segura para o consumo.</span></li><li><br/></li></ul><em style=\"font-size:16px\">Testes realizados de acordo com a norma ABNT NBR:16098:2012. Classificação C para particulado.</em><br/><br/><strong style=\"font-size:16px\">Tempo recomendado para troca</strong><br/><span style=\"font-size:16px\">Mantenha a qualidade da sua água substituindo o filtro/refil a cada 6 meses ou 3.000 L. Só o Refil Original Electrolux garante água pura de verdade.</span><br/><br/><strong style=\"font-size:16px\">Compatibilidade</strong><br/><span style=\"font-size:16px\">Purificadores de Água Electrolux PC01B, PC01X, PE15B, PE15P e PE15X.</span><br/><br/><strong style=\"font-size:16px\">Atenção!</strong><br/><span style=\"font-size:16px\">O chamado filtro/refil compatível não é testado e aprovado pela Electrolux e coloca em risco tanto a qualidade da água que você toma como a vida útil e desempenho do seu Purificador Electrolux. Fique atento!</span><br/><br/><em style=\"font-size:16px\">Verifique o código, modelo aplicado e compatibilidade.</em><br/><br/><strong style=\"font-size:16px\">Meio Ambiente</strong><br/><span style=\"font-size:16px\">O material da embalagem é reciclável, procure separá-lo corretamente para coleta e tratamento adequado. O filtro/refil é feito de material orgânico e reciclável, podendo ser descartado como plástico para que sua reciclagem seja avaliada posteriormente.</span><br/>",
+    "tituloOficial": "Purificador de Água Electrolux Gelada 3 Níveis Efficient Eletrônico PE15P Bivolt Preto",
+    "descricao": "O Purificador de Água Electrolux Efficient (Gelada, Fria e Natural) Preto possui um filtro que retém impurezas, garantindo água fresca e saudável para beber ou cozinhar. Com a Tecnologia Acqua Pure, o filtro de carvão ativado com íons de prata e barreira de polipropileno filtra bactérias, partículas sólidas e reduz o excesso de cloro na água. A troca do refil é indicada a cada 6 meses, para manter o desempenho do purificador. Além de ser econômico e ecologicamente correto, evitando o descarte de garrafas pet, o purificador é de fácil manutenção, sem a necessidade de um técnico. Compacto e versátil, dispensa o uso de pilhas e pode ser instalado na parede, ideal para diferentes recipientes.",
+    "imagem": "assets/produtos/p15eba00c35/revisao-20261013-01.jpg",
     "imagens": [
-      "assets/produtos/p15eba00c35/principal.jpg",
-      "assets/produtos/p15eba00c35/galeria-02.jpg",
-      "assets/produtos/p15eba00c35/galeria-03.jpg",
-      "assets/produtos/p15eba00c35/galeria-04.jpg",
-      "assets/produtos/p15eba00c35/galeria-05.jpg",
-      "assets/produtos/p15eba00c35/galeria-06.jpg",
-      "assets/produtos/p15eba00c35/galeria-07.jpg",
-      "assets/produtos/p15eba00c35/galeria-08.jpg"
+      "assets/produtos/p15eba00c35/revisao-20261013-01.jpg",
+      "assets/produtos/p15eba00c35/revisao-20261013-02.jpg",
+      "assets/produtos/p15eba00c35/revisao-20261013-03.jpg",
+      "assets/produtos/p15eba00c35/revisao-20261013-04.jpg",
+      "assets/produtos/p15eba00c35/revisao-20261013-05.jpg",
+      "assets/produtos/p15eba00c35/revisao-20261013-06.jpg",
+      "assets/produtos/p15eba00c35/revisao-20261013-07.jpg"
     ],
-    "imagemAmbiente": "assets/produtos/p15eba00c35/ambiente.jpg",
+    "imagemAmbiente": "",
     "dimensoes": {
       "produto": {
-        "largura": "298 mm",
-        "altura": "298 mm",
-        "profundidade": "73.8 mm"
+        "altura": "360 mm",
+        "largura": "178 mm",
+        "profundidade": "422 mm"
       }
     },
     "documentos": [],
     "especificacoes": {
-      "Cor": "Azul",
-      "Peso líquido": "0,35 Kg"
+      "Modelo comercial": "PE15P",
+      "Voltagem": "Bivolt",
+      "Potência": "70W",
+      "Frequência": "60 Hz",
+      "Estágios de purificação": "3",
+      "Acabamento": "Plástico",
+      "Peso líquido": "2,8 kg",
+      "Cor": "Preto",
+      "Recursos": "Fluxo contínuo; Luz indicadora de filtro saturado; Painel Blue Touch; Pés de borracha anti-derrapante; Bica articulável; Água natural ou gelada; Elimina odores e Impurezas; Acesso ao tanque para limpeza; Bandeja removível",
+      "Modelo": "P15EBA00C35",
+      "Código Info Store": "POR0132"
     },
     "destaques": [
       {
+        "titulo": "Preto",
         "rotulo": "Cor",
-        "valor": "Azul"
+        "icone": "◇"
+      },
+      {
+        "titulo": "Bivolt",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "70W",
+        "rotulo": "Potência",
+        "icone": "◇"
       }
     ],
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
-    "fonteInterna": "https://loja.electrolux.com.br/kit-2-filtros-refis-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b--pc01x--pe15b--pe15x-e-pe15p/p",
+    "fonteInterna": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada-3-niveis-efficient-eletronico-pe15p-bivolt-preto/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada-3-niveis-efficient-eletronico-pe15p-bivolt-preto/p",
-    "dataConsulta": "2026-10-02T15:44:11.648Z"
+    "dataConsulta": "2026-10-13T15:17:24.710Z"
   },
   {
     "modelo": "4910ANBR405",
@@ -13661,42 +13797,54 @@
     "modelo": "P40EBA60009",
     "codigo": "POR0212",
     "produtoPlanilha": "PURIFICADOR AGUA PN10X PRE PILHA",
-    "tituloOficial": "Filtro/Refil Original de Água Acqua Pure para Purificador Electrolux PC01B, PC01X, PC02X, PE15B, PE15X, PE15P, PN10B, PN10X e PN10P",
-    "descricao": "<strong style=\"font-size:16px\">Filtro/Refil para Purificador de Água</strong><br/><span style=\"font-size:16px\">Remove partículas sólidas e gosto de cloro. Um consumível essencial para manter a filtragem da água e o perfeito funcionamento do seu produto.</span><br/><br/><strong style=\"font-size:16px\">TECNOLOGIA ACQUA PURE</strong><br/><br/><strong style=\"font-size:16px\">Filtragem de Polipropileno</strong><br/><span style=\"font-size:16px\">A barreira de Polipropileno permite maior capacidade de retenção de contaminantes, reduzindo partículas sólidas.</span><br/><br/><strong style=\"font-size:16px\">Filtragem de Carvão Ativado</strong><br/><span style=\"font-size:16px\">Reduz o excesso de cloro livre na água, além de reduzir odores e sabores.</span><br/><br/><strong style=\"font-size:16px\">Testado e aprovado</strong><ul><li><span style=\"font-size:16px\">Retém micropartículas de 5 a 15 µm (partículas invisíveis a olho nu).</span></li><li><span style=\"font-size:16px\">Reduz, no mínimo, 75% de cloro livre na água.</span></li><li><span style=\"font-size:16px\">Controle de nível microbiológico, garantindo água segura para o consumo.</span></li><li><br/></li></ul><em style=\"font-size:16px\">Testes realizados de acordo com a norma ABNT NBR:16098:2012. Classificação C para particulado.</em><br/><br/><strong style=\"font-size:16px\">Tempo recomendado para troca</strong><br/><span style=\"font-size:16px\">Mantenha a qualidade da sua água substituindo o filtro/refil a cada 6 meses ou 3.000 L. Só o Refil Original Electrolux garante água pura de verdade.</span><br/><br/><strong style=\"font-size:16px\">Compatibilidade</strong><br/><span style=\"font-size:16px\">Purificadores de Água Electrolux </span><strong>PC01B, PC01X, PC02X, PE15B, PE15X, PE15P, PN10B, PN10X e PN10P</strong><span style=\"font-size:16px\">.</span><br/><br/><strong style=\"font-size:16px\">Atenção!</strong><br/><span style=\"font-size:16px\">O chamado filtro/refil compatível não é testado e aprovado pela Electrolux e coloca em risco tanto a qualidade da água que você toma como a vida útil e desempenho do seu Purificador Electrolux. Fique atento!</span><br/><br/><em style=\"font-size:16px\">Verifique o código, modelo aplicado e compatibilidade.</em><br/><br/><strong style=\"font-size:16px\">Meio Ambiente</strong><br/><span style=\"font-size:16px\">O material da embalagem é reciclável, procure separá-lo corretamente para coleta e tratamento adequado. O filtro/refil é feito de material orgânico e reciclável, podendo ser descartado como plástico para que sua reciclagem seja avaliada posteriormente.</span>",
+    "tituloOficial": "Purificador de Água Electrolux Efficient Compacto Água Natural com Tecnologia Acqua Pure PN10X Pilha Preto",
+    "descricao": "O Purificador de Água Electrolux Efficient Compacto PN10X foi desenvolvido para oferecer água mais pura, segura e com excelente sabor, combinando design compacto, praticidade e tecnologia avançada de filtragem. Ideal para cozinhas, escritórios e ambientes residenciais, ele proporciona acesso rápido à água natural filtrada, contribuindo para uma rotina mais saudável e sustentável.Equipado com a exclusiva tecnologia Acqua Pure, o purificador realiza uma filtragem eficiente que reduz partículas sólidas, excesso de cloro, odores e sabores indesejados presentes na água, proporcionando uma experiência mais agradável no consumo diário.Seu sistema de filtragem de alta eficiência ajuda a preservar a qualidade da água consumida pela família, tornando-o uma excelente alternativa ao uso constante de galões e garrafas plásticas descartáveis.O design Compacto Efficient foi projetado para ocupar pouco espaço, permitindo instalação em diferentes ambientes sem comprometer a estética da cozinha. Seu acabamento moderno harmoniza facilmente com diversos estilos de decoração.A operação é simples e intuitiva, permitindo o abastecimento rápido de copos, garrafas e recipientes através de acionamento prático, ideal para o uso diário de toda a família.O equipamento conta com sistema de troca simplificada do refil, facilitando a manutenção periódica e garantindo que a qualidade da filtragem seja mantida ao longo do tempo.Além de proporcionar economia, o purificador contribui para a redução do consumo de plástico descartável, oferecendo uma solução sustentável para quem busca mais praticidade e consciência ambiental.Com a confiabilidade da Electrolux, o PN10X combina eficiência, durabilidade e facilidade de uso, tornando-se uma excelente escolha para quem valoriza água filtrada de qualidade em qualquer momento do dia.Principais características• Modelo: PN10X Efficient Compacto.• Marca: Electrolux.• Tipo: – Purificador de Água – Água Natural.• Tecnologia de Filtragem: – Acqua Pure – Redução de cloro – Redução de odores – Redução de sabores indesejados – Retenção de partículas.• Água Disponível: – Natural.• Instalação: – Sobre bancada – Compacto para pequenos espaços.• Sistema de Acionamento: – Prático e intuitivo – Fácil abastecimento de recipientes.• Refil: – Substituição simplificada – Manutenção prática.• Benefícios: – Água mais pura – Melhor sabor – Maior praticidade no dia a dia.• Design: – Compacto – Moderno – Fácil integração com a cozinha.• Sustentabilidade: – Redução do consumo de garrafas plásticas – Alternativa econômica para água filtrada.• Estrutura: – Construção resistente – Projetado para uso contínuo.• Cor: – Branco.• Ideal para: – Residências – Apartamentos – Escritórios – Uso diário – Famílias – Consumo de água filtrada com praticidade.",
+    "imagem": "assets/produtos/p40eba60009/revisao-20261013-01.jpg",
     "imagens": [
-      "assets/produtos/p40eba60009/principal.jpg",
-      "assets/produtos/p40eba60009/galeria-02.jpg",
-      "assets/produtos/p40eba60009/galeria-03.jpg",
-      "assets/produtos/p40eba60009/galeria-04.jpg",
-      "assets/produtos/p40eba60009/galeria-05.jpg",
-      "assets/produtos/p40eba60009/galeria-06.jpg",
-      "assets/produtos/p40eba60009/galeria-07.jpg",
-      "assets/produtos/p40eba60009/galeria-08.jpg"
+      "assets/produtos/p40eba60009/revisao-20261013-01.jpg",
+      "assets/produtos/p40eba60009/revisao-20261013-02.jpg",
+      "assets/produtos/p40eba60009/revisao-20261013-03.jpg",
+      "assets/produtos/p40eba60009/revisao-20261013-04.jpg",
+      "assets/produtos/p40eba60009/revisao-20261013-05.jpg",
+      "assets/produtos/p40eba60009/revisao-20261013-06.jpg",
+      "assets/produtos/p40eba60009/revisao-20261013-07.jpg",
+      "assets/produtos/p40eba60009/revisao-20261013-08.jpg"
     ],
-    "imagemAmbiente": "assets/produtos/p40eba60009/ambiente.jpg",
+    "imagemAmbiente": "",
     "dimensoes": {
       "produto": {
-        "largura": "73.8 mm",
-        "altura": "298 mm",
-        "profundidade": "73.8 mm"
+        "altura": "330 mm",
+        "largura": "144 mm",
+        "profundidade": "209 mm"
       }
     },
     "documentos": [],
     "especificacoes": {
-      "Cor": "Azul",
-      "Peso líquido": "0,35 Kg"
+      "Modelo comercial": "PN10X",
+      "TIPO": "Purificador de Água",
+      "TECNOLOGIA": "Acqua Pure",
+      "TIPO DE ÁGUA": "Natural",
+      "VIDA ÚTIL DO REFIL": "Período de troca de refil - 6 meses",
+      "ALIMENTAÇÃO": "Elétrico (Bateria)",
+      "ITENS INCLUSOS": "Purificador de água Electrolux PN10X • Manual de instruções • Kit de instalação (quando aplicável)",
+      "Peso líquido": "1,5 Kg",
+      "Cor": "Preto",
+      "Recursos": "Tecnologia Acqua Pure • Design compacto • Filtragem de água natural • Fácil troca de refil",
+      "Modelo": "P40EBA60009",
+      "Código Info Store": "POR0212"
     },
     "destaques": [
       {
+        "titulo": "Preto",
         "rotulo": "Cor",
-        "valor": "Azul"
+        "icone": "◇"
       }
     ],
     "statusExtracao": "EXTRAIDO",
     "pendencias": [],
-    "fonteInterna": "https://loja.electrolux.com.br/filtro-refil-original-de-agua-acqua-pure-para-purificador-electrolux-pc01b-pc01x-pe15b-pe15x-pe15p-pn10b-pn10x-e-pn10p/p",
+    "fonteInterna": "https://www.infostore.com.br/purificador-de-agua-electrolux-efficient-compacto-agua-natural-com-tecnologia-acqua-pure-pn10x-pilha-preto/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-de-agua-electrolux-efficient-compacto-agua-natural-com-tecnologia-acqua-pure-pn10x-pilha-preto/p",
-    "dataConsulta": "2026-10-02T15:46:27.113Z"
+    "dataConsulta": "2026-10-13T15:17:24.710Z"
   },
   {
     "modelo": "A27329401",
@@ -16855,22 +17003,64 @@
     "modelo": "28913658",
     "codigo": "HOM0168",
     "produtoPlanilha": "SOUNDBAR 11.1.4 BAR 1300X MULTIBEAM (585W/WIF/BT)",
-    "tituloOficial": "",
-    "descricao": "",
-    "imagens": [],
-    "imagemAmbiente": "",
-    "dimensoes": {},
-    "documentos": [],
-    "especificacoes": {},
-    "destaques": [],
-    "statusExtracao": "REVISAR",
-    "pendencias": [
-      "Imagem não extraída",
-      "Dimensões não extraídas",
-      "Especificações não extraídas"
+    "tituloOficial": "Soundbar JBL Bar 1300X 11.1.4 canais com Dolby Atmos e subwoofer sem fio",
+    "descricao": "Sistema de áudio com caixas surround removíveis, subwoofer sem fio e reprodução por Wi-Fi e Bluetooth. O processamento PureVoice favorece a clareza dos diálogos. Possui conexão HDMI eARC e ajustes pelo aplicativo JBL One.",
+    "imagem": "assets/produtos/28913658/revisao-20261013-01.png",
+    "imagens": [
+      "assets/produtos/28913658/revisao-20261013-01.png",
+      "assets/produtos/28913658/revisao-20261013-02.png",
+      "assets/produtos/28913658/revisao-20261013-03.png"
     ],
-    "fonteInterna": "",
+    "imagemAmbiente": "",
+    "dimensoes": {
+      "produto": {
+        "largura": "1376 mm",
+        "altura": "60 mm",
+        "profundidade": "139 mm"
+      },
+      "subwoofer": {
+        "largura": "366 mm",
+        "altura": "481 mm",
+        "profundidade": "366 mm"
+      }
+    },
+    "documentos": [],
+    "especificacoes": {
+      "Modelo comercial": "BAR 1300X",
+      "Referência JBL": "JBLBAR1300BLKBR",
+      "Canais de áudio": "11.1.4",
+      "Potência de áudio": "585 W RMS",
+      "Voltagem": "100–240 V, 50/60 Hz",
+      "Entradas HDMI": "3",
+      "Saída HDMI": "1 com eARC",
+      "Subwoofer": "12 polegadas, sem fio",
+      "USB": "Apenas serviço na versão brasileira",
+      "Modelo": "28913658",
+      "Código Info Store": "HOM0168"
+    },
+    "destaques": [
+      {
+        "titulo": "100–240 V, 50/60 Hz",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "585 W RMS",
+        "rotulo": "Potência de áudio",
+        "icone": "◇"
+      },
+      {
+        "titulo": "11.1.4",
+        "rotulo": "Canais de áudio",
+        "icone": "◇"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [
+      "Link do produto na Info Store ainda não localizado."
+    ],
+    "fonteInterna": "https://www.jbl.com.br/BAR-1300X.html",
     "fonteApoio": "",
-    "dataConsulta": "2026-10-13T12:40:06.402Z"
+    "dataConsulta": "2026-10-13T15:17:24.710Z"
   }
 ]

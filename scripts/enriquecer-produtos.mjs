@@ -484,7 +484,7 @@ function paginaPareceAcessorio(pagina = {}, url = "") {
     .trim();
 
   const termosInicio = [
-    "FACA", "PENEIRA", "JARRA", "TAMPA", "FILTRO", "COPO",
+    "REFIL", "REFIS", "CARTUCHO", "KIT REFIL", "KIT FILTRO", "FACA", "PENEIRA", "JARRA", "TAMPA", "FILTRO", "COPO",
     "LAMINA", "LÂMINA", "BICO", "MANGUEIRA", "RESERVATORIO",
     "RESERVATÓRIO", "BANDEJA", "PECA", "PEÇA", "ACESSORIO",
     "ACESSÓRIO", "ACOPLAMENTO", "DISCO", "BATEDOR", "TUBO",
@@ -663,7 +663,7 @@ async function processar(item, indice, total) {
      * Se existir um extrator especializado, ele tem prioridade sobre a
      * extração genérica da mesma página.
      */
-    const dadosFabricante = oficial
+    const dadosFabricante = ehElectrolux ? oficial : oficial
       ? {
           titulo: oficial.titulo || paginaAtual.titulo,
           descricao: oficial.descricao || paginaAtual.descricao,
@@ -720,6 +720,7 @@ async function processar(item, indice, total) {
     const temExtratorEspecializado = ehElectrolux || ehPortatilComConector;
 
     const paginaOficialValidada =
+      !ehElectrolux &&
       !fonteEhInfoStore &&
       item.origemFonte === "FABRICANTE" &&
       paginaOficialValidaParaItem(paginaAtual, item);

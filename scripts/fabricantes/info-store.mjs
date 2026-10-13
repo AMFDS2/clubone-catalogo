@@ -1,3 +1,4 @@
+import { extrairFichaPurificadoresInfoStore } from './info-store-purificadores.mjs';
 import { extrairFichaAudio } from "./info-store-audio.mjs";
 const BASE = "https://www.infostore.com.br";
 
@@ -257,6 +258,7 @@ export async function extrairProdutoInfoStore(item = {}) {
     const localizado = await localizarProduto(item);
     const produto = localizado?.produto;
     if (!produto) return null;
+    const fichaPurificador = extrairFichaPurificadoresInfoStore(produto);
     const fichaAudio = extrairFichaAudio(produto, item);
     const urlsImagens = [];
     for (const sku of produto.items || []) for (const imagem of sku.images || []) {
@@ -287,8 +289,8 @@ export async function extrairProdutoInfoStore(item = {}) {
       titulo: limpar(produto.productName || produto.productTitle),
       descricao: limpar(produto.description),
       urlsImagens: urlsImagens.slice(0, 8),
-      especificacoes: { ...especificacoes, ...(fichaAudio?.especificacoes || {}) },
-      dimensoes: { ...(largura || altura || profundidade ? { produto: { largura, altura, profundidade } } : {}), ...(fichaAudio?.dimensoes || {}) },
+      especificacoes: { ...especificacoes, ...(fichaAudio?.especificacoes || {}), ...(fichaPurificador?.especificacoes || {}) },
+      dimensoes: { ...(largura || altura || profundidade ? { produto: { largura, altura, profundidade } } : {}), ...(fichaAudio?.dimensoes || {}), ...(fichaPurificador?.dimensoes || {}) },
       documentos: [],
       fonteApoio: link(produto),
       correspondencia: localizado.correspondencia,

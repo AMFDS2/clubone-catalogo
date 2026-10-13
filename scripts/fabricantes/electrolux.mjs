@@ -32,13 +32,17 @@ function codigoComercial(item = {}) {
     })[0] || "";
 }
 
-function referencias(produto = {}) {
-  const valores = [produto.productReference, produto.productName, produto.productTitle, produto.linkText];
-  for (const sku of produto.items || []) {
-    valores.push(sku.itemId, sku.name, sku.nameComplete);
-    for (const ref of sku.referenceId || []) valores.push(ref?.Value, ref?.Key);
-  }
-  return chave(valores.filter(Boolean).join(" "));
+// Compatibilidade citada por um refil não identifica o aparelho vendido.
+export function produtoElectroluxCompativel(produto = {}, item = {}) {
+  const titulo=limpar(produto.productName || produto.productTitle).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
+  const inicio=titulo.replace(/^ELECTROLUX\s+/, '');
+  if(/^(?:(?:KIT|COMBO|PACK)\b.*)?\b(?:REFIL|REFIS|FILTRO|FILTROS|CARTUCHO|PECA|ACESSORIO|GARANTIA)\b/.test(inicio))return false;
+  if(/PURIFICADOR/i.test(item.produto || '') && !/^PURIFICADOR\b/.test(inicio))return false;
+  const modelo=chave(item.modelo),comercial=codigoComercial(item);
+  const refs=[produto.productReference,produto.productReferenceCode,...(produto.items||[]).flatMap(sku=>(sku.referenceId||[]).map(r=>r.Value))].filter(Boolean).map(chave);
+  const termos=[produto.productName,produto.productTitle,...(produto.items||[]).flatMap(sku=>[sku.name,sku.nameComplete])].filter(Boolean)
+    .flatMap(v=>String(v).toUpperCase().split(/[^A-Z0-9]+/)).filter(Boolean);
+  return Boolean((modelo && refs.includes(modelo)) || (comercial && termos.includes(comercial)) || (modelo && termos.includes(modelo)));
 }
 
 function link(produto = {}) {
@@ -65,13 +69,9 @@ export async function localizarFonteElectrolux(item = {}) {
       const resultados = await consultar(termo);
       for (const produto of resultados) {
         const url = link(produto);
-        if (url && !/garantia-estendida/i.test(url) && !alternativas.includes(url)) alternativas.push(url);
+        if (url && produtoElectroluxCompativel(produto,item) && !alternativas.includes(url)) alternativas.push(url);
       }
-      const exato = resultados.find(produto => {
-        const refs = referencias(produto);
-        return !/garantia-estendida/i.test(link(produto)) &&
-          ((modelo && refs.includes(modelo)) || (comercial && refs.includes(chave(comercial))));
-      });
+      const exato = resultados.find(produto => produtoElectroluxCompativel(produto,item));
       const url = link(exato);
       if (url) return { status: "LOCALIZADO", url, alternativas };
     } catch (erro) { console.warn(`Electrolux (${termo}): ${erro.message}`); }
@@ -126,21 +126,23 @@ function especificacoes(produto = {}) {
 
 export async function extrairProdutoElectrolux($, html = "", item = {}) {
   const comercial = codigoComercial(item);
-  const resultados = comercial ? await consultar(comercial) : [];
-  const produtoEncontrado = resultados.find(p =>
-    !/garantia-estendida/i.test(link(p)) &&
-    referencias(p).includes(chave(comercial))
-  );
+  const resultados=[];
+  for(const termo of [...new Set([chave(item.modelo),comercial].filter(Boolean))]){
+    try{resultados.push(...await consultar(termo));}catch(erro){console.warn(`Electrolux: ${erro.message}. Mantendo fallback Info Store.`);}
+    if(resultados.some(p=>produtoElectroluxCompativel(p,item)))break;
+  }
+  const produtoEncontrado = resultados.find(p => produtoElectroluxCompativel(p,item));
   const produto = produtoEncontrado || {};
   const largura = mm(primeiro(produto, ["Largura do produto", "Largura"]));
   const altura = mm(primeiro(produto, ["Altura do produto", "Altura"]));
   const profundidade = mm(primeiro(produto, ["Profundidade do produto", "Profundidade"]));
   const docs = documento(produto);
   return {
-    validadoFabricante: Boolean(produtoEncontrado && comercial),
+    validadoFabricante: Boolean(produtoEncontrado),
+    produtoPrincipalValido: Boolean(produtoEncontrado),
     codigoComercial: comercial,
-    titulo: limpar(produto.productName || $('meta[property="og:title"]').attr("content") || $("title").text()),
-    descricao: limpar(produto.description || $('meta[name="description"]').attr("content") || ""),
+    titulo: limpar(produto.productName || ""),
+    descricao: limpar(produto.description || ""),
     urlsImagens: imagens(produto),
     especificacoes: especificacoes(produto),
     dimensoes: largura || altura || profundidade ? { produto: { largura, altura, profundidade } } : {},
