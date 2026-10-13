@@ -7,9 +7,12 @@ const limpar=v=>String(v||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()
 function descricaoCurta(v){const t=limpar(v);if(t.length<=1200)return t;const corte=t.slice(0,1200);const fim=Math.max(corte.lastIndexOf('.'),corte.lastIndexOf('!'),corte.lastIndexOf('?'));return fim>=0?corte.slice(0,fim+1):'';}
 const cache=new Map(),pendentes=new Map(),limites=new Map();
 const grupos={
+ caboHdmi:{busca:'cabo HDMI',aceita:/^cabo\b.*\bhdmi\b/,motivo:'Conecta equipamentos de áudio e vídeo com entrada HDMI.',verificar:'Confirmar conectores nas duas pontas, comprimento, resolução e ARC/eARC exigidos pelos equipamentos.'},
+ protecao:{busca:'EPS 302',aceita:/^(adaptador|dispositivo|protetor)\b.*\b(eps[- ]?302)\b/,motivo:'Uma opção de proteção elétrica para os eletrônicos do ambiente.',verificar:'Confirmar autorização nos manuais, tensão, plugue 10 A, aterramento e corrente total das cargas; não é conversor de tensão.'},
+ suporteAr:{busca:'suporte ar condicionado',aceita:/^suporte\b.*(?:ar.?condicionado|condensadora|split)/,motivo:'Auxilia a fixação da unidade externa do ar-condicionado.',verificar:'Confirmar carga suportada, dimensões da condensadora, pontos de fixação, material e condições da parede com o instalador.'},
  suporte:{busca:'suporte tv',aceita:/^suporte\b.*\b(tv|televis)/,motivo:'Permite posicionar a TV de acordo com o ambiente.',verificar:'Confirmar VESA, peso sem base, tamanho da tela e fixação da parede.'},
  soundbar:{busca:'soundbar',aceita:/^soundbar\b/,motivo:'Uma opção para complementar o áudio de filmes e séries.',verificar:'Confirmar as entradas e saídas de áudio dos dois modelos, como HDMI ARC ou óptica.'},
- alexa:{busca:'echo',aceita:/^((?:dispositivo smart|smart home)\b.*\becho\b|echo\b|smart speaker\b|caixa.*\b(alexa|echo)\b|assistente.*\balexa\b)/,motivo:'Uma opção para comandos de voz no ambiente.',verificar:'Confirmar integração com o modelo da TV, rede e serviços necessários.'},
+ alexa:{busca:'echo',aceita:/^((?:dispositivo smart|smart home)\b.*\becho\b|echo\b|smart speaker\b|caixa.*\b(alexa|echo)\b|assistente.*\balexa\b)/,motivo:'Uma opção para comandos de voz no ambiente.',verificar:'Confirmar integração com os equipamentos do ambiente, rede e serviços necessários.'},
  microondas:{busca:'micro ondas',aceita:/^(micro.?ondas|forno micro)/,motivo:'Complementa a rotina de preparo e aquecimento na cozinha.',verificar:'Confirmar tensão, dimensões e folgas de instalação.'},
  cafeteira:{busca:'cafeteira',aceita:/^cafeteira\b/,motivo:'Complementa o espaço de café no projeto.',verificar:'Confirmar tensão e espaço disponível na bancada.'},
  coifa:{busca:'coifa',aceita:/^coifa\b/,motivo:'Uma opção de exaustão para a área de preparo.',verificar:'Confirmar largura, altura de instalação, vazão e saída de ar com o projeto.'},
@@ -18,7 +21,10 @@ const grupos={
 };
 export function tiposPara(p){
  const n=normal(p.nome);
- if(/^(smart\s+)?tv\b|^televisor\b/.test(n)||normal(p.categoria)==='video')return ['suporte','soundbar','alexa'];
+ if(/^(smart\s+)?tv\b|^televisor\b/.test(n)||normal(p.categoria)==='video')return ['suporte','soundbar','alexa','caboHdmi','protecao'];
+ if(/^soundbar\b|^barra de som\b/.test(n))return ['caboHdmi','protecao','alexa'];
+ if(/^ar.?condicionado\b/.test(n) && /split|cassete|piso.*teto|condensadora/.test(n) && !/portatil|janela/.test(n))return ['suporteAr'];
+ // Refrigeradores não recebem adaptadores/protetores genéricos automaticamente.
  if(/^(geladeira|refrigerador|freezer)/.test(n))return ['microondas','cafeteira'];
  if(/^cooktop/.test(n))return ['coifa','forno','microondas'];
  if(/^(fogao|forno)/.test(n))return ['coifa','microondas','cafeteira'];
@@ -31,6 +37,12 @@ function specs(p){const e=Array.isArray(p.especificacoes)?p.especificacoes.map(x
 function vesa(p){const values=specs(p).filter(([k])=>k.includes('vesa')).map(([,v])=>v).join(' ');return [...values.matchAll(/(\d{2,4})\s*[x×]\s*(\d{2,4})/gi)].map(x=>`${x[1]}x${x[2]}`);}
 export function compativel(base,produto,tipo){
  // A ausência de evidência nunca é convertida em compatibilidade confirmada.
+ if(tipo==='protecao' && !/^(?:(?:smart\s+)?tv\b|televisor\b|soundbar\b|barra de som\b)/.test(normal(base.nome)) && normal(base.categoria)!=='video')return {status:'incompativel',texto:'Proteção elétrica genérica não autorizada para este tipo de produto.'};
+ if(tipo==='protecao'){
+  const corrente=specs(base).filter(([k])=>/corrente|plugue|tomada/.test(k)).map(([,v])=>v).join(' ');
+  if([...corrente.matchAll(/(\d+(?:[.,]\d+)?)\s*A\b/gi)].some(m=>Number(m[1].replace(',','.'))>10))return {status:'incompativel',texto:'A corrente ou o plugue informado excede 10 A.'};
+ }
+
  if(tipo==='suporte'){
   const a=vesa(base),b=vesa(produto);if(a.length&&b.length&&!a.some(x=>b.includes(x)))return {status:'incompativel',texto:'Padrões VESA informados não coincidem.'};
   const peso=specs(base).find(([k])=>/peso.*sem.*base/.test(k));
@@ -38,7 +50,7 @@ export function compativel(base,produto,tipo){
   const kg=v=>v&&/kg/i.test(v[1])?Number(v[1].match(/\d+(?:[.,]\d+)?/)?.[0]?.replace(',','.')):NaN;
   if(kg(peso)>kg(carga))return {status:'incompativel',texto:'Peso da TV excede a carga informada para o suporte.'};
  }
- return {status:'pendente',texto:grupos[tipo].verificar};
+ return {status:'pendente',texto:grupos[tipo]?.verificar || 'Confirmar compatibilidade nos manuais dos dois produtos.'};
 }
 export function normalizarOferta(p,tipo,base){
  const g=grupos[tipo];if(!g||!g.aceita.test(normal(p.productName)))return null;

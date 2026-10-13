@@ -138,7 +138,7 @@
     if(linha)out.push(linha);return out;
   }
   function bloco(ctx,t,x,y,w,max,font,min=18,peso=400) {
-    let l=[];for(let f=font;f>=min;f--){ctx.font=`${peso} ${f}px Arial`;l=linhas(ctx,t,w);if(l.length<=max){l.forEach((s,j)=>ctx.fillText(s,x,y+j*f*1.3));return;}}
+    let l=[];for(let f=font;f>=min;f--){ctx.font=`${peso} ${f}px Arial`;l=linhas(ctx,t,w);if(l.length<=max){l.forEach((s,j)=>ctx.fillText(s,x,y+j*f*1.3));return {ultimaLinha:y+(l.length-1)*f*1.3,fonte:f};}}
     throw Error('Texto longo demais para a página. Reduza o título ou um diferencial.');
   }
   function caixa(ctx,x,y,w,h,cor,raio=18) {ctx.fillStyle=cor;ctx.beginPath();ctx.roundRect(x,y,w,h,raio);ctx.fill();}
@@ -276,34 +276,54 @@
     ctx.textAlign = "left";
     return canvas;
   }
-  // Resumo comercial: somente dimensões físicas cadastradas, nunca nicho/embalagem.
+  // Lê somente dimensões físicas explícitas, separadas por unidade nos splits.
+  function medidaEmCm(original) {
+    const registro=original && typeof original==='object' ? original : null;
+    if(registro?.status && registro.status!=='CONFIRMADO')return null;
+    let valor=String(registro ? registro.valor ?? '' : original ?? '').trim();
+    if(registro?.unidade && !/(mm|cm|m)$/i.test(valor))valor+=' '+registro.unidade;
+    const m=valor.match(/^(\d+(?:[.,]\d+)?)\s*(mm|cm|m)$/i);
+    if(!m)return null;
+    const numero=Number(m[1].replace(',','.'))*({mm:0.1,cm:1,m:100}[m[2].toLowerCase()]);
+    return Number.isFinite(numero)&&numero>0 ? `${numero.toLocaleString('pt-BR',{maximumFractionDigits:2})} cm` : null;
+  }
   function resumoMedidas(produto) {
-    const segmento=normal(produto.segmento || produto.categoria);
-    if (/audio|portateis/.test(segmento)) return [];
-    const fisicas=produto.dimensoes?.produto || {};
-    return [['largura','Largura'],['altura','Altura'],['profundidade','Profundidade']].flatMap(([chave,rotulo])=>{
-      const original=fisicas[chave];
-      const registro=original && typeof original==='object' ? original : null;
-      if(registro?.status && registro.status!=='CONFIRMADO')return [];
-      const valor=registro ? `${registro.valor ?? ''} ${registro.unidade || ''}`.trim() : String(original ?? '').trim();
-      const m=valor.match(/^(\d+(?:[.,]\d+)?)\s*(mm|cm|m)$/i);
-      if(!m)return [];
-      const numero=Number(m[1].replace(',','.'))*({mm:0.1,cm:1,m:100}[m[2].toLowerCase()]);
-      if(!Number.isFinite(numero)||numero<=0)return [];
-      return [{rotulo,valor:`${numero.toLocaleString('pt-BR',{maximumFractionDigits:2})} cm`}];
+    if (/audio|portateis/.test(normal(produto.segmento || produto.categoria)))return [];
+    const d=produto.dimensoes || {};
+    const unidades=d.evaporadora || d.condensadora
+      ? [['Evaporadora',d.evaporadora],['Condensadora',d.condensadora]]
+      : [['MEDIDAS DO PRODUTO',d.produto || produto.medidasProjeto?.dimensoesProduto]];
+    return unidades.flatMap(([rotulo,campos])=>{
+      const medidas=['largura','altura','profundidade'].map(k=>medidaEmCm(campos?.[k]));
+      return medidas.some(Boolean) ? [{rotulo,medidas}] : [];
     });
   }
-  function desenharResumoMedidas(c,medidas,y) {
-    caixa(c,64,y,748,118,'#f0f4fa',14);
-    c.fillStyle='#17366c';c.font='700 15px Arial';c.fillText('MEDIDAS DO PRODUTO',84,y+28);
-    const inicio=286,largura=506/medidas.length;
-    medidas.forEach((medida,k)=>{
-      const x=inicio+k*largura;
-      c.fillStyle='#52617b';c.font='400 17px Arial';c.fillText(medida.rotulo,x,y+29);
-      c.fillStyle='#17366c';c.font='700 27px Arial';c.fillText(medida.valor,x,y+64);
+  function alturaResumoMedidas(grupos){return grupos.length ? 118+(grupos.length-1)*64 : 0;}
+  function desenharResumoMedidas(c,grupos,y) {
+    const altura=alturaResumoMedidas(grupos), inicio=308, largura=168;
+    caixa(c,64,y,748,altura,'#f0f4fa',16);
+    c.fillStyle='#52617b';c.font='400 17px Arial';c.textAlign='center';
+    ['Largura','Altura','Profundidade'].forEach((rotulo,k)=>c.fillText(rotulo,inicio+(k+.5)*largura,y+28));
+    grupos.forEach((grupo,j)=>{
+      const base=y+61+j*64;
+      c.fillStyle='#17366c';c.textAlign='left';
+      bloco(c,grupo.rotulo,86,base-7,202,1,16,13,700);
+      grupo.medidas.forEach((valor,k)=>{
+        c.fillStyle='#17366c';c.textAlign='center';c.font='700 27px Arial';
+        c.fillText(valor || '—',inicio+(k+.5)*largura,base);
+      });
     });
-    c.fillStyle='#66738b';c.font='400 14px Arial';
-    c.fillText('Dimensões externas. Consulte as folgas de instalação no catálogo técnico.',84,y+99);
+    c.strokeStyle='#b8c6da';c.lineWidth=1;
+    for(let k=0;k<3;k++){const x=inicio+k*largura;c.beginPath();c.moveTo(x,y+18);c.lineTo(x,y+altura-43);c.stroke();}
+    c.fillStyle='#66738b';c.font='400 13px Arial';c.textAlign='center';
+    c.fillText('Dimensões externas. Consulte as folgas de instalação no catálogo técnico.',438,y+altura-16);
+    c.textAlign='left';
+  }
+  function condicaoParcelada(oferta) {
+    if(!oferta || oferta.manual)return '';
+    const p=oferta.parcelas,n=Number(p?.quantidade),v=Number(p?.valor);
+    if(!Number.isInteger(n)||n<2||!Number.isFinite(v)||v<=0)return '';
+    return `ou ${n}x de ${dinheiro(v)} no cartão`;
   }
   async function pagina(item,n,total,dados,logo,oferta,fotografias) {
     const W=1754,H=1240,canvas=document.createElement('canvas');canvas.width=W*2;canvas.height=H*2;const c=canvas.getContext('2d');c.scale(2,2);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';
@@ -314,7 +334,7 @@
     const contexto=[dados.cliente&&`Cliente: ${dados.cliente}`,dados.profissional&&`Arquiteto(a): ${dados.profissional}`,dados.vendedor&&`Atendimento: ${dados.vendedor}`].filter(Boolean).join('  •  ');
     bloco(c,contexto,64,192,1626,1,18,13);
     const extras=fotografias.slice(1), medidas=resumoMedidas(item.produto);
-    const heroH=(extras.length?628:884)-(medidas.length?136:0);
+    const heroH=(extras.length?628:884)-(medidas.length?alturaResumoMedidas(medidas)+18:0);
     caixa(c,64,230,748,heroH,'#f6f7fa');
     if(fotografias[0])desenharImagemContida(c,fotografias[0],84,250,708,heroH-40,8);else {c.fillStyle='#61708b';c.font='24px Arial';c.fillText('Imagem indisponível',245,560);}
     if(medidas.length)desenharResumoMedidas(c,medidas,230+heroH+18);
@@ -322,14 +342,16 @@
     extras.forEach((im,k)=>{const x=64+k*(tw+18);caixa(c,x,880,tw,234,'#f6f7fa',12);desenharImagemContida(c,im,x+12,892,tw-24,210,6);});
     const X=872,R=814;
     c.fillStyle='#d91e37';c.font='700 18px Arial';c.fillText(String(item.produto.marca || item.produto.fabricante || 'Info Store').toUpperCase(),X,253);
-    // Mantém o título completo e alinha os identificadores em linhas próprias.
-    c.fillStyle='#17366c';bloco(c,item.titulo,X,296,R,3,37,26,700);
-    c.fillStyle='#66738b';bloco(c,`Modelo: ${item.produto.modelo || '—'}`,X,412,R,1,17,12);
-    bloco(c,`Código Info Store: ${item.produto.codigoInfo || item.produto.codigo || '—'}`,X,435,R,1,17,12);
-    c.fillStyle='#ec263e';c.fillRect(X,448,65,4);c.fillStyle='#17366c';c.font='700 19px Arial';c.fillText('DIFERENCIAIS',X,487);
+    // As próximas posições dependem da altura real do título, inclusive três linhas.
+    c.fillStyle='#17366c';const titulo=bloco(c,item.titulo,X,296,R,3,37,26,700);
+    const modeloY=titulo.ultimaLinha+42, codigoY=modeloY+25;
+    c.fillStyle='#66738b';bloco(c,`Modelo: ${item.produto.modelo || '—'}`,X,modeloY,R,1,17,12);
+    bloco(c,`Código Info Store: ${item.produto.codigoInfo || item.produto.codigo || '—'}`,X,codigoY,R,1,17,12);
+    const linhaY=codigoY+21,tituloBeneficiosY=linhaY+35,inicioBeneficios=tituloBeneficiosY+43;
+    c.fillStyle='#ec263e';c.fillRect(X,linhaY,65,4);c.fillStyle='#17366c';c.font='700 19px Arial';c.fillText('DIFERENCIAIS',X,tituloBeneficiosY);
     // Uma única fonte por lista; altura real do texto e intervalo fixo entre itens.
     let fonteBeneficios=22, linhasBeneficios=[], entrelinha=0;
-    const intervaloBeneficios=14, alturaDisponivel=445;
+    const intervaloBeneficios=14, alturaDisponivel=975-inicioBeneficios;
     for (;fonteBeneficios>=16;fonteBeneficios--) {
       c.font=`400 ${fonteBeneficios}px Arial`;
       linhasBeneficios=item.beneficios.map(b=>linhas(c,b,R-42));
@@ -339,7 +361,7 @@
       if(altura<=alturaDisponivel)break;
     }
     if(fonteBeneficios<16)throw Error('Os diferenciais ocupam espaço demais. Encurte alguns textos para manter a leitura confortável.');
-    let yBeneficio=530;
+    let yBeneficio=inicioBeneficios;
     linhasBeneficios.forEach((textoLinhas,k)=>{
       caixa(c,X,yBeneficio-18,24,24,'#eaf0fa',12);
       c.fillStyle='#17366c';c.textAlign='center';c.font='700 14px Arial';
@@ -379,20 +401,25 @@
     if(fotos[0])desenharImagemContida(c,principal.removerFundo?removerFundoBranco(fotos[0]):fotos[0],85,294,190,124,5);
     c.fillStyle='#62708a';c.font='16px Arial';c.fillText('COMPLEMENTOS PARA O PRODUTO DO SEU PROJETO',306,315);
     c.fillStyle='#17366c';bloco(c,principal.titulo,306,354,1330,2,27,19,700);
+    c.fillStyle='#62708a';bloco(c,`Código Info Store: ${principal.produto.codigoInfo || principal.produto.codigo || '—'}`,306,414,1330,1,16,12);
     const largura=518,espaco=36;
     for(let k=0;k<grupo.length;k++){
       const item=grupo[k],x=64+k*(largura+espaco),oferta=ofertas[itens.indexOf(item)];
-      caixa(c,x,475,largura,640,'#fff',18);
+      caixa(c,x,475,largura,658,'#fff',18);
       if(fotos[k+1])desenharImagemContida(c,item.removerFundo?removerFundoBranco(fotos[k+1]):fotos[k+1],x+24,491,largura-48,220,8);
       else{c.fillStyle='#718098';c.font='18px Arial';c.fillText('Imagem indisponível',x+28,604);}
-      c.fillStyle='#17366c';bloco(c,item.titulo,x+24,750,largura-48,4,24,18,700);
-      c.fillStyle='#52617b';bloco(c,item.beneficios[0]||'Uma opção para complementar seu projeto.',x+24,875,largura-48,3,18,14);
-      c.fillStyle='#6b7587';c.font='14px Arial';c.fillText('VALOR UNITÁRIO',x+24,965);
+      c.fillStyle='#17366c';bloco(c,item.titulo,x+24,744,largura-48,4,24,18,700);
+      c.fillStyle='#62708a';bloco(c,`Código Info Store: ${item.produto.codigoInfo || item.produto.codigo || '—'}`,x+24,858,largura-48,1,16,12);
+      c.fillStyle='#52617b';bloco(c,item.beneficios[0]||'Uma opção para complementar seu projeto.',x+24,893,largura-48,2,18,14);
+      c.fillStyle='#6b7587';c.font='14px Arial';c.fillText('VALOR UNITÁRIO',x+24,961);
       c.fillStyle='#17366c';c.font='700 31px Arial';
       const pix=oferta&&Number(oferta.precoPix)>0&&Number(oferta.precoPix)<=Number(oferta.preco);
-      c.fillText(oferta?dinheiro(pix?oferta.precoPix:oferta.preco):'Preço sob consulta',x+24,1007);
-      c.font='14px Arial';c.fillStyle='#52617b';c.fillText(oferta?.manual?'Valor informado pelo vendedor':pix?'À vista no Pix':'Consulte condições e disponibilidade.',x+24,1034);
-      caixa(c,x+24,1055,largura-48,36,'#fff2d8',8);c.fillStyle='#805000';c.font='15px Arial';c.fillText('Compatibilidade a confirmar',x+38,1079);
+      c.fillText(oferta?dinheiro(pix?oferta.precoPix:oferta.preco):'Preço sob consulta',x+24,1001);
+      c.font='14px Arial';c.fillStyle='#52617b';c.fillText(oferta?.manual?'Valor informado pelo vendedor':pix?'À vista no Pix':'Consulte condições e disponibilidade.',x+24,1027);
+      const condicao=condicaoParcelada(oferta);
+      bloco(c,condicao || (oferta&&!oferta.manual?'Parcelamento não informado pela loja.':''),x+24,1053,largura-48,1,16,12);
+      caixa(c,x+24,1080,largura-48,36,'#fff2d8',8);c.fillStyle='#805000';c.font='15px Arial';c.fillText('Compatibilidade a confirmar',x+38,1104);
+
     }
     c.fillStyle='#52617b';c.font='16px Arial';c.fillText('Itens opcionais vendidos separadamente. Confirme compatibilidade e condições de instalação.',64,1160);
     c.font='14px Arial';c.fillText(`Valores da apresentação em ${dados.data}, sujeitos a alteração e disponibilidade.`,64,1190);
