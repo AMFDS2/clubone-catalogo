@@ -258,7 +258,7 @@
       camposCapa.forEach(([rotulo,valor],indice)=>{
         const y=734+indice*98;
         ctx.fillStyle='#e52633';ctx.font='700 15px Arial';ctx.fillText(rotulo,104,y);
-        ctx.fillStyle='#173875';bloco(ctx,String(valor),104,y+32,796,2,28,22,700);
+        ctx.fillStyle='#173875';bloco(ctx,String(valor),104,y+32,796,2,22,18,700);
         if(indice<camposCapa.length-1){
           ctx.strokeStyle='#e5e9f1';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(104,y+84);ctx.lineTo(900,y+84);ctx.stroke();
         }
