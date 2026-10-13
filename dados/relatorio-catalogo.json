@@ -1,11 +1,11 @@
 {
-  "dataVerificacao": "2026-10-09T17:57:38.925Z",
+  "dataVerificacao": "2026-10-13T12:38:57.443Z",
   "resumo": {
-    "produtosNaPlanilha": 235,
+    "produtosNaPlanilha": 241,
     "produtosCadastrados": 131,
-    "produtosIncompletos": 103,
+    "produtosIncompletos": 109,
     "produtosNovos": 1,
-    "totalPendencias": 104
+    "totalPendencias": 110
   },
   "cadastrados": [
     {
@@ -2461,6 +2461,96 @@
       "modelo": "FW012054",
       "statusPesquisa": "REVISAR",
       "motivos": [
+        "Dimensões ausentes",
+        "Especificações ausentes",
+        "Dados ou arquivos em revisão"
+      ]
+    },
+    {
+      "id": "28913881",
+      "fabricante": "JBL (NAC)",
+      "segmento": "AUDIO",
+      "codigo": "HOM0212",
+      "produto": "SOUNDBAR 5.1 BAR 500MK2 MULTIBEAM (375W/BT/2HDMI/OPT",
+      "modelo": "28913881",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Imagem principal ausente",
+        "Dimensões ausentes",
+        "Especificações ausentes",
+        "Dados ou arquivos em revisão"
+      ]
+    },
+    {
+      "id": "28913884",
+      "fabricante": "JBL (NAC)",
+      "segmento": "AUDIO",
+      "codigo": "HOM0213",
+      "produto": "SOUNDBAR 7.1.4 BAR 1000MK2 MULTIBEAM (480W/BT/4HDMI/OPT)",
+      "modelo": "28913884",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Imagem principal ausente",
+        "Dimensões ausentes",
+        "Especificações ausentes",
+        "Dados ou arquivos em revisão"
+      ]
+    },
+    {
+      "id": "28913883",
+      "fabricante": "JBL (NAC)",
+      "segmento": "AUDIO",
+      "codigo": "HOM0214",
+      "produto": "SOUNDBAR 7.1 BAR 800MK2 MULTIBEAM (390W/BT/2HDMI/OPT",
+      "modelo": "28913883",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Imagem principal ausente",
+        "Dimensões ausentes",
+        "Especificações ausentes",
+        "Dados ou arquivos em revisão"
+      ]
+    },
+    {
+      "id": "28913885",
+      "fabricante": "JBL (NAC)",
+      "segmento": "AUDIO",
+      "codigo": "HOM0215",
+      "produto": "SOUNDBAR 11.1.4 BAR 1300XMK2 MULTIBEAM (785W/BT/3HDMI/OPT",
+      "modelo": "28913885",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Imagem principal ausente",
+        "Dimensões ausentes",
+        "Especificações ausentes",
+        "Dados ou arquivos em revisão"
+      ]
+    },
+    {
+      "id": "28913595",
+      "fabricante": "JBL (NAC)",
+      "segmento": "AUDIO",
+      "codigo": "HOM0167",
+      "produto": "SOUNDBAR 7.1.4 BAR 1000 MULTIBEAM (440W/WIF/BT)",
+      "modelo": "28913595",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Imagem principal ausente",
+        "Dimensões ausentes",
+        "Especificações ausentes",
+        "Dados ou arquivos em revisão"
+      ]
+    },
+    {
+      "id": "28913658",
+      "fabricante": "JBL (NAC)",
+      "segmento": "AUDIO",
+      "codigo": "HOM0168",
+      "produto": "SOUNDBAR 11.1.4 BAR 1300X MULTIBEAM (585W/WIF/BT)",
+      "modelo": "28913658",
+      "statusPesquisa": "REVISAR",
+      "motivos": [
+        "Imagem principal ausente",
         "Dimensões ausentes",
         "Especificações ausentes",
         "Dados ou arquivos em revisão"
