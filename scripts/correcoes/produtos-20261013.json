@@ -329,5 +329,57 @@
         "Conexão HDMI eARC e aplicativo JBL One."
       ]
     }
+  },
+  {
+    "codigo": "HOM0167",
+    "modeloEsperado": "28913595",
+    "origem": "FABRICANTE",
+    "fonte": "https://www.jbl.com.br/BAR-1000-.html",
+    "produto": {
+      "nome": "Soundbar JBL Bar 1000 7.1.4 canais com Dolby Atmos e subwoofer sem fio",
+      "nomeOficial": "Soundbar JBL Bar 1000 7.1.4 canais com Dolby Atmos e subwoofer sem fio",
+      "descricao": "Áudio envolvente para filmes e música com caixas traseiras destacáveis alimentadas por bateria. PureVoice realça as falas, enquanto o subwoofer reproduz graves e o aplicativo permite ajustar o som ao ambiente.",
+      "imagem": "assets/produtos/28913595/revisao-20261013-01.png",
+      "imagens": [
+        "assets/produtos/28913595/revisao-20261013-01.png",
+        "assets/produtos/28913595/revisao-20261013-02.png",
+        "assets/produtos/28913595/revisao-20261013-03.png"
+      ],
+      "imagemAmbiente": "",
+      "siteInfoStore": "",
+      "documentos": [],
+      "especificacoes": {
+        "Modelo comercial": "BAR 1000",
+        "Referência JBL": "JBLBAR1000PROBLKBR",
+        "Canais de áudio": "7.1.4",
+        "Potência de áudio": "440 W RMS",
+        "Voltagem": "100–240 V, 50/60 Hz",
+        "Entradas HDMI": "3",
+        "Saída HDMI": "1 com eARC",
+        "Subwoofer": "10 polegadas, sem fio",
+        "Bluetooth": "5.0",
+        "USB": "Apenas serviço na versão brasileira"
+      },
+      "dimensoes": {
+        "produto": {
+          "largura": "1194 mm",
+          "altura": "56 mm",
+          "profundidade": "125 mm"
+        },
+        "subwoofer": {
+          "largura": "305 mm",
+          "altura": "440,4 mm",
+          "profundidade": "305 mm"
+        }
+      },
+      "diferenciais": [
+        "Dolby Atmos, DTS:X e MultiBeam para som imersivo.",
+        "Caixas surround destacáveis com bateria.",
+        "Graves com subwoofer sem fio de 10 polegadas.",
+        "Streaming via AirPlay, Chromecast e Alexa Multi-Room Music.",
+        "PureVoice para diálogos mais claros.",
+        "HDMI eARC e ajustes no aplicativo JBL One."
+      ]
+    }
   }
 ]

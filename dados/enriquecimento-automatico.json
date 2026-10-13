@@ -12033,7 +12033,7 @@
     "pendencias": [],
     "fonteInterna": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12b-bivolt-branco/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12b-bivolt-branco/p",
-    "dataConsulta": "2026-10-13T15:17:24.710Z"
+    "dataConsulta": "2026-10-13T15:32:07.358Z"
   },
   {
     "modelo": "4910AOBR403",
@@ -12422,7 +12422,7 @@
     "pendencias": [],
     "fonteInterna": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12g-bivolt-cinza/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12g-bivolt-cinza/p",
-    "dataConsulta": "2026-10-13T15:17:24.710Z"
+    "dataConsulta": "2026-10-13T15:32:07.358Z"
   },
   {
     "modelo": "4340AJBR483",
@@ -12893,7 +12893,7 @@
     "pendencias": [],
     "fonteInterna": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01x-127v-grafite/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01x-127v-grafite/p",
-    "dataConsulta": "2026-10-13T15:17:24.710Z"
+    "dataConsulta": "2026-10-13T15:32:07.358Z"
   },
   {
     "modelo": "P30EBA51N06",
@@ -12966,7 +12966,7 @@
     "pendencias": [],
     "fonteInterna": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01b-127v-branco/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01b-127v-branco/p",
-    "dataConsulta": "2026-10-13T15:17:24.710Z"
+    "dataConsulta": "2026-10-13T15:32:07.358Z"
   },
   {
     "modelo": "P15EBA00C35",
@@ -13027,7 +13027,7 @@
     "pendencias": [],
     "fonteInterna": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada-3-niveis-efficient-eletronico-pe15p-bivolt-preto/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada-3-niveis-efficient-eletronico-pe15p-bivolt-preto/p",
-    "dataConsulta": "2026-10-13T15:17:24.710Z"
+    "dataConsulta": "2026-10-13T15:32:07.358Z"
   },
   {
     "modelo": "4910ANBR405",
@@ -13844,7 +13844,7 @@
     "pendencias": [],
     "fonteInterna": "https://www.infostore.com.br/purificador-de-agua-electrolux-efficient-compacto-agua-natural-com-tecnologia-acqua-pure-pn10x-pilha-preto/p",
     "fonteApoio": "https://www.infostore.com.br/purificador-de-agua-electrolux-efficient-compacto-agua-natural-com-tecnologia-acqua-pure-pn10x-pilha-preto/p",
-    "dataConsulta": "2026-10-13T15:17:24.710Z"
+    "dataConsulta": "2026-10-13T15:32:07.358Z"
   },
   {
     "modelo": "A27329401",
@@ -16981,23 +16981,66 @@
     "modelo": "28913595",
     "codigo": "HOM0167",
     "produtoPlanilha": "SOUNDBAR 7.1.4 BAR 1000 MULTIBEAM (440W/WIF/BT)",
-    "tituloOficial": "",
-    "descricao": "",
-    "imagens": [],
-    "imagemAmbiente": "",
-    "dimensoes": {},
-    "documentos": [],
-    "especificacoes": {},
-    "destaques": [],
-    "statusExtracao": "REVISAR",
-    "pendencias": [
-      "Imagem não extraída",
-      "Dimensões não extraídas",
-      "Especificações não extraídas"
+    "tituloOficial": "Soundbar JBL Bar 1000 7.1.4 canais com Dolby Atmos e subwoofer sem fio",
+    "descricao": "Áudio envolvente para filmes e música com caixas traseiras destacáveis alimentadas por bateria. PureVoice realça as falas, enquanto o subwoofer reproduz graves e o aplicativo permite ajustar o som ao ambiente.",
+    "imagem": "assets/produtos/28913595/revisao-20261013-01.png",
+    "imagens": [
+      "assets/produtos/28913595/revisao-20261013-01.png",
+      "assets/produtos/28913595/revisao-20261013-02.png",
+      "assets/produtos/28913595/revisao-20261013-03.png"
     ],
-    "fonteInterna": "",
+    "imagemAmbiente": "",
+    "dimensoes": {
+      "produto": {
+        "largura": "1194 mm",
+        "altura": "56 mm",
+        "profundidade": "125 mm"
+      },
+      "subwoofer": {
+        "largura": "305 mm",
+        "altura": "440,4 mm",
+        "profundidade": "305 mm"
+      }
+    },
+    "documentos": [],
+    "especificacoes": {
+      "Modelo comercial": "BAR 1000",
+      "Referência JBL": "JBLBAR1000PROBLKBR",
+      "Canais de áudio": "7.1.4",
+      "Potência de áudio": "440 W RMS",
+      "Voltagem": "100–240 V, 50/60 Hz",
+      "Entradas HDMI": "3",
+      "Saída HDMI": "1 com eARC",
+      "Subwoofer": "10 polegadas, sem fio",
+      "Bluetooth": "5.0",
+      "USB": "Apenas serviço na versão brasileira",
+      "Modelo": "28913595",
+      "Código Info Store": "HOM0167"
+    },
+    "destaques": [
+      {
+        "titulo": "100–240 V, 50/60 Hz",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "440 W RMS",
+        "rotulo": "Potência de áudio",
+        "icone": "◇"
+      },
+      {
+        "titulo": "7.1.4",
+        "rotulo": "Canais de áudio",
+        "icone": "◇"
+      }
+    ],
+    "statusExtracao": "EXTRAIDO",
+    "pendencias": [
+      "Link do produto na Info Store ainda não localizado."
+    ],
+    "fonteInterna": "https://www.jbl.com.br/BAR-1000-.html",
     "fonteApoio": "",
-    "dataConsulta": "2026-10-13T12:40:02.601Z"
+    "dataConsulta": "2026-10-13T15:32:07.358Z"
   },
   {
     "modelo": "28913658",
@@ -17061,6 +17104,6 @@
     ],
     "fonteInterna": "https://www.jbl.com.br/BAR-1300X.html",
     "fonteApoio": "",
-    "dataConsulta": "2026-10-13T15:17:24.710Z"
+    "dataConsulta": "2026-10-13T15:32:07.358Z"
   }
 ]

@@ -3422,11 +3422,11 @@
     "produto": "SOUNDBAR 7.1.4 BAR 1000 MULTIBEAM (440W/WIF/BT)",
     "fabricante": "JBL (NAC)",
     "segmento": "AUDIO",
-    "statusFonte": "NAO_LOCALIZADO",
-    "fonteInterna": "",
+    "statusFonte": "LOCALIZADO",
+    "fonteInterna": "https://www.jbl.com.br/BAR-1000-.html",
     "alternativas": [],
     "origemFonte": "FABRICANTE",
-    "correspondencia": "",
+    "correspondencia": "MODELO_EXATO",
     "dataConsulta": "2026-10-13T12:39:03.760Z"
   },
   {

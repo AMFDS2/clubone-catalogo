@@ -24,7 +24,7 @@ for(const c of correcoes){
  delete novo.medidasProjeto;delete novo.siteFabricante;delete novo.precoOnline;
  novo.especificacoes={...c.produto.especificacoes,Modelo:anterior.modelo,'Código Info Store':c.codigo};
  novo.destaques=['Cor','Voltagem','Potência','Potência de áudio','Canais de áudio','Tecnologia'].filter(k=>novo.especificacoes[k]).slice(0,4).map(k=>({titulo:novo.especificacoes[k],rotulo:k,icone:'◇'}));
- novo.pendencias=c.codigo==='HOM0168'?['Link do produto na Info Store ainda não localizado.']:[];
+ novo.pendencias=!novo.siteInfoStore?['Link do produto na Info Store ainda não localizado.']:[];
  catalogo[i]=novo;
  const registro={modelo:anterior.modelo,codigo:c.codigo,produtoPlanilha:anterior.nomePlanilha||anterior.nome,tituloOficial:novo.nome,descricao:novo.descricao,imagem:novo.imagem,imagens:novo.imagens,imagemAmbiente:'',dimensoes:novo.dimensoes,documentos:novo.documentos,especificacoes:novo.especificacoes,destaques:novo.destaques,statusExtracao:'EXTRAIDO',pendencias:novo.pendencias,fonteInterna:c.fonte,fonteApoio:novo.siteInfoStore,dataConsulta:momento};
  const ci=cache.findIndex(p=>normal(p.codigo)===normal(c.codigo));if(ci<0)cache.push(registro);else cache[ci]=registro;
