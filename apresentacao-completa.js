@@ -276,6 +276,35 @@
     ctx.textAlign = "left";
     return canvas;
   }
+  // Resumo comercial: somente dimensões físicas cadastradas, nunca nicho/embalagem.
+  function resumoMedidas(produto) {
+    const segmento=normal(produto.segmento || produto.categoria);
+    if (/audio|portateis/.test(segmento)) return [];
+    const fisicas=produto.dimensoes?.produto || {};
+    return [['largura','Largura'],['altura','Altura'],['profundidade','Profundidade']].flatMap(([chave,rotulo])=>{
+      const original=fisicas[chave];
+      const registro=original && typeof original==='object' ? original : null;
+      if(registro?.status && registro.status!=='CONFIRMADO')return [];
+      const valor=registro ? `${registro.valor ?? ''} ${registro.unidade || ''}`.trim() : String(original ?? '').trim();
+      const m=valor.match(/^(\d+(?:[.,]\d+)?)\s*(mm|cm|m)$/i);
+      if(!m)return [];
+      const numero=Number(m[1].replace(',','.'))*({mm:0.1,cm:1,m:100}[m[2].toLowerCase()]);
+      if(!Number.isFinite(numero)||numero<=0)return [];
+      return [{rotulo,valor:`${numero.toLocaleString('pt-BR',{maximumFractionDigits:2})} cm`}];
+    });
+  }
+  function desenharResumoMedidas(c,medidas,y) {
+    caixa(c,64,y,748,118,'#f0f4fa',14);
+    c.fillStyle='#17366c';c.font='700 15px Arial';c.fillText('MEDIDAS DO PRODUTO',84,y+28);
+    const inicio=286,largura=506/medidas.length;
+    medidas.forEach((medida,k)=>{
+      const x=inicio+k*largura;
+      c.fillStyle='#52617b';c.font='400 17px Arial';c.fillText(medida.rotulo,x,y+29);
+      c.fillStyle='#17366c';c.font='700 27px Arial';c.fillText(medida.valor,x,y+64);
+    });
+    c.fillStyle='#66738b';c.font='400 14px Arial';
+    c.fillText('Dimensões externas. Consulte as folgas de instalação no catálogo técnico.',84,y+99);
+  }
   async function pagina(item,n,total,dados,logo,oferta,fotografias) {
     const W=1754,H=1240,canvas=document.createElement('canvas');canvas.width=W*2;canvas.height=H*2;const c=canvas.getContext('2d');c.scale(2,2);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';
     c.fillStyle='#fff';c.fillRect(0,0,W,H);c.fillStyle='#17366c';c.fillRect(0,0,W,112);c.fillStyle='#ec263e';c.fillRect(0,112,W,5);
@@ -284,15 +313,19 @@
     c.fillStyle='#52617b';bloco(c,`${nomeSegmentoApresentacao(item.produto)} · ${dados.projeto || 'Produtos selecionados'}`,64,160,1626,1,24,18,700);
     const contexto=[dados.cliente&&`Cliente: ${dados.cliente}`,dados.profissional&&`Arquiteto(a): ${dados.profissional}`,dados.vendedor&&`Atendimento: ${dados.vendedor}`].filter(Boolean).join('  •  ');
     bloco(c,contexto,64,192,1626,1,18,13);
-    const extras=fotografias.slice(1), heroH=extras.length?628:884;
+    const extras=fotografias.slice(1), medidas=resumoMedidas(item.produto);
+    const heroH=(extras.length?628:884)-(medidas.length?136:0);
     caixa(c,64,230,748,heroH,'#f6f7fa');
     if(fotografias[0])desenharImagemContida(c,fotografias[0],84,250,708,heroH-40,8);else {c.fillStyle='#61708b';c.font='24px Arial';c.fillText('Imagem indisponível',245,560);}
+    if(medidas.length)desenharResumoMedidas(c,medidas,230+heroH+18);
     const tw=extras.length?(748-(extras.length-1)*18)/extras.length:0;
     extras.forEach((im,k)=>{const x=64+k*(tw+18);caixa(c,x,880,tw,234,'#f6f7fa',12);desenharImagemContida(c,im,x+12,892,tw-24,210,6);});
     const X=872,R=814;
     c.fillStyle='#d91e37';c.font='700 18px Arial';c.fillText(String(item.produto.marca || item.produto.fabricante || 'Info Store').toUpperCase(),X,253);
-    c.fillStyle='#17366c';bloco(c,item.titulo,X,300,R,3,38,26,700);
-    c.fillStyle='#66738b';bloco(c,`Modelo: ${item.produto.modelo || '—'}  •  Código: ${item.produto.codigoInfo || item.produto.codigo || '—'}`,X,432,R,1,18,12);
+    // Mantém o título completo e alinha os identificadores em linhas próprias.
+    c.fillStyle='#17366c';bloco(c,item.titulo,X,296,R,3,37,26,700);
+    c.fillStyle='#66738b';bloco(c,`Modelo: ${item.produto.modelo || '—'}`,X,412,R,1,17,12);
+    bloco(c,`Código Info Store: ${item.produto.codigoInfo || item.produto.codigo || '—'}`,X,435,R,1,17,12);
     c.fillStyle='#ec263e';c.fillRect(X,448,65,4);c.fillStyle='#17366c';c.font='700 19px Arial';c.fillText('DIFERENCIAIS',X,487);
     // Uma única fonte por lista; altura real do texto e intervalo fixo entre itens.
     let fonteBeneficios=22, linhasBeneficios=[], entrelinha=0;
