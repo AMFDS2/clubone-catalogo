@@ -4926,74 +4926,6 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 }
 
-/* ==============================================================
-   TOP BAR INSTITUCIONAL — INFO STORE
-============================================================== */
-
-@media (min-width: 1401px) {
-  :root { --topbar: 82px; }
-
-  header.topbar {
-    padding-inline: 34px !important;
-    gap: clamp(24px, 3vw, 58px) !important;
-  }
-
-  .topbar-logos {
-    gap: 15px !important;
-  }
-
-  header.topbar .logo-info {
-    width: 92px !important;
-    max-width: 92px !important;
-    height: 54px !important;
-    max-height: 54px !important;
-  }
-
-  .topbar-identidade {
-    width: clamp(290px, 23vw, 390px) !important;
-  }
-
-  .topbar-identidade strong {
-    font-size: 18px !important;
-  }
-
-  .topbar-identidade span {
-    font-size: 11px !important;
-  }
-
-  .busca-topbar {
-    width: min(480px, 28vw) !important;
-    max-width: 480px !important;
-    flex: 0 1 480px !important;
-    min-width: 0 !important;
-    margin-inline: 0 !important;
-  }
-
-  .busca-topbar input {
-  height: 42px !important;
-  font-size: 13px !important;
-}
-}
-
-/* Desktop amplo: busca na posição aprovada no Live Server.
-   Regra isolada para não interferir no tablet e no celular. */
-@media (min-width: 1600px) {
-  header.topbar {
-    position: sticky !important;
-  }
-
-  header.topbar .busca-topbar {
-    position: absolute !important;
-    left: 58% !important;
-    transform: translateX(-50%) !important;
-    width: min(600px, 32vw) !important;
-    max-width: 600px !important;
-    min-width: 0 !important;
-    flex: none !important;
-    margin: 0 !important;
-  }
-}
-
 @media (max-width: 767px) {
   .topbar-identidade {
     width: auto;
@@ -5008,4 +4940,42 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   .topbar-identidade span {
   display: block;
 }
+}
+
+/* Cabeçalho aprovado — 13/10/2026. Busca no fluxo da grade, sem posição absoluta. */
+@media (min-width: 1401px) {
+  :root { --topbar: 100px; }
+  header.topbar { display:grid !important;grid-template-columns:minmax(440px,1.4fr) minmax(300px,600px) minmax(240px,.8fr) !important;grid-template-rows:1fr !important;align-items:center !important;gap:clamp(20px,2.2vw,42px) !important;padding:12px 34px !important;height:var(--topbar) !important; }
+  header.topbar .topbar-logos { width:auto !important;min-width:0 !important;gap:16px !important;grid-column:1 !important;grid-row:1 !important; }
+  header.topbar .logo-info { width:120px !important;max-width:120px !important;height:60px !important;max-height:60px !important;object-fit:contain; }
+  header.topbar .topbar-identidade { width:auto !important;min-width:0 !important;max-width:none !important; }
+  header.topbar .topbar-identidade strong { font-size:clamp(18px,1.3vw,24px) !important;line-height:1.2; }
+  header.topbar .topbar-identidade span { display:block !important;font-size:clamp(11px,.75vw,14px) !important;line-height:1.4; }
+  header.topbar .busca-topbar { position:relative !important;left:auto !important;top:auto !important;transform:none !important;grid-column:2 !important;grid-row:1 !important;width:100% !important;max-width:600px !important;min-width:0 !important;margin:0 !important; }
+  header.topbar .busca-topbar input { height:52px !important;font-size:16px !important; }
+  header.topbar .top-actions { grid-column:3 !important;grid-row:1 !important;justify-self:end !important;width:auto !important;margin:0 !important; }
+}
+.filtro-medidas-projeto[hidden] {display:none !important;}
+.precos-manuais {box-sizing:border-box;width:min(760px,94vw);max-height:90dvh;margin:auto;padding:26px;border:0;border-radius:16px;background:#f7f8fb;color:#17366c;font:15px/1.5 Arial,sans-serif;overflow:auto;box-shadow:0 20px 80px #07193655;}
+.precos-manuais::backdrop {background:#071936b3;}
+.precos-manuais h2 {margin:0 0 12px;font-size:24px;}
+.precos-manuais .pm-lista {display:grid;gap:12px;margin:20px 0;}
+.precos-manuais .pm-item {display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:20px;padding:16px;border:1px solid #dce3ee;border-radius:12px;background:#fff;align-items:center;}
+.precos-manuais small {display:block;margin-top:6px;color:#62708a;}
+.precos-manuais .pm-valor {font-size:13px;}
+.precos-manuais input {display:block;width:100%;margin-top:6px;border:1px solid #b9c9e1;border-radius:8px;padding:12px;font-size:16px;}
+.precos-manuais .pm-acoes {display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;}
+.precos-manuais button {padding:12px 16px;min-height:44px;border:1px solid #bdcbe0;border-radius:8px;background:#fff;color:#17366c;cursor:pointer;}
+.precos-manuais button[type=submit] {background:#17366c;color:#fff;}
+.precos-manuais .pm-erro {color:#a32237;}
+.precos-manuais :focus-visible {outline:3px solid #547ace;outline-offset:2px;}
+@media(max-width:600px){.precos-manuais{padding:18px;}.precos-manuais .pm-item{grid-template-columns:1fr;gap:12px;}.precos-manuais .pm-acoes button{width:100%;}}
+/* Em celulares, a assinatura não compete com o botão de itens selecionados. */
+@media(max-width:767px){
+  header.topbar .topbar-identidade span {white-space:normal !important;overflow-wrap:anywhere;max-width:100%;}
+}
+@media(max-width:600px){
+  header.topbar .topbar-identidade {display:none !important;}
+  header.topbar .topbar-logos {min-width:0 !important;width:100% !important;}
+  header.topbar .logo-info {width:100% !important;max-width:110px !important;min-width:0 !important;object-fit:contain;}
 }

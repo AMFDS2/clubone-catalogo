@@ -161,11 +161,23 @@ function prioridadeSegmento(produtoOuChave = {}) {
     : (produtoOuChave.segmento || produtoOuChave.categoria || "");
   const chave = normalizarTexto(valor);
   if (chave === "linha branca" || chave.includes("linha branca")) return 0;
-  if (chave.includes("climatizacao")) return 1;
-  if (chave === "video" || chave.includes("tv") || chave.includes("video")) return 2;
-  if (chave.includes("portateis") || chave.includes("eletroportateis")) return 3;
+  if (chave.includes("climatizacao")) return 3;
+  if (chave === "video" || chave.includes("tv") || chave.includes("video")) return 1;
+  if (chave.includes("portateis") || chave.includes("eletroportateis")) return 4;
+  if (chave.includes("audio")) return 2;
   return 9;
 }
+
+function nomeSegmentoApresentacao(p = {}) {
+  return ['Linha branca','TV e vídeo','Áudio','Climatização','Portáteis'][prioridadeSegmento(p)] || p.segmento || p.categoria || 'Outros';
+}
+function ordenarPorSegmento(lista = []) {
+  return [...lista].sort((a,b)=>prioridadeSegmento(a.produto||a)-prioridadeSegmento(b.produto||b));
+}
+function ehProdutoAudio(p = {}) {
+  return normalizarTexto(p.segmento || p.categoria || '').includes('audio');
+}
+function semMedidasProjeto(p = {}) { return ehProdutoPortatil(p) || ehProdutoAudio(p); }
 
 function configurarEventosFixos() {
   const campoBusca = document.getElementById("busca");
@@ -385,12 +397,13 @@ function renderizarFiltros() {
 function renderizarSegmentos() {
   const container = document.getElementById("navegacaoSegmentos");
   if (!container) return;
-  const nomes = {"video": "TV e vídeo", "linha branca": "Linha branca", "climatizacao": "Climatização", "portateis": "Portáteis"};
+  const nomes = {"video": "TV e vídeo", "linha branca": "Linha branca", "climatizacao": "Climatização", "portateis": "Portáteis", "eletroportateis": "Portáteis", "audio": "Áudio"};
   const icones = {
     todos: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>',
     climatizacao: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="9" rx="2"/><path d="M7 10h10M8 17c1.5-1 2.5-.8 4 0s2.5 1 4 0M8 20c1.5-1 2.5-.8 4 0s2.5 1 4 0"/></svg>',
     "linha branca": '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2"/><path d="M6 10h12M15 6v2M15 13v3"/></svg>',
     portateis: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8l1 5H7l1-5Z"/><path d="M9 9v4a3 3 0 0 0 6 0V9M12 16v5M9 21h6"/></svg>',
+    audio: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="2.5"/><circle cx="16" cy="12" r="2.5"/></svg>',
     video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'
   };
   const segmentos = new Map();
@@ -706,13 +719,18 @@ function atualizarOpcoesTipoProduto() {
 
   const contagens = new Map();
   produtosDoSegmento().filter(produto => !filtrosSelecionados.fabricantes.size || filtrosSelecionados.fabricantes.has(normalizarTexto(produto.marca || produto.fabricante))).forEach(produto => {
-    if (ehProdutoPortatil(produto)) return;
+    if (semMedidasProjeto(produto)) return;
     const tipo = classificarTipoProduto(produto);
     const atual = contagens.get(tipo.chave) || { rotulo: tipo.rotulo, quantidade: 0 };
     atual.quantidade += 1;
     contagens.set(tipo.chave, atual);
   });
 
+  const bloco=select.closest(".filtro-medidas-projeto");if(bloco)bloco.hidden=contagens.size===0;
+  if(!contagens.size){
+    filtroMedidas.largura=filtroMedidas.altura=filtroMedidas.profundidade=null;
+    ['filtroLargura','filtroAltura','filtroProfundidade'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  }
   select.innerHTML = [
     '<option value="">Todos os tipos</option>',
     ...[...contagens.entries()]
@@ -850,7 +868,7 @@ function extrairDimensoesFiltro(produto = {}) {
 
 function produtoCompativelComFiltroMedidas(produto) {
   if (!filtroMedidasAtivo()) return true;
-  if (ehProdutoPortatil(produto)) return false;
+  if (semMedidasProjeto(produto)) return false;
   const medidas = extrairDimensoesFiltro(produto);
 
   if (filtroMedidas.largura && (!medidas.larguraNecessaria || medidas.larguraNecessaria > filtroMedidas.largura)) return false;
@@ -2275,13 +2293,13 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   // vazias, reaproveita somente medidas confirmadas extraídas do manual.
   const dimensoesFonte = obterDimensoesParaBlocagem(produto);
   const geradorBlocagem = window.criarBlocagemDimensional;
-  const dimensoes = ehPortatil
+  const dimensoes = semMedidasProjeto(produto)
     ? criarDimensoesCompactasPortatil(produto)
     : (typeof geradorBlocagem === "function"
         ? geradorBlocagem(dimensoesFonte, produto)
         : criarDimensoes(dimensoesFonte, produto));
   const ehClima = normalizarTexto(produto.segmento || produto.categoria).includes("climatizacao");
-  const exibirMedidasProjeto = !ehPortatil && (ehClima || produtoPossuiVistaTecnica(produto));
+  const exibirMedidasProjeto = !semMedidasProjeto(produto) && (ehClima || produtoPossuiVistaTecnica(produto));
   const geradorVistasClima = window.criarVistasClimatizacao;
   const medidasProjeto = ehClima
     ? (typeof geradorVistasClima === "function"
@@ -2311,7 +2329,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   // NOVA LÓGICA: Montar a Tabela da IA de forma independente
   const ia = produto.medidasIA;
-  const tabelaIA = !ehPortatil && ia && !produto.medidasProjeto ? `
+  const tabelaIA = !semMedidasProjeto(produto) && ia && !produto.medidasProjeto ? `
     <div style="margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
       <h4 style="margin-top: 0; margin-bottom: 15px; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Manuais Oficiais)</h4>
       <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
@@ -2378,7 +2396,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
           <div class="tabela-especificacoes">${especificacoes}</div>
           <div>
             <div class="card-dimensoes ${ehPortatil ? "card-dimensoes-portatil" : ""}">
-              <h3 class="dimensoes-subtitulo">${ehPortatil ? "Medidas do produto" : "Dimensões"}</h3>
+              <h3 class="dimensoes-subtitulo">${semMedidasProjeto(produto) ? "Medidas do produto" : "Dimensões"}</h3>
               ${dimensoes}
             </div>
             ${tabelaIA}
@@ -2675,7 +2693,7 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
 
   // Verifica se o JSON já possui as medidas executivas extraídas previamente pela IA
   const ia = produto.medidasIA;
-  const tabelaIA = ia ? `
+  const tabelaIA = !semMedidasProjeto(produto) && ia ? `
     <div style="margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
       <h4 class="dimensoes-subtitulo" style="margin-top: 0; margin-bottom: 15px; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Manuais Oficiais)</h4>
       <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
@@ -3395,7 +3413,7 @@ async function consultarPrecoInfoStore(produto = {}) {
   const codigo = String(produto.codigoInfo || produto.codigo || "").trim();
   if (!codigo || codigo === "-") return null;
   try {
-    const resposta = await fetch(`/api/preco?codigo=${encodeURIComponent(codigo)}`, { cache: "no-store" });
+    const resposta = await fetch(`/api/preco?codigo=${encodeURIComponent(codigo)}`, { cache: "no-store", signal: AbortSignal.timeout(15000) });
     if (!resposta.ok) return null;
     return await resposta.json();
   } catch (erro) {
@@ -3459,18 +3477,19 @@ function perfilVisualCapa(produto = {}) {
 async function criarPDFApresentacao(favs = [], dados = {}) {
   if (!favs.length) throw new Error("Nenhum produto selecionado.");
   const W = 1754, H = 1240, M = 68;
-  const produtosBase = favs.map(item => ({
+  const produtosBase = ordenarPorSegmento(favs.map(item => ({
     ...produtoCompletoApresentacao(item),
     quantidade: Math.max(1, Number(item.quantidade) || 1)
-  }));
-  const precos = await Promise.all(produtosBase.map(consultarPrecoInfoStore));
+  })));
+  const precos = await resolverPrecosApresentacao(produtosBase, await Promise.all(produtosBase.map(consultarPrecoInfoStore)));
   const produtos = produtosBase.map((produto, indice) => ({ ...produto, precoOnline: precos[indice] }));
   const lotes = [];
   const grupos = new Map();
   produtos.forEach(produto => {
     const categoria = pluralizarCategoriaApresentacao(categoriaApresentacao(produto));
-    if (!grupos.has(categoria)) grupos.set(categoria, []);
-    grupos.get(categoria).push(produto);
+    const grupo = `${nomeSegmentoApresentacao(produto)} — ${categoria}`;
+    if (!grupos.has(grupo)) grupos.set(grupo, []);
+    grupos.get(grupo).push(produto);
   });
   grupos.forEach((itens, categoria) => {
     for (let i = 0; i < itens.length; i += 3) lotes.push({ categoria, itens: itens.slice(i, i + 3) });
@@ -3620,16 +3639,16 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
       // A quantidade retornada pelo catálogo VTEX pode ficar zerada mesmo com
       // a oferta ativa na página. URL oficial + preço positivo são a fonte
       // confiável para exibir Pix e parcelamento na apresentação.
-      const precoValido = Number(preco?.preco) > 0 && Boolean(preco?.url);
+      const precoValido = precoOfertaValido(preco);
       if (precoValido) {
         ctx.beginPath(); ctx.roundRect(x + 22, y + 720, w - 44, 64, 9);
         ctx.fillStyle = "#f4f7fc"; ctx.fill();
         ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 720, 4, 64);
         ctx.fillStyle = "#15346e"; ctx.font = "700 19px Arial";
-        ctx.fillText(`No Pix: ${formatarReais(preco.precoPix)}`, x + 40, y + 747);
+        ctx.fillText(preco.manual ? formatarReais(preco.preco) : (Number(preco.precoPix)>0 ? `No Pix: ${formatarReais(preco.precoPix)}` : formatarReais(preco.preco)), x + 40, y + 747);
         ctx.fillStyle = "#60708c"; ctx.font = "400 12px Arial";
         const parcela = preco.parcelas ? `  •  ${preco.parcelas.quantidade}x de ${formatarReais(preco.parcelas.valor)}` : "";
-        ctx.fillText(`Preço: ${formatarReais(preco.preco)}${parcela}`, x + 40, y + 771);
+        ctx.fillText(preco.manual ? "Valor informado pelo vendedor" : `Preço: ${formatarReais(preco.preco)}${parcela}`, x + 40, y + 771);
       } else {
         ctx.beginPath(); ctx.roundRect(x + 22, y + 720, w - 44, 64, 9);
         ctx.fillStyle = "#fff6f7"; ctx.fill();
@@ -3640,7 +3659,7 @@ async function criarPDFApresentacao(favs = [], dados = {}) {
     }
 
     ctx.fillStyle = "#68758c"; ctx.font = "400 12px Arial";
-    ctx.fillText("Imagens ilustrativas. Preços e disponibilidade consultados online e sujeitos a alteração. Valide nichos e folgas no manual oficial.", M, 1215);
+    ctx.fillText("Valores unitários sujeitos a alteração. Preços manuais identificados nos cartões. Confirme disponibilidade e instalação.", M, 1215);
     ctx.textAlign = "right";
     if (dados.vendedor) { ctx.fillStyle="#15346e";ctx.font="700 13px Arial";ctx.fillText(`Atendimento: ${dados.vendedor}`, W-M, 1215); }
     ctx.textAlign = "left";
@@ -3844,5 +3863,41 @@ function configurarEventosFavoritos() {
       saveFavoritos(favs);
       return;
     }
+  });
+}
+
+function precoOfertaValido(p) {
+  if(!p || !Number.isFinite(Number(p.preco)) || Number(p.preco)<=0 || p.disponivel===false)return false;
+  if(p.manual===true)return true;
+  try{return ['www.infostore.com.br','infostore.com.br'].includes(new URL(p.url).hostname);}catch{return false;}
+}
+function interpretarPrecoManual(valor) {
+  const t=String(valor||'').trim().replace(/^R\$\s*/i,'').replace(/\s/g,'');
+  if(!t)return null;
+  if(!/^(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d{1,2})?$/.test(t))return NaN;
+  const n=Number(t.replace(/\./g,'').replace(',','.'));
+  return n>0 && n<=99999999.99 ? Math.round(n*100)/100 : NaN;
+}
+async function resolverPrecosApresentacao(produtos,ofertas) {
+  const valores=ofertas.map(p=>precoOfertaValido(p)?p:null);
+  const faltantes=produtos.map((p,i)=>({p,i})).filter(x=>!valores[x.i]);
+  if(!faltantes.length)return valores;
+  const foco=document.activeElement,dialog=document.createElement('dialog');dialog.className='precos-manuais';
+  dialog.setAttribute('aria-labelledby','pm-titulo');
+  dialog.innerHTML=`<h2 id="pm-titulo">Complete os preços da apresentação</h2><p>A consulta não retornou preço para estes itens. Informe o valor unitário em reais ou deixe o campo vazio para mostrar “Preço sob consulta”.</p><form method="dialog"><div class="pm-lista">${faltantes.map(({p,i})=>`<label class="pm-item"><span><strong>${escaparHTML(p.titulo||p.nome||p.produto?.nome||'Produto')}</strong><small>Código: ${escaparHTML(p.codigoInfo||p.codigo||p.produto?.codigoInfo||'—')} · ${escaparHTML(nomeSegmentoApresentacao(p.produto||p))}</small></span><span class="pm-valor">Valor unitário (R$)<input name="preco-${i}" inputmode="decimal" autocomplete="off" placeholder="Ex.: 2.499,90" aria-label="Preço de ${escaparHTML(p.titulo||p.nome||'produto')}" maxlength="16"></span></label>`).join('')}</div><p class="pm-erro" role="alert"></p><div class="pm-acoes"><button type="button" data-pm-cancelar>Voltar à edição</button><button type="submit">Continuar apresentação</button></div></form>`;
+  document.body.append(dialog);dialog.showModal();
+  return new Promise((resolve,reject)=>{
+    function encerrar(erro){dialog.close();dialog.remove();foco?.focus();if(erro)reject(Error('Geração cancelada. Você pode ajustar os itens e gerar novamente.'));else resolve(valores);}
+    dialog.addEventListener('cancel',e=>{e.preventDefault();encerrar(true);});
+    dialog.querySelector('[data-pm-cancelar]').onclick=()=>encerrar(true);
+    dialog.querySelector('form').onsubmit=e=>{
+      e.preventDefault();const alterados=[];
+      for(const {p,i} of faltantes){const input=dialog.querySelector(`[name="preco-${i}"]`),n=interpretarPrecoManual(input.value);
+        if(Number.isNaN(n)){dialog.querySelector('.pm-erro').textContent='Informe um valor maior que zero, no formato 2.499,90, ou deixe vazio.';input.focus();return;}
+        alterados.push([i,n===null?null:{preco:n,manual:true,codigo:p.codigoInfo||p.codigo||p.produto?.codigoInfo||'',consultadoEm:new Date().toISOString()}]);
+      }
+      alterados.forEach(([i,p])=>valores[i]=p);encerrar(false);
+    };
+    dialog.querySelector('input')?.focus();
   });
 }

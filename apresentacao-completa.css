@@ -57,3 +57,4 @@
 #ac-dialog .ac-escolher {display:flex;gap:8px;align-items:center;border-top:1px solid #dce3ee;padding-top:12px;margin-top:auto;min-height:44px;font-weight:400;}
 #ac-dialog .ac-escolher input {flex-shrink:0;}
 @media(max-width:850px){#ac-dialog .ac-grade-complementos{grid-template-columns:1fr;}#ac-dialog .ac-card-complemento img{height:180px;}#ac-dialog .ac-completar{padding:12px;}}
+#ac-dialog .ac-segmento {display:block;color:#687895;font-size:12px;margin-bottom:6px;}

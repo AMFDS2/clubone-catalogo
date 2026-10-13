@@ -83,9 +83,15 @@
     if(existentes+novos.length>3){status('Cada produto pode ter até três complementos. Remova um antes de escolher outro.',true);return;}
     itens.splice(itens.indexOf(i)+1,0,...novos);i.sugestoes.selecionados=[];invalidar();renderItens();status(`${novos.length} complemento(s) adicionado(s) após o produto principal. Confira os diferenciais antes de gerar.`);
   }
+  function organizarItens() {
+    itens=ordenarPorSegmento(itens.filter(i=>!i.complemento)).flatMap(p=>[p,...itens.filter(i=>i.complemento&&i.origemId===p.produto.id)]);
+  }
+  function pares(i){return itens.filter(x=>i.complemento ? x.complemento&&x.origemId===i.origemId : !x.complemento&&prioridadeSegmento(x.produto)===prioridadeSegmento(i.produto));}
+  function podeMover(i,d){const lista=pares(i),n=lista.indexOf(i)+d;return n>=0&&n<lista.length;}
   function renderItens() {
+    organizarItens();
     $('ac-itens').innerHTML=itens.map((i,n)=>`<article class="ac-item" data-indice="${n}">
-      <div class="ac-item-topo"><h4>${n+1}. ${esc(i.produto.nome)}</h4><div class="ac-ordem"><button type="button" data-mover="-1" ${n===0?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para cima">↑</button><button type="button" data-mover="1" ${n===itens.length-1?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para baixo">↓</button></div></div>
+      <div class="ac-item-topo"><div><span class="ac-segmento">${esc(i.complemento?'Complemento':nomeSegmentoApresentacao(i.produto))}</span><h4>${n+1}. ${esc(i.produto.nome)}</h4></div><div class="ac-ordem"><button type="button" data-mover="-1" ${!podeMover(i,-1)?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para cima">↑</button><button type="button" data-mover="1" ${!podeMover(i,1)?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para baixo">↓</button></div></div>
       ${painelComplementos(i)}
       ${i.complemento?'<p class="ac-ajuda">No PDF compacto serão usados a primeira foto selecionada e o primeiro diferencial deste complemento.</p>':''}
       <label>Título comercial <input class="ac-titulo" value="${esc(i.titulo)}" maxlength="160"></label>
@@ -101,7 +107,7 @@
     origemFoco=document.activeElement;
     itens=favs.map(f=>{const p=produtoCompletoApresentacao(f);return novoItem(p,Math.max(1,Number(f.quantidade)||1));});
     for(const campo of ['projeto','cliente','profissional','vendedor']) $('ac-'+campo).value=$('apresentacao-'+campo)?.value || '';
-    invalidar();renderItens();status('A ordem abaixo segue a seleção dos produtos. Use as setas para reorganizar os produtos. Os complementos ficam agrupados após seu produto principal no PDF.');
+    invalidar();renderItens();status('Ordem por segmento: Linha branca, TV e vídeo, Áudio, Climatização e Portáteis. As setas reorganizam os itens dentro do segmento. Os complementos ficam agrupados após seu produto principal no PDF.');
     $('ac-dialog').showModal();$('ac-projeto').focus();
   }
   function fechar() { if(ocupado||consultaComplementos)return;$('ac-dialog').close();origemFoco?.focus(); }
@@ -228,7 +234,7 @@
     ctx.fillText("Produtos e diferenciais selecionados para o seu projeto.", 72, 510);
 
     // Categorias presentes na seleção, como pequenos marcadores editoriais.
-    const categoriasCapa = [...new Set(itens.map(i=>categoriaApresentacao(i.produto)))].slice(0, 6);
+    const categoriasCapa = [...new Set(itens.filter(i=>!i.complemento).map(i=>nomeSegmentoApresentacao(i.produto)))].slice(0, 6);
     let xCategoria = 72, yCategoria = 560;
     categoriasCapa.forEach(categoria => {
       ctx.font = "600 14px Arial";
@@ -275,7 +281,7 @@
     c.fillStyle='#fff';c.fillRect(0,0,W,H);c.fillStyle='#17366c';c.fillRect(0,0,W,112);c.fillStyle='#ec263e';c.fillRect(0,112,W,5);
     if(logo)desenharImagemContida(c,logo,60,18,185,74);else{c.fillStyle='#fff';c.font='700 30px Arial';c.fillText('INFO STORE',60,69);}
     c.textAlign='right';c.fillStyle='#fff';c.font='700 20px Arial';c.fillText('O melhor mix em tecnologia.',W-64,49);c.font='400 17px Arial';c.fillText(`${n+2} / ${total+2}  •  ${item.quantidade} ${item.quantidade===1?'unidade':'unidades'}`,W-64,80);c.textAlign='left';
-    c.fillStyle='#52617b';bloco(c,dados.projeto || 'Produtos selecionados',64,160,1626,1,24,18,700);
+    c.fillStyle='#52617b';bloco(c,`${nomeSegmentoApresentacao(item.produto)} · ${dados.projeto || 'Produtos selecionados'}`,64,160,1626,1,24,18,700);
     const contexto=[dados.cliente&&`Cliente: ${dados.cliente}`,dados.profissional&&`Arquiteto(a): ${dados.profissional}`,dados.vendedor&&`Atendimento: ${dados.vendedor}`].filter(Boolean).join('  •  ');
     bloco(c,contexto,64,192,1626,1,18,13);
     const extras=fotografias.slice(1), heroH=extras.length?628:884;
@@ -315,15 +321,15 @@
       c.font='400 16px Arial';c.fillText(pix?'VALOR UNITÁRIO NO PIX':'VALOR UNITÁRIO',X+25,py+29);
       c.font='700 42px Arial';c.fillText(dinheiro(pix?oferta.precoPix:oferta.preco),X+25,py+80);
       const parc=oferta.parcelas;const cond=parc && Number(parc.quantidade)>0 && Number(parc.valor)>0?`${parc.quantidade}x de ${dinheiro(parc.valor)}`:'';
-      c.font='400 18px Arial';c.fillText([pix?`Preço: ${dinheiro(oferta.preco)}`:'',cond].filter(Boolean).join('  •  '),X+25,py+113);
+      c.font='400 18px Arial';c.fillText(oferta.manual?'Valor informado pelo vendedor':[pix?`Preço: ${dinheiro(oferta.preco)}`:'',cond].filter(Boolean).join('  •  '),X+25,py+113);
     }else{c.font='700 30px Arial';c.fillText('Preço sob consulta',X+25,py+60);c.font='400 19px Arial';c.fillText('Consulte nossa equipe para preço e disponibilidade.',X+25,py+96);}
     if(item.complemento){c.fillStyle='#805000';c.font='14px Arial';c.fillText(truncarTextoCanvas(c,`Compatibilidade a confirmar · Complemento de ${item.origemNome}.`,1626),64,1155);}
-    c.fillStyle='#6b7587';c.font='16px Arial';c.fillText(`Consulta de preços: ${dados.data}. Valores unitários sujeitos a alteração e disponibilidade.`,64,1180);
+    c.fillStyle='#6b7587';c.font='16px Arial';c.fillText(`Valores da apresentação: ${dados.data}. Valores unitários sujeitos a alteração e disponibilidade.`,64,1180);
     c.font='14px Arial';c.fillText('Imagens do catálogo. Acessórios e elementos de ambientação podem não acompanhar o produto.',64,1205);
     return canvas;
   }
   function planejarPaginas() {
-    return itens.filter(i=>!i.complemento).flatMap(principal=>{
+    return ordenarPorSegmento(itens.filter(i=>!i.complemento)).flatMap(principal=>{
       const grupo=itens.filter(i=>i.complemento&&i.origemId===principal.produto.id);
       return [{principal},...(grupo.length?[{principal,grupo}]:[])];
     });
@@ -352,11 +358,11 @@
       c.fillStyle='#17366c';c.font='700 31px Arial';
       const pix=oferta&&Number(oferta.precoPix)>0&&Number(oferta.precoPix)<=Number(oferta.preco);
       c.fillText(oferta?dinheiro(pix?oferta.precoPix:oferta.preco):'Preço sob consulta',x+24,1007);
-      c.font='14px Arial';c.fillStyle='#52617b';c.fillText(pix?'À vista no Pix':'Consulte condições e disponibilidade.',x+24,1034);
+      c.font='14px Arial';c.fillStyle='#52617b';c.fillText(oferta?.manual?'Valor informado pelo vendedor':pix?'À vista no Pix':'Consulte condições e disponibilidade.',x+24,1034);
       caixa(c,x+24,1055,largura-48,36,'#fff2d8',8);c.fillStyle='#805000';c.font='15px Arial';c.fillText('Compatibilidade a confirmar',x+38,1079);
     }
     c.fillStyle='#52617b';c.font='16px Arial';c.fillText('Itens opcionais vendidos separadamente. Confirme compatibilidade e condições de instalação.',64,1160);
-    c.font='14px Arial';c.fillText(`Preços consultados em ${dados.data}, sujeitos a alteração e disponibilidade.`,64,1190);
+    c.font='14px Arial';c.fillText(`Valores da apresentação em ${dados.data}, sujeitos a alteração e disponibilidade.`,64,1190);
     return {canvas,ausentes:fotos.filter((f,k)=>!f&&registros[k].fotos.length).length};
   }
   async function gerar() {
@@ -371,10 +377,12 @@
       const dados=Object.fromEntries(['projeto','cliente','profissional','vendedor'].map(k=>[k,$('ac-'+k).value.trim()]));
       dados.data=new Date().toLocaleString('pt-BR',{timeZone:'America/Manaus',dateStyle:'short',timeStyle:'short'});
       status('Consultando preços na Info Store...');
-      const ofertas=new Array(itens.length);let proximo=0;
+      let ofertas=new Array(itens.length);let proximo=0;
       await Promise.all(Array.from({length:Math.min(4,itens.length)},async()=>{
         while(proximo<itens.length){const n=proximo++;ofertas[n]=await preco(itens[n].produto);}
       }));
+      status('Conferindo preços; informe os valores que não foram localizados.');
+      ofertas=await resolverPrecosApresentacao(itens.map(i=>({...i.produto,nome:i.titulo})),ofertas);
       const [logo,arteCapa]=await Promise.all([carregarFoto('assets/logoin.png'),carregarFoto('assets/capa-arquitetura-tecnica.png')]);
       const plano=planejarPaginas(),totalPaginas=plano.length+2;
       const paginas=[];let fotosAusentes=0;
@@ -412,7 +420,7 @@
       if(e.target.closest('[data-completar]')){consultarComplementos(atual);return;}
       if(e.target.closest('[data-adicionar-complementos]')){adicionarComplementos(atual);return;}
       if(e.target.closest('[data-remover-complemento]')){itens.splice(itens.indexOf(atual),1);invalidar();renderItens();status('Complemento removido da apresentação.');return;}
-      const btn=e.target.closest('[data-mover]');if(!btn)return;const n=Number(btn.closest('[data-indice]').dataset.indice),m=n+Number(btn.dataset.mover);if(m<0||m>=itens.length)return;[itens[n],itens[m]]=[itens[m],itens[n]];invalidar();renderItens();$('ac-itens').querySelectorAll('.ac-item')[m].querySelector('input').focus();});
+      const btn=e.target.closest('[data-mover]');if(!btn)return;const d=Number(btn.dataset.mover),lista=pares(atual),alvo=lista[lista.indexOf(atual)+d];if(!alvo)return;const n=itens.indexOf(atual),m=itens.indexOf(alvo);[itens[n],itens[m]]=[itens[m],itens[n]];invalidar();renderItens();$('ac-itens').querySelectorAll('.ac-item')[itens.indexOf(atual)].querySelector('input').focus();});
     $('ac-itens').addEventListener('input',e=>{const article=e.target.closest('[data-indice]');if(!article)return;const i=itens[Number(article.dataset.indice)];if(e.target.matches('.ac-titulo'))i.titulo=e.target.value;if(e.target.matches('.ac-beneficios'))i.beneficios=e.target.value.split('\n').map(x=>x.trim()).filter(Boolean);invalidar();});
     $('ac-itens').addEventListener('change',e=>{if(e.target.matches('[data-escolher-complemento]')){
       const i=itens[Number(e.target.closest('[data-indice]').dataset.indice)],r=i.sugestoes.sugestoes[Number(e.target.dataset.escolherComplemento)];
