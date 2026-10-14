@@ -7,6 +7,15 @@ const campoManual = (valor, pagina, referencia, observacao = "") => ({
   fonte: "MANUAL_VALIDADO"
 });
 
+const campoOficial = (valor, referencia, observacao = "") => ({
+  valor,
+  pagina: "Fonte oficial",
+  referencia,
+  status: "CONFIRMADO",
+  observacao,
+  fonte: "CADASTRO_OFICIAL"
+});
+
 const garantirEstrutura = dados => {
   dados.dimensoesProduto ||= {};
   dados.folgas ||= {};
@@ -407,6 +416,114 @@ const regras = [
       ];
 
       return 15;
+    }
+  },
+  {
+    corresponde: modelo => modelo === "02543FBA130",
+
+    aplicar(dados) {
+      garantirEstrutura(dados);
+
+      const referencia = "IM8IS / abertura funcional das gavetas";
+      const nota = "A Electrolux informa que todas as gavetas podem ser acessadas com a porta aberta em até 90°. A vista representa essa posição funcional; o fabricante não publica a largura total com as portas abertas.";
+
+      dados.abertura.anguloPorta = campoOficial("90°", referencia, nota);
+      dados.abertura.representacaoPortas = campoOficial(
+        "Duas portas superiores abertas",
+        referencia,
+        "Representação esquemática da abertura; sem largura ou profundidade total publicada."
+      );
+      dados.geometriaInstalacao.anguloAbertura = campoOficial("90°", referencia, nota);
+      dados.geometriaInstalacao.anguloAberturaEsquerda = campoOficial("90°", referencia, nota);
+      dados.geometriaInstalacao.anguloAberturaDireita = campoOficial("90°", referencia, nota);
+
+      dados.observacoes = [
+        ...new Set([
+          ...dados.observacoes,
+          "Vista superior com portas a 90° representa a posição funcional indicada pela Electrolux para acesso às gavetas.",
+          "A largura e a profundidade totais com portas abertas não foram publicadas; não usar o desenho esquemático como cota de marcenaria."
+        ])
+      ];
+
+      return 5;
+    }
+  },
+  {
+    corresponde: modelo => modelo === "02544FBA130",
+
+    aplicar(dados) {
+      garantirEstrutura(dados);
+
+      const ref = "IQ8IS / configuração oficial de quatro portas";
+      const nota = "A ficha oficial confirma a configuração Multidoor de quatro portas. O fabricante não publica cota total nem ângulo de abertura para este modelo; por isso, o giro é apenas esquemático.";
+
+      dados.abertura.representacaoPortas = campoOficial(
+        "Quatro portas com abertura lateral",
+        ref,
+        nota
+      );
+
+      dados.observacoes = [
+        ...new Set([
+          ...dados.observacoes,
+          "Vista superior com as portas abertas em representação esquemática da configuração Multidoor.",
+          "Não usar o giro desenhado como cota de marcenaria: o ângulo e as dimensões totais com portas abertas não foram publicados."
+        ])
+      ];
+
+      return 1;
+    }
+  },
+  {
+    corresponde: modelo => modelo === "02547FBA135",
+
+    aplicar(dados) {
+      garantirEstrutura(dados);
+
+      const ref = "IQ8IB / configuração oficial de quatro portas";
+      const nota = "A ficha oficial confirma a configuração Multidoor de quatro portas. O fabricante não publica cota total nem ângulo de abertura para este modelo; por isso, o giro é apenas esquemático.";
+
+      dados.abertura.representacaoPortas = campoOficial(
+        "Quatro portas com abertura lateral",
+        ref,
+        nota
+      );
+
+      dados.observacoes = [
+        ...new Set([
+          ...dados.observacoes,
+          "Vista superior com as portas abertas em representação esquemática da configuração Multidoor.",
+          "Não usar o giro desenhado como cota de marcenaria: o ângulo e as dimensões totais com portas abertas não foram publicados."
+        ])
+      ];
+
+      return 1;
+    }
+  },
+  {
+    corresponde: modelo => modelo === "1512QDBA199",
+
+    aplicar(dados) {
+      garantirEstrutura(dados);
+
+      const referencia = "LFC12 / tipo de abertura frontal";
+      const nota = "A ficha oficial confirma abertura frontal. O giro é representado de forma esquemática porque o fabricante não publica o ângulo nem a projeção total da porta aberta.";
+
+      dados.abertura.representacaoPortas = campoOficial(
+        "Porta frontal com abertura lateral",
+        referencia,
+        nota
+      );
+
+      dados.observacoes = [
+        ...new Set([
+          ...dados.observacoes,
+          "A porta frontal aberta é apresentada de forma esquemática para leitura arquitetônica.",
+          "Confirmar em campo a projeção da porta e a circulação frontal antes de executar a marcenaria."
+        ])
+      ];
+
+      return 1;
     }
   }
 ];

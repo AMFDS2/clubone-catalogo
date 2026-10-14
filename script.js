@@ -1,19 +1,8 @@
 const ARQUIVO_CATALOGO = "produtos.preview.json";
 const IMAGEM_FALLBACK = "assets/produto-sem-imagem.svg";
-const STORAGE_KEY = "infostore_favoritos_v2";
-const STORAGE_FILTROS = "infostore_filtros_recolhidos_v2";
-const STORAGE_CAMPANHA = "infostore_campanha_recolhida_v2";
-
-// Preserva seleções feitas antes da atualização da identidade do portfólio.
-[
-  [STORAGE_KEY, ["club", "one_favoritos_v1"].join("")],
-  [STORAGE_FILTROS, ["club", "one_filtros_recolhidos_v1"].join("")],
-  [STORAGE_CAMPANHA, ["club", "one_campanha_recolhida_v1"].join("")]
-].forEach(([atual, anterior]) => {
-  if (localStorage.getItem(atual) === null && localStorage.getItem(anterior) !== null) {
-    localStorage.setItem(atual, localStorage.getItem(anterior));
-  }
-});
+const STORAGE_KEY = "clubone_favoritos_v1";
+const STORAGE_FILTROS = "clubone_filtros_recolhidos_v1";
+const STORAGE_CAMPANHA = "clubone_campanha_recolhida_v1";
 const STORAGE_SIDEBAR = "infostore_sidebar_produtos_recolhida_v1";
 
 let todosProdutos = [];
@@ -46,9 +35,7 @@ async function inicializar() {
     if (!resposta.ok) throw new Error(`Falha ao carregar ${ARQUIVO_CATALOGO}: ${resposta.status}`);
 
     const dados = await resposta.json();
-    todosProdutos = Array.isArray(dados)
-      ? dados.filter(produtoValido).map(aplicarCorrecoesCatalogo)
-      : [];
+    todosProdutos = Array.isArray(dados) ? dados.filter(produtoValido) : [];
     produtosFiltrados = [...todosProdutos];
     atualizarOpcoesTipoProduto();
     sincronizarFavoritosComCatalogo();
@@ -68,116 +55,6 @@ async function inicializar() {
 function produtoValido(produto) {
   return Boolean(produto && produto.id && produto.modelo && produto.nome);
 }
-
-function aplicarCorrecoesCatalogo(produto = {}) {
-  const modelo = String(produto.modelo || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
-  if (modelo !== "UN98DU9000GXZD") return produto;
-
-  const campo = (valor, referencia) => ({
-    valor,
-    unidade: "mm",
-    pagina: "Ficha oficial Samsung",
-    referencia,
-    status: "CONFIRMADO",
-    fonte: "CADASTRO_OFICIAL"
-  });
-
-  return {
-    ...produto,
-    nome: 'Smart Super Big TV 98" Crystal UHD 4K DU9000',
-    descricao: "Smart TV Crystal UHD 4K de 98 polegadas com painel de 120 Hz.",
-    destaques: [
-      { rotulo: "Tamanho da tela", valor: '98"' },
-      { rotulo: "Resolução", valor: "4K (3.840 × 2.160)" },
-      { rotulo: "Frequência do painel", valor: "120 Hz" },
-      { rotulo: "Potência de áudio", valor: "20 W" },
-      { rotulo: "Consumo máximo", valor: "510 W" }
-    ],
-    especificacoes: {
-      ...(produto.especificacoes || {}),
-      "Tamanho da tela": '98 polegadas',
-      "Resolução": "4K (3.840 × 2.160)",
-      "Frequência do painel": "120 Hz",
-      "Processador": "Processador Crystal 4K",
-      "Sistema operacional": "Smart TV Tizen™",
-      "Potência de áudio": "20 W RMS (2 canais)",
-      "Consumo máximo": "510 W",
-      "Alimentação": "AC 100–240 V, 50/60 Hz",
-      "HDMI": "3 entradas",
-      "USB": "2 entradas USB-A",
-      "Padrão VESA": "600 × 400 mm",
-      "Peso sem base": "51,8 kg",
-      "Peso com base": "53,4 kg"
-    },
-    dimensoes: {
-      ...(produto.dimensoes || {}),
-      semBase: { largura: "2181,1 mm", altura: "1244,1 mm", profundidade: "63,5 mm", peso: "51,8 kg" },
-      comBase: { largura: "2181,1 mm", altura: "1298,2 mm", profundidade: "402,3 mm", peso: "53,4 kg" },
-      embalagem: { largura: "2369 mm", altura: "1404 mm", profundidade: "275 mm", peso: "76 kg" }
-    },
-    medidasProjeto: {
-      fonte: {
-        tipo: "MANUAL_E_CADASTRO_OFICIAL",
-        nome: "Samsung — ficha técnica e suporte do modelo UN98DU9000GXZD",
-        url: "https://www.samsung.com/br/support/model/UN98DU9000GXZD/"
-      },
-      revisado: true,
-      dimensoesProduto: {
-        largura: campo("2181,1 mm", "TV sem base"),
-        altura: campo("1244,1 mm", "TV sem base"),
-        profundidade: campo("63,5 mm", "TV sem base")
-      },
-      geometriaInstalacao: {
-        larguraProduto: campo("2181,1 mm", "TV sem base"),
-        alturaProduto: campo("1244,1 mm", "TV sem base"),
-        profundidadeTotalProduto: campo("63,5 mm", "TV sem base")
-      },
-      instalacao: {
-        padraoVesa: { valor: "600 × 400 mm", pagina: "Ficha oficial Samsung", status: "CONFIRMADO" }
-      },
-      validacao: {
-        status: "APROVADO_PARA_DESENHO",
-        percentualConfirmado: 100,
-        contagem: { CONFIRMADO: 6, REVISAR: 0, NAO_LOCALIZADO: 0, NAO_APLICAVEL: 0 }
-      },
-      observacoes: ["As cotas técnicas utilizam as dimensões da TV sem a base."]
-    },
-    documentos: [
-      {
-        nome: "Manual do usuário — Português (Brasil)",
-        url: "https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_BR&OriginYN=N&ModelType=N&ModelName=UN98DU9000G&CttFileID=9745292&CDCttType=UM&VPath=UM%2F202406%2F20240617035137001%2FBN81-25561G-205_EUG_ROPISDBD_SA_B-POR_240328.0.pdf"
-      },
-      {
-        nome: "Suporte oficial Samsung — UN98DU9000GXZD",
-        url: "https://www.samsung.com/br/support/model/UN98DU9000GXZD/"
-      }
-    ]
-  };
-}
-
-function prioridadeSegmento(produtoOuChave = {}) {
-  const valor = typeof produtoOuChave === "string"
-    ? produtoOuChave
-    : (produtoOuChave.segmento || produtoOuChave.categoria || "");
-  const chave = normalizarTexto(valor);
-  if (chave === "linha branca" || chave.includes("linha branca")) return 0;
-  if (chave.includes("climatizacao")) return 3;
-  if (chave === "video" || chave.includes("tv") || chave.includes("video")) return 1;
-  if (chave.includes("portateis") || chave.includes("eletroportateis")) return 4;
-  if (chave.includes("audio")) return 2;
-  return 9;
-}
-
-function nomeSegmentoApresentacao(p = {}) {
-  return ['Linha branca','TV e vídeo','Áudio','Climatização','Portáteis'][prioridadeSegmento(p)] || p.segmento || p.categoria || 'Outros';
-}
-function ordenarPorSegmento(lista = []) {
-  return [...lista].sort((a,b)=>prioridadeSegmento(a.produto||a)-prioridadeSegmento(b.produto||b));
-}
-function ehProdutoAudio(p = {}) {
-  return normalizarTexto(p.segmento || p.categoria || '').includes('audio');
-}
-function semMedidasProjeto(p = {}) { return ehProdutoPortatil(p) || ehProdutoAudio(p); }
 
 function configurarEventosFixos() {
   const campoBusca = document.getElementById("busca");
@@ -397,13 +274,12 @@ function renderizarFiltros() {
 function renderizarSegmentos() {
   const container = document.getElementById("navegacaoSegmentos");
   if (!container) return;
-  const nomes = {"video": "TV e vídeo", "linha branca": "Linha branca", "climatizacao": "Climatização", "portateis": "Portáteis", "eletroportateis": "Portáteis", "audio": "Áudio"};
+  const nomes = {"video": "TV e vídeo", "linha branca": "Linha branca", "climatizacao": "Climatização", "portateis": "Portáteis"};
   const icones = {
     todos: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>',
     climatizacao: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="9" rx="2"/><path d="M7 10h10M8 17c1.5-1 2.5-.8 4 0s2.5 1 4 0M8 20c1.5-1 2.5-.8 4 0s2.5 1 4 0"/></svg>',
     "linha branca": '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2"/><path d="M6 10h12M15 6v2M15 13v3"/></svg>',
     portateis: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8l1 5H7l1-5Z"/><path d="M9 9v4a3 3 0 0 0 6 0V9M12 16v5M9 21h6"/></svg>',
-    audio: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="2.5"/><circle cx="16" cy="12" r="2.5"/></svg>',
     video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'
   };
   const segmentos = new Map();
@@ -411,10 +287,7 @@ function renderizarSegmentos() {
     const valor = produto.segmento || produto.categoria;
     if (valor) segmentos.set(normalizarTexto(valor), valor);
   });
-  const botoes = [["", "Todos os produtos"], ...[...segmentos].sort((a, b) => {
-    const prioridade = prioridadeSegmento(a[0]) - prioridadeSegmento(b[0]);
-    return prioridade || a[1].localeCompare(b[1], "pt-BR");
-  })];
+  const botoes = [["", "Todos os produtos"], ...[...segmentos].sort((a, b) => a[1].localeCompare(b[1], "pt-BR"))];
   container.innerHTML = botoes.map(([chave, valor]) => {
     const chaveIcone = chave || "todos";
     const icone = icones[chaveIcone] || icones.todos;
@@ -456,12 +329,8 @@ function ordenarProdutos() {
   const tipo = document.getElementById("ordenacao").value;
   produtosFiltrados.sort((a, b) => {
     if (tipo === "modelo") return String(a.modelo).localeCompare(String(b.modelo), "pt-BR");
-    if (tipo === "categoria") {
-      const prioridade = prioridadeSegmento(a) - prioridadeSegmento(b);
-      return prioridade || String(a.categoria).localeCompare(String(b.categoria), "pt-BR");
-    }
-    const prioridade = prioridadeSegmento(a) - prioridadeSegmento(b);
-    return prioridade || ((b.ordem || 0) - (a.ordem || 0));
+    if (tipo === "categoria") return String(a.categoria).localeCompare(String(b.categoria), "pt-BR");
+    return (b.ordem || 0) - (a.ordem || 0);
   });
 }
 
@@ -719,18 +588,13 @@ function atualizarOpcoesTipoProduto() {
 
   const contagens = new Map();
   produtosDoSegmento().filter(produto => !filtrosSelecionados.fabricantes.size || filtrosSelecionados.fabricantes.has(normalizarTexto(produto.marca || produto.fabricante))).forEach(produto => {
-    if (semMedidasProjeto(produto)) return;
+    if (ehProdutoPortatil(produto)) return;
     const tipo = classificarTipoProduto(produto);
     const atual = contagens.get(tipo.chave) || { rotulo: tipo.rotulo, quantidade: 0 };
     atual.quantidade += 1;
     contagens.set(tipo.chave, atual);
   });
 
-  const bloco=select.closest(".filtro-medidas-projeto");if(bloco)bloco.hidden=contagens.size===0;
-  if(!contagens.size){
-    filtroMedidas.largura=filtroMedidas.altura=filtroMedidas.profundidade=null;
-    ['filtroLargura','filtroAltura','filtroProfundidade'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  }
   select.innerHTML = [
     '<option value="">Todos os tipos</option>',
     ...[...contagens.entries()]
@@ -868,7 +732,7 @@ function extrairDimensoesFiltro(produto = {}) {
 
 function produtoCompativelComFiltroMedidas(produto) {
   if (!filtroMedidasAtivo()) return true;
-  if (semMedidasProjeto(produto)) return false;
+  if (ehProdutoPortatil(produto)) return false;
   const medidas = extrairDimensoesFiltro(produto);
 
   if (filtroMedidas.largura && (!medidas.larguraNecessaria || medidas.larguraNecessaria > filtroMedidas.largura)) return false;
@@ -919,9 +783,6 @@ function obterDimensoesConfirmadasProduto(produto = {}) {
 
   const dimensoesCadastro =
     produto.dimensoes?.produto ||
-    produto.dimensoes?.semBase ||
-    produto.dimensoes?.semEmbalagem ||
-    produto.dimensoes?.comBase ||
     produto.dimensoes ||
     {};
 
@@ -1230,6 +1091,8 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
   const folgasAtuais = dados.folgas || {};
   const folgasLegadas = dados.folgasEVentilacao || dados.espacosFolgas || {};
   const sufixo = String(produto.modelo || tipo).replace(/[^a-z0-9]/gi, "").slice(0, 18) || tipo;
+  const modeloNormalizadoEletro = String(produto.modelo || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  const portaFrontalAberta = modeloNormalizadoEletro === "1512QDBA199" && dados.abertura?.representacaoPortas?.status === "CONFIRMADO";
 
   function campoConfirmado(...campos) {
     return campos.find(campo => {
@@ -1805,14 +1668,16 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
     if (posicao === "frontal" && largura && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação frontal técnica da lavadora ou secadora frontal">
       ${definicoes("lavanderia-frontal")}
       <g class="produto-frontal">
-        <rect x="164" y="54" width="192" height="255" rx="6"></rect>
-        <rect x="177" y="67" width="78" height="23" rx="3"></rect>
-        <rect x="270" y="67" width="44" height="18" rx="2"></rect><circle cx="334" cy="77" r="11"></circle>
-        <line x1="164" y1="103" x2="356" y2="103"></line>
-        <circle cx="260" cy="197" r="69"></circle><circle cx="260" cy="197" r="54"></circle><circle cx="260" cy="197" r="39"></circle>
-        <line x1="179" y1="289" x2="341" y2="289"></line>
+        <rect x="${portaFrontalAberta ? 208 : 164}" y="54" width="192" height="255" rx="6"></rect>
+        <rect x="${portaFrontalAberta ? 221 : 177}" y="67" width="78" height="23" rx="3"></rect>
+        <rect x="${portaFrontalAberta ? 314 : 270}" y="67" width="44" height="18" rx="2"></rect><circle cx="${portaFrontalAberta ? 378 : 334}" cy="77" r="11"></circle>
+        <line x1="${portaFrontalAberta ? 208 : 164}" y1="103" x2="${portaFrontalAberta ? 400 : 356}" y2="103"></line>
+        <circle cx="${portaFrontalAberta ? 304 : 260}" cy="197" r="69"></circle><circle cx="${portaFrontalAberta ? 304 : 260}" cy="197" r="54"></circle><circle cx="${portaFrontalAberta ? 304 : 260}" cy="197" r="39"></circle>
+        ${portaFrontalAberta ? `<ellipse cx="113" cy="197" rx="72" ry="69"></ellipse><ellipse cx="113" cy="197" rx="57" ry="54"></ellipse><path d="M208 171H188M208 223H188"></path><circle cx="194" cy="197" r="5"></circle>` : ""}
+        <line x1="${portaFrontalAberta ? 223 : 179}" y1="289" x2="${portaFrontalAberta ? 385 : 341}" y2="289"></line>
       </g>
-      ${cotas(164, 356, 54, 309, largura, altura, "lavanderia-frontal", "largura externa", "altura total")}
+      ${cotas(portaFrontalAberta ? 208 : 164, portaFrontalAberta ? 400 : 356, 54, 309, largura, altura, "lavanderia-frontal", "largura externa", "altura total", portaFrontalAberta ? 172 : undefined)}
+      ${portaFrontalAberta ? `<text class="cota-legenda" x="260" y="402">PORTA ABERTA ESQUEMÁTICA • PROJEÇÃO TOTAL NÃO PUBLICADA</text>` : ""}
     </svg>`;
     if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica da lavadora ou secadora frontal">
       ${definicoes("lavanderia-lateral")}
@@ -2073,7 +1938,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   if (/smart tv|televisor|\btv\b/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "televisor");
   if (/frigobar|mini.?bar/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "frigobar");
   if (tipoDeclarado === "lava loucas" || tipoDeclarado === "lava-loucas" || /lava.?loucas/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "lava-loucas");
-  if (/secadora|lava e seca|washer dryer/.test(textoProduto) || /^(wd|wf|dv)/.test(modeloDeclarado)) return criarVistasTecnicasEletro(produto, dados, "lavanderia-frontal");
+  if (modeloDeclarado === "1512qdba199" || /secadora|lava e seca|washer dryer/.test(textoProduto) || /^(wd|wf|dv)/.test(modeloDeclarado)) return criarVistasTecnicasEletro(produto, dados, "lavanderia-frontal");
   if (tipoDeclarado === "lavadora" || /maquina de lavar|lavadora/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "lavadora");
   if (tipoDeclarado === "microondas" || /micro.?ondas/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "microondas");
   if (tipoDeclarado === "cooktop" || /cooktop/.test(textoProduto)) return criarVistasTecnicasEletro(produto, dados, "cooktop");
@@ -2120,6 +1985,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const larguraPortasAbertas = valor(geometria.larguraComPortasAbertas, valorLegado(fisicasAbertura.larguraComPortasAbertas || fisicasAbertura.larguraComPortasAbertasMax || fisicasAbertura.larguraComPortasAbertas90, valorLegado(aberturaTabelaSamsung.largura)));
   const profundidadePortasAbertas = valor(geometria.profundidadeComPortasAbertas, valorLegado(fisicasAbertura.profundidadeComPortasAbertas, valorLegado(aberturaTabelaSamsung.profundidade)));
   const gavetas = valor(geometria.profundidadeComGavetasEstendidas, valor(abertura.distanciaGavetasEstendidas, valorLegado(fisicasAbertura.profundidadeComGavetasEstendidas)));
+  const representacaoPortas = valor(abertura.representacaoPortas, "");
   const paginaFrontal = pagina(dimensoes.largura, dimensoes.altura, dimensoes.profundidade, folgas.superior);
   const paginaSuperior = pagina(geometria.larguraComPortasAbertas, geometria.profundidadeComPortasAbertas, geometria.anguloAberturaEsquerda, geometria.anguloAberturaDireita, geometria.anguloAbertura, abertura.anguloPorta, fisicasAbertura.profundidadeComPortasAbertas, fisicasAbertura.larguraComPortasAbertas, portasAbertura.anguloAberturaPortaEsquerda, portasAbertura.anguloAberturaPortaDireita, aberturaTabelaSamsung.largura, aberturaTabelaSamsung.profundidade);
   const paginaLateral = pagina(geometria.profundidadeGabinete, geometria.profundidadeTotalProduto, dimensoes.profundidade, geometria.profundidadeComPortasAbertas);
@@ -2133,7 +1999,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
   const tresPortas = !sideBySide && !quatroPortas && (/tres portas|french door/.test(molde) || /3 portas|tres portas|im7|im8|french|rf70|rf80/.test(textoProduto));
   const frenchDoor = quatroPortas || tresPortas;
   const duasPortasVerticais = frenchDoor || sideBySide;
-  const aberturaConfirmada = Boolean(angulo || anguloEsquerda || anguloDireita || larguraPortasAbertas || profundidadePortasAbertas || gavetas);
+  const aberturaConfirmada = Boolean(angulo || anguloEsquerda || anguloDireita || larguraPortasAbertas || profundidadePortasAbertas || gavetas || representacaoPortas);
   const frontalConfirmada = Boolean(largura && altura);
 
   const cabecalho = (titulo, subtitulo, paginaManual, referenciaManual = "") => `
@@ -2174,13 +2040,13 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
         <path d="M390 68H414M390 220H414"></path>
         <line x1="406" y1="68" x2="406" y2="220" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
         ${profundidadeVistaSuperior ? `<text class="cota-valor cota-profundidade" x="428" y="144">${escaparHTML(profundidadeVistaSuperior)}</text>` : ""}
-        <path d="M77 328V360M443 328V360"></path>
+        ${larguraPortasAbertas ? `<path d="M77 328V360M443 328V360"></path>
         <line x1="77" y1="350" x2="443" y2="350" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
-        ${larguraPortasAbertas ? `<text class="cota-valor" x="260" y="374">${escaparHTML(larguraPortasAbertas)}</text>` : ""}
-        <text class="cota-legenda" x="260" y="391">largura total com portas abertas</text>
-        <path d="M462 50H482M443 323H482"></path>
+        <text class="cota-valor" x="260" y="374">${escaparHTML(larguraPortasAbertas)}</text>
+        <text class="cota-legenda" x="260" y="391">largura total com portas abertas</text>` : `<text class="cota-legenda" x="260" y="374">ABERTURA ESQUEMÁTICA — SEM COTA TOTAL PUBLICADA</text>`}
+        ${profundidadePortasAbertas ? `<path d="M462 50H482M443 323H482"></path>
         <line x1="474" y1="50" x2="474" y2="323" marker-start="url(#seta-topo)" marker-end="url(#seta-topo)"></line>
-        ${profundidadePortasAbertas ? `<text class="cota-valor cota-profundidade-aberta" x="494" y="186">${escaparHTML(profundidadePortasAbertas)}</text>` : ""}
+        <text class="cota-valor cota-profundidade-aberta" x="494" y="186">${escaparHTML(profundidadePortasAbertas)}</text>` : ""}
       </g>
       ${sideBySide && (anguloEsquerda || anguloDireita) ? `
         <text class="angulo-porta" x="174" y="294">ESQ. ${escaparHTML(anguloEsquerda || "—")}</text>
@@ -2227,7 +2093,7 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
         </svg>` : `<div class="vista-indisponivel"><span>—</span><strong>Vista frontal aguardando cotas</strong><p>Largura e altura precisam estar confirmadas no manual antes de gerar o desenho.</p></div>`}
       </section>
       <section class="vista-projeto-card ${largura && profundidade ? "" : "vista-pendente"}">
-        ${cabecalho("Vista superior", sideBySide ? "Abertura independente das portas" : `Abertura${gavetas ? ` — gavetas: ${escaparHTML(gavetas)}` : ""}`, paginaSuperior, referenciaSuperior)}
+        ${cabecalho("Vista superior", sideBySide ? "Abertura independente das portas" : `Abertura${angulo ? ` — posição funcional ${escaparHTML(angulo)}` : ""}${gavetas ? ` — gavetas: ${escaparHTML(gavetas)}` : ""}`, paginaSuperior, referenciaSuperior)}
         ${vistaSuperior}
       </section>
       <section class="vista-projeto-card ${altura && profundidade ? "" : "vista-pendente"}">
@@ -2274,8 +2140,10 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   produtoSelecionado = produto.id;
 
-  // A lista permanece aberta depois da seleção. Recolher/mostrar é uma
-  // decisão explícita do usuário pelos botões do painel lateral.
+  if (interacaoDoUsuario && (ehTabletHorizontal() || window.matchMedia("(max-width: 767px)").matches)) {
+    fecharFiltrosSidebar();
+    definirSidebarProdutosRecolhida(true);
+  }
   renderizarProdutos(produtosFiltrados);
 
   requestAnimationFrame(() => {
@@ -2293,13 +2161,13 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   // vazias, reaproveita somente medidas confirmadas extraídas do manual.
   const dimensoesFonte = obterDimensoesParaBlocagem(produto);
   const geradorBlocagem = window.criarBlocagemDimensional;
-  const dimensoes = semMedidasProjeto(produto)
+  const dimensoes = ehPortatil
     ? criarDimensoesCompactasPortatil(produto)
     : (typeof geradorBlocagem === "function"
         ? geradorBlocagem(dimensoesFonte, produto)
         : criarDimensoes(dimensoesFonte, produto));
   const ehClima = normalizarTexto(produto.segmento || produto.categoria).includes("climatizacao");
-  const exibirMedidasProjeto = !semMedidasProjeto(produto) && (ehClima || produtoPossuiVistaTecnica(produto));
+  const exibirMedidasProjeto = !ehPortatil && (ehClima || produtoPossuiVistaTecnica(produto));
   const geradorVistasClima = window.criarVistasClimatizacao;
   const medidasProjeto = ehClima
     ? (typeof geradorVistasClima === "function"
@@ -2329,7 +2197,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   // NOVA LÓGICA: Montar a Tabela da IA de forma independente
   const ia = produto.medidasIA;
-  const tabelaIA = !semMedidasProjeto(produto) && ia && !produto.medidasProjeto ? `
+  const tabelaIA = !ehPortatil && ia && !produto.medidasProjeto ? `
     <div style="margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
       <h4 style="margin-top: 0; margin-bottom: 15px; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Manuais Oficiais)</h4>
       <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
@@ -2396,7 +2264,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
           <div class="tabela-especificacoes">${especificacoes}</div>
           <div>
             <div class="card-dimensoes ${ehPortatil ? "card-dimensoes-portatil" : ""}">
-              <h3 class="dimensoes-subtitulo">${semMedidasProjeto(produto) ? "Medidas do produto" : "Dimensões"}</h3>
+              <h3 class="dimensoes-subtitulo">${ehPortatil ? "Medidas do produto" : "Dimensões"}</h3>
               ${dimensoes}
             </div>
             ${tabelaIA}
@@ -2693,7 +2561,7 @@ function criarDimensoes(dimensoes = {}, produto = {}) {
 
   // Verifica se o JSON já possui as medidas executivas extraídas previamente pela IA
   const ia = produto.medidasIA;
-  const tabelaIA = !semMedidasProjeto(produto) && ia ? `
+  const tabelaIA = ia ? `
     <div style="margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
       <h4 class="dimensoes-subtitulo" style="margin-top: 0; margin-bottom: 15px; font-size: 14px; text-transform: uppercase; color: #111;">Especificações de Instalação (Manuais Oficiais)</h4>
       <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
@@ -2780,71 +2648,28 @@ function urlDocumentoExibicao(documento = {}) {
   return String(documento.url || "").trim();
 }
 
-function criarUrlVisualizacaoPdf(documento = {}) {
-  const urlAtual = String(documento.url || "").trim();
-  const urlOriginal = String(
-    documento.urlOriginal || documento.url || ""
-  ).trim();
-
-  if (!urlOriginal) return "";
-
-  // Evita colocar o visualizador dentro de outro visualizador.
-  if (/docs\.google\.com\/gview/i.test(urlAtual)) {
-    return urlAtual;
-  }
-
-  // Links que não são PDFs continuam abrindo normalmente.
-  if (!/\.pdf(?:$|[?#])/i.test(urlOriginal)) {
-    return urlAtual;
-  }
-
-  return `https://docs.google.com/gview?embedded=0&url=${encodeURIComponent(urlOriginal)}`;
-}
-
 function criarDocumentos(documentos = []) {
   const lista = Array.isArray(documentos) ? documentos : [];
-
-  const validos = lista.filter(
-    documento =>
+  const validos = lista
+    .map(documento => ({ ...documento, urlExibicao: urlDocumentoExibicao(documento) }))
+    .filter(documento =>
       documento &&
       documento.nome &&
-      (documento.url || documento.urlOriginal)
-  );
+      urlDocumentoPermitida(documento.urlExibicao)
+    );
 
   if (!validos.length) {
-    return `
-      <p class="texto-tecnico">
-        Nenhum documento oficial disponível no momento.
-      </p>
-    `;
+    return `<p class="texto-tecnico">Nenhum documento disponível no momento.</p>`;
   }
 
-  return validos.map(documento => {
-    const urlVisualizacao = criarUrlVisualizacaoPdf(documento);
-
-    return `
-      <a
-        href="${escaparHTML(urlVisualizacao)}"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="documento-link"
-      >
-        <span class="documento-informacoes">
-          <strong>${escaparHTML(documento.nome)}</strong>
-          <small>
-            ${escaparHTML(
-              documento.descricao ||
-              "Documento oficial do fabricante"
-            )}
-          </small>
-        </span>
-
-        <span class="documento-acao">
-          Abrir PDF ↗
-        </span>
-      </a>
-    `;
-  }).join("");
+  return validos.map(documento => `
+    <a href="${escaparHTML(documento.urlExibicao)}" target="_blank" rel="noopener noreferrer" class="documento-link">
+      <span class="documento-informacoes">
+        <strong>${escaparHTML(documento.nome)}</strong>
+        <small>${escaparHTML(documento.descricao || "Documento oficial do fabricante")}</small>
+      </span>
+      <span class="documento-acao">Abrir PDF ↗</span>
+    </a>`).join("");
 }
 
 function criarAviso() {
@@ -3145,49 +2970,14 @@ async function primeiraImagemDisponivel(candidatos = []) {
 }
 
 function desenharImagemContida(ctx, imagem, x, y, largura, altura, margem = 0) {
-  const larguraImagem = imagem?.naturalWidth || imagem?.width;
-  const alturaImagem = imagem?.naturalHeight || imagem?.height;
-  if (!larguraImagem || !alturaImagem) return false;
+  if (!imagem?.naturalWidth || !imagem?.naturalHeight) return false;
   const maxL = Math.max(1, largura - margem * 2);
   const maxA = Math.max(1, altura - margem * 2);
-  const escala = Math.min(maxL / larguraImagem, maxA / alturaImagem);
-  const w = larguraImagem * escala;
-  const h = alturaImagem * escala;
+  const escala = Math.min(maxL / imagem.naturalWidth, maxA / imagem.naturalHeight);
+  const w = imagem.naturalWidth * escala;
+  const h = imagem.naturalHeight * escala;
   ctx.drawImage(imagem, x + (largura - w) / 2, y + (altura - h) / 2, w, h);
   return true;
-}
-
-function prepararImagemCapaSemFundoClaro(imagem) {
-  const larguraOriginal = imagem?.naturalWidth || imagem?.width;
-  const alturaOriginal = imagem?.naturalHeight || imagem?.height;
-  if (!larguraOriginal || !alturaOriginal) return imagem;
-  try {
-    const limite = 1400;
-    const escala = Math.min(1, limite / Math.max(larguraOriginal, alturaOriginal));
-    const canvas = document.createElement("canvas");
-    canvas.width = Math.max(1, Math.round(larguraOriginal * escala));
-    canvas.height = Math.max(1, Math.round(alturaOriginal * escala));
-    const ctx = canvas.getContext("2d", { willReadFrequently: true });
-    if (!ctx) return imagem;
-    ctx.drawImage(imagem, 0, 0, canvas.width, canvas.height);
-    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const dados = pixels.data;
-    for (let i = 0; i < dados.length; i += 4) {
-      const r = dados[i], g = dados[i + 1], b = dados[i + 2];
-      const minimo = Math.min(r, g, b);
-      const maximo = Math.max(r, g, b);
-      if (minimo >= 247 && maximo - minimo <= 10) {
-        dados[i + 3] = 0;
-      } else if (minimo >= 226 && maximo - minimo <= 18) {
-        dados[i + 3] = Math.round(dados[i + 3] * ((247 - minimo) / 21));
-      }
-    }
-    ctx.putImageData(pixels, 0, 0);
-    return canvas;
-  } catch (erro) {
-    console.warn("Não foi possível remover o fundo claro da imagem da capa.", erro);
-    return imagem;
-  }
 }
 
 function quebrarTextoCanvas(ctx, texto = "", larguraMax = 400, maxLinhas = 2) {
@@ -3237,6 +3027,12 @@ async function criarPDFOrcamento(favs = []) {
     "assets/logo-info-store.png",
     "assets/logo-info.png"
   ]);
+  const logoClub = await primeiraImagemDisponivel([
+    "assets/logo-club-one.png",
+    "assets/logo-clubone.png",
+    "assets/clubone.png",
+    "assets/club-one.png"
+  ]);
 
   for (let pagina = 0; pagina < totalPaginas; pagina++) {
     const canvas = document.createElement("canvas");
@@ -3258,6 +3054,13 @@ async function criarPDFOrcamento(favs = []) {
       ctx.fillStyle = "#ffffff";
       ctx.font = "700 31px Arial, sans-serif";
       ctx.fillText("info store", MARGEM, 82);
+    }
+    ctx.fillStyle = "rgba(255,255,255,.35)";
+    ctx.fillRect(MARGEM + 174, 38, 2, 72);
+    if (!desenharImagemContida(ctx, logoClub, MARGEM + 204, 26, 178, 92, 4)) {
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "400 28px Arial, sans-serif";
+      ctx.fillText("CLUB ONE", MARGEM + 208, 82);
     }
 
     ctx.textAlign = "right";
@@ -3341,7 +3144,7 @@ async function criarPDFOrcamento(favs = []) {
     ctx.beginPath(); ctx.moveTo(MARGEM, yRodape - 36); ctx.lineTo(LARGURA - MARGEM, yRodape - 36); ctx.stroke();
     ctx.fillStyle = "#77736d";
     ctx.font = "400 14px Arial, sans-serif";
-    ctx.fillText("INFO STORE • CATÁLOGO TÉCNICO", MARGEM, yRodape);
+    ctx.fillText("CLUB ONE ARQUITETURA & DESIGN • INFO STORE", MARGEM, yRodape);
     ctx.textAlign = "right";
     ctx.fillStyle = "#161616";
     ctx.font = "700 15px Arial, sans-serif";
@@ -3353,344 +3156,6 @@ async function criarPDFOrcamento(favs = []) {
   }
 
   return montarPDFComJPEGs(paginasJPEG, LARGURA, ALTURA);
-}
-
-function produtoCompletoApresentacao(item = {}) {
-  return localizarProdutoAtual(item) || item;
-}
-
-function extrairMedidaApresentacao(valor, unidadePadrao = "mm") {
-  if (valor === null || valor === undefined || valor === "") return "—";
-  if (typeof valor === "object") {
-    const conteudo = valor.valor ?? valor.value ?? valor.medida ?? valor.dimensao ?? valor.texto;
-    if (conteudo !== undefined && conteudo !== null && conteudo !== "") {
-      const unidade = valor.unidade || valor.unit || unidadePadrao;
-      const textoConteudo = String(conteudo).trim();
-      return /(?:mm|cm|m|kg|g|l|w|v)$/i.test(textoConteudo)
-        ? textoConteudo
-        : `${textoConteudo} ${unidade}`;
-    }
-    for (const item of Object.values(valor)) {
-      const extraido = extrairMedidaApresentacao(item, unidadePadrao);
-      if (extraido !== "—") return extraido;
-    }
-    return "—";
-  }
-  const texto = String(valor).replace(/\s+/g, " ").trim();
-  if (!texto) return "—";
-  return /(?:mm|cm|m|kg|g|l|w|v)$/i.test(texto) ? texto : `${texto} ${unidadePadrao}`;
-}
-
-function imagensDoProdutoApresentacao(produto = {}) {
-  return [
-    produto.imagem, produto.imagemPrincipal, produto.imagem_principal,
-    ...(Array.isArray(produto.imagens) ? produto.imagens : []),
-    ...(Array.isArray(produto.galeria) ? produto.galeria : [])
-  ].map(item => typeof item === "string" ? item : item?.url || item?.src).filter(Boolean);
-}
-
-function especificacaoApresentacao(produto = {}, nomes = []) {
-  const specs = produto.especificacoes || produto.specs || {};
-  const entradas = Array.isArray(specs)
-    ? specs.map(item => [item?.nome || item?.titulo || item?.chave, item?.valor || item?.value])
-    : Object.entries(specs);
-  for (const procurado of nomes) {
-    const chave = normalizarTexto(procurado);
-    const encontrada = entradas.find(([nome]) => normalizarTexto(nome || "").includes(chave));
-    if (encontrada?.[1] !== undefined && encontrada[1] !== "") return encontrada[1];
-  }
-  return "";
-}
-
-function formatarReais(valor) {
-  const numero = Number(valor);
-  return Number.isFinite(numero)
-    ? numero.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
-    : "—";
-}
-
-async function consultarPrecoInfoStore(produto = {}) {
-  const codigo = String(produto.codigoInfo || produto.codigo || "").trim();
-  if (!codigo || codigo === "-") return null;
-  try {
-    const resposta = await fetch(`/api/preco?codigo=${encodeURIComponent(codigo)}`, { cache: "no-store", signal: AbortSignal.timeout(15000) });
-    if (!resposta.ok) return null;
-    return await resposta.json();
-  } catch (erro) {
-    console.warn(`Preço indisponível para ${codigo}:`, erro);
-    return null;
-  }
-}
-
-function categoriaApresentacao(produto = {}) {
-  const online = produto.precoOnline?.categoria;
-  if (online) return online;
-  const texto = normalizarTexto(`${produto.categoria || ""} ${produto.nome || ""} ${produto.nomeOficial || ""}`);
-  const regras = [
-    [/lava.?lou[cç]as|lavadora de lou[cç]as/, "Lava-louças"],
-    [/geladeira|refrigerador|french door|side by side/, "Geladeiras"],
-    [/fog[aã]o/, "Fogões"],
-    [/cooktop/, "Cooktops"],
-    [/forno/, "Fornos"],
-    [/micro.?ondas/, "Micro-ondas"],
-    [/coifa|depurador/, "Coifas e depuradores"],
-    [/adega/, "Adegas"],
-    [/cervejeira/, "Cervejeiras"],
-    [/lava.?roupas|lavadora de roupas/, "Lavadoras"],
-    [/ar.?condicionado/, "Ar-condicionado"],
-    [/televisor|smart tv|\btv\b/, "TVs"]
-  ];
-  return regras.find(([regra]) => regra.test(texto))?.[1] || produto.categoria || produto.segmento || "Produtos";
-}
-
-function pluralizarCategoriaApresentacao(nome = "Produtos") {
-  const mapa = { Geladeira:"Geladeiras", Fogão:"Fogões", Forno:"Fornos", Cooktop:"Cooktops", "Lava-louças":"Lava-louças", Refrigerador:"Geladeiras" };
-  return mapa[nome] || nome;
-}
-
-function perfilVisualCapa(produto = {}) {
-  const texto = normalizarTexto([
-    produto.segmento, produto.categoria, produto.tipo, produto.nome, produto.nomeOficial
-  ].filter(Boolean).join(" "));
-
-  if (/portatil|eletroport|air fryer|cafeteira|liquidificador|batedeira|torradeira|sanduicheira|aspirador/.test(texto)) {
-    return { grupo: "portateis", ordemGrupo: 3, ordemInterna: 0, z: 3 };
-  }
-  if (/ar condicionado|climatiza|evaporadora|condensadora/.test(texto)) {
-    return { grupo: "climatizacao", ordemGrupo: 1, ordemInterna: 0, z: 0 };
-  }
-  if (/\btvs?\b|televisor|qled|oled|neo qled|the frame/.test(texto)) {
-    return { grupo: "tv", ordemGrupo: 2, ordemInterna: 0, z: 0 };
-  }
-  if (/geladeira|refrigerador|french door|side by side|lava roupas|lavadora|secadora|lava loucas|fogao|forno|cooktop|coifa|depurador|adega|cervejeira/.test(texto)) {
-    let ordemInterna = 5;
-    if (/geladeira|refrigerador|french door|side by side/.test(texto)) ordemInterna = 0;
-    else if (/lava roupas|lavadora|secadora|lava loucas/.test(texto)) ordemInterna = 1;
-    else if (/fogao/.test(texto)) ordemInterna = 2;
-    else if (/adega|cervejeira/.test(texto)) ordemInterna = 3;
-    else if (/forno|coifa|depurador|cooktop/.test(texto)) ordemInterna = 4;
-    return { grupo: "linhaBranca", ordemGrupo: 0, ordemInterna, z: 2 };
-  }
-  return { grupo: "outros", ordemGrupo: 4, ordemInterna: 0, z: 1 };
-}
-
-async function criarPDFApresentacao(favs = [], dados = {}) {
-  if (!favs.length) throw new Error("Nenhum produto selecionado.");
-  const W = 1754, H = 1240, M = 68;
-  const produtosBase = ordenarPorSegmento(favs.map(item => ({
-    ...produtoCompletoApresentacao(item),
-    quantidade: Math.max(1, Number(item.quantidade) || 1)
-  })));
-  const precos = await resolverPrecosApresentacao(produtosBase, await Promise.all(produtosBase.map(consultarPrecoInfoStore)));
-  const produtos = produtosBase.map((produto, indice) => ({ ...produto, precoOnline: precos[indice] }));
-  const lotes = [];
-  const grupos = new Map();
-  produtos.forEach(produto => {
-    const categoria = pluralizarCategoriaApresentacao(categoriaApresentacao(produto));
-    const grupo = `${nomeSegmentoApresentacao(produto)} — ${categoria}`;
-    if (!grupos.has(grupo)) grupos.set(grupo, []);
-    grupos.get(grupo).push(produto);
-  });
-  grupos.forEach((itens, categoria) => {
-    for (let i = 0; i < itens.length; i += 3) lotes.push({ categoria, itens: itens.slice(i, i + 3) });
-  });
-  const paginas = [];
-  const logoInfo = await primeiraImagemDisponivel(["assets/logoin.png", "assets/logo-info-store.png", "assets/logo-info.png"]);
-  const arteCapa = await primeiraImagemDisponivel(["assets/capa-arquitetura-tecnica.png"]);
-  const totalPaginasApresentacao = lotes.length + 1;
-
-  // Capa editorial clara, inspirada em apresentações de arquitetura.
-  {
-    const canvas = document.createElement("canvas"); canvas.width = W; canvas.height = H;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("O navegador não conseguiu preparar a capa do PDF.");
-
-    ctx.fillStyle = "#f7f8fb"; ctx.fillRect(0, 0, W, H);
-
-    // Faixa institucional conforme a referência, sem marcas de clubes.
-    const topo = ctx.createLinearGradient(0, 0, W, 0);
-    topo.addColorStop(0, "#102b62"); topo.addColorStop(0.58, "#1b4284"); topo.addColorStop(1, "#102b62");
-    ctx.fillStyle = topo; ctx.fillRect(0, 0, W, 152);
-    ctx.fillStyle = "#e52633"; ctx.fillRect(0, 148, W, 4);
-    if (!desenharImagemContida(ctx, logoInfo, 70, 24, 190, 98, 4)) {
-      ctx.fillStyle = "#fff"; ctx.font = "700 34px Arial"; ctx.fillText("info store", 70, 86);
-    }
-    ctx.textAlign = "right"; ctx.fillStyle = "rgba(255,255,255,.92)"; ctx.font = "500 18px Arial";
-    ctx.fillText("O melhor mix para projetos únicos.", W - 72, 78); ctx.textAlign = "left";
-
-    // Arte fixa de desenho técnico: comunica arquitetura sem competir com
-    // o projeto do cliente. Os produtos permanecem nas páginas internas.
-    if (arteCapa) {
-      ctx.save();
-      ctx.globalAlpha = 0.42;
-      ctx.drawImage(arteCapa, 0, 152, W, H - 152);
-      ctx.restore();
-      // Véu claro assegura legibilidade absoluta dos dados à esquerda.
-      const veuTexto = ctx.createLinearGradient(0, 0, 980, 0);
-      veuTexto.addColorStop(0, "rgba(247,248,251,.99)");
-      veuTexto.addColorStop(0.75, "rgba(247,248,251,.94)");
-      veuTexto.addColorStop(1, "rgba(247,248,251,0)");
-      ctx.fillStyle = veuTexto;
-      ctx.fillRect(0, 152, 1060, H - 152);
-    }
-
-    ctx.fillStyle = "#14346f"; ctx.font = "700 65px Arial";
-    ctx.fillText("Portfólio Técnico", 72, 285);
-    ctx.fillStyle = "#e52633"; ctx.fillRect(74, 316, 104, 5);
-    const tituloCapa = String(dados.projeto || "Seleção personalizada de produtos");
-    ctx.fillStyle = "#173875"; ctx.font = "700 42px Arial";
-    quebrarTextoCanvas(ctx, tituloCapa, 860, 2)
-      .forEach((linha, indice) => ctx.fillText(linha, 72, 390 + indice * 51));
-    ctx.fillStyle = "#667085"; ctx.font = "400 21px Arial";
-    ctx.fillText("Soluções selecionadas para especificação e composição do projeto.", 72, 510);
-
-    // Categorias presentes na seleção, como pequenos marcadores editoriais.
-    const categoriasCapa = [...grupos.keys()].slice(0, 6);
-    let xCategoria = 72;
-    categoriasCapa.forEach(categoria => {
-      ctx.font = "600 14px Arial";
-      const larguraChip = Math.min(220, Math.max(112, ctx.measureText(categoria).width + 42));
-      ctx.beginPath(); ctx.roundRect(xCategoria, 560, larguraChip, 48, 10);
-      ctx.fillStyle = "#ffffff"; ctx.fill(); ctx.strokeStyle = "#d5deed"; ctx.lineWidth = 1.5; ctx.stroke();
-      ctx.fillStyle = "#173875"; ctx.fillText(truncarTextoCanvas(ctx, categoria, larguraChip - 30), xCategoria + 20, 590);
-      xCategoria += larguraChip + 14;
-    });
-
-    const camposCapa = [
-      ["CLIENTE", dados.cliente],
-      ["ARQUITETO(A)", dados.profissional],
-      ["VENDEDOR(A)", dados.vendedor]
-    ].filter(([, valor]) => String(valor || "").trim());
-    if (camposCapa.length) {
-      ctx.beginPath(); ctx.roundRect(72, 700, 860, 270, 16);
-      ctx.fillStyle = "rgba(255,255,255,.94)"; ctx.fill(); ctx.strokeStyle = "#d7dfec"; ctx.lineWidth = 1.5; ctx.stroke();
-      camposCapa.forEach(([rotulo, valor], indice) => {
-        const y = 754 + indice * 74;
-        ctx.fillStyle = "#e52633"; ctx.font = "700 12px Arial"; ctx.fillText(rotulo, 104, y);
-        ctx.fillStyle = "#173875"; ctx.font = "500 20px Arial";
-        ctx.fillText(truncarTextoCanvas(ctx, String(valor), 650), 270, y);
-        if (indice < camposCapa.length - 1) {
-          ctx.strokeStyle = "#e5e9f1"; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.moveTo(104, y + 27); ctx.lineTo(900, y + 27); ctx.stroke();
-        }
-      });
-    }
-
-    ctx.fillStyle = "#173875"; ctx.font = "700 24px Arial"; ctx.fillText("Info Store — O melhor mix em tecnologia.", 72, 1080);
-    ctx.fillStyle = "#e52633"; ctx.fillRect(72, 1100, 58, 3);
-
-    const dataCapa = new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
-    ctx.fillStyle = "#7a8495"; ctx.font = "400 14px Arial"; ctx.fillText(`Manaus • ${dataCapa}`, 72, 1174);
-    ctx.textAlign = "right"; ctx.fillStyle = "#7a8495"; ctx.font = "400 13px Arial";
-    ctx.fillText(`INFO STORE | PORTFÓLIO TÉCNICO  •  1/${totalPaginasApresentacao}`, W - 72, 1174);
-    ctx.textAlign = "left";
-    paginas.push(await canvasParaJPEG(canvas, 0.92));
-  }
-
-  for (let pagina = 0; pagina < lotes.length; pagina++) {
-    const canvas = document.createElement("canvas"); canvas.width = W; canvas.height = H;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("O navegador não conseguiu preparar o PDF.");
-    ctx.fillStyle = "#f5f7fb"; ctx.fillRect(0, 0, W, H);
-
-    ctx.fillStyle = "#173875"; ctx.fillRect(0, 0, W, 142);
-    ctx.fillStyle = "#e52633"; ctx.fillRect(0, 136, W, 6);
-    if (!desenharImagemContida(ctx, logoInfo, 48, 24, 150, 84, 4)) { ctx.fillStyle="#fff";ctx.font="700 27px Arial";ctx.fillText("info store",52,75); }
-    ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = "700 17px Arial";
-    ctx.fillText("INFO STORE | PORTFÓLIO TÉCNICO", W - 55, 52);
-    ctx.fillStyle = "#d9e3f8"; ctx.font = "400 14px Arial";
-    ctx.fillText(`APRESENTAÇÃO PERSONALIZADA  •  ${pagina + 2}/${totalPaginasApresentacao}`, W - 55, 82); ctx.textAlign = "left";
-
-    const titulo = lotes[pagina].categoria || dados.projeto || "Produtos selecionados";
-    ctx.fillStyle = "#15346e"; ctx.font = "700 42px Arial"; ctx.fillText(String(titulo), M, 220);
-    ctx.fillStyle = "#e52633"; ctx.fillRect(M, 239, 86, 4);
-    const linhaContexto = [dados.cliente && `Cliente: ${dados.cliente}`, dados.profissional && `Projeto/Arquiteto: ${dados.profissional}`, dados.vendedor && `Vendedor(a): ${dados.vendedor}`].filter(Boolean).join("  •  ");
-    ctx.fillStyle = "#61708b"; ctx.font = "400 16px Arial"; ctx.fillText(linhaContexto || "Soluções selecionadas para o projeto", M, 276);
-
-    const lote = lotes[pagina].itens;
-    for (let i = 0; i < lote.length; i++) {
-      const p = lote[i], x = M + i * 552, y = 300, w = 510, h = 872;
-      ctx.beginPath(); ctx.roundRect(x, y, w, h, 16); ctx.fillStyle = "#fff"; ctx.fill(); ctx.strokeStyle = "#d5dfef"; ctx.lineWidth = 1.5; ctx.stroke();
-      const imagem = await primeiraImagemDisponivel(imagensDoProdutoApresentacao(p));
-      if (!desenharImagemContida(ctx, imagem, x + 34, y + 24, w - 68, 340, 10)) { ctx.beginPath();ctx.roundRect(x+60,y+50,w-120,280,10);ctx.fillStyle="#f4f6fa";ctx.fill(); }
-
-      const marca = p.marca || p.fabricante || "Info Store";
-      ctx.fillStyle = "#e52633"; ctx.font = "700 14px Arial"; ctx.fillText(String(marca).toUpperCase(), x + 28, y + 402);
-      ctx.fillStyle = "#68758c"; ctx.font = "400 13px Arial"; ctx.fillText(`Modelo: ${p.modelo || "—"}`, x + 28, y + 431);
-      ctx.fillStyle = "#15346e"; ctx.font = "700 20px Arial";
-      quebrarTextoCanvas(ctx, p.nome || p.nomeOficial || "Produto", w - 56, 2).forEach((linha, n) => ctx.fillText(linha, x + 28, y + 473 + n * 27));
-
-      const d = obterDimensoesConfirmadasProduto(p) || {};
-      const largura = extrairMedidaApresentacao(d.largura);
-      const altura = extrairMedidaApresentacao(d.altura);
-      const profundidade = extrairMedidaApresentacao(d.profundidade);
-      ctx.beginPath(); ctx.roundRect(x + 22, y + 550, w - 44, 78, 10); ctx.fillStyle = "#edf3ff"; ctx.fill();
-      ctx.fillStyle = "#15346e"; ctx.font = "700 11px Arial"; ctx.fillText("DIMENSÕES  (L × A × P)", x + 40, y + 573);
-      ctx.font = "700 17px Arial"; ctx.fillText(`${largura} × ${altura} × ${profundidade}`, x + 40, y + 606);
-
-      const capacidade = p.capacidade || especificacaoApresentacao(p, ["capacidade total", "capacidade"]);
-      const voltagem = p.voltagem || especificacaoApresentacao(p, ["voltagem", "tensão"]);
-      const cor = p.cor || especificacaoApresentacao(p, ["cor", "acabamento"]);
-      ctx.fillStyle = "#66748b"; ctx.font = "400 13px Arial";
-      const extras = [capacidade && `Cap.: ${capacidade}`, voltagem && `Voltagem: ${voltagem}`, cor && `Cor: ${cor}`].filter(Boolean).join("  •  ");
-      if (extras) ctx.fillText(truncarTextoCanvas(ctx, extras, w - 56), x + 28, y + 669);
-      ctx.fillText(`Código Info Store: ${p.codigoInfo || p.codigo || "—"}  •  Qtd.: ${p.quantidade}`, x + 28, y + 700);
-      const preco = p.precoOnline;
-      // A quantidade retornada pelo catálogo VTEX pode ficar zerada mesmo com
-      // a oferta ativa na página. URL oficial + preço positivo são a fonte
-      // confiável para exibir Pix e parcelamento na apresentação.
-      const precoValido = precoOfertaValido(preco);
-      if (precoValido) {
-        ctx.beginPath(); ctx.roundRect(x + 22, y + 720, w - 44, 64, 9);
-        ctx.fillStyle = "#f4f7fc"; ctx.fill();
-        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 720, 4, 64);
-        ctx.fillStyle = "#15346e"; ctx.font = "700 19px Arial";
-        ctx.fillText(preco.manual ? formatarReais(preco.preco) : (Number(preco.precoPix)>0 ? `No Pix: ${formatarReais(preco.precoPix)}` : formatarReais(preco.preco)), x + 40, y + 747);
-        ctx.fillStyle = "#60708c"; ctx.font = "400 12px Arial";
-        const parcela = preco.parcelas ? `  •  ${preco.parcelas.quantidade}x de ${formatarReais(preco.parcelas.valor)}` : "";
-        ctx.fillText(preco.manual ? "Valor informado pelo vendedor" : `Preço: ${formatarReais(preco.preco)}${parcela}`, x + 40, y + 771);
-      } else {
-        ctx.beginPath(); ctx.roundRect(x + 22, y + 720, w - 44, 64, 9);
-        ctx.fillStyle = "#fff6f7"; ctx.fill();
-        ctx.fillStyle = "#e52633"; ctx.fillRect(x + 22, y + 720, 4, 64);
-        ctx.fillStyle = "#6f3340"; ctx.font = "600 13px Arial";
-        ctx.fillText("Solicite disponibilidade de estoque e preço", x + 40, y + 758);
-      }
-    }
-
-    ctx.fillStyle = "#68758c"; ctx.font = "400 12px Arial";
-    ctx.fillText("Valores unitários sujeitos a alteração. Preços manuais identificados nos cartões. Confirme disponibilidade e instalação.", M, 1215);
-    ctx.textAlign = "right";
-    if (dados.vendedor) { ctx.fillStyle="#15346e";ctx.font="700 13px Arial";ctx.fillText(`Atendimento: ${dados.vendedor}`, W-M, 1215); }
-    ctx.textAlign = "left";
-    paginas.push(await canvasParaJPEG(canvas, 0.91));
-  }
-  return montarPDFComJPEGs(paginas, W, H);
-}
-
-function abrirModalApresentacao() {
-  if (!obterFavoritosAtualizados().length) return;
-  document.getElementById("modal-apresentacao")?.classList.remove("hidden");
-}
-function fecharModalApresentacao() { document.getElementById("modal-apresentacao")?.classList.add("hidden"); }
-async function gerarApresentacaoCliente() {
-  const btn = document.getElementById("btn-confirmar-apresentacao");
-  try {
-    btn.disabled = true; btn.textContent = "Gerando PDF...";
-    const blob = await criarPDFApresentacao(obterFavoritosAtualizados(), {
-      projeto: document.getElementById("apresentacao-projeto")?.value.trim(),
-      cliente: document.getElementById("apresentacao-cliente")?.value.trim(),
-      profissional: document.getElementById("apresentacao-profissional")?.value.trim(),
-      vendedor: document.getElementById("apresentacao-vendedor")?.value.trim()
-    });
-    baixarBlob(blob, `apresentacao-info-store-${new Date().toISOString().slice(0,10)}.pdf`);
-    fecharModalApresentacao();
-  } catch (erro) {
-    console.error("Falha ao gerar apresentação:", erro);
-    alert("Não foi possível gerar a apresentação. Atualize a página e tente novamente.");
-  } finally {
-    btn.disabled = false; btn.textContent = "Baixar apresentação em PDF";
-  }
 }
 function baixarBlob(blob, nomeArquivo = "lista-interesse-info-store.pdf") {
   const url = URL.createObjectURL(blob);
@@ -3810,9 +3275,6 @@ function configurarEventosFavoritos() {
   });
 
   document.getElementById("btn-solicitar-orcamento")?.addEventListener("click", abrirSelecaoConsultor);
-  document.getElementById("btn-apresentacao-cliente")?.addEventListener("click", abrirModalApresentacao);
-  document.getElementById("btn-confirmar-apresentacao")?.addEventListener("click", gerarApresentacaoCliente);
-  document.querySelectorAll("[data-fechar-apresentacao]").forEach(botao => botao.addEventListener("click", fecharModalApresentacao));
   document.getElementById("btn-baixar-pdf")?.addEventListener("click", baixarMemorialPDF);
 
   document.querySelectorAll("[data-fechar-consultores]").forEach(botao => {
@@ -3826,7 +3288,7 @@ function configurarEventosFavoritos() {
   });
 
   document.addEventListener("keydown", evento => {
-    if (evento.key === "Escape") { fecharSelecaoConsultor(); fecharModalApresentacao(); }
+    if (evento.key === "Escape") fecharSelecaoConsultor();
   });
 
   document.addEventListener("click", (e) => {
@@ -3863,41 +3325,5 @@ function configurarEventosFavoritos() {
       saveFavoritos(favs);
       return;
     }
-  });
-}
-
-function precoOfertaValido(p) {
-  if(!p || !Number.isFinite(Number(p.preco)) || Number(p.preco)<=0 || p.disponivel===false)return false;
-  if(p.manual===true)return true;
-  try{return ['www.infostore.com.br','infostore.com.br'].includes(new URL(p.url).hostname);}catch{return false;}
-}
-function interpretarPrecoManual(valor) {
-  const t=String(valor||'').trim().replace(/^R\$\s*/i,'').replace(/\s/g,'');
-  if(!t)return null;
-  if(!/^(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d{1,2})?$/.test(t))return NaN;
-  const n=Number(t.replace(/\./g,'').replace(',','.'));
-  return n>0 && n<=99999999.99 ? Math.round(n*100)/100 : NaN;
-}
-async function resolverPrecosApresentacao(produtos,ofertas) {
-  const valores=ofertas.map(p=>precoOfertaValido(p)?p:null);
-  const faltantes=produtos.map((p,i)=>({p,i})).filter(x=>!valores[x.i]);
-  if(!faltantes.length)return valores;
-  const foco=document.activeElement,dialog=document.createElement('dialog');dialog.className='precos-manuais';
-  dialog.setAttribute('aria-labelledby','pm-titulo');
-  dialog.innerHTML=`<h2 id="pm-titulo">Complete os preços da apresentação</h2><p>A consulta não retornou preço para estes itens. Informe o valor unitário em reais ou deixe o campo vazio para mostrar “Preço sob consulta”.</p><form method="dialog"><div class="pm-lista">${faltantes.map(({p,i})=>`<label class="pm-item"><span><strong>${escaparHTML(p.titulo||p.nome||p.produto?.nome||'Produto')}</strong><small>Código: ${escaparHTML(p.codigoInfo||p.codigo||p.produto?.codigoInfo||'—')} · ${escaparHTML(nomeSegmentoApresentacao(p.produto||p))}</small></span><span class="pm-valor">Valor unitário (R$)<input name="preco-${i}" inputmode="decimal" autocomplete="off" placeholder="Ex.: 2.499,90" aria-label="Preço de ${escaparHTML(p.titulo||p.nome||'produto')}" maxlength="16"></span></label>`).join('')}</div><p class="pm-erro" role="alert"></p><div class="pm-acoes"><button type="button" data-pm-cancelar>Voltar à edição</button><button type="submit">Continuar apresentação</button></div></form>`;
-  document.body.append(dialog);dialog.showModal();
-  return new Promise((resolve,reject)=>{
-    function encerrar(erro){dialog.close();dialog.remove();foco?.focus();if(erro)reject(Error('Geração cancelada. Você pode ajustar os itens e gerar novamente.'));else resolve(valores);}
-    dialog.addEventListener('cancel',e=>{e.preventDefault();encerrar(true);});
-    dialog.querySelector('[data-pm-cancelar]').onclick=()=>encerrar(true);
-    dialog.querySelector('form').onsubmit=e=>{
-      e.preventDefault();const alterados=[];
-      for(const {p,i} of faltantes){const input=dialog.querySelector(`[name="preco-${i}"]`),n=interpretarPrecoManual(input.value);
-        if(Number.isNaN(n)){dialog.querySelector('.pm-erro').textContent='Informe um valor maior que zero, no formato 2.499,90, ou deixe vazio.';input.focus();return;}
-        alterados.push([i,n===null?null:{preco:n,manual:true,codigo:p.codigoInfo||p.codigo||p.produto?.codigoInfo||'',consultadoEm:new Date().toISOString()}]);
-      }
-      alterados.forEach(([i,p])=>valores[i]=p);encerrar(false);
-    };
-    dialog.querySelector('input')?.focus();
   });
 }

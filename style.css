@@ -4979,3 +4979,192 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   header.topbar .topbar-logos {min-width:0 !important;width:100% !important;}
   header.topbar .logo-info {width:100% !important;max-width:110px !important;min-width:0 !important;object-fit:contain;}
 }
+
+/* ==============================================================
+   REFINAMENTO FINAL — CABEÇALHO E TABELAS TÉCNICAS COMPACTAS
+   14/10/2026
+============================================================== */
+
+/* Impede que um cartão curto seja esticado pela altura do vizinho. */
+.medidas-ia-grade {
+  align-items: start !important;
+  gap: 10px !important;
+}
+
+.medidas-ia-card {
+  align-self: start !important;
+  height: auto !important;
+  min-height: 0 !important;
+  border-radius: 8px !important;
+}
+
+.medidas-ia-card h4 {
+  min-height: 0 !important;
+  padding: 9px 11px !important;
+  font-size: 10px !important;
+  line-height: 1.25 !important;
+}
+
+.medida-ia-linha {
+  min-height: 0 !important;
+  grid-template-columns: minmax(120px, 1.25fr) minmax(78px, .7fr) minmax(142px, .95fr) !important;
+  line-height: 1.25 !important;
+}
+
+.medida-ia-linha > * {
+  padding: 7px 10px !important;
+}
+
+.medida-ia-linha strong {
+  font-size: 10.5px !important;
+  line-height: 1.25 !important;
+}
+
+.medida-ia-item {
+  gap: 3px !important;
+  font-size: 9.5px !important;
+  line-height: 1.3 !important;
+}
+
+.medida-ia-item small {
+  font-size: 7.5px !important;
+  line-height: 1.25 !important;
+}
+
+.medida-status {
+  gap: 4px !important;
+  font-size: 7.5px !important;
+  line-height: 1.25 !important;
+}
+
+.medida-status i,
+.legenda-medidas i {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  font-size: 8px !important;
+}
+
+.medidas-projeto-destaque {
+  gap: 12px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Desktop: barra menor, mantendo assinatura, busca e ações em uma linha. */
+@media (min-width: 1401px) {
+  :root { --topbar: 82px; }
+
+  header.topbar {
+    gap: clamp(16px, 1.8vw, 30px) !important;
+    height: var(--topbar) !important;
+    padding: 8px 28px !important;
+  }
+
+  header.topbar .topbar-logos { gap: 13px !important; }
+
+  header.topbar .logo-info {
+    width: 105px !important;
+    max-width: 105px !important;
+    height: 50px !important;
+    max-height: 50px !important;
+  }
+
+  header.topbar .topbar-identidade strong {
+    font-size: clamp(17px, 1.08vw, 20px) !important;
+  }
+
+  header.topbar .topbar-identidade span {
+    font-size: clamp(10px, .66vw, 12px) !important;
+  }
+
+  header.topbar .busca-topbar input {
+    height: 44px !important;
+    font-size: 14px !important;
+  }
+
+  header.topbar .top-actions button,
+  header.topbar .menu-mobile {
+    min-height: 42px !important;
+  }
+}
+
+/* Tablet horizontal: maior área útil para produto e sidebar estável. */
+@media (min-width: 768px) and (max-width: 1400px) and (orientation: landscape) {
+  :root {
+    --topbar: 70px;
+    --altura-segmentos: 56px;
+  }
+
+  header.topbar {
+    min-height: var(--topbar) !important;
+    height: var(--topbar) !important;
+    padding: 7px 18px !important;
+    gap: 13px !important;
+  }
+
+  header.topbar .logo-info {
+    width: 102px !important;
+    max-width: 102px !important;
+    height: 46px !important;
+  }
+
+  header.topbar .busca-topbar input { height: 40px !important; }
+  header.topbar .topbar-identidade strong { font-size: 15px !important; }
+  header.topbar .topbar-identidade span { font-size: 9px !important; }
+}
+
+/* Tablet vertical: duas faixas curtas, sem sobreposição. */
+@media (min-width: 768px) and (max-width: 1100px) and (orientation: portrait) {
+  :root {
+    --topbar: 106px;
+    --altura-segmentos: 56px;
+  }
+
+  header.topbar {
+    min-height: var(--topbar) !important;
+    height: var(--topbar) !important;
+    padding: 8px 16px !important;
+  }
+
+  header.topbar .logo-info {
+    width: 105px !important;
+    max-width: 105px !important;
+    height: 44px !important;
+  }
+
+  header.topbar .busca-topbar input { height: 40px !important; }
+}
+
+/* Celular: cabeçalho enxuto e tabelas reorganizadas em duas colunas. */
+@media (max-width: 767px) {
+  :root {
+    --topbar: 102px;
+    --altura-segmentos: 52px;
+  }
+
+  header.topbar {
+    min-height: var(--topbar) !important;
+    height: var(--topbar) !important;
+    padding: 7px 10px !important;
+  }
+
+  header.topbar .busca-topbar input {
+    height: 38px !important;
+    font-size: 12px !important;
+  }
+
+  .medidas-ia-grade { grid-template-columns: 1fr !important; }
+
+  .medida-ia-linha {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+  }
+
+  .medida-status {
+    grid-column: 1 / -1 !important;
+    justify-self: start !important;
+    padding-top: 0 !important;
+  }
+
+  .medidas-ia-card h4 { padding: 8px 10px !important; }
+  .medida-ia-linha > * { padding: 6px 9px !important; }
+}
