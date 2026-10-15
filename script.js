@@ -274,20 +274,30 @@ function renderizarFiltros() {
 function renderizarSegmentos() {
   const container = document.getElementById("navegacaoSegmentos");
   if (!container) return;
-  const nomes = {"video": "TV e vídeo", "linha branca": "Linha branca", "climatizacao": "Climatização", "portateis": "Portáteis"};
+  const nomes = {"video": "TVs", "linha branca": "Linha branca", "audio": "Áudio", "climatizacao": "Climatização", "portateis": "Portáteis"};
   const icones = {
     todos: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>',
     climatizacao: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="9" rx="2"/><path d="M7 10h10M8 17c1.5-1 2.5-.8 4 0s2.5 1 4 0M8 20c1.5-1 2.5-.8 4 0s2.5 1 4 0"/></svg>',
     "linha branca": '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2"/><path d="M6 10h12M15 6v2M15 13v3"/></svg>',
     portateis: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8l1 5H7l1-5Z"/><path d="M9 9v4a3 3 0 0 0 6 0V9M12 16v5M9 21h6"/></svg>',
-    video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'
+    video: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    audio: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9v6M9 6v12M13 3v18M17 7v10M21 10v4"/></svg>'
   };
   const segmentos = new Map();
   todosProdutos.forEach(produto => {
     const valor = produto.segmento || produto.categoria;
     if (valor) segmentos.set(normalizarTexto(valor), valor);
   });
-  const botoes = [["", "Todos os produtos"], ...[...segmentos].sort((a, b) => a[1].localeCompare(b[1], "pt-BR"))];
+  const ordemSegmentos = ["linha branca", "video", "audio", "climatizacao", "portateis"];
+  const indiceOrdem = chave => {
+    const indice = ordemSegmentos.indexOf(chave);
+    return indice < 0 ? ordemSegmentos.length : indice;
+  };
+  const segmentosOrdenados = [...segmentos].sort((a, b) => {
+    const diferenca = indiceOrdem(a[0]) - indiceOrdem(b[0]);
+    return diferenca || a[1].localeCompare(b[1], "pt-BR");
+  });
+  const botoes = [["", "Todos os produtos"], ...segmentosOrdenados];
   container.innerHTML = botoes.map(([chave, valor]) => {
     const chaveIcone = chave || "todos";
     const icone = icones[chaveIcone] || icones.todos;
@@ -1153,6 +1163,7 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
     <style>
       .produto-frontal circle,.produto-frontal ellipse{fill:#f6f3ed;stroke:#292824;stroke-width:1.8}
       .produto-frontal path{fill:none;stroke:#292824;stroke-width:1.8;stroke-linejoin:round}
+      .refrigerador-lateral-detalhado path{fill:none!important;stroke:#292824;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
     </style>
   </defs>`;
 
@@ -1781,17 +1792,27 @@ function criarVistasTecnicasEletro(produto = {}, dados = {}, tipo = "generico") 
     if (posicao === "lateral" && profundidade && altura) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Elevação lateral técnica do refrigerador">
       ${definicoes("refrigerador-lateral")}
       <g class="produto-frontal refrigerador-lateral-detalhado">
-        <!-- Gabinete recuado + porta projetada: leitura mais próxima de um refrigerador real -->
-        <path d="M176 58H344Q356 58 358 70V297Q356 309 344 309H176Z"></path>
-        <rect x="155" y="66" width="21" height="235" rx="4"></rect>
-        <path d="M155 78h-9v88h9M358 82h11v194h-11"></path>
-        <line x1="176" y1="128" x2="344" y2="128"></line>
-        <path d="M187 292H337"></path>
-        <path d="M191 309v8M333 309v8"></path>
-        <path d="M176 58l-11 8M176 309l-11-8"></path>
-        <text class="nota-nicho" x="259" y="336">porta / gabinete</text>
+        <!-- Perfil do gabinete: traseira, teto, base e pequeno recuo inferior. -->
+        <path d="M166 66H338V301H181L166 288Z"></path>
+        <path d="M166 66V288L181 301"></path>
+        <path d="M181 286H338"></path>
+
+        <!-- Portas projetadas à frente do gabinete. A emenda aparece somente
+             no conjunto das portas, e não atravessa o gabinete como no molde antigo. -->
+        <path d="M338 58H363Q369 58 369 65V127H338Z"></path>
+        <path d="M338 133H369V301Q369 309 361 309H338Z"></path>
+        <line x1="338" y1="127" x2="369" y2="127"></line>
+        <line x1="338" y1="133" x2="369" y2="133"></line>
+
+        <!-- Dobradiça/capa superior, puxadores e pés niveladores. -->
+        <path d="M329 58V51H359V58"></path>
+        <path d="M363 82h8v28h-8M363 158h8v86h-8"></path>
+        <path d="M190 301v9M330 301v9"></path>
+
+        <!-- Linhas finas de leitura construtiva. -->
+        <line class="eixo-tecnico" x1="338" y1="66" x2="338" y2="301"></line>
       </g>
-      ${cotas(146, 369, 58, 317, profundidade, altura, "refrigerador-lateral", "profundidade total", "altura total", 112, 344)}
+      ${cotas(166, 371, 51, 310, profundidade, altura, "refrigerador-lateral", "profundidade total", "altura total", 118, 344)}
     </svg>`;
     if (posicao === "superior" && largura && profundidade) return `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica fechada do refrigerador">
       ${definicoes("refrigerador-superior")}
@@ -2008,7 +2029,59 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
       <small>${paginaManual !== "—" ? `${paginaManual === "Fonte oficial" ? "Ficha oficial" : `Manual • pág. ${escaparHTML(paginaManual)}`}${referenciaManual ? ` • ref. ${escaparHTML(referenciaManual)}` : ""}` : "Cota não localizada"}</small>
     </div>`;
 
-  const vistaSuperior = aberturaConfirmada ? `
+  /* Planta específica para refrigeradores com uma folha por nível (famílias
+     tradicionais/duplex). A folha desenhada tem o mesmo comprimento da frente
+     do produto, gira a partir da dobradiça frontal direita e mantém escala
+     coerente entre largura, profundidade fechada e projeção aberta. */
+  const vistaSuperiorUmaFolha = aberturaConfirmada && !duasPortasVerticais ? `
+    <svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do refrigerador com uma porta aberta">
+      <defs>
+        <marker id="seta-topo-uma-porta" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker>
+      </defs>
+      <g class="parede-planta"><rect x="72" y="10" width="376" height="14"></rect><text x="260" y="20">PAREDE / FUNDO DO NICHO</text></g>
+      <g class="marcenaria-planta"><path d="M110 34H166V226H140M410 34H338V226H376"></path></g>
+
+      <!-- Gabinete em planta e porta fechada de referência. -->
+      <g class="produto-topo-tecnico">
+        <rect x="182" y="84" width="140" height="130" rx="2"></rect>
+        <line x1="182" y1="214" x2="322" y2="214"></line>
+        <circle cx="322" cy="214" r="5"></circle>
+        <line class="eixo-tecnico" x1="182" y1="214" x2="322" y2="214" stroke-dasharray="6 5"></line>
+      </g>
+
+      <!-- Folha aberta: comprimento igual à largura frontal desenhada (140).
+           O pivô permanece exatamente no canto frontal direito. -->
+      <g class="portas-planta">
+        <path d="M322 214 L312 219 L372 346 L382 341 Z"></path>
+        <path class="arco-abertura" d="M182 214 A140 140 0 0 0 382 341"></path>
+      </g>
+
+      <g class="cotas-planta">
+        <!-- Faixa superior exclusiva para a largura: não cruza parede ou produto. -->
+        <path d="M182 78V54M322 78V54"></path>
+        <line x1="182" y1="60" x2="322" y2="60" marker-start="url(#seta-topo-uma-porta)" marker-end="url(#seta-topo-uma-porta)"></line>
+        <text class="cota-valor" x="252" y="45" style="paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round">${escaparHTML(largura)}</text>
+
+        <!-- Profundidade fechada deslocada para a margem esquerda. -->
+        <path d="M176 84H132M176 214H132"></path>
+        <line x1="144" y1="84" x2="144" y2="214" marker-start="url(#seta-topo-uma-porta)" marker-end="url(#seta-topo-uma-porta)"></line>
+        <text class="cota-valor cota-profundidade" x="116" y="149" style="paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round">${escaparHTML(profundidadeVistaSuperior || profundidade)}</text>
+
+        <!-- Largura aberta em faixa inferior, abaixo do arco e da folha. -->
+        ${larguraPortasAbertas ? `<path d="M182 350V386M382 350V386"></path>
+        <line x1="182" y1="378" x2="382" y2="378" marker-start="url(#seta-topo-uma-porta)" marker-end="url(#seta-topo-uma-porta)"></line>
+        <text class="cota-valor" x="282" y="369" style="paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round">${escaparHTML(larguraPortasAbertas)}</text>` : ""}
+
+        <!-- Profundidade aberta reservada à margem direita, sem cortar a porta. -->
+        ${profundidadePortasAbertas ? `<path d="M388 84H420M388 346H420"></path>
+        <line x1="412" y1="84" x2="412" y2="346" marker-start="url(#seta-topo-uma-porta)" marker-end="url(#seta-topo-uma-porta)"></line>
+        <text class="cota-valor cota-profundidade-aberta" x="436" y="215" style="paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round">${escaparHTML(profundidadePortasAbertas)}</text>` : ""}
+      </g>
+
+      <text class="angulo-porta" x="314" y="289" style="paint-order:stroke;stroke:#fff;stroke-width:6px;stroke-linejoin:round">ABERTURA ${escaparHTML(angulo || anguloDireita || anguloEsquerda || "CONFIRMADA")}</text>
+    </svg>` : "";
+
+  const vistaSuperior = vistaSuperiorUmaFolha || (aberturaConfirmada ? `
     <svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica do refrigerador e abertura das portas">
       <defs>
         <marker id="seta-topo" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker>
@@ -2056,15 +2129,27 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
     </svg>` : (largura && profundidade ? `
     <svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista superior técnica fechada do refrigerador">
       <defs><marker id="seta-topo-fechado" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker></defs>
-      <g class="parede-planta"><rect x="70" y="42" width="380" height="18"></rect><text x="260" y="30">PAREDE / FUNDO</text></g>
-      <rect class="produto-generico" x="142" y="92" width="236" height="190" rx="3"></rect>
-      <line class="cota-tecnica" x1="142" y1="322" x2="378" y2="322" marker-start="url(#seta-topo-fechado)" marker-end="url(#seta-topo-fechado)"></line>
-      <text class="cota-valor" x="260" y="350">${escaparHTML(largura)}</text><text class="cota-legenda" x="260" y="374">largura</text>
-      <line class="cota-tecnica" x1="414" y1="92" x2="414" y2="282" marker-start="url(#seta-topo-fechado)" marker-end="url(#seta-topo-fechado)"></line>
-      <text class="cota-valor cota-profundidade" x="440" y="187">${escaparHTML(profundidade)}</text>
-      <text class="nota-nicho" x="260" y="302">VISTA FECHADA — ABERTURA AINDA NÃO CONFIRMADA</text>
+      <g class="parede-planta"><rect x="64" y="26" width="392" height="15"></rect><text x="260" y="19">PAREDE / FUNDO DO NICHO</text></g>
+      <g class="marcenaria-planta"><path d="M92 50H132V255H106M428 50H388V255H414"></path></g>
+      <line class="eixo-tecnico" x1="260" y1="56" x2="260" y2="284" stroke-dasharray="6 6"></line>
+      <g class="produto-topo-tecnico">
+        <rect x="154" y="78" width="212" height="190" rx="3"></rect>
+        <path d="M154 78V68H366V78"></path>
+        <rect x="148" y="268" width="224" height="15" rx="2"></rect>
+        <line x1="260" y1="268" x2="260" y2="283"></line>
+      </g>
+      <g class="cotas-planta">
+        <path d="M154 290V336M366 290V336"></path>
+        <line x1="154" y1="326" x2="366" y2="326" marker-start="url(#seta-topo-fechado)" marker-end="url(#seta-topo-fechado)"></line>
+        <text class="cota-valor" x="260" y="317" style="paint-order:stroke;stroke:#fff;stroke-width:7px">${escaparHTML(largura)}</text>
+        <text class="cota-legenda" x="260" y="350">largura do produto</text>
+        <path d="M378 78H426M378 283H426"></path>
+        <line x1="416" y1="78" x2="416" y2="283" marker-start="url(#seta-topo-fechado)" marker-end="url(#seta-topo-fechado)"></line>
+        <text class="cota-valor cota-profundidade" x="442" y="181" style="paint-order:stroke;stroke:#fff;stroke-width:7px">${escaparHTML(profundidade)}</text>
+      </g>
+      <text class="nota-nicho" x="260" y="379">VISTA FECHADA • GIRO DAS PORTAS AINDA NÃO CONFIRMADO</text>
     </svg>` : `
-    <div class="vista-indisponivel"><span>—</span><strong>Abertura não localizada no manual</strong><p>O sistema não desenha o giro da porta sem ângulo ou distância confirmada.</p></div>`);
+    <div class="vista-indisponivel"><span>—</span><strong>Abertura não localizada no manual</strong><p>O sistema não desenha o giro da porta sem ângulo ou distância confirmada.</p></div>`));
 
   return `
     <div class="vistas-projeto-grade">
@@ -2098,15 +2183,70 @@ function criarVistasTecnicasProjeto(produto = {}, dados = {}) {
       </section>
       <section class="vista-projeto-card ${altura && profundidade ? "" : "vista-pendente"}">
         ${cabecalho("Vista lateral", "Profundidade total e profundidade do gabinete", paginaLateral, referenciaLateral)}
-        ${altura && profundidade ? `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista lateral técnica do refrigerador">
-          <defs><marker id="seta-lateral" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker></defs>
-          <g class="produto-frontal"><rect x="150" y="58" width="218" height="250" rx="2"></rect><line x1="150" y1="190" x2="368" y2="190"></line></g>
-          ${profundidadeGabinete ? `<line class="eixo-tecnico" x1="336" y1="58" x2="336" y2="308"></line><text class="nota-nicho" x="276" y="88">GABINETE ${escaparHTML(profundidadeGabinete)}</text>` : ""}
-          <line class="cota-tecnica" x1="150" y1="350" x2="368" y2="350" marker-start="url(#seta-lateral)" marker-end="url(#seta-lateral)"></line>
-          <text class="cota-valor" x="259" y="378">${escaparHTML(profundidade)}</text>
-          <line class="cota-tecnica" x1="112" y1="58" x2="112" y2="308" marker-start="url(#seta-lateral)" marker-end="url(#seta-lateral)"></line>
-          <text class="cota-valor cota-altura" x="82" y="183">${escaparHTML(altura)}</text>
-        </svg>` : `<div class="vista-indisponivel"><span>—</span><strong>Vista lateral aguardando cotas</strong><p>Altura e profundidade precisam estar confirmadas.</p></div>`}
+        ${altura && profundidade ? (!duasPortasVerticais ? `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista lateral técnica detalhada do refrigerador tradicional">
+          <defs>
+            <marker id="seta-lateral-uma-folha" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker>
+            <style>
+              .refrigerador-lateral-detalhado path{fill:none!important;stroke:#292824;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+            </style>
+          </defs>
+          <g class="produto-frontal refrigerador-lateral-detalhado">
+            <!-- Gabinete recuado, com traseira e base construtivas. -->
+            <path fill="none" d="M166 66H338V301H181L166 288Z"></path>
+            <path fill="none" d="M166 66V288L181 301"></path>
+            <path fill="none" d="M181 286H338"></path>
+
+            <!-- Duas folhas empilhadas vistas de lado. A projeção frontal e a
+                 emenda pertencem às portas, sem cortar o gabinete ao meio. -->
+            <path fill="none" d="M338 58H363Q369 58 369 65V127H338Z"></path>
+            <path fill="none" d="M338 133H369V301Q369 309 361 309H338Z"></path>
+            <line x1="338" y1="127" x2="369" y2="127"></line>
+            <line x1="338" y1="133" x2="369" y2="133"></line>
+
+            <!-- Dobradiça superior, puxadores e pés. -->
+            <path fill="none" d="M329 58V51H359V58"></path>
+            <path fill="none" d="M363 82h8v28h-8M363 158h8v86h-8"></path>
+            <path fill="none" d="M190 301v9M330 301v9"></path>
+            <line class="eixo-tecnico" x1="338" y1="66" x2="338" y2="301"></line>
+          </g>
+
+          ${profundidadeGabinete ? `<path class="linhas-extensao" d="M166 306V334M338 306V334"></path>
+          <line class="cota-tecnica" x1="166" y1="326" x2="338" y2="326" marker-start="url(#seta-lateral-uma-folha)" marker-end="url(#seta-lateral-uma-folha)"></line>
+          <text class="cota-valor" x="252" y="320">${escaparHTML(profundidadeGabinete)}</text>
+          <text class="cota-legenda" x="252" y="344">profundidade do gabinete</text>` : ""}
+
+          <path class="linhas-extensao" d="M166 310V370M371 310V370M158 51H112M158 310H112"></path>
+          <line class="cota-tecnica" x1="166" y1="360" x2="371" y2="360" marker-start="url(#seta-lateral-uma-folha)" marker-end="url(#seta-lateral-uma-folha)"></line>
+          <text class="cota-valor" x="268" y="386">${escaparHTML(profundidade)}</text>
+          <line class="cota-tecnica" x1="120" y1="51" x2="120" y2="310" marker-start="url(#seta-lateral-uma-folha)" marker-end="url(#seta-lateral-uma-folha)"></line>
+          <text class="cota-valor cota-altura" x="90" y="181">${escaparHTML(altura)}</text>
+        </svg>` : `<svg class="vista-tecnica-svg" viewBox="0 0 520 410" role="img" aria-label="Vista lateral técnica detalhada do refrigerador multidoor">
+          <defs>
+            <marker id="seta-lateral" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto-start-reverse"><path d="M0,0 L7,3.5 L0,7z"></path></marker>
+            <style>.refrigerador-lateral-detalhado path{fill:none!important;stroke:#292824;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}</style>
+          </defs>
+          <g class="produto-frontal refrigerador-lateral-detalhado">
+            <path fill="none" d="M164 66H337V300H180L164 287Z"></path>
+            <path fill="none" d="M164 66V287L180 300M180 286H337"></path>
+            <path fill="none" d="M337 58H365Q371 58 371 65V199H337Z"></path>
+            <path fill="none" d="M337 205H371V301Q371 309 363 309H337Z"></path>
+            <line x1="337" y1="199" x2="371" y2="199"></line>
+            <line x1="337" y1="205" x2="371" y2="205"></line>
+            <path fill="none" d="M328 58V51H361V58"></path>
+            <path fill="none" d="M365 92h8v62h-8M365 224h8v55h-8"></path>
+            <path fill="none" d="M190 300v10M329 300v10"></path>
+            <line class="eixo-tecnico" x1="337" y1="66" x2="337" y2="300"></line>
+          </g>
+          ${profundidadeGabinete ? `<path class="linhas-extensao" d="M164 306V335M337 306V335"></path>
+          <line class="cota-tecnica" x1="164" y1="327" x2="337" y2="327" marker-start="url(#seta-lateral)" marker-end="url(#seta-lateral)"></line>
+          <text class="cota-valor" x="250" y="318" style="paint-order:stroke;stroke:#fff;stroke-width:7px">${escaparHTML(profundidadeGabinete)}</text>
+          <text class="cota-legenda" x="250" y="346">gabinete</text>` : ""}
+          <path class="linhas-extensao" d="M164 312V374M373 312V374M156 51H108M156 309H108"></path>
+          <line class="cota-tecnica" x1="164" y1="364" x2="373" y2="364" marker-start="url(#seta-lateral)" marker-end="url(#seta-lateral)"></line>
+          <text class="cota-valor" x="268" y="392">${escaparHTML(profundidade)}</text>
+          <line class="cota-tecnica" x1="118" y1="51" x2="118" y2="309" marker-start="url(#seta-lateral)" marker-end="url(#seta-lateral)"></line>
+          <text class="cota-valor cota-altura" x="88" y="180">${escaparHTML(altura)}</text>
+        </svg>`) : `<div class="vista-indisponivel"><span>—</span><strong>Vista lateral aguardando cotas</strong><p>Altura e profundidade precisam estar confirmadas.</p></div>`}
       </section>
     </div>`;
 }
@@ -2239,7 +2379,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
         <div class="acoes">
           ${botaoInfoStore}
           <button type="button" id="btn-favoritar-detalhe" class="botao-secundario ${estaFavoritado ? "ativo" : ""}" data-id="${escaparHTML(produto.id)}">
-            ${estaFavoritado ? "★ Remover dos favoritos" : "♡ Adicionar aos favoritos"}
+            ${estaFavoritado ? "★ Remover do projeto" : "♡ Adicionar ao projeto"}
           </button>
         </div>
       </div>
@@ -2800,7 +2940,7 @@ function atualizarInterfaceFavoritos() {
     const atualId = String(btnAdd.getAttribute("data-id"));
     const estaSalvo = favs.some(item => String(item.id) === atualId);
     btnAdd.classList.toggle("ativo", estaSalvo);
-    btnAdd.innerHTML = estaSalvo ? "★ Remover dos favoritos" : "♡ Adicionar aos favoritos";
+    btnAdd.innerHTML = estaSalvo ? "★ Remover do projeto" : "♡ Adicionar ao projeto";
   }
 
   document.querySelectorAll(".produto-favorito").forEach(el => {
@@ -3181,6 +3321,219 @@ async function baixarMemorialPDF() {
   }
 }
 
+async function criarPDFApresentacaoCompleta(favs = []) {
+  if (!favs.length) throw new Error("Nenhum item selecionado para a apresentação.");
+
+  const LARGURA = 1754;
+  const ALTURA = 1240;
+  const MARGEM = 76;
+  const paginasJPEG = [];
+  const produtos = favs.map(item => localizarProdutoAtual(item) || item);
+  const dataAtual = new Date().toLocaleDateString("pt-BR");
+  const logoInfo = await primeiraImagemDisponivel([
+    "assets/logoin.png",
+    "assets/logo-info-store.png",
+    "assets/logo-info.png"
+  ]);
+
+  function prepararPagina() {
+    const canvas = document.createElement("canvas");
+    canvas.width = LARGURA;
+    canvas.height = ALTURA;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("O navegador não conseguiu preparar a apresentação.");
+    return { canvas, ctx };
+  }
+
+  function cabecalhoPagina(ctx, pagina, total) {
+    ctx.fillStyle = "#102b63";
+    ctx.fillRect(0, 0, LARGURA, 112);
+    ctx.fillStyle = "#e52633";
+    ctx.fillRect(0, 108, LARGURA, 4);
+    if (!desenharImagemContida(ctx, logoInfo, MARGEM, 18, 155, 76, 3)) {
+      ctx.fillStyle = "#fff";
+      ctx.font = "700 29px Arial, sans-serif";
+      ctx.fillText("info store", MARGEM, 66);
+    }
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#fff";
+    ctx.font = "700 16px Arial, sans-serif";
+    ctx.fillText("PORTFÓLIO TÉCNICO", LARGURA - MARGEM, 49);
+    ctx.fillStyle = "#d9e4fb";
+    ctx.font = "400 14px Arial, sans-serif";
+    ctx.fillText(`APRESENTAÇÃO COMPLETA • ${pagina}/${total}`, LARGURA - MARGEM, 77);
+    ctx.textAlign = "left";
+  }
+
+  // Capa da apresentação.
+  {
+    const { canvas, ctx } = prepararPagina();
+    ctx.fillStyle = "#f5f7fb";
+    ctx.fillRect(0, 0, LARGURA, ALTURA);
+    ctx.fillStyle = "#102b63";
+    ctx.fillRect(0, 0, 650, ALTURA);
+    ctx.fillStyle = "#e52633";
+    ctx.fillRect(646, 0, 5, ALTURA);
+    if (!desenharImagemContida(ctx, logoInfo, 88, 72, 190, 105, 4)) {
+      ctx.fillStyle = "#fff";
+      ctx.font = "700 34px Arial, sans-serif";
+      ctx.fillText("info store", 88, 132);
+    }
+    ctx.fillStyle = "#fff";
+    ctx.font = "700 58px Arial, sans-serif";
+    ctx.fillText("PORTFÓLIO", 88, 410);
+    ctx.fillText("TÉCNICO", 88, 478);
+    ctx.fillStyle = "#d9e4fb";
+    ctx.font = "400 23px Arial, sans-serif";
+    ctx.fillText("Seleção personalizada para projeto", 88, 530);
+    ctx.fillStyle = "#e52633";
+    ctx.fillRect(88, 568, 128, 5);
+    ctx.fillStyle = "#fff";
+    ctx.font = "600 22px Arial, sans-serif";
+    ctx.fillText("O melhor mix para projetos únicos", 88, 625);
+    ctx.fillStyle = "#1a315f";
+    ctx.font = "700 28px Arial, sans-serif";
+    ctx.fillText(`${produtos.length} ${produtos.length === 1 ? "PRODUTO SELECIONADO" : "PRODUTOS SELECIONADOS"}`, 760, 305);
+    ctx.fillStyle = "#59677f";
+    ctx.font = "400 20px Arial, sans-serif";
+    ctx.fillText("Imagens, especificações e dimensões reunidas em fichas individuais.", 760, 352);
+    ctx.strokeStyle = "#cfdaed";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(760, 415, 820, 270);
+    ctx.fillStyle = "#102b63";
+    ctx.font = "700 18px Arial, sans-serif";
+    ctx.fillText("CONTEÚDO", 800, 466);
+    ctx.fillStyle = "#49566e";
+    ctx.font = "400 19px Arial, sans-serif";
+    ["• Identificação comercial", "• Imagem principal", "• Dimensões externas", "• Especificações disponíveis", "• Referência para orçamento"].forEach((linha, indice) => ctx.fillText(linha, 800, 520 + indice * 35));
+    ctx.fillStyle = "#6b7689";
+    ctx.font = "400 16px Arial, sans-serif";
+    ctx.fillText(`Emitido em ${dataAtual}`, 760, 1065);
+    ctx.fillText("As medidas devem ser confirmadas no manual oficial antes da execução do projeto.", 760, 1100);
+    paginasJPEG.push(await canvasParaJPEG(canvas, 0.92));
+  }
+
+  for (let indice = 0; indice < produtos.length; indice++) {
+    const produto = produtos[indice];
+    const favorito = favs[indice] || {};
+    const { canvas, ctx } = prepararPagina();
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, LARGURA, ALTURA);
+    cabecalhoPagina(ctx, indice + 2, produtos.length + 1);
+
+    const fabricante = produto.marca || produto.fabricante || favorito.fabricante || "Info Store";
+    const dimensoes = obterDimensoesConfirmadasProduto(produto);
+    const especificacoes = Object.entries(produto.especificacoes || {})
+      .filter(([, valor]) => valor !== "" && valor !== null && valor !== undefined)
+      .filter(([rotulo]) => !/modelo|categoria|código info store/i.test(rotulo))
+      .slice(0, 7);
+    const imagemProduto = await primeiraImagemDisponivel([
+      produto.imagem,
+      ...(Array.isArray(produto.imagens) ? produto.imagens : []),
+      favorito.imagem
+    ]);
+
+    ctx.fillStyle = "#102b63";
+    ctx.font = "700 18px Arial, sans-serif";
+    ctx.fillText(String(fabricante).toUpperCase(), MARGEM, 180);
+    ctx.fillStyle = "#121b2c";
+    ctx.font = "700 35px Arial, sans-serif";
+    const linhasNome = quebrarTextoCanvas(ctx, produto.nome || favorito.nome || "Produto", 1500, 2);
+    linhasNome.forEach((linha, i) => ctx.fillText(linha, MARGEM, 230 + i * 43));
+    ctx.fillStyle = "#68758c";
+    ctx.font = "400 18px Arial, sans-serif";
+    ctx.fillText(`Modelo: ${produto.modelo || favorito.modelo || "—"}   •   Código Info Store: ${produto.codigoInfo || favorito.codigo || "—"}`, MARGEM, 326);
+
+    ctx.fillStyle = "#f6f8fc";
+    ctx.fillRect(MARGEM, 370, 760, 650);
+    ctx.strokeStyle = "#d9e1ef";
+    ctx.strokeRect(MARGEM, 370, 760, 650);
+    desenharImagemContida(ctx, imagemProduto, MARGEM + 30, 400, 700, 590, 20);
+
+    const xInfo = 910;
+    ctx.fillStyle = "#102b63";
+    ctx.font = "700 18px Arial, sans-serif";
+    ctx.fillText("DIMENSÕES DO PRODUTO", xInfo, 410);
+    ctx.fillStyle = "#eef3fc";
+    ctx.fillRect(xInfo, 438, 760, 105);
+    const valoresDimensoes = [
+      ["LARGURA", dimensoes.largura?.valor || "Não informado"],
+      ["ALTURA", dimensoes.altura?.valor || "Não informado"],
+      ["PROFUNDIDADE", dimensoes.profundidade?.valor || "Não informado"]
+    ];
+    valoresDimensoes.forEach(([rotulo, valor], i) => {
+      const x = xInfo + 28 + i * 245;
+      ctx.fillStyle = "#6a768b";
+      ctx.font = "700 12px Arial, sans-serif";
+      ctx.fillText(rotulo, x, 474);
+      ctx.fillStyle = "#152d5e";
+      ctx.font = "700 21px Arial, sans-serif";
+      ctx.fillText(String(valor), x, 512);
+    });
+
+    ctx.fillStyle = "#102b63";
+    ctx.font = "700 18px Arial, sans-serif";
+    ctx.fillText("ESPECIFICAÇÕES", xInfo, 602);
+    let y = 642;
+    if (!especificacoes.length) {
+      ctx.fillStyle = "#6b7689";
+      ctx.font = "400 17px Arial, sans-serif";
+      ctx.fillText("Consulte a ficha do produto para mais informações.", xInfo, y);
+    } else {
+      especificacoes.forEach(([rotulo, valor]) => {
+        ctx.strokeStyle = "#e0e5ee";
+        ctx.beginPath(); ctx.moveTo(xInfo, y + 30); ctx.lineTo(1670, y + 30); ctx.stroke();
+        ctx.fillStyle = "#39465c";
+        ctx.font = "600 16px Arial, sans-serif";
+        ctx.fillText(truncarTextoCanvas(ctx, rotulo, 300), xInfo, y);
+        ctx.textAlign = "right";
+        ctx.fillStyle = "#172849";
+        ctx.font = "700 16px Arial, sans-serif";
+        ctx.fillText(truncarTextoCanvas(ctx, String(valor), 390), 1668, y);
+        ctx.textAlign = "left";
+        y += 55;
+      });
+    }
+
+    ctx.strokeStyle = "#d8deea";
+    ctx.beginPath(); ctx.moveTo(MARGEM, 1082); ctx.lineTo(LARGURA - MARGEM, 1082); ctx.stroke();
+    ctx.fillStyle = "#6c7688";
+    ctx.font = "400 14px Arial, sans-serif";
+    ctx.fillText("Documento de apoio à especificação. Valide medidas, folgas e condições de instalação no manual oficial.", MARGEM, 1124);
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#102b63";
+    ctx.font = "700 15px Arial, sans-serif";
+    ctx.fillText(`QTD. ${Math.max(1, Number(favorito.quantidade) || 1)}`, LARGURA - MARGEM, 1124);
+    ctx.textAlign = "left";
+    paginasJPEG.push(await canvasParaJPEG(canvas, 0.92));
+  }
+
+  return montarPDFComJPEGs(paginasJPEG, LARGURA, ALTURA);
+}
+
+async function baixarApresentacaoCompleta() {
+  const favs = obterFavoritosAtualizados();
+  if (!favs.length) return;
+  const botao = document.getElementById("btn-gerar-apresentacao");
+  const textoOriginal = botao?.textContent || "Gerar apresentação completa";
+  try {
+    if (botao) {
+      botao.disabled = true;
+      botao.textContent = "Preparando apresentação…";
+    }
+    const blob = await criarPDFApresentacaoCompleta(favs);
+    baixarBlob(blob, "apresentacao-tecnica-info-store.pdf");
+  } catch (erro) {
+    console.error("Falha ao gerar apresentação completa:", erro);
+    alert("Não foi possível gerar a apresentação completa. Atualize a página e tente novamente.");
+  } finally {
+    if (botao) {
+      botao.disabled = false;
+      botao.textContent = textoOriginal;
+    }
+  }
+}
+
 let ORCAMENTO_PENDENTE = null;
 
 const CONTATOS_ORCAMENTO = {
@@ -3275,6 +3628,7 @@ function configurarEventosFavoritos() {
   });
 
   document.getElementById("btn-solicitar-orcamento")?.addEventListener("click", abrirSelecaoConsultor);
+  document.getElementById("btn-gerar-apresentacao")?.addEventListener("click", baixarApresentacaoCompleta);
   document.getElementById("btn-baixar-pdf")?.addEventListener("click", baixarMemorialPDF);
 
   document.querySelectorAll("[data-fechar-consultores]").forEach(botao => {

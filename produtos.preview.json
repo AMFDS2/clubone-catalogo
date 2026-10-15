@@ -18745,7 +18745,7 @@
     "codigoInfo": "FOG0064",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
-    "tipoBloco": "tv",
+    "tipoBloco": "fogao",
     "imagem": "assets/produtos/nsg6dg8700sraz/principal.jpg",
     "imagens": [
       "assets/produtos/nsg6dg8700sraz/principal.jpg",
@@ -22680,7 +22680,7 @@
     "codigoInfo": "GEL0092",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
-    "tipoBloco": "soundbar",
+    "tipoBloco": "geladeira",
     "imagem": "assets/produtos/rs58t5561b1az/principal.jpg",
     "imagens": [
       "assets/produtos/rs58t5561b1az/principal.jpg",
@@ -39081,7 +39081,7 @@
     "codigoInfo": "COI0018",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
-    "tipoBloco": "cooktop",
+    "tipoBloco": "coifa",
     "imagem": "assets/produtos/29709dba189/principal.jpg",
     "imagens": [
       "assets/produtos/29709dba189/principal.jpg",
@@ -69615,7 +69615,7 @@
     "codigoInfo": "HOM0212",
     "categoria": "Audio",
     "segmento": "AUDIO",
-    "tipoBloco": "tv",
+    "tipoBloco": "soundbar",
     "imagem": "assets/produtos/28913881/principal.jpg",
     "imagens": [
       "assets/produtos/28913881/principal.jpg",

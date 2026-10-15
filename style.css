@@ -87,7 +87,7 @@ header.topbar {
 .separador-logo { width: 1px !important; height: 38px !important; background: #ffffff4d !important; }
 
 .topbar-identidade {
-  width: clamp(280px, 22vw, 360px);
+  width: clamp(180px, 16vw, 250px);
   min-width: 0;
   display: grid;
   gap: 3px;
@@ -96,7 +96,7 @@ header.topbar {
 
 .topbar-identidade strong {
   font-family: var(--fonte-titulos);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 650;
   line-height: 1.15;
   letter-spacing: .015em;
@@ -104,9 +104,8 @@ header.topbar {
 
 .topbar-identidade span {
   color: rgba(255,255,255,.68);
-  font-size: 11px;
+  font-size: 9px;
   line-height: 1.35;
-  white-space: nowrap;
 }
 
 /* Botão de Favoritos da Topbar */
@@ -815,6 +814,19 @@ header.topbar {
 .btn-gerar-pdf:hover {
   background: var(--dourado);
   border-color: var(--dourado);
+}
+
+/* ==================================================
+   RESPONSIVIDADE (MOBILE & TABLET AJUSTADOS)
+================================================== */
+@media (max-width: 1250px) {
+  .catalogo { grid-template-columns: 340px minmax(0, 1fr); }
+}
+
+@media (max-width: 1100px) {
+  .produto-hero { grid-template-columns: minmax(280px, 45%) minmax(0, 55%); padding: 24px; }
+  .grade-tecnica { grid-template-columns: 1fr; }
+  .rodape { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ==================================================
@@ -1578,7 +1590,7 @@ header.topbar {
   outline: none;
   background: rgba(255,255,255,.055);
   color: #fff;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .busca-topbar input::placeholder { color: rgba(255,255,255,.68); }
@@ -1850,7 +1862,7 @@ header.topbar { gap: clamp(20px, 3vw, 48px) !important; background: linear-gradi
 }
 
 /* =========================================================
-   INFO STORE — FILTRO "MEDIDAS DO VÃO" (teste v1)
+   CLUB ONE — FILTRO "MEDIDAS DO VÃO" (teste v1)
    ========================================================= */
 .filtro-medidas-projeto {
   margin: 12px;
@@ -1901,7 +1913,7 @@ header.topbar { gap: clamp(20px, 3vw, 48px) !important; background: linear-gradi
 .filtro-medidas-nota {
   margin: 7px 0 10px;
   color: #667085;
-  font-size: 9px;
+  font-size: 8px;
   line-height: 1.45;
 }
 
@@ -2005,7 +2017,7 @@ header.topbar { gap: clamp(20px, 3vw, 48px) !important; background: linear-gradi
 
 .filtro-medidas-check small {
   color: #7a8495;
-  font-size: 8px;
+  font-size: 7px;
   line-height: 1.35;
 }
 
@@ -2343,7 +2355,7 @@ header.topbar {
    style.css e tema-infostore.css separados.
 ================================================== */
 /* ==============================================================
-   TEMA INFO STORE | PORTFÓLIO TÉCNICO
+   TEMA INFO STORE + CLUB ONE
    Carregue este arquivo depois de todos os outros CSS.
    Ele altera apenas a identidade visual e preserva o layout.
 ============================================================== */
@@ -2617,7 +2629,7 @@ header.topbar {
   fill: var(--info-azul-700) !important;
 }
 
-/* O dourado continua como detalhe exclusivo da campanha */
+/* O dourado continua exclusivo do Club One e da campanha */
 .produto-favorito,
 .campanha-reabrir,
 .campanha-titulo strong,
@@ -2626,7 +2638,7 @@ header.topbar {
 }
 
 /* ==============================================================
-   CAMPANHA: integração Info Store + profissionais parceiros
+   CAMPANHA: integração Info Store + Club One
 ============================================================== */
 .barra-campanha {
   background:
@@ -3419,6 +3431,34 @@ body:not(.campanha-fechada) .campanha-reabrir {
   transition: background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, transform .18s ease;
 }
 
+.btn-apresentacao-completa {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 10px 16px;
+  border: 1px solid var(--info-vermelho, #e52633);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--info-azul-950, #102b63);
+  font: 700 12px/1.2 Montserrat, Arial, sans-serif;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.btn-apresentacao-completa:hover {
+  background: rgba(229,38,51,.055);
+  box-shadow: 0 5px 14px rgba(20,43,99,.08);
+  transform: translateY(-1px);
+}
+
+.btn-apresentacao-completa:disabled {
+  cursor: wait;
+  opacity: .66;
+  transform: none;
+}
+
 .btn-baixar-pdf:hover {
   border-color: var(--info-azul-800) !important;
   background: rgba(20,43,99,.045) !important;
@@ -3431,32 +3471,6 @@ body:not(.campanha-fechada) .campanha-reabrir {
   outline: 2px solid var(--info-azul-700);
   outline-offset: 2px;
 }
-
-.btn-apresentacao-cliente {
-  width: 100%; min-height: 46px; margin-top: 10px; padding: 11px 14px;
-  border: 1px solid var(--info-vermelho); border-radius: 8px;
-  background: #fff; color: var(--info-azul-950);
-  font-family: var(--fonte-titulos); font-size: 11px; font-weight: 800;
-  letter-spacing: .025em; text-transform: uppercase; cursor: pointer;
-}
-.btn-apresentacao-cliente:hover { background: #fff5f6; box-shadow: 0 5px 16px rgba(229,38,51,.1); }
-.modal-apresentacao { position: fixed; inset: 0; z-index: 1900; display: grid; place-items: center; padding: 18px; }
-.modal-apresentacao.hidden { display: none; }
-.modal-apresentacao-fundo { position: absolute; inset: 0; border: 0; background: rgba(5,18,48,.68); backdrop-filter: blur(4px); }
-.modal-apresentacao-conteudo { position: relative; width: min(610px,100%); padding: 26px; border-radius: 16px; background: #fff; box-shadow: 0 25px 70px rgba(4,19,54,.32); }
-.modal-apresentacao-topo { display: flex; justify-content: space-between; gap: 18px; padding-bottom: 18px; border-bottom: 1px solid #e4eaf5; }
-.modal-apresentacao-topo span { color: var(--info-vermelho); font-size: 10px; font-weight: 800; letter-spacing: .12em; }
-.modal-apresentacao-topo h3 { margin: 5px 0 0; color: var(--info-azul-950); font-size: 23px; }
-.modal-apresentacao-topo button { width: 34px; height: 34px; border: 1px solid #d5deed; border-radius: 50%; background: #fff; color: var(--info-azul-950); font-size: 20px; cursor: pointer; }
-.form-apresentacao { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 20px 0 13px; }
-.form-apresentacao label > span { display: block; margin-bottom: 6px; color: #526078; font-size: 11px; font-weight: 700; }
-.form-apresentacao label:first-child { grid-column: 1/-1; }
-.form-apresentacao input { box-sizing: border-box; width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid #cfd8e9; border-radius: 8px; color: #102a61; font: inherit; outline: none; }
-.form-apresentacao input:focus { border-color: #2c5ab7; box-shadow: 0 0 0 3px rgba(44,90,183,.1); }
-.apresentacao-nota { margin: 0 0 16px; color: #6c7689; font-size: 11px; line-height: 1.5; }
-.btn-confirmar-apresentacao { width: 100%; min-height: 48px; border: 0; border-radius: 8px; background: linear-gradient(105deg,var(--info-azul-950),var(--info-azul-800)); color: #fff; font-weight: 800; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 20px rgba(16,42,97,.2); }
-.btn-confirmar-apresentacao:hover { box-shadow: inset 0 -3px var(--info-vermelho),0 8px 20px rgba(16,42,97,.2); }
-@media (max-width:600px) { .modal-apresentacao-conteudo{padding:20px}.form-apresentacao{grid-template-columns:1fr}.form-apresentacao label:first-child{grid-column:1} }
 
 .btn-baixar-lista {
   width: 100%;
@@ -4444,34 +4458,28 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .topbar-identidade {
-  width: 250px !important;
-  min-width: 0 !important;
-  gap: 3px;
-}
+    width: 120px !important;
+  }
 
   .topbar-identidade strong {
     font-size: 11px !important;
   }
 
   .topbar-identidade span {
-  display: block;
-  font-size: 11px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.7);
-}
+    display: none;
+  }
 
   .busca-topbar {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: 300px !important;
-  justify-self: end !important;
-  margin: 0 !important;
-}
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
 
   .busca-topbar input {
-    height: 42px !important;
+    height: 44px !important;
     font-size: 15px !important;
   }
 
@@ -4569,14 +4577,14 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
 
   .sidebar .filtro-medidas-campos {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 8px !important;
+    gap: 7px !important;
   }
 
   .sidebar .filtro-medidas-campos label {
     grid-template-columns: minmax(0, 1fr) 17px !important;
     grid-template-rows: auto 38px !important;
     gap: 4px 2px !important;
-    font-size: 9px !important;
+    font-size: 8px !important;
   }
 
   .sidebar .filtro-medidas-campos label > span {
@@ -4586,9 +4594,9 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   .sidebar .filtro-medidas-campos input {
     grid-column: 1;
     grid-row: 2;
-    height: 40px !important;
+    height: 38px !important;
     padding: 0 6px !important;
-    font-size: 9px !important;
+    font-size: 11px !important;
     text-align: left !important;
   }
 
@@ -4641,7 +4649,7 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .sidebar .produto-informacoes h3 {
-    font-size: 13px !important;
+    font-size: 12px !important;
   }
 
   .sidebar .produto-informacoes p {
@@ -4876,7 +4884,7 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .sidebar .filtro-medidas-campos input::placeholder {
-    font-size: 7.3px;
+    font-size: 9px;
   }
 
   .sidebar .filtro-medidas-campos small {
@@ -4918,11 +4926,11 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .sidebar .produto-informacoes h3 {
-    font-size: 13px !important;
+    font-size: 12px !important;
   }
 
   .sidebar .produto-informacoes p {
-    font-size: 10px !important;
+    font-size: 9px !important;
   }
 }
 
@@ -4938,233 +4946,47 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   }
 
   .topbar-identidade span {
-  display: block;
-}
-}
-
-/* Cabeçalho aprovado — 13/10/2026. Busca no fluxo da grade, sem posição absoluta. */
-@media (min-width: 1401px) {
-  :root { --topbar: 100px; }
-  header.topbar { display:grid !important;grid-template-columns:minmax(440px,1.4fr) minmax(300px,600px) minmax(240px,.8fr) !important;grid-template-rows:1fr !important;align-items:center !important;gap:clamp(20px,2.2vw,42px) !important;padding:12px 34px !important;height:var(--topbar) !important; }
-  header.topbar .topbar-logos { width:auto !important;min-width:0 !important;gap:16px !important;grid-column:1 !important;grid-row:1 !important; }
-  header.topbar .logo-info { width:120px !important;max-width:120px !important;height:60px !important;max-height:60px !important;object-fit:contain; }
-  header.topbar .topbar-identidade { width:auto !important;min-width:0 !important;max-width:none !important; }
-  header.topbar .topbar-identidade strong { font-size:clamp(18px,1.3vw,24px) !important;line-height:1.2; }
-  header.topbar .topbar-identidade span { display:block !important;font-size:clamp(11px,.75vw,14px) !important;line-height:1.4; }
-  header.topbar .busca-topbar { position:relative !important;left:auto !important;top:auto !important;transform:none !important;grid-column:2 !important;grid-row:1 !important;width:100% !important;max-width:600px !important;min-width:0 !important;margin:0 !important; }
-  header.topbar .busca-topbar input { height:52px !important;font-size:16px !important; }
-  header.topbar .top-actions { grid-column:3 !important;grid-row:1 !important;justify-self:end !important;width:auto !important;margin:0 !important; }
-}
-.filtro-medidas-projeto[hidden] {display:none !important;}
-.precos-manuais {box-sizing:border-box;width:min(760px,94vw);max-height:90dvh;margin:auto;padding:26px;border:0;border-radius:16px;background:#f7f8fb;color:#17366c;font:15px/1.5 Arial,sans-serif;overflow:auto;box-shadow:0 20px 80px #07193655;}
-.precos-manuais::backdrop {background:#071936b3;}
-.precos-manuais h2 {margin:0 0 12px;font-size:24px;}
-.precos-manuais .pm-lista {display:grid;gap:12px;margin:20px 0;}
-.precos-manuais .pm-item {display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:20px;padding:16px;border:1px solid #dce3ee;border-radius:12px;background:#fff;align-items:center;}
-.precos-manuais small {display:block;margin-top:6px;color:#62708a;}
-.precos-manuais .pm-valor {font-size:13px;}
-.precos-manuais input {display:block;width:100%;margin-top:6px;border:1px solid #b9c9e1;border-radius:8px;padding:12px;font-size:16px;}
-.precos-manuais .pm-acoes {display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;}
-.precos-manuais button {padding:12px 16px;min-height:44px;border:1px solid #bdcbe0;border-radius:8px;background:#fff;color:#17366c;cursor:pointer;}
-.precos-manuais button[type=submit] {background:#17366c;color:#fff;}
-.precos-manuais .pm-erro {color:#a32237;}
-.precos-manuais :focus-visible {outline:3px solid #547ace;outline-offset:2px;}
-@media(max-width:600px){.precos-manuais{padding:18px;}.precos-manuais .pm-item{grid-template-columns:1fr;gap:12px;}.precos-manuais .pm-acoes button{width:100%;}}
-/* Em celulares, a assinatura não compete com o botão de itens selecionados. */
-@media(max-width:767px){
-  header.topbar .topbar-identidade span {white-space:normal !important;overflow-wrap:anywhere;max-width:100%;}
-}
-@media(max-width:600px){
-  header.topbar .topbar-identidade {display:none !important;}
-  header.topbar .topbar-logos {min-width:0 !important;width:100% !important;}
-  header.topbar .logo-info {width:100% !important;max-width:110px !important;min-width:0 !important;object-fit:contain;}
+    display: none;
+  }
 }
 
 /* ==============================================================
-   REFINAMENTO FINAL — CABEÇALHO E TABELAS TÉCNICAS COMPACTAS
-   14/10/2026
+   TOP BAR COMPACTA — 14/10/2026
+   Reduz altura sem alterar navegação, busca ou itens selecionados.
 ============================================================== */
-
-/* Impede que um cartão curto seja esticado pela altura do vizinho. */
-.medidas-ia-grade {
-  align-items: start !important;
-  gap: 10px !important;
-}
-
-.medidas-ia-card {
-  align-self: start !important;
-  height: auto !important;
-  min-height: 0 !important;
-  border-radius: 8px !important;
-}
-
-.medidas-ia-card h4 {
-  min-height: 0 !important;
-  padding: 9px 11px !important;
-  font-size: 10px !important;
-  line-height: 1.25 !important;
-}
-
-.medida-ia-linha {
-  min-height: 0 !important;
-  grid-template-columns: minmax(120px, 1.25fr) minmax(78px, .7fr) minmax(142px, .95fr) !important;
-  line-height: 1.25 !important;
-}
-
-.medida-ia-linha > * {
-  padding: 7px 10px !important;
-}
-
-.medida-ia-linha strong {
-  font-size: 10.5px !important;
-  line-height: 1.25 !important;
-}
-
-.medida-ia-item {
-  gap: 3px !important;
-  font-size: 9.5px !important;
-  line-height: 1.3 !important;
-}
-
-.medida-ia-item small {
-  font-size: 7.5px !important;
-  line-height: 1.25 !important;
-}
-
-.medida-status {
-  gap: 4px !important;
-  font-size: 7.5px !important;
-  line-height: 1.25 !important;
-}
-
-.medida-status i,
-.legenda-medidas i {
-  width: 16px !important;
-  height: 16px !important;
-  min-width: 16px !important;
-  font-size: 8px !important;
-}
-
-.medidas-projeto-destaque {
-  gap: 12px !important;
-  margin-bottom: 12px !important;
-}
-
-/* Desktop: barra menor, mantendo assinatura, busca e ações em uma linha. */
 @media (min-width: 1401px) {
-  :root { --topbar: 82px; }
+  :root { --topbar: 88px; }
 
   header.topbar {
-    gap: clamp(16px, 1.8vw, 30px) !important;
     height: var(--topbar) !important;
-    padding: 8px 28px !important;
-  }
-
-  header.topbar .topbar-logos { gap: 13px !important; }
-
-  header.topbar .logo-info {
-    width: 105px !important;
-    max-width: 105px !important;
-    height: 50px !important;
-    max-height: 50px !important;
-  }
-
-  header.topbar .topbar-identidade strong {
-    font-size: clamp(17px, 1.08vw, 20px) !important;
-  }
-
-  header.topbar .topbar-identidade span {
-    font-size: clamp(10px, .66vw, 12px) !important;
-  }
-
-  header.topbar .busca-topbar input {
-    height: 44px !important;
-    font-size: 14px !important;
-  }
-
-  header.topbar .top-actions button,
-  header.topbar .menu-mobile {
-    min-height: 42px !important;
-  }
-}
-
-/* Tablet horizontal: maior área útil para produto e sidebar estável. */
-@media (min-width: 768px) and (max-width: 1400px) and (orientation: landscape) {
-  :root {
-    --topbar: 70px;
-    --altura-segmentos: 56px;
-  }
-
-  header.topbar {
     min-height: var(--topbar) !important;
-    height: var(--topbar) !important;
-    padding: 7px 18px !important;
-    gap: 13px !important;
+    padding: 8px clamp(24px, 2.6vw, 48px) !important;
+    gap: clamp(22px, 3vw, 50px) !important;
   }
 
   header.topbar .logo-info {
-    width: 102px !important;
-    max-width: 102px !important;
-    height: 46px !important;
+    width: 142px !important;
+    max-width: 142px !important;
+    height: 62px !important;
+    max-height: 62px !important;
   }
 
-  header.topbar .busca-topbar input { height: 40px !important; }
-  header.topbar .topbar-identidade strong { font-size: 15px !important; }
-  header.topbar .topbar-identidade span { font-size: 9px !important; }
+  .topbar-logos { gap: 18px !important; }
+  .topbar-logos .separador-logo { height: 36px !important; }
+  .topbar-identidade { width: clamp(230px, 19vw, 330px) !important; }
+  .topbar-identidade strong { font-size: 20px !important; }
+  .topbar-identidade span { font-size: 10px !important; }
+  .busca-topbar input { height: 48px !important; }
+  .btn-favoritos-nav { min-height: 44px !important; }
 }
 
-/* Tablet vertical: duas faixas curtas, sem sobreposição. */
-@media (min-width: 768px) and (max-width: 1100px) and (orientation: portrait) {
-  :root {
-    --topbar: 106px;
-    --altura-segmentos: 56px;
-  }
-
-  header.topbar {
-    min-height: var(--topbar) !important;
-    height: var(--topbar) !important;
-    padding: 8px 16px !important;
-  }
-
-  header.topbar .logo-info {
-    width: 105px !important;
-    max-width: 105px !important;
-    height: 44px !important;
-  }
-
-  header.topbar .busca-topbar input { height: 40px !important; }
-}
-
-/* Celular: cabeçalho enxuto e tabelas reorganizadas em duas colunas. */
 @media (max-width: 767px) {
-  :root {
-    --topbar: 102px;
-    --altura-segmentos: 52px;
-  }
+  :root { --topbar: 110px; }
 
   header.topbar {
     min-height: var(--topbar) !important;
-    height: var(--topbar) !important;
-    padding: 7px 10px !important;
+    grid-template-rows: 46px 38px !important;
+    padding-block: 6px 8px !important;
+    row-gap: 6px !important;
   }
-
-  header.topbar .busca-topbar input {
-    height: 38px !important;
-    font-size: 12px !important;
-  }
-
-  .medidas-ia-grade { grid-template-columns: 1fr !important; }
-
-  .medida-ia-linha {
-    grid-template-columns: minmax(0, 1fr) auto !important;
-  }
-
-  .medida-status {
-    grid-column: 1 / -1 !important;
-    justify-self: start !important;
-    padding-top: 0 !important;
-  }
-
-  .medidas-ia-card h4 { padding: 8px 10px !important; }
-  .medida-ia-linha > * { padding: 6px 9px !important; }
 }

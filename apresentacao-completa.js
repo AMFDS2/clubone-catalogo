@@ -14,6 +14,73 @@
     d.querySelectorAll('p,li,h1,h2,h3,div').forEach(n => n.append('\n'));
     return d.body.textContent || '';
   };
+function prioridadeSegmento(produtoOuChave = {}) {
+  const valor = typeof produtoOuChave === "string"
+    ? produtoOuChave
+    : (produtoOuChave.segmento || produtoOuChave.categoria || "");
+  const chave = normalizarTexto(valor);
+  if (chave === "linha branca" || chave.includes("linha branca")) return 0;
+  if (chave.includes("climatizacao")) return 3;
+  if (chave === "video" || chave.includes("tv") || chave.includes("video")) return 1;
+  if (chave.includes("portateis") || chave.includes("eletroportateis")) return 4;
+  if (chave.includes("audio")) return 2;
+  return 9;
+}
+
+function nomeSegmentoApresentacao(p = {}) {
+  return ['Linha branca','TV e vídeo','Áudio','Climatização','Portáteis'][prioridadeSegmento(p)] || p.segmento || p.categoria || 'Outros';
+}
+function ordenarPorSegmento(lista = []) {
+  return [...lista].sort((a,b)=>prioridadeSegmento(a.produto||a)-prioridadeSegmento(b.produto||b));
+}
+function produtoCompletoApresentacao(item = {}) {
+  return localizarProdutoAtual(item) || item;
+}
+
+function imagensDoProdutoApresentacao(produto = {}) {
+  return [
+    produto.imagem, produto.imagemPrincipal, produto.imagem_principal,
+    ...(Array.isArray(produto.imagens) ? produto.imagens : []),
+    ...(Array.isArray(produto.galeria) ? produto.galeria : [])
+  ].map(item => typeof item === "string" ? item : item?.url || item?.src).filter(Boolean);
+}
+
+function precoOfertaValido(p) {
+  if(!p || !Number.isFinite(Number(p.preco)) || Number(p.preco)<=0 || p.disponivel===false)return false;
+  if(p.manual===true)return true;
+  try{return ['www.infostore.com.br','infostore.com.br'].includes(new URL(p.url).hostname);}catch{return false;}
+}
+function interpretarPrecoManual(valor) {
+  const t=String(valor||'').trim().replace(/^R\$\s*/i,'').replace(/\s/g,'');
+  if(!t)return null;
+  if(!/^(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d{1,2})?$/.test(t))return NaN;
+  const n=Number(t.replace(/\./g,'').replace(',','.'));
+  return n>0 && n<=99999999.99 ? Math.round(n*100)/100 : NaN;
+}
+async function resolverPrecosApresentacao(produtos,ofertas) {
+  const valores=ofertas.map(p=>precoOfertaValido(p)?p:null);
+  const faltantes=produtos.map((p,i)=>({p,i})).filter(x=>!valores[x.i]);
+  if(!faltantes.length)return valores;
+  const foco=document.activeElement,dialog=document.createElement('dialog');dialog.className='precos-manuais';
+  dialog.setAttribute('aria-labelledby','pm-titulo');
+  dialog.innerHTML=`<h2 id="pm-titulo">Complete os preços da apresentação</h2><p>A consulta não retornou preço para estes itens. Informe o valor unitário em reais ou deixe o campo vazio para mostrar “Preço sob consulta”.</p><form method="dialog"><div class="pm-lista">${faltantes.map(({p,i})=>`<label class="pm-item"><span><strong>${escaparHTML(p.titulo||p.nome||p.produto?.nome||'Produto')}</strong><small>Código: ${escaparHTML(p.codigoInfo||p.codigo||p.produto?.codigoInfo||'—')} · ${escaparHTML(nomeSegmentoApresentacao(p.produto||p))}</small></span><span class="pm-valor">Valor unitário (R$)<input name="preco-${i}" inputmode="decimal" autocomplete="off" placeholder="Ex.: 2.499,90" aria-label="Preço de ${escaparHTML(p.titulo||p.nome||'produto')}" maxlength="16"></span></label>`).join('')}</div><p class="pm-erro" role="alert"></p><div class="pm-acoes"><button type="button" data-pm-cancelar>Voltar à edição</button><button type="submit">Continuar apresentação</button></div></form>`;
+  document.body.append(dialog);dialog.showModal();
+  return new Promise((resolve,reject)=>{
+    function encerrar(erro){dialog.close();dialog.remove();foco?.focus();if(erro)reject(Error('Geração cancelada. Você pode ajustar os itens e gerar novamente.'));else resolve(valores);}
+    dialog.addEventListener('cancel',e=>{e.preventDefault();encerrar(true);});
+    dialog.querySelector('[data-pm-cancelar]').onclick=()=>encerrar(true);
+    dialog.querySelector('form').onsubmit=e=>{
+      e.preventDefault();const alterados=[];
+      for(const {p,i} of faltantes){const input=dialog.querySelector(`[name="preco-${i}"]`),n=interpretarPrecoManual(input.value);
+        if(Number.isNaN(n)){dialog.querySelector('.pm-erro').textContent='Informe um valor maior que zero, no formato 2.499,90, ou deixe vazio.';input.focus();return;}
+        alterados.push([i,n===null?null:{preco:n,manual:true,codigo:p.codigoInfo||p.codigo||p.produto?.codigoInfo||'',consultadoEm:new Date().toISOString()}]);
+      }
+      alterados.forEach(([i,p])=>valores[i]=p);encerrar(false);
+    };
+    dialog.querySelector('input')?.focus();
+  });
+}
+
   function sugerirBeneficios(p) {
     const candidatos = [];
     for (const campo of ['diferenciais','beneficios','caracteristicasComerciais']) {
@@ -474,7 +541,7 @@
   }
   function iniciar() {
     const footer=$('drawer-footer');if(!footer || $('ac-dialog'))return;
-    const b=$('btn-apresentacao-completa') || document.createElement('button');b.type='button';b.id='btn-apresentacao-completa';b.className='btn-apresentacao-cliente ac-botao';b.textContent='Gerar apresentação';
+    const b=$('btn-apresentacao-completa') || document.createElement('button');b.type='button';b.id='btn-apresentacao-completa';b.className='btn-apresentacao-completa ac-botao';b.textContent='Gerar apresentação';
     const antigo=$('btn-apresentacao-cliente');if(antigo)antigo.replaceWith(b);
     else if(!b.isConnected)footer.insertBefore(b,$('btn-baixar-pdf') || footer.firstChild);
     b.addEventListener('click',abrir);
