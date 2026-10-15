@@ -59,7 +59,7 @@ function interpretarPrecoManual(valor) {
 }
 async function resolverPrecosApresentacao(produtos,ofertas) {
   const valores=ofertas.map(p=>precoOfertaValido(p)?p:null);
-  const faltantes=produtos.map((p,i)=>({p,i})).filter(x=>!valores[x.i]);
+  const faltantes=produtos.map((p,i)=>({p,i})).filter(x=>!valores[x.i] && !x.p.produtoManual);
   if(!faltantes.length)return valores;
   const foco=document.activeElement,dialog=document.createElement('dialog');dialog.className='precos-manuais';
   dialog.setAttribute('aria-labelledby','pm-titulo');
@@ -118,6 +118,7 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
     const opcoes=fotos(p);return {produto:p,quantidade,titulo:p.nome||p.modelo,opcoes,fotos:opcoes.slice(0,4),beneficios:sugerirBeneficios(p),removerFundo:true};
   }
   function painelComplementos(i) {
+    if(i.manual)return `<p class="ac-ajuda">Produto manual · incluído somente nesta apresentação.</p><button type="button" data-editar-manual>Editar dados, fotos e preço</button> <button type="button" data-remover-manual>Remover produto manual</button>`;
     if(i.complemento)return `<p class="ac-pendente">Complemento de ${esc(i.origemNome)} · Compatibilidade a confirmar.</p><button type="button" data-remover-complemento>Remover complemento</button>`;
     const estado=i.sugestoes;
     return `<section class="ac-completar" aria-label="Complementos para ${esc(i.titulo)}"><button type="button" data-completar ${consultaComplementos?'disabled':''}>Completar este ambiente</button>
@@ -170,9 +171,10 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
     </article>`).join('');
   }
   function abrir() {
-    const favs=obterFavoritosAtualizados();if(!favs.length)return;
+    const favs=obterFavoritosAtualizados();
     origemFoco=document.activeElement;
-    itens=favs.map(f=>{const p=produtoCompletoApresentacao(f);return novoItem(p,Math.max(1,Number(f.quantidade)||1));});
+    const manuais=itens.filter(i=>i.manual);
+    itens=favs.map(f=>{const p=produtoCompletoApresentacao(f);return novoItem(p,Math.max(1,Number(f.quantidade)||1));}).concat(manuais);
     for(const campo of ['projeto','cliente','profissional','vendedor']) $('ac-'+campo).value=$('apresentacao-'+campo)?.value || '';
     invalidar();renderItens();status('Ordem por segmento: Linha branca, TV e vídeo, Áudio, Climatização e Portáteis. As setas reorganizam os itens dentro do segmento. Os complementos ficam agrupados após seu produto principal no PDF.');
     $('ac-dialog').showModal();$('ac-projeto').focus();
@@ -395,7 +397,7 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
     c.textAlign='left';
   }
   function condicaoParcelada(oferta) {
-    if(!oferta || oferta.manual)return '';
+    if(!oferta)return '';
     const p=oferta.parcelas,n=Number(p?.quantidade),v=Number(p?.valor);
     if(!Number.isInteger(n)||n<2||!Number.isFinite(v)||v<=0)return '';
     return `ou ${n}x de ${dinheiro(v)} no cartão`;
@@ -451,7 +453,7 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
       c.font='400 16px Arial';c.fillText(pix?'VALOR UNITÁRIO NO PIX':'VALOR UNITÁRIO',X+25,py+29);
       c.font='700 42px Arial';c.fillText(dinheiro(pix?oferta.precoPix:oferta.preco),X+25,py+80);
       const parc=oferta.parcelas;const cond=parc && Number(parc.quantidade)>0 && Number(parc.valor)>0?`${parc.quantidade}x de ${dinheiro(parc.valor)}`:'';
-      c.font='400 18px Arial';c.fillText(oferta.manual?'Valor informado pelo vendedor':[pix?`Preço: ${dinheiro(oferta.preco)}`:'',cond].filter(Boolean).join('  •  '),X+25,py+113);
+      c.font='400 18px Arial';c.fillText(oferta.manual?['Valor informado pelo vendedor',cond].filter(Boolean).join('  •  '):[pix?`Preço: ${dinheiro(oferta.preco)}`:'',cond].filter(Boolean).join('  •  '),X+25,py+113);
     }else{c.font='700 30px Arial';c.fillText('Preço sob consulta',X+25,py+60);c.font='400 19px Arial';c.fillText('Consulte nossa equipe para preço e disponibilidade.',X+25,py+96);}
     if(item.complemento){c.fillStyle='#805000';c.font='14px Arial';c.fillText(truncarTextoCanvas(c,`Compatibilidade a confirmar · Complemento de ${item.origemNome}.`,1626),64,1155);}
     c.fillStyle='#6b7587';c.font='16px Arial';c.fillText(`Valores da apresentação: ${dados.data}. Valores unitários sujeitos a alteração e disponibilidade.`,64,1180);
@@ -511,6 +513,7 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
   async function gerar() {
     if(ocupado)return;
     try {
+      if(!itens.length)throw Error('Adicione pelo menos um produto à apresentação.');
       for(let n=0;n<itens.length;n++){
         const i=itens[n];if(!i.titulo.trim() || i.titulo.length>160)throw Error(`Item ${n+1}: informe um título de até 160 caracteres.`);
         if(!i.beneficios.length || i.beneficios.length>8 || i.beneficios.some(s=>s.length>150))throw Error(`Item ${n+1}: informe de 1 a 8 diferenciais, com até 150 caracteres por linha.`);
@@ -522,7 +525,7 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
       status('Consultando preços na Info Store...');
       let ofertas=new Array(itens.length);let proximo=0;
       await Promise.all(Array.from({length:Math.min(4,itens.length)},async()=>{
-        while(proximo<itens.length){const n=proximo++;ofertas[n]=await preco(itens[n].produto);}
+        while(proximo<itens.length){const n=proximo++;ofertas[n]=itens[n].manual ? itens[n].ofertaManual : await preco(itens[n].produto);}
       }));
       status('Conferindo preços; informe os valores que não foram localizados.');
       ofertas=await resolverPrecosApresentacao(itens.map(i=>({...i.produto,nome:i.titulo})),ofertas);
@@ -548,20 +551,54 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
     }catch(e){invalidar();status(e.message || 'Não foi possível gerar. Tente novamente.',true);}
     finally{ocupado=false;$('ac-edicao').disabled=false;$('ac-gerar').disabled=false;$('ac-fechar').disabled=false;}
   }
+  function editarManual(item=null) {
+    if(ocupado||consultaComplementos)return;
+    const foco=document.activeElement,d=document.createElement('dialog');d.className='ac-manual';d.setAttribute('aria-labelledby','am-heading');
+    const p=item?.produto||{},dim=p.dimensoes?.produto||{};
+    const input=(id,label,value='',extra='')=>`<label>${label}<input name="${id}" value="${esc(value)}" ${extra}></label>`;
+    d.innerHTML=`<form><header><h3 id="am-heading">${item?'Editar':'Adicionar'} produto manual</h3></header><div class="ac-manual-grade">${input('nome','Nome completo',item?.titulo||'', 'required maxlength="160"')}${input('marca','Marca',p.marca||'','maxlength="60"')}${input('modelo','Modelo / SKU',p.modelo||'','maxlength="80"')}${input('codigo','Código Info Store (opcional)',p.codigoInfo||'','maxlength="40"')}<label>Segmento<select name="segmento">${[['linha branca','Linha branca'],['video','TVs'],['audio','Áudio'],['climatizacao','Climatização'],['portateis','Portáteis'],['outros','Outros']].map(([v,l])=>`<option value="${v}" ${normal(p.segmento||'linha branca')===v?'selected':''}>${l}</option>`).join('')}</select></label>${input('quantidade','Quantidade',item?.quantidade||1,'type="number" min="1" max="999" step="1" required')}</div><label>Descrição e diferenciais para o cliente<textarea name="descricao" rows="5" required placeholder="Um diferencial por linha, até 8 linhas e 150 caracteres por linha">${esc(item?.beneficios.join('\n')||'')}</textarea></label><p>Esse texto aparecerá na área DIFERENCIAIS do PDF.</p><div class="ac-manual-grade">${['largura','altura','profundidade'].map(k=>input(k,k[0].toUpperCase()+k.slice(1)+' (cm, opcional)',String(dim[k]||'').replace(/\s*cm$/,''),'inputmode="decimal"')).join('')}${input('preco','Preço à vista (R$, opcional)',item?.ofertaManual?.preco?.toLocaleString('pt-BR',{minimumFractionDigits:2})||'','inputmode="decimal" placeholder="2.499,90"')}${input('parcelas','Número de parcelas (opcional)',item?.ofertaManual?.parcelas?.quantidade||'','type="number" min="2" max="48" step="1"')}${input('valorParcela','Valor de cada parcela (R$)',item?.ofertaManual?.parcelas?.valor?.toLocaleString('pt-BR',{minimumFractionDigits:2})||'','inputmode="decimal"')}</div><p>Sem preço: o PDF mostrará “Preço sob consulta”. Medidas são opcionais e não aparecem para áudio e portáteis.</p><label>Fotos do produto (até 4, JPG, PNG ou WebP)<input name="imagens" type="file" accept="image/jpeg,image/png,image/webp" multiple></label><p>${item?.fotos.length?`${item.fotos.length} foto(s) atual(is). Enviar novas fotos substitui as anteriores.`:'As fotos ficam nesta aba e não são enviadas ao catálogo.'} Até 10 MB por foto.</p>${item?.fotos.length?'<label><input type="checkbox" name="semFotos"> Remover todas as fotos atuais</label>':''}<p class="ac-manual-erro" role="alert"></p><footer><button type="button" data-cancelar>Cancelar</button><button type="submit">${item?'Salvar alterações':'Adicionar à apresentação'}</button></footer></form>`;
+    document.body.append(d);d.showModal();d.querySelector('[name=nome]').focus();
+    const fechar=()=>{d.close();d.remove();foco?.focus();};d.querySelector('[data-cancelar]').onclick=fechar;d.addEventListener('cancel',e=>{e.preventDefault();if(!d.querySelector('button[type=submit]').disabled)fechar();});
+    d.querySelector('form').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),v=k=>String(f.get(k)||'').trim();const erro=d.querySelector('.ac-manual-erro'),salvar=d.querySelector('button[type=submit]');
+      try {
+        const nome=v('nome'),beneficios=v('descricao').split('\n').map(x=>x.trim()).filter(Boolean);
+        if(!nome||nome.length>160)throw Error('Informe o nome do produto (até 160 caracteres).');
+        if(!beneficios.length||beneficios.length>8||beneficios.some(x=>x.length>150))throw Error('Informe de 1 a 8 diferenciais, com até 150 caracteres por linha.');
+        const precoValor=interpretarPrecoManual(v('preco')),parcela=interpretarPrecoManual(v('valorParcela')),n=Number(v('parcelas'));
+        if(Number.isNaN(precoValor)||Number.isNaN(parcela))throw Error('Use valores como 2.499,90, maiores que zero.');
+        if((n||parcela)&&(!precoValor||!Number.isInteger(n)||n<2||n>48||!parcela))throw Error('Para parcelamento, informe preço à vista, número de parcelas e valor de cada parcela.');
+        const medidas={};for(const k of ['largura','altura','profundidade']){const valor=v(k);if(valor){if(!/^\d+(?:[.,]\d{1,2})?$/.test(valor)||Number(valor.replace(',','.'))<=0)throw Error('Informe medidas positivas em centímetros, como 59,5.');medidas[k]=valor.replace('.',',')+' cm';}}
+        const arquivos=[...d.querySelector('[name=imagens]').files];if(arquivos.length>4)throw Error('Selecione no máximo quatro fotos.');
+        if(arquivos.some(a=>!['image/jpeg','image/png','image/webp'].includes(a.type)||a.size>10*1024*1024))throw Error('Use fotos JPG, PNG ou WebP de até 10 MB cada.');
+        salvar.disabled=true;d.querySelector('[data-cancelar]').disabled=true;
+        const fotosNovas=await Promise.all(arquivos.map(a=>new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('Não foi possível ler uma foto.'));reader.readAsDataURL(a);})));
+        if((await Promise.all(fotosNovas.map(carregarFoto))).some(x=>!x))throw Error('Uma foto não abriu. Escolha outro arquivo.');
+        const fotosFinal=fotosNovas.length?fotosNovas:f.has('semFotos')?[]:(item?.fotos||[]);
+        const produto={...p,id:p.id||'manual-'+crypto.randomUUID(),produtoManual:true,nome,marca:v('marca'),modelo:v('modelo'),codigoInfo:v('codigo'),segmento:v('segmento'),categoria:v('segmento'),dimensoes:{produto:medidas},descricao:beneficios.join('\n')};
+        const novo={...item,manual:true,produto,quantidade:Number(v('quantidade')),titulo:nome,beneficios,opcoes:fotosFinal,fotos:fotosFinal,removerFundo:item?.removerFundo??true,ofertaManual:precoValor?{preco:precoValor,manual:true,parcelas:n?{quantidade:n,valor:parcela}:undefined}:null};
+        if(item)itens[itens.indexOf(item)]=novo;else itens.push(novo);
+        invalidar();renderItens();fechar();status('Produto manual salvo nesta apresentação. Você pode editar ou remover antes de gerar.');
+      }catch(e){erro.textContent=e.message;salvar.disabled=false;d.querySelector('[data-cancelar]').disabled=false;}
+    };
+  }
   function iniciar() {
     const footer=$('drawer-footer');if(!footer || $('ac-dialog'))return;
     const b=$('btn-apresentacao-completa') || document.createElement('button');b.type='button';b.id='btn-apresentacao-completa';b.className='btn-apresentacao-completa ac-botao';b.textContent='Gerar apresentação';
     const antigo=$('btn-apresentacao-cliente');if(antigo)antigo.replaceWith(b);
     else if(!b.isConnected)footer.insertBefore(b,$('btn-baixar-pdf') || footer.firstChild);
     b.addEventListener('click',abrir);
+    window.abrirApresentacaoManual=abrir;
     document.body.insertAdjacentHTML('beforeend',`<dialog id="ac-dialog" aria-labelledby="ac-heading"><div class="ac-topo"><div><span>APRESENTAÇÃO COMERCIAL</span><h3 id="ac-heading">Um produto por página</h3></div><button type="button" id="ac-fechar" aria-label="Fechar apresentação">×</button></div>
       <fieldset id="ac-edicao"><div class="ac-dados">${[['projeto','Projeto'],['cliente','Cliente'],['profissional','Arquiteto(a)'],['vendedor','Vendedor(a)']].map(([id,label])=>`<label>${label}<input id="ac-${id}" maxlength="80" autocomplete="off"></label>`).join('')}</div>
-      <p class="ac-ajuda">Fotos e diferenciais do catálogo, preço consultado na Info Store ao gerar. Use Completar este ambiente para buscar complementos do mix Info Store. As inclusões valem para esta apresentação. Capa, agradecimento e um produto por página, na ordem abaixo. PDF em alta resolução (300 dpi). Fotos ambientadas são preservadas; desmarque a remoção se preferir a imagem original.</p><div id="ac-itens"></div></fieldset>
+      <p class="ac-ajuda">Fotos e diferenciais do catálogo, preço consultado na Info Store ao gerar. Use Completar este ambiente para buscar complementos do mix Info Store. As inclusões valem para esta apresentação. Capa, agradecimento e um produto por página, na ordem abaixo. PDF em alta resolução (300 dpi). Fotos ambientadas são preservadas; desmarque a remoção se preferir a imagem original.</p><button type="button" id="ac-adicionar-manual">+ Adicionar produto manual</button><p class="ac-ajuda">Produtos manuais ficam somente nesta apresentação e nesta aba. Ao atualizar ou sair da página, os dados precisam ser preenchidos novamente.</p><div id="ac-itens"></div></fieldset>
       <div class="ac-acoes"><button type="button" id="ac-gerar">Gerar prévia completa</button><button type="button" id="ac-baixar" hidden>Baixar apresentação em PDF</button></div><p id="ac-status" role="status" aria-live="polite"></p><div id="ac-previas"></div></dialog>`);
+    $('ac-adicionar-manual').addEventListener('click',()=>editarManual());
     $('ac-fechar').addEventListener('click',fechar);$('ac-dialog').addEventListener('cancel',e=>{if(ocupado||consultaComplementos)e.preventDefault();});
     $('ac-itens').addEventListener('click',e=>{
       const artigo=e.target.closest('[data-indice]');if(!artigo||ocupado||consultaComplementos)return;
       const atual=itens[Number(artigo.dataset.indice)];
+      if(e.target.closest('[data-editar-manual]')){editarManual(atual);return;}
+      if(e.target.closest('[data-remover-manual]')){itens.splice(itens.indexOf(atual),1);invalidar();renderItens();return;}
       if(e.target.closest('[data-completar]')){consultarComplementos(atual);return;}
       if(e.target.closest('[data-adicionar-complementos]')){adicionarComplementos(atual);return;}
       if(e.target.closest('[data-remover-complemento]')){itens.splice(itens.indexOf(atual),1);invalidar();renderItens();status('Complemento removido da apresentação.');return;}

@@ -2957,7 +2957,7 @@ function renderDrawerFavoritos(favs) {
     if (footer) footer.style.display = "none";
     container.innerHTML = `
       <div style="padding: 40px 15px; text-align: center; color: var(--suave); font-size: 12px; line-height: 1.6;">
-        Nenhum produto selecionado para o projeto ainda.
+        Nenhum produto selecionado para o projeto ainda.<br><button type="button" onclick="window.abrirApresentacaoManual?.()" style="margin-top:16px;padding:12px;cursor:pointer">Criar apresentação com produto manual</button>
       </div>`;
     return;
   }
