@@ -8,7 +8,7 @@
   const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const normal = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const texto = html => {
-    const d = new DOMParser().parseFromString(String(html || ''),'text/html');
+    const d = new DOMParser().parseFromString(String(html || '').replace(/:?contentReference\[oaicite:\d+\]\{index=\d+\}/g,''),'text/html');
     d.querySelectorAll('script,style').forEach(n => n.remove());
     d.querySelectorAll('br').forEach(n => n.replaceWith('\n'));
     d.querySelectorAll('p,li,h1,h2,h3,div').forEach(n => n.append('\n'));
@@ -211,6 +211,15 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
   function caixa(ctx,x,y,w,h,cor,raio=18) {ctx.fillStyle=cor;ctx.beginPath();ctx.roundRect(x,y,w,h,raio);ctx.fill();}
   function dinheiro(v){return Number(v).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
   // Remove apenas branco conectado à borda. Não altera os arquivos do catálogo.
+  // Fotos tratadas são canvas, sem naturalWidth/naturalHeight.
+  function desenharImagemContida(ctx, imagem, x, y, largura, altura, margem = 0) {
+    const iw=imagem?.naturalWidth || imagem?.width, ih=imagem?.naturalHeight || imagem?.height;
+    if(!iw || !ih)return false;
+    const escala=Math.min(Math.max(1,largura-margem*2)/iw,Math.max(1,altura-margem*2)/ih);
+    const w=iw*escala,h=ih*escala;
+    ctx.drawImage(imagem,x+(largura-w)/2,y+(altura-h)/2,w,h);
+    return true;
+  }
   function removerFundoBranco(imagem) {
     const w=imagem.naturalWidth || imagem.width,h=imagem.naturalHeight || imagem.height;
     if(!w || !h || w*h>16000000)return imagem;
