@@ -47326,10 +47326,10 @@
     "ordem": 124,
     "marca": "Electrolux",
     "modelo": "02543FBA130",
-    "nome": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
-    "nomeOficial": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
+    "nome": "Geladeira Electrolux Frost Free 585L Efficient com AutoSense e Dispenser de Água e Gelo 3 Portas Cor Inox Look (IM8IS)",
+    "nomeOficial": "Geladeira Electrolux Frost Free 585L Efficient com AutoSense e Dispenser de Água e Gelo 3 Portas Cor Inox Look (IM8IS)",
     "nomePlanilha": "GELADEIRA FF INV MLTDOOR 540L IM8IS CIN 127V",
-    "descricao": "<p>Compat&iacute;vel com as geladeiras DM85X, DM86X, DM86V, DM90X, DM91X, DQ90X, IQ8IS, IQ8IB e IM8IS, o filtro de &aacute;gua tem a fun&ccedil;&atilde;o de filtrar impurezas s&oacute;lidas e part&iacute;culas suspensas como barro e &nbsp;areia. Ele tamb&eacute;m auxilia na redu&ccedil;&atilde;o do cloro, inibindo o desenvolvimento de bact&eacute;rias e eliminando poss&iacute;veis odores e sabores.</p> <p>O filtro de &aacute;gua Electrolux foi desenvolvido para atender aos requisitos do controle de N&iacute;vel Microbiol&oacute;gico do Inmetro. Isso garante a sua sa&uacute;de e tamb&eacute;m a da sua fam&iacute;lia.</p> <p>Como possui prazo de validade, o filtro de geladeira precisa ser trocado a cada seis meses ou a cada 757L. Isso porque ap&oacute;s este per&iacute;odo, os microporos do filtro come&ccedil;ar a ficar saturados e n&atilde;o realizam mais a purifica&ccedil;&atilde;o de forma adequada.</p> <p>Aten&ccedil;&atilde;o: Confira as dimens&otilde;es deste produto e certifique-se de que passar&aacute; normalmente por supostos elevadores, portas, escadas e/ou corredores, n&atilde;o nos responsabilizamos por i&ccedil;amento ou servi&ccedil;o de guincho.</p>",
+    "descricao": "<p style=\"text-align:justify\"><span style=\"font-size:16px\">A </span><strong style=\"font-size:16px\">Geladeira Electrolux Multidoor Efficient 585L IM8IS </strong><span style=\"font-size:16px\">possui</span><strong style=\"font-size:16px\"> </strong><span style=\"font-size:16px\">três portas, para garantir mais espaço para armazenar e mais funções destinadas a manter o frescor dos alimentos por mais tempo, além de possuir dispenser de água e gelo direto na porta. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Com a tecnologia exclusiva </span><strong style=\"font-size:16px\">AutoSense</strong><span style=\"font-size:16px\">, a </span><strong style=\"font-size:16px\">Geladeira Electrolux Multidoor Efficient com AutoSense 585L </strong><span style=\"font-size:16px\">ajusta a temperatura automaticamente, garantindo uma melhor preservação dos alimentos por até 30%</span><span style=\"font-size:12px\">2</span><span style=\"font-size:16px\"> mais tempo. A Inteligência Artificial reconhece seus hábitos de consumo, identificando os momentos de maior uso e menor uso da geladeira, deixando-a mais fria ou estabilizando a temperatura.</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">A Gaveta </span><strong style=\"font-size:16px\">HortiNatura </strong><span style=\"font-size:16px\">preserva o frescor de frutas e vegetais por até 2x</span><span style=\"font-size:12px\">3</span><span style=\"font-size:16px\"> mais tempo, evitando o desperdício de alimentos.</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">E como a </span><strong style=\"font-size:16px\">Tecnologia Inverter</strong><span style=\"font-size:16px\"> mantém a temperatura da geladeira mais estável, reduz o consumo de energia em até 26%</span><span style=\"font-size:12px\">4</span><span style=\"font-size:16px\">, além de garantir as condições ideais de preservação dos alimentos.</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">A </span><strong style=\"font-size:16px\">Geladeira Electrolux Multidoor Efficient com AutoSense 585L </strong><span style=\"font-size:16px\">ainda conta com o </span><strong style=\"font-size:16px\">TasteGuard</strong><span style=\"font-size:16px\">, que elimina até 9x</span><span style=\"font-size:12px\">5</span><span style=\"font-size:16px\"> mais rápido os maus odores causados por bactérias, garantindo que sua geladeira permaneça sempre higiênica. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">E a </span><strong style=\"font-size:16px\">Geladeira Electrolux Multidoor Efficient 585L IM8IS </strong><span style=\"font-size:16px\">ainda conta com </span><strong style=\"font-size:16px\">dispenser de água e gelo</strong><span style=\"font-size:16px\">, que possibilita ter água e gelo em cubos, filtrados para consumo imediato direto da porta da geladeira.</span></p>",
     "codigoInfo": "GEL0032",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
@@ -47340,34 +47340,153 @@
       "assets/produtos/02543fba130/galeria-02.jpg",
       "assets/produtos/02543fba130/galeria-03.jpg",
       "assets/produtos/02543fba130/galeria-04.jpg",
-      "assets/produtos/02543fba130/galeria-05.jpg",
-      "assets/produtos/02543fba130/galeria-06.jpg",
-      "assets/produtos/02543fba130/galeria-07.jpg",
-      "assets/produtos/02543fba130/galeria-08.jpg"
+      "assets/produtos/02543fba130/galeria-05.jpg"
     ],
     "siteInfoStore": "https://www.infostore.com.br/geladeira-electrolux-duplex-frost-free-inverter-540l-dispenser-agua-e-gelo-3-portas-im8is-127v-cinza/p",
-    "destaques": [],
+    "destaques": [
+      {
+        "titulo": "202 L",
+        "rotulo": "Capacidade",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox Look",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Tecnologia AutoSense",
+        "rotulo": "Frost Free",
+        "icone": "◇"
+      }
+    ],
     "especificacoes": {
+      "Capacidade": "202 L",
+      "Voltagem": "127V",
+      "Cor": "Inox Look",
+      "Frost Free": "Tecnologia AutoSense",
+      "Eficiência energética": "A",
+      "Peso líquido": "109 kg",
       "Modelo": "02543FBA130",
       "Categoria": "Linha Branca",
       "Código Info Store": "GEL0032"
     },
-    "dimensoes": {},
+    "dimensoes": {
+      "produto": {
+        "largura": "835 mm",
+        "altura": "1900 mm",
+        "profundidade": "760 mm"
+      }
+    },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
-    "documentos": [],
+    "documentos": [
+      {
+        "tipo": "manual",
+        "nome": "Manual do usuário",
+        "descricao": "Documento oficial Electrolux",
+        "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-cba5cded-bfb2-4834-9948-1ffc743494d4&fileName=G0035041_IM_IM8_IM8S_IM8B_IM8IS_IQ8S_IQ8IS_IQ8IB_IQ8WS-585x1296.raw.pdf",
+        "fonte": "Electrolux"
+      }
+    ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "medidasProjeto": {}
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "produto": {
+        "modelo": "02543FBA130",
+        "marca": "Electrolux",
+        "tipo": "geladeira"
+      },
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "835 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada.",
+          "fonte": "CADASTRO_OFICIAL"
+        },
+        "altura": {
+          "valor": "1900 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada.",
+          "fonte": "CADASTRO_OFICIAL"
+        },
+        "profundidade": {
+          "valor": "760 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada.",
+          "fonte": "CADASTRO_OFICIAL"
+        }
+      },
+      "folgas": {},
+      "abertura": {
+        "anguloPorta": {
+          "valor": "90°",
+          "pagina": "Fonte oficial",
+          "referencia": "IM8IS / abertura funcional das gavetas",
+          "status": "CONFIRMADO",
+          "observacao": "A Electrolux informa que todas as gavetas podem ser acessadas com a porta aberta em até 90°. A vista representa essa posição funcional; o fabricante não publica a largura total com as portas abertas.",
+          "fonte": "CADASTRO_OFICIAL"
+        },
+        "representacaoPortas": {
+          "valor": "Duas portas superiores abertas",
+          "pagina": "Fonte oficial",
+          "referencia": "IM8IS / abertura funcional das gavetas",
+          "status": "CONFIRMADO",
+          "observacao": "Representação esquemática da abertura; sem largura ou profundidade total publicada.",
+          "fonte": "CADASTRO_OFICIAL"
+        }
+      },
+      "geometriaInstalacao": {
+        "anguloAbertura": {
+          "valor": "90°",
+          "pagina": "Fonte oficial",
+          "referencia": "IM8IS / abertura funcional das gavetas",
+          "status": "CONFIRMADO",
+          "observacao": "A Electrolux informa que todas as gavetas podem ser acessadas com a porta aberta em até 90°. A vista representa essa posição funcional; o fabricante não publica a largura total com as portas abertas.",
+          "fonte": "CADASTRO_OFICIAL"
+        },
+        "anguloAberturaEsquerda": {
+          "valor": "90°",
+          "pagina": "Fonte oficial",
+          "referencia": "IM8IS / abertura funcional das gavetas",
+          "status": "CONFIRMADO",
+          "observacao": "A Electrolux informa que todas as gavetas podem ser acessadas com a porta aberta em até 90°. A vista representa essa posição funcional; o fabricante não publica a largura total com as portas abertas.",
+          "fonte": "CADASTRO_OFICIAL"
+        },
+        "anguloAberturaDireita": {
+          "valor": "90°",
+          "pagina": "Fonte oficial",
+          "referencia": "IM8IS / abertura funcional das gavetas",
+          "status": "CONFIRMADO",
+          "observacao": "A Electrolux informa que todas as gavetas podem ser acessadas com a porta aberta em até 90°. A vista representa essa posição funcional; o fabricante não publica a largura total com as portas abertas.",
+          "fonte": "CADASTRO_OFICIAL"
+        }
+      },
+      "observacoes": [
+        "Vista superior com portas a 90° representa a posição funcional indicada pela Electrolux para acesso às gavetas.",
+        "A largura e a profundidade totais com portas abertas não foram publicadas; não usar o desenho esquemático como cota de marcenaria."
+      ]
+    }
   },
   {
     "id": "02544fba130",
     "ordem": 123,
     "marca": "Electrolux",
     "modelo": "02544FBA130",
-    "nome": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
-    "nomeOficial": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
+    "nome": "Geladeira Electrolux Frost Free Multidoor com FlexiSpace Home Pro 541L (IQ8IS)",
+    "nomeOficial": "Geladeira Electrolux Frost Free Multidoor com FlexiSpace Home Pro 541L (IQ8IS)",
     "nomePlanilha": "GELADEIRA FF INV MLTDOOR HOME 541L IQ8IS CIN 127V",
-    "descricao": "<p>Compat&iacute;vel com as geladeiras DM85X, DM86X, DM86V, DM90X, DM91X, DQ90X, IQ8IS e IQ8IB, o filtro de &aacute;gua tem a fun&ccedil;&atilde;o de filtrar impurezas s&oacute;lidas e part&iacute;culas suspensas como barro e &nbsp;areia. Ele tamb&eacute;m auxilia na redu&ccedil;&atilde;o do cloro, inibindo o desenvolvimento de bact&eacute;rias e eliminando poss&iacute;veis odores e sabores.</p> <p>O filtro de &aacute;gua Electrolux foi desenvolvido para atender aos requisitos do controle de N&iacute;vel Microbiol&oacute;gico do Inmetro. Isso garante a sua sa&uacute;de e tamb&eacute;m a da sua fam&iacute;lia.</p> <p>Como possui prazo de validade, o filtro de geladeira precisa ser trocado a cada seis meses ou a cada 757L. Isso porque ap&oacute;s este per&iacute;odo, os microporos do filtro come&ccedil;ar a ficar saturados e n&atilde;o realizam mais a purifica&ccedil;&atilde;o de forma adequada.</p> <p>Aten&ccedil;&atilde;o: Confira as dimens&otilde;es deste produto e certifique-se de que passar&aacute; normalmente por supostos elevadores, portas, escadas e/ou corredores, n&atilde;o nos responsabilizamos por i&ccedil;amento ou servi&ccedil;o de guincho.</p>",
+    "descricao": "<p style=\"text-align:justify\"><span style=\"font-size:16px\">A </span><strong style=\"font-size:16px\">Geladeira Electrolux Frost Free Multidoor com FlexiSpace Home Pro 541L (IQ8IS)</strong><span style=\"font-size:16px\"> tem quatro portas e tecnologias especiais para preservar seus alimentos por mais tempo e evitar desperdícios. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">O compartimento </span><strong style=\"font-size:16px\">FlexiSpace</strong><span style=\"font-size:16px\"> é um</span><strong style=\"font-size:16px\"> </strong><span style=\"font-size:16px\">espaço inteligente com 5 opções de temperatura diferentes, para preservar alimentos e bebidas da forma ideal. As temperaturas variam entre freezer (-23°C), carnes e peixes (-2°C), bebidas frias (0°C), alimentos frescos (3°C) e vinhos (7°C). Ou seja, você pode ampliar o espaço da sua geladeira ou o espaço do seu freezer, de acordo com o que quiser armazenar. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Ativando a temperatura </span><strong style=\"font-size:16px\">Carnes e Peixes</strong><span style=\"font-size:16px\"> (-2°C) do compartimento FlexiSpace, você mantém 97%¹ das proteínas das carnes e preserva por mais tempo a maciez e o sabor originais. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Já a tecnologia exclusiva da Electrolux, </span><strong style=\"font-size:16px\">AutoSense</strong><span style=\"font-size:16px\">, controla a temperatura automaticamente, usando inteligência artificial e prolonga a vida dos alimentos por até 30%² mais tempo, evitando desperdícios. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Essa função reconhece sua rotina diária e seus hábitos de consumo. Assim, é possível identificar os momentos de maior e menor uso da geladeira, mantendo a temperatura ou deixando-a mais fria. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">A gaveta </span><strong style=\"font-size:16px\">TasteLock</strong><span style=\"font-size:16px\"> possui vedação especial e controle automático de umidade, que mantém frutas e vegetais mais frescos por até 14 dias³. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">A </span><strong style=\"font-size:16px\">Tecnologia Inverter</strong><span style=\"font-size:16px\"> mantém a temperatura da geladeira mais estável, com redução do consumo de energia, além de garantir condições ideais para preservar os alimentos. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">O </span><strong style=\"font-size:16px\">TasteGuard</strong><span style=\"font-size:16px\"> elimina até 9×</span><em style=\"font-size:12px\">4</em><span style=\"font-size:16px\"> mais rápido os maus odores causados por bactérias, garantindo que sua geladeira permaneça sempre higiênica. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Já o filtro de ar </span><strong style=\"font-size:16px\">ExtraFresh</strong><span style=\"font-size:16px\"> absorve até 90%</span><em style=\"font-size:12px\">5</em><span style=\"font-size:16px\"> do gás etileno, para desacelerar o amadurecimento de frutas e vegetais e deixá-los mais frescos por mais tempo. </span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Com o </span><strong style=\"font-size:16px\">Dispenser de água e gelo</strong><span style=\"font-size:16px\"> na porta da geladeira, seu dia a dia fica ainda mais prático. Você pode obter gelo em cubos, filtrados e prontos para o consumo a qualquer hora. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Além de todas as funcionalidades da </span><strong style=\"font-size:16px\">Geladeira Home Pro com FlexiSpace IQ8IS</strong><span style=\"font-size:16px\">, a </span><strong style=\"font-size:16px\">prateleira retrátil</strong><span style=\"font-size:16px\"> e </span><strong style=\"font-size:16px\">FastAdapt</strong><span style=\"font-size:16px\"> possibilitam diferentes configurações internas para armazenar alimentos de diversos tamanhos e formatos. </span></p><br/>É recomendado o uso de acessórios originais Electrolux.<br/><br/><strong>¹</strong><br/>Resultados obtidos em testes realizados pela FURB (Universidade Regional de Blumenau), durante 7 dias utilizando o ajuste de temperatura na função Carnes.<br/><strong>²</strong><br/>Resultados obtidos em testes realizados pela FURB (Universidade Regional de Blumenau) com morangos e leite.<br/><strong>³</strong><br/>Resultados obtidos em testes realizados pela FURB (Universidade Regional de Blumenau), durante 14 dias utilizando cogumelos e 10 dias utilizando morango e alface.<br/><strong>4</strong><br/>Comparado ao uso do bicarbonato de sódio, segundo procedimento interno testado no DM90X.<br/><strong>5</strong><br/>Resultado obtido com o uso correto do filtro em compartimento totalmente selado.<span style=\"font-size:16px\"> </span>",
     "codigoInfo": "GEL0033",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
@@ -47375,31 +47494,129 @@
     "imagem": "assets/produtos/02544fba130/principal.jpg",
     "imagens": [
       "assets/produtos/02544fba130/principal.jpg",
-      "assets/produtos/02544fba130/galeria-02.jpg"
+      "assets/produtos/02544fba130/galeria-02.jpg",
+      "assets/produtos/02544fba130/galeria-03.jpg",
+      "assets/produtos/02544fba130/galeria-04.jpg",
+      "assets/produtos/02544fba130/galeria-05.jpg"
     ],
     "siteInfoStore": "",
-    "destaques": [],
+    "destaques": [
+      {
+        "titulo": "191 L",
+        "rotulo": "Capacidade",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Inox",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Compartimento Inteligente",
+        "rotulo": "Frost Free",
+        "icone": "◇"
+      },
+      {
+        "titulo": "R600a",
+        "rotulo": "Gás refrigerante",
+        "icone": "◇"
+      }
+    ],
     "especificacoes": {
+      "Capacidade": "191 L",
+      "Voltagem": "127V",
+      "Cor": "Inox",
+      "Frost Free": "Compartimento Inteligente",
+      "Gás refrigerante": "R600a",
+      "Eficiência energética": "A+++",
+      "Peso líquido": "115 kg",
       "Modelo": "02544FBA130",
       "Categoria": "Linha Branca",
       "Código Info Store": "GEL0033"
     },
-    "dimensoes": {},
+    "dimensoes": {
+      "produto": {
+        "largura": "835 mm",
+        "altura": "1900 mm",
+        "profundidade": "760 mm"
+      }
+    },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
-    "documentos": [],
+    "documentos": [
+      {
+        "tipo": "manual",
+        "nome": "Manual do usuário",
+        "descricao": "Documento oficial Electrolux",
+        "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-cba5cded-bfb2-4834-9948-1ffc743494d4&fileName=G0035041_IM_IM8_IM8S_IM8B_IM8IS_IQ8S_IQ8IS_IQ8IB_IQ8WS-583x1296.raw.pdf",
+        "fonte": "Electrolux"
+      }
+    ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "medidasProjeto": {}
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "produto": {
+        "modelo": "02544FBA130",
+        "marca": "Electrolux",
+        "tipo": "geladeira"
+      },
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "835 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada.",
+          "fonte": "CADASTRO_OFICIAL"
+        },
+        "altura": {
+          "valor": "1900 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada.",
+          "fonte": "CADASTRO_OFICIAL"
+        },
+        "profundidade": {
+          "valor": "760 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada.",
+          "fonte": "CADASTRO_OFICIAL"
+        }
+      },
+      "folgas": {},
+      "abertura": {
+        "representacaoPortas": {
+          "valor": "Quatro portas com abertura lateral",
+          "pagina": "Fonte oficial",
+          "referencia": "IQ8IS / configuração oficial de quatro portas",
+          "status": "CONFIRMADO",
+          "observacao": "A ficha oficial confirma a configuração Multidoor de quatro portas. O fabricante não publica cota total nem ângulo de abertura para este modelo; por isso, o giro é apenas esquemático.",
+          "fonte": "CADASTRO_OFICIAL"
+        }
+      },
+      "geometriaInstalacao": {},
+      "observacoes": [
+        "Vista superior com as portas abertas em representação esquemática da configuração Multidoor.",
+        "Não usar o giro desenhado como cota de marcenaria: o ângulo e as dimensões totais com portas abertas não foram publicados."
+      ]
+    }
   },
   {
     "id": "02547fba135",
     "ordem": 122,
     "marca": "Electrolux",
     "modelo": "02547FBA135",
-    "nome": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
-    "nomeOficial": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
+    "nome": "Geladeira Electrolux Frost Free Multidoor com FlexiSpace Pro Series 583L (IQ8IB)",
+    "nomeOficial": "Geladeira Electrolux Frost Free Multidoor com FlexiSpace Pro Series 583L (IQ8IB)",
     "nomePlanilha": "GELADEIRA FF INV MLTDOOR SERIES 541L IQ8IB PRE 127",
-    "descricao": "<p>Compat&iacute;vel com as geladeiras DM85X, DM86X, DM86V, DM90X, DM91X, DQ90X, IQ8IS e IQ8IB, o filtro de &aacute;gua tem a fun&ccedil;&atilde;o de filtrar impurezas s&oacute;lidas e part&iacute;culas suspensas como barro e &nbsp;areia. Ele tamb&eacute;m auxilia na redu&ccedil;&atilde;o do cloro, inibindo o desenvolvimento de bact&eacute;rias e eliminando poss&iacute;veis odores e sabores.</p> <p>O filtro de &aacute;gua Electrolux foi desenvolvido para atender aos requisitos do controle de N&iacute;vel Microbiol&oacute;gico do Inmetro. Isso garante a sua sa&uacute;de e tamb&eacute;m a da sua fam&iacute;lia.</p> <p>Como possui prazo de validade, o filtro de geladeira precisa ser trocado a cada seis meses ou a cada 757L. Isso porque ap&oacute;s este per&iacute;odo, os microporos do filtro come&ccedil;ar a ficar saturados e n&atilde;o realizam mais a purifica&ccedil;&atilde;o de forma adequada.</p> <p>Aten&ccedil;&atilde;o: Confira as dimens&otilde;es deste produto e certifique-se de que passar&aacute; normalmente por supostos elevadores, portas, escadas e/ou corredores, n&atilde;o nos responsabilizamos por i&ccedil;amento ou servi&ccedil;o de guincho.</p>",
+    "descricao": "<p style=\"text-align:justify\"><span style=\"font-size:16px\">A </span><strong style=\"font-size:16px\">Geladeira Electrolux Frost Free Multidoor com FlexiSpace Pro Series 583L (IQ8IB)</strong><span style=\"font-size:16px\"> tem quatro portas e tecnologias especiais para preservar seus alimentos por mais tempo e evitar desperdícios.</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Além disso, seu design moderno e elegante na cor preta entrega sofisticação para sua cozinha, com acabamento externo em vidro preto e detalhes em light gold.</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">O compartimento </span><strong style=\"font-size:16px\">FlexiSpace </strong><span style=\"font-size:16px\">é um</span><strong style=\"font-size:16px\"> </strong><span style=\"font-size:16px\">espaço inteligente com 5 diferentes opções de temperatura, para preservar alimentos e bebidas da forma ideal. As temperaturas variam entre freezer (-23°C), carnes e peixes (-2°C), bebidas frias (0°C), alimentos frescos (3°C) e vinhos (7°C).? Ou seja, você pode ampliar o espaço da sua geladeira ou o espaço do seu freezer, de acordo com o que quiser armazenar.</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Ativando a temperatura </span><strong style=\"font-size:16px\">Carnes e Peixes</strong><span style=\"font-size:16px\"> (-2°C) do compartimento FlexiSpace, você mantém 97%</span><span style=\"font-size:12px\">1</span><span style=\"font-size:16px\"> das proteínas das carnes e preserva por mais tempo a maciez e o sabor originais.</span></p><p style=\"text-align:justify\"><strong style=\"font-size:16px\"> </strong></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Já a tecnologia exclusiva Electrolux </span><strong style=\"font-size:16px\">AutoSense</strong><span style=\"font-size:16px\"> controla a temperatura automaticamente usando Inteligência Artificial e prolonga a vida dos alimentos por até 30%² mais tempo, evitando desperdícios. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Essa função reconhece sua rotina diária e seus hábitos de consumo. Assim, é possível identificar os momentos de maior e menor uso da geladeira, mantendo a temperatura ou deixando-a mais fria. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">A gaveta </span><strong style=\"font-size:16px\">TasteLock</strong><span style=\"font-size:16px\"> possui vedação especial e controle automático de umidade, que mantém frutas e vegetais mais frescos por até 14 dias³.</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">A </span><strong style=\"font-size:16px\">Tecnologia Inverter</strong><span style=\"font-size:16px\"> mantém a temperatura da geladeira mais estável, com redução do consumo de energia e economia de até 25%</span><em style=\"font-size:12px\">4</em><span style=\"font-size:16px\">, além de garantir condições ideais para preservar os alimentos.</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">O</span><strong style=\"font-size:16px\"> TasteGuard </strong><span style=\"font-size:16px\">elimina até 9x</span><em style=\"font-size:12px\">5</em><span style=\"font-size:16px\"> mais rápido os maus odores causados por bactérias, garantindo que sua geladeira permaneça sempre higiênica. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Já o filtro de ar </span><strong style=\"font-size:16px\">ExtraFresh</strong><span style=\"font-size:16px\"> absorve até 90%</span><em style=\"font-size:12px\">6</em><span style=\"font-size:16px\"> do gás etileno, para desacelerar o amadurecimento de frutas e vegetais e deixá-los mais frescos por mais tempo.</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Com o </span><strong style=\"font-size:16px\">Dispenser de água e gelo</strong><span style=\"font-size:16px\"> na porta da geladeira, seu dia a dia fica ainda mais prático. Você pode obter gelo em cubos, filtrados e prontos para o consumo, a qualquer hora. </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\"> </span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Além de todas as funcionalidades da </span><strong style=\"font-size:16px\">Geladeira Pro Series com FlexiSpace IQ8IB</strong><span style=\"font-size:16px\">, a </span><strong style=\"font-size:16px\">prateleira retrátil </strong><span style=\"font-size:16px\">e</span><strong style=\"font-size:16px\"> FastAdapt</strong><span style=\"font-size:16px\"> possibilitam diferentes configurações internas para armazenar alimentos de diversos tamanhos e formatos.</span></p><br/><span style=\"font-size:16px\">É recomendado o uso de acessórios originais Electrolux.</span><br/><br/><strong>¹</strong><br/>Resultados obtidos em testes realizados pela FURB (Universidade Regional de Blumenau), durante 7 dias utilizando o ajuste de temperatura na função Carnes.<br/><strong>²</strong><br/>Resultados obtidos em testes realizados pela FURB (Universidade Regional de Blumenau) com morangos e leite.<br/><strong>³</strong><br/>Resultados obtidos em testes realizados pela FURB (Universidade Regional de Blumenau), durante 14 dias utilizando cogumelos e 10 dias utilizando morango e alface.<br/><strong>4</strong><br/>Em relação ao mínimo para a classificação C.<br/><strong>5</strong><br/>Comparado ao uso do bicarbonato de sódio, segundo procedimento interno testado no DM90X.<br/><strong>6</strong><br/>Resultado obtido com o uso correto do filtro em compartimento totalmente selado.",
     "codigoInfo": "GEL0034",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
@@ -47410,24 +47627,116 @@
       "assets/produtos/02547fba135/galeria-02.jpg",
       "assets/produtos/02547fba135/galeria-03.jpg",
       "assets/produtos/02547fba135/galeria-04.jpg",
-      "assets/produtos/02547fba135/galeria-05.jpg",
-      "assets/produtos/02547fba135/galeria-06.jpg",
-      "assets/produtos/02547fba135/galeria-07.jpg",
-      "assets/produtos/02547fba135/galeria-08.jpg"
+      "assets/produtos/02547fba135/galeria-05.jpg"
     ],
     "siteInfoStore": "https://www.infostore.com.br/geladeira-electrolux-4-portas-frost-free-inverter-541l-experience-com-flexispace-pro-series-iq8ib-127v-preta/p",
-    "destaques": [],
+    "destaques": [
+      {
+        "titulo": "191 L",
+        "rotulo": "Capacidade",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Vidro preto",
+        "rotulo": "Cor",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Compartimento Inteligente",
+        "rotulo": "Frost Free",
+        "icone": "◇"
+      },
+      {
+        "titulo": "R600a",
+        "rotulo": "Gás refrigerante",
+        "icone": "◇"
+      }
+    ],
     "especificacoes": {
+      "Capacidade": "191 L",
+      "Voltagem": "127V",
+      "Cor": "Vidro preto",
+      "Frost Free": "Compartimento Inteligente",
+      "Gás refrigerante": "R600a",
+      "Eficiência energética": "A",
+      "Peso líquido": "115 kg",
       "Modelo": "02547FBA135",
       "Categoria": "Linha Branca",
       "Código Info Store": "GEL0034"
     },
-    "dimensoes": {},
+    "dimensoes": {
+      "produto": {
+        "largura": "835 mm",
+        "altura": "1900 mm",
+        "profundidade": "760 mm"
+      }
+    },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
-    "documentos": [],
+    "documentos": [
+      {
+        "tipo": "manual",
+        "nome": "Manual do usuário",
+        "descricao": "Documento oficial Electrolux",
+        "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-cba5cded-bfb2-4834-9948-1ffc743494d4&fileName=G0035041_IM_IM8_IM8S_IM8B_IM8IS_IQ8S_IQ8IS_IQ8IB_IQ8WS-583x1296.raw.pdf",
+        "fonte": "Electrolux"
+      }
+    ],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": true,
-    "medidasProjeto": {}
+    "revisaoPendente": false,
+    "medidasProjeto": {
+      "produto": {
+        "modelo": "02547FBA135",
+        "marca": "Electrolux",
+        "tipo": "geladeira"
+      },
+      "dimensoesProduto": {
+        "largura": {
+          "valor": "835 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada.",
+          "fonte": "CADASTRO_OFICIAL"
+        },
+        "altura": {
+          "valor": "1900 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada.",
+          "fonte": "CADASTRO_OFICIAL"
+        },
+        "profundidade": {
+          "valor": "760 mm",
+          "pagina": "Fonte oficial",
+          "referencia": "Cadastro dimensional oficial do produto",
+          "status": "CONFIRMADO",
+          "observacao": "Cota básica proveniente da ficha oficial cadastrada.",
+          "fonte": "CADASTRO_OFICIAL"
+        }
+      },
+      "folgas": {},
+      "abertura": {
+        "representacaoPortas": {
+          "valor": "Quatro portas com abertura lateral",
+          "pagina": "Fonte oficial",
+          "referencia": "IQ8IB / configuração oficial de quatro portas",
+          "status": "CONFIRMADO",
+          "observacao": "A ficha oficial confirma a configuração Multidoor de quatro portas. O fabricante não publica cota total nem ângulo de abertura para este modelo; por isso, o giro é apenas esquemático.",
+          "fonte": "CADASTRO_OFICIAL"
+        }
+      },
+      "geometriaInstalacao": {},
+      "observacoes": [
+        "Vista superior com as portas abertas em representação esquemática da configuração Multidoor.",
+        "Não usar o giro desenhado como cota de marcenaria: o ângulo e as dimensões totais com portas abertas não foram publicados."
+      ]
+    }
   },
   {
     "id": "02500fba130",
@@ -58873,23 +59182,7 @@
       "assets/produtos/09140gbc006/revisao-20261013-08.jpg"
     ],
     "siteInfoStore": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12b-bivolt-branco/p",
-    "destaques": [
-      {
-        "titulo": "Branco",
-        "rotulo": "Cor",
-        "icone": "◇"
-      },
-      {
-        "titulo": "Bivolt",
-        "rotulo": "Voltagem",
-        "icone": "◇"
-      },
-      {
-        "titulo": "Eletrônico",
-        "rotulo": "Tecnologia",
-        "icone": "◇"
-      }
-    ],
+    "destaques": [],
     "especificacoes": {
       "Modelo comercial": "PE12B",
       "Voltagem": "Bivolt",
@@ -58906,21 +59199,15 @@
       "Cor": "Branco",
       "Recursos": "Coletor de água removível; Fácil troca do filtro; Fluxo contínuo; Luz indicadora de filtro saturado; Pés de borracha anti-derrapante; Resfriamento da água; Água natural ou gelada; Elimina odores e Impurezas",
       "Modelo": "09140GBC006",
-      "Código Info Store": "POR0079"
+      "Código Info Store": "POR0079",
+      "Categoria": "Eletroportáteis",
+      "Dimensões do produto (L × A × P)": "160 mm × 350 mm × 420 mm"
     },
-    "dimensoes": {
-      "produto": {
-        "altura": "350 mm",
-        "largura": "160 mm",
-        "profundidade": "420 mm"
-      }
-    },
+    "dimensoes": {},
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "imagemAmbiente": "",
-    "pendencias": []
+    "revisaoPendente": false
   },
   {
     "id": "4910aobr403",
@@ -59269,23 +59556,7 @@
       "assets/produtos/09140gbc085/revisao-20261013-08.jpg"
     ],
     "siteInfoStore": "https://www.infostore.com.br/purificador-electrolux-pure-4x-agua-gelada--fria-e-natural-com-painel-touch-pe12g-bivolt-cinza/p",
-    "destaques": [
-      {
-        "titulo": "Cinza",
-        "rotulo": "Cor",
-        "icone": "◇"
-      },
-      {
-        "titulo": "Bivolt",
-        "rotulo": "Voltagem",
-        "icone": "◇"
-      },
-      {
-        "titulo": "Eletrônico",
-        "rotulo": "Tecnologia",
-        "icone": "◇"
-      }
-    ],
+    "destaques": [],
     "especificacoes": {
       "Modelo comercial": "PE12G",
       "Voltagem": "Bivolt",
@@ -59302,21 +59573,15 @@
       "Cor": "Cinza",
       "Recursos": "Coletor de água removível; Fácil troca do filtro; Fluxo contínuo; Luz indicadora de filtro saturado; Pés de borracha anti-derrapante; Resfriamento da água; Água natural ou gelada; Elimina odores e Impurezas",
       "Modelo": "09140GBC085",
-      "Código Info Store": "POR0094"
+      "Código Info Store": "POR0094",
+      "Categoria": "Eletroportáteis",
+      "Dimensões do produto (L × A × P)": "160 mm × 350 mm × 420 mm"
     },
-    "dimensoes": {
-      "produto": {
-        "altura": "350 mm",
-        "largura": "160 mm",
-        "profundidade": "420 mm"
-      }
-    },
+    "dimensoes": {},
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "imagemAmbiente": "",
-    "pendencias": []
+    "revisaoPendente": false
   },
   {
     "id": "4340ajbr483",
@@ -59742,28 +60007,7 @@
       "assets/produtos/p30eba51n09/revisao-20261013-07.jpg"
     ],
     "siteInfoStore": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01x-127v-grafite/p",
-    "destaques": [
-      {
-        "titulo": "Grafite",
-        "rotulo": "Cor",
-        "icone": "◇"
-      },
-      {
-        "titulo": "127V",
-        "rotulo": "Voltagem",
-        "icone": "◇"
-      },
-      {
-        "titulo": "75W",
-        "rotulo": "Potência",
-        "icone": "◇"
-      },
-      {
-        "titulo": "Compressor",
-        "rotulo": "Tecnologia",
-        "icone": "◇"
-      }
-    ],
+    "destaques": [],
     "especificacoes": {
       "Modelo comercial": "PC01X",
       "Voltagem": "127V",
@@ -59782,21 +60026,15 @@
       "Cor": "Grafite",
       "Recursos": "Fluxo contínuo; Luz indicadora de filtro saturado; Pés de borracha anti-derrapante; Suportes para fixação em parede; Água natural ou gelada; Elimina odores e Impurezas; Acesso ao tanque para limpeza; Bandeja removível; Gás Ecológico",
       "Modelo": "P30EBA51N09",
-      "Código Info Store": "POR0130"
+      "Código Info Store": "POR0130",
+      "Categoria": "Eletroportáteis",
+      "Dimensões do produto (L × A × P)": "229 mm × 381 mm × 472 mm"
     },
-    "dimensoes": {
-      "produto": {
-        "altura": "381 mm",
-        "largura": "229 mm",
-        "profundidade": "472 mm"
-      }
-    },
+    "dimensoes": {},
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "imagemAmbiente": "",
-    "pendencias": []
+    "revisaoPendente": false
   },
   {
     "id": "p30eba51n06",
@@ -59822,28 +60060,7 @@
       "assets/produtos/p30eba51n06/revisao-20261013-07.jpg"
     ],
     "siteInfoStore": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada--fria-e-natural-experience-com-compressor-pc01b-127v-branco/p",
-    "destaques": [
-      {
-        "titulo": "Branco",
-        "rotulo": "Cor",
-        "icone": "◇"
-      },
-      {
-        "titulo": "127V",
-        "rotulo": "Voltagem",
-        "icone": "◇"
-      },
-      {
-        "titulo": "75W",
-        "rotulo": "Potência",
-        "icone": "◇"
-      },
-      {
-        "titulo": "Compressor",
-        "rotulo": "Tecnologia",
-        "icone": "◇"
-      }
-    ],
+    "destaques": [],
     "especificacoes": {
       "Modelo comercial": "PC01B",
       "Voltagem": "127V",
@@ -59862,21 +60079,15 @@
       "Cor": "Branco",
       "Recursos": "Fluxo contínuo; Luz indicadora de filtro saturado; Pés de borracha anti-derrapante; Suportes para fixação em parede; Água natural ou gelada; Elimina odores e Impurezas; Acesso ao tanque para limpeza; Bandeja removível; Gás Ecológico",
       "Modelo": "P30EBA51N06",
-      "Código Info Store": "POR0131"
+      "Código Info Store": "POR0131",
+      "Categoria": "Eletroportáteis",
+      "Dimensões do produto (L × A × P)": "229 mm × 381 mm × 434 mm"
     },
-    "dimensoes": {
-      "produto": {
-        "altura": "381 mm",
-        "largura": "229 mm",
-        "profundidade": "434 mm"
-      }
-    },
+    "dimensoes": {},
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "imagemAmbiente": "",
-    "pendencias": []
+    "revisaoPendente": false
   },
   {
     "id": "p15eba00c35",
@@ -59902,23 +60113,7 @@
       "assets/produtos/p15eba00c35/revisao-20261013-07.jpg"
     ],
     "siteInfoStore": "https://www.infostore.com.br/purificador-de-agua-electrolux-gelada-3-niveis-efficient-eletronico-pe15p-bivolt-preto/p",
-    "destaques": [
-      {
-        "titulo": "Preto",
-        "rotulo": "Cor",
-        "icone": "◇"
-      },
-      {
-        "titulo": "Bivolt",
-        "rotulo": "Voltagem",
-        "icone": "◇"
-      },
-      {
-        "titulo": "70W",
-        "rotulo": "Potência",
-        "icone": "◇"
-      }
-    ],
+    "destaques": [],
     "especificacoes": {
       "Modelo comercial": "PE15P",
       "Voltagem": "Bivolt",
@@ -59930,21 +60125,15 @@
       "Cor": "Preto",
       "Recursos": "Fluxo contínuo; Luz indicadora de filtro saturado; Painel Blue Touch; Pés de borracha anti-derrapante; Bica articulável; Água natural ou gelada; Elimina odores e Impurezas; Acesso ao tanque para limpeza; Bandeja removível",
       "Modelo": "P15EBA00C35",
-      "Código Info Store": "POR0132"
+      "Código Info Store": "POR0132",
+      "Categoria": "Eletroportáteis",
+      "Dimensões do produto (L × A × P)": "178 mm × 360 mm × 422 mm"
     },
-    "dimensoes": {
-      "produto": {
-        "altura": "360 mm",
-        "largura": "178 mm",
-        "profundidade": "422 mm"
-      }
-    },
+    "dimensoes": {},
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "imagemAmbiente": "",
-    "pendencias": []
+    "revisaoPendente": false
   },
   {
     "id": "4910anbr405",
@@ -60742,13 +60931,7 @@
       "assets/produtos/p40eba60009/revisao-20261013-08.jpg"
     ],
     "siteInfoStore": "https://www.infostore.com.br/purificador-de-agua-electrolux-efficient-compacto-agua-natural-com-tecnologia-acqua-pure-pn10x-pilha-preto/p",
-    "destaques": [
-      {
-        "titulo": "Preto",
-        "rotulo": "Cor",
-        "icone": "◇"
-      }
-    ],
+    "destaques": [],
     "especificacoes": {
       "Modelo comercial": "PN10X",
       "TIPO": "Purificador de Água",
@@ -60761,21 +60944,15 @@
       "Cor": "Preto",
       "Recursos": "Tecnologia Acqua Pure • Design compacto • Filtragem de água natural • Fácil troca de refil",
       "Modelo": "P40EBA60009",
-      "Código Info Store": "POR0212"
+      "Código Info Store": "POR0212",
+      "Categoria": "Eletroportáteis",
+      "Dimensões do produto (L × A × P)": "144 mm × 330 mm × 209 mm"
     },
-    "dimensoes": {
-      "produto": {
-        "altura": "330 mm",
-        "largura": "144 mm",
-        "profundidade": "209 mm"
-      }
-    },
+    "dimensoes": {},
     "instalacao": "",
     "documentos": [],
     "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "imagemAmbiente": "",
-    "pendencias": []
+    "revisaoPendente": false
   },
   {
     "id": "a27329401",
@@ -68471,45 +68648,70 @@
     "ordem": 8,
     "marca": "Electrolux",
     "modelo": "1512QDBA199",
-    "nome": "Kit Junção para Lavadora e Secadoras Frontais SFP12/LFE11, LFB12 e LFC12",
-    "nomeOficial": "Kit Junção para Lavadora e Secadoras Frontais SFP12/LFE11, LFB12 e LFC12",
+    "nome": "Máquina de Lavar Frontal Electrolux 12kg Cinza Ônix Inverter com Água Quente e Lavagem Inteligente (LFC12)",
+    "nomeOficial": "Máquina de Lavar Frontal Electrolux 12kg Cinza Ônix Inverter com Água Quente e Lavagem Inteligente (LFC12)",
     "nomePlanilha": "MAQ LAV FL 12KG INV 12KG LFC12 CIN 127V",
-    "descricao": "<p style=\"text-align:justify\"><span style=\"font-size:16px\">Integração perfeita para uma lavanderia mais organizada</span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Organizar a lavanderia também faz parte de uma Casa Bem Vivida. O Kit Junção Electrolux foi desenvolvido para integrar lavadora e secadora com encaixe preciso, estabilidade e segurança, preservando a configuração original dos produtos e garantindo desempenho consistente ao longo do tempo.</span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Projetado pela própria Electrolux, o kit é compatível com modelos atuais e futuros lançamentos, oferecendo uma solução pensada sob medida para a instalação em torre. Essa integração otimiza o espaço, especialmente em lavanderias compactas, sem comprometer segurança ou funcionalidade.</span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Fabricado em metal galvanizado, o kit conta com estrutura robusta que assegura firmeza para os aparelhos empilhados. A pintura eletrostática branca adiciona uma camada extra de proteção contra corrosão, contribuindo para maior durabilidade e acabamento refinado.</span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Desenvolvido para oferecer compatibilidade, estabilidade e confiança na instalação, o Kit Junção Electrolux é a escolha ideal para quem busca organização inteligente, segurança e integração perfeita na lavanderia.</span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><strong style=\"font-size:16px\">COMPATÍVEL COM</strong></p><p style=\"text-align:justify\"><strong style=\"font-size:16px\">secadora modelo SFP12 e lavadoras modelos LFE11, LFB12 e LFC12.</strong></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><strong style=\"font-size:16px\">Especificação técnicas</strong></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><strong style=\"font-size:16px\">Conteúdo da embalagem</strong></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">01 Kit junção para lavadora e secadora frontais</span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><strong style=\"font-size:16px\">Embalado</strong></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Altura 55,4 cm</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Largura 59,9 cm</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Profundidade 3,5 cm</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Peso 2,0 kg</span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><strong style=\"font-size:16px\">Desembalado</strong></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Altura 55,4 cm</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Largura 59,9 cm</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Profundidade 3,5 cm</span></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Peso 1,97 kg</span></p><br/>",
+    "descricao": "<p style=\"text-align:justify\"><span style=\"font-size:16px\">Descubra a inovação e o cuidado superior que a </span><strong style=\"font-size:16px\">Máquina de Lavar Frontal Electrolux 12kg Cinza Ônix Inverter com Água Quente e Lavagem Inteligente (LFC12)?</strong><span style=\"font-size:16px\"> oferece.</span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">O ciclo </span><strong style=\"font-size:16px\">Tira Manchas </strong><span style=\"font-size:16px\">oferece máximo desempenho e remove até 4x¹ mais as manchas difíceis. Resultado da união entre cuidado e tecnologia, esta máquina de lavar inteligente conta com a </span><strong style=\"font-size:16px\">Tecnologia AutoSense</strong><span style=\"font-size:16px\">, que promove uma lavagem com ciclos personalizados, economizando até 40% de tempo, água e energia². Seus sensores ajustam automaticamente o tempo e o consumo de água e energia para lavar suas roupas na medida certa, sem desgastar, garantindo o tratamento ideal para cada peça e aquela sensação de roupa nova por mais tempo. </span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">A </span><strong style=\"font-size:16px\">Tecnologia Vapor Care</strong><span style=\"font-size:16px\"> oferece benefícios extras para o cuidado e a limpeza profunda de suas roupas. Isso é possível por conta da tecnologia 3 em 1: higieniza, tira odor e desamassa. O ponto alto fica por conta da neutralização dos maus odores e de deixar as roupas até </span><strong style=\"font-size:16px\">57% menos amassadas³,</strong><span style=\"font-size:16px\"> garantindo um cuidado superior sem esforço. Além disso, elimina até 99,9% dos germes e alérgenos</span><span style=\"font-size:12px\">4</span><span style=\"font-size:16px\">, proporcionando uma higienização completa da sua roupa após a lavagem. </span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Conte com um produto que lava suas roupas com um cuidado superior</span><strong style=\"font-size:16px\"> </strong><span style=\"font-size:16px\">e que possui soluções inteligentes, como a</span><strong style=\"font-size:16px\"> Tecnologia Color Care, </strong><span style=\"font-size:16px\">que</span><strong style=\"font-size:16px\"> </strong><span style=\"font-size:16px\">mantém suas roupas coloridas e vibrantes por muito mais tempo, reduzindo em até 70% o desbotamento e 26% o desgaste dos tecidos</span><span style=\"font-size:12px\">5</span><span style=\"font-size:16px\">. </span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">O </span><strong style=\"font-size:16px\">Painel Full Touch</strong><span style=\"font-size:16px\"> integra-se ao design sofisticado que a Electrolux proporciona para você. Intuitivo e fácil de usar, permite a seleção do programa ideal para cada tipo de roupa. Tecnologia e estética se unem para elevar sua experiência no cuidado com cada peça. </span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Precisa de roupas prontas rapidamente? O </span><strong style=\"font-size:16px\">Programa Rápido 15 min </strong><span style=\"font-size:16px\">oferece uma lavagem rápida para roupas do dia a dia. </span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">O </span><strong style=\"font-size:16px\">Programa Edredom</strong><span style=\"font-size:16px\"> é ideal para lavar itens volumosos de cama e banho, jeans e casacos mais pesados, que podem ser lavados sem preocupação no conforto da sua casa</span><span style=\"font-size:12px\">6</span><span style=\"font-size:16px\">. </span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Com o </span><strong style=\"font-size:16px\">Programa Roupas Brancas</strong><span style=\"font-size:16px\">, você garante uma lavagem mais profunda, mantendo as roupas brancas impecáveis com muito mais facilidade. Isso é possível graças à função</span><strong style=\"font-size:16px\"> Molho Extra</strong><span style=\"font-size:16px\">, que proporciona uma ação química mais profunda nos tecidos, com todo o cuidado que suas roupas merecem. </span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><span style=\"font-size:16px\">Com a </span><strong style=\"font-size:16px\">Tecnologia Inverter</strong><span style=\"font-size:16px\">, você conta com um motor de alta qualidade, eficiente e silencioso, respaldado por uma garantia de 10 anos, além de um menor consumo de energia, com até 40% de economia</span><span style=\"font-size:12px\">7</span><span style=\"font-size:16px\">. O </span><strong style=\"font-size:16px\">Adiar fim </strong><span style=\"font-size:16px\">permite que você ajuste o fim da lavagem para quando for mais conveniente. Se você esqueceu de colocar alguma peça na máquina, a função </span><strong style=\"font-size:16px\">Adicionar Roupas</strong><span style=\"font-size:16px\"> permite que pause e adicione a roupa nos estágios iniciais da lavagem. </span></p><p style=\"text-align:justify\"><br/></p><p style=\"text-align:justify\"><strong style=\"font-size:16px\">Produto feito no Brasil, peças e acessórios mais perto de você. </strong><span style=\"font-size:16px\"> E o melhor? É que a Electrolux é </span><strong style=\"font-size:16px\">referência em pós-venda,</strong><span style=\"font-size:16px\"> garantindo todo o cuidado que você merece, com o melhor suporte, qualidade e garantia sem complicações após a compra. </span></p><p style=\"text-align:justify\"><br/></p><br/><span style=\"font-size:16px\">É recomendado o uso de acessórios originais Electrolux.</span><br/><br/><strong>¹</strong><br/>Comparando a eficiência de remoção de manchas no programa Intenso/Tira Manchas, configuração Super Quente com o programa Normal, configuração padrão; carga média de algodão, de acordo com o protocolo de teste interno.<br/><strong>²</strong><br/>Economia comparando lavagem de 1 kg de roupas mistas no programa Normal (seleção padrão) com 5 kg de carga mista, mesmo programa.<br/><strong>³</strong><br/>De acordo com o teste externo realizado pelo Swissatest Testmaterialien AG Institute, para a combinação do programa Intenso/Tira Manchas mais a opção Higienizar Roupas ativada, carga média de algodão.<br/><strong style=\"font-size:12px\">4</strong><br/>Neutraliza odor de cigarro e reduz o amassamento das roupas usando o programa Vapor Tira Odor, com cerca de 1 kg de tecido 100% algodão.<br/><strong style=\"font-size:12px\">5</strong><br/>De acordo com protocolo interno, comparando o desbotamento e desgaste do tecido após lavagem no programa \"Normal\" configuração padrão; 3 kg de carga padronizada com amostras coloridas e de desgaste versus lavagem no programa \"Normal\", configuração \"Quente\", nas mesmas condições de teste\".<br/><strong style=\"font-size:12px\">6</strong><br/>Considerando o tamanho do edredom casal de 2,10x2,40 m, enchimento 100% poliéster e capa 100% algodão; lavagem no programa \"Edredom\".<br/><strong style=\"font-size:12px\">7</strong><br/>Economia comparando lavagem de 1 kg de roupas mistas no programa Normal (seleção padrão) com 5 kg de carga mista, mesmo programa.",
     "codigoInfo": "LAV0062",
     "categoria": "Linha Branca",
     "segmento": "LINHA BRANCA",
-    "tipoBloco": "secadora",
+    "tipoBloco": "lavadora",
     "imagem": "assets/produtos/1512qdba199/principal.jpg",
     "imagens": [
       "assets/produtos/1512qdba199/principal.jpg",
       "assets/produtos/1512qdba199/galeria-02.jpg",
       "assets/produtos/1512qdba199/galeria-03.jpg",
       "assets/produtos/1512qdba199/galeria-04.jpg",
-      "assets/produtos/1512qdba199/galeria-05.jpg",
-      "assets/produtos/1512qdba199/galeria-06.jpg",
-      "assets/produtos/1512qdba199/galeria-07.jpg",
-      "assets/produtos/1512qdba199/galeria-08.jpg"
+      "assets/produtos/1512qdba199/galeria-05.jpg"
     ],
     "siteInfoStore": "https://www.infostore.com.br/maquina-de-lavar-electrolux-12kg-inverter-com-agua-quente-e-lavagem-inteligente-lfc12-127v-cinza/p",
     "destaques": [
       {
-        "titulo": "Branco",
+        "titulo": "12 kg",
+        "rotulo": "Capacidade",
+        "icone": "◇"
+      },
+      {
+        "titulo": "11-18 kg",
+        "rotulo": "Capacidade total",
+        "icone": "◇"
+      },
+      {
+        "titulo": "12 kg",
+        "rotulo": "Capacidade de lavagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "127V",
+        "rotulo": "Voltagem",
+        "icone": "◇"
+      },
+      {
+        "titulo": "Cinza",
         "rotulo": "Cor",
         "icone": "◇"
       }
     ],
     "especificacoes": {
-      "Cor": "Branco",
-      "Peso líquido": "1,97 Kg",
+      "Tecnologia": "Inverter",
+      "Capacidade de lavagem": "12 kg",
+      "Capacidade": "12 kg",
+      "Voltagem": "127V",
+      "Cor": "Cinza",
+      "Consumo de energia": "0.31 Kw/ciclo",
+      "Peso bruto": "70 kg",
+      "Capacidade total": "11-18 kg",
+      "Eficiência energética": "A",
+      "Peso líquido": "68 kg",
       "Modelo": "1512QDBA199",
       "Categoria": "Linha Branca",
       "Código Info Store": "LAV0062"
     },
     "dimensoes": {
       "produto": {
-        "largura": "554 mm",
-        "altura": "35 mm",
-        "profundidade": "599 mm"
+        "largura": "600 mm",
+        "altura": "850 mm",
+        "profundidade": "659 mm"
       }
     },
     "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
@@ -68518,7 +68720,7 @@
         "tipo": "manual",
         "nome": "Manual do usuário",
         "descricao": "Documento oficial Electrolux",
-        "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-0dcd7845-3f93-4054-bfe0-b6c99feb51a2&fileName=af_embalagem_kit-juncao_secadora-lavadora_electrolux-1375x1887.raw.pdf",
+        "url": "https://electrolux.vtexcrm.com.br/DynamicForm/GetFile?dataEntityInstanceId=MN-58847592-aa26-42bd-ab16-23ed2878bad5&fileName=LFB12-LFC12-LSB12-LSC12 MANUAL_G0048839_INSTRUCTIONAL-MANUAL_SEBASTIAN_PTG_REV004_digital-583x1238.raw.pdf",
         "fonte": "Electrolux"
       }
     ],
@@ -68639,7 +68841,9 @@
       },
       "observacoes": [
         "[object Object]",
-        "Extração offline: 0 evidência(s) localizada(s) para 1512QDBA199."
+        "Extração offline: 0 evidência(s) localizada(s) para 1512QDBA199.",
+        "A porta frontal aberta é apresentada de forma esquemática para leitura arquitetônica.",
+        "Confirmar em campo a projeção da porta e a circulação frontal antes de executar a marcenaria."
       ],
       "dimensoesProduto": {
         "largura": {
@@ -68741,6 +68945,14 @@
           "referencia": "",
           "status": "NAO_LOCALIZADO",
           "observacao": ""
+        },
+        "representacaoPortas": {
+          "valor": "Porta frontal com abertura lateral",
+          "pagina": "Fonte oficial",
+          "referencia": "LFC12 / tipo de abertura frontal",
+          "status": "CONFIRMADO",
+          "observacao": "A ficha oficial confirma abertura frontal. O giro é representado de forma esquemática porque o fabricante não publica o ângulo nem a projeção total da porta aberta.",
+          "fonte": "CADASTRO_OFICIAL"
         }
       },
       "geometriaInstalacao": {
@@ -68894,7 +69106,12 @@
           "pontuacao": 13
         }
       ],
-      "revisado": false
+      "revisado": false,
+      "produto": {
+        "modelo": "1512QDBA199",
+        "marca": "Electrolux",
+        "tipo": "lavadora"
+      }
     }
   },
   {
@@ -69708,23 +69925,7 @@
       "assets/produtos/28913595/revisao-20261013-03.png"
     ],
     "siteInfoStore": "",
-    "destaques": [
-      {
-        "titulo": "100–240 V, 50/60 Hz",
-        "rotulo": "Voltagem",
-        "icone": "◇"
-      },
-      {
-        "titulo": "440 W RMS",
-        "rotulo": "Potência de áudio",
-        "icone": "◇"
-      },
-      {
-        "titulo": "7.1.4",
-        "rotulo": "Canais de áudio",
-        "icone": "◇"
-      }
-    ],
+    "destaques": [],
     "especificacoes": {
       "Modelo comercial": "BAR 1000",
       "Referência JBL": "JBLBAR1000PROBLKBR",
@@ -69737,7 +69938,8 @@
       "Bluetooth": "5.0",
       "USB": "Apenas serviço na versão brasileira",
       "Modelo": "28913595",
-      "Código Info Store": "HOM0167"
+      "Código Info Store": "HOM0167",
+      "Categoria": "Audio"
     },
     "dimensoes": {
       "produto": {
@@ -69751,23 +69953,10 @@
         "profundidade": "305 mm"
       }
     },
-    "instalacao": "Informações técnicas de instalação em atualização.",
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "Consulte disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "motivoPendencia": "Fonte ainda precisa de revisão",
-    "imagemAmbiente": "",
-    "diferenciais": [
-      "Dolby Atmos, DTS:X e MultiBeam para som imersivo.",
-      "Caixas surround destacáveis com bateria.",
-      "Graves com subwoofer sem fio de 10 polegadas.",
-      "Streaming via AirPlay, Chromecast e Alexa Multi-Room Music.",
-      "PureVoice para diálogos mais claros.",
-      "HDMI eARC e ajustes no aplicativo JBL One."
-    ],
-    "pendencias": [
-      "Link do produto na Info Store ainda não localizado."
-    ]
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
   },
   {
     "id": "28913658",
@@ -69789,23 +69978,7 @@
       "assets/produtos/28913658/revisao-20261013-03.png"
     ],
     "siteInfoStore": "",
-    "destaques": [
-      {
-        "titulo": "100–240 V, 50/60 Hz",
-        "rotulo": "Voltagem",
-        "icone": "◇"
-      },
-      {
-        "titulo": "585 W RMS",
-        "rotulo": "Potência de áudio",
-        "icone": "◇"
-      },
-      {
-        "titulo": "11.1.4",
-        "rotulo": "Canais de áudio",
-        "icone": "◇"
-      }
-    ],
+    "destaques": [],
     "especificacoes": {
       "Modelo comercial": "BAR 1300X",
       "Referência JBL": "JBLBAR1300BLKBR",
@@ -69817,7 +69990,8 @@
       "Subwoofer": "12 polegadas, sem fio",
       "USB": "Apenas serviço na versão brasileira",
       "Modelo": "28913658",
-      "Código Info Store": "HOM0168"
+      "Código Info Store": "HOM0168",
+      "Categoria": "Audio"
     },
     "dimensoes": {
       "produto": {
@@ -69831,22 +70005,9 @@
         "profundidade": "366 mm"
       }
     },
-    "instalacao": "Informações técnicas de instalação em atualização.",
+    "instalacao": "Valide medidas, ventilação, pontos elétricos, hidráulicos e requisitos estruturais antes da instalação.",
     "documentos": [],
-    "sobreMarca": "Consulte disponibilidade e condições comerciais com a equipe Info Store.",
-    "revisaoPendente": false,
-    "motivoPendencia": "Fonte ainda precisa de revisão",
-    "imagemAmbiente": "",
-    "diferenciais": [
-      "Som Dolby Atmos, DTS:X e MultiBeam.",
-      "Caixas surround removíveis para posicionar no ambiente.",
-      "Subwoofer sem fio de 12 polegadas.",
-      "Wi-Fi com AirPlay, Chromecast e Alexa Multi-Room Music.",
-      "PureVoice para clareza nos diálogos.",
-      "Conexão HDMI eARC e aplicativo JBL One."
-    ],
-    "pendencias": [
-      "Link do produto na Info Store ainda não localizado."
-    ]
+    "sobreMarca": "Consulte as especificações, disponibilidade e condições comerciais com a equipe Info Store.",
+    "revisaoPendente": false
   }
 ]

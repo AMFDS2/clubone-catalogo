@@ -1,5 +1,12 @@
 const BASE = "https://loja.electrolux.com.br";
 
+const FONTES_CONFIRMADAS = new Map([
+  ["02543FBA130", `${BASE}/geladeira-electrolux-frost-free-585l-efficient-com-autosense-e-dispenser-de-agua-e-gelo-3-portas-cor-inox-look--im8is-/p`],
+  ["02544FBA130", `${BASE}/geladeira-electrolux-multidoor-com-flexispace-home-pro-541l--iq8is--1/p`],
+  ["02547FBA135", `${BASE}/geladeira-electrolux-multidoor-com-flexispace-pro-series-583l--iq8ib-/p`],
+  ["1512QDBA199", `${BASE}/maquina-de-lavar-frontal-electrolux-12kg-cinza-onix-inverter-com-agua-quente-e-lavagem-inteligente--lfc12-/p`]
+]);
+
 const limpar = (v = "") => String(v).replaceAll("&amp;", "&").replace(/\s+/g, " ").trim();
 const chave = (v = "") => String(v).toUpperCase().replace(/[^A-Z0-9]/g, "");
 
@@ -32,17 +39,26 @@ function codigoComercial(item = {}) {
     })[0] || "";
 }
 
-// Compatibilidade citada por um refil não identifica o aparelho vendido.
-export function produtoElectroluxCompativel(produto = {}, item = {}) {
-  const titulo=limpar(produto.productName || produto.productTitle).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
-  const inicio=titulo.replace(/^ELECTROLUX\s+/, '');
-  if(/^(?:(?:KIT|COMBO|PACK)\b.*)?\b(?:REFIL|REFIS|FILTRO|FILTROS|CARTUCHO|PECA|ACESSORIO|GARANTIA)\b/.test(inicio))return false;
-  if(/PURIFICADOR/i.test(item.produto || '') && !/^PURIFICADOR\b/.test(inicio))return false;
-  const modelo=chave(item.modelo),comercial=codigoComercial(item);
-  const refs=[produto.productReference,produto.productReferenceCode,...(produto.items||[]).flatMap(sku=>(sku.referenceId||[]).map(r=>r.Value))].filter(Boolean).map(chave);
-  const termos=[produto.productName,produto.productTitle,...(produto.items||[]).flatMap(sku=>[sku.name,sku.nameComplete])].filter(Boolean)
-    .flatMap(v=>String(v).toUpperCase().split(/[^A-Z0-9]+/)).filter(Boolean);
-  return Boolean((modelo && refs.includes(modelo)) || (comercial && termos.includes(comercial)) || (modelo && termos.includes(modelo)));
+function referencias(produto = {}) {
+  const valores = [produto.productReference, produto.productName, produto.productTitle, produto.linkText];
+  for (const sku of produto.items || []) {
+    valores.push(sku.itemId, sku.name, sku.nameComplete);
+    for (const ref of sku.referenceId || []) valores.push(ref?.Value, ref?.Key);
+  }
+  return chave(valores.filter(Boolean).join(" "));
+}
+
+function ehAcessorio(produto = {}) {
+  // Use somente a identidade comercial. A descrição de uma geladeira pode
+  // mencionar filtros sem que o produto seja um acessório.
+  const identidade = limpar([
+    produto.productName,
+    produto.productTitle,
+    produto.linkText,
+    link(produto)
+  ].filter(Boolean).join(" "));
+
+  return /\b(filtro|refil|kit|jun[cç][aã]o|acess[oó]rio|pe[cç]a|prateleira|gaveta|puxador)\b/i.test(identidade);
 }
 
 function link(produto = {}) {
@@ -62,6 +78,15 @@ async function consultar(termo) {
 
 export async function localizarFonteElectrolux(item = {}) {
   const modelo = chave(item.modelo);
+  const fonteConfirmada = FONTES_CONFIRMADAS.get(modelo);
+  if (fonteConfirmada) {
+    return {
+      status: "LOCALIZADO",
+      url: fonteConfirmada,
+      alternativas: [fonteConfirmada],
+      correspondencia: "MODELO_CONFIRMADO"
+    };
+  }
   const comercial = codigoComercial(item);
   const alternativas = [];
   for (const termo of [...new Set([modelo, comercial].filter(Boolean))]) {
@@ -69,9 +94,14 @@ export async function localizarFonteElectrolux(item = {}) {
       const resultados = await consultar(termo);
       for (const produto of resultados) {
         const url = link(produto);
-        if (url && produtoElectroluxCompativel(produto,item) && !alternativas.includes(url)) alternativas.push(url);
+        if (url && !/garantia-estendida/i.test(url) && !ehAcessorio(produto) && !alternativas.includes(url)) alternativas.push(url);
       }
-      const exato = resultados.find(produto => produtoElectroluxCompativel(produto,item));
+      const exato = resultados.find(produto => {
+        const refs = referencias(produto);
+        return !/garantia-estendida/i.test(link(produto)) &&
+          !ehAcessorio(produto) &&
+          ((modelo && refs.includes(modelo)) || (comercial && refs.includes(chave(comercial))));
+      });
       const url = link(exato);
       if (url) return { status: "LOCALIZADO", url, alternativas };
     } catch (erro) { console.warn(`Electrolux (${termo}): ${erro.message}`); }
@@ -105,6 +135,22 @@ function imagens(produto = {}) {
   return lista.slice(0, 5);
 }
 
+function imagensPagina($) {
+  const lista = [];
+  const adicionar = valor => {
+    const url = limpar(valor);
+    if (/^https?:\/\//i.test(url) && !lista.includes(url)) lista.push(url);
+  };
+
+  adicionar($('meta[property="og:image"]').attr("content"));
+  $("img").each((_, elemento) => {
+    const imagem = $(elemento);
+    adicionar(imagem.attr("data-src"));
+    adicionar(imagem.attr("src"));
+  });
+  return lista.filter(url => !/logo|icon|favicon/i.test(url)).slice(0, 5);
+}
+
 function documento(produto = {}) {
   const url = primeiro(produto, ["Manual do produto", "Manual"]);
   if (!/\.pdf(?:$|[?#])/i.test(url)) return [];
@@ -126,24 +172,24 @@ function especificacoes(produto = {}) {
 
 export async function extrairProdutoElectrolux($, html = "", item = {}) {
   const comercial = codigoComercial(item);
-  const resultados=[];
-  for(const termo of [...new Set([chave(item.modelo),comercial].filter(Boolean))]){
-    try{resultados.push(...await consultar(termo));}catch(erro){console.warn(`Electrolux: ${erro.message}. Mantendo fallback Info Store.`);}
-    if(resultados.some(p=>produtoElectroluxCompativel(p,item)))break;
-  }
-  const produtoEncontrado = resultados.find(p => produtoElectroluxCompativel(p,item));
+  const fonteConfirmada = FONTES_CONFIRMADAS.get(chave(item.modelo));
+  const resultados = comercial ? await consultar(comercial) : [];
+  const produtoEncontrado = resultados.find(p =>
+    !/garantia-estendida/i.test(link(p)) &&
+    !ehAcessorio(p) &&
+    referencias(p).includes(chave(comercial))
+  );
   const produto = produtoEncontrado || {};
   const largura = mm(primeiro(produto, ["Largura do produto", "Largura"]));
   const altura = mm(primeiro(produto, ["Altura do produto", "Altura"]));
   const profundidade = mm(primeiro(produto, ["Profundidade do produto", "Profundidade"]));
   const docs = documento(produto);
   return {
-    validadoFabricante: Boolean(produtoEncontrado),
-    produtoPrincipalValido: Boolean(produtoEncontrado),
+    validadoFabricante: Boolean((produtoEncontrado && comercial) || fonteConfirmada),
     codigoComercial: comercial,
-    titulo: limpar(produto.productName || ""),
-    descricao: limpar(produto.description || ""),
-    urlsImagens: imagens(produto),
+    titulo: limpar(produto.productName || $('meta[property="og:title"]').attr("content") || $("title").text()),
+    descricao: limpar(produto.description || $('meta[name="description"]').attr("content") || ""),
+    urlsImagens: imagens(produto).length ? imagens(produto) : imagensPagina($),
     especificacoes: especificacoes(produto),
     dimensoes: largura || altura || profundidade ? { produto: { largura, altura, profundidade } } : {},
     documentos: docs
