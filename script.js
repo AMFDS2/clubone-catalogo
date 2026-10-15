@@ -182,7 +182,6 @@ function configurarSidebarProdutos() {
   });
 
   botaoMostrar.addEventListener("click", () => {
-    if (ehTabletHorizontal()) fecharFiltrosSidebar();
     definirSidebarProdutosRecolhida(false);
     requestAnimationFrame(() => botaoRecolher.focus({ preventScroll: true }));
   });
@@ -2280,10 +2279,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   produtoSelecionado = produto.id;
 
-  if (interacaoDoUsuario && (ehTabletHorizontal() || window.matchMedia("(max-width: 767px)").matches)) {
-    fecharFiltrosSidebar();
-    definirSidebarProdutosRecolhida(true);
-  }
+  // Selecionar um produto preserva o estado dos filtros e da lista.
   renderizarProdutos(produtosFiltrados);
 
   requestAnimationFrame(() => {
@@ -2436,7 +2432,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
   });
   configurarFallbackImagens(document.getElementById("detalhes"));
 
-  if (interacaoDoUsuario && (ehTabletHorizontal() || window.matchMedia("(max-width: 767px)").matches)) {
+  if (interacaoDoUsuario && window.matchMedia("(max-width: 767px)").matches) {
     requestAnimationFrame(() => {
       document.getElementById("detalhes").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     });
