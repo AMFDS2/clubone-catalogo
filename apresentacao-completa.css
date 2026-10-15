@@ -77,3 +77,10 @@
 .precos-manuais * { box-sizing: border-box; }
 /* Cadastro manual exclusivo da apresentação */
 .ac-manual{width:min(760px,94vw);max-height:90dvh;overflow:auto;padding:24px;border:0;border-radius:14px;color:#17366c;background:#fff}.ac-manual::backdrop{background:#10243b99}.ac-manual-grade{display:grid;grid-template-columns:1fr 1fr;gap:14px}.ac-manual label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;margin:12px 0}.ac-manual input,.ac-manual textarea,.ac-manual select{box-sizing:border-box;max-width:100%;width:100%;padding:10px;border:1px solid #c9d3e2;border-radius:6px;font:inherit;color:#17366c}.ac-manual input[type=checkbox]{width:auto;align-self:flex-start}.ac-manual p{font-size:13px;line-height:1.5}.ac-manual footer{display:flex;justify-content:flex-end;gap:12px}.ac-manual button,#ac-adicionar-manual{padding:12px 18px;border:1px solid #17366c;border-radius:7px;background:#17366c;color:#fff;cursor:pointer;font:inherit;min-height:44px}.ac-manual button:disabled{opacity:.5}.ac-manual-erro{color:#b42318}.ac-manual :focus-visible{outline:3px solid #ec263e;outline-offset:2px}@media(max-width:600px){.ac-manual-grade{grid-template-columns:1fr}.ac-manual{padding:16px}}
+
+/* Campos sempre visíveis na edição, inclusive áudio e portáteis. */
+#ac-dialog .ac-dimensoes-manuais{display:block!important;padding:16px;margin:16px 0;background:#f0f4fa;border:1px solid #cbd6e7;border-radius:10px}
+#ac-dialog .ac-dimensoes-manuais h4{margin:0 0 8px;color:#17366c;font-size:16px}
+#ac-dialog .ac-dimensoes-manuais .ac-dados{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#ac-dialog .ac-dimensoes-manuais input{display:block!important;width:100%;box-sizing:border-box;min-height:44px;background:white;color:#17366c}
+@media(max-width:600px){#ac-dialog .ac-dimensoes-manuais .ac-dados{grid-template-columns:1fr}}
