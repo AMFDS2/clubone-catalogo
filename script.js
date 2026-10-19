@@ -165,6 +165,8 @@ function configurarSidebarProdutos() {
   const botaoMostrar = document.getElementById("mostrarSidebarProdutos");
   if (!botaoRecolher || !botaoMostrar) return;
 
+  document.body.append(botaoMostrar);
+
   // Garante o rótulo mesmo quando o navegador ainda estiver usando um
   // index.html anterior que continha somente a seta.
   let rotuloRecolher = botaoRecolher.querySelector("span");
@@ -1011,36 +1013,11 @@ function criarMedidasProjeto(produto = {}, dimensoesHtml = "") {
 
     ${vistasTecnicas}
 
-    <div class="medidas-projeto-destaque medidas-projeto-destaque-sem-blocagem">
+    <div class="medidas-ia-grade medidas-grade-padronizada">
       ${grupo("Dimensões do produto", [
         ["Largura", dimensoesProduto.largura],
         ["Altura", dimensoesProduto.altura],
         ["Profundidade", dimensoesProduto.profundidade]
-      ])}
-    </div>
-
-    <div class="medidas-ia-grade">
-      ${grupo("Dimensões recomendadas do nicho", [
-        ["Largura", dimensoesNicho.largura],
-        ["Altura", dimensoesNicho.altura],
-        ["Profundidade", dimensoesNicho.profundidade]
-      ])}
-      ${grupo("Folgas e ventilação", [
-        ["Respiro superior", folgas.superior],
-        ["Respiro lateral", folgas.lateral],
-        ["Respiro traseiro", folgas.traseira],
-        ["Espaço frontal", folgas.frontal]
-      ])}
-      ${grupo("Abertura", [
-        ["Ângulo da porta", abertura.anguloPorta],
-        ["Portas abertas", abertura.distanciaPortasAbertas],
-        ["Gavetas estendidas", abertura.distanciaGavetasEstendidas]
-      ])}
-      ${grupo("Pontos de instalação", [
-        ["Ponto elétrico", instalacao.pontoEletrico],
-        ["Ponto de água", instalacao.pontoAgua],
-        ["Ponto de gás", instalacao.pontoGas],
-        ["Dreno", instalacao.dreno]
       ])}
     </div>
 
@@ -2367,6 +2344,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
 
   document.getElementById("detalhes").innerHTML = `
     <button type="button" class="voltar-produtos" id="voltarProdutos">← Voltar aos produtos</button>
+    <p class="portfolio-caminho">${escaparHTML(produto.segmento || produto.categoria || "Produtos")} <span aria-hidden="true">/</span> ${escaparHTML(classificarTipoProduto(produto).rotulo)}</p>
     <div class="produto-hero">
       <div class="produto-resumo">
         <span class="badge">${escaparHTML(produto.categoria || produto.segmento || "")}</span>
@@ -2382,7 +2360,6 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
           <button type="button" id="btn-favoritar-detalhe" class="botao-secundario ${estaFavoritado ? "ativo" : ""}" data-id="${escaparHTML(produto.id)}">
             ${estaFavoritado ? "★ Remover do projeto" : "♡ Adicionar ao projeto"}
           </button>
-          <button type="button" class="botao-secundario" id="compararAtual" aria-pressed="${comparadosPortfolio.has(String(produto.id))}">${comparadosPortfolio.has(String(produto.id)) ? "Remover da comparação" : "Comparar produto"}</button>
           ${botaoInfoStore}
         </div>
       </div>
@@ -2428,7 +2405,6 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       </section>`}
     </div>`;
 
-  document.getElementById("compararAtual").addEventListener("click", () => alternarComparacaoPortfolio(produto));
   document.getElementById("resumoAbrirMedidas")?.addEventListener("click", () => {
     const alvo = document.querySelector(`[data-tab="${exibirMedidasProjeto ? "dimensoes" : "especificacoes"}"]`);
     alvo?.click(); document.querySelector(".area-tecnica")?.scrollIntoView({block:"start", behavior:"smooth"});
@@ -3691,7 +3667,6 @@ function configurarEventosFavoritos() {
 }
 
 // Refinamento de navegação: não altera dados, vistas ou seleção da apresentação.
-const comparadosPortfolio = new Set();
 function campoRuidoPortfolio(chave, valor) {
   return /^(manuais|conheca|mobile)$/i.test(normalizarTexto(String(valor || '')).trim()) && /garantia|acessorios|smartthings/i.test(normalizarTexto(String(chave || '')));
 }
@@ -3718,40 +3693,17 @@ function atualizarAtalhosPortfolio() {
   const pos=k=>ordem.indexOf(k)<0?99:ordem.indexOf(k);
   nav.innerHTML=[['','Todos os tipos'],...[...tipos].sort((a,b)=>pos(a[0])-pos(b[0]))].map(([k,n])=>`<button type="button" data-tipo="${escaparHTML(k)}" aria-pressed="${filtroMedidas.tipoProduto===k}">${escaparHTML(n)}</button>`).join('');
 }
-function alternarComparacaoPortfolio(p) {
-  const id=String(p.id);
-  if(comparadosPortfolio.has(id))comparadosPortfolio.delete(id);
-  else if(comparadosPortfolio.size<3)comparadosPortfolio.add(id);
-  else {document.getElementById('avisoComparacao').textContent='Limite de três produtos. Remova um para adicionar outro.';return;}
-  atualizarBarraComparacao();
-  const b=document.getElementById('compararAtual');if(b){const ativo=comparadosPortfolio.has(String(produtoSelecionado));b.textContent=ativo?'Remover da comparação':'Comparar produto';b.setAttribute('aria-pressed',String(ativo));}
-}
-function atualizarBarraComparacao() {
-  let bar=document.getElementById('barraComparacao');
-  if(!bar){bar=document.createElement('section');bar.id='barraComparacao';bar.setAttribute('aria-label','Produtos para comparação');document.querySelector('.barra-segmentos').after(bar);}
-  bar.hidden=!comparadosPortfolio.size;
-  bar.innerHTML=`<strong>Comparação · ${comparadosPortfolio.size}/3</strong><button type="button" id="abrirComparacao" ${comparadosPortfolio.size<2?'disabled':''}>Comparar selecionados</button><button type="button" id="limparComparacao">Limpar</button><span id="avisoComparacao" role="status">${comparadosPortfolio.size<2?'Escolha mais um produto.':''}</span>`;
-  document.getElementById('abrirComparacao').onclick=abrirComparacaoPortfolio;
-  document.getElementById('limparComparacao').onclick=()=>{comparadosPortfolio.clear();atualizarBarraComparacao();const b=document.getElementById('compararAtual');if(b){b.textContent='Comparar produto';b.setAttribute('aria-pressed','false');}};
-}
-function abrirComparacaoPortfolio() {
-  const itens=todosProdutos.filter(p=>comparadosPortfolio.has(String(p.id)));
-  if(itens.length<2)return;
-  let modal=document.getElementById('modalComparacao');
-  if(!modal){modal=document.createElement('dialog');modal.id='modalComparacao';document.body.append(modal);modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});}
-  const esc=escaparHTML;
-  const linha=(nome,valores)=>`<tr><th scope="row">${esc(nome)}</th>${valores.map(v=>`<td>${v}</td>`).join('')}</tr>`;
-  const chaves=[...new Set(itens.flatMap(p=>Object.keys(p.especificacoes||{})))].filter(k=>itens.some(p=>p.especificacoes?.[k] && !campoRuidoPortfolio(k,p.especificacoes[k])));
-  modal.innerHTML=`<header><h2>Comparar produtos</h2><button type="button" id="fecharComparacao" autofocus aria-label="Fechar comparação">Fechar ×</button></header><p>Compare os dados cadastrados. Medidas do produto não substituem nicho, folgas e condições de instalação.</p><div class="comparacao-rolagem" tabindex="0" aria-label="Tabela comparativa; role horizontalmente em telas pequenas"><table><thead><tr><th scope="col">Características</th>${itens.map(p=>`<th scope="col"><img src="${esc(p.imagem||IMAGEM_FALLBACK)}" alt=""><h3>${esc(p.nome)}</h3><button type="button" data-remover-comparacao="${esc(p.id)}">Remover</button></th>`).join('')}</tr></thead><tbody>${linha('Modelo',itens.map(p=>esc(p.modelo||'Não informado')))}${linha('Código Info Store',itens.map(p=>esc(p.codigoInfo||'Não informado')))}${linha('Marca',itens.map(p=>esc(p.marca||p.fabricante||'Não informado')))}${linha('Medidas do produto (L × A × P)',itens.map(p=>medidasResumoPortfolio(p).map(g=>`${esc(g.nome)}: ${g.valores.map(esc).join(' × ')}`).join('<br>')))}${linha('Diferenciais',itens.map(p=>(p.destaques||[]).filter(d=>!campoRuidoPortfolio(d.rotulo,d.valor||d.titulo)).map(d=>esc([d.rotulo,d.valor||d.titulo].filter(Boolean).join(': '))).join('<br>')||'Não informado'))}${chaves.map(k=>linha(k,itens.map(p=>esc(campoRuidoPortfolio(k,p.especificacoes?.[k])?'Não informado':String(p.especificacoes?.[k]||'Não informado'))))).join('')}${linha('Projeto',itens.map(p=>`<button type="button" data-projeto-comparacao="${esc(p.id)}">${getFavoritos().some(f=>String(f.id)===String(p.id))?'Remover do projeto':'Adicionar ao projeto'}</button>`))}</tbody></table></div>`;
-  modal.querySelector('#fecharComparacao').onclick=()=>modal.close();
-  modal.querySelectorAll('[data-remover-comparacao]').forEach(b=>b.onclick=()=>{alternarComparacaoPortfolio({id:b.dataset.removerComparacao});if(comparadosPortfolio.size<2)modal.close();else abrirComparacaoPortfolio();});
-  modal.querySelectorAll('[data-projeto-comparacao]').forEach(b=>b.onclick=()=>{const p=itens.find(p=>String(p.id)===b.dataset.projetoComparacao);toggleFavorito(normalizarProdutoParaFavorito(p));b.textContent=getFavoritos().some(f=>String(f.id)===String(p.id))?'Remover do projeto':'Adicionar ao projeto';});
-  configurarFallbackImagens(modal);
-  if(!modal.open)modal.showModal();
-}
+// Mede somente as barras reais, evitando folgas na lista durante a rolagem.
 document.addEventListener('DOMContentLoaded',()=>{
-  const atualizar=()=>{const altura=['atalhosPortfolio','barraComparacao'].reduce((n,id)=>n+(document.getElementById(id)?.getBoundingClientRect().height||0),0);document.documentElement.style.setProperty('--portfolio-extras',altura+'px');};
-  const observer=new MutationObserver(()=>{atualizar();});
-  observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
-  window.addEventListener('resize',atualizar);
+  const medir=()=>{
+    const top=document.querySelector('.topbar');
+    document.documentElement.style.setProperty('--topbar',top.getBoundingClientRect().height+'px');
+    document.documentElement.style.setProperty('--portfolio-extras',(document.getElementById('atalhosPortfolio')?.getBoundingClientRect().height||0)+'px');
+  };
+  const resize=new ResizeObserver(medir);
+  resize.observe(document.querySelector('.topbar'));
+  const observar=()=>{const nav=document.getElementById('atalhosPortfolio');if(nav){resize.observe(nav);medir();observer.disconnect();}};
+  const observer=new MutationObserver(observar);
+  observer.observe(document.body,{childList:true,subtree:true});
+  observar();
 });
