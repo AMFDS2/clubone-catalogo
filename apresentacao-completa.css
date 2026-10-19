@@ -95,3 +95,13 @@
 .ac-upload-slot input { width: 100%; min-width: 0; font-size: 12px; }
 .ac-upload-slot button { margin-top: 8px; }
 @media(max-width:560px){.ac-upload-grade{grid-template-columns:1fr;}}
+
+/* Fluxo compacto: conteúdo preservado em painéis por produto. */
+#ac-dialog .ac-guia {padding:14px 16px;background:#eaf0fa;border-radius:10px;line-height:1.8;color:#19396f;}
+#ac-dialog .ac-personalizar > summary {cursor:pointer;padding:12px 0;color:#19396f;font-weight:700;min-height:44px;}
+#ac-dialog .ac-personalizar[open] > summary {margin-bottom:16px;border-bottom:1px solid #e0e6f0;}
+#ac-dialog .ac-item-topo {margin-bottom:4px;}
+#ac-dialog .ac-acoes {position:sticky;bottom:-24px;background:#f7f8fb;padding:14px 0;border-top:1px solid #dce3ee;z-index:3;box-shadow:0 -8px 16px #19336208;}
+#ac-dialog h4 small {font-size:12px;font-weight:400;color:#626e82;}
+#ac-dialog .ac-dimensoes-manuais .ac-dados {grid-template-columns:repeat(3,minmax(0,1fr));}
+@media(max-width:600px){#ac-dialog .ac-acoes{bottom:-16px;gap:8px;}#ac-dialog .ac-guia strong{display:block;}#ac-dialog .ac-dimensoes-manuais .ac-dados{grid-template-columns:1fr;}#ac-dialog .ac-acoes button{flex:1;width:auto;}}

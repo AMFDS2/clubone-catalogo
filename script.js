@@ -208,6 +208,7 @@ function configurarCampanha() {
 }
 
 function aplicarFiltros() {
+  atualizarFabricantesPorTipo();
   const busca = normalizarTexto(document.getElementById("busca").value.trim());
 
   produtosFiltrados = todosProdutos.filter(produto => {
@@ -260,13 +261,20 @@ function produtosDoSegmento() {
   return todosProdutos.filter(produto => !filtrosSelecionados.segmentos.size || filtrosSelecionados.segmentos.has(normalizarTexto(produto.segmento || produto.categoria)));
 }
 
-function renderizarFiltros() {
-  const produtos = produtosDoSegmento();
+function atualizarFabricantesPorTipo() {
+  // Marcas e contagens refletem segmento + tipo, sem restringir pela própria marca.
+  const produtos = produtosDoSegmento().filter(produto =>
+    !filtroMedidas.tipoProduto || classificarTipoProduto(produto).chave === filtroMedidas.tipoProduto
+  );
   const marcasDisponiveis = new Set(produtos.map(p => normalizarTexto(p.marca || p.fabricante)));
   for (const marca of filtrosSelecionados.fabricantes) {
     if (!marcasDisponiveis.has(marca)) filtrosSelecionados.fabricantes.delete(marca);
   }
   preencherGrupoFiltro("filtrosFabricantes", "fabricantes", produtos.map(item => item.marca || item.fabricante));
+}
+
+function renderizarFiltros() {
+  atualizarFabricantesPorTipo();
   atualizarOpcoesTipoProduto();
   if (document.getElementById("navegacaoSegmentos")?.children.length) atualizarEstadoSegmentos();
   else renderizarSegmentos();

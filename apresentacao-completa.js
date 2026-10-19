@@ -165,7 +165,7 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
   function podeMover(i,d){const lista=pares(i),n=lista.indexOf(i)+d;return n>=0&&n<lista.length;}
   function renderItens() {
     organizarItens();
-    $('ac-itens').innerHTML=itens.map((i,n)=>`<article class="ac-item" data-indice="${n}">
+    $('ac-itens').innerHTML=itens.map((i,n)=>`<article class="ac-item" data-indice="${n}" data-chave="${esc(String(i.produto.id))}">
       <div class="ac-item-topo"><div><span class="ac-segmento">${esc(i.complemento?'Complemento':nomeSegmentoApresentacao(i.produto))}</span><h4>${n+1}. ${esc(i.produto.nome)}</h4></div><div class="ac-ordem"><button type="button" data-mover="-1" ${!podeMover(i,-1)?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para cima">↑</button><button type="button" data-mover="1" ${!podeMover(i,1)?'disabled':''} aria-label="Mover ${esc(i.produto.modelo)} para baixo">↓</button></div></div>
       ${painelComplementos(i)}
       ${i.complemento?'<p class="ac-ajuda">No PDF compacto serão usados a primeira foto selecionada e o primeiro diferencial deste complemento.</p>':''}
@@ -182,8 +182,10 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
     const favs=obterFavoritosAtualizados();
     origemFoco=document.activeElement;
     const manuais=itens.filter(i=>i.manual);
-    itens=favs.map(f=>{const p=produtoCompletoApresentacao(f);return novoItem(p,Math.max(1,Number(f.quantidade)||1));}).concat(manuais);
-    for(const campo of ['projeto','cliente','profissional','vendedor']) $('ac-'+campo).value=$('apresentacao-'+campo)?.value || '';
+    const anteriores=itens;
+    const principais=favs.map(f=>{const p=produtoCompletoApresentacao(f),anterior=anteriores.find(i=>!i.complemento&&!i.manual&&String(i.produto.id)===String(p.id));return anterior?{...anterior,quantidade:Math.max(1,Number(f.quantidade)||1)}:novoItem(p,Math.max(1,Number(f.quantidade)||1));}).concat(manuais);
+    itens=principais.concat(anteriores.filter(i=>i.complemento&&principais.some(p=>p.produto.id===i.origemId)));
+    for(const campo of ['projeto','cliente','profissional','vendedor']) $('ac-'+campo).value=$('ac-'+campo).value || $('apresentacao-'+campo)?.value || '';
     invalidar();renderItens();status('Ordem por segmento: Linha branca, TV e vídeo, Áudio, Climatização e Portáteis. As setas reorganizam os itens dentro do segmento. Os complementos ficam agrupados após seu produto principal no PDF.');
     $('ac-dialog').showModal();$('ac-projeto').focus();
   }
@@ -523,7 +525,10 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
     try {
       if(!itens.length)throw Error('Adicione pelo menos um produto à apresentação.');
       for(let n=0;n<itens.length;n++){
-        const i=itens[n];if(Object.values(i.produto.dimensoesApresentacao||{}).some(v=>!/^\d+(?:[.,]\d{1,2})? cm$/.test(v)||Number(v.replace(' cm','').replace(',','.'))<=0))throw Error(`Item ${n+1}: informe medidas positivas em centímetros, como 25,5.`);if(!i.titulo.trim() || i.titulo.length>160)throw Error(`Item ${n+1}: informe um título de até 160 caracteres.`);
+        const i=itens[n];const artigo=$('ac-itens').querySelector(`[data-indice="${n}"]`);
+        const invalido=!i.titulo.trim()||i.titulo.length>160||!i.beneficios.length||i.beneficios.length>8||i.beneficios.some(s=>s.length>150)||(i.opcoes.length&&!i.fotos.length)||Object.values(i.produto.dimensoesApresentacao||{}).some(v=>!/^\d+(?:[.,]\d{1,2})? cm$/.test(v)||Number(v.replace(' cm','').replace(',','.'))<=0);
+        if(invalido&&artigo){artigo.scrollIntoView({block:'center'});artigo.querySelector('input,textarea')?.focus();}
+        if(Object.values(i.produto.dimensoesApresentacao||{}).some(v=>!/^\d+(?:[.,]\d{1,2})? cm$/.test(v)||Number(v.replace(' cm','').replace(',','.'))<=0))throw Error(`Item ${n+1}: informe medidas positivas em centímetros, como 25,5.`);if(!i.titulo.trim() || i.titulo.length>160)throw Error(`Item ${n+1}: informe um título de até 160 caracteres.`);
         if(!i.beneficios.length || i.beneficios.length>8 || i.beneficios.some(s=>s.length>150))throw Error(`Item ${n+1}: informe de 1 a 8 diferenciais, com até 150 caracteres por linha.`);
         if(i.opcoes.length && !i.fotos.length)throw Error(`Item ${n+1}: selecione ao menos uma foto.`);
       }
@@ -598,15 +603,15 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
   }
   function iniciar() {
     const footer=$('drawer-footer');if(!footer || $('ac-dialog'))return;
-    const b=$('btn-apresentacao-completa') || document.createElement('button');b.type='button';b.id='btn-apresentacao-completa';b.className='btn-apresentacao-completa ac-botao';b.textContent='Gerar apresentação';
+    const b=$('btn-apresentacao-completa') || document.createElement('button');b.type='button';b.id='btn-apresentacao-completa';b.className='btn-apresentacao-completa ac-botao';b.textContent='Criar apresentação';
     const antigo=$('btn-apresentacao-cliente');if(antigo)antigo.replaceWith(b);
     else if(!b.isConnected)footer.insertBefore(b,$('btn-baixar-pdf') || footer.firstChild);
     b.addEventListener('click',abrir);
     window.abrirApresentacaoManual=abrir;
-    document.body.insertAdjacentHTML('beforeend',`<dialog id="ac-dialog" aria-labelledby="ac-heading"><div class="ac-topo"><div><span>APRESENTAÇÃO COMERCIAL</span><h3 id="ac-heading">Um produto por página</h3></div><button type="button" id="ac-fechar" aria-label="Fechar apresentação">×</button></div>
-      <fieldset id="ac-edicao"><div class="ac-dados">${[['projeto','Projeto'],['cliente','Cliente'],['profissional','Arquiteto(a)'],['vendedor','Vendedor(a)']].map(([id,label])=>`<label>${label}<input id="ac-${id}" maxlength="80" autocomplete="off"></label>`).join('')}</div>
-      <p class="ac-ajuda">Fotos e diferenciais do catálogo, preço consultado na Info Store ao gerar. Use Completar este ambiente para buscar complementos do mix Info Store. As inclusões valem para esta apresentação. Capa, agradecimento e um produto por página, na ordem abaixo. PDF em alta resolução (300 dpi). Fotos ambientadas são preservadas; desmarque a remoção se preferir a imagem original.</p><button type="button" id="ac-adicionar-manual">+ Adicionar produto manual</button><p class="ac-ajuda">Produtos manuais ficam somente nesta apresentação e nesta aba. Ao atualizar ou sair da página, os dados precisam ser preenchidos novamente.</p><div id="ac-itens"></div></fieldset>
-      <div class="ac-acoes"><button type="button" id="ac-gerar">Gerar prévia completa</button><button type="button" id="ac-baixar" hidden>Baixar apresentação em PDF</button></div><p id="ac-status" role="status" aria-live="polite"></p><div id="ac-previas"></div></dialog>`);
+    document.body.insertAdjacentHTML('beforeend',`<dialog id="ac-dialog" aria-labelledby="ac-heading"><div class="ac-topo"><div><span>APRESENTAÇÃO COMERCIAL</span><h3 id="ac-heading">Prepare sua apresentação</h3></div><button type="button" id="ac-fechar" aria-label="Fechar apresentação">×</button></div>
+      <p class="ac-guia"><strong>1. Identifique o projeto</strong> → <strong>2. Revise os produtos</strong> → <strong>3. Gere e baixe o PDF</strong></p><fieldset id="ac-edicao"><h4>1. Dados da capa <small>(opcionais)</small></h4><p class="ac-ajuda">O nome do projeto também será usado no arquivo PDF. Sem nome, usamos Info Store e a data.</p><div class="ac-dados">${[['projeto','Projeto'],['cliente','Cliente'],['profissional','Arquiteto(a)'],['vendedor','Vendedor(a)']].map(([id,label])=>`<label>${label}<input id="ac-${id}" maxlength="80" autocomplete="off"></label>`).join('')}</div>
+      <h4>2. Produtos da apresentação</h4><p class="ac-ajuda">As fotos e os diferenciais já estão preenchidos. Escolha a imagem principal e marque as demais na ordem desejada. A ordem segue os segmentos do portfólio; as setas ajustam a sequência dentro de cada segmento. Preços serão consultados ao gerar, com preenchimento manual quando necessário.</p><button type="button" id="ac-adicionar-manual">+ Adicionar produto manual</button><p class="ac-ajuda">Suas edições são mantidas ao fechar e reabrir esta janela na mesma aba. Ao atualizar ou sair da página, os produtos manuais e as personalizações precisam ser preenchidos novamente.</p><div id="ac-itens"></div></fieldset>
+      <div class="ac-acoes" aria-label="Gerar e baixar apresentação"><button type="button" id="ac-gerar">Gerar prévia</button><button type="button" id="ac-baixar" hidden>Baixar PDF</button></div><p id="ac-status" role="status" aria-live="polite"></p><div id="ac-previas"></div></dialog>`);
     $('ac-adicionar-manual').addEventListener('click',()=>editarManual());
     $('ac-fechar').addEventListener('click',fechar);$('ac-dialog').addEventListener('cancel',e=>{if(ocupado||consultaComplementos)e.preventDefault();});
     $('ac-itens').addEventListener('click',e=>{
