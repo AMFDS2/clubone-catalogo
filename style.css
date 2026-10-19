@@ -5111,3 +5111,37 @@ body.sidebar-produtos-recolhida .mostrar-sidebar-produtos {
   .sidebar { position: sticky !important; top: calc(var(--topbar) + var(--altura-segmentos)) !important; height: calc(100dvh - var(--topbar) - var(--altura-segmentos)) !important; }
   .secao-contato, .rodape { margin-left: 0 !important; }
 }
+
+/* Refinamento do portfólio: nomes completos, resumo compacto e comparação. */
+#atalhosPortfolio{display:flex;gap:8px;overflow-x:auto;padding:10px 24px;background:#f5f7fa;border-bottom:1px solid #dde3eb}
+#atalhosPortfolio button{flex:0 0 auto;border:1px solid #d7dfe9;border-radius:8px;background:white;color:#153453;padding:10px 14px;font:inherit;font-size:13px;min-height:44px;cursor:pointer}
+#atalhosPortfolio button[aria-pressed=true]{background:#153453;color:white}
+.produto-informacoes h3{display:block!important;-webkit-line-clamp:unset!important;white-space:normal!important;overflow:visible!important;max-height:none!important;overflow-wrap:anywhere}
+.resumo-projeto-compacto{padding:12px 14px;background:#f3f6fa;border:1px solid #dce3ed;border-radius:10px;margin:14px 0;font-size:13px;line-height:1.5}
+.resumo-projeto-compacto p{margin:4px 0;overflow-wrap:anywhere}.resumo-projeto-compacto button{border:0;background:none;padding:5px 0;color:#153453;text-align:left;text-decoration:underline;cursor:pointer;font:inherit}
+#btn-favoritar-detalhe{background:#153453;color:white;border-color:#153453}.acoes{gap:8px}.acoes a{font-size:13px}
+#barraComparacao{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:10px 24px;background:#eef3f9;border-bottom:1px solid #ccd9e6}#barraComparacao[hidden]{display:none}
+#barraComparacao button,#modalComparacao button{min-height:44px;border:1px solid #bac9d9;border-radius:7px;padding:8px 12px;background:white;color:#153453;cursor:pointer;font:inherit}#barraComparacao button:disabled{opacity:.5;cursor:default}
+#avisoComparacao{font-size:13px}#modalComparacao{width:min(1180px,94vw);max-height:90dvh;border:0;border-radius:14px;padding:22px;color:#18314e;box-shadow:0 20px 90px #0005}#modalComparacao::backdrop{background:#10243b99}#modalComparacao header{display:flex;justify-content:space-between;align-items:center;gap:16px}#modalComparacao h2{margin:0;font-size:22px}#modalComparacao>p{font-size:13px;line-height:1.5}.comparacao-rolagem{overflow:auto;max-height:68dvh}#modalComparacao table{border-collapse:collapse;width:100%;table-layout:fixed;min-width:680px}#modalComparacao th,#modalComparacao td{border:1px solid #dce3eb;padding:12px;vertical-align:top;text-align:left;overflow-wrap:anywhere;font-size:13px;line-height:1.5}#modalComparacao th{background:#f4f7fa}#modalComparacao th:first-child{width:150px}#modalComparacao th img{width:100%;height:120px;object-fit:contain}#modalComparacao h3{font-size:14px;line-height:1.4}#modalComparacao button:focus-visible,#atalhosPortfolio button:focus-visible{outline:3px solid #d72436;outline-offset:2px}
+@media(max-width:767px){#atalhosPortfolio{padding:8px 12px}#barraComparacao{padding:8px 12px;gap:8px}#modalComparacao{padding:14px}.resumo-projeto-compacto{padding:10px}}
+#atalhosPortfolio{position:sticky;top:calc(var(--topbar) + var(--altura-segmentos));z-index:89}
+#barraComparacao{position:sticky;top:calc(var(--topbar) + var(--altura-segmentos));z-index:91}
+body:has(#barraComparacao:not([hidden])) #atalhosPortfolio{position:relative;top:auto}
+#barraComparacao,#atalhosPortfolio{scroll-margin-top:calc(var(--topbar) + var(--altura-segmentos) + 12px)}
+@media(min-width:768px){.sidebar{top:calc(var(--topbar) + var(--altura-segmentos) + var(--portfolio-extras,64px))!important;height:calc(100dvh - var(--topbar) - var(--altura-segmentos) - var(--portfolio-extras,64px))!important}}
+@media(min-width:768px) and (max-width:1100px) and (orientation:portrait){.sidebar{position:relative!important;top:auto!important;height:auto!important;min-height:0!important}}
+/* Refinamento visual aplicado sobre a versão recebida em 19/10. */
+@media(min-width:1101px){
+.produto-hero,body:not(.sidebar-produtos-recolhida) .produto-hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:24px!important}
+.produto-media{grid-column:1!important;grid-row:1!important}
+.produto-resumo{grid-column:2!important;grid-row:1!important}
+.produto-resumo .nome-produto{font-size:clamp(23px,2vw,30px)!important;line-height:1.18!important}
+}
+.acoes #btn-favoritar-detalhe{background:#17366c!important;color:#fff!important;border-color:#17366c!important}
+.acoes a{background:transparent!important;color:#17366c!important;border:0!important;box-shadow:none!important;text-decoration:underline;text-underline-offset:4px}
+.barra-campanha{min-height:44px!important;padding:6px 24px!important;box-shadow:0 -2px 8px #10274418!important;gap:12px!important}
+.barra-campanha .campanha-selo{width:28px!important;height:28px!important;font-size:18px!important}
+.barra-campanha .campanha-titulo strong{font-size:13px!important;letter-spacing:1px!important}
+.barra-campanha .campanha-periodo strong{font-size:13px!important}
+.barra-campanha .campanha-fechar{min-width:44px;min-height:32px}
+@media(max-width:767px){.barra-campanha{padding:6px 10px!important}.barra-campanha .campanha-selo{display:none!important}}

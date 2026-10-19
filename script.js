@@ -337,6 +337,10 @@ function preencherGrupoFiltro(containerId, tipo, valores) {
 function ordenarProdutos() {
   const tipo = document.getElementById("ordenacao").value;
   produtosFiltrados.sort((a, b) => {
+    const ordem = ["linha branca", "video", "audio", "climatizacao", "portateis"];
+    const pos = p => { const i = ordem.indexOf(normalizarTexto(p.segmento || p.categoria)); return i < 0 ? 99 : i; };
+    const grupo = pos(a) - pos(b);
+    if (grupo) return grupo;
     if (tipo === "modelo") return String(a.modelo).localeCompare(String(b.modelo), "pt-BR");
     if (tipo === "categoria") return String(a.categoria).localeCompare(String(b.categoria), "pt-BR");
     return (b.ordem || 0) - (a.ordem || 0);
@@ -391,6 +395,7 @@ function renderizarProdutos(produtos) {
   });
 
   configurarFallbackImagens(container);
+  atualizarAtalhosPortfolio();
 }
 
 
@@ -567,16 +572,16 @@ function classificarTipoProduto(produto = {}) {
     produto.nomePlanilha,
     produto.categoria,
     produto.segmento,
-    produto.descricao
   ].filter(Boolean).join(" "));
 
   const tipos = [
-    ["freezer", "Freezer", /freezer/],
+
     ["adega", "Adega / Cervejeira / Frigobar", /adega|cervejeira|frigobar/],
     ["geladeira", "Geladeira / Refrigerador", /geladeira|refrigerador|french door|side by side|multidoor|multi door/],
-    ["forno", "Forno", /forno/],
+    ["freezer", "Freezer", /freezer/],
     ["microondas", "Micro-ondas", /micro[- ]?ondas|microondas/],
     ["cooktop", "Cooktop / Fogão", /cooktop|fogao|fogão/],
+    ["forno", "Forno", /forno/],
     ["coifa", "Coifa / Depurador", /coifa|depurador/],
     ["lavanderia", "Lavadora / Lava e seca", /lava e seca|lavadora|maquina de lavar|máquina de lavar|secadora/],
     ["lava-loucas", "Lava-louças", /lava[- ]?loucas|lava[- ]?louças/],
@@ -2372,11 +2377,13 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
         
         ${destaques ? `<div class="destaques">${destaques}</div>` : ""}
         
+        ${criarResumoPortfolio(produto)}
         <div class="acoes">
-          ${botaoInfoStore}
           <button type="button" id="btn-favoritar-detalhe" class="botao-secundario ${estaFavoritado ? "ativo" : ""}" data-id="${escaparHTML(produto.id)}">
             ${estaFavoritado ? "★ Remover do projeto" : "♡ Adicionar ao projeto"}
           </button>
+          <button type="button" class="botao-secundario" id="compararAtual" aria-pressed="${comparadosPortfolio.has(String(produto.id))}">${comparadosPortfolio.has(String(produto.id)) ? "Remover da comparação" : "Comparar produto"}</button>
+          ${botaoInfoStore}
         </div>
       </div>
 
@@ -2421,6 +2428,11 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
       </section>`}
     </div>`;
 
+  document.getElementById("compararAtual").addEventListener("click", () => alternarComparacaoPortfolio(produto));
+  document.getElementById("resumoAbrirMedidas")?.addEventListener("click", () => {
+    const alvo = document.querySelector(`[data-tab="${exibirMedidasProjeto ? "dimensoes" : "especificacoes"}"]`);
+    alvo?.click(); document.querySelector(".area-tecnica")?.scrollIntoView({block:"start", behavior:"smooth"});
+  });
   configurarAbas();
   configurarGaleria();
   document.getElementById("voltarProdutos")?.addEventListener("click", () => {
@@ -2477,7 +2489,7 @@ function criarDestaques(destaques = []) {
 
   return lista
     .filter(item => {
-      if (!item || (!item.titulo && !item.valor)) return false;
+      if (!item || (!item.titulo && !item.valor) || campoRuidoPortfolio(item.rotulo, item.titulo || item.valor)) return false;
       const valor = String(item.titulo || item.valor).trim();
       if (valor.length > 48) return false;
 
@@ -2557,7 +2569,7 @@ function criarEspecificacoes(especificacoes = {}) {
   const dados = especificacoes && typeof especificacoes === "object" && !Array.isArray(especificacoes)
     ? especificacoes
     : {};
-  const itens = Object.entries(dados).filter(([, valor]) => valor !== "" && valor != null);
+  const itens = Object.entries(dados).filter(([chave, valor]) => valor !== "" && valor != null && !campoRuidoPortfolio(chave, valor));
   if (!itens.length) return estadoMensagem("Especificações ainda não cadastradas.");
   return itens.map(([titulo, valor]) => `
     <div class="linha-especificacao"><span>${escaparHTML(titulo)}</span><span>${escaparHTML(valor)}</span></div>`).join("");
@@ -3677,3 +3689,69 @@ function configurarEventosFavoritos() {
     }
   });
 }
+
+// Refinamento de navegação: não altera dados, vistas ou seleção da apresentação.
+const comparadosPortfolio = new Set();
+function campoRuidoPortfolio(chave, valor) {
+  return /^(manuais|conheca|mobile)$/i.test(normalizarTexto(String(valor || '')).trim()) && /garantia|acessorios|smartthings/i.test(normalizarTexto(String(chave || '')));
+}
+function medidasResumoPortfolio(p) {
+  const fonte = obterDimensoesParaBlocagem(p);
+  const grupos = fonte.evaporadora || fonte.condensadora
+    ? [['Evaporadora', fonte.evaporadora], ['Condensadora', fonte.condensadora]]
+    : [['Produto', fonte.produto || fonte]];
+  return grupos.filter(([,d])=>d).map(([nome,d])=>({nome, valores:['largura','altura','profundidade'].map(k=>{
+    const v=d[k]; return v === null || v === undefined || String(v).trim()==='' ? 'Não informado' : String(v);
+  })}));
+}
+function criarResumoPortfolio(p) {
+  const segmento=normalizarTexto(p.segmento || p.categoria);
+  if (ehProdutoPortatil(p) || segmento === 'audio') return '';
+  return `<section class="resumo-projeto-compacto" aria-label="Resumo dimensional"><strong>Medidas do produto · L × A × P</strong>${medidasResumoPortfolio(p).map(g=>`<p>${g.nome !== 'Produto' ? escaparHTML(g.nome)+': ' : ''}${g.valores.map(escaparHTML).join(' × ')}</p>`).join('')}<button id="resumoAbrirMedidas" type="button">Consultar medidas e condições de instalação →</button></section>`;
+}
+function atualizarAtalhosPortfolio() {
+  let nav=document.getElementById('atalhosPortfolio');
+  if(!nav){nav=document.createElement('nav');nav.id='atalhosPortfolio';nav.setAttribute('aria-label','Tipos de produto');document.querySelector('.barra-segmentos').after(nav);nav.addEventListener('click',e=>{const b=e.target.closest('[data-tipo]');if(!b)return;filtroMedidas.tipoProduto=b.dataset.tipo;const sel=document.getElementById('filtroTipoProduto');if(sel)sel.value=filtroMedidas.tipoProduto;aplicarFiltros();});}
+  const tipos=new Map();
+  produtosDoSegmento().filter(p=>!filtrosSelecionados.fabricantes.size || filtrosSelecionados.fabricantes.has(normalizarTexto(p.marca||p.fabricante))).forEach(p=>{const t=classificarTipoProduto(p);tipos.set(t.chave,t.rotulo);});
+  const ordem=['geladeira','cooktop','forno','microondas','lava-loucas','lavanderia','coifa','freezer','adega'];
+  const pos=k=>ordem.indexOf(k)<0?99:ordem.indexOf(k);
+  nav.innerHTML=[['','Todos os tipos'],...[...tipos].sort((a,b)=>pos(a[0])-pos(b[0]))].map(([k,n])=>`<button type="button" data-tipo="${escaparHTML(k)}" aria-pressed="${filtroMedidas.tipoProduto===k}">${escaparHTML(n)}</button>`).join('');
+}
+function alternarComparacaoPortfolio(p) {
+  const id=String(p.id);
+  if(comparadosPortfolio.has(id))comparadosPortfolio.delete(id);
+  else if(comparadosPortfolio.size<3)comparadosPortfolio.add(id);
+  else {document.getElementById('avisoComparacao').textContent='Limite de três produtos. Remova um para adicionar outro.';return;}
+  atualizarBarraComparacao();
+  const b=document.getElementById('compararAtual');if(b){const ativo=comparadosPortfolio.has(String(produtoSelecionado));b.textContent=ativo?'Remover da comparação':'Comparar produto';b.setAttribute('aria-pressed',String(ativo));}
+}
+function atualizarBarraComparacao() {
+  let bar=document.getElementById('barraComparacao');
+  if(!bar){bar=document.createElement('section');bar.id='barraComparacao';bar.setAttribute('aria-label','Produtos para comparação');document.querySelector('.barra-segmentos').after(bar);}
+  bar.hidden=!comparadosPortfolio.size;
+  bar.innerHTML=`<strong>Comparação · ${comparadosPortfolio.size}/3</strong><button type="button" id="abrirComparacao" ${comparadosPortfolio.size<2?'disabled':''}>Comparar selecionados</button><button type="button" id="limparComparacao">Limpar</button><span id="avisoComparacao" role="status">${comparadosPortfolio.size<2?'Escolha mais um produto.':''}</span>`;
+  document.getElementById('abrirComparacao').onclick=abrirComparacaoPortfolio;
+  document.getElementById('limparComparacao').onclick=()=>{comparadosPortfolio.clear();atualizarBarraComparacao();const b=document.getElementById('compararAtual');if(b){b.textContent='Comparar produto';b.setAttribute('aria-pressed','false');}};
+}
+function abrirComparacaoPortfolio() {
+  const itens=todosProdutos.filter(p=>comparadosPortfolio.has(String(p.id)));
+  if(itens.length<2)return;
+  let modal=document.getElementById('modalComparacao');
+  if(!modal){modal=document.createElement('dialog');modal.id='modalComparacao';document.body.append(modal);modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});}
+  const esc=escaparHTML;
+  const linha=(nome,valores)=>`<tr><th scope="row">${esc(nome)}</th>${valores.map(v=>`<td>${v}</td>`).join('')}</tr>`;
+  const chaves=[...new Set(itens.flatMap(p=>Object.keys(p.especificacoes||{})))].filter(k=>itens.some(p=>p.especificacoes?.[k] && !campoRuidoPortfolio(k,p.especificacoes[k])));
+  modal.innerHTML=`<header><h2>Comparar produtos</h2><button type="button" id="fecharComparacao" autofocus aria-label="Fechar comparação">Fechar ×</button></header><p>Compare os dados cadastrados. Medidas do produto não substituem nicho, folgas e condições de instalação.</p><div class="comparacao-rolagem" tabindex="0" aria-label="Tabela comparativa; role horizontalmente em telas pequenas"><table><thead><tr><th scope="col">Características</th>${itens.map(p=>`<th scope="col"><img src="${esc(p.imagem||IMAGEM_FALLBACK)}" alt=""><h3>${esc(p.nome)}</h3><button type="button" data-remover-comparacao="${esc(p.id)}">Remover</button></th>`).join('')}</tr></thead><tbody>${linha('Modelo',itens.map(p=>esc(p.modelo||'Não informado')))}${linha('Código Info Store',itens.map(p=>esc(p.codigoInfo||'Não informado')))}${linha('Marca',itens.map(p=>esc(p.marca||p.fabricante||'Não informado')))}${linha('Medidas do produto (L × A × P)',itens.map(p=>medidasResumoPortfolio(p).map(g=>`${esc(g.nome)}: ${g.valores.map(esc).join(' × ')}`).join('<br>')))}${linha('Diferenciais',itens.map(p=>(p.destaques||[]).filter(d=>!campoRuidoPortfolio(d.rotulo,d.valor||d.titulo)).map(d=>esc([d.rotulo,d.valor||d.titulo].filter(Boolean).join(': '))).join('<br>')||'Não informado'))}${chaves.map(k=>linha(k,itens.map(p=>esc(campoRuidoPortfolio(k,p.especificacoes?.[k])?'Não informado':String(p.especificacoes?.[k]||'Não informado'))))).join('')}${linha('Projeto',itens.map(p=>`<button type="button" data-projeto-comparacao="${esc(p.id)}">${getFavoritos().some(f=>String(f.id)===String(p.id))?'Remover do projeto':'Adicionar ao projeto'}</button>`))}</tbody></table></div>`;
+  modal.querySelector('#fecharComparacao').onclick=()=>modal.close();
+  modal.querySelectorAll('[data-remover-comparacao]').forEach(b=>b.onclick=()=>{alternarComparacaoPortfolio({id:b.dataset.removerComparacao});if(comparadosPortfolio.size<2)modal.close();else abrirComparacaoPortfolio();});
+  modal.querySelectorAll('[data-projeto-comparacao]').forEach(b=>b.onclick=()=>{const p=itens.find(p=>String(p.id)===b.dataset.projetoComparacao);toggleFavorito(normalizarProdutoParaFavorito(p));b.textContent=getFavoritos().some(f=>String(f.id)===String(p.id))?'Remover do projeto':'Adicionar ao projeto';});
+  configurarFallbackImagens(modal);
+  if(!modal.open)modal.showModal();
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const atualizar=()=>{const altura=['atalhosPortfolio','barraComparacao'].reduce((n,id)=>n+(document.getElementById(id)?.getBoundingClientRect().height||0),0);document.documentElement.style.setProperty('--portfolio-extras',altura+'px');};
+  const observer=new MutationObserver(()=>{atualizar();});
+  observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
+  window.addEventListener('resize',atualizar);
+});
