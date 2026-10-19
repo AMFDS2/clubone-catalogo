@@ -5373,3 +5373,10 @@ body.sidebar-produtos-recolhida .secao-downloads-gerais { margin-left: 0 !import
  .produto-resumo .destaque { flex-direction: row !important; text-align: left !important; min-height: 44px !important; }
  .produto-resumo .texto-tecnico { font-size: 11px !important; line-height: 1.4; margin: 6px 0 !important; }
 }
+
+/* Diferenciais editoriais: texto livre por código Info Store. */
+.diferenciais-editoriais { margin-top:18px; padding-top:14px; border-top:1px solid #dce3ee; }
+.diferenciais-editoriais h2 { margin:0 0 9px; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:#19396f; }
+.diferenciais-editoriais ul { margin:0; padding-left:18px; display:grid; gap:7px; }
+.diferenciais-editoriais li { font-size:13px; line-height:1.5; color:#4c596c; overflow-wrap:anywhere; }
+.diferenciais-editoriais li::marker { color:#19396f; }

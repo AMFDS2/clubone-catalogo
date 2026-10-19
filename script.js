@@ -58,7 +58,6 @@ function produtoValido(produto) {
 
 function configurarEventosFixos() {
   const campoBusca = document.getElementById("busca");
-  const ordenacao = document.getElementById("ordenacao");
   const painelFiltros = document.getElementById("painelFiltros");
   const limparFiltros = document.getElementById("limparFiltros");
 
@@ -82,7 +81,6 @@ function configurarEventosFixos() {
   atualizarBotaoFiltros();
 
   campoBusca?.addEventListener("input", aplicarFiltros);
-  ordenacao?.addEventListener("change", aplicarFiltros);
 
   document.getElementById("filtrosFabricantes")?.addEventListener("change", atualizarSelecaoFiltro);
   document.getElementById("navegacaoSegmentos")?.addEventListener("click", evento => {
@@ -345,14 +343,11 @@ function preencherGrupoFiltro(containerId, tipo, valores) {
 }
 
 function ordenarProdutos() {
-  const tipo = document.getElementById("ordenacao").value;
   produtosFiltrados.sort((a, b) => {
     const ordem = ["linha branca", "video", "audio", "climatizacao", "portateis"];
     const pos = p => { const i = ordem.indexOf(normalizarTexto(p.segmento || p.categoria)); return i < 0 ? 99 : i; };
     const grupo = pos(a) - pos(b);
     if (grupo) return grupo;
-    if (tipo === "modelo") return String(a.modelo).localeCompare(String(b.modelo), "pt-BR");
-    if (tipo === "categoria") return String(a.categoria).localeCompare(String(b.categoria), "pt-BR");
     return (b.ordem || 0) - (a.ordem || 0);
   });
 }
@@ -2370,6 +2365,7 @@ function mostrarDetalhes(idProduto, interacaoDoUsuario = false) {
           </button>
           ${botaoInfoStore}
         </div>
+        ${criarDiferenciaisManuaisPortfolio(produto)}
       </div>
 
       <div class="produto-media">
@@ -3715,3 +3711,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   observer.observe(document.body,{childList:true,subtree:true});
   observar();
 });
+
+// Texto editorial mantido fora do catálogo gerado automaticamente.
+function criarDiferenciaisManuaisPortfolio(produto) {
+  const linhas = window.obterDiferenciaisManuais?.(produto) || [];
+  if (!linhas.length) return '';
+  return `<section class="diferenciais-editoriais" aria-label="Diferenciais do produto"><h2>Diferenciais</h2><ul>${linhas.map(linha => `<li>${escaparHTML(linha)}</li>`).join('')}</ul></section>`;
+}

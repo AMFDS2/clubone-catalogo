@@ -82,6 +82,10 @@ async function resolverPrecosApresentacao(produtos,ofertas) {
 }
 
   function sugerirBeneficios(p) {
+    const manuais = window.obterDiferenciaisManuais?.(p) || [];
+    // Preserva o texto: limites são apontados na revisão, sem cortes silenciosos.
+    if (manuais.length) return manuais;
+
     const candidatos = [];
     for (const campo of ['diferenciais','beneficios','caracteristicasComerciais']) {
       for (const item of Array.isArray(p[campo]) ? p[campo] : []) {
